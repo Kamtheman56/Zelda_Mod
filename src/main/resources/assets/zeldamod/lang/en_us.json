@@ -1,0 +1,14 @@
+{
+  "item.zeldamod.red_emerald": "Red Emerald",
+  "item.zeldamod.blue_emerald": "Blue Emerald",
+
+  "itemGroup.zeldatab": "Zelda Tab",
+
+//tools
+  "item.zeldamod.kokiri_sword": "Kokiri Sword",
+  "item.zeldamod.razor_sword": "Razor Sword",
+  "item.zeldamod.master_sword": "Master Sword",
+
+  //armors
+  "item.zeldamod.heavyboots": "Heavy Boots"
+}
