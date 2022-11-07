@@ -1,14 +1,32 @@
 package com.kamth.zeldamod.item.custom;
 
+import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.google.common.collect.ImmutableMap;
+import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.eventbus.api.Event;
+import be.florens.expandability.api.forge.PlayerSwimEvent;
+import com.kamth.zeldamod.item.ModItems;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraft.world.entity.LivingEntity;
 
 import java.util.Map;
 
@@ -20,12 +38,15 @@ public class ModArmorItem extends ArmorItem {
 
     public ModArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
         super(material, slot, settings);
+        MinecraftForge.EVENT_BUS.addListener(this::onPlayerSwim);
+        MinecraftForge.EVENT_BUS.addListener(this::LivingFallEvent);
+
     }
 
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-        if(!world.isClientSide()) {
-            if(hasFullSuitOfArmorOn(player)) {
+        if (!world.isClientSide()) {
+            if (hasFullSuitOfArmorOn(player)) {
                 evaluateArmorEffects(player);
             }
         }
@@ -36,7 +57,7 @@ public class ModArmorItem extends ArmorItem {
             ArmorMaterial mapArmorMaterial = entry.getKey();
             MobEffectInstance mapStatusEffect = entry.getValue();
 
-            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
+            if (hasCorrectArmorOn(mapArmorMaterial, player)) {
                 addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
             }
         }
@@ -46,7 +67,7 @@ public class ModArmorItem extends ArmorItem {
                                             MobEffectInstance mapStatusEffect) {
         boolean hasPlayerEffect = player.hasEffect(mapStatusEffect.getEffect());
 
-        if(hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
+        if (hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
             player.addEffect(new MobEffectInstance(mapStatusEffect.getEffect(),
                     mapStatusEffect.getDuration(), mapStatusEffect.getAmplifier()));
 
@@ -64,9 +85,32 @@ public class ModArmorItem extends ArmorItem {
     }
 
     private boolean hasCorrectArmorOn(ArmorMaterial material, Player player) {
-        ArmorItem boots = ((ArmorItem)player.getInventory().getArmor(0).getItem());
+        ArmorItem boots = ((ArmorItem) player.getInventory().getArmor(0).getItem());
 
 
-        return  boots.getMaterial() == material;
+        return boots.getMaterial() == material;
     }
-}
+
+    public void onPlayerSwim(PlayerSwimEvent event) {
+
+        if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HEAVY_BOOTS.get()) {
+            event.setResult(Event.Result.DENY);
+
+
+        }
+    }
+
+
+    public void LivingFallEvent(LivingFallEvent event) {
+            if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HEAVY_BOOTS.get()) {
+                event.setResult(Event.Result.DENY);
+
+            }
+
+
+        }
+
+
+    }
+
+
