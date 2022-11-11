@@ -16,7 +16,7 @@ import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.eventbus.api.*;
 import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -24,8 +24,6 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraft.world.entity.LivingEntity;
 
 import java.util.Map;
@@ -100,10 +98,10 @@ public class ModArmorItem extends ArmorItem {
         }
     }
 
-
-    public void LivingFallEvent(LivingFallEvent event) {
+public void LivingFallEvent(LivingFallEvent event) {
             if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HEAVY_BOOTS.get()) {
-                event.setResult(Event.Result.DENY);
+
+                event.setCanceled(true);
 
             }
 
