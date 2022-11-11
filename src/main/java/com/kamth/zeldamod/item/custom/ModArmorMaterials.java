@@ -12,6 +12,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
+    ZORA("zora", 0, new int[]{1, 4, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 5.0F, () -> {
+        return Ingredient.of(Items.IRON_INGOT); }),
     ZELDAH("heavy", 0, new int[]{1, 4, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_CHAIN,
             0.0F, 5.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); });

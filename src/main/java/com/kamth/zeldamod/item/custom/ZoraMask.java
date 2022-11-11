@@ -1,43 +1,31 @@
 package com.kamth.zeldamod.item.custom;
 
-import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.google.common.collect.ImmutableMap;
-import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.eventbus.api.*;
-import be.florens.expandability.api.forge.PlayerSwimEvent;
-import com.kamth.zeldamod.item.ModItems;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraft.world.entity.LivingEntity;
 
 import java.util.Map;
 
-public class ModArmorItem extends ArmorItem {
+
+import java.util.Map;
+
+public class ZoraMask extends ArmorItem {
     private static final Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
-                    .put(ModArmorMaterials.ZELDAH,
-                            new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 2)).build();
+                    .put(ModArmorMaterials.ZORA,
+                            new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 200, 1)).build();
 
-    public ModArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
+
+    public ZoraMask(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
         super(material, slot, settings);
-        MinecraftForge.EVENT_BUS.addListener(this::onPlayerSwim);
-        MinecraftForge.EVENT_BUS.addListener(this::LivingFallEvent);
+
 
     }
 
@@ -76,39 +64,16 @@ public class ModArmorItem extends ArmorItem {
     }
 
     private boolean hasFullSuitOfArmorOn(Player player) {
-        ItemStack boots = player.getInventory().getArmor(0);
+        ItemStack helmet = player.getInventory().getArmor(3);
 
 
-        return !boots.isEmpty();
+        return !helmet.isEmpty();
     }
 
     private boolean hasCorrectArmorOn(ArmorMaterial material, Player player) {
-        ArmorItem boots = ((ArmorItem) player.getInventory().getArmor(0).getItem());
+        ArmorItem helmet = ((ArmorItem)player.getInventory().getArmor(3).getItem());
 
 
-        return boots.getMaterial() == material;
+        return helmet.getMaterial() == material;
     }
-
-    public void onPlayerSwim(PlayerSwimEvent event) {
-
-        if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HEAVY_BOOTS.get()) {
-            event.setResult(Event.Result.DENY);
-
-
-        }
-    }
-
-    public void LivingFallEvent(LivingFallEvent event) {
-        if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HEAVY_BOOTS.get()) {
-            if (event.getEntity().isEyeInFluidType(ForgeMod.WATER_TYPE.get())) {
-                event.setCanceled(true);
-
-            }
-
-
-        }
-
-
-    }
-
 }
