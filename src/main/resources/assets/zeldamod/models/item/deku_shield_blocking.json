@@ -1,0 +1,26 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "zeldamod:item/deku_shield"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ 0, 180, 5 ],
+      "translation": [ 10, 0, -10 ],
+      "scale": [ 1.25, 1.25, 1.25 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ 0, 180, 5 ],
+      "translation": [ 10, 0, -10 ],
+      "scale": [ 1.25, 1.25, 1.25 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, 180, 5 ],
+      "translation": [ 10, 0, -10 ],
+      "scale": [ 1.25, 1.25, 1.25 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 180, 5 ],
+      "translation": [ 10, 0, -10 ],
+      "scale": [ 1.25, 1.25, 1.25 ]
+    }}}
