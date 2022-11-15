@@ -7,6 +7,7 @@ import com.kamth.zeldamod.item.custom.ZoraMask;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -34,6 +35,9 @@ public class ModItems {
     public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
             () -> new SwordItem(ModTiers.ZELDAU, 4, -2.4f,
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
+public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
+    () -> new ShieldItem(
+         new Item.Properties().durability(80).tab(ModCreativeModeTab.ZELDA_TAB)));
 
 
     //This is where armors are located keep them together
