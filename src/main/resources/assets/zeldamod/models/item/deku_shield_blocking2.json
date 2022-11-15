@@ -1,0 +1,6 @@
+{
+  "parent": "zeldamod:item/deku_shield",
+  "textures": {
+    "layer0": "zeldamod:item/deku_shield_blocking"
+  }
+}
