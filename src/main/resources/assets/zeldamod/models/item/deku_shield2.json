@@ -1,7 +1,7 @@
 {
 	"loader": "forge:separate_transforms",
 	"base": {
-		"parent": "zeldamod:item/deku_shield_hand"
+		"parent": "zeldamod:item/deku_shield_blocking"
 	},
 	"perspectives": {
 		"gui": {
@@ -15,16 +15,6 @@
 		}
 	},
 
-
-
-		"overrides": [
-			{
-				"predicate": {
-					"minecraft:blocking": 1
-				},
-				"model": "zeldamod:item/deku_shield2"
-			}
-		],
 	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {

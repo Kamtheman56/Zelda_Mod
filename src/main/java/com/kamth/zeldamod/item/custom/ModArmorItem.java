@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.eventbus.api.*;
 import be.florens.expandability.api.forge.PlayerSwimEvent;
@@ -95,6 +96,7 @@ public class ModArmorItem extends ArmorItem {
             event.setResult(Event.Result.DENY);
 
 
+
         }
     }
 
@@ -108,7 +110,15 @@ public class ModArmorItem extends ArmorItem {
 
         }
 
+    }
+    @SubscribeEvent
+public void onPlayerTickEVent(TickEvent.PlayerTickEvent tickEvent ){
+        if (tickEvent.hasResult()){
+
+
+        }
+
+
 
     }
-
 }

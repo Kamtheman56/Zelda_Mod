@@ -1,6 +1,5 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "zeldamod:item/deku_shield_hand",
 	"textures": {
 		"2": "minecraft:block/oak_log",
 		"3": "minecraft:block/stripped_oak_log",
@@ -204,34 +203,106 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [50.51, 84.66, 15.61],
-			"translation": [0.75, 1.5, -8.25]
+			"translation": [
+				4.5,
+				-9.25,
+				5.25
+			]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [-62.78, -79.79, -131.44],
-			"translation": [-0.5, 1.5, -8.25]
+			"rotation": [
+				0,
+				180,
+				0
+			],
+			"translation": [
+				4.5,
+				-9.25,
+				4
+			]
 		},
 		"firstperson_righthand": {
-			"rotation": [0, 96, 0],
-			"translation": [-6.75, -6.75, -0.25],
-			"scale": [0.9, 0.9, 0.9]
+			"rotation": [
+				0,
+				-4,
+				0
+			],
+			"translation": [
+				4.25,
+				-8.5,
+				0
+			],
+			"scale": [
+				0.9,
+				0.9,
+				0.9
+			]
 		},
 		"firstperson_lefthand": {
-			"rotation": [0, -96, 0],
-			"translation": [-6.75, -6.75, -0.25],
-			"scale": [0.9, 0.91, 0.89]
+			"rotation": [
+				0,
+				-180,
+				0
+			],
+			"translation": [
+				4.25,
+				-8.5,
+				0
+			],
+			"scale": [
+				0.9,
+				0.91,
+				0.89
+			]
 		},
 		"ground": {
-			"translation": [0, -3.25, 0]
+			"translation": [
+				0,
+				-3.25,
+				0
+			]
 		},
 		"gui": {
-			"rotation": [-140.18, -61.11, -132.99],
-			"translation": [-3.75, -7.75, 0],
-			"scale": [0, 1, 1]
+			"rotation": [
+				0,
+				-99,
+				0
+			],
+			"translation": [
+				-0.75,
+				-8.25,
+				0
+			],
+			"scale": [
+				0.15,
+				1,
+				1
+			]
 		},
 		"fixed": {
-			"rotation": [0, 96, 0],
-			"translation": [1, -8, -4.25]
+			"rotation": [
+				0,
+				96,
+				0
+			],
+			"translation": [
+				1,
+				-8,
+				-0.25
+			],
+			"scale": [
+				0.1,
+				1,
+				1
+			]
 		}
+	},
+		"overrides": [
+			{
+				"predicate": {
+					"minecraft:blocking": 1
+				},
+				"model": "zeldamod:item/deku_shield_blocking"
+			}
+		]
 	}
-}
