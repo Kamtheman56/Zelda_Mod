@@ -5,7 +5,7 @@
 		"3": "minecraft:block/stripped_oak_log",
 		"4": "minecraft:block/stripped_acacia_log",
 		"5": "zeldamod:item/wood_shield",
-		"particle": "deku_shield"
+		"particle": "minecraft:block/stripped_oak_log"
 	},
 	"elements": [
 		{

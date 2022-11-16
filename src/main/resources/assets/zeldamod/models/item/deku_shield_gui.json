@@ -1,6 +1,7 @@
 {
   "parent": "item/generated",
         "textures": {
-          "layer0": "zeldamod:item/deku_shield"
+          "layer0": "zeldamod:item/deku_shield",
+          "particle": "stripped_oak_log"
         }
 }

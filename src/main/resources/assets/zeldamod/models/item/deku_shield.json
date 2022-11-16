@@ -14,7 +14,10 @@
 			"parent": "zeldamod:item/deku_shield_gui"
 		}
 	},
-
+	"textures": {
+		"layer0": "zeldamod:item/deku_shield",
+		"particle": "zeldamod:item/wood_shield"
+	},
 
 
 		"overrides": [
