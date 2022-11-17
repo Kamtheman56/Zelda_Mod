@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.item.custom;
+package com.kamth.zeldamod.item.custom.masks;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -23,9 +23,11 @@ public class ZoraMask extends ArmorItem {
     public ZoraMask(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {
         super(p_40386_, p_40387_, p_40388_);
     }
-//this adds effects that do not create particles.
+    //this adds effects that do not create particles.
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
+
         player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 10, 10, true, false));
-        player.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 10,1,true,false));
+        player.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 10,0,true,false));
+        player.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, 10,0,true,false));
     }}

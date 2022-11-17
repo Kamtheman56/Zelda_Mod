@@ -15,8 +15,11 @@
 
   //armors
   "item.zeldamod.heavyboots": "Heavy Boots",
-  "item.zeldamod.zoramask": "Zora's Mask"
-
+  "item.zeldamod.zoramask": "Zora's Mask",
+  "item.zeldamod.goronmask": "Goron Mask",
+  "item.zeldamod.dekumask": "Deku Mask",
+  "item.zeldamod.stonemask": "Stone Mask",
+  "item.zeldamod.bunnymask": "Bunny Hood"
 
 
 }

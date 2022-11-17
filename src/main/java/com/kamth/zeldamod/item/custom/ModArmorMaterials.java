@@ -12,11 +12,23 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    ZORA("zora", 0, new int[]{1, 4, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_LEATHER,
-            0.0F, 5.0F, () -> {
+    ZORA("zora", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    ZELDAH("heavy", 0, new int[]{1, 4, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_CHAIN,
-            0.0F, 5.0F, () -> {
+    DEKU("deku", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.IRON_INGOT); }),
+    GORON("goron", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.IRON_INGOT); }),
+    STONE("stone", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_NETHERITE,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.IRON_INGOT); }),
+    BUNNY("bunny", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.WOOL_PLACE,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.IRON_INGOT); }),
+    ZELDAH("heavy", 0, new int[]{1, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_CHAIN,
+            0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); });
 
 
