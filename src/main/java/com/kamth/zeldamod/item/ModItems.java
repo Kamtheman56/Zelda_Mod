@@ -1,9 +1,9 @@
 package com.kamth.zeldamod.item;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.item.custom.ModArmorItem;
+import com.kamth.zeldamod.item.custom.HeavyBoots;
 import com.kamth.zeldamod.item.custom.ModArmorMaterials;
-import com.kamth.zeldamod.item.custom.ZoraMask;
+import com.kamth.zeldamod.item.custom.masks.ZoraMask;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -41,8 +41,8 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
 
 
     //This is where armors are located keep them together
-    public static final RegistryObject<ModArmorItem> HEAVY_BOOTS = ITEMS.register("heavyboots",
-            ()-> new ModArmorItem(ModArmorMaterials.ZELDAH, EquipmentSlot.FEET,
+    public static final RegistryObject<HeavyBoots> HEAVY_BOOTS = ITEMS.register("heavyboots",
+            ()-> new HeavyBoots(ModArmorMaterials.ZELDAH, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<ArmorItem> ZORA_MASK = ITEMS.register("zoramask",
             ()-> new ZoraMask(ModArmorMaterials.ZORA, EquipmentSlot.HEAD,

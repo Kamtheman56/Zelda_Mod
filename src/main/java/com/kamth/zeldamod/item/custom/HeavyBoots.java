@@ -14,28 +14,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.eventbus.api.*;
-import be.florens.expandability.api.forge.PlayerSwimEvent;
-import com.kamth.zeldamod.item.ModItems;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
-import net.minecraft.world.entity.LivingEntity;
 
 import java.util.Map;
 
-public class ModArmorItem extends ArmorItem {
+public class HeavyBoots extends ArmorItem {
     private static final Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
                     .put(ModArmorMaterials.ZELDAH,
-                            new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 2)).build();
+                            new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 2,false,false)).build();
 
-    public ModArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
+    public HeavyBoots(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
         super(material, slot, settings);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerSwim);
         MinecraftForge.EVENT_BUS.addListener(this::LivingFallEvent);
