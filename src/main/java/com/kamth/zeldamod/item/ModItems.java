@@ -35,30 +35,62 @@ public class ModItems {
     public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
             () -> new SwordItem(ModTiers.ZELDAU, 4, -2.4f,
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> BIGGORON_SWORD = ITEMS.register("biggoron_sword",
+            () -> new SwordItem(ModTiers.ZELDAU, 7, -3.0f,
+                    new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> BIGGORON_KNIFE = ITEMS.register("biggoron_knife",
+            () -> new SwordItem(ModTiers.ZELDAU, 7, -3.3f,
+                    new Item.Properties().defaultDurability(10).tab(ModCreativeModeTab.ZELDA_TAB)));
+
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(
          new Item.Properties().durability(80).tab(ModCreativeModeTab.ZELDA_TAB)));
 
 
     //This is where armors are located keep them together
+    //Boots tier
     public static final RegistryObject<HeavyBoots> HEAVY_BOOTS = ITEMS.register("heavyboots",
             ()-> new HeavyBoots(ModArmorMaterials.ZELDAH, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+
+   //Masks
     public static final RegistryObject<ArmorItem> ZORA_MASK = ITEMS.register("zoramask",
             ()-> new ZoraMask(ModArmorMaterials.ZORA, EquipmentSlot.HEAD,
-                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
     public static final RegistryObject<ArmorItem> DEKU_MASK = ITEMS.register("dekumask",
             ()-> new DekuMask(ModArmorMaterials.DEKU, EquipmentSlot.HEAD,
-                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
     public static final RegistryObject<ArmorItem> GORON_MASK = ITEMS.register("goronmask",
             ()-> new GoronMask(ModArmorMaterials.GORON, EquipmentSlot.HEAD,
-                    new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
+                    new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_MASKS)));
     public static final RegistryObject<ArmorItem> STONE_MASK = ITEMS.register("stonemask",
             ()-> new StoneMask(ModArmorMaterials.STONE, EquipmentSlot.HEAD,
-                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
     public static final RegistryObject<ArmorItem> BUNNY_MASK = ITEMS.register("bunnymask",
             ()-> new BunnyMask(ModArmorMaterials.BUNNY, EquipmentSlot.HEAD,
-                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
+
+   //Tunics
+    public static final RegistryObject<ArmorItem> KOKIRI_TUNIC = ITEMS.register("kokiritunic",
+            ()-> new ArmorItem(ModArmorMaterials.Kokiri, EquipmentSlot.CHEST,
+                    new Item.Properties().defaultDurability(85).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<ArmorItem> GORON_TUNIC = ITEMS.register("gorontunic",
+            ()-> new ArmorItem(ModArmorMaterials.GoronTunic, EquipmentSlot.CHEST,
+                    new Item.Properties().defaultDurability(85).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<ArmorItem> ZORA_TUNIC = ITEMS.register("zoratunic",
+            ()-> new ArmorItem(ModArmorMaterials.ZoraTunic, EquipmentSlot.CHEST,
+                    new Item.Properties().defaultDurability(85).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<ArmorItem> KOKIRI_PANTS = ITEMS.register("kokiripants",
+            ()-> new ArmorItem(ModArmorMaterials.Kokiri, EquipmentSlot.LEGS,
+                    new Item.Properties().defaultDurability(200).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<ArmorItem> KOKIRI_HAT = ITEMS.register("kokirihat",
+            ()-> new ArmorItem(ModArmorMaterials.Kokiri, EquipmentSlot.HEAD,
+                    new Item.Properties().defaultDurability(200).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<ArmorItem> KOKIRI_BOOTS = ITEMS.register("kokiriboots",
+            ()-> new ArmorItem(ModArmorMaterials.Kokiri, EquipmentSlot.FEET,
+                    new Item.Properties().defaultDurability(65).tab(ModCreativeModeTab.ZELDA_TAB)));
+
+
         public static void register (IEventBus eventbus) {
             ITEMS.register(eventbus);
 

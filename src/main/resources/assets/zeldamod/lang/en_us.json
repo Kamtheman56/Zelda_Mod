@@ -1,13 +1,24 @@
 {
+
+
+
+ //General Items
   "item.zeldamod.red_emerald": "Red Emerald",
   "item.zeldamod.blue_emerald": "Blue Emerald",
 
-  "itemGroup.zeldatab": "Zelda Tab",
+
+
+
+  //Creative Mode Tabs
+  "itemGroup.zeldatab": "Zelda Items",
+  "itemGroup.zeldamask": "Zelda Masks",
 
 //tools
   "item.zeldamod.kokiri_sword": "Kokiri Sword",
   "item.zeldamod.razor_sword": "Razor Sword",
   "item.zeldamod.master_sword": "Master Sword",
+  "item.zeldamod.biggoron_sword": "Biggoron Sword",
+  "item.zeldamod.biggoron_knife": "Biggoron Knife",
   "item.zeldamod.deku_shield": "Deku Shield",
 
 
@@ -19,7 +30,8 @@
   "item.zeldamod.goronmask": "Goron Mask",
   "item.zeldamod.dekumask": "Deku Mask",
   "item.zeldamod.stonemask": "Stone Mask",
-  "item.zeldamod.bunnymask": "Bunny Hood"
-
-
+  "item.zeldamod.bunnymask": "Bunny Hood",
+  "item.zeldamod.kokiritunic": "Kokiri Tunic",
+  "item.zeldamod.zoratunic": "Zora's Tunic",
+  "item.zeldamod.gorontunic": "Goron's Tunic"
 }

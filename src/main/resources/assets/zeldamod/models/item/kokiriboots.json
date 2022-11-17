@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "zeldamod:item/kokiri_sword"
+    "layer0": "zeldamod:item/kokiriboots"
   }
 }
 

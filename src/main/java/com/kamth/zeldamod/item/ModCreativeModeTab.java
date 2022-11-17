@@ -11,4 +11,11 @@ public class ModCreativeModeTab {
 
         }
     };
+    public static final CreativeModeTab ZELDA_MASKS = new CreativeModeTab("zeldamask") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.DEKU_MASK.get());
+
+        }
+    };
 }

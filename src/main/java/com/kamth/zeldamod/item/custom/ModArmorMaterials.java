@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Supplier;
 
@@ -21,7 +22,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     GORON("goron", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    STONE("stone", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_NETHERITE,
+    STONE("stone", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.STONE_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     BUNNY("bunny", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.WOOL_PLACE,
@@ -29,7 +30,16 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.IRON_INGOT); }),
     ZELDAH("heavy", 0, new int[]{1, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_CHAIN,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Items.IRON_INGOT); });
+        return Ingredient.of(Items.IRON_INGOT); }),
+    Kokiri("kokiri", 0, new int[]{1, 2, 1, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Blocks.GREEN_WOOL); }),
+    GoronTunic("gorontunic", 0, new int[]{1, 2, 1, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.MAGMA_CREAM); }),
+    ZoraTunic("zoratunic", 0, new int[]{1, 2, 1, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.HEART_OF_THE_SEA); });
 
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};

@@ -2,7 +2,12 @@ package com.kamth.zeldamod.item.custom;
 
 import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.google.common.collect.ImmutableMap;
+import com.google.gson.internal.bind.JsonTreeReader;
 import com.kamth.zeldamod.item.ModItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 
@@ -11,21 +16,28 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
-
+import net.minecraft.world.level.Level;
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Map;
+
+
 
 public class HeavyBoots extends ArmorItem {
     private static final Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
                     .put(ModArmorMaterials.ZELDAH,
                             new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 2,false,false)).build();
+
 
     public HeavyBoots(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
         super(material, slot, settings);
@@ -34,65 +46,67 @@ public class HeavyBoots extends ArmorItem {
 
     }
 
-    @Override
-    public void onArmorTick(ItemStack stack, Level world, Player player) {
-        if (!world.isClientSide()) {
-            if (hasFullSuitOfArmorOn(player)) {
-                evaluateArmorEffects(player);
-            }
-        }
-    }
+   // @Override
+   // public void onArmorTick(ItemStack stack, Level world, Player player) {
+      //  if (!world.isClientSide()) {
+        //    if (hasFullSuitOfArmorOn(player)) {
+           //     evaluateArmorEffects(player);
+           // }
+      //  }
+   // }
 
-    private void evaluateArmorEffects(Player player) {
-        for (Map.Entry<ArmorMaterial, MobEffectInstance> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
-            ArmorMaterial mapArmorMaterial = entry.getKey();
-            MobEffectInstance mapStatusEffect = entry.getValue();
+   // private void evaluateArmorEffects(Player player) {
+     //   for (Map.Entry<ArmorMaterial, MobEffectInstance> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
+        //    ArmorMaterial mapArmorMaterial = entry.getKey();
+        //    MobEffectInstance mapStatusEffect = entry.getValue();
 
-            if (hasCorrectArmorOn(mapArmorMaterial, player)) {
-                addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
-            }
-        }
-    }
+       //     if (hasCorrectArmorOn(mapArmorMaterial, player)) {
+            //    addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
+      //      }
+     //   }
+   // }
 
-    private void addStatusEffectForMaterial(Player player, ArmorMaterial mapArmorMaterial,
-                                            MobEffectInstance mapStatusEffect) {
-        boolean hasPlayerEffect = player.hasEffect(mapStatusEffect.getEffect());
+   // private void addStatusEffectForMaterial(Player player, ArmorMaterial mapArmorMaterial,
+                                //            MobEffectInstance mapStatusEffect)
 
-        if (hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
-            player.addEffect(new MobEffectInstance(mapStatusEffect.getEffect(),
-                    mapStatusEffect.getDuration(), mapStatusEffect.getAmplifier()));
+   // {
+        //boolean hasPlayerEffect = player.hasEffect(mapStatusEffect.getEffect());
 
-            //if(new Random().nextFloat() > 0.6f) { // 40% of damaging the armor! Possibly!
-            //    player.getInventory().hurtArmor(DamageSource.MAGIC, 1f, new int[]{0, 1, 2, 3});
-            //}
-        }
-    }
+        // if (hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
+        // player.addEffect(new MobEffectInstance(mapStatusEffect.getEffect(),
+        //    mapStatusEffect.getDuration(), mapStatusEffect.getAmplifier()));
 
-    private boolean hasFullSuitOfArmorOn(Player player) {
-        ItemStack boots = player.getInventory().getArmor(0);
+        //if(new Random().nextFloat() > 0.6f) { // 40% of damaging the armor! Possibly!
+        //    player.getInventory().hurtArmor(DamageSource.MAGIC, 1f, new int[]{0, 1, 2, 3});
+        //}
+        // }
+        // }
 
-
-        return !boots.isEmpty();
-    }
-
-    private boolean hasCorrectArmorOn(ArmorMaterial material, Player player) {
-        ArmorItem boots = ((ArmorItem) player.getInventory().getArmor(0).getItem());
+        // private boolean hasFullSuitOfArmorOn(Player player) {
+        //  ItemStack boots = player.getInventory().getArmor(0);
 
 
-        return boots.getMaterial() == material;
-    }
+        //   return !boots.isEmpty();
+        // }
 
-    public void onPlayerSwim(PlayerSwimEvent event) {
+        // private boolean hasCorrectArmorOn(ArmorMaterial material, Player player) {
+        //   ArmorItem boots = ((ArmorItem) player.getInventory().getArmor(0).getItem());
+
+
+        //   return boots.getMaterial() == material;
+        //}
+
+        public void onPlayerSwim (PlayerSwimEvent event){
 
         if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HEAVY_BOOTS.get()) {
+
             event.setResult(Event.Result.DENY);
 
 
-
         }
     }
 
-    public void LivingFallEvent(LivingFallEvent event) {
+        public void LivingFallEvent (LivingFallEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HEAVY_BOOTS.get()) {
             if (event.getEntity().isEyeInFluidType(ForgeMod.WATER_TYPE.get())) {
                 event.setCanceled(true);
@@ -103,14 +117,25 @@ public class HeavyBoots extends ArmorItem {
         }
 
     }
-    @SubscribeEvent
-public void onPlayerTickEVent(TickEvent.PlayerTickEvent tickEvent ){
-        if (tickEvent.hasResult()){
+    @Override
+    public void onArmorTick(ItemStack stack, Level world, Player player) {
 
-
-        }
-
-
+        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 1, true, false));
 
     }
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if(Screen.hasShiftDown()) {
+            components.add(Component.literal("These boots look impossible to swim with equipped!").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+        } else {
+            components.add(Component.literal("Press SHIFT for more info").withStyle(ChatFormatting.YELLOW));
+        }
+
+        super.appendHoverText(stack, level, components, flag);
+    }
+
+
 }
+
+
+
