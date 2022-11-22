@@ -26,6 +26,7 @@
 
   //armors
   "item.zeldamod.heavyboots": "Heavy Boots",
+  "item.zeldamod.kokiriboots": "Kokiri Boots",
   "item.zeldamod.zoramask": "Zora's Mask",
   "item.zeldamod.goronmask": "Goron Mask",
   "item.zeldamod.dekumask": "Deku Mask",
@@ -33,5 +34,9 @@
   "item.zeldamod.bunnymask": "Bunny Hood",
   "item.zeldamod.kokiritunic": "Kokiri Tunic",
   "item.zeldamod.zoratunic": "Zora's Tunic",
-  "item.zeldamod.gorontunic": "Goron's Tunic"
+  "item.zeldamod.gorontunic": "Goron's Tunic",
+  "item.zeldamod.zorahelmet": "Zora Helmet",
+  "item.zeldamod.goronhelmet": "Goron Helmet",
+  "item.zeldamod.kokirihat": "Kokiri Helmet",
+  "item.zeldamod.kokiripants": "Kokiri Pants"
 }
