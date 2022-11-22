@@ -3,6 +3,8 @@ package com.kamth.zeldamod.item;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.item.custom.HeavyBoots;
 import com.kamth.zeldamod.item.custom.ModArmorMaterials;
+import com.kamth.zeldamod.item.custom.armors.GoronTunic;
+import com.kamth.zeldamod.item.custom.armors.ZoraTunic;
 import com.kamth.zeldamod.item.custom.masks.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
@@ -75,16 +77,22 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new ArmorItem(ModArmorMaterials.Kokiri, EquipmentSlot.CHEST,
                     new Item.Properties().defaultDurability(85).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<ArmorItem> GORON_TUNIC = ITEMS.register("gorontunic",
-            ()-> new ArmorItem(ModArmorMaterials.GoronTunic, EquipmentSlot.CHEST,
+            ()-> new GoronTunic(ModArmorMaterials.GoronTunic, EquipmentSlot.CHEST,
                     new Item.Properties().defaultDurability(85).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<ArmorItem> ZORA_TUNIC = ITEMS.register("zoratunic",
-            ()-> new ArmorItem(ModArmorMaterials.ZoraTunic, EquipmentSlot.CHEST,
+            ()-> new ZoraTunic(ModArmorMaterials.ZoraTunic, EquipmentSlot.CHEST,
                     new Item.Properties().defaultDurability(85).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<ArmorItem> KOKIRI_PANTS = ITEMS.register("kokiripants",
             ()-> new ArmorItem(ModArmorMaterials.Kokiri, EquipmentSlot.LEGS,
                     new Item.Properties().defaultDurability(200).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<ArmorItem> KOKIRI_HAT = ITEMS.register("kokirihat",
             ()-> new ArmorItem(ModArmorMaterials.Kokiri, EquipmentSlot.HEAD,
+                    new Item.Properties().defaultDurability(200).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<ArmorItem> ZORA_HAT = ITEMS.register("zorahelmet",
+            ()-> new ArmorItem(ModArmorMaterials.ZoraTunic, EquipmentSlot.HEAD,
+                    new Item.Properties().defaultDurability(200).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<ArmorItem> GORON_HAT = ITEMS.register("goronhelmet",
+            ()-> new ArmorItem(ModArmorMaterials.GoronTunic, EquipmentSlot.HEAD,
                     new Item.Properties().defaultDurability(200).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<ArmorItem> KOKIRI_BOOTS = ITEMS.register("kokiriboots",
             ()-> new ArmorItem(ModArmorMaterials.Kokiri, EquipmentSlot.FEET,
