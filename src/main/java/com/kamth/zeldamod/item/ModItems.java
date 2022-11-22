@@ -6,6 +6,7 @@ import com.kamth.zeldamod.item.custom.ModArmorMaterials;
 import com.kamth.zeldamod.item.custom.armors.GoronTunic;
 import com.kamth.zeldamod.item.custom.armors.ZoraTunic;
 import com.kamth.zeldamod.item.custom.masks.*;
+import com.kamth.zeldamod.item.custom.util.BoomerangItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -25,6 +26,7 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+
 //This is where Tools start
     public static final RegistryObject<Item> KOKIRI_SWORD = ITEMS.register("kokiri_sword",
             () -> new SwordItem(ModTiers.ZELDA, 2, -2.4f,
@@ -97,6 +99,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> KOKIRI_BOOTS = ITEMS.register("kokiriboots",
             ()-> new ArmorItem(ModArmorMaterials.Kokiri, EquipmentSlot.FEET,
                     new Item.Properties().defaultDurability(65).tab(ModCreativeModeTab.ZELDA_TAB)));
+
 
 
         public static void register (IEventBus eventbus) {
