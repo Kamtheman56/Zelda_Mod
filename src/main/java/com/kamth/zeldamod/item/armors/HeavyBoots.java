@@ -1,9 +1,10 @@
-package com.kamth.zeldamod.item.custom;
+package com.kamth.zeldamod.item.armors;
 
 import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.internal.bind.JsonTreeReader;
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.custom.ModArmorMaterials;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -18,6 +19,7 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.TickEvent;
@@ -122,6 +124,17 @@ public class HeavyBoots extends ArmorItem {
 
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 1, true, false));
 
+        {
+            Level level = world;
+            if (level.getBlockState(player.getOnPos().below()).getBlock() == Blocks.GLASS) {
+                level.destroyBlock(player.getOnPos().below(), false);
+
+                if (level.getBlockState(player.getOnPos().below()).getBlock() == Blocks.GLASS) {
+                    level.destroyBlock(player.getOnPos().below(), false);
+
+                }
+            }
+        }
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {

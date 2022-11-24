@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.item.custom.masks;
+package com.kamth.zeldamod.item.masks;
 
 import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.kamth.zeldamod.item.ModItems;
