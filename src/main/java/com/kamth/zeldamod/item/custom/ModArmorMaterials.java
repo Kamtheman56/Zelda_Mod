@@ -28,16 +28,16 @@ public enum ModArmorMaterials implements ArmorMaterial {
     BUNNY("bunny", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.WOOL_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    ZELDAH("heavy", 0, new int[]{1, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_CHAIN,
+    ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_CHAIN,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    Kokiri("kokiri", 0, new int[]{1, 2, 1, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Kokiri("kokiri", 0, new int[]{1, 2, 4, 1}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Blocks.GREEN_WOOL); }),
-    GoronTunic("gorontunic", 0, new int[]{1, 2, 1, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+    GoronTunic("gorontunic", 0, new int[]{1, 2, 4, 1}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.MAGMA_CREAM); }),
-    ZoraTunic("zoratunic", 0, new int[]{1, 2, 1, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+    ZoraTunic("zoratunic", 0, new int[]{1, 2, 4, 1}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.HEART_OF_THE_SEA); });
 

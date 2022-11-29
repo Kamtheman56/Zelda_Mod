@@ -10,6 +10,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
 
@@ -24,8 +25,42 @@ public class GoronMask extends ArmorItem {
 
         player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 10, 0, true, false));
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 10,1,true,false));
-        player.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 10,1,true,false));
+        player.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 10,0,true,false));
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10,1,true,false));
+
+
+        {
+            Level level = world;
+
+            if (player.isCrouching()){
+
+            }
+
+            else if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.GLASS) {
+                level.destroyBlock(player.getOnPos(), false);
+                {
+
+                }
+
+
+            }
+            if (player.isCrouching()){
+
+            }
+
+            else if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE) {
+                level.destroyBlock(player.getOnPos(), true);
+                return;
+
+
+            }
+
+        }
+
+
+
+
+
     }
 
     public void onPlayerSwim(PlayerSwimEvent event) {

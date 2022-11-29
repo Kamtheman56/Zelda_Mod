@@ -24,7 +24,7 @@ public class GoronTunic extends ArmorItem {
 
         player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 10, 0, true, false, false));
 
-        //damages the armor if they're in lava
+        //damages the armor if they're on fire only
         if(player.isOnFire()) {
         if(new Random().nextFloat() > 0.9f) { // 40% of damaging the armor! Possibly!
                player.getInventory().hurtArmor(DamageSource.MAGIC, 1f, new int[]{0, 1, 2, 3});
