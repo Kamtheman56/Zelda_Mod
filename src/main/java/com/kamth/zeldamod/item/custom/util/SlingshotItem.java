@@ -46,11 +46,11 @@ public class SlingshotItem extends ProjectileWeaponItem {
 
             if (!itemstack.isEmpty() || flag) {
                 if (itemstack.isEmpty()) {
-                    itemstack = new ItemStack(Items.ARROW);
+                    itemstack = new ItemStack(Items.WHEAT_SEEDS);
                 }
 
                 float f = getPowerForTime(i);
-                if (!((double)f < 0.1)) {
+                if (!((double)f < 0.2)) {
                     boolean flag1 = player.getAbilities().instabuild || itemstack.getItem() instanceof ArrowItem && ((ArrowItem)itemstack.getItem()).isInfinite(itemstack, p_40667_, player);
                     if (!p_40668_.isClientSide) {
                         ArrowItem arrowitem = (ArrowItem)(itemstack.getItem() instanceof ArrowItem ? itemstack.getItem() : Items.ARROW);
@@ -85,7 +85,7 @@ public class SlingshotItem extends ProjectileWeaponItem {
                         p_40668_.addFreshEntity(abstractarrow);
                     }
 
-                    p_40668_.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (p_40668_.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+                    p_40668_.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS, 1.0F, 1.0F / (p_40668_.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     if (!flag1 && !player.getAbilities().instabuild) {
                         itemstack.shrink(1);
                         if (itemstack.isEmpty()) {
@@ -142,7 +142,7 @@ public class SlingshotItem extends ProjectileWeaponItem {
 
 
     public static final Predicate<ItemStack> SEED_ONLY = (p_43017_) -> {
-        return p_43017_.is(ItemTags.SAND);
+        return p_43017_.is(Items.WHEAT_SEEDS);
 
 };
 

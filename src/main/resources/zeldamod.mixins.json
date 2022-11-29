@@ -4,8 +4,8 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "zeldamod.refmap.json",
   "mixins": [
-    "MixinItemEntity"
-
+    "MixinBigDripleafBlock",
+"MixinDekuLeafBlock"
   ],
   "client": [
   ],

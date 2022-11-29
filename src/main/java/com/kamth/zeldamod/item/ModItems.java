@@ -5,7 +5,7 @@ import com.kamth.zeldamod.item.armors.HeavyBoots;
 import com.kamth.zeldamod.item.custom.ModArmorMaterials;
 import com.kamth.zeldamod.item.armors.GoronTunic;
 import com.kamth.zeldamod.item.armors.ZoraTunic;
-import com.kamth.zeldamod.item.custom.util.SlingshotItem;
+import com.kamth.zeldamod.item.custom.util.BoomerangItem;
 import com.kamth.zeldamod.item.masks.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
@@ -23,7 +23,7 @@ public class ModItems {
 
 
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new SlingshotItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new BoomerangItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
 
@@ -56,6 +56,8 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<HeavyBoots> HEAVY_BOOTS = ITEMS.register("heavyboots",
             ()-> new HeavyBoots(ModArmorMaterials.ZELDAH, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+
+
 
    //Masks
     public static final RegistryObject<ArmorItem> ZORA_MASK = ITEMS.register("zoramask",

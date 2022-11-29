@@ -9,6 +9,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 
@@ -21,6 +22,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
@@ -123,19 +125,40 @@ public class HeavyBoots extends ArmorItem {
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 1, true, false));
+        //  if (player.isUnderWater()){
+        //   player.removeEffect(MobEffect.byId(MobEffect.getId(MobEffects.MOVEMENT_SLOWDOWN)));
+        //  }
 
         {
             Level level = world;
-            if (level.getBlockState(player.getOnPos().below()).getBlock() == Blocks.GLASS) {
-                level.destroyBlock(player.getOnPos().below(), false);
 
-                if (level.getBlockState(player.getOnPos().below()).getBlock() == Blocks.GLASS) {
-                    level.destroyBlock(player.getOnPos().below(), false);
+            if (player.isCrouching()){
+
+            }
+
+            else if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.GLASS) {
+                level.destroyBlock(player.getOnPos(), false);
+                {
 
                 }
+
+
             }
+            if (player.isCrouching()){
+
+            }
+
+            else if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE) {
+                level.destroyBlock(player.getOnPos(), true);
+                return;
+
+
+            }
+
         }
     }
+
+
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
