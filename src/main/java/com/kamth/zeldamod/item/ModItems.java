@@ -2,6 +2,7 @@ package com.kamth.zeldamod.item;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.item.armors.HeavyBoots;
+import com.kamth.zeldamod.item.armors.HoverBoots;
 import com.kamth.zeldamod.item.custom.ModArmorMaterials;
 import com.kamth.zeldamod.item.armors.GoronTunic;
 import com.kamth.zeldamod.item.armors.ZoraTunic;
@@ -56,6 +57,10 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<HeavyBoots> HEAVY_BOOTS = ITEMS.register("heavyboots",
             ()-> new HeavyBoots(ModArmorMaterials.ZELDAH, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<HoverBoots> HOVER_BOOTS = ITEMS.register("hoverboots",
+            ()-> new HoverBoots(ModArmorMaterials.ZELDAH, EquipmentSlot.FEET,
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
+
 
 
 

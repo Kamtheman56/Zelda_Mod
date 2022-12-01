@@ -10,6 +10,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BigDripleafBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SugarCaneBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -19,8 +20,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BigDripleafBlock.class)
 public abstract class MixinDekuLeafBlock extends Block {
-    @Shadow
-    public abstract void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity);
 
 
     public MixinDekuLeafBlock(Properties pProperties) {
@@ -34,16 +33,15 @@ public abstract class MixinDekuLeafBlock extends Block {
         Entity Player = pEntity;
         Entity entity = Player;
 
-
-            if ( ((LivingEntity) entity).getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()){
+        if (entity instanceof LivingEntity) {
+            if (((LivingEntity) entity).getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
                 ci.cancel();
             }
 
 
-
-            }
         }
-
+    }
+}
 
 
 
