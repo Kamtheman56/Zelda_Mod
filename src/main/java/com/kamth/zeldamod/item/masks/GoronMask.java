@@ -19,6 +19,8 @@ public class GoronMask extends ArmorItem {
         super(p_40386_, p_40387_, p_40388_);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerSwim);
     }
+//Mask that gives combat prowess and nether exploration
+
 
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
@@ -27,7 +29,7 @@ public class GoronMask extends ArmorItem {
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 10,1,true,false));
         player.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 10,0,true,false));
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10,1,true,false));
-
+        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10,0,true,false));
         {
             if (player.isOnFire()){
                 player.setRemainingFireTicks(0);
@@ -36,43 +38,28 @@ public class GoronMask extends ArmorItem {
         }
 
 
+
         {
             Level level = world;
 
             if (player.isCrouching()){
-
             }
 
             else if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.GLASS) {
                 level.destroyBlock(player.getOnPos(), false);
                 {
-
                 }
-
-
             }
             if (player.isCrouching()){
-
             }
 
             else if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE) {
                 level.destroyBlock(player.getOnPos(), true);
-
-
-
             }
             if (player.isSprinting()) {
-
-                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 0, true, false));
-
-            }
-
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10,1,true,false));}
+            player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
         }
-
-
-
-
-
     }
 
     public void onPlayerSwim(PlayerSwimEvent event) {

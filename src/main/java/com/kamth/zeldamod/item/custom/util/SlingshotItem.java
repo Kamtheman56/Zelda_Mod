@@ -4,6 +4,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -115,7 +116,8 @@ public class SlingshotItem extends ProjectileWeaponItem {
     }
 
     public UseAnim getUseAnimation(ItemStack p_40678_) {
-        return UseAnim.BOW;
+        return UseAnim.CUSTOM;
+
     }
 
     public InteractionResultHolder<ItemStack> use(Level p_40672_, Player p_40673_, InteractionHand p_40674_) {

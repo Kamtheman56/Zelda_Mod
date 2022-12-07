@@ -5,7 +5,8 @@
   "refmap": "zeldamod.refmap.json",
   "mixins": [
 
-"MixinDekuLeafBlock"
+"MixinDekuLeafBlock",
+    "MixinLivingEntity"
   ],
   "client": [
   ],

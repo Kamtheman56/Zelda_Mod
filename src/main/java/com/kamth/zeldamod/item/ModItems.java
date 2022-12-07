@@ -9,10 +9,7 @@ import com.kamth.zeldamod.item.armors.ZoraTunic;
 import com.kamth.zeldamod.item.custom.util.BoomerangItem;
 import com.kamth.zeldamod.item.masks.*;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ShieldItem;
-import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -59,27 +56,33 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<HoverBoots> HOVER_BOOTS = ITEMS.register("hoverboots",
             ()-> new HoverBoots(ModArmorMaterials.ZELDAH, EquipmentSlot.FEET,
-                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
 
 
 
 
    //Masks
-    public static final RegistryObject<ArmorItem> ZORA_MASK = ITEMS.register("zoramask",
-            ()-> new ZoraMask(ModArmorMaterials.ZORA, EquipmentSlot.HEAD,
-                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
+
     public static final RegistryObject<ArmorItem> DEKU_MASK = ITEMS.register("dekumask",
             ()-> new DekuMask(ModArmorMaterials.DEKU, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
     public static final RegistryObject<ArmorItem> GORON_MASK = ITEMS.register("goronmask",
             ()-> new GoronMask(ModArmorMaterials.GORON, EquipmentSlot.HEAD,
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_MASKS)));
+    public static final RegistryObject<ArmorItem> ZORA_MASK = ITEMS.register("zoramask",
+            ()-> new ZoraMask(ModArmorMaterials.ZORA, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
+
     public static final RegistryObject<ArmorItem> STONE_MASK = ITEMS.register("stonemask",
             ()-> new StoneMask(ModArmorMaterials.STONE, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
     public static final RegistryObject<ArmorItem> BUNNY_MASK = ITEMS.register("bunnymask",
             ()-> new BunnyMask(ModArmorMaterials.BUNNY, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
+
+    public static final RegistryObject<ArmorItem> FIERCE_MASK = ITEMS.register("fiercemask",
+            ()-> new FierceMask(ModArmorMaterials.FIERCE, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS).fireResistant()));
 
    //Tunics
     public static final RegistryObject<ArmorItem> KOKIRI_TUNIC = ITEMS.register("kokiritunic",
