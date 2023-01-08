@@ -1,6 +1,8 @@
 package com.kamth.zeldamod.item.masks;
 
 import com.kamth.zeldamod.item.ModItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -10,11 +12,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
 
 public class BunnyMask extends ArmorItem {
@@ -61,5 +66,10 @@ public class BunnyMask extends ArmorItem {
 
             }
         }
+    }
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        components.add(Component.literal("The power of nature springs forth!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+
     }
 }

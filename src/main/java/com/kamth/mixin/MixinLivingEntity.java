@@ -34,14 +34,7 @@ public abstract class MixinLivingEntity extends Entity {
     @Inject(method = "getBlockSpeedFactor", at = @At("HEAD"), cancellable = true)
     private void onGetBlockSpeedFactor(CallbackInfoReturnable<Float> cir) {
         if (((Object)this) instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HOVER_BOOTS.get()) {
-            cir.setReturnValue(.96F);
-
-
-        }
-
-
-    }
-}
+            cir.setReturnValue(.96F);}}}
 
 
 

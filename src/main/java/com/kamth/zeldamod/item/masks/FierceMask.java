@@ -1,6 +1,8 @@
 package com.kamth.zeldamod.item.masks;
 
 import com.kamth.zeldamod.item.ModItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -13,10 +15,12 @@ import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
 
 public class FierceMask extends ArmorItem {
-    private static final AttributeModifier STEP_HEIGHT_BONUS = new AttributeModifier(UUID.fromString("4a312f09-78e0-4f3a-95c2-07ed63212472"), "zeldamod:bunnymask", 2, AttributeModifier.Operation.ADDITION);
+    private static final AttributeModifier STEP_HEIGHT_BONUS = new AttributeModifier(UUID.fromString("4a312f09-78e0-4f3a-95c2-07ed63212472"), "zeldamod:deitymask", 2, AttributeModifier.Operation.ADDITION);
     public FierceMask(ArmorMaterial pMaterial, EquipmentSlot pSlot, Properties pProperties) {
         super(pMaterial, pSlot, pProperties);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
@@ -28,7 +32,7 @@ public class FierceMask extends ArmorItem {
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10, 10, true, false));
 if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.STICK){
     player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 10, true, false));
-
+player.isInvisible();
         }
     }
     private void onPlayerTick(TickEvent.PlayerTickEvent event) {
@@ -62,5 +66,9 @@ if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.STICK){
             }
         }
     }
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        components.add(Component.literal("The power of a deity").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+}
 
 }

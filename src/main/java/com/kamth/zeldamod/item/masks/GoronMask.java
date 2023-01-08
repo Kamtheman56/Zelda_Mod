@@ -2,6 +2,8 @@ package com.kamth.zeldamod.item.masks;
 
 import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.kamth.zeldamod.item.ModItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -9,10 +11,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class GoronMask extends ArmorItem {
     public GoronMask(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {
@@ -71,10 +77,8 @@ public class GoronMask extends ArmorItem {
 
         }
     }
+@Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        components.add(Component.literal("Contains the spirit of a Goron").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 
-
-
-
-
-
-}
+}}
