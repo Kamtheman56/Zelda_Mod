@@ -16,7 +16,7 @@ import net.minecraftforge.event.TickEvent;
 import java.util.UUID;
 
 public class FierceMask extends ArmorItem {
-    private static final AttributeModifier STEP_HEIGHT_BONUS = new AttributeModifier(UUID.fromString("4a312f09-78e0-4f3a-95c2-07ed63212472"), "zeldamod:bunnymask", 2, AttributeModifier.Operation.ADDITION);
+    private static final AttributeModifier STEP_HEIGHT_BONUS = new AttributeModifier(UUID.fromString("4a312f09-78e0-4f3a-95c2-07ed63212472"), "zeldamod:deitymask", 2, AttributeModifier.Operation.ADDITION);
     public FierceMask(ArmorMaterial pMaterial, EquipmentSlot pSlot, Properties pProperties) {
         super(pMaterial, pSlot, pProperties);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
@@ -28,7 +28,7 @@ public class FierceMask extends ArmorItem {
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10, 10, true, false));
 if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.STICK){
     player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 10, true, false));
-
+player.isInvisible();
         }
     }
     private void onPlayerTick(TickEvent.PlayerTickEvent event) {

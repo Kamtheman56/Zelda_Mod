@@ -4,6 +4,7 @@ import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -23,6 +24,7 @@ import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.Event;
 
 import java.util.UUID;
@@ -40,7 +42,7 @@ public class ZoraMask extends ArmorItem {
         MinecraftForge.EVENT_BUS.addListener(this::LivingFallEvent);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerSwim);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
-
+        MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
     }
     //Mask that gives higher swim control
 
@@ -50,88 +52,53 @@ public class ZoraMask extends ArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 
-        player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 10, 10, true, false));
         player.addEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, 10, 0, true, false));
-
         if (player.isSwimming()) {
             player.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 10, 0, true, false, false));
-
                // player.startAutoSpinAttack(20);
             }
-
-
         if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ItemStack.EMPTY.getItem() ){
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10, 0, true, false));
-        }
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10, 0, true, false));}
 //disadvantage state
       if (player.isOnFire()){
           player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 10, 2, true, false));
           player.removeEffect(MobEffects.DAMAGE_BOOST);
-      }
+          player.setTicksFrozen(0);}
 //Logic for standing on blocks = effects
         Level level = world;
         if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE) {
-player.setTicksFrozen(250);
-
-
-        }
+player.setTicksFrozen(200);}
         if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.SNOW_BLOCK) {
-
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 30, 2, true, false, true));
-            player.setTicksFrozen(80);
-
-
-        }
+            player.setTicksFrozen(80);}
         if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.BLUE_ICE) {
-            player.setTicksFrozen(400);}}
-
+            player.setTicksFrozen(400);}
+        if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.PACKED_ICE) {
+            player.setTicksFrozen(310);}}
     public void LivingFallEvent(LivingFallEvent event) {
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
             if (event.getEntity().isEyeInFluidType(ForgeMod.WATER_TYPE.get())) {
-                event.setCanceled(true);
-
-            }}}
-
+                event.setCanceled(true);}}}
+    public void onLivingHurtEvent(LivingHurtEvent event){
+        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
+        if (event.getSource() == DamageSource.FREEZE) {
+            event.setAmount(event.getAmount() * 3);}}}
     public void onPlayerSwim (PlayerSwimEvent event){
 
         if (event.getEntity().isUnderWater() && event.getEntity().isCrouching()) {
-
-            event.setResult(Event.Result.DENY);
-
-
-        }
-    }
+            event.setResult(Event.Result.DENY);}}
 //This calls the swim speed attribute to be used! Gotta go fast
     private void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.START) {
-
-            return;
-        }
-
-
-
-
-
+            return;}
         AttributeInstance zoraswim = event.player.getAttribute(ForgeMod.SWIM_SPEED.get());
-
-
-
-
-        if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
-
-            }
+        if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {}
             if (!zoraswim.hasModifier(ZORA_SWIMSPEED) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
-                zoraswim.addTransientModifier(ZORA_SWIMSPEED);
-            }
+                zoraswim.addTransientModifier(ZORA_SWIMSPEED);}
 
 
          else {
 
                 if (zoraswim.hasModifier(ZORA_SWIMSPEED)) {
-                    zoraswim.removeModifier(ZORA_SWIMSPEED);
-
-
-                }
-            }}
-
+                    zoraswim.removeModifier(ZORA_SWIMSPEED);}}}
 }

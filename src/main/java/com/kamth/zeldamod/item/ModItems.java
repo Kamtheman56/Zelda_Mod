@@ -79,6 +79,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> BUNNY_MASK = ITEMS.register("bunnymask",
             ()-> new BunnyMask(ModArmorMaterials.BUNNY, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
+    public static final RegistryObject<ArmorItem> NIGHT_MASK = ITEMS.register("nightmask",
+            ()-> new NightMask(ModArmorMaterials.BUNNY, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
 
     public static final RegistryObject<ArmorItem> FIERCE_MASK = ITEMS.register("fiercemask",
             ()-> new FierceMask(ModArmorMaterials.FIERCE, EquipmentSlot.HEAD,
