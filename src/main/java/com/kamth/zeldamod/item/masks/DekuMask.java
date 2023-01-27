@@ -18,6 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -65,6 +66,9 @@ public class DekuMask extends ArmorItem {
             if (event.getSource() == DamageSource.SWEET_BERRY_BUSH) {
                 event.setCanceled(true);
             }
+            if (event.getSource() == DamageSource.CACTUS) {
+                event.setCanceled(true);
+            }
             if (event.getSource() == DamageSource.DROWN) {
                 event.setAmount(event.getAmount() * 3);
             }
@@ -78,15 +82,7 @@ public class DekuMask extends ArmorItem {
 
         player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.SLOW_FALLING, 10, 1, true, false, false));
         if (player.isCrouching()) {
-
-
             player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.JUMP, 10, 2, true, false));
-        }
-
-
-
-        if (player.isOnFire() && player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()){
-            player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS, 10, 2, true, false));
         }
 
 
@@ -127,7 +123,7 @@ public class DekuMask extends ArmorItem {
         if (Screen.hasShiftDown()) {
             components.add(Component.literal("Excel at platforming").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("Contains the spirit of a Deku").withStyle(ChatFormatting.GRAY));
+            components.add(Component.literal("Become one with nature!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 
         }
     }}

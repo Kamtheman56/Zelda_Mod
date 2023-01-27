@@ -5,8 +5,8 @@
  //General Items
   "item.zeldamod.red_emerald": "Red Emerald",
   "item.zeldamod.blue_emerald": "Blue Emerald",
-
-
+  "item.zeldamod.master_ore": "Master Ore",
+  "item.zeldamod.gold_dust": "Golden Dust",
 
 
   //Creative Mode Tabs
@@ -16,12 +16,14 @@
 //tools
   "item.zeldamod.kokiri_sword": "Kokiri Sword",
   "item.zeldamod.razor_sword": "Razor Sword",
+  "item.zeldamod.gilded_sword": "Gilded Sword",
   "item.zeldamod.master_sword": "Master Sword",
   "item.zeldamod.biggoron_sword": "Biggoron Sword",
-  "item.zeldamod.biggoron_knife": "Biggoron Knife",
+  "item.zeldamod.biggoron_knife": "Giant's Knife",
   "item.zeldamod.deku_shield": "Deku Shield",
-
-
+  "item.zeldamod.hylian_shield": "Hylian Shield",
+  "item.zeldamod.master_sword2": "Tempered Sword",
+  "item.zeldamod.master_sword3": "Golden Sword",
 
 
   //armors

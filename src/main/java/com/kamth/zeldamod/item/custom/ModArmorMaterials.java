@@ -45,7 +45,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.MAGMA_CREAM); }),
     ZoraTunic("zoratunic", 0, new int[]{1, 2, 4, 1}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Items.HEART_OF_THE_SEA); });
+        return Ingredient.of(Items.NAUTILUS_SHELL); });
 
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};

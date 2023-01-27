@@ -12,6 +12,7 @@ import static net.minecraft.core.Registry.register;
 public class ModItemProperties {
     public static void addCustomItemProperties() {
         makeShield(ModItems.DEKU_SHIELD.get());
+        makeShield(ModItems.HYLIAN_SHIELD.get());
     }
 
     private static void makeShield(Item item) {

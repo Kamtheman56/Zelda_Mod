@@ -30,9 +30,15 @@ public class FierceMask extends ArmorItem {
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10, 10, true, false));
+        player.removeEffect(MobEffects.DARKNESS);
+        player.removeEffect(MobEffects.WITHER);
+        player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
+        player.removeEffect(MobEffects.WEAKNESS);
+        player.removeEffect(MobEffects.HUNGER);
+        player.removeEffect(MobEffects.BLINDNESS);
 if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.STICK){
     player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 10, true, false));
-player.isInvisible();
+
         }
     }
     private void onPlayerTick(TickEvent.PlayerTickEvent event) {

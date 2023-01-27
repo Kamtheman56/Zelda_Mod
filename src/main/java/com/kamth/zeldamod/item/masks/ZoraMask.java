@@ -63,10 +63,13 @@ public class ZoraMask extends ArmorItem {
         if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ItemStack.EMPTY.getItem() ){
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10, 0, true, false));}
 //disadvantage state
-      if (player.isOnFire()){
+      if (player.isOnFire() && player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get() ){
           player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 10, 2, true, false));
           player.removeEffect(MobEffects.DAMAGE_BOOST);
           player.setTicksFrozen(0);}
+      if (world.isRaining()){
+          player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10, 1, true, false));}
+
 //Logic for standing on blocks = effects
         Level level = world;
         if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE) {
@@ -75,7 +78,7 @@ player.setTicksFrozen(200);}
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 30, 2, true, false, true));
             player.setTicksFrozen(80);}
         if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.BLUE_ICE) {
-            player.setTicksFrozen(400);}
+            player.setTicksFrozen(450);}
         if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.PACKED_ICE) {
             player.setTicksFrozen(310);}}
     public void LivingFallEvent(LivingFallEvent event) {

@@ -65,6 +65,9 @@ public class HeavyBoots extends ArmorItem {
 
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 1, true, false));
         player.removeEffect(MobEffects.LEVITATION);
+        if (player.isEyeInFluidType(ForgeMod.WATER_TYPE.get())){
+            player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
+        }
         {
             Level level = world;
 
@@ -78,7 +81,8 @@ return;
             if (player.isCrouching()){}
             else if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE) {
                 level.destroyBlock(player.getOnPos(), true);
-                return;}}
+                return;}
+        }
     }
 
 

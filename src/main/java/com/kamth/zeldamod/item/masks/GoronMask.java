@@ -43,7 +43,8 @@ public class GoronMask extends ArmorItem {
             }
         }
 
-
+//Maybe add ice physics when running
+// when springing have thorns armor effect
 
         {
             Level level = world;

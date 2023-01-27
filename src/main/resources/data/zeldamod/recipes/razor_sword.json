@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "zeldamod:gold_dust"
+  },
+  "base": {
+    "item": "zeldamod:razor_sword"
+  },
+  "result": {
+    "item": "zeldamod:gilded_sword"
+  }
+}

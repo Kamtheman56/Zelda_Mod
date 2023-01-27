@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "zeldamod:master_ore"
+  },
+  "base": {
+    "item": "zeldamod:master_sword"
+  },
+  "result": {
+    "item": "zeldamod:master_sword2"
+  }
+}
