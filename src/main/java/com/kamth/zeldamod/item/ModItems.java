@@ -61,7 +61,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
          new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> HYLIAN_SHIELD = ITEMS.register("hylian_shield",
             () -> new ShieldItem(
-                    new Item.Properties().durability(80).tab(ModCreativeModeTab.ZELDA_TAB)));
+                    new Item.Properties().durability(652).tab(ModCreativeModeTab.ZELDA_TAB)));
 
     //This is where armors are located keep them together
     //Boots tier
@@ -94,6 +94,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
     public static final RegistryObject<ArmorItem> NIGHT_MASK = ITEMS.register("nightmask",
             ()-> new NightMask(ModArmorMaterials.NIGHT, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
+    public static final RegistryObject<ArmorItem> BLAST_MASK = ITEMS.register("blastmask",
+            ()-> new BlastMask(ModArmorMaterials.BLAST, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
     public static final RegistryObject<ArmorItem> FIERCE_MASK = ITEMS.register("fiercemask",
             ()-> new FierceMask(ModArmorMaterials.FIERCE, EquipmentSlot.HEAD,

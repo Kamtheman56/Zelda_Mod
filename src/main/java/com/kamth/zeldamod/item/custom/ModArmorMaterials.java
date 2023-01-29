@@ -34,6 +34,9 @@ public enum ModArmorMaterials implements ArmorMaterial {
     NIGHT("night", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.AMBIENT_CAVE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
+    BLAST("blast", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.CREEPER_PRIMED,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.IRON_INGOT); }),
     ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_CHAIN,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
