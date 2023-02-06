@@ -19,6 +19,6 @@ public class SeedRender extends ArrowRenderer<SeedProjectile> {
     @Override
     public ResourceLocation getTextureLocation(SeedProjectile pEntity) {
 
-        return new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/projectiles/");
+        return new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/projectiles/arrow.png");
     }
 }

@@ -71,6 +71,8 @@ public class ModItems {
     public static final RegistryObject<Item> MASTER_SWORD3 = ITEMS.register("master_sword3",
             () -> new SwordItem(ModTiers.ZELDAU, 6, -2.4f,
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
+            () -> new SlingshotItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(
          new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));

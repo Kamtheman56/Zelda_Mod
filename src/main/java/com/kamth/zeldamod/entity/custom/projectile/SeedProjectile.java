@@ -2,6 +2,9 @@ package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.mojang.math.Vector3d;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -10,6 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.network.NetworkHooks;
 
 public class SeedProjectile extends AbstractArrow {
 
@@ -31,12 +35,12 @@ public class SeedProjectile extends AbstractArrow {
 
 
     @Override
-    protected ItemStack getPickupItem() {
+    public ItemStack getPickupItem() {
         return new ItemStack(this.referenceItem);
     }
 
     public void shoot(Vec3 direction, float speed, float spread) {
-        super.shoot(direction.x, direction.y, direction.z, speed * getFlightSpeed(), spread);
+        super.shoot(direction.x, direction.y, direction.z, speed * getFlightSpeed(), 2);
     }
 
     protected float getFlightSpeed() {
@@ -55,5 +59,11 @@ public class SeedProjectile extends AbstractArrow {
             this.setRemoved(RemovalReason.DISCARDED);
 
         }
+    }
+
+
+    @Override
+    public Packet<?> getAddEntityPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
     }
 }

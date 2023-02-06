@@ -58,7 +58,7 @@ public class SlingshotItem extends BowItem {
                         world.addFreshEntity(projectile);
                     }
 
-
+                    world.playSound((Player) entityLiving, player.getX(), player.getY(), player.getZ(), SoundEvents.EGG_THROW, SoundSource.PLAYERS, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F)  * 0.5F);
 
                     if (!infiniteAmmo && !player.getAbilities().instabuild) {
                         ammoStack.shrink(1);
@@ -69,6 +69,7 @@ public class SlingshotItem extends BowItem {
                     }
 
                     player.awardStat(Stats.ITEM_USED.get(this));
+
                 }
             }
         }
