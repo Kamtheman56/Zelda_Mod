@@ -7,7 +7,12 @@
   "item.zeldamod.blue_emerald": "Blue Emerald",
   "item.zeldamod.master_ore": "Master Ore",
   "item.zeldamod.gold_dust": "Gold Dust",
-
+  "item.zeldamod.pumpkin_soup": "Pumpkin Soup",
+  "item.zeldamod.stamina_potion": "Stamina Potion",
+  "item.zeldamod.heart_potion": "Heart Potion",
+  "item.zeldamod.milk_bottle1": "Bottle of Milk",
+  "item.zeldamod.milk_bottle2": "Bottle of Milk",
+  "item.zeldamod.shield_potion": "Revitalizing Potion",
 
   //Creative Mode Tabs
   "itemGroup.zeldatab": "Zelda Items",

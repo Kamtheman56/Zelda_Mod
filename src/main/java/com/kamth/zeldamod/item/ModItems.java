@@ -6,7 +6,11 @@ import com.kamth.zeldamod.item.armors.HoverBoots;
 import com.kamth.zeldamod.item.custom.ModArmorMaterials;
 import com.kamth.zeldamod.item.armors.GoronTunic;
 import com.kamth.zeldamod.item.armors.ZoraTunic;
+import com.kamth.zeldamod.item.custom.ModFoods;
 import com.kamth.zeldamod.item.custom.util.BoomerangItem;
+import com.kamth.zeldamod.item.items.DrinkItem;
+import com.kamth.zeldamod.item.items.MilkBottleItem;
+import com.kamth.zeldamod.item.items.MilkHalfItem;
 import com.kamth.zeldamod.item.items.mastersword;
 import com.kamth.zeldamod.item.masks.*;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -22,13 +26,27 @@ public class ModItems {
 
     //These are generic items
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new BoomerangItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new SpyglassItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
             () -> new Item(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
+
+    //These are potions or consumables
+    public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
+            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB).stacksTo(16).food(ModFoods.PUMPKIN_SOUP)));
+    public static final RegistryObject<Item> STAMINA = ITEMS.register("stamina_potion",
+            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB).stacksTo(1).food(ModFoods.STAMINA)));
+    public static final RegistryObject<Item> HEART_POTION = ITEMS.register("heart_potion",
+            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB).stacksTo(1).food(ModFoods.HEART)));
+    public static final RegistryObject<Item> MILK_BOTTLE1 = ITEMS.register("milk_bottle1",
+            () -> new MilkBottleItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB).stacksTo(1).food(ModFoods.MILK_BOTTLE)));
+    public static final RegistryObject<Item> MILK_BOTTLE2 = ITEMS.register("milk_bottle2",
+            () -> new MilkHalfItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB).stacksTo(1).food(ModFoods.MILK_BOTTLE)));
+    public static final RegistryObject<Item> SHIELD_POTION = ITEMS.register("shield_potion",
+            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB).stacksTo(1).food(ModFoods.SHIELD)));
 
 
     //This is where Tools start
