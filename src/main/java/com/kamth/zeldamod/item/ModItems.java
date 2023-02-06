@@ -7,11 +7,7 @@ import com.kamth.zeldamod.item.custom.ModArmorMaterials;
 import com.kamth.zeldamod.item.armors.GoronTunic;
 import com.kamth.zeldamod.item.armors.ZoraTunic;
 import com.kamth.zeldamod.item.custom.ModFoods;
-import com.kamth.zeldamod.item.custom.util.BoomerangItem;
-import com.kamth.zeldamod.item.items.DrinkItem;
-import com.kamth.zeldamod.item.items.MilkBottleItem;
-import com.kamth.zeldamod.item.items.MilkHalfItem;
-import com.kamth.zeldamod.item.items.mastersword;
+import com.kamth.zeldamod.item.items.*;
 import com.kamth.zeldamod.item.masks.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
@@ -26,13 +22,14 @@ public class ModItems {
 
     //These are generic items
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new SpyglassItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
-    public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
+            () -> new SlingshotItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
             () -> new Item(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
+
 
     //These are potions or consumables
     public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
@@ -60,7 +57,7 @@ public class ModItems {
             () -> new SwordItem(ModTiers.GILDED, 3, -2.4f,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
-            () -> new SwordItem(ModTiers.ZELDAU, 4, -2.4f,
+            () -> new MasterSwordItem(ModTiers.ZELDAU, 4, -2.4f,
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BIGGORON_SWORD = ITEMS.register("biggoron_sword",
             () -> new SwordItem(ModTiers.ZELDAU, 7, -3.3f,
@@ -69,7 +66,7 @@ public class ModItems {
             () -> new SwordItem(ModTiers.ZELDAU, 7, -3.3f,
                     new Item.Properties().defaultDurability(10).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_SWORD2 = ITEMS.register("master_sword2",
-            () -> new SwordItem(ModTiers.ZELDAU, 5, -2.4f,
+            () -> new MasterSwordItem(ModTiers.ZELDAU, 5, -2.4f,
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_SWORD3 = ITEMS.register("master_sword3",
             () -> new SwordItem(ModTiers.ZELDAU, 6, -2.4f,

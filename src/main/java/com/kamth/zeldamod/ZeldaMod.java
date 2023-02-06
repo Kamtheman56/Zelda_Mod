@@ -3,9 +3,11 @@ package com.kamth.zeldamod;
 
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.util.ModItemProperties;
 import com.mojang.logging.LogUtils;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -59,5 +61,6 @@ private void clientSetup(final FMLClientSetupEvent event){
         public static void onClientSetup(FMLClientSetupEvent event) {
 
         }
+
     }
 }

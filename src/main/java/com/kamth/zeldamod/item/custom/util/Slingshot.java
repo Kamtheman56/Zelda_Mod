@@ -3,8 +3,6 @@ package com.kamth.zeldamod.item.custom.util;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,10 +17,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Predicate;
 
-public class SlingshotItem extends ProjectileWeaponItem {
+public class Slingshot extends ProjectileWeaponItem {
 
 
-    public SlingshotItem(Properties p_43009_) {
+    public Slingshot(Properties p_43009_) {
         super(p_43009_);
     }
 
