@@ -30,7 +30,9 @@ public class MilkBottleItem extends Item {
         }
 
         if (!pLevel.isClientSide) {
-            pEntityLiving.curePotionEffects(pStack);
+            pEntityLiving.removeEffect(MobEffects.POISON);
+            pEntityLiving.removeEffect(MobEffects.HUNGER);
+            pEntityLiving.removeEffect(MobEffects.WEAKNESS);
         }
 
         if (pStack.isEmpty()) {

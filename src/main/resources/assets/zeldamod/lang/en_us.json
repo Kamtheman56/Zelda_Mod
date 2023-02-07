@@ -13,10 +13,12 @@
   "item.zeldamod.milk_bottle1": "Bottle of Milk",
   "item.zeldamod.milk_bottle2": "Bottle of Milk",
   "item.zeldamod.shield_potion": "Revitalizing Potion",
+  "item.zeldamod.blue_potion": "Blue Potion",
 
   //Creative Mode Tabs
   "itemGroup.zeldatab": "Zelda Items",
   "itemGroup.zeldamask": "Zelda Masks",
+  "itemGroup.zeldafood": "Zelda FoodStuffs",
 
 //tools
   "item.zeldamod.kokiri_sword": "Kokiri Sword",

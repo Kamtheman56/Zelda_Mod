@@ -61,7 +61,10 @@ public class SeedProjectile extends AbstractArrow {
         }
     }
 
-
+    @Override
+    protected SoundEvent getDefaultHitGroundSoundEvent() {
+        return SoundEvents.CHICKEN_EGG;
+    }
     @Override
     public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);

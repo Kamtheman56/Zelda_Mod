@@ -15,7 +15,13 @@ public class ModCreativeModeTab {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ModItems.DEKU_MASK.get());
+        }};
+    public static final CreativeModeTab ZELDA_FOODSTUFFS = new CreativeModeTab("zeldafood") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.PUMPKIN_SOUP.get());
+        }};}
 
-        }
-    };
-}
+
+
+

@@ -1,0 +1,4 @@
+{
+"parent": "zeldamod:item/slingshot",
+"textures": {
+"layer0": "zeldamod:item/slingshot_pulling_1"}}

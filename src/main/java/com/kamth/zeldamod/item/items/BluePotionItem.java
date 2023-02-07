@@ -14,8 +14,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
-public class MilkHalfItem extends Item {
-    public MilkHalfItem(Properties pProperties) {
+public class BluePotionItem extends Item {
+    public BluePotionItem(Properties pProperties) {
         super(pProperties);
     }
 
@@ -31,6 +31,14 @@ public class MilkHalfItem extends Item {
 
         if (!pLevel.isClientSide) {
             pEntityLiving.removeEffect(MobEffects.POISON);
+            pEntityLiving.removeEffect(MobEffects.WITHER);
+            pEntityLiving.removeEffect(MobEffects.HUNGER);
+            pEntityLiving.removeEffect(MobEffects.WEAKNESS);
+            pEntityLiving.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
+            pEntityLiving.removeEffect(MobEffects.DIG_SLOWDOWN);
+            pEntityLiving.removeEffect(MobEffects.BLINDNESS);
+            pEntityLiving.removeEffect(MobEffects.CONFUSION);
+            pEntityLiving.removeEffect(MobEffects.BAD_OMEN);
         }
 
         if (pStack.isEmpty()) {
@@ -50,7 +58,7 @@ public class MilkHalfItem extends Item {
 
 
     public int getUseDuration(ItemStack pStack) {
-        return 20;
+        return 65;
     }
 
 
@@ -59,11 +67,11 @@ public class MilkHalfItem extends Item {
     }
 
     public SoundEvent getDrinkingSound() {
-        return SoundEvents.GENERIC_DRINK;
+        return SoundEvents.HONEY_DRINK;
     }
 
     public SoundEvent getEatingSound() {
-        return SoundEvents.GENERIC_DRINK;
+        return SoundEvents.HONEY_DRINK;
     }
 
 

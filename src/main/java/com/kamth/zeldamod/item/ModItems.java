@@ -33,17 +33,19 @@ public class ModItems {
 
     //These are potions or consumables
     public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
-            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB).stacksTo(16).food(ModFoods.PUMPKIN_SOUP)));
+            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).stacksTo(16).food(ModFoods.PUMPKIN_SOUP)));
     public static final RegistryObject<Item> STAMINA = ITEMS.register("stamina_potion",
-            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB).stacksTo(1).food(ModFoods.STAMINA)));
+            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).stacksTo(1).food(ModFoods.STAMINA)));
     public static final RegistryObject<Item> HEART_POTION = ITEMS.register("heart_potion",
-            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB).stacksTo(1).food(ModFoods.HEART)));
+            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).stacksTo(1).food(ModFoods.HEART)));
     public static final RegistryObject<Item> MILK_BOTTLE1 = ITEMS.register("milk_bottle1",
-            () -> new MilkBottleItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB).stacksTo(1).food(ModFoods.MILK_BOTTLE)));
+            () -> new MilkBottleItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).stacksTo(1).food(ModFoods.MILK_BOTTLE)));
     public static final RegistryObject<Item> MILK_BOTTLE2 = ITEMS.register("milk_bottle2",
-            () -> new MilkHalfItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB).stacksTo(1).food(ModFoods.MILK_BOTTLE)));
+            () -> new MilkHalfItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).stacksTo(1).food(ModFoods.MILK_BOTTLE)));
     public static final RegistryObject<Item> SHIELD_POTION = ITEMS.register("shield_potion",
-            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB).stacksTo(1).food(ModFoods.SHIELD)));
+            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).stacksTo(1).food(ModFoods.SHIELD)));
+    public static final RegistryObject<Item> BLUE_POTION = ITEMS.register("blue_potion",
+            () -> new BluePotionItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).stacksTo(1).food(ModFoods.BLUE)));
 
 
     //This is where Tools start
