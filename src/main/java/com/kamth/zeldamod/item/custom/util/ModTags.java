@@ -21,6 +21,8 @@ return BlockTags.create(new ResourceLocation("forge", name));
     }
 
     public static class Items{
+        public static final TagKey<Item> SLING_AMMO
+                = tag("sling_ammo");
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }

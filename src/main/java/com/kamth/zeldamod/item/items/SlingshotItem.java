@@ -3,6 +3,7 @@ package com.kamth.zeldamod.item.items;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -25,7 +26,7 @@ public class SlingshotItem extends BowItem {
 
     @Override
     public Predicate<ItemStack> getAllSupportedProjectiles() {
-        return stack -> stack.is(Items.WHEAT_SEEDS);
+        return stack -> stack.is(ModTags.Items.SLING_AMMO);
 
 }
 
@@ -34,62 +35,45 @@ public class SlingshotItem extends BowItem {
         if (entityLiving instanceof Player) {
             Player player = (Player) entityLiving;
             boolean infiniteAmmo = player.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
-            ItemStack ammoStack = player.getProjectile(stack);
+            ItemStack itemStack = player.getProjectile(stack);
             int i = getUseDuration(stack) - timeLeft;
-            i = ForgeEventFactory.onArrowLoose(stack, world, player, i, !ammoStack.isEmpty() || infiniteAmmo);
+            i = ForgeEventFactory.onArrowLoose(stack, world, player, i, !itemStack.isEmpty() || infiniteAmmo);
 
-            if (ammoStack.getItem() == Items.ARROW) {
-                ammoStack = new ItemStack(Items.WHEAT_SEEDS);
+            if (itemStack.getItem() == Items.ARROW) {
+                itemStack = new ItemStack(Items.WHEAT_SEEDS);
             }
 
             if (i < 0) {
                 return;
             }
 
-            if (!ammoStack.isEmpty() || infiniteAmmo) {
+            if (!itemStack.isEmpty() || infiniteAmmo) {
                 float shotPower = getPowerForTime(i) * 0.5f;
 
                 if (shotPower >= 0.1D) {
                     if (!world.isClientSide) {
-                       SeedProjectile projectile = createAmmoEntity(world, ammoStack);
+                       SeedProjectile projectile = createAmmoEntity(world, itemStack);
                         projectile.setOwner(player);
                         projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
-                        projectile.shoot(player.getLookAngle(), shotPower * 3F, 0F);
+                        projectile.shoot(player.getLookAngle(), shotPower * 3F, 0.5F);
                         world.addFreshEntity(projectile);
                     }
 
                     world.playSound((Player) entityLiving, player.getX(), player.getY(), player.getZ(), SoundEvents.EGG_THROW, SoundSource.PLAYERS, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F)  * 0.5F);
 
                     if (!infiniteAmmo && !player.getAbilities().instabuild) {
-                        ammoStack.shrink(1);
+                        itemStack.shrink(1);
 
-                        if (ammoStack.isEmpty()) {
-                            player.getInventory().removeItem(ammoStack);
+                        if (itemStack.isEmpty()) {
+                            player.getInventory().removeItem(itemStack);
                         }
                     }
 
                     player.awardStat(Stats.ITEM_USED.get(this));
 
-                }
-            }
-        }
-    }
+                }}}}
     @Nonnull
-    private SeedProjectile createAmmoEntity(Level level, ItemStack ammoStack) {
-        Item ammoItem = ammoStack.getItem();
-
-        if (ammoItem == Items.BEETROOT_SEEDS) {
-            return new SeedProjectile(level);
-        } else if (ammoItem == Items.WHEAT_SEEDS) {
-            return new SeedProjectile(level);
-        } else if (ammoItem == Items.MELON_SEEDS) {
-            return new SeedProjectile(level);
-        } else if (ammoItem == Items.PUMPKIN_SEEDS) {
-            return new SeedProjectile(level);
-        } else if (ammoItem == Items.COCOA_BEANS) {
-            return new SeedProjectile(level);
-        }
-
+    private SeedProjectile createAmmoEntity(Level level, ItemStack itemStack) {
         return new SeedProjectile(level);
     }
     public static float getPowerForTime(int timeInUse) {
