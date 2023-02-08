@@ -16,7 +16,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 
 public class SeedProjectile extends AbstractArrow {
-
+    private static final double BASE_DAMAGE = 3.0D;
     private Item referenceItem;
     public SeedProjectile(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -41,6 +41,7 @@ public class SeedProjectile extends AbstractArrow {
 
     public void shoot(Vec3 direction, float speed, float spread) {
         super.shoot(direction.x, direction.y, direction.z, speed * getFlightSpeed(), 2);
+        
     }
 
     protected float getFlightSpeed() {
@@ -59,6 +60,11 @@ public class SeedProjectile extends AbstractArrow {
             this.setRemoved(RemovalReason.DISCARDED);
 
         }
+    }
+    @Override
+    public void onAddedToWorld() {
+        super.onAddedToWorld();
+        setBaseDamage(BASE_DAMAGE);
     }
 
     @Override
