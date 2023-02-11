@@ -24,7 +24,7 @@ public class ModItems {
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
-            () -> new ScattershotItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new SandWandItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
@@ -46,6 +46,8 @@ public class ModItems {
             () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).stacksTo(1).food(ModFoods.SHIELD)));
     public static final RegistryObject<Item> BLUE_POTION = ITEMS.register("blue_potion",
             () -> new BluePotionItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).stacksTo(1).food(ModFoods.BLUE)));
+    public static final RegistryObject<Item> MILK_MAGIC = ITEMS.register("magic_milk",
+            () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).rarity(Rarity.RARE).stacksTo(1).food(ModFoods.MILK_MAGIC)));
 
 
     //This is where Tools start
@@ -60,7 +62,7 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
             () -> new MasterSwordItem(ModTiers.ZELDAU, 4, -2.4f,
-                    new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
+                    new Item.Properties().rarity(Rarity.EPIC).fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BIGGORON_SWORD = ITEMS.register("biggoron_sword",
             () -> new SwordItem(ModTiers.ZELDAU, 7, -3.3f,
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
@@ -75,6 +77,8 @@ public class ModItems {
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
             () -> new SlingshotItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> SCATTERSHOT = ITEMS.register("scattershot",
+            () -> new ScattershotItem(new Item.Properties().durability(30).tab(ModCreativeModeTab.ZELDA_TAB)));
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(
          new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));

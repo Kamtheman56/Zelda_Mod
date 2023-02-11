@@ -35,7 +35,7 @@ public class HoverBoots extends ArmorItem {
 
     public HoverBoots(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {
         super(p_40386_, p_40387_, p_40388_);
-        MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
+
 
     }
 
@@ -63,11 +63,6 @@ public class HoverBoots extends ArmorItem {
 
 
 
-        private void onPlayerTick(TickEvent.PlayerTickEvent event) {
-            if (event.phase != TickEvent.Phase.START) {
-
-                return;
-            }
 
 
 
@@ -75,7 +70,9 @@ public class HoverBoots extends ArmorItem {
 
 
 
-    }}
+
+
+    }
 
 
 

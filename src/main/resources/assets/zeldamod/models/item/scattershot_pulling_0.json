@@ -1,0 +1,4 @@
+{
+"parent": "zeldamod:item/scattershot",
+"textures": {
+"layer0": "zeldamod:item/scattershot_pulling_0"}}

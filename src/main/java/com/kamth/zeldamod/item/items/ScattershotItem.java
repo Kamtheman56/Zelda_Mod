@@ -25,7 +25,8 @@ public class ScattershotItem extends SlingshotItem {
     public ScattershotItem(Properties pProperties) {
         super(pProperties);
     }
-
+    public float velocity = 2.95f;
+    public float inaccuracy = 1f;
     @Override
     public Predicate<ItemStack> getAllSupportedProjectiles() {
         return stack -> stack.is(ModTags.Items.SLING_AMMO);
@@ -53,6 +54,9 @@ public class ScattershotItem extends SlingshotItem {
 
                 if (shotPower >= 0.1D) {
                     if (!world.isClientSide) {
+
+
+
                        SeedProjectile projectile = createAmmoEntity(world, itemStack);
                         SeedProjectile projectile2 = createAmmoEntity(world, itemStack);
                         SeedProjectile projectile3 = createAmmoEntity(world, itemStack);
@@ -60,15 +64,20 @@ public class ScattershotItem extends SlingshotItem {
                         projectile.setOwner(player);
                         projectile2.setOwner(player);
                         projectile3.setOwner(player);
+                        //set x to +.5 and -.5 for original logic
                         projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
-                        projectile2.setPos(player.getEyePosition(1F).add(-.5, 0.1, 0));
-                        projectile3.setPos(player.getEyePosition(1F).add(.5, -0.1, 0));
-                        projectile.shoot(player.getLookAngle(), shotPower * 4F, 0.5F);
-                        projectile2.shoot(player.getLookAngle(), shotPower * 4.5F, 2F);
-                        projectile3.shoot(player.getLookAngle(), shotPower * 3.8F, -2F);
+                        projectile2.setPos(player.getEyePosition(1F).add(0, 0.1, 0));
+                        projectile3.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
+                      //  projectile.shoot(player.getLookAngle(), shotPower * 4F, 0.5F);
+                      //  projectile2.shoot(player.getLookAngle(), shotPower * 4.5F, 3F);
+                      //  projectile3.shoot(player.getLookAngle(), shotPower * 3.8F, -2F);
+                        projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, shotPower * velocity,.5f);
+                        projectile2.shootFromRotation(player, player.xRotO, player.yRotO + 7, 0.0F, shotPower * velocity,.5f);
+                       projectile3.shootFromRotation(player, player.xRotO, player.yRotO - 7, 0.0F, shotPower * velocity,.5f);
                         world.addFreshEntity(projectile);
                         world.addFreshEntity(projectile2);
                         world.addFreshEntity(projectile3);
+                      //  stack.hurtAndBreak(1, player, (p_220009_1_) -> p_220009_1_.broadcastBreakEvent(player.getUsedItemHand()));
                     }
 
                     world.playSound((Player) entityLiving, player.getX(), player.getY(), player.getZ(), SoundEvents.EGG_THROW, SoundSource.PLAYERS, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F)  * 0.5F);
@@ -90,10 +99,10 @@ public class ScattershotItem extends SlingshotItem {
     }
     public static float getPowerForTime(int timeInUse) {
         float power = (float) timeInUse / 20.0F;
-        power = (power * power + power * 2.0F) / 3.0F;
+        power = (power * power + power * 4.0F) / 5.0F;
 
         if (power > 1.0F) {
-            power = 1.0F;
+            power = 1.5F;
         }
 
         return power;

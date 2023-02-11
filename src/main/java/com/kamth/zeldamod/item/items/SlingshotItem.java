@@ -58,7 +58,7 @@ public class SlingshotItem extends BowItem {
                         projectile.shoot(player.getLookAngle(), shotPower * 3.8F, 0.5F);
                         world.addFreshEntity(projectile);
                     }
-
+                    itemStack.hurtAndBreak(1, player, (p_40665_) -> p_40665_.broadcastBreakEvent(player.getUsedItemHand()));
                     world.playSound((Player) entityLiving, player.getX(), player.getY(), player.getZ(), SoundEvents.EGG_THROW, SoundSource.PLAYERS, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F)  * 0.5F);
 
                     if (!infiniteAmmo && !player.getAbilities().instabuild) {
@@ -76,8 +76,9 @@ public class SlingshotItem extends BowItem {
     private SeedProjectile createAmmoEntity(Level level, ItemStack itemStack) {
         return new SeedProjectile(level);
     }
+
     public static float getPowerForTime(int timeInUse) {
-        float power = (float) timeInUse / 20.0F;
+        float power = (float) timeInUse / 14.0F;
         power = (power * power + power * 2.0F) / 3.0F;
 
         if (power > 1.0F) {

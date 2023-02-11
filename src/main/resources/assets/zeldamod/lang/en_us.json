@@ -14,6 +14,7 @@
   "item.zeldamod.milk_bottle2": "Bottle of Milk",
   "item.zeldamod.shield_potion": "Revitalizing Potion",
   "item.zeldamod.blue_potion": "Blue Potion",
+  "item.zeldamod.magic_milk": "Chateau Romani",
 
   //Creative Mode Tabs
   "itemGroup.zeldatab": "Zelda Items",
@@ -32,6 +33,7 @@
   "item.zeldamod.master_sword2": "Tempered Sword",
   "item.zeldamod.master_sword3": "Golden Sword",
   "item.zeldamod.slingshot": "Slingshot",
+  "item.zeldamod.scattershot": "Scattershot",
 
 
   //armors
