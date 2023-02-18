@@ -99,7 +99,7 @@ public class ScattershotItem extends SlingshotItem {
     }
     public static float getPowerForTime(int timeInUse) {
         float power = (float) timeInUse / 20.0F;
-        power = (power * power + power * 4.0F) / 5.0F;
+        power = (power * power + power * 3.0F) / 4.0F;
 
         if (power > 1.0F) {
             power = 1.5F;

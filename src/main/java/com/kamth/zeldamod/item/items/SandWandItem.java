@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -12,11 +13,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.SandBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 public class SandWandItem extends Item {
@@ -25,19 +28,23 @@ public class SandWandItem extends Item {
     }
 
     @Override
+
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         BlockHitResult ray = raytrace1(world, player, ClipContext.Fluid.NONE);
         BlockPos lookPos = ray.getBlockPos().relative(ray.getDirection());
+     //   BlockHitResult result = getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);
 
-        world.setBlock(lookPos, Blocks.SAND.defaultBlockState(), 1);
+        world.setBlockAndUpdate(lookPos, Blocks.SAND.defaultBlockState());
 
-        player.getCooldowns().addCooldown(this, 60);
-        world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 1.0F, 1.0F);
+        world.removeBlock(lookPos, false);
+        player.getCooldowns().addCooldown(this, 20);
+        world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.SAND_PLACE, SoundSource.PLAYERS, 1.0F, 1.0F);
         return super.use(world, player, hand);
     }
 
+
     protected static BlockHitResult raytrace1(Level pLevel, Player pPlayer, ClipContext.Fluid pFluidMode) {
-        double range = .5;
+        double range = 2;
         float f = pPlayer.getXRot();
         float f1 = pPlayer.getYRot();
         Vec3 vec3 = pPlayer.getEyePosition(1.0f);
