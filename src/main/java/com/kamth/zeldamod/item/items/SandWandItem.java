@@ -36,7 +36,7 @@ public class SandWandItem extends Item {
 
         world.setBlockAndUpdate(lookPos, Blocks.SAND.defaultBlockState());
 
-        world.removeBlock(lookPos, false);
+
         player.getCooldowns().addCooldown(this, 20);
         world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.SAND_PLACE, SoundSource.PLAYERS, 1.0F, 1.0F);
         return super.use(world, player, hand);
