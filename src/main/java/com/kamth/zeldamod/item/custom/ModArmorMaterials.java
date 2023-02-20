@@ -19,7 +19,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     DEKU("deku", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.AZALEA_LEAVES_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    GORON("goron", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+    GORON("goron", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.ANCIENT_DEBRIS_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     STONE("stone", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.STONE_PLACE,
@@ -40,10 +40,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
     ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_CHAIN,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    HOVER("hover", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_ELYTRA,
+    HOVER("hover", 0, new int[]{1, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_ELYTRA,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    PEGASUS("pegasus", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.HORSE_GALLOP,
+    PEGASUS("pegasus", 0, new int[]{1, 4, 5, 2}, 0, SoundEvents.HORSE_GALLOP,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     Kokiri("kokiri", 0, new int[]{1, 2, 4, 1}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,

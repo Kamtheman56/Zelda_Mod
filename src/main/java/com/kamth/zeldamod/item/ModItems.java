@@ -77,9 +77,11 @@ public class ModItems {
     public static final RegistryObject<Item> SCATTERSHOT = ITEMS.register("scattershot",
             () -> new ScattershotItem(new Item.Properties().durability(30).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> ROC_FEATHER = ITEMS.register("roc_feather",
-            () -> new FeatherItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new FeatherItem(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SAND_ROD = ITEMS.register("sand_rod",
-            () -> new SandWandItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new SandWandItem(new Item.Properties().durability(64).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> BOMB = ITEMS.register("bomb",
+            () -> new BombItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(
          new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));

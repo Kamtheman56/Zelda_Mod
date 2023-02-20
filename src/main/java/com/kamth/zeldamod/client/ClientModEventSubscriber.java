@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.client;
 
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.client.renderer.entity.BombRender;
 import com.kamth.zeldamod.client.renderer.entity.SeedRender;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -15,5 +16,7 @@ public class ClientModEventSubscriber {
     @SubscribeEvent
     public static void onClientSetup(EntityRenderersEvent.RegisterRenderers event){
         event.registerEntityRenderer(ModEntityTypes.WHEAT_SEED.get(), SeedRender::new);
+        event.registerEntityRenderer(ModEntityTypes.BOMB.get(), BombRender::new);
+
     }
 }
