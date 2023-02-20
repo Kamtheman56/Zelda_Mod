@@ -23,9 +23,10 @@ public class BombItem extends Item {
         ItemStack itemstack = player.getItemInHand(pHand);
         pLevel.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
-            BombProjectile bomb = new BombProjectile(ModEntityTypes.BOMB.get(), pLevel);
-            bomb.setPos(player.getX(), player.getY(), player.getZ());
-            pLevel.playSound(null, player.blockPosition(), SoundEvents.TNT_PRIMED, SoundSource.PLAYERS, 1.0F, 1.0F);
+            BombProjectile bomb = new BombProjectile (pLevel, player);
+            bomb.setItem(itemstack);
+            bomb.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
+            pLevel.playSound(player, player.blockPosition(), SoundEvents.TNT_PRIMED, SoundSource.PLAYERS, 1.0F, 1.0F);
             pLevel.addFreshEntity(bomb);
         }
 
