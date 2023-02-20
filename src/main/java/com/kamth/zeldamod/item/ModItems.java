@@ -1,11 +1,8 @@
 package com.kamth.zeldamod.item;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.item.armors.HeavyBoots;
-import com.kamth.zeldamod.item.armors.HoverBoots;
+import com.kamth.zeldamod.item.armors.*;
 import com.kamth.zeldamod.item.custom.ModArmorMaterials;
-import com.kamth.zeldamod.item.armors.GoronTunic;
-import com.kamth.zeldamod.item.armors.ZoraTunic;
 import com.kamth.zeldamod.item.custom.ModFoods;
 import com.kamth.zeldamod.item.items.*;
 import com.kamth.zeldamod.item.masks.*;
@@ -22,7 +19,7 @@ public class ModItems {
 
     //These are generic items
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new FeatherItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
             () -> new SandWandItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
@@ -93,6 +90,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<HoverBoots> HOVER_BOOTS = ITEMS.register("hoverboots",
             ()-> new HoverBoots(ModArmorMaterials.ZELDAH, EquipmentSlot.FEET,
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<PegasusBoots> PEGASUS_BOOTS = ITEMS.register("pegasusboots",
+            ()-> new PegasusBoots(ModArmorMaterials.Kokiri, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
 
 
