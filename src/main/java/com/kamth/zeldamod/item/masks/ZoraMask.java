@@ -89,9 +89,10 @@ player.setTicksFrozen(200);}
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
         if (event.getSource() == DamageSource.FREEZE) {
             event.setAmount(event.getAmount() * 3);}
-            if (event.getSource() == DamageSource.LIGHTNING_BOLT) {
+            if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()){
+                if (event.getSource() == DamageSource.LIGHTNING_BOLT) {
                 event.setAmount(event.getAmount() * 20);}
-        }}
+        }}}
     public void onPlayerSwim (PlayerSwimEvent event){
 
         if (event.getEntity().isUnderWater() && event.getEntity().isCrouching() && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {

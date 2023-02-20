@@ -16,10 +16,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
     ZORA("zora", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.AXOLOTL_SWIM,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    DEKU("deku", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.AZALEA_LEAVES_PLACE,
+    DEKU("deku", 0, new int[]{1, 4, 5, 1}, 0, SoundEvents.AZALEA_LEAVES_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    GORON("goron", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.ANCIENT_DEBRIS_PLACE,
+    GORON("goron", 0, new int[]{1, 4, 5, 4}, 0, SoundEvents.ANCIENT_DEBRIS_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     STONE("stone", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.STONE_PLACE,
@@ -28,8 +28,8 @@ public enum ModArmorMaterials implements ArmorMaterial {
     BUNNY("bunny", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.WOOL_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    FIERCE("fierce", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.WITHER_SPAWN,
-            0.0F, 0.0F, () -> {
+    FIERCE("fierce", 0, new int[]{1, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
+            0.0F, 6.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     NIGHT("night", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.AMBIENT_CAVE,
             0.0F, 0.0F, () -> {
@@ -38,7 +38,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_CHAIN,
-            0.0F, 0.0F, () -> {
+            0.0F, 4.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     HOVER("hover", 0, new int[]{1, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_ELYTRA,
             0.0F, 0.0F, () -> {

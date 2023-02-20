@@ -53,28 +53,20 @@ public class DekuMask extends ArmorItem {
 
 
     public void onLivingHurtEvent(LivingHurtEvent event) {
-        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
-            if (event.getSource() == DamageSource.LAVA) {
-                event.setAmount(event.getAmount() * 4);
-            }
-            if (event.getSource() == DamageSource.ON_FIRE) {
-                event.setAmount(event.getAmount() * 2);
-            }
-            if (event.getSource() == DamageSource.IN_FIRE) {
-                event.setAmount(event.getAmount() * 2);
-            }
-            if (event.getSource() == DamageSource.SWEET_BERRY_BUSH) {
-                event.setCanceled(true);
-            }
-            if (event.getSource() == DamageSource.CACTUS) {
-                event.setCanceled(true);
-            }
-            if (event.getSource() == DamageSource.DROWN) {
-                event.setAmount(event.getAmount() * 3);
-            }
-        }
-    }
 
+            if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
+                if (event.getSource() == DamageSource.ON_FIRE) {
+                    event.setAmount(event.getAmount() * 2);}
+                if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
+                    if (event.getSource() == DamageSource.IN_FIRE) {
+                        event.setAmount(event.getAmount() * 2);}
+                if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
+                    if (event.getSource() == DamageSource.LAVA) {
+                        event.setAmount(event.getAmount() * 2);}
+                        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
+                if (event.getSource() == DamageSource.DROWN) {
+                    event.setAmount(event.getAmount() * 3);
+                }}}}}}
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 
