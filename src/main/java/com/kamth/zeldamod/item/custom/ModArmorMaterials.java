@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    ZORA("zora", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+    ZORA("zora", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.AXOLOTL_SWIM,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     DEKU("deku", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.AZALEA_LEAVES_PLACE,
@@ -40,10 +40,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
     ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_CHAIN,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    HOVER("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+    HOVER("hover", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_ELYTRA,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    PEGASUS("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+    PEGASUS("pegasus", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.HORSE_GALLOP,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     Kokiri("kokiri", 0, new int[]{1, 2, 4, 1}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
@@ -68,14 +68,14 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
     private final LazyLoadedValue<Ingredient> repairIngredient;
 
-    private ModArmorMaterials(String p_40474_, int p_40475_, int[] p_40476_, int p_40477_, SoundEvent p_40478_, float p_40479_, float p_40480_, Supplier<Ingredient> p_40481_) {
+    private ModArmorMaterials(String p_40474_, int durability, int[] slotProtections, int enchantmentvalue, SoundEvent sound, float toughness, float knockbackresistance, Supplier<Ingredient> p_40481_) {
         this.name = p_40474_;
-        this.durabilityMultiplier = p_40475_;
-        this.slotProtections = p_40476_;
-        this.enchantmentValue = p_40477_;
-        this.sound = p_40478_;
-        this.toughness = p_40479_;
-        this.knockbackResistance = p_40480_;
+        this.durabilityMultiplier = durability;
+        this.slotProtections = slotProtections;
+        this.enchantmentValue = enchantmentvalue;
+        this.sound = sound;
+        this.toughness = toughness;
+        this.knockbackResistance = knockbackresistance;
         this.repairIngredient = new LazyLoadedValue<>(p_40481_);
     }
 

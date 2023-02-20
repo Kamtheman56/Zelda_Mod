@@ -6,6 +6,7 @@ import net.minecraft.core.Vec3i;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -16,6 +17,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
@@ -69,12 +71,11 @@ public class SandWandItem extends Item {
     }
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
-        if (pState.is(Blocks.SAND)) {
+        if (pState.is(BlockTags.SAND)) {
 
         }
         return 10.0F;
     }
-
 
 }
 

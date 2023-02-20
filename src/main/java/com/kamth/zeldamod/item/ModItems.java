@@ -19,13 +19,13 @@ public class ModItems {
 
     //These are generic items
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new FeatherItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
-    public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
-            () -> new SandWandItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
-    public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
-            () -> new Item(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
 
 
     //These are potions or consumables
@@ -42,7 +42,7 @@ public class ModItems {
     public static final RegistryObject<Item> SHIELD_POTION = ITEMS.register("shield_potion",
             () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).stacksTo(1).food(ModFoods.SHIELD)));
     public static final RegistryObject<Item> BLUE_POTION = ITEMS.register("blue_potion",
-            () -> new BluePotionItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).stacksTo(1).food(ModFoods.BLUE)));
+            () -> new BluePotionItem(new Item.Properties().rarity(Rarity.RARE).tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).stacksTo(1).food(ModFoods.BLUE)));
     public static final RegistryObject<Item> MILK_MAGIC = ITEMS.register("magic_milk",
             () -> new DrinkItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_FOODSTUFFS).rarity(Rarity.RARE).stacksTo(1).food(ModFoods.MILK_MAGIC)));
 
@@ -59,7 +59,7 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
             () -> new MasterSwordItem(ModTiers.ZELDAU, 4, -2.4f,
-                    new Item.Properties().rarity(Rarity.EPIC).fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
+                    new Item.Properties().rarity(Rarity.RARE).fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BIGGORON_SWORD = ITEMS.register("biggoron_sword",
             () -> new SwordItem(ModTiers.ZELDAU, 7, -3.3f,
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
@@ -76,6 +76,10 @@ public class ModItems {
             () -> new SlingshotItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SCATTERSHOT = ITEMS.register("scattershot",
             () -> new ScattershotItem(new Item.Properties().durability(30).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> ROC_FEATHER = ITEMS.register("roc_feather",
+            () -> new FeatherItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> SAND_ROD = ITEMS.register("sand_rod",
+            () -> new SandWandItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(
          new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));
@@ -89,10 +93,10 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new HeavyBoots(ModArmorMaterials.ZELDAH, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<HoverBoots> HOVER_BOOTS = ITEMS.register("hoverboots",
-            ()-> new HoverBoots(ModArmorMaterials.ZELDAH, EquipmentSlot.FEET,
+            ()-> new HoverBoots(ModArmorMaterials.HOVER, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<PegasusBoots> PEGASUS_BOOTS = ITEMS.register("pegasusboots",
-            ()-> new PegasusBoots(ModArmorMaterials.Kokiri, EquipmentSlot.FEET,
+            ()-> new PegasusBoots(ModArmorMaterials.PEGASUS, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
 
 
