@@ -1,8 +1,12 @@
 package com.kamth.zeldamod.item.items;
 
+import com.google.common.collect.ImmutableMap;
 import com.kamth.zeldamod.item.ModItems;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -27,16 +31,19 @@ import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.SandBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.Map;
 import java.util.Random;
 
 public class SandWandItem extends Item {
     public SandWandItem(Properties pProperties) {
         super(pProperties);
     }
+    protected static final Map<Block, Block> STRIPPABLES = (new ImmutableMap.Builder<Block, Block>()).put(Blocks.MANGROVE_LOG, Blocks.STRIPPED_MANGROVE_LOG).build();
 
     @Override
 
@@ -46,8 +53,8 @@ public class SandWandItem extends Item {
 
 
         world.setBlockAndUpdate(lookPos, Blocks.SAND.defaultBlockState());
-
-
+        world.addParticle(ParticleTypes.CLOUD, lookPos.getX() , lookPos.getY() + 1.5, lookPos.getZ() + .3,  0.0D, 0.0D, 0.0D);
+        world.addParticle(ParticleTypes.CLOUD, lookPos.getX(), lookPos.getY() + 1.7, lookPos.getZ() + .5, 0.0D, 0.0D, 0.0D);
         player.getCooldowns().addCooldown(this, 20);
         world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.SAND_PLACE, SoundSource.PLAYERS, 1.0F, 1.0F);
         return super.use(world, player, hand);
@@ -69,15 +76,16 @@ public class SandWandItem extends Item {
         Vec3 vec31 = vec3.add((double) f6 * d0, (double) f5 * d0, (double) f7 * range);
         return pLevel.clip(new ClipContext(vec3, vec31, ClipContext.Block.OUTLINE, pFluidMode, pPlayer));
     }
+
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
         if (pState.is(BlockTags.SAND)) {
 
         }
         return 10.0F;
-    }
+    }}
 
-}
+
 
 
 
