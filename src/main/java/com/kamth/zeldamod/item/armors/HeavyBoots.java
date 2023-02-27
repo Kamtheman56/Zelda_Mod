@@ -65,6 +65,7 @@ public class HeavyBoots extends ArmorItem {
 
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 1, true, false));
         player.removeEffect(MobEffects.LEVITATION);
+        player.removeEffect(MobEffects.SLOW_FALLING);
         if (player.isEyeInFluidType(ForgeMod.WATER_TYPE.get())){
             player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
         }
@@ -75,7 +76,7 @@ public class HeavyBoots extends ArmorItem {
 return;
             }
 
-            else if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.GLASS) {
+            else if (level.getBlockState(player.getOnPos()).getMaterial() == Material.GLASS) {
                 level.destroyBlock(player.getOnPos(), false);
             }
             if (player.isCrouching()){}

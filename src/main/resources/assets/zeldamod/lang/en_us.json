@@ -36,6 +36,13 @@
   "item.zeldamod.scattershot": "Scattershot",
   "item.zeldamod.roc_feather": "Roc's Feather",
   "item.zeldamod.sand_rod": "Sand Rod",
+  "item.zeldamod.bomb": "Bomb",
+  "item.zeldamod.water_bomb": "Water Bomb",
+  "item.zeldamod.hero_bow": "Hero Bow",
+  "item.zeldamod.fire_arrow": "Fire Arrow",
+  "item.zeldamod.ice_arrow": "Ice Arrow",
+  "item.zeldamod.light_arrow": "Light Arrow",
+  "item.zeldamod.bomb_arrow": "Bomb Arrow",
 
   //armors
   "item.zeldamod.heavyboots": "Heavy Boots",

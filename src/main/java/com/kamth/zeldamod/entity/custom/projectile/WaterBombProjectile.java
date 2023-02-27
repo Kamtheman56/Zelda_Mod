@@ -1,51 +1,35 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.item.ModItems;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 
 import java.time.Instant;
 
-public class BombProjectile extends ThrowableProjectile {
+public class WaterBombProjectile extends ThrowableProjectile {
+    private float ticksToExplode =100f;
+    private int explosionPower = 1;
 
-
-    private static  int TICKS_PER_SECOND = 20;
-    private float ticksToExplode =150f;
-
-
-
-
-
-    private int explosionPower = 2;
-
-    public BombProjectile(EntityType<BombProjectile> bombProjectileEntityType, Level level) {
-        super(bombProjectileEntityType,level);
+    public WaterBombProjectile(EntityType<WaterBombProjectile> waterBombProjectileEntityType, Level level) {
+        super(waterBombProjectileEntityType,level);
 
     }
-
-    public BombProjectile(Level world, LivingEntity owner) {
-        super(ModEntityTypes.BOMB.get(), owner, world);
+    public WaterBombProjectile(Level world, LivingEntity owner) {
+        super(ModEntityTypes.WATER_BOMB.get(), owner, world);
     }
-
-
-    private Instant initCreationTimestamp(Level world) {
-        return world.isClientSide ? Instant.now() : null;
-    }
-
-    private static int toTicks(float seconds) {
-        return (int) (seconds * TICKS_PER_SECOND);
-    }
-
-
     @Override
     protected void onHit(HitResult result) {
         HitResult.Type lvt_2_1_ = result.getType();
@@ -73,7 +57,7 @@ public class BombProjectile extends ThrowableProjectile {
 
 @Override
 protected float getGravity() {
-    return 0.2F;
+    return 0.1F;
 }
 
 @Override
@@ -85,11 +69,12 @@ protected float getGravity() {
     if (hitresult.getType() != HitResult.Type.MISS && !flag && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, hitresult)) {
         this.onHit(hitresult);
     }
+
     if (this.isOnFire())
     {explode();}
     if (this.isInWater())
-    {this.playSound(SoundEvents.FIRE_EXTINGUISH, 1, 1);
-        this.discard();
+    {
+        this.explosionPower=3;
     }
     if (!this.level.isClientSide) {
             if (this.ticksToExplode <= this.tickCount) {
@@ -102,14 +87,11 @@ protected float getGravity() {
             this.level.explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Explosion.BlockInteraction.NONE);
             this.discard();
         }
-
-
-
-
     @Override
     public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
+
 
 }
 

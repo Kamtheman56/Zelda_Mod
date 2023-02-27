@@ -13,6 +13,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.animal.Bee;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.Item;
@@ -74,16 +75,17 @@ public class SeedProjectile extends AbstractArrow {
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
-        int i = entity instanceof Spider ? 6 : 1;
-        int j = entity instanceof Silverfish ? 20 : 1;
-        int a = entity instanceof Endermite ? 3 : 1;
-        int b = entity instanceof CaveSpider ? 3 : 1;
-        int c = entity instanceof Bee ? 3 : 1;
-        entity.hurt(DamageSource.thrown(this, this.getOwner()), (float)i);
-        entity.hurt(DamageSource.thrown(this, this.getOwner()), (float)j);
-        entity.hurt(DamageSource.thrown(this, this.getOwner()), (float)a);
-        entity.hurt(DamageSource.thrown(this, this.getOwner()), (float)b);
-        entity.hurt(DamageSource.thrown(this, this.getOwner()), (float)c);
+        int i = entity instanceof Silverfish ? 20 : 0;
+        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)i);
+        int k = entity instanceof Spider ? 2 : 0;
+        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)k);
+        int e = entity instanceof CaveSpider ? 2 : 0;
+        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)e);
+        int b = entity instanceof Bee ? 20 : 0;
+        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)b);
+        int r = entity instanceof Endermite ? 20 : 0;
+        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)r);
+
         if (pResult.getEntity() instanceof LivingEntity) {
             LivingEntity target = (LivingEntity) pResult.getEntity();
                 target.setArrowCount(target.getArrowCount() - 1);

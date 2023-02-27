@@ -75,19 +75,31 @@ public class ModItems {
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
             () -> new SlingshotItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SCATTERSHOT = ITEMS.register("scattershot",
-            () -> new ScattershotItem(new Item.Properties().durability(30).tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new ScattershotItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> ROC_FEATHER = ITEMS.register("roc_feather",
             () -> new FeatherItem(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SAND_ROD = ITEMS.register("sand_rod",
             () -> new SandWandItem(new Item.Properties().durability(64).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BOMB = ITEMS.register("bomb",
-            () -> new BombItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new BombItem(new Item.Properties().stacksTo(20).rarity(Rarity.UNCOMMON).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> WATER_BOMB = ITEMS.register("water_bomb",
+            () -> new WaterBombItem(new Item.Properties().stacksTo(10).rarity(Rarity.UNCOMMON).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> HERO_BOW = ITEMS.register("hero_bow",
+            () -> new HeroBowItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> FIRE_ARROW = ITEMS.register("fire_arrow",
+            () -> new FireArrowItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> ICE_ARROW = ITEMS.register("ice_arrow",
+            () -> new IceArrowItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> LIGHT_ARROW = ITEMS.register("light_arrow",
+            () -> new LightArrowItem(new Item.Properties().rarity(Rarity.UNCOMMON).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> BOMB_ARROW = ITEMS.register("bomb_arrow",
+            () -> new BombArrowItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(
          new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> HYLIAN_SHIELD = ITEMS.register("hylian_shield",
             () -> new ShieldItem(
-                    new Item.Properties().durability(652).tab(ModCreativeModeTab.ZELDA_TAB)));
+                    new Item.Properties().rarity(Rarity.UNCOMMON).durability(652).tab(ModCreativeModeTab.ZELDA_TAB)));
 
     //This is where armors are located keep them together
     //Boots tier

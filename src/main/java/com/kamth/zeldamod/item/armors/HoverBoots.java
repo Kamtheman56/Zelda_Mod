@@ -43,16 +43,21 @@ public class HoverBoots extends ArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
         Level level = world;
-        if (player.isSprinting() && player.getDeltaMovement().y > 0 && !player.isOnGround()) {
+        if (player.isSprinting() && player.getDeltaMovement().y > 0  && !player.isOnGround()) {
             player.fallDistance = -3;
             player.setNoGravity(true);
-            player.setDeltaMovement(Vec3.fromRGB24(player.getMotionDirection().getStepY()).add(0, 0, 0));
-
+            Vec3 vec3 = player.getDeltaMovement();
+            player.setDeltaMovement(vec3.x, 0.0, vec3.z);
         }
-
+        else if (player.tickCount == 180) {
+            player.setNoGravity(false);
+        }
         if (!player.isOnGround() && !player.isSprinting() && player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HOVER_BOOTS.get()) {
             player.setNoGravity(false);
             player.fallDistance = -3;
+        }
+        if (player.isOnGround() && player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HOVER_BOOTS.get()) {
+            player.tickCount = 10;
         }
 
     }
