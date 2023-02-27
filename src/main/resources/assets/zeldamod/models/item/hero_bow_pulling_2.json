@@ -1,0 +1,4 @@
+{
+"parent": "zeldamod:item/hero_bow",
+"textures": {
+"layer0": "zeldamod:item/hero_bow_pulling_2"}}

@@ -15,6 +15,7 @@ public class ModItemProperties {
         makeShield(ModItems.HYLIAN_SHIELD.get());
         makeBow(ModItems.SLINGSHOT.get());
         makeBow(ModItems.SCATTERSHOT.get());
+        makeBow(ModItems.HERO_BOW.get());
     }
 
     private static void makeShield(Item item) {

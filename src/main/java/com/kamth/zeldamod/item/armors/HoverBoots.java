@@ -46,7 +46,8 @@ public class HoverBoots extends ArmorItem {
         if (player.isSprinting() && player.getDeltaMovement().y > 0 && !player.isOnGround()) {
             player.fallDistance = -3;
             player.setNoGravity(true);
-            player.setDeltaMovement(Vec3.fromRGB24(player.getMotionDirection().getStepY()).add(0, 0, 0));
+            Vec3 vec3 = player.getDeltaMovement();
+            player.setDeltaMovement(vec3.x, 0.0, vec3.z);
 
         }
 

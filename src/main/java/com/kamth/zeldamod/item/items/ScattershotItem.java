@@ -86,10 +86,7 @@ public class ScattershotItem extends SlingshotItem {
                         itemStack.shrink(1);
 
                         if (itemStack.isEmpty()) {
-                            player.getInventory().removeItem(itemStack);
-                        }
-                    }
-
+                            player.getInventory().removeItem(itemStack);}}
                     player.awardStat(Stats.ITEM_USED.get(this));
 
                 }}}}
