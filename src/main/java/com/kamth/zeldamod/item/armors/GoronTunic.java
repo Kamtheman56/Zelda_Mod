@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.armors;
 
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -23,7 +24,7 @@ public class GoronTunic extends ArmorItem {
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 
         player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 10, 0, true, false, false));
-
+        player.removeEffect(MobEffects.POISON);
         //damages the armor if they're on fire only
         if(player.isOnFire()) {
         if(new Random().nextFloat() > 0.9f) { // 40% of damaging the armor! Possibly!

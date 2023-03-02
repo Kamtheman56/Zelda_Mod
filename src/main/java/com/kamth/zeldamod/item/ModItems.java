@@ -70,7 +70,7 @@ public class ModItems {
             () -> new MasterSwordItem(ModTiers.ZELDAU, 5, -2.4f,
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_SWORD3 = ITEMS.register("master_sword3",
-            () -> new SwordItem(ModTiers.ZELDAU, 6, -2.4f,
+            () -> new MasterSwordItem(ModTiers.ZELDAU, 6, -2.4f,
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
             () -> new SlingshotItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
@@ -85,7 +85,7 @@ public class ModItems {
     public static final RegistryObject<Item> WATER_BOMB = ITEMS.register("water_bomb",
             () -> new WaterBombItem(new Item.Properties().stacksTo(10).rarity(Rarity.UNCOMMON).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> HERO_BOW = ITEMS.register("hero_bow",
-            () -> new HeroBowItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new HeroBowItem(new Item.Properties().defaultDurability(550).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> FIRE_ARROW = ITEMS.register("fire_arrow",
             () -> new FireArrowItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> ICE_ARROW = ITEMS.register("ice_arrow",

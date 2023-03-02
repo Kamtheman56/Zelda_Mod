@@ -65,9 +65,9 @@ public class ScattershotItem extends SlingshotItem {
                         projectile2.setOwner(player);
                         projectile3.setOwner(player);
                         //set x to +.5 and -.5 for original logic
-                        projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
-                        projectile2.setPos(player.getEyePosition(1F).add(0, 0.1, 0));
-                        projectile3.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
+                        projectile.setPos(player.getEyePosition(1F));
+                        projectile2.setPos(player.getEyePosition(1F));
+                        projectile3.setPos(player.getEyePosition(1F));
                       //  projectile.shoot(player.getLookAngle(), shotPower * 4F, 0.5F);
                       //  projectile2.shoot(player.getLookAngle(), shotPower * 4.5F, 3F);
                       //  projectile3.shoot(player.getLookAngle(), shotPower * 3.8F, -2F);

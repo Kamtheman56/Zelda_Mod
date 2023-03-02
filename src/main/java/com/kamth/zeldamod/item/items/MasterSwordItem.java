@@ -1,8 +1,28 @@
 package com.kamth.zeldamod.item.items;
 
+import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
+import com.kamth.zeldamod.entity.custom.projectile.SwordBeam;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SculkBlock;
+import net.minecraft.world.level.block.state.BlockState;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class MasterSwordItem extends SwordItem {
     public MasterSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
@@ -11,5 +31,43 @@ public class MasterSwordItem extends SwordItem {
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return false;
     }
+    @Override
+    public float getDestroySpeed(ItemStack pStack, BlockState pState) {
+        if (pState.is(Blocks.SCULK)) {
+        }
+        return 10.0F;
+    }
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
+        ItemStack itemstack = player.getItemInHand(pHand);
+        if (!pLevel.isClientSide && player.isCrouching() && player.getHealth() >= 20 ) {
+        player.getCooldowns().addCooldown(this, 30);
+        pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.NEUTRAL, 1F, 5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
+
+
+            SwordBeam projectile = new SwordBeam(pLevel,player);
+            projectile.setOwner(player);
+            projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
+            projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.2f,0f);
+            pLevel.addFreshEntity(projectile);
+        }
+        else {
+            return InteractionResultHolder.pass(itemstack);
+        }
+
+        player.awardStat(Stats.ITEM_USED.get(this));
+        return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if(Screen.hasShiftDown()) {
+            components.add(Component.literal("Shoots Beams at full health!").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+        } else {
+            components.add(Component.literal("Blade of Evil's Bane").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
+
+    }
 
 }
+

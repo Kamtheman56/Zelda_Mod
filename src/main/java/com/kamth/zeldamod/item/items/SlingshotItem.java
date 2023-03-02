@@ -32,6 +32,7 @@ public class SlingshotItem extends BowItem {
 
     @Override
     public void releaseUsing(ItemStack stack, Level world, LivingEntity entityLiving, int timeLeft) {
+
         if (entityLiving instanceof Player) {
             Player player = (Player) entityLiving;
             boolean infiniteAmmo = player.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0;
@@ -54,8 +55,8 @@ public class SlingshotItem extends BowItem {
                     if (!world.isClientSide) {
                        SeedProjectile projectile = createAmmoEntity(world, itemStack);
                         projectile.setOwner(player);
-                        projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
-                        projectile.shoot(player.getLookAngle(), shotPower * 3.8F, 0.5F);
+                        projectile.setPos(player.getEyePosition(1F));
+                        projectile.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, shotPower * 3.0F, 1.0F);
                         world.addFreshEntity(projectile);
                     }
                     itemStack.hurtAndBreak(1, player, (p_40665_) -> p_40665_.broadcastBreakEvent(player.getUsedItemHand()));

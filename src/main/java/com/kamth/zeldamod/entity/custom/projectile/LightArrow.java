@@ -12,6 +12,7 @@ import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.Silverfish;
 import net.minecraft.world.entity.monster.WitherSkeleton;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -51,6 +52,8 @@ public class LightArrow extends AbstractArrow {
         entity.hurt(DamageSource.GENERIC.setProjectile(), (float)i);
         int w = entity instanceof WitherBoss ? 50 : 0;
         entity.hurt(DamageSource.GENERIC.setProjectile(), (float)w);
+        int s = entity instanceof Warden ? 50 : 0;
+        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)s);
     }
     @Override
     public void onAddedToWorld() {

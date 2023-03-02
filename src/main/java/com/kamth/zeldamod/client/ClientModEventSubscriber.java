@@ -21,5 +21,6 @@ public class ClientModEventSubscriber {
         event.registerEntityRenderer(ModEntityTypes.ICE_ARROW.get(), IceArrowRender::new);
         event.registerEntityRenderer(ModEntityTypes.LIGHT_ARROW.get(), LightArrowRender::new);
         event.registerEntityRenderer(ModEntityTypes.BOMB_ARROW.get(), BombArrowRender::new);
+        event.registerEntityRenderer(ModEntityTypes.SWORD_BEAM.get(), SwordBeamRender::new);
     }
 }
