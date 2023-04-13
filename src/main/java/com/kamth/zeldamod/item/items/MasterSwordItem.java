@@ -33,9 +33,9 @@ public class MasterSwordItem extends SwordItem {
     }
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
-        if (pState.is(Blocks.SCULK)) {
+        if (pState.is(Blocks.SCULK)) {   return 10.0F;
         }
-        return 10.0F;
+      else return 1;
     }
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
@@ -48,7 +48,7 @@ public class MasterSwordItem extends SwordItem {
             SwordBeam projectile = new SwordBeam(pLevel,player);
             projectile.setOwner(player);
             projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
-            projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.2f,0f);
+            projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f,0f);
             pLevel.addFreshEntity(projectile);
         }
         else {

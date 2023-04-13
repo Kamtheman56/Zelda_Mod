@@ -20,6 +20,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -47,7 +48,7 @@ public class HoverBoots extends ArmorItem {
 
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-       
+
         if (player.isSprinting() && player.getDeltaMovement().y > 0  && !player.isOnGround() && player.hasEffect(ModEffects.HOVER.get())) {
             player.fallDistance = -3;
             player.setNoGravity(true);
@@ -70,25 +71,13 @@ public class HoverBoots extends ArmorItem {
         if (player.isOnGround() && player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HOVER_BOOTS.get()) {
             player.addEffect(((new MobEffectInstance(ModEffects.HOVER.get(), 90, 0, true, false))));
         }
-
     }
-
-                //player.setDeltaMovement(player.getDeltaMovement().relative(Direction.UP, 2));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   @Override
+   public boolean canWalkOnPowderedSnow(ItemStack stack, LivingEntity wearer)
+    {
+        return stack.getItem() == ModItems.HOVER_BOOTS.get();
     }
+}
 
 
 

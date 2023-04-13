@@ -19,9 +19,9 @@ public class ModItems {
 
     //These are generic items
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new IceRodItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new FireRodItem(new Item.Properties().durability(5).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
@@ -94,12 +94,24 @@ public class ModItems {
             () -> new LightArrowItem(new Item.Properties().rarity(Rarity.UNCOMMON).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BOMB_ARROW = ITEMS.register("bomb_arrow",
             () -> new BombArrowItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> LIGHTNING_ARROW = ITEMS.register("lightning_arrow",
+            () -> new LightningArrowItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> ANCIENT_ARROW = ITEMS.register("ancient_arrow",
+            () -> new AncientArrowItem(new Item.Properties().rarity(Rarity.EPIC).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> DEKU_NUT = ITEMS.register("deku_nut",
+            () -> new DekuNutItem(new Item.Properties().stacksTo(16).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> DEKU_LEAF = ITEMS.register("deku_leaf",
+            () -> new LeafItem(new Item.Properties().durability(10).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> FIRE_ROD = ITEMS.register("fire_rod",
+            () -> new FireRodItem(new Item.Properties().durability(218).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> ICE_ROD = ITEMS.register("ice_rod",
+            () -> new IceRodItem(new Item.Properties().durability(218).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> TORNADO_ROD = ITEMS.register("tornado_rod",
+            () -> new TornadoRodItem(new Item.Properties().durability(218).tab(ModCreativeModeTab.ZELDA_TAB)));
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
-    () -> new ShieldItem(
-         new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));
+    () -> new ShieldItem(new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> HYLIAN_SHIELD = ITEMS.register("hylian_shield",
-            () -> new ShieldItem(
-                    new Item.Properties().rarity(Rarity.UNCOMMON).durability(652).tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new ShieldItem(new Item.Properties().rarity(Rarity.UNCOMMON).durability(652).tab(ModCreativeModeTab.ZELDA_TAB)));
 
     //This is where armors are located keep them together
     //Boots tier

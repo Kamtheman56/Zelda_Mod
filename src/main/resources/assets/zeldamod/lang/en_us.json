@@ -43,6 +43,13 @@
   "item.zeldamod.ice_arrow": "Ice Arrow",
   "item.zeldamod.light_arrow": "Light Arrow",
   "item.zeldamod.bomb_arrow": "Bomb Arrow",
+  "item.zeldamod.lightning_arrow": "Lightning Arrow",
+  "item.zeldamod.ancient_arrow": "Ancient Arrow",
+  "item.zeldamod.deku_nut": "Deku Nut",
+  "item.zeldamod.deku_leaf": "Deku Leaf",
+  "item.zeldamod.fire_rod": "Fire Rod",
+  "item.zeldamod.ice_rod": "Ice Rod",
+  "item.zeldamod.tornado_rod": "Tornado Rod",
 
   //armors
   "item.zeldamod.heavyboots": "Heavy Boots",

@@ -5,7 +5,9 @@
     "zeldamod:fire_arrow",
     "zeldamod:ice_arrow",
     "zeldamod:light_arrow",
-    "zeldamod:bomb_arrow"
+    "zeldamod:bomb_arrow",
+    "zeldamod:lightning_arrow",
+    "zeldamod:ancient_arrow"
 
   ]
 }

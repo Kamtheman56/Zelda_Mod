@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
@@ -9,6 +10,10 @@ import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.network.NetworkHooks;
@@ -58,12 +63,13 @@ public class BombProjectile extends ThrowableProjectile {
     protected boolean inGround;
 
     @Override
-    protected void onHitBlock(BlockHitResult p_230299_1_) {
-        super.onHitBlock(p_230299_1_);
+    protected void onHitBlock(BlockHitResult ray) {
+        super.onHitBlock(ray);
         setDeltaMovement(getDeltaMovement().multiply(0,0,0));
         setPos(this.getX(), this.getY(), this.getZ());
         this.inGround = true;
-    }
+        }
+
 
 
     @Override
@@ -91,6 +97,7 @@ protected float getGravity() {
     {this.playSound(SoundEvents.FIRE_EXTINGUISH, 1, 1);
         this.discard();
     }
+
     if (!this.level.isClientSide) {
             if (this.ticksToExplode <= this.tickCount) {
                 explode();}
@@ -101,10 +108,16 @@ protected float getGravity() {
     private void explode() {
             this.level.explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Explosion.BlockInteraction.NONE);
             this.discard();
+        //credit to SupersLegends for the destroying specific block code
+        BlockPos explosionPos = this.blockPosition();
+        int radius = 3;
+        for (BlockPos pos : BlockPos.betweenClosed(explosionPos.offset(-radius, -radius, -radius), explosionPos.offset(radius, radius, radius))) {
+            Block block = this.level.getBlockState(pos).getBlock();
+            if (block == Blocks.COBBLED_DEEPSLATE) {
+                this.level.destroyBlock(pos, false);
         }
 
-
-
+        }}
 
     @Override
     public Packet<?> getAddEntityPacket() {

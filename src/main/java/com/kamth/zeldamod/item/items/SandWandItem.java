@@ -43,7 +43,7 @@ public class SandWandItem extends Item {
     public SandWandItem(Properties pProperties) {
         super(pProperties);
     }
-    protected static final Map<Block, Block> STRIPPABLES = (new ImmutableMap.Builder<Block, Block>()).put(Blocks.MANGROVE_LOG, Blocks.STRIPPED_MANGROVE_LOG).build();
+
 
     @Override
 
@@ -51,7 +51,9 @@ public class SandWandItem extends Item {
         BlockHitResult ray = raytrace1(world, player, ClipContext.Fluid.NONE);
         BlockPos lookPos = ray.getBlockPos().relative(ray.getDirection());
 
-
+        ItemStack stack = player.getItemInHand(hand);
+        stack.setDamageValue(stack.getDamageValue() + 2);
+        if (stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);
         world.setBlockAndUpdate(lookPos, Blocks.SAND.defaultBlockState());
         world.addParticle(ParticleTypes.CLOUD, lookPos.getX() , lookPos.getY() + 1.5, lookPos.getZ() + .3,  0.0D, 0.0D, 0.0D);
         world.addParticle(ParticleTypes.CLOUD, lookPos.getX(), lookPos.getY() + 1.7, lookPos.getZ() + .5, 0.0D, 0.0D, 0.0D);
@@ -80,9 +82,9 @@ public class SandWandItem extends Item {
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
         if (pState.is(BlockTags.SAND)) {
-
+            return 10.0F;
         }
-        return 10.0F;
+       else return  1f;
     }}
 
 

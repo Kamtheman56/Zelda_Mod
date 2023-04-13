@@ -11,7 +11,8 @@ import net.minecraft.world.level.block.Block;
 public class ModTags {
     public static class Blocks{
 
-
+public static final TagKey<Block> BOMB
+        = tag("bomb_blocks");
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }
