@@ -19,7 +19,8 @@ public class ModItems {
 
     //These are generic items
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new IceRodItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new HammerItem(ModTiers.ZELDA, 1, -2.4f,
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
             () -> new FireRodItem(new Item.Properties().durability(5).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
@@ -73,9 +74,9 @@ public class ModItems {
             () -> new MasterSwordItem(ModTiers.ZELDAU, 6, -2.4f,
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
-            () -> new SlingshotItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new SlingshotItem(new Item.Properties().defaultDurability(284).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SCATTERSHOT = ITEMS.register("scattershot",
-            () -> new ScattershotItem(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new ScattershotItem(new Item.Properties().defaultDurability(488).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> ROC_FEATHER = ITEMS.register("roc_feather",
             () -> new FeatherItem(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SAND_ROD = ITEMS.register("sand_rod",
@@ -180,6 +181,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> KOKIRI_BOOTS = ITEMS.register("kokiriboots",
             ()-> new ArmorItem(ModArmorMaterials.Kokiri, EquipmentSlot.FEET,
                     new Item.Properties().defaultDurability(65).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<ArmorItem> ROC_CAPE = ITEMS.register("roc_cape",
+            ()-> new RocCape(ModArmorMaterials.Roc, EquipmentSlot.CHEST,
+                    new Item.Properties().defaultDurability(380).tab(ModCreativeModeTab.ZELDA_TAB)));
 
 
 

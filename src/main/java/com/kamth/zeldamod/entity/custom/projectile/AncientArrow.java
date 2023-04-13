@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.item.ModItems;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -43,12 +44,14 @@ public class AncientArrow extends AbstractArrow {
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
-        int i = entity instanceof EnderDragon ? 50 : 0;
+        int i = entity instanceof EnderDragon ? 10 : 0;
         entity.hurt(DamageSource.GENERIC.setProjectile(), (float)i);
-        int w = entity instanceof WitherBoss ? 50 : 0;
+        int w = entity instanceof WitherBoss ? 10 : 0;
         entity.hurt(DamageSource.GENERIC.setProjectile(), (float)w);
-        int s = entity instanceof Warden ? 50 : 0;
+        int s = entity instanceof Warden ? 10 : 0;
         entity.hurt(DamageSource.GENERIC.setProjectile(), (float)s);
+
+
     }
     @Override
     public void onAddedToWorld() {

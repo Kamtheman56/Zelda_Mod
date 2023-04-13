@@ -28,30 +28,28 @@ public class FireProjectile extends ThrowableProjectile {
         super(fireProjectileEntityType,level);
     }
 
-        @Override
-        protected void onHitBlock(@NotNull BlockHitResult ray) {
-            super.onHitBlock(ray);
-            BlockState blockHit = level.getBlockState(ray.getBlockPos());
-            if (level.isEmptyBlock(this.blockPosition())){
-                level.setBlock(this.blockPosition(), Blocks.FIRE.defaultBlockState(),11);}
-            if (blockHit.getMaterial() == Material.ICE){
-                level.destroyBlock(ray.getBlockPos(), false);
-            }
-            if (blockHit.getBlock() == Blocks.PACKED_ICE){
-                level.destroyBlock(ray.getBlockPos(), false);
-            }
-            if (blockHit.getBlock() == Blocks.POWDER_SNOW){
-                level.destroyBlock(ray.getBlockPos(), false);
-            }
-            this.discard();
+    @Override
+    protected void onHitBlock(@NotNull BlockHitResult ray) {
+        super.onHitBlock(ray);
+        if (level.isEmptyBlock(this.blockPosition()))
+            level.setBlock(this.blockPosition(), Blocks.FIRE.defaultBlockState(),11);
+        BlockState blockHit = level.getBlockState(ray.getBlockPos());
+        if (blockHit.getMaterial() == Material.ICE){
+            level.destroyBlock(ray.getBlockPos(), false);
         }
+        if (blockHit.getBlock() == Blocks.PACKED_ICE){
+            level.destroyBlock(ray.getBlockPos(), false);
+        }
+
+        this.discard();
+    }
 
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
         entity.setSecondsOnFire(30);
-        entity.hurt(DamageSource.MAGIC,4);
+        entity.hurt(DamageSource.MAGIC,6);
         this.discard();
         this.playSound(SoundEvents.FIRECHARGE_USE);
     }

@@ -60,6 +60,7 @@ public class LeafItem extends Item {
 player.resetFallDistance();
        player.setDeltaMovement(vec3.x, -0.05, vec3.z);
         player.setDeltaMovement(player.getDeltaMovement().add(player.getDeltaMovement().multiply(.07D, 1D, .07D)));
+
     }
     @Override
     public int getUseDuration(ItemStack itemStack)
@@ -67,7 +68,7 @@ player.resetFallDistance();
         return 72000;
     }
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-        pStack.hurtAndBreak(1, pAttacker, (p_43296_) -> {
+        pStack.hurtAndBreak(3, pAttacker, (p_43296_) -> {
             p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
         });
         return true;

@@ -53,8 +53,8 @@ public class GustProjectile extends ThrowableProjectile {
         if (blockHit.is(BlockTags.SAND)){
             level.destroyBlock(ray.getBlockPos(), true);
         }
-        if (blockHit.is(BlockTags.FIRE)){
-            level.removeBlock(ray.getBlockPos(), false);
+        if (blockHit.getBlock() == Blocks.FIRE){
+            this.level.destroyBlock(ray.getBlockPos(), false);
         }
        else if (blockHit.getMaterial() != Material.LEAVES && !blockHit.is(BlockTags.SAND)  ){
             this.discard();

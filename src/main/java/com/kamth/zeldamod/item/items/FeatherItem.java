@@ -45,6 +45,9 @@ public class FeatherItem extends Item {
                 if (entity instanceof Player && ((Player) entity).getMainHandItem().getItem() == ModItems.ROC_FEATHER.get()) {
                     ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 1, true, false));
                     entity.resetFallDistance();}
+            if (entity instanceof Player && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HEAVY_BOOTS.get()) {
+                ((Player) entity).removeEffect(new MobEffectInstance(MobEffects.JUMP, 10, 1, true, false).getEffect());
+              }
             }
         }
     @Override
@@ -57,3 +60,5 @@ world.playSound(null,player.getX(),player.getY(),player.getZ(), SoundEvents.WOOL
 
         return super.use(world, player, hand);
 }}
+
+//Todo feather and heavy boots interaction

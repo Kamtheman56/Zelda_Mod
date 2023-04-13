@@ -1,7 +1,9 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
@@ -42,13 +44,7 @@ public class BombProjectile extends ThrowableProjectile {
     }
 
 
-    private Instant initCreationTimestamp(Level world) {
-        return world.isClientSide ? Instant.now() : null;
-    }
 
-    private static int toTicks(float seconds) {
-        return (int) (seconds * TICKS_PER_SECOND);
-    }
 
 
     @Override
@@ -97,12 +93,26 @@ protected float getGravity() {
     {this.playSound(SoundEvents.FIRE_EXTINGUISH, 1, 1);
         this.discard();
     }
+    int particlesDensity = 1;
+    float particlesSpeed = .2F;
+    float particlesSpread = 0F;
 
+    for (int i = 0; i < particlesDensity; i++)
+    {
+        double particleX = getX() + (random.nextFloat() * 2 - 1) * particlesSpread;
+        double particleY = getY() + (random.nextFloat() * 3 - 1) * particlesSpread;
+        double particleZ = getZ() + (random.nextFloat() * 2 - 1) * particlesSpread;
+        double particleMotionX = (random.nextFloat() * 0 - 0) * particlesSpeed;
+        double particleMotionY = (random.nextFloat() * 1 - 0) * particlesSpeed;
+        double particleMotionZ = (random.nextFloat() * 0 - 0) * particlesSpeed;
+        level.addParticle(ParticleTypes.SMOKE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
+    }
     if (!this.level.isClientSide) {
             if (this.ticksToExplode <= this.tickCount) {
                 explode();}
         else   if(this.tickCount % 25 == 0) {
                 this.playSound(SoundEvents.TNT_PRIMED, 1, 1);
+
             }}}
 
     private void explode() {
@@ -110,10 +120,10 @@ protected float getGravity() {
             this.discard();
         //credit to SupersLegends for the destroying specific block code
         BlockPos explosionPos = this.blockPosition();
-        int radius = 3;
+        int radius = (int) Math.ceil(explosionPower);
         for (BlockPos pos : BlockPos.betweenClosed(explosionPos.offset(-radius, -radius, -radius), explosionPos.offset(radius, radius, radius))) {
-            Block block = this.level.getBlockState(pos).getBlock();
-            if (block == Blocks.COBBLED_DEEPSLATE) {
+            BlockState blockState = this.level.getBlockState(pos).getBlock().defaultBlockState();
+            if (blockState.is(ModTags.Blocks.BOMB)){
                 this.level.destroyBlock(pos, false);
         }
 

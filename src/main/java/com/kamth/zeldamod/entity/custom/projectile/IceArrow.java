@@ -44,13 +44,14 @@ public class IceArrow extends AbstractArrow {
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
+        Entity owner = this.getOwner();
         Entity entity = pResult.getEntity();
-        entity.setTicksFrozen(250);
+      if (pResult.getEntity() != owner){
+          entity.setTicksFrozen(250);
+      }}
 
 
 
-       
-    }
     @Override
     public void tick() {
         super.tick();
@@ -59,7 +60,7 @@ public class IceArrow extends AbstractArrow {
 
             this.discard();}
         if (this.isInLava()){
-            level.setBlockAndUpdate(this.blockPosition(), Blocks.FROSTED_ICE.defaultBlockState());
+            level.setBlockAndUpdate(this.blockPosition(), Blocks.COBBLESTONE.defaultBlockState());
             this.discard();}
         }
     @Override

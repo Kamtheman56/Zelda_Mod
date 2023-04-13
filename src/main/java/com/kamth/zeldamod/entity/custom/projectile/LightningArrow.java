@@ -7,10 +7,13 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -56,6 +59,8 @@ public class LightningArrow extends AbstractArrow {
                     lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
                     this.level.addFreshEntity(lightningbolt);
     }}
+        int i = entity instanceof IronGolem ? 10 : 0;
+        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)i);
     if (entity.isInWaterOrRain()){
         setBaseDamage(10);
     }

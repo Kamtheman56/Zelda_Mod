@@ -69,6 +69,9 @@ public class SlingshotItem extends BowItem {
                             player.getInventory().removeItem(itemStack);
                         }
                     }
+                    stack.hurtAndBreak(1, player, (p_40665_) -> {
+                        p_40665_.broadcastBreakEvent(player.getUsedItemHand());
+                    });
 
                     player.awardStat(Stats.ITEM_USED.get(this));
 

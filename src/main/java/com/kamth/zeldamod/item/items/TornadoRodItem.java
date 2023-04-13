@@ -36,8 +36,10 @@ public class TornadoRodItem extends Item {
             player.getCooldowns().addCooldown(this, 18);
             player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 20, 0,true,false));
             ItemStack stack = player.getItemInHand(hand);
-            stack.setDamageValue(stack.getDamageValue() + 2);
-            if (stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);
+            stack.hurtAndBreak(2, player, (p_43296_) -> {
+                p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+                p_43296_.broadcastBreakEvent(EquipmentSlot.OFFHAND);
+            });
         }
         player.awardStat(Stats.ITEM_USED.get(this));
         if  (!player.isOnGround()) {
@@ -65,9 +67,13 @@ public class TornadoRodItem extends Item {
         Player player = (Player) livingEntity;
         Vec3 vec3 = player.getDeltaMovement();
 player.resetFallDistance();
-       player.setDeltaMovement(vec3.x, -0.2, vec3.z);
+       player.setDeltaMovement(vec3.x, -0.27, vec3.z);
+     //   stack.hurtAndBreak(1, player, (p_43296_) -> {
+     //       p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+     //       p_43296_.broadcastBreakEvent(EquipmentSlot.OFFHAND);
+    //    });
+        }
 
-    }
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
         pStack.hurtAndBreak(6, pAttacker, (p_43296_) -> {
             p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);

@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.item.ModItems;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -12,6 +13,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
@@ -22,6 +24,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class BombArrow extends AbstractArrow {
     private static final double BASE_DAMAGE = 1.0D;
+    private int explosionPower = 3;
     public BombArrow(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -43,15 +46,13 @@ public class BombArrow extends AbstractArrow {
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
-
-        level.explode(this,this.getX(),this.getY(),this.getZ(),3, Explosion.BlockInteraction.NONE);
+        explode();
 
     }
     @Override
     public void tick() {
         super.tick();
-        if (this.isInWater()){    this.playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM);
-
+        if (this.isInWater()){    this.playSound(SoundEvents.FIRE_EXTINGUISH);
             this.discard();}
     }
     @Override
@@ -63,11 +64,23 @@ public class BombArrow extends AbstractArrow {
     @Override
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
-        level.explode(this,this.getX(),this.getY(),this.getZ(),3, Explosion.BlockInteraction.NONE);
-
+        explode();
         this.discard();
 
 }
+    private void explode() {
+        this.level.explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Explosion.BlockInteraction.NONE);
+        this.discard();
+        //credit to SupersLegends for the destroying specific block code
+        BlockPos explosionPos = this.blockPosition();
+        int radius = 3;
+        for (BlockPos pos : BlockPos.betweenClosed(explosionPos.offset(-radius, -radius, -radius), explosionPos.offset(radius, radius, radius))) {
+            Block block = this.level.getBlockState(pos).getBlock();
+            if (block == Blocks.COBBLED_DEEPSLATE) {
+                this.level.destroyBlock(pos, false);
+            }
+
+        }}
 @Override
 protected SoundEvent getDefaultHitGroundSoundEvent() {
     return SoundEvents.TNT_PRIMED;

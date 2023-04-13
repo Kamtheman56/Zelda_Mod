@@ -23,7 +23,7 @@ public class FireRodItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-    player.getCooldowns().addCooldown(this, 30);
+    player.getCooldowns().addCooldown(this, 38);
     world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.NEUTRAL, 1F, -2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
         ItemStack stack = player.getItemInHand(hand);
         stack.setDamageValue(stack.getDamageValue() + 2);

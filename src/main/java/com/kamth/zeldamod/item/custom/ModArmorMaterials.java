@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.custom;
 
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
@@ -54,7 +55,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.MAGMA_CREAM); }),
     ZoraTunic("zoratunic", 0, new int[]{1, 2, 4, 1}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Items.NAUTILUS_SHELL); });
+        return Ingredient.of(Items.NAUTILUS_SHELL); }),
+    Roc("roc", 0, new int[]{1, 2, 4, 1}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(ModItems.ROC_FEATHER.get()); });
 
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};

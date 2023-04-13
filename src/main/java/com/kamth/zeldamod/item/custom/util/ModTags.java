@@ -13,6 +13,8 @@ public class ModTags {
 
 public static final TagKey<Block> BOMB
         = tag("bomb_blocks");
+        public static final TagKey<Block> HAMMER
+                = tag("hammer_blocks");
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }
