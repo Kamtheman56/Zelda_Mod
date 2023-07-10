@@ -60,7 +60,7 @@ public class LightningArrow extends AbstractArrow {
                     this.level.addFreshEntity(lightningbolt);
     }}
         int i = entity instanceof IronGolem ? 10 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)i);
+        entity.hurt(DamageSource.MAGIC.setProjectile(), (float)i);
     if (entity.isInWaterOrRain()){
         setBaseDamage(10);
     }

@@ -4,6 +4,7 @@ import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -29,7 +30,7 @@ public class IceArrow extends AbstractArrow {
     public IceArrow(EntityType<? extends AbstractArrow> pEntityType, double pX, double pY, double pZ, Level pLevel) {
         super(pEntityType, pX, pY, pZ, pLevel);
     }
-
+//TODO fix hitting yourself with arrow???
     public IceArrow(EntityType<? extends AbstractArrow> pEntityType, LivingEntity pShooter, Level pLevel) {
         super(pEntityType, pShooter, pLevel);
     }
@@ -44,13 +45,15 @@ public class IceArrow extends AbstractArrow {
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
-        Entity owner = this.getOwner();
         Entity entity = pResult.getEntity();
-      if (pResult.getEntity() != owner){
-          entity.setTicksFrozen(250);
-      }}
+    }
 
-
+    @Override
+    protected void doPostHurtEffects(LivingEntity entity)
+    {
+        super.doPostHurtEffects(entity);
+ entity.setTicksFrozen(40);
+    }
 
     @Override
     public void tick() {

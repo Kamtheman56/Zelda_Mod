@@ -32,7 +32,8 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<Deku_Nut>> DEKU_NUT = ENTITY_TYPES.register("deku_nut", () -> Builder.<Deku_Nut>of(Deku_Nut::new, MobCategory.MISC).sized(0.7f,0.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "deku_nut").toString()));
     public static final RegistryObject<EntityType<FireProjectile>> FIRE_PROJECTILE = ENTITY_TYPES.register("fire_projectile", () -> Builder.<FireProjectile>of(FireProjectile::new, MobCategory.MISC).sized(1.7f,.8f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "fire_projectile").toString()));
     public static final RegistryObject<EntityType<IceProjectile>> ICE_PROJECTILE = ENTITY_TYPES.register("ice_projectile", () -> Builder.<IceProjectile>of(IceProjectile::new, MobCategory.MISC).sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "ice_projectile").toString()));
-
+    public static final RegistryObject<EntityType<BoomerangProjectile>> BOOMERANG = ENTITY_TYPES.register("boomerang_projectile", () -> Builder.<BoomerangProjectile>of(BoomerangProjectile::new, MobCategory.MISC).sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "boomerang").toString()));
+    public static final RegistryObject<EntityType<MagicBoomerangProjectile>> MAGIC_BOOMERANG = ENTITY_TYPES.register("magic_boomerang_projectile", () -> Builder.<MagicBoomerangProjectile>of(MagicBoomerangProjectile::new, MobCategory.MISC).sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "magic_boomerang").toString()));
     public static void register(IEventBus modEventBus) {
         ENTITY_TYPES.register(modEventBus);
 
