@@ -43,7 +43,6 @@ public class FireArrow extends AbstractArrow {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
         entity.setSecondsOnFire(60);
-
     }
     @Override
     public void onAddedToWorld() {

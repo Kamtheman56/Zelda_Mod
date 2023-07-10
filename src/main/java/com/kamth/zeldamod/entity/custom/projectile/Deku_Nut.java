@@ -45,10 +45,9 @@ public class Deku_Nut extends ThrowableProjectile {
 
         entity.hurt(DamageSource.thrown(this, this.getOwner()), (float)2);
         if (entity instanceof LivingEntity livingEntity) {
-            livingEntity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20, 0));
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 60, 0));
         }
     }
-
 
 
     @Override

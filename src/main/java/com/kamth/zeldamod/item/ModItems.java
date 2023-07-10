@@ -109,6 +109,8 @@ public class ModItems {
             () -> new IceRodItem(new Item.Properties().durability(218).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> TORNADO_ROD = ITEMS.register("tornado_rod",
             () -> new TornadoRodItem(new Item.Properties().durability(218).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> BOOMERANG = ITEMS.register("boomerang",
+            () -> new BoomerangItem(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> HYLIAN_SHIELD = ITEMS.register("hylian_shield",

@@ -26,5 +26,6 @@ public class ClientModEventSubscriber {
         event.registerEntityRenderer(ModEntityTypes.DEKU_NUT.get(), DekuRender::new);
         event.registerEntityRenderer(ModEntityTypes.FIRE_PROJECTILE.get(), FireRender::new);
         event.registerEntityRenderer(ModEntityTypes.ICE_PROJECTILE.get(), IceRender::new);
+        event.registerEntityRenderer(ModEntityTypes.BOOMERANG.get(), BoomerangRender::new);
     }
 }
