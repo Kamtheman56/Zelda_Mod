@@ -40,7 +40,9 @@ public class BoomerangItem extends Item {
         if (!player.getAbilities().instabuild) {
             itemstack.shrink(1);
         }
-
+        if (player.getAbilities().instabuild) {
+            itemstack.shrink(1);
+        }
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }
 }

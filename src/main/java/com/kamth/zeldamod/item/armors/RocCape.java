@@ -1,13 +1,11 @@
 package com.kamth.zeldamod.item.armors;
 
+import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.ElytraItem;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public class RocCape extends ArmorItem {
@@ -18,8 +16,11 @@ public class RocCape extends ArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
         player.addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 1, true, false));
+        if (player.isFallFlying()){
+            player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 10, 0, true, false));}
 player.resetFallDistance();
     }
+
     @Override
     public boolean canElytraFly(ItemStack stack, net.minecraft.world.entity.LivingEntity entity) {
         return ElytraItem.isFlyEnabled(stack);
@@ -33,6 +34,9 @@ player.resetFallDistance();
                     stack.hurtAndBreak(2, entity, e -> e.broadcastBreakEvent(net.minecraft.world.entity.EquipmentSlot.CHEST));
                 }
                 entity.gameEvent(net.minecraft.world.level.gameevent.GameEvent.ELYTRA_GLIDE);
+            }
+            if (nextFlightTick == 60){
+                return false;
             }
         }
         return true;

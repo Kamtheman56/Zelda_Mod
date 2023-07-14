@@ -11,8 +11,10 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.Container;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -24,9 +26,14 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CampfireBlock;
+import net.minecraft.world.level.block.LeverBlock;
+import net.minecraft.world.level.block.entity.Hopper;
+import net.minecraft.world.level.block.entity.HopperBlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -34,7 +41,7 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
-
+import java.util.List;
 
 
 public class BoomerangProjectile extends AbstractArrow {
@@ -69,10 +76,13 @@ public class BoomerangProjectile extends AbstractArrow {
         return boomerangItem;
     }
     protected boolean tryPickup(Player pPlayer) {
-        return super.tryPickup(pPlayer) || this.isNoPhysics() && this.ownedBy(pPlayer) && pPlayer.getInventory().add(this.getPickupItem());
+        return super.tryPickup(pPlayer) || this.isNoPhysics() && this.ownedBy(pPlayer)  && pPlayer.getInventory().add(this.getPickupItem());
     }
+
+
     public void tick() {
         this.setNoGravity(true);
+        this.captureDrops();
         if (this.tickCount > 15) {
             this.dealtDamage = true;
 
@@ -83,12 +93,13 @@ public class BoomerangProjectile extends AbstractArrow {
         int i = 1;
         if (i > 0 && (this.dealtDamage || this.isNoPhysics()) && entity != null) {
             if (!this.isAcceptibleReturnOwner()) {
-                if (!this.level.isClientSide && this.pickup == AbstractArrow.Pickup.ALLOWED) {
+                if (!this.level.isClientSide && this.pickup == Pickup.ALLOWED) {
                     this.spawnAtLocation(this.getPickupItem(), 0.1F);
                 }
 
                 this.discard();
             } else {
+                this.turn(this.getY(),this.getX());
                 this.setNoPhysics(true);
                 Vec3 vec3 = entity.getEyePosition().subtract(this.position());
                 this.setPosRaw(this.getX(), this.getY() + vec3.y * 0.015D * (double)i, this.getZ());
@@ -113,7 +124,7 @@ public class BoomerangProjectile extends AbstractArrow {
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
        this.dealtDamage=true;
-
+        BlockState blockHit = level.getBlockState(ray.getBlockPos());
     }
 
     private boolean isAcceptibleReturnOwner() {

@@ -102,6 +102,7 @@ public class GustProjectile extends ThrowableProjectile {
             double particleMotionZ = (random.nextFloat() * 2 - 1) * particlesSpeed;
             level.addParticle(ParticleTypes.CLOUD, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
         }
+
         if (this.isInFluidType()){
             this.discard();
         }

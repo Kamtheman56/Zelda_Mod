@@ -113,6 +113,9 @@ public class ModItems {
             () -> new BoomerangItem(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MAGIC_BOOMERANG = ITEMS.register("magic_boomerang",
             () -> new MagicBoomerangItem(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> HAMMER = ITEMS.register("wooden_hammer",
+            () -> new HammerItem(ModTiers.ZELDA, 1, -2.4f,
+                    new Item.Properties().defaultDurability(260).tab(ModCreativeModeTab.ZELDA_TAB)));
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> HYLIAN_SHIELD = ITEMS.register("hylian_shield",

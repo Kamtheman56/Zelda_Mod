@@ -42,6 +42,9 @@ public class MagicBoomerangProjectile extends BoomerangProjectile{
         super.onAddedToWorld();
         setBaseDamage(BASE_DAMAGE);
     }
+    protected float getWaterInertia() {
+        return 0.99F;
+    }
     @Override
     public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);

@@ -51,7 +51,11 @@
   "item.zeldamod.ice_rod": "Ice Rod",
   "item.zeldamod.tornado_rod": "Tornado Rod",
   "item.zeldamod.boomerang": "Boomerang",
-  "item:zeldamod:magic_boomerang":"Magic Boomerang",
+  "item.zeldamod.wooden_hammer": "Magic Hammer",
+  "item.zeldamod.magic_boomerang": "Magic Boomerang",
+
+
+
 
   //armors
   "item.zeldamod.heavyboots": "Heavy Boots",
@@ -73,6 +77,7 @@
   "item.zeldamod.goronhelmet": "Goron Helmet",
   "item.zeldamod.kokirihat": "Kokiri Helmet",
   "item.zeldamod.kokiripants": "Kokiri Pants",
+  "item.zeldamod.roc_cape": "Roc's Cape",
 
 "effect.zeldamod.deku": "Water Hopping",
   "effect.zeldamod.hover": "Hover"
