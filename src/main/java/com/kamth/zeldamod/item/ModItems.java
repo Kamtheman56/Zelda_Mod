@@ -132,11 +132,15 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<PegasusBoots> PEGASUS_BOOTS = ITEMS.register("pegasusboots",
             ()-> new PegasusBoots(ModArmorMaterials.PEGASUS, EquipmentSlot.FEET,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Flippers> FLIPPERS = ITEMS.register("flippers",
+            ()-> new Flippers(ModArmorMaterials.ZoraTunic, EquipmentSlot.FEET,
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
 
 
 
 
-   //Masks
+
+    //Masks
 
     public static final RegistryObject<ArmorItem> DEKU_MASK = ITEMS.register("dekumask",
             ()-> new DekuMask(ModArmorMaterials.DEKU, EquipmentSlot.HEAD,

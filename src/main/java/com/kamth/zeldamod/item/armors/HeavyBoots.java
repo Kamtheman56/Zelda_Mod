@@ -71,19 +71,14 @@ public class HeavyBoots extends ArmorItem {
         }
         {
             Level level = world;
-
             if (player.isCrouching()){
-return;
-            }
-
+return;}
             else if (level.getBlockState(player.getOnPos()).getMaterial() == Material.GLASS) {
-                level.destroyBlock(player.getOnPos(), false);
-            }
+                level.destroyBlock(player.getOnPos(), false);}
             if (player.isCrouching()){}
             else if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE) {
                 level.destroyBlock(player.getOnPos(), true);
-                return;}
-        }
+                return;}}
     }
 
 

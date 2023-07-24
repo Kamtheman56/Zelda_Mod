@@ -36,7 +36,7 @@ import java.util.UUID;
 //Todo add a keybinding to start spin attack
 
 public class ZoraMask extends ArmorItem {
-    private static final AttributeModifier ZORA_SWIMSPEED = new AttributeModifier(UUID.fromString("4a312f09-78e0-4f3a-95c2-07ed63212472"), "zeldamod:zoramask", 2, AttributeModifier.Operation.ADDITION);
+    private static final AttributeModifier ZORA_SWIMSPEED = new AttributeModifier(UUID.fromString("4a312f09-78e0-4f3a-95c2-07ed63212472"), "zeldamod:zoramask", 2.4, AttributeModifier.Operation.ADDITION);
 
 
 
