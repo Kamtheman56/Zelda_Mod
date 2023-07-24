@@ -124,6 +124,7 @@ public class BoomerangProjectile extends AbstractArrow {
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
        this.dealtDamage=true;
+       this.tickCount=16;
         BlockState blockHit = level.getBlockState(ray.getBlockPos());
     }
 
@@ -162,12 +163,20 @@ this.dealtDamage=true;
         }
 
     }
+    public void addAdditionalSaveData(CompoundTag pCompound) {
+        super.addAdditionalSaveData(pCompound);
+        pCompound.put("Trident", this.boomerangItem.save(new CompoundTag()));
+        pCompound.putBoolean("DealtDamage", this.dealtDamage);
+    }
     @Override
     public boolean canChangeDimensions() {
         return false;
     }
     protected boolean canHitEntity(Entity p_37135_) {
         return super.canHitEntity(p_37135_) || p_37135_.isAlive() && p_37135_ instanceof ItemEntity;
+    }
+    public boolean shouldRender(double pX, double pY, double pZ) {
+        return true;
     }
 @Override
 protected SoundEvent getDefaultHitGroundSoundEvent() {

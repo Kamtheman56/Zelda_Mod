@@ -2,6 +2,7 @@ package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.custom.util.ModTags;
+import com.mojang.math.Vector3d;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 
 import java.time.Instant;
@@ -27,11 +29,6 @@ public class BombProjectile extends ThrowableProjectile {
 
     private static  int TICKS_PER_SECOND = 20;
     private float ticksToExplode =150f;
-
-
-
-
-
     private int explosionPower = 2;
 
     public BombProjectile(EntityType<BombProjectile> bombProjectileEntityType, Level level) {
@@ -61,10 +58,12 @@ public class BombProjectile extends ThrowableProjectile {
     @Override
     protected void onHitBlock(BlockHitResult ray) {
         super.onHitBlock(ray);
-        setDeltaMovement(getDeltaMovement().multiply(0,0,0));
-        setPos(this.getX(), this.getY(), this.getZ());
+        Vec3 vector3d = ray.getLocation().subtract(this.getX(), this.getY(), this.getZ());
+        this.setDeltaMovement(vector3d);
+        Vec3 vector3d1 = vector3d.normalize().scale((double)0.05F);
+        this.setPosRaw(this.getX() - vector3d1.x, this.getY() - vector3d1.y, this.getZ() - vector3d1.z);
         this.inGround = true;
-        }
+    }
 
 
 
@@ -95,7 +94,7 @@ protected float getGravity() {
     }
     int particlesDensity = 1;
     float particlesSpeed = .2F;
-    float particlesSpread = 0F;
+    float particlesSpread = .2F;
 
     for (int i = 0; i < particlesDensity; i++)
     {

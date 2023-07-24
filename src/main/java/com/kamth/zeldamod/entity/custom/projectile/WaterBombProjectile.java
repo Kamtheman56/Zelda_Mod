@@ -45,10 +45,12 @@ public class WaterBombProjectile extends ThrowableProjectile {
     protected boolean inGround;
 
     @Override
-    protected void onHitBlock(BlockHitResult p_230299_1_) {
-        super.onHitBlock(p_230299_1_);
-        setDeltaMovement(getDeltaMovement().multiply(0,0,0));
-        setPos(this.getX(), this.getY(), this.getZ());
+    protected void onHitBlock(BlockHitResult ray) {
+        super.onHitBlock(ray);
+        Vec3 vector3d = ray.getLocation().subtract(this.getX(), this.getY(), this.getZ());
+        this.setDeltaMovement(vector3d);
+        Vec3 vector3d1 = vector3d.normalize().scale((double)0.05F);
+        this.setPosRaw(this.getX() - vector3d1.x, this.getY() - vector3d1.y, this.getZ() - vector3d1.z);
         this.inGround = true;
     }
 
