@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "zeldamod:master_ore"
+    },
+    {
+      "item": "zeldamod:master_shard"
+    },
+    {
+      "item": "zeldamod:master_shard"
+    },
+    {
+      "item": "zeldamod:master_shard"
+    },
+    {
+      "item": "minecraft:netherite_ingot"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:refined_master_ore"
+  }
+}

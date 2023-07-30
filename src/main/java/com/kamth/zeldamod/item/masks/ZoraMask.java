@@ -36,7 +36,7 @@ import java.util.UUID;
 //Todo add a keybinding to start spin attack
 
 public class ZoraMask extends ArmorItem {
-    private static final AttributeModifier ZORA_SWIMSPEED = new AttributeModifier(UUID.fromString("4a312f09-78e0-4f3a-95c2-07ed63212472"), "zeldamod:zoramask", 2.4, AttributeModifier.Operation.ADDITION);
+    private static final AttributeModifier ZORA_SWIMSPEED = new AttributeModifier(UUID.fromString("4a312f09-78e0-4f3a-95c2-07ed63212472"), "zeldamod:zoramask", 2.6, AttributeModifier.Operation.ADDITION);
 
 
 
@@ -87,12 +87,12 @@ player.setTicksFrozen(200);}
                 event.setCanceled(true);}}}
     public void onLivingHurtEvent(LivingHurtEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
-        if (event.getSource() == DamageSource.FREEZE) {
-            event.setAmount(event.getAmount() * 3);}
-            if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()){
-                if (event.getSource() == DamageSource.LIGHTNING_BOLT) {
+            if (event.getSource() == DamageSource.FREEZE) {
+                event.setAmount(event.getAmount() * 3);}
+            if (event.getSource() == DamageSource.LIGHTNING_BOLT) {
                 event.setAmount(event.getAmount() * 20);}
-        }}}
+        }
+    }
     public void onPlayerSwim (PlayerSwimEvent event){
 
         if (event.getEntity().isUnderWater() && event.getEntity().isCrouching() && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
@@ -105,8 +105,6 @@ player.setTicksFrozen(200);}
         if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {}
             if (!zoraswim.hasModifier(ZORA_SWIMSPEED) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
                 zoraswim.addTransientModifier(ZORA_SWIMSPEED);}
-
-
          else {
 
                 if (zoraswim.hasModifier(ZORA_SWIMSPEED)) {

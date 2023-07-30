@@ -27,6 +27,10 @@ public class ModItems {
             () -> new Item(new Item.Properties().rarity(Rarity.RARE).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> MASTER_SHARD = ITEMS.register("master_shard",
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> MASTER_ORE2 = ITEMS.register("refined_master_ore",
+            () -> new Item(new Item.Properties().rarity(Rarity.EPIC).tab(ModCreativeModeTab.ZELDA_TAB)));
 
 
     //These are potions or consumables
@@ -80,11 +84,11 @@ public class ModItems {
     public static final RegistryObject<Item> ROC_FEATHER = ITEMS.register("roc_feather",
             () -> new FeatherItem(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SAND_ROD = ITEMS.register("sand_rod",
-            () -> new SandWandItem(new Item.Properties().durability(64).tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new SandWandItem(new Item.Properties().durability(96).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BOMB = ITEMS.register("bomb",
-            () -> new BombItem(new Item.Properties().stacksTo(20).rarity(Rarity.UNCOMMON).tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new BombItem(new Item.Properties().stacksTo(16).rarity(Rarity.UNCOMMON).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> WATER_BOMB = ITEMS.register("water_bomb",
-            () -> new WaterBombItem(new Item.Properties().stacksTo(10).rarity(Rarity.UNCOMMON).tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new WaterBombItem(new Item.Properties().stacksTo(8).rarity(Rarity.UNCOMMON).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> HERO_BOW = ITEMS.register("hero_bow",
             () -> new HeroBowItem(new Item.Properties().defaultDurability(550).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> FIRE_ARROW = ITEMS.register("fire_arrow",
@@ -114,7 +118,7 @@ public class ModItems {
     public static final RegistryObject<Item> MAGIC_BOOMERANG = ITEMS.register("magic_boomerang",
             () -> new MagicBoomerangItem(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> HAMMER = ITEMS.register("wooden_hammer",
-            () -> new HammerItem(ModTiers.ZELDA, 1, -2.4f,
+            () -> new HammerItem(ModTiers.ZELDA, 6, -3f,
                     new Item.Properties().defaultDurability(260).tab(ModCreativeModeTab.ZELDA_TAB)));
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));
@@ -134,7 +138,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Flippers> FLIPPERS = ITEMS.register("flippers",
             ()-> new Flippers(ModArmorMaterials.ZoraTunic, EquipmentSlot.FEET,
-                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+                    new Item.Properties().defaultDurability(195).tab(ModCreativeModeTab.ZELDA_TAB)));
 
 
 
@@ -165,7 +169,10 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
     public static final RegistryObject<ArmorItem> FIERCE_MASK = ITEMS.register("fiercemask",
             ()-> new FierceMask(ModArmorMaterials.FIERCE, EquipmentSlot.HEAD,
-                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS).fireResistant()));
+                    new Item.Properties().rarity(Rarity.EPIC).tab(ModCreativeModeTab.ZELDA_MASKS).fireResistant()));
+    public static final RegistryObject<ArmorItem> MAJORA_MASK = ITEMS.register("majoramask",
+            ()-> new MajoraMask(ModArmorMaterials.MAJORA, EquipmentSlot.HEAD,
+                    new Item.Properties().rarity(Rarity.EPIC).tab(ModCreativeModeTab.ZELDA_MASKS).fireResistant()));
 
    //Tunics
     public static final RegistryObject<ArmorItem> KOKIRI_TUNIC = ITEMS.register("kokiritunic",
@@ -195,6 +202,12 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> ROC_CAPE = ITEMS.register("roc_cape",
             ()-> new RocCape(ModArmorMaterials.Roc, EquipmentSlot.CHEST,
                     new Item.Properties().defaultDurability(380).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<ArmorItem> CHAMPION_TUNIC = ITEMS.register("champion_tunic",
+            ()-> new ArmorItem(ModArmorMaterials.Champion, EquipmentSlot.CHEST,
+                    new Item.Properties().defaultDurability(340).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<ArmorItem> CHAMPIONS_TUNIC = ITEMS.register("champions_tunic",
+            ()-> new ArmorItem(ModArmorMaterials.Champions, EquipmentSlot.CHEST,
+                    new Item.Properties().defaultDurability(560).tab(ModCreativeModeTab.ZELDA_TAB)));
 
 
 

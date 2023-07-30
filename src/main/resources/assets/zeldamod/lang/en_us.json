@@ -2,7 +2,7 @@
 
 
 
- //General Items
+
   "item.zeldamod.red_emerald": "Red Emerald",
   "item.zeldamod.blue_emerald": "Blue Emerald",
   "item.zeldamod.master_ore": "Master Ore",
@@ -15,13 +15,15 @@
   "item.zeldamod.shield_potion": "Revitalizing Potion",
   "item.zeldamod.blue_potion": "Blue Potion",
   "item.zeldamod.magic_milk": "Chateau Romani",
+  "item.zeldamod.master_shard": "Master Shard",
+  "item.zeldamod.refined_master_ore": "Refined Master Ore",
 
-  //Creative Mode Tabs
   "itemGroup.zeldatab": "Zelda Items",
   "itemGroup.zeldamask": "Zelda Masks",
   "itemGroup.zeldafood": "Zelda FoodStuffs",
+  "itemGroup.zeldablock": "Zelda Blocks",
 
-//tools
+
   "item.zeldamod.kokiri_sword": "Kokiri Sword",
   "item.zeldamod.razor_sword": "Razor Sword",
   "item.zeldamod.gilded_sword": "Gilded Sword",
@@ -57,7 +59,7 @@
 
 
 
-  //armors
+
   "item.zeldamod.heavyboots": "Heavy Boots",
   "item.zeldamod.hoverboots": "Hover Boots",
   "item.zeldamod.pegasusboots": "Pegasus Boots",
@@ -70,6 +72,7 @@
   "item.zeldamod.nightmask": "All Night Mask",
   "item.zeldamod.blastmask": "Blast Mask",
   "item.zeldamod.fiercemask": "Fierce Deity Mask",
+  "item.zeldamod.majoramask": "Majora's Mask",
   "item.zeldamod.kokiritunic": "Kokiri Tunic",
   "item.zeldamod.zoratunic": "Zora Tunic",
   "item.zeldamod.gorontunic": "Goron Tunic",
@@ -78,7 +81,16 @@
   "item.zeldamod.kokirihat": "Kokiri Helmet",
   "item.zeldamod.kokiripants": "Kokiri Pants",
   "item.zeldamod.roc_cape": "Roc's Cape",
+  "item.zeldamod.flippers": "Zora Flippers",
+  "item.zeldamod.champion_tunic": "Champion's Tunic",
+  "item.zeldamod.champions_tunic": "Champion's Leathers",
 
 "effect.zeldamod.deku": "Water Hopping",
-  "effect.zeldamod.hover": "Hover"
+  "effect.zeldamod.hover": "Hover",
+
+
+  "block.zeldamod.gloom_block": "Gloom Block",
+  "block.zeldamod.secret_stone": "Secret Stone",
+  "block.zeldamod.masters_ore": "Master Ore"
+
 }

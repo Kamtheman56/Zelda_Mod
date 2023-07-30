@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "zeldamod:master_shard"
+    },
+    {
+      "item": "zeldamod:master_shard"
+    },
+    {
+      "item": "zeldamod:master_shard"
+    },
+    {
+      "item": "zeldamod:master_shard"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:master_ore"
+  }
+}

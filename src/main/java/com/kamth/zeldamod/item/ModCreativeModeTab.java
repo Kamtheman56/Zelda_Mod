@@ -20,7 +20,17 @@ public class ModCreativeModeTab {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ModItems.PUMPKIN_SOUP.get());
-        }};}
+        }};
+
+    public static final CreativeModeTab ZELDA_BLOCKS = new CreativeModeTab("zeldablock") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.PEGASUS_BOOTS.get());
+        }};
+
+
+
+}
 
 
 

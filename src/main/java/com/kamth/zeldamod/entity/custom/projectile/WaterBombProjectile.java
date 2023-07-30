@@ -2,6 +2,7 @@ package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
@@ -96,9 +98,10 @@ protected float getGravity() {
         int radius = 3;
         for (BlockPos pos : BlockPos.betweenClosed(explosionPos.offset(-radius, -radius, -radius), explosionPos.offset(radius, radius, radius))) {
             Block block = this.level.getBlockState(pos).getBlock();
-            if (block == Blocks.COBBLED_DEEPSLATE) {
+            BlockState blockState = this.level.getBlockState(pos).getBlock().defaultBlockState();
+            if (blockState.is(ModTags.Blocks.BOMB)){
                 this.level.destroyBlock(pos, false);
-        }}}
+            }}}
     @Override
     public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);

@@ -57,17 +57,17 @@ public class SandWandItem extends Item {
         world.setBlockAndUpdate(lookPos, Blocks.SAND.defaultBlockState());
         world.addParticle(ParticleTypes.CLOUD, lookPos.getX() , lookPos.getY() + 1.5, lookPos.getZ() + .3,  0.0D, 0.0D, 0.0D);
         world.addParticle(ParticleTypes.CLOUD, lookPos.getX(), lookPos.getY() + 1.7, lookPos.getZ() + .5, 0.0D, 0.0D, 0.0D);
-        player.getCooldowns().addCooldown(this, 20);
+       // player.getCooldowns().addCooldown(this, 20);
         world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.SAND_PLACE, SoundSource.PLAYERS, 1.0F, 1.0F);
         return super.use(world, player, hand);
     }
 
 
     protected static BlockHitResult raytrace1(Level pLevel, Player pPlayer, ClipContext.Fluid pFluidMode) {
-        double range = 2;
+        double range = 4;
         float f = pPlayer.getXRot();
         float f1 = pPlayer.getYRot();
-        Vec3 vec3 = pPlayer.getEyePosition(1.0f);
+        Vec3 vec3 = pPlayer.getEyePosition(.5f);
         float f2 = Mth.cos(-f1 * ((float) Math.PI / 180F) - (float) Math.PI);
         float f3 = Mth.sin(-f1 * ((float) Math.PI / 180F) - (float) Math.PI);
         float f4 = -Mth.cos(-f * ((float) Math.PI / 180F));
@@ -76,13 +76,13 @@ public class SandWandItem extends Item {
         float f7 = f2 * f4;
         double d0 = pPlayer.getReachDistance();
         Vec3 vec31 = vec3.add((double) f6 * d0, (double) f5 * d0, (double) f7 * range);
-        return pLevel.clip(new ClipContext(vec3, vec31, ClipContext.Block.OUTLINE, pFluidMode, pPlayer));
+        return pLevel.clip(new ClipContext(vec3, vec31, ClipContext.Block.COLLIDER, pFluidMode, pPlayer));
     }
 
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
         if (pState.is(BlockTags.SAND)) {
-            return 10.0F;
+            return 12.0F;
         }
        else return  1f;
     }}

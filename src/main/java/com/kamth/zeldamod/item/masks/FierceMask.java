@@ -45,26 +45,12 @@ if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.STICK){
         if (event.phase != TickEvent.Phase.START) {
             return;
         }
-
-
-
         AttributeInstance stepHeight;
-
         stepHeight = event.player.getAttribute(ForgeMod.ATTACK_RANGE.get());
-
-
-
-
-        if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.FIERCE_MASK.get()) {
-
-        }
         if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.FIERCE_MASK.get()) {
             stepHeight.addTransientModifier(STEP_HEIGHT_BONUS);
         }
-
-
         else {
-
             if (stepHeight.hasModifier(STEP_HEIGHT_BONUS)) {
                 stepHeight.removeModifier(STEP_HEIGHT_BONUS);
 

@@ -57,16 +57,13 @@ public class DekuMask extends ArmorItem {
             if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
                 if (event.getSource() == DamageSource.ON_FIRE) {
                     event.setAmount(event.getAmount() * 2);}
-                if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
-                    if (event.getSource() == DamageSource.IN_FIRE) {
-                        event.setAmount(event.getAmount() * 2);}
-                if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
-                    if (event.getSource() == DamageSource.LAVA) {
-                        event.setAmount(event.getAmount() * 2);}
-                        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
+                if (event.getSource() == DamageSource.IN_FIRE) {
+                    event.setAmount(event.getAmount() * 2);}
+                if (event.getSource() == DamageSource.LAVA) {
+                    event.setAmount(event.getAmount() * 3);}
                 if (event.getSource() == DamageSource.DROWN) {
-                    event.setAmount(event.getAmount() * 3);
-                }}}}}}
+                    event.setAmount(event.getAmount() * 4);}
+            }}
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 
@@ -85,14 +82,9 @@ public class DekuMask extends ArmorItem {
 
             if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.HAY_BLOCK) {
                 if (player.isCrouching()) {
-
                     player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.JUMP, 10, 6, true, false));
-
-
                 }
-
             }
-
 
             if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.LILY_PAD) {
                 player.addEffect((new MobEffectInstance(ModEffects.DEKU.get(), 40, 0, true, false)));
@@ -100,7 +92,6 @@ public class DekuMask extends ArmorItem {
             }
             //if not standing on water or in water, get effect. Else get nothing
             if (player.isOnGround() && level.getBlockState(player.getOnPos().below(1)).getBlock() != Blocks.WATER) {
-
                 player.addEffect(((new MobEffectInstance(ModEffects.DEKU.get(), 40, 0, true, false))));
             }
             else if (player.isSwimming()){

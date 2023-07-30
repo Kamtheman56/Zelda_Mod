@@ -1,6 +1,7 @@
 package com.kamth.zeldamod;
 
 
+import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
@@ -32,7 +33,7 @@ public class ZeldaMod
 
         ModItems.register(modEventBus);
         ModEntityTypes.register(modEventBus);
-
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);

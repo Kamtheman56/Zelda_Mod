@@ -38,6 +38,9 @@ public enum ModArmorMaterials implements ArmorMaterial {
     BLAST("blast", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.CREEPER_PRIMED,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
+    MAJORA("majora", 0, new int[]{1, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
+            0.0F, 6.0F, () -> {
+        return Ingredient.of(Items.IRON_INGOT); }),
     ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_CHAIN,
             0.0F, 4.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
@@ -56,12 +59,15 @@ public enum ModArmorMaterials implements ArmorMaterial {
     ZoraTunic("zoratunic", 0, new int[]{1, 2, 4, 1}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.NAUTILUS_SHELL); }),
-    Roc("roc", 0, new int[]{1, 2, 4, 1}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Roc("roc", 0, new int[]{1, 2, 2, 1}, 0, SoundEvents.PARROT_FLY,
             0.0F, 0.0F, () -> {
         return Ingredient.of(ModItems.ROC_FEATHER.get()); }),
-    Flippers("flipper", 0, new int[]{1, 2, 4, 1}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Champions("champions", 0, new int[]{1, 2, 7, 1}, 6, SoundEvents.ARMOR_EQUIP_CHAIN,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Items.NAUTILUS_SHELL); });
+        return Ingredient.of(Items.CHAIN); }),
+   Champion("champion", 0, new int[]{1, 2, 5, 1}, 4, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.CHAIN); });
 
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
