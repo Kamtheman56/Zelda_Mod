@@ -90,14 +90,16 @@ player.setTicksFrozen(200);}
             if (event.getSource() == DamageSource.FREEZE) {
                 event.setAmount(event.getAmount() * 3);}
             if (event.getSource() == DamageSource.LIGHTNING_BOLT) {
-                event.setAmount(event.getAmount() * 20);}
+                event.setAmount(event.getAmount() * 4);}
+            if (event.getSource() == DamageSource.ON_FIRE) {
+                event.setAmount(event.getAmount() * 2);}
         }
     }
     public void onPlayerSwim (PlayerSwimEvent event){
 
         if (event.getEntity().isUnderWater() && event.getEntity().isCrouching() && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
             event.setResult(Event.Result.DENY);}}
-//This calls the swim speed attribute to be used! Gotta go fast
+
     private void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.START) {
             return;}
@@ -112,12 +114,11 @@ player.setTicksFrozen(200);}
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if (Screen.hasShiftDown()) {
+            components.add(Component.literal("Swim with ease!").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+        } else {
             components.add(Component.literal("Become a swimming pro!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-
-        }
-
-
-    }
+        }}}
 
 
 

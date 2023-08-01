@@ -3,11 +3,13 @@ package com.kamth.zeldamod.item.masks;
 import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -35,10 +37,10 @@ public class GoronMask extends ArmorItem {
 public void onLivingHurtEvent(LivingHurtEvent event){
     if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
         if (event.getSource() == DamageSource.FALLING_STALACTITE) {
-            event.setAmount(event.getAmount() * 0);}
-        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()){
-            if (event.getSource() == DamageSource.DROWN) {
-                event.setAmount(event.getAmount() * 2);}
+            event.setAmount(event.getAmount() * 0);
+        }
+        if (event.getSource() == DamageSource.DROWN) {
+            event.setAmount(event.getAmount() * 2);
         }}}
 
     @Override
@@ -73,7 +75,7 @@ public void onLivingHurtEvent(LivingHurtEvent event){
             }
             if (player.isSprinting() && !player.isEyeInFluidType(ForgeMod.WATER_TYPE.get())) {
                 player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
-                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 25,5,true,false));}
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 25,6,true,false));}
 
 
     }
@@ -89,6 +91,8 @@ public void onLivingHurtEvent(LivingHurtEvent event){
     }
 @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.literal("Contains the spirit of a Goron").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-
-}}
+    if (Screen.hasShiftDown()) {
+        components.add(Component.literal("Boost, stomp, and punch!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+    } else {
+        components.add(Component.literal("Become grounded!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+}}}

@@ -3,6 +3,7 @@ package com.kamth.zeldamod.item.masks;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -14,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -24,6 +26,7 @@ public class FierceMask extends ArmorItem {
     public FierceMask(ArmorMaterial pMaterial, EquipmentSlot pSlot, Properties pProperties) {
         super(pMaterial, pSlot, pProperties);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
+        MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
     }
 
     @Override
@@ -36,11 +39,15 @@ public class FierceMask extends ArmorItem {
         player.removeEffect(MobEffects.WEAKNESS);
         player.removeEffect(MobEffects.HUNGER);
         player.removeEffect(MobEffects.BLINDNESS);
-if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.STICK){
-    player.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 10, true, false));
-
-        }
     }
+    public void onLivingHurtEvent(LivingHurtEvent event){
+        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
+            if (event.getSource() == DamageSource.MAGIC) {
+                event.setAmount(event.getAmount() - 2);
+            }
+            if (event.getSource() == DamageSource.WITHER) {
+                event.setAmount(event.getAmount() -4);
+            }}}
     private void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.START) {
             return;
@@ -53,14 +60,12 @@ if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.STICK){
         else {
             if (stepHeight.hasModifier(STEP_HEIGHT_BONUS)) {
                 stepHeight.removeModifier(STEP_HEIGHT_BONUS);
-
-
             }
         }
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.literal("The power of a deity").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.literal("The power of a deity").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
 }
 
 }

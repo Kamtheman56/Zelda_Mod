@@ -11,6 +11,11 @@ import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
+import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
@@ -20,6 +25,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SculkBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.EntityHitResult;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -37,14 +43,14 @@ public class MasterSwordItem extends SwordItem {
         }
       else return 1;
     }
+
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
         if (!pLevel.isClientSide && player.isCrouching() && player.getHealth() >= 20 ) {
         player.getCooldowns().addCooldown(this, 30);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.NEUTRAL, 1F, 5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
-
-
             SwordBeam projectile = new SwordBeam(pLevel,player);
             projectile.setOwner(player);
             projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
@@ -62,7 +68,7 @@ public class MasterSwordItem extends SwordItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Shoots Beams at full health!").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Shoots Beams at full health!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         } else {
             components.add(Component.literal("Blade of Evil's Bane").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }

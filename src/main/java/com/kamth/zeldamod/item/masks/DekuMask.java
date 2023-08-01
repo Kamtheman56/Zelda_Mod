@@ -63,32 +63,25 @@ public class DekuMask extends ArmorItem {
                     event.setAmount(event.getAmount() * 3);}
                 if (event.getSource() == DamageSource.DROWN) {
                     event.setAmount(event.getAmount() * 4);}
+                if (event.getSource() == DamageSource.CACTUS) {
+                    event.setResult(Event.Result.DENY);}
             }}
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-
-
-
         player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.SLOW_FALLING, 10, 1, true, false, false));
         if (player.isCrouching()) {
             player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.JUMP, 10, 2, true, false));
         }
-
-
         {
             //Simulate the jumping flowers from MM. Replace with modded flower later
             Level level = world;
-
-
             if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.HAY_BLOCK) {
                 if (player.isCrouching()) {
                     player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.JUMP, 10, 6, true, false));
                 }
             }
-
             if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.LILY_PAD) {
                 player.addEffect((new MobEffectInstance(ModEffects.DEKU.get(), 40, 0, true, false)));
-
             }
             //if not standing on water or in water, get effect. Else get nothing
             if (player.isOnGround() && level.getBlockState(player.getOnPos().below(1)).getBlock() != Blocks.WATER) {
@@ -97,14 +90,12 @@ public class DekuMask extends ArmorItem {
             else if (player.isSwimming()){
                 player.removeEffect(ModEffects.DEKU.get());
             }
-
-
         }
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
-            components.add(Component.literal("Excel at platforming").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Excel at platforming!").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
         } else {
             components.add(Component.literal("Become one with nature!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 
