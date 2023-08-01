@@ -90,29 +90,7 @@ public class IceArrow extends AbstractArrow {
 
 
     }
-    public static void onEntityMoved(LivingEntity pLiving, Level pLevel, BlockPos pPos, int pLevelConflicting) {
-        if (pLiving.isOnGround()) {
-            BlockState blockstate = Blocks.FROSTED_ICE.defaultBlockState();
-            float f = (float)Math.min(16, 2 + pLevelConflicting);
-            BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 
-            for(BlockPos blockpos : BlockPos.betweenClosed(pPos.offset((double)(-f), -1.0D, (double)(-f)), pPos.offset((double)f, -1.0D, (double)f))) {
-                if (blockpos.closerToCenterThan(pLiving.position(), (double)f)) {
-                    blockpos$mutableblockpos.set(blockpos.getX(), blockpos.getY() + 1, blockpos.getZ());
-                    BlockState blockstate1 = pLevel.getBlockState(blockpos$mutableblockpos);
-                    if (blockstate1.isAir()) {
-                        BlockState blockstate2 = pLevel.getBlockState(blockpos);
-                        boolean isFull = blockstate2.getBlock() == Blocks.WATER && blockstate2.getValue(LiquidBlock.LEVEL) == 0; //TODO: Forge, modded waters?
-                        if (blockstate2.getMaterial() == Material.WATER && isFull && blockstate.canSurvive(pLevel, blockpos) && pLevel.isUnobstructed(blockstate, blockpos, CollisionContext.empty()) && !net.minecraftforge.event.ForgeEventFactory.onBlockPlace(pLiving, net.minecraftforge.common.util.BlockSnapshot.create(pLevel.dimension(), pLevel, blockpos), net.minecraft.core.Direction.UP)) {
-                            pLevel.setBlockAndUpdate(blockpos, blockstate);
-                            pLevel.scheduleTick(blockpos, Blocks.FROSTED_ICE, Mth.nextInt(pLiving.getRandom(), 60, 120));
-                        }
-                    }
-                }
-            }
-
-        }
-    }
     @Override
     protected SoundEvent getDefaultHitGroundSoundEvent() {
         return SoundEvents.SNOW_BREAK;
