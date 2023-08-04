@@ -6,6 +6,7 @@ import com.kamth.zeldamod.item.custom.ModArmorMaterials;
 import com.kamth.zeldamod.item.custom.ModFoods;
 import com.kamth.zeldamod.item.items.*;
 import com.kamth.zeldamod.item.masks.*;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,10 +20,9 @@ public class ModItems {
 
     //These are generic items
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new HammerItem(ModTiers.ZELDA, 1, -2.4f,
-                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
-            () -> new FireRodItem(new Item.Properties().durability(5).tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
@@ -120,6 +120,12 @@ public class ModItems {
     public static final RegistryObject<Item> HAMMER = ITEMS.register("wooden_hammer",
             () -> new HammerItem(ModTiers.ZELDA, 6, -3f,
                     new Item.Properties().defaultDurability(260).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> MITTS = ITEMS.register("digging_mitts",
+            () -> new MittsItem(1,-2f,Tiers.STONE, BlockTags.MINEABLE_WITH_PICKAXE,
+                    new Item.Properties().defaultDurability(390).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> MOGMA_MITTS = ITEMS.register("mogma_mitts",
+            () -> new MittsItem2(3,-1.8f,Tiers.IRON, BlockTags.MINEABLE_WITH_PICKAXE,
+                    new Item.Properties().defaultDurability(780).tab(ModCreativeModeTab.ZELDA_TAB)));
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> HYLIAN_SHIELD = ITEMS.register("hylian_shield",

@@ -34,7 +34,6 @@ public class IceArrow extends AbstractArrow {
     public IceArrow(EntityType<? extends AbstractArrow> pEntityType, double pX, double pY, double pZ, Level pLevel) {
         super(pEntityType, pX, pY, pZ, pLevel);
     }
-//TODO fix hitting yourself with arrow???
     public IceArrow(EntityType<? extends AbstractArrow> pEntityType, LivingEntity pShooter, Level pLevel) {
         super(pEntityType, pShooter, pLevel);
     }
