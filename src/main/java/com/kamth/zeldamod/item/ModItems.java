@@ -124,8 +124,10 @@ public class ModItems {
             () -> new MittsItem(1,-2f,Tiers.STONE, BlockTags.MINEABLE_WITH_PICKAXE,
                     new Item.Properties().defaultDurability(390).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MOGMA_MITTS = ITEMS.register("mogma_mitts",
-            () -> new MittsItem2(3,-1.8f,Tiers.IRON, BlockTags.MINEABLE_WITH_PICKAXE,
+            () -> new MittsItem2(2,-1.8f,Tiers.IRON, BlockTags.MINEABLE_WITH_PICKAXE,
                     new Item.Properties().defaultDurability(780).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> GLIDER = ITEMS.register("glider",
+            () -> new GliderItem(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> HYLIAN_SHIELD = ITEMS.register("hylian_shield",

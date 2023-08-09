@@ -1,6 +1,5 @@
 package com.kamth.zeldamod.item.items;
 
-import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;

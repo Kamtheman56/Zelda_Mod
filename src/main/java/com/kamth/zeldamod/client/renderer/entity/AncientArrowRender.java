@@ -2,7 +2,6 @@ package com.kamth.zeldamod.client.renderer.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.custom.projectile.AncientArrow;
-import com.kamth.zeldamod.entity.custom.projectile.IceArrow;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;

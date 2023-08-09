@@ -1,15 +1,12 @@
 package com.kamth.zeldamod.client.renderer.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.BoomerangProjectile;
-import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Matrix3f;
 import com.mojang.math.Matrix4f;
 import com.mojang.math.Vector3f;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -17,8 +14,6 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
-
-import java.math.MathContext;
 
 public class BoomerangRender extends EntityRenderer<BoomerangProjectile> {
     private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/item/boomerang.png");

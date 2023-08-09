@@ -1,16 +1,15 @@
 package com.kamth.zeldamod.item.items;
 
-import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
-import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;

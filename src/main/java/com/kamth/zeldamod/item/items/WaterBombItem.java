@@ -1,6 +1,5 @@
 package com.kamth.zeldamod.item.items;
 
-import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.WaterBombProjectile;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

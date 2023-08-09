@@ -1,6 +1,8 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.custom.projectile.GustProjectile;
+import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -15,24 +17,19 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
-public class LeafItem extends Item {
-    public LeafItem(Properties pProperties) {
+public class GliderItem extends Item {
+    public GliderItem(Properties pProperties) {
         super(pProperties);
     }
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-        if (player.isOnGround()) {
-            GustProjectile bombEntity = new GustProjectile(world,player);
-            bombEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.25F, 0.9F);
-            world.addFreshEntity(bombEntity);
-            player.getCooldowns().addCooldown(this, 20);
-            world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BIG_DRIPLEAF_TILT_DOWN, SoundSource.NEUTRAL, 1F, .2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
-        }
         player.awardStat(Stats.ITEM_USED.get(this));
         if  (!player.isOnGround()) {
             player.startUsingItem(InteractionHand.MAIN_HAND);
             player.startUsingItem(InteractionHand.OFF_HAND);
+            world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.WOOL_PLACE, SoundSource.PLAYERS, 1.2F, 2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
+
         }
         return super.use(world, player, hand);
 
@@ -40,7 +37,7 @@ public class LeafItem extends Item {
 
 
     public UseAnim getUseAnimation(ItemStack pStack) {
-        return UseAnim.BLOCK;
+        return UseAnim.SPEAR;
     }
     @Override
 
@@ -48,10 +45,10 @@ public class LeafItem extends Item {
     {
         Player player = (Player) livingEntity;
         Vec3 vec3 = player.getDeltaMovement();
-player.resetFallDistance();
-       player.setDeltaMovement(vec3.x, -0.05, vec3.z);
-        player.setDeltaMovement(player.getDeltaMovement().add(player.getDeltaMovement().multiply(.07D, 0.4D, .07D)));
 
+player.resetFallDistance();
+       player.setDeltaMovement(vec3.x , -0.05, vec3.z);
+        player.setDeltaMovement(player.getDeltaMovement().add(player.getDeltaMovement().multiply(.05D, 0D, .05D)));
     }
     @Override
     public int getUseDuration(ItemStack itemStack)

@@ -14,8 +14,6 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.Event;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -49,4 +47,5 @@ public class StoneMask extends ArmorItem {
         components.add(Component.literal("Become as plain as stone").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 
 
-    }}
+    }
+}

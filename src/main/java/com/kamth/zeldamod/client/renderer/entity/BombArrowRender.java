@@ -2,8 +2,6 @@ package com.kamth.zeldamod.client.renderer.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.custom.projectile.BombArrow;
-import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
-import com.kamth.zeldamod.entity.custom.projectile.FireArrow;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;

@@ -1,19 +1,13 @@
 package com.kamth.zeldamod.item.armors;
 
-import com.kamth.zeldamod.item.ModItems;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.ForgeMod;
-
-import java.util.Random;
 
 public class ZoraTunic extends ArmorItem {
     public ZoraTunic(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {

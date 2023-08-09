@@ -1,7 +1,6 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.entity.custom.projectile.FireArrow;
 import com.kamth.zeldamod.entity.custom.projectile.IceArrow;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;

@@ -2,7 +2,6 @@ package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.custom.projectile.AncientArrow;
-import com.kamth.zeldamod.entity.custom.projectile.LightningArrow;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ArrowItem;

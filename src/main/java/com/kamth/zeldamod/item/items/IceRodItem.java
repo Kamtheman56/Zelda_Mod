@@ -1,6 +1,5 @@
 package com.kamth.zeldamod.item.items;
 
-import com.kamth.zeldamod.entity.custom.projectile.FireProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.IceProjectile;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -15,7 +14,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class IceRodItem extends Item {

@@ -1,7 +1,6 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.item.custom.util.ModTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
 

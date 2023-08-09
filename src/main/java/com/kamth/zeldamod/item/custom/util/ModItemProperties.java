@@ -4,10 +4,6 @@ import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.ShieldItem;
-
-import static net.minecraft.core.Registry.register;
 
 public class ModItemProperties {
     public static void addCustomItemProperties() {
@@ -17,6 +13,7 @@ public class ModItemProperties {
         makeBow(ModItems.SCATTERSHOT.get());
         makeBow(ModItems.HERO_BOW.get());
         makeShield(ModItems.DEKU_LEAF.get());
+        makeShield(ModItems.GLIDER.get());
     }
 
     private static void makeShield(Item item) {

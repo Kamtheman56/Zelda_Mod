@@ -2,17 +2,13 @@ package com.kamth.zeldamod.item.armors;
 
 import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.google.common.collect.ImmutableMap;
-import com.google.gson.internal.bind.JsonTreeReader;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.ModArmorMaterials;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
@@ -21,15 +17,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.eventbus.api.Event;
-import net.minecraft.world.level.Level;
+
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
