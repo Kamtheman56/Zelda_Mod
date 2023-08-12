@@ -6,7 +6,8 @@
   "mixins": [
 
 "MixinDekuLeafBlock",
-    "MixinLivingEntity"
+    "MixinLivingEntity",
+    "MixinFoxEntity"
   ],
   "client": [
   ],

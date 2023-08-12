@@ -50,9 +50,6 @@ public class ScattershotItem extends SlingshotItem {
 
                 if (shotPower >= 0.1D) {
                     if (!world.isClientSide) {
-
-
-
                        SeedProjectile projectile = createAmmoEntity(world, itemStack);
                         SeedProjectile projectile2 = createAmmoEntity(world, itemStack);
                         SeedProjectile projectile3 = createAmmoEntity(world, itemStack);

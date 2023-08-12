@@ -181,6 +181,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> MAJORA_MASK = ITEMS.register("majoramask",
             ()-> new MajoraMask(ModArmorMaterials.MAJORA, EquipmentSlot.HEAD,
                     new Item.Properties().rarity(Rarity.EPIC).tab(ModCreativeModeTab.ZELDA_MASKS).fireResistant()));
+    public static final RegistryObject<ArmorItem> SCENT_MASK = ITEMS.register("scentmask",
+            ()-> new ScentMask(ModArmorMaterials.SCENT, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
 
    //Tunics
     public static final RegistryObject<ArmorItem> KOKIRI_TUNIC = ITEMS.register("kokiritunic",

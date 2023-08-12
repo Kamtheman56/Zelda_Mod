@@ -45,7 +45,7 @@ public class SeedProjectile extends AbstractArrow {
     }
 
     protected float getFlightSpeed() {
-        return 1F;
+        return 1.3F;
     }
     @Override
     public void tick() {

@@ -37,7 +37,7 @@ player.resetFallDistance();
                 }
                 entity.gameEvent(net.minecraft.world.level.gameevent.GameEvent.ELYTRA_GLIDE);
             }
-            if (nextFlightTick == 60){
+            if (nextFlightTick == 70){
                 return false;
             }
         }
