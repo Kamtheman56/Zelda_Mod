@@ -20,7 +20,7 @@ public class ModItems {
 
     //These are generic items
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new RedRingItem(new Item.Properties().defaultDurability(250).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
@@ -76,6 +76,9 @@ public class ModItems {
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_SWORD3 = ITEMS.register("master_sword3",
             () -> new MasterSwordItem(ModTiers.ZELDAU, 6, -2.4f,
+                    new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> MASTER_SWORD_TRUE = ITEMS.register("master_sword_true",
+            () -> new TrueMasterSwordItem(ModTiers.ZELDAU, 8, -2.4f,
                     new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
             () -> new SlingshotItem(new Item.Properties().defaultDurability(284).tab(ModCreativeModeTab.ZELDA_TAB)));
@@ -184,6 +187,16 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> SCENT_MASK = ITEMS.register("scentmask",
             ()-> new ScentMask(ModArmorMaterials.SCENT, EquipmentSlot.HEAD,
                     new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
+    public static final RegistryObject<ArmorItem> TRUTH_MASK = ITEMS.register("truthmask",
+            ()-> new TruthMask(ModArmorMaterials.TRUTH, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
+    public static final RegistryObject<ArmorItem> KEATON_MASK = ITEMS.register("keatonmask",
+            ()-> new KeatonMask(ModArmorMaterials.KEATON, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
+    public static final RegistryObject<ArmorItem> TROUPE_MASK = ITEMS.register("troupemask",
+            ()-> new TroupeMask(ModArmorMaterials.TROUPE, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(ModCreativeModeTab.ZELDA_MASKS)));
+
 
    //Tunics
     public static final RegistryObject<ArmorItem> KOKIRI_TUNIC = ITEMS.register("kokiritunic",

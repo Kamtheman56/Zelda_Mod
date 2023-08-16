@@ -17,6 +17,8 @@ public static final TagKey<Block> BOMB
                 = tag("hammer_blocks");
         public static final TagKey<Block> MITTS
                 = tag("mitts_blocks");
+        public static final TagKey<Block> SCENT
+                = tag("scent_blocks");
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }

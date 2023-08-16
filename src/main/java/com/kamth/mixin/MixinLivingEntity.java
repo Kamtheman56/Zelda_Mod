@@ -28,7 +28,7 @@ public abstract class MixinLivingEntity extends Entity {
                 return 1.05F;
         }
         if (entity instanceof LivingEntity living  && living.hasEffect(MobEffects.MOVEMENT_SPEED) && living.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
-            return 1.05F;
+            return 1.07F;
         }
         return state.getFriction(level, pos, entity);}
 

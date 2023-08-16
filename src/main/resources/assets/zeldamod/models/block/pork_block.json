@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "down": "zeldamod:block/pork_block_bottom",
+    "particle": "zeldamod:block/pork_block",
+    "up": "zeldamod:block/pork_block_top",
+    "side": "zeldamod:block/pork_block"
+  }
+}

@@ -30,7 +30,7 @@ public class LeafItem extends Item {
             world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BIG_DRIPLEAF_TILT_DOWN, SoundSource.NEUTRAL, 1F, .2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
         }
         player.awardStat(Stats.ITEM_USED.get(this));
-        if  (!player.isOnGround()) {
+        if  (!player.isOnGround() && !player.onClimbable()) {
             player.startUsingItem(InteractionHand.MAIN_HAND);
             player.startUsingItem(InteractionHand.OFF_HAND);
         }
@@ -50,7 +50,7 @@ public class LeafItem extends Item {
         Vec3 vec3 = player.getDeltaMovement();
 player.resetFallDistance();
        player.setDeltaMovement(vec3.x, -0.05, vec3.z);
-        player.setDeltaMovement(player.getDeltaMovement().add(player.getDeltaMovement().multiply(.07D, 0.4D, .07D)));
+        player.setDeltaMovement(player.getDeltaMovement().add(player.getDeltaMovement().multiply(.07D, 0.0D, .07D)));
 
     }
     @Override

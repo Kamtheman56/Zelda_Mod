@@ -39,7 +39,11 @@ public void onLivingHurtEvent(LivingHurtEvent event){
         }
         if (event.getSource() == DamageSource.DROWN) {
             event.setAmount(event.getAmount() * 2);
-        }}}
+        }
+        if (event.getSource() == DamageSource.FALL) {
+            event.setAmount(event.getAmount() * .2F);
+        }
+    }}
 
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {

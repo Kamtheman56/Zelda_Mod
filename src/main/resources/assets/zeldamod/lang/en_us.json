@@ -55,8 +55,8 @@
   "item.zeldamod.boomerang": "Boomerang",
   "item.zeldamod.wooden_hammer": "Magic Hammer",
   "item.zeldamod.magic_boomerang": "Magic Boomerang",
-  "item.zeldamod.digging_mitts": "Digging Mitts",
-  "item.zeldamod.mogma_mitts": "Mogma Mitts",
+  "item.zeldamod.digging_mitts": "Digging Mitt",
+  "item.zeldamod.mogma_mitts": "Mogma Mitt",
   "item.zeldamod.glider": "Paraglider",
 
 
@@ -75,6 +75,10 @@
   "item.zeldamod.blastmask": "Blast Mask",
   "item.zeldamod.fiercemask": "Fierce Deity Mask",
   "item.zeldamod.majoramask": "Majora's Mask",
+  "item.zeldamod.scentmask": "Mask of Scents",
+  "item.zeldamod.truthmask": "Mask of Truth",
+  "item.zeldamod.keatonmask": "Keaton Mask",
+  "item.zeldamod.troupemask": "Troupe Leader's Mask",
   "item.zeldamod.kokiritunic": "Kokiri Tunic",
   "item.zeldamod.zoratunic": "Zora Tunic",
   "item.zeldamod.gorontunic": "Goron Tunic",

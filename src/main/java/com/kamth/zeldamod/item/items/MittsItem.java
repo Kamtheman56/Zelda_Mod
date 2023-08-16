@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.item.items;
 
+import ca.weblite.objc.Proxy;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.kamth.zeldamod.item.custom.util.ModTags;
@@ -29,6 +30,8 @@ import java.util.Map;
 
 
 public class MittsItem extends DiggerItem {
+
+
 
 
     public MittsItem(int pAttackDamageModifier, float pAttackSpeedModifier, Tier pTier, TagKey<Block> pBlocks, Properties pProperties) {

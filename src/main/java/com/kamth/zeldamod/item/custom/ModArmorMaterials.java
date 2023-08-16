@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.Blocks;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    ZORA("zora", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.AXOLOTL_SWIM,
+    ZORA("zora", 0, new int[]{1, 4, 5, 2}, 0, SoundEvents.AXOLOTL_SWIM,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     DEKU("deku", 0, new int[]{1, 4, 5, 1}, 0, SoundEvents.AZALEA_LEAVES_PLACE,
@@ -23,28 +23,37 @@ public enum ModArmorMaterials implements ArmorMaterial {
     GORON("goron", 0, new int[]{1, 4, 5, 4}, 0, SoundEvents.ANCIENT_DEBRIS_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    STONE("stone", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.STONE_PLACE,
+    STONE("stone", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.STONE_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    BUNNY("bunny", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.WOOL_PLACE,
+    BUNNY("bunny", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.WOOL_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     FIERCE("fierce", 0, new int[]{1, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
             0.0F, 6.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    NIGHT("night", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.AMBIENT_CAVE,
+    NIGHT("night", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.AMBIENT_CAVE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    BLAST("blast", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.CREEPER_PRIMED,
+    BLAST("blast", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.CREEPER_PRIMED,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     MAJORA("majora", 0, new int[]{1, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
             0.0F, 6.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    SCENT("scent", 0, new int[]{1, 4, 5, 3}, 0, SoundEvents.PIGLIN_AMBIENT,
+    SCENT("scent", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.PIGLIN_AMBIENT,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.PORKCHOP); }),
-    ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_CHAIN,
+    TRUTH("truth", 0, new int[]{1, 4, 5,0}, 0, SoundEvents.AMETHYST_BLOCK_CHIME,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.AIR); }),
+    KEATON("keaton", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.FOX_AMBIENT,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.AIR); }),
+    TROUPE("troupe", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.VILLAGER_NO,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.AIR); }),
+    ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_IRON,
             0.0F, 4.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     HOVER("hover", 0, new int[]{1, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_ELYTRA,

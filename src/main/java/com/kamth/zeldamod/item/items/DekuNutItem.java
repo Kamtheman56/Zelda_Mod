@@ -20,9 +20,9 @@ public class DekuNutItem extends Item {
         ItemStack itemstack = player.getItemInHand(pHand);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 1F, 0.2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
-            Deku_Nut bombEntity = new Deku_Nut(pLevel,player);
-            bombEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.25F, 0.9F);
-            pLevel.addFreshEntity(bombEntity);
+            Deku_Nut nut = new Deku_Nut(pLevel,player);
+            nut.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.25F, 0.9F);
+            pLevel.addFreshEntity(nut);
         }
 
         player.awardStat(Stats.ITEM_USED.get(this));

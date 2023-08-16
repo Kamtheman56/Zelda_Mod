@@ -66,7 +66,7 @@ public class GustProjectile extends ThrowableProjectile {
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
-        entity.setDeltaMovement(entity.getDeltaMovement().add(getDeltaMovement().multiply(1.1D, 1.1D, 1.1D)));
+        entity.setDeltaMovement(entity.getDeltaMovement().add(getDeltaMovement().multiply(1.2D, 1.3D, 1.2D)));
         entity.clearFire();
     }
 

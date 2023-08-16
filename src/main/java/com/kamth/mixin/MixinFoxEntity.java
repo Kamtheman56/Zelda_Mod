@@ -26,11 +26,11 @@ public abstract class MixinFoxEntity extends Animal
     }
 
     @Inject(method = "trusts", at = @At("HEAD"), cancellable = true)
-    private void injectTrusts(UUID uuid, CallbackInfoReturnable<Boolean> ci)
+    private void Trustmode(UUID uuid, CallbackInfoReturnable<Boolean> ci)
     {
         Player player = level.getPlayerByUUID(uuid);
 
-        if (player != null && player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.SCENT_MASK.get())
+        if (player != null && player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.KEATON_MASK.get())
         {
             ci.setReturnValue(true);
         }

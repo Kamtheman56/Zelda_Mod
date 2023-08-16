@@ -1,0 +1,9 @@
+{
+  "replace": false,
+"values": [
+  "minecraft:coarse_dirt",
+  "minecraft:podzol",
+  "minecraft:mycelium",
+  "minecraft:mud"
+]
+}

@@ -8,6 +8,8 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -25,7 +27,7 @@ public class GliderItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         player.awardStat(Stats.ITEM_USED.get(this));
-        if  (!player.isOnGround()) {
+        if  (!player.isOnGround() && !player.onClimbable()) {
             player.startUsingItem(InteractionHand.MAIN_HAND);
             player.startUsingItem(InteractionHand.OFF_HAND);
             world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.WOOL_PLACE, SoundSource.PLAYERS, 1.2F, 2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
@@ -46,10 +48,10 @@ public class GliderItem extends Item {
         Player player = (Player) livingEntity;
         Vec3 vec3 = player.getDeltaMovement();
 
-player.resetFallDistance();
-       player.setDeltaMovement(vec3.x , -0.05, vec3.z);
-        player.setDeltaMovement(player.getDeltaMovement().add(player.getDeltaMovement().multiply(.05D, 0D, .05D)));
-    }
+      player.resetFallDistance();
+      player.setDeltaMovement(vec3.x, -0.06, vec3.z);
+        player.setDeltaMovement(player.getDeltaMovement().add(player.getDeltaMovement().multiply(.09D, 0.0D, .09D)));
+        }
     @Override
     public int getUseDuration(ItemStack itemStack)
     {

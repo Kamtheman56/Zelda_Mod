@@ -7,7 +7,9 @@
 
 "MixinDekuLeafBlock",
     "MixinLivingEntity",
-    "MixinFoxEntity"
+    "MixinFoxEntity",
+    "MixinMushroomBlock",
+    "MixinAllayAI"
   ],
   "client": [
   ],
