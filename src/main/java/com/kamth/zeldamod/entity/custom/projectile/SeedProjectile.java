@@ -2,9 +2,9 @@ package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -70,16 +70,16 @@ public class SeedProjectile extends AbstractArrow {
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
-        int i = entity instanceof Silverfish ? 20 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)i);
-        int k = entity instanceof Spider ? 2 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)k);
-        int e = entity instanceof CaveSpider ? 2 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)e);
-        int b = entity instanceof Bee ? 20 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)b);
-        int r = entity instanceof Endermite ? 20 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)r);
+       int i = entity instanceof Silverfish ? 20 : 0;
+        entity.hurt(damageSources().generic(), (float)i);
+     int k = entity instanceof Spider ? 2 : 0;
+       entity.hurt(damageSources().generic(), (float)k);
+       int e = entity instanceof CaveSpider ? 2 : 0;
+      entity.hurt(damageSources().generic(), (float)e);
+       int b = entity instanceof Bee ? 20 : 0;
+      entity.hurt(damageSources().generic(), (float)b);
+      int r = entity instanceof Endermite ? 20 : 0;
+      entity.hurt(damageSources().generic(), (float)r);
 
         if (pResult.getEntity() instanceof LivingEntity) {
             LivingEntity target = (LivingEntity) pResult.getEntity();
@@ -98,7 +98,7 @@ public class SeedProjectile extends AbstractArrow {
         return SoundEvents.CHICKEN_EGG;
     }
     @Override
-    public Packet<?> getAddEntityPacket() {
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 }

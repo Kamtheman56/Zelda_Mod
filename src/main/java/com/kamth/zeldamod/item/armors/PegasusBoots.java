@@ -22,8 +22,8 @@ import java.util.UUID;
 public class PegasusBoots extends ArmorItem {
     private static final AttributeModifier STEP_HEIGHT_BONUS = new AttributeModifier(UUID.fromString("a3ec65b9-710d-4ab9-b2d9-16bc07743a78"), "zeldamod:pegasusboots", 0.5, AttributeModifier.Operation.ADDITION);
 
-    public PegasusBoots(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {
-        super(p_40386_, p_40387_, p_40388_);
+    public PegasusBoots(ArmorMaterial p_40386_, Type type, Properties p_40388_) {
+        super(p_40386_, type, p_40388_);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
 
     }

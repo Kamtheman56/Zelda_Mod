@@ -4,6 +4,7 @@ import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -125,7 +126,7 @@ public class BoomerangProjectile extends AbstractArrow {
 @Override
     protected void onHitEntity(@NotNull EntityHitResult pResult) {
         Entity entity = pResult.getEntity();
-        entity.hurt(DamageSource.thrown(this, this.getOwner()), (float) this.getBaseDamage());
+        entity.hurt(damageSources().generic(), (float) this.getBaseDamage());
 this.dealtDamage=true;
         Entity entity1 = this.getOwner();
         if (entity instanceof LivingEntity) {
@@ -164,7 +165,7 @@ protected SoundEvent getDefaultHitGroundSoundEvent() {
     return SoundEvents.WOOD_HIT;
 }
     @Override
-    public Packet<?> getAddEntityPacket() {
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 }

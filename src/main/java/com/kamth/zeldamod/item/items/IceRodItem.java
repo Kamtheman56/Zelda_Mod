@@ -29,7 +29,7 @@ public class IceRodItem extends Item {
         ItemStack stack = player.getItemInHand(hand);
         stack.setDamageValue(stack.getDamageValue() + 3);
         if (stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);
-    world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOW_GOLEM_SHOOT, SoundSource.NEUTRAL, 1F, -2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
+    world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_HURT_FREEZE, SoundSource.NEUTRAL, 1F, -2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
         IceProjectile projectile = new IceProjectile(world, player);
     projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.3f, .9f);
     world.addFreshEntity(projectile);

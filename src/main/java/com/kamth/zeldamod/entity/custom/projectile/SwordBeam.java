@@ -2,8 +2,9 @@ package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
@@ -50,21 +52,21 @@ public class SwordBeam extends AbstractArrow {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
         int z = entity instanceof Zombie ? 2 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)z);
+        entity.hurt(damageSources().generic(), (float)z);
         int k = entity instanceof Skeleton ? 2 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)k);
+        entity.hurt(damageSources().generic(), (float)k);
         int p = entity instanceof Phantom ? 2 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)p);
+        entity.hurt(damageSources().generic(), (float)p);
         int r = entity instanceof Stray ? 2 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)r);
+        entity.hurt(damageSources().generic(), (float)r);
         int h = entity instanceof Husk ? 2 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)h);
+        entity.hurt(damageSources().generic(), (float)h);
         int w = entity instanceof WitherSkeleton ? 10 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)w);
+        entity.hurt(damageSources().generic(), (float)w);
         int e = entity instanceof WitherBoss ? 20 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)e);
+        entity.hurt(damageSources().generic(), (float)e);
         int s = entity instanceof Warden ? 20 : 0;
-        entity.hurt(DamageSource.GENERIC.setProjectile(), (float)s);
+        entity.hurt(damageSources().generic(), (float)s);
         this.discard();
     }
     @Override
@@ -78,7 +80,7 @@ public class SwordBeam extends AbstractArrow {
         super.onHitBlock(ray);
         this.discard();
         BlockState blockHit = level.getBlockState(ray.getBlockPos());
-        if (blockHit.getMaterial() == Material.REPLACEABLE_PLANT){
+        if (blockHit.is(BlockTags.FLOWERS) ){
             level.destroyBlock(ray.getBlockPos(), false);
         }
 }
@@ -111,7 +113,7 @@ protected SoundEvent getDefaultHitGroundSoundEvent() {
     return null;
 }
     @Override
-    public Packet<?> getAddEntityPacket() {
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 }

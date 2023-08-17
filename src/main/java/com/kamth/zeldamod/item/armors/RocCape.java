@@ -11,8 +11,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class RocCape extends ArmorItem {
-    public RocCape(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {
-        super(p_40386_, p_40387_, p_40388_);
+    public RocCape(ArmorMaterial p_40386_, Type type, Properties p_40388_) {
+        super(p_40386_, type, p_40388_);
     }
 
     @Override

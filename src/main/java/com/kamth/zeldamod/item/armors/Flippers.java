@@ -18,8 +18,8 @@ public class Flippers extends ArmorItem {
     private static final AttributeModifier FLIPPERS = new AttributeModifier(UUID.fromString("90998b0e-4188-403a-b3e5-1987d251d350"), "zeldamod:flipper", 1.5, AttributeModifier.Operation.ADDITION);
 
 
-    public Flippers(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
-        super(material, slot, settings);
+    public Flippers(ArmorMaterial material, Type type, Properties settings) {
+        super(material, type, settings);
 
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
     }

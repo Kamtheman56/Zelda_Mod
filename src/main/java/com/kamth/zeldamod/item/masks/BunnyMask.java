@@ -24,8 +24,8 @@ import java.util.UUID;
 
 public class BunnyMask extends ArmorItem {
     private static final AttributeModifier STEP_HEIGHT_BONUS = new AttributeModifier(UUID.fromString("4a312f09-78e0-4f3a-95c2-07ed63212472"), "zeldamod:bunnymask", 0.5, AttributeModifier.Operation.ADDITION);
-    public BunnyMask(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {
-        super(p_40386_, p_40387_, p_40388_);
+    public BunnyMask(ArmorMaterial p_40386_, Type type, Properties p_40388_) {
+        super(p_40386_, type, p_40388_);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
     }
 

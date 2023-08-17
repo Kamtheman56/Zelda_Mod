@@ -6,6 +6,8 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -19,6 +21,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.Event;
 
@@ -26,21 +29,21 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class GoronMask extends ArmorItem {
-    public GoronMask(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {
-        super(p_40386_, p_40387_, p_40388_);
+    public GoronMask(ArmorMaterial p_40386_, Type type, Properties p_40388_) {
+        super(p_40386_, type, p_40388_);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerSwim);
         MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
     }
 //Mask that gives combat prowess and nether exploration
 public void onLivingHurtEvent(LivingHurtEvent event){
     if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
-        if (event.getSource() == DamageSource.FALLING_STALACTITE) {
+        if (event.getSource().is(DamageTypes.FALLING_STALACTITE)) {
             event.setAmount(event.getAmount() * 0);
         }
-        if (event.getSource() == DamageSource.DROWN) {
+        if (event.getSource().is(DamageTypes.DROWN)) {
             event.setAmount(event.getAmount() * 2);
         }
-        if (event.getSource() == DamageSource.FALL) {
+        if (event.getSource().is(DamageTypes.FALL)) {
             event.setAmount(event.getAmount() * .2F);
         }
     }}
@@ -61,18 +64,14 @@ public void onLivingHurtEvent(LivingHurtEvent event){
 
 //Maybe add ice physics when running
 // when springing have thorns armor effect
-
-
             Level level = world;
 
-
-
-            if (level.getBlockState(player.getOnPos()).getMaterial() == Material.GLASS && !player.isCrouching()) {
+            if (level.getBlockState(player.getOnPos()).is(Tags.Blocks.GLASS) && !player.isCrouching()) {
                 level.destroyBlock(player.getOnPos(), false);}
 
             if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE && !player.isCrouching()) {
                 level.destroyBlock(player.getOnPos(), false);}
-            if (player.isCrouching() && !player.isOnGround()){
+            if (player.isCrouching() && !player.onGround()){
                 player.setDeltaMovement(0,-1,0);
             }
             if (player.isSprinting() && !player.isEyeInFluidType(ForgeMod.WATER_TYPE.get())) {

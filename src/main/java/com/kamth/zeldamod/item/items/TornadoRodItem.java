@@ -26,7 +26,7 @@ public class TornadoRodItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-        if (player.isOnGround() && !player.isCrouching()) {
+        if (player.onGround() && !player.isCrouching()) {
             Vec3 vec3 = player.getDeltaMovement();
             player.resetFallDistance();
             player.setDeltaMovement(vec3.x, 1.3, vec3.z);
@@ -40,11 +40,11 @@ public class TornadoRodItem extends Item {
             });
         }
         player.awardStat(Stats.ITEM_USED.get(this));
-        if  (!player.isOnGround()) {
+        if  (!player.onGround()) {
             player.startUsingItem(InteractionHand.MAIN_HAND);
             player.startUsingItem(InteractionHand.OFF_HAND);
         }
-        if (player.isOnGround() && player.isCrouching()){
+        if (player.onGround() && player.isCrouching()){
             ItemStack stack = player.getItemInHand(hand);
             stack.setDamageValue(stack.getDamageValue() + 4);
             if (stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);
@@ -59,9 +59,7 @@ public class TornadoRodItem extends Item {
         return UseAnim.BLOCK;
     }
     @Override
-
-    public void onUsingTick(ItemStack stack, LivingEntity livingEntity, int count)
-    {
+    public void onUseTick(Level pLevel, LivingEntity livingEntity, ItemStack pStack, int pRemainingUseDuration) {
         Player player = (Player) livingEntity;
         Vec3 vec3 = player.getDeltaMovement();
 player.resetFallDistance();

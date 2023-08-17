@@ -27,7 +27,7 @@ public class GliderItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         player.awardStat(Stats.ITEM_USED.get(this));
-        if  (!player.isOnGround() && !player.onClimbable()) {
+        if  (!player.onGround() && !player.onClimbable()) {
             player.startUsingItem(InteractionHand.MAIN_HAND);
             player.startUsingItem(InteractionHand.OFF_HAND);
             world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.WOOL_PLACE, SoundSource.PLAYERS, 1.2F, 2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
@@ -42,9 +42,7 @@ public class GliderItem extends Item {
         return UseAnim.SPEAR;
     }
     @Override
-
-    public void onUsingTick(ItemStack stack, LivingEntity livingEntity, int count)
-    {
+    public void onUseTick(Level pLevel, LivingEntity livingEntity, ItemStack pStack, int pRemainingUseDuration) {
         Player player = (Player) livingEntity;
         Vec3 vec3 = player.getDeltaMovement();
 

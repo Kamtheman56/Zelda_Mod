@@ -33,7 +33,7 @@ public class FireProjectile extends ThrowableProjectile {
         if (level.isEmptyBlock(this.blockPosition()))
             level.setBlock(this.blockPosition(), Blocks.FIRE.defaultBlockState(),11);
         BlockState blockHit = level.getBlockState(ray.getBlockPos());
-        if (blockHit.getMaterial() == Material.ICE){
+        if (blockHit.getBlock() == Blocks.ICE){
             level.destroyBlock(ray.getBlockPos(), false);
         }
         if (blockHit.getBlock() == Blocks.PACKED_ICE){
@@ -48,7 +48,7 @@ public class FireProjectile extends ThrowableProjectile {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
         entity.setSecondsOnFire(30);
-        entity.hurt(DamageSource.MAGIC,6);
+        entity.hurt(damageSources().magic(),6);
         this.discard();
         this.playSound(SoundEvents.FIRECHARGE_USE);
     }

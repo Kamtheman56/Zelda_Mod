@@ -3,6 +3,7 @@ package com.kamth.zeldamod.entity.custom.projectile;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
@@ -65,7 +66,7 @@ public class BombArrow extends AbstractArrow {
 
 }
     private void explode() {
-        this.level.explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Explosion.BlockInteraction.NONE);
+        this.level.explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
         this.discard();
         //credit to SupersLegends for the destroying specific block code
         BlockPos explosionPos = this.blockPosition();
@@ -82,7 +83,7 @@ protected SoundEvent getDefaultHitGroundSoundEvent() {
     return SoundEvents.TNT_PRIMED;
 }
     @Override
-    public Packet<?> getAddEntityPacket() {
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 }

@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.eventbus.api.Event;
 
@@ -36,8 +37,8 @@ public class HeavyBoots extends ArmorItem {
                             new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 2,false,false)).build();
 
 
-    public HeavyBoots(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
-        super(material, slot, settings);
+    public HeavyBoots(ArmorMaterial material, Type type, Properties settings) {
+        super(material, type, settings);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerSwim);
         MinecraftForge.EVENT_BUS.addListener(this::LivingFallEvent);
 
@@ -65,7 +66,7 @@ public class HeavyBoots extends ArmorItem {
         {
             Level level = world;
 
-             if (level.getBlockState(player.getOnPos()).getMaterial() == Material.GLASS && !player.isCrouching()) {
+             if (level.getBlockState(player.getOnPos()).is(Tags.Blocks.GLASS)  && !player.isCrouching()) {
                 level.destroyBlock(player.getOnPos(), false);}
 
              if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE && !player.isCrouching()) {

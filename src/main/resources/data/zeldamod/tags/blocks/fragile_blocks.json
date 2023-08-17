@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:glass",
+    "minecraft:cobbled_deepslate",
+    "minecraft:cracked_deepslate_bricks",
+    "minecraft:cracked_stone_bricks",
+    "zeldamod:secret_stone"
+  ]
+}

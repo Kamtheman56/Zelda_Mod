@@ -18,8 +18,8 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class TroupeMask extends ArmorItem {
-    public TroupeMask(ArmorMaterial pMaterial, EquipmentSlot pSlot, Properties pProperties) {
-        super(pMaterial, pSlot, pProperties);
+    public TroupeMask(ArmorMaterial pMaterial, Type type, Properties pProperties) {
+        super(pMaterial, type, pProperties);
     }
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {

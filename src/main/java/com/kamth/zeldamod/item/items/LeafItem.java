@@ -22,7 +22,7 @@ public class LeafItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-        if (player.isOnGround()) {
+        if (player.onGround()) {
             GustProjectile bombEntity = new GustProjectile(world,player);
             bombEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.25F, 0.9F);
             world.addFreshEntity(bombEntity);
@@ -30,7 +30,7 @@ public class LeafItem extends Item {
             world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BIG_DRIPLEAF_TILT_DOWN, SoundSource.NEUTRAL, 1F, .2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
         }
         player.awardStat(Stats.ITEM_USED.get(this));
-        if  (!player.isOnGround() && !player.onClimbable()) {
+        if  (!player.onGround() && !player.onClimbable()) {
             player.startUsingItem(InteractionHand.MAIN_HAND);
             player.startUsingItem(InteractionHand.OFF_HAND);
         }
@@ -43,9 +43,8 @@ public class LeafItem extends Item {
         return UseAnim.BLOCK;
     }
     @Override
+    public void onUseTick(Level pLevel, LivingEntity livingEntity, ItemStack pStack, int pRemainingUseDuration) {
 
-    public void onUsingTick(ItemStack stack, LivingEntity livingEntity, int count)
-    {
         Player player = (Player) livingEntity;
         Vec3 vec3 = player.getDeltaMovement();
 player.resetFallDistance();

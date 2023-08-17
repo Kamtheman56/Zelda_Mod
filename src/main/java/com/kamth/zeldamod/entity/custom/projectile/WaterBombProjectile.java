@@ -4,10 +4,10 @@ import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
@@ -64,12 +64,12 @@ protected float getGravity() {
 @Override
     public void tick() {
     super.tick();
-    HitResult hitresult = ProjectileUtil.getHitResult(this, this::canHitEntity);
+  //  HitResult hitresult = ProjectileUtil.getHitResult(this, this::canHitEntity);
     boolean flag = false;
 
-    if (hitresult.getType() != HitResult.Type.MISS && !flag && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, hitresult)) {
-        this.onHit(hitresult);
-    }
+  //  if (hitresult.getType() != HitResult.Type.MISS && !flag && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, hitresult)) {
+  //      this.onHit(hitresult);
+  //  }
 
     if (this.isOnFire())
     {explode();}
@@ -85,7 +85,7 @@ protected float getGravity() {
             }}}
 
     private void explode() {
-            this.level.explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Explosion.BlockInteraction.NONE);
+            this.level.explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
             this.discard();
         //credit to SupersLegends for the destroying specific block code
             BlockPos explosionPos = this.blockPosition();
@@ -97,7 +97,7 @@ protected float getGravity() {
                 this.level.destroyBlock(pos, false);
             }}}
     @Override
-    public Packet<?> getAddEntityPacket() {
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 

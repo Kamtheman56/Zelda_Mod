@@ -3,10 +3,10 @@ package com.kamth.zeldamod.entity.custom.projectile;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
@@ -55,7 +55,7 @@ public class LightningArrow extends AbstractArrow {
                     this.level.addFreshEntity(lightningbolt);
     }}
         int i = entity instanceof IronGolem ? 10 : 0;
-        entity.hurt(DamageSource.MAGIC.setProjectile(), (float)i);
+       entity.hurt(damageSources().magic(), (float)i);
     if (entity.isInWaterOrRain()){
         setBaseDamage(10);
     }
@@ -79,7 +79,7 @@ protected SoundEvent getDefaultHitGroundSoundEvent() {
     return SoundEvents.LIGHTNING_BOLT_THUNDER;
 }
     @Override
-    public Packet<?> getAddEntityPacket() {
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 }

@@ -6,6 +6,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -32,7 +33,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     FIERCE("fierce", 0, new int[]{1, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
             0.0F, 6.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    NIGHT("night", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.AMBIENT_CAVE,
+    NIGHT("night", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.AMBIENT_CAVE.get(),
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     BLAST("blast", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.CREEPER_PRIMED,
@@ -110,6 +111,25 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
     public int getDefenseForSlot(EquipmentSlot p_40487_) {
         return this.slotProtections[p_40487_.getIndex()];
+    }
+
+    /**
+     * @param pType
+     * @return
+     */
+    @Override
+    public int getDurabilityForType(ArmorItem.Type pType) {
+
+        return 0;
+    }
+
+    /**
+     * @param pType
+     * @return
+     */
+    @Override
+    public int getDefenseForType(ArmorItem.Type pType) {
+        return 0;
     }
 
     public int getEnchantmentValue() {

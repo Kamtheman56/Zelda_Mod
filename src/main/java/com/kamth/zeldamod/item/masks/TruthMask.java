@@ -36,8 +36,8 @@ import java.util.List;
 import java.util.UUID;
 
 public class TruthMask extends ArmorItem {
-    public TruthMask(ArmorMaterial pMaterial, EquipmentSlot pSlot, Properties pProperties) {
-        super(pMaterial, pSlot, pProperties);
+    public TruthMask(ArmorMaterial pMaterial, Type type, Properties pProperties) {
+        super(pMaterial,type, pProperties);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerEntityInteract);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
     }

@@ -41,14 +41,11 @@ public class GustProjectile extends ThrowableProjectile {
         super.onHitBlock(ray);
 
         BlockState blockHit = level.getBlockState(ray.getBlockPos());
-        if (blockHit.getMaterial() == Material.PLANT){
-            level.destroyBlock(ray.getBlockPos(), false);
-        }
-        if (blockHit.getMaterial() == Material.REPLACEABLE_PLANT){
+        if (blockHit.is(BlockTags.FLOWERS)){
             level.destroyBlock(ray.getBlockPos(), false);
         }
 
-        if (blockHit.getMaterial() == Material.LEAVES){
+        if (blockHit.is(BlockTags.LEAVES)){
             level.destroyBlock(ray.getBlockPos(), true);
         }
         if (blockHit.is(BlockTags.SAND)){
@@ -57,7 +54,7 @@ public class GustProjectile extends ThrowableProjectile {
         if (blockHit.getBlock() == Blocks.FIRE){
             this.level.destroyBlock(ray.getBlockPos(), false);
         }
-       else if (blockHit.getMaterial() != Material.LEAVES && !blockHit.is(BlockTags.SAND)  ){
+       else if (!blockHit.is(BlockTags.LEAVES) && !blockHit.is(BlockTags.SAND)  ){
             this.discard();
         }
 

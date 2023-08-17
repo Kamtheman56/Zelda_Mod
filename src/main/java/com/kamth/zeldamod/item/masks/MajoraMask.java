@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -40,8 +41,8 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class MajoraMask extends ArmorItem {
-    public MajoraMask(ArmorMaterial pMaterial, EquipmentSlot pSlot, Properties pProperties) {
-        super(pMaterial, pSlot, pProperties);
+    public MajoraMask(ArmorMaterial pMaterial, Type type, Properties pProperties) {
+        super(pMaterial, type, pProperties);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
         MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerEntityInteract);
@@ -60,7 +61,7 @@ if (player.isOnFire()){
             return;
         }
         AttributeInstance stepHeight;
-        stepHeight = event.player.getAttribute(ForgeMod.ATTACK_RANGE.get());
+        stepHeight = event.player.getAttribute(ForgeMod.ENTITY_REACH.get());
         if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get()) {
             stepHeight.addTransientModifier(STEP_HEIGHT_BONUS);
             event.player.getAbilities().mayfly = true;
@@ -94,15 +95,15 @@ event.player.getAbilities().setFlyingSpeed(.1f);
             {
 event.getTarget().discard();
 event.getTarget().playSound(SoundEvents.PIG_HURT,1, -4);
-event.getTarget().playSound(SoundEvents.AMBIENT_CAVE,1.2f, 0);
+event.getTarget().playSound(SoundEvents.AMBIENT_CAVE.get(),1.2f, 0);
 event.getTarget().spawnAtLocation(ModBlocks.PORK_BLOCK.get());}}
     }
     public void onLivingHurtEvent(LivingHurtEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get()) {
-            if (event.getSource() == DamageSource.MAGIC) {
+            if (event.getSource().is(DamageTypes.MAGIC)) {
                 event.setAmount(event.getAmount() * 4);
             }
-            if (event.getSource() == DamageSource.WITHER) {
+            if (event.getSource().is(DamageTypes.WITHER)) {
                 event.setAmount(event.getAmount() * 2);
             }}}
 

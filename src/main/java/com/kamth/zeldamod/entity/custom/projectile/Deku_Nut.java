@@ -2,7 +2,7 @@ package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.network.protocol.Packet;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -35,7 +35,7 @@ public class Deku_Nut extends ThrowableProjectile {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
 
-        entity.hurt(DamageSource.thrown(this, this.getOwner()), (float)2);
+        entity.hurt(damageSources().generic(), (float)2);
         if (entity instanceof LivingEntity livingEntity) {
             livingEntity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 60, 0));
         }
@@ -58,7 +58,7 @@ public class Deku_Nut extends ThrowableProjectile {
     protected void defineSynchedData() {
     }
     @Override
-    public Packet<?> getAddEntityPacket() {
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 

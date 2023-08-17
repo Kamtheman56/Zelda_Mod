@@ -6,6 +6,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -37,8 +38,8 @@ public class ZoraMask extends ArmorItem {
 
 
 
-    public ZoraMask(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {
-        super(p_40386_, p_40387_, p_40388_);
+    public ZoraMask(ArmorMaterial p_40386_, Type type, Properties p_40388_) {
+        super(p_40386_, type, p_40388_);
         MinecraftForge.EVENT_BUS.addListener(this::LivingFallEvent);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerSwim);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
@@ -84,16 +85,15 @@ player.setTicksFrozen(200);}
                 event.setCanceled(true);}}}
     public void onLivingHurtEvent(LivingHurtEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
-            if (event.getSource() == DamageSource.FREEZE) {
+            if (event.getSource().is(DamageTypes.FREEZE)) {
                 event.setAmount(event.getAmount() * 3);}
-            if (event.getSource() == DamageSource.LIGHTNING_BOLT) {
+            if (event.getSource().is(DamageTypes.LIGHTNING_BOLT)) {
                 event.setAmount(event.getAmount() * 4);}
-            if (event.getSource() == DamageSource.ON_FIRE) {
+            if (event.getSource().is(DamageTypes.ON_FIRE)) {
                 event.setAmount(event.getAmount() * 2);}
         }
     }
     public void onPlayerSwim (PlayerSwimEvent event){
-
         if (event.getEntity().isUnderWater() && event.getEntity().isCrouching() && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
             event.setResult(Event.Result.DENY);}}
 

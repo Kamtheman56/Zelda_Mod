@@ -8,6 +8,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
@@ -26,8 +27,8 @@ import java.util.List;
 
 
 public class DekuMask extends ArmorItem {
-    public DekuMask(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {
-        super(p_40386_, p_40387_, p_40388_);
+    public DekuMask(ArmorMaterial p_40386_, Type type, Properties p_40388_) {
+        super(p_40386_, type, p_40388_);
 
         MinecraftForge.EVENT_BUS.addListener(this::onLivingFluidCollisionEvent);
         MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
@@ -51,15 +52,15 @@ public class DekuMask extends ArmorItem {
     public void onLivingHurtEvent(LivingHurtEvent event) {
 
             if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
-                if (event.getSource() == DamageSource.ON_FIRE) {
+                if (event.getSource().is(DamageTypes.ON_FIRE)) {
                     event.setAmount(event.getAmount() * 2);}
-                if (event.getSource() == DamageSource.IN_FIRE) {
+                if (event.getSource().is(DamageTypes.IN_FIRE)) {
                     event.setAmount(event.getAmount() * 2);}
-                if (event.getSource() == DamageSource.LAVA) {
+                if (event.getSource().is(DamageTypes.LAVA)) {
                     event.setAmount(event.getAmount() * 3);}
-                if (event.getSource() == DamageSource.DROWN) {
+                if (event.getSource().is(DamageTypes.DROWN)) {
                     event.setAmount(event.getAmount() * 4);}
-                if (event.getSource() == DamageSource.CACTUS) {
+                if (event.getSource().is(DamageTypes.CACTUS)) {
                     event.setResult(Event.Result.DENY);}
             }}
     @Override
@@ -80,7 +81,7 @@ public class DekuMask extends ArmorItem {
                 player.addEffect((new MobEffectInstance(ModEffects.DEKU.get(), 40, 0, true, false)));
             }
             //if not standing on water or in water, get effect. Else get nothing
-            if (player.isOnGround() && level.getBlockState(player.getOnPos().below(1)).getBlock() != Blocks.WATER) {
+            if (player.onGround() && level.getBlockState(player.getOnPos().below(1)).getBlock() != Blocks.WATER) {
                 player.addEffect(((new MobEffectInstance(ModEffects.DEKU.get(), 40, 0, true, false))));
             }
             else if (player.isSwimming()){

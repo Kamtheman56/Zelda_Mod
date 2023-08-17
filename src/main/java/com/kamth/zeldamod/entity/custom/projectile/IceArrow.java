@@ -3,6 +3,7 @@ package com.kamth.zeldamod.entity.custom.projectile;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -63,12 +63,12 @@ public class IceArrow extends AbstractArrow {
             float f = (float)Math.min(1, 1);
 
 
-            for(BlockPos blockpos : BlockPos.betweenClosed(this.blockPosition().offset((double) (-f), +1.0D, (double)(-f)), this.blockPosition().offset((double)f, +1.0D, (double)f))) {
+            for(BlockPos blockpos : BlockPos.betweenClosed(this.blockPosition().offset((int) -f, (int) +1.0D, (int) -f), this.blockPosition().offset((int) f, (int) +1.0D, (int) f))) {
 
                    {
                         BlockState blockstate2 = level.getBlockState(blockpos);
                         boolean isFull = blockstate2.getBlock() == Blocks.WATER && blockstate2.getValue(LiquidBlock.LEVEL) == 0; //TODO: Forge, modded waters?
-                        if (blockstate2.getMaterial() == Material.WATER && isFull && blockstate.canSurvive(level, blockpos) && level.isUnobstructed(blockstate, blockpos, CollisionContext.empty()) && !net.minecraftforge.event.ForgeEventFactory.onBlockPlace(this, net.minecraftforge.common.util.BlockSnapshot.create(level.dimension(), level, blockpos), net.minecraft.core.Direction.UP)) {
+                        if (blockstate2.getBlock() == Blocks.WATER && isFull && blockstate.canSurvive(level, blockpos) && level.isUnobstructed(blockstate, blockpos, CollisionContext.empty()) && !net.minecraftforge.event.ForgeEventFactory.onBlockPlace(this, net.minecraftforge.common.util.BlockSnapshot.create(level.dimension(), level, blockpos), net.minecraft.core.Direction.UP)) {
                             level.setBlockAndUpdate(blockpos, blockstate);
                             level.scheduleTick(blockpos, Blocks.FROSTED_ICE, Mth.nextInt(this.random, 60, 150));
                             this.discard();
@@ -104,7 +104,7 @@ public class IceArrow extends AbstractArrow {
 
 }
     @Override
-    public Packet<?> getAddEntityPacket() {
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 }
