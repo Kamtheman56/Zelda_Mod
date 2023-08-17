@@ -63,10 +63,10 @@ public void onLivingHurtEvent(LivingHurtEvent event){
 // when springing have thorns armor effect
             Level level = world;
 
-            if (level.getBlockState(player.getOnPos()).is(Tags.Blocks.GLASS) && !player.isCrouching()) {
+            if (level.getBlockState(player.getOnPos()).is(Tags.Blocks.GLASS)) {
                 level.destroyBlock(player.getOnPos(), false);}
 
-            if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE && !player.isCrouching()) {
+            if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE ) {
                 level.destroyBlock(player.getOnPos(), false);}
             if (player.isCrouching() && !player.onGround()){
                 player.setDeltaMovement(0,-1,0);

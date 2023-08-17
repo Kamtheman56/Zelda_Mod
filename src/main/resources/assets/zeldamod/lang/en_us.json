@@ -22,8 +22,11 @@
   "itemGroup.zeldamask": "Zelda Masks",
   "itemGroup.zeldafood": "Zelda FoodStuffs",
   "itemGroup.zeldablock": "Zelda Blocks",
-  "zelda_tab": "Zelda Items",
+  "zelda_tab": "Zelda Blocks",
   "zelda_masks": "Zelda Masks",
+  "zelda_misc": "Zelda Materials",
+  "zelda_blocks": "Zelda Items",
+
 
   "item.zeldamod.kokiri_sword": "Kokiri Sword",
   "item.zeldamod.razor_sword": "Razor Sword",
@@ -102,7 +105,9 @@
   "block.zeldamod.gloom_block": "Gloom Block",
   "block.zeldamod.secret_stone": "Secret Stone",
   "block.zeldamod.masters_ore": "Master Ore",
+  "block.zeldamod.pork_block": "Pork Block",
   "Nightmask": "You don't think you should do this"
+
 
 
 

@@ -80,6 +80,9 @@ public class ModItems {
     public static final RegistryObject<Item> MASTER_SWORD_TRUE = ITEMS.register("master_sword_true",
             () -> new TrueMasterSwordItem(ModTiers.ZELDAU, 9, -2.4f,
                     new Item.Properties().fireResistant().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> MASTER_SWORD_INJURED = ITEMS.register("master_sword_injured",
+            () -> new SwordItem(Tiers.STONE, 2, -2.4f,
+                    new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> FIERCE_SWORD = ITEMS.register("fierce_sword",
             () -> new FierceSwordItem(ModTiers.ZELDAU, 7, -1.4f,
                     new Item.Properties().defaultDurability(250).fireResistant()));
