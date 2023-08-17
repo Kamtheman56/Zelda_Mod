@@ -17,6 +17,7 @@ plugins {
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '5.1.+'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'org.spongepowered.mixin' version '0.7.+'
 
 }
 apply plugin: 'net.minecraftforge.gradle'
@@ -155,8 +156,8 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.19.4-45.1.0'
-    implementation fg.deobf("be.florens:expandability-forge:8.0.0")
+    minecraft 'net.minecraftforge:forge:1.20.1-47.1.0'
+    implementation fg.deobf("be.florens:expandability-forge:9.0.0")
     implementation 'com.github.LlamaLad7:MixinExtras:0.1.0-rc5'
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     // Real mod deobf dependency examples - these get remapped to your current mappings

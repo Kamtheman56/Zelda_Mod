@@ -9,7 +9,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
-import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -77,7 +76,7 @@ protected float getGravity() {
     {
         this.explosionPower=3;
     }
-    if (!this.level.isClientSide) {
+    if (!this.level().isClientSide) {
             if (this.ticksToExplode <= this.tickCount) {
                 explode();}
         else   if(this.tickCount % 25 == 0) {
@@ -85,16 +84,16 @@ protected float getGravity() {
             }}}
 
     private void explode() {
-            this.level.explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
             this.discard();
         //credit to SupersLegends for the destroying specific block code
             BlockPos explosionPos = this.blockPosition();
         int radius = 3;
         for (BlockPos pos : BlockPos.betweenClosed(explosionPos.offset(-radius, -radius, -radius), explosionPos.offset(radius, radius, radius))) {
-            Block block = this.level.getBlockState(pos).getBlock();
-            BlockState blockState = this.level.getBlockState(pos).getBlock().defaultBlockState();
+            Block block = this.level().getBlockState(pos).getBlock();
+            BlockState blockState = this.level().getBlockState(pos).getBlock().defaultBlockState();
             if (blockState.is(ModTags.Blocks.BOMB)){
-                this.level.destroyBlock(pos, false);
+                this.level().destroyBlock(pos, false);
             }}}
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {

@@ -9,7 +9,7 @@ import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.util.ModItemProperties;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -31,6 +31,7 @@ public class ZeldaMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModCreativeModeTab.register(modEventBus);
         ModItems.register(modEventBus);
         ModEntityTypes.register(modEventBus);
         ModBlocks.register(modEventBus);
@@ -55,9 +56,10 @@ private void clientSetup(final FMLClientSetupEvent event){
     {
 
     }
-private void addCreative(CreativeModeTabEvent.BuildContents event){
-        if (event.getTab() == ModCreativeModeTab.ZELDA_TAB){
+private void addCreative(BuildCreativeModeTabContentsEvent event){
+        if (event.getTab() == ModCreativeModeTab.ZELDA_TAB.get()){
             event.accept(ModItems.RED_EMERALD);
+            event.accept(ModItems.BLUE_EMERALD);
         }
 }
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent

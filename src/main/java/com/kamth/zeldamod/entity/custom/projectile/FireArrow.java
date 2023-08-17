@@ -53,14 +53,14 @@ public class FireArrow extends AbstractArrow {
     @Override
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
-        if (level.isEmptyBlock(this.blockPosition()))
-            level.setBlock(this.blockPosition(), Blocks.FIRE.defaultBlockState(),11);
-        BlockState blockHit = level.getBlockState(ray.getBlockPos());
+        if (level().isEmptyBlock(this.blockPosition()))
+            level().setBlock(this.blockPosition(), Blocks.FIRE.defaultBlockState(),11);
+        BlockState blockHit = level().getBlockState(ray.getBlockPos());
         if (blockHit.getBlock() == Blocks.ICE){
-            level.destroyBlock(ray.getBlockPos(), false);
+            level().destroyBlock(ray.getBlockPos(), false);
         }
         if (blockHit.getBlock() == Blocks.PACKED_ICE){
-            level.destroyBlock(ray.getBlockPos(), false);
+            level().destroyBlock(ray.getBlockPos(), false);
         }
 
         this.discard();

@@ -66,11 +66,11 @@ public class IceArrow extends AbstractArrow {
             for(BlockPos blockpos : BlockPos.betweenClosed(this.blockPosition().offset((int) -f, (int) +1.0D, (int) -f), this.blockPosition().offset((int) f, (int) +1.0D, (int) f))) {
 
                    {
-                        BlockState blockstate2 = level.getBlockState(blockpos);
+                        BlockState blockstate2 = level().getBlockState(blockpos);
                         boolean isFull = blockstate2.getBlock() == Blocks.WATER && blockstate2.getValue(LiquidBlock.LEVEL) == 0; //TODO: Forge, modded waters?
-                        if (blockstate2.getBlock() == Blocks.WATER && isFull && blockstate.canSurvive(level, blockpos) && level.isUnobstructed(blockstate, blockpos, CollisionContext.empty()) && !net.minecraftforge.event.ForgeEventFactory.onBlockPlace(this, net.minecraftforge.common.util.BlockSnapshot.create(level.dimension(), level, blockpos), net.minecraft.core.Direction.UP)) {
-                            level.setBlockAndUpdate(blockpos, blockstate);
-                            level.scheduleTick(blockpos, Blocks.FROSTED_ICE, Mth.nextInt(this.random, 60, 150));
+                        if (blockstate2.getBlock() == Blocks.WATER && isFull && blockstate.canSurvive(level(), blockpos) && level().isUnobstructed(blockstate, blockpos, CollisionContext.empty()) && !net.minecraftforge.event.ForgeEventFactory.onBlockPlace(this, net.minecraftforge.common.util.BlockSnapshot.create(level().dimension(), level(), blockpos), net.minecraft.core.Direction.UP)) {
+                            level().setBlockAndUpdate(blockpos, blockstate);
+                            level().scheduleTick(blockpos, Blocks.FROSTED_ICE, Mth.nextInt(this.random, 60, 150));
                             this.discard();
                         }
                     }
@@ -95,9 +95,9 @@ public class IceArrow extends AbstractArrow {
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
 
-        BlockState blockHit = level.getBlockState(ray.getBlockPos());
+        BlockState blockHit = level().getBlockState(ray.getBlockPos());
         if (blockHit == Blocks.FIRE.defaultBlockState()) {
-            level.destroyBlock(ray.getBlockPos(), false);
+            level().destroyBlock(ray.getBlockPos(), false);
         }
 
         this.discard();

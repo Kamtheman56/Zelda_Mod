@@ -32,13 +32,13 @@ public class BlastMask extends ArmorItem {
         }
             if (player.isCrouching() && !player.isBlocking() ){
         Vec3 explosionPos = player.getEyePosition(1.0F).add(player.getLookAngle().multiply(.5D, .5D, .5D));
-        player.level.explode(player, explosionPos.x, explosionPos.y, explosionPos.z, 4F, Level.ExplosionInteraction.NONE);
+        player.level().explode(player, explosionPos.x, explosionPos.y, explosionPos.z, 4F, Level.ExplosionInteraction.NONE);
                 player.getCooldowns().addCooldown(ModItems.BLAST_MASK.get(),350);
        player.hurt(DamageSource.class.cast(DamageTypes.MAGIC), 10);
             }
             else if (player.isCrouching() && player.isBlocking()){
             Vec3 explosionPos = player.getEyePosition(1.0F).add(player.getLookAngle().multiply(.5D, .5D, .5D));
-            player.level.explode(player, explosionPos.x, explosionPos.y, explosionPos.z, 4F, Level.ExplosionInteraction.NONE);
+            player.level().explode(player, explosionPos.x, explosionPos.y, explosionPos.z, 4F, Level.ExplosionInteraction.NONE);
             player.getCooldowns().addCooldown(ModItems.BLAST_MASK.get(),400);
             player.hurt(DamageSource.class.cast(DamageTypes.MAGIC), 0);
 }}

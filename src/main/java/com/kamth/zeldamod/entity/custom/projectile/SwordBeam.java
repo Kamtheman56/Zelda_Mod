@@ -15,10 +15,8 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
@@ -79,9 +77,9 @@ public class SwordBeam extends AbstractArrow {
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
         this.discard();
-        BlockState blockHit = level.getBlockState(ray.getBlockPos());
+        BlockState blockHit = level().getBlockState(ray.getBlockPos());
         if (blockHit.is(BlockTags.FLOWERS) ){
-            level.destroyBlock(ray.getBlockPos(), false);
+            level().destroyBlock(ray.getBlockPos(), false);
         }
 }
 

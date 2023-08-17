@@ -97,9 +97,9 @@ protected float getGravity() {
         double particleMotionX = (random.nextFloat() * 0 - 0) * particlesSpeed;
         double particleMotionY = (random.nextFloat() * 1 - 0) * particlesSpeed;
         double particleMotionZ = (random.nextFloat() * 0 - 0) * particlesSpeed;
-        level.addParticle(ParticleTypes.SMOKE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
+        this.level().addParticle(ParticleTypes.SMOKE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
     }
-    if (!this.level.isClientSide) {
+    if (!this.level().isClientSide) {
             if (this.ticksToExplode <= this.tickCount) {
                 explode();}
         else   if(this.tickCount % 25 == 0) {
@@ -108,15 +108,15 @@ protected float getGravity() {
             }}}
 
     private void explode() {
-            this.level.explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
             this.discard();
         //credit to SupersLegends for the destroying specific block code
         BlockPos explosionPos = this.blockPosition();
         int radius = (int) Math.ceil(explosionPower);
         for (BlockPos pos : BlockPos.betweenClosed(explosionPos.offset(-radius, -radius, -radius), explosionPos.offset(radius, radius, radius))) {
-            BlockState blockState = this.level.getBlockState(pos).getBlock().defaultBlockState();
+            BlockState blockState = this.level().getBlockState(pos).getBlock().defaultBlockState();
             if (blockState.is(ModTags.Blocks.BOMB)){
-                this.level.destroyBlock(pos, false);
+                this.level().destroyBlock(pos, false);
         }
 
         }}

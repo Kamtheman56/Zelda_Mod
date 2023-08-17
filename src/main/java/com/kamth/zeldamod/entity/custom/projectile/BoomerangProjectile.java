@@ -75,7 +75,7 @@ public class BoomerangProjectile extends AbstractArrow {
         int i = 1;
         if (i > 0 && (this.dealtDamage || this.isNoPhysics()) && entity != null) {
             if (!this.isAcceptibleReturnOwner()) {
-                if (!this.level.isClientSide && this.pickup == Pickup.ALLOWED) {
+                if (!this.level().isClientSide && this.pickup == Pickup.ALLOWED) {
                     this.spawnAtLocation(this.getPickupItem(), 0.1F);
                 }
 
@@ -85,7 +85,7 @@ public class BoomerangProjectile extends AbstractArrow {
                 this.setNoPhysics(true);
                 Vec3 vec3 = entity.getEyePosition().subtract(this.position());
                 this.setPosRaw(this.getX(), this.getY() + vec3.y * 0.015D * (double)i, this.getZ());
-                if (this.level.isClientSide) {
+                if (this.level().isClientSide) {
                     this.yOld = this.getY();
                 }
 
@@ -107,7 +107,7 @@ public class BoomerangProjectile extends AbstractArrow {
         super.onHitBlock(ray);
        this.dealtDamage=true;
        this.tickCount=16;
-        BlockState blockHit = level.getBlockState(ray.getBlockPos());
+        BlockState blockHit = this.level().getBlockState(ray.getBlockPos());
     }
 
     private boolean isAcceptibleReturnOwner() {

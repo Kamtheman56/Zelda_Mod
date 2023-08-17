@@ -3,7 +3,6 @@ package com.kamth.zeldamod.entity.custom.projectile;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -29,9 +28,9 @@ public class IceProjectile extends ThrowableProjectile {
         @Override
         protected void onHitBlock(@NotNull BlockHitResult ray) {
             super.onHitBlock(ray);
-            BlockState blockHit = level.getBlockState(ray.getBlockPos());
-            if (level.isEmptyBlock(this.blockPosition())){
-                level.setBlockAndUpdate(this.blockPosition(), Blocks.SNOW.defaultBlockState());}
+            BlockState blockHit = level().getBlockState(ray.getBlockPos());
+            if (level().isEmptyBlock(this.blockPosition())){
+                level().setBlockAndUpdate(this.blockPosition(), Blocks.SNOW.defaultBlockState());}
             this.discard();
         }
 
@@ -59,10 +58,10 @@ public class IceProjectile extends ThrowableProjectile {
         this.discard();
     }
         if (this.isInWater()){
-            level.setBlockAndUpdate(this.blockPosition(), Blocks.FROSTED_ICE.defaultBlockState());
+            level().setBlockAndUpdate(this.blockPosition(), Blocks.FROSTED_ICE.defaultBlockState());
             this.discard();}
         if (this.isInLava()){
-            level.setBlockAndUpdate(this.blockPosition(), Blocks.FROSTED_ICE.defaultBlockState());
+            level().setBlockAndUpdate(this.blockPosition(), Blocks.FROSTED_ICE.defaultBlockState());
             this.discard();}
         int particlesDensity = 3;
         float particlesSpeed = 0.1F;
@@ -76,7 +75,7 @@ public class IceProjectile extends ThrowableProjectile {
             double particleMotionX = (random.nextFloat() * 2 - 1) * particlesSpeed;
             double particleMotionY = (random.nextFloat() * 2 - 1) * particlesSpeed;
             double particleMotionZ = (random.nextFloat() * 2 - 1) * particlesSpeed;
-            level.addParticle(ParticleTypes.SNOWFLAKE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
+            level().addParticle(ParticleTypes.SNOWFLAKE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
         }
         if (this.isInFluidType()){
             this.discard();

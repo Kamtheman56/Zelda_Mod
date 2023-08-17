@@ -11,7 +11,6 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import org.jetbrains.annotations.NotNull;
@@ -40,19 +39,19 @@ public class GustProjectile extends ThrowableProjectile {
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
 
-        BlockState blockHit = level.getBlockState(ray.getBlockPos());
+        BlockState blockHit = this.level().getBlockState(ray.getBlockPos());
         if (blockHit.is(BlockTags.FLOWERS)){
-            level.destroyBlock(ray.getBlockPos(), false);
+            this.level().destroyBlock(ray.getBlockPos(), false);
         }
 
         if (blockHit.is(BlockTags.LEAVES)){
-            level.destroyBlock(ray.getBlockPos(), true);
+            this.level().destroyBlock(ray.getBlockPos(), true);
         }
         if (blockHit.is(BlockTags.SAND)){
-            level.destroyBlock(ray.getBlockPos(), true);
+            this.level().destroyBlock(ray.getBlockPos(), true);
         }
         if (blockHit.getBlock() == Blocks.FIRE){
-            this.level.destroyBlock(ray.getBlockPos(), false);
+            this.level().destroyBlock(ray.getBlockPos(), false);
         }
        else if (!blockHit.is(BlockTags.LEAVES) && !blockHit.is(BlockTags.SAND)  ){
             this.discard();
@@ -93,7 +92,7 @@ public class GustProjectile extends ThrowableProjectile {
             double particleMotionX = (random.nextFloat() * 2 - 1) * particlesSpeed;
             double particleMotionY = (random.nextFloat() * 2 - 1) * particlesSpeed;
             double particleMotionZ = (random.nextFloat() * 2 - 1) * particlesSpeed;
-            level.addParticle(ParticleTypes.CLOUD, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
+            this.level().addParticle(ParticleTypes.CLOUD, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
         }
 
         if (this.isInFluidType()){

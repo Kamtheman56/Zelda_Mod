@@ -47,12 +47,12 @@ public class LightningArrow extends AbstractArrow {
         Entity entity = pResult.getEntity();
 
 
-            if (this.level instanceof ServerLevel) {
+            if (this.level() instanceof ServerLevel) {
                 BlockPos blockpos = entity.blockPosition();
-                if (this.level.canSeeSky(blockpos)) {
-                    LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level);
+                if (this.level().canSeeSky(blockpos)) {
+                    LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
                     lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
-                    this.level.addFreshEntity(lightningbolt);
+                    this.level().addFreshEntity(lightningbolt);
     }}
         int i = entity instanceof IronGolem ? 10 : 0;
        entity.hurt(damageSources().magic(), (float)i);

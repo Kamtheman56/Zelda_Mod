@@ -27,7 +27,7 @@ public class TroupeMask extends ArmorItem {
                 double particleX = player.getX() + (player.getRandom().nextBoolean() ? -0.1D : 0);
                 double particleY = player.getY() + player.getRandom().nextFloat() * 0 - -1.2D;
                 double particleZ = player.getZ() + (player.getRandom().nextBoolean() ? -0.1D : 0);
-                player.level.addParticle(ParticleTypes.RAIN, particleX, particleY, particleZ, 0, 0, 0);
+                player.level().addParticle(ParticleTypes.RAIN, particleX, particleY, particleZ, 0, 0, 0);
 
         }}
 

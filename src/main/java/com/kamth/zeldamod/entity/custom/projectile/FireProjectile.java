@@ -3,7 +3,6 @@ package com.kamth.zeldamod.entity.custom.projectile;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -11,7 +10,6 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import org.jetbrains.annotations.NotNull;
@@ -30,14 +28,14 @@ public class FireProjectile extends ThrowableProjectile {
     @Override
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
-        if (level.isEmptyBlock(this.blockPosition()))
-            level.setBlock(this.blockPosition(), Blocks.FIRE.defaultBlockState(),11);
-        BlockState blockHit = level.getBlockState(ray.getBlockPos());
+        if (this.level().isEmptyBlock(this.blockPosition()))
+            this.level().setBlock(this.blockPosition(), Blocks.FIRE.defaultBlockState(),11);
+        BlockState blockHit = this.level().getBlockState(ray.getBlockPos());
         if (blockHit.getBlock() == Blocks.ICE){
-            level.destroyBlock(ray.getBlockPos(), false);
+            this.level().destroyBlock(ray.getBlockPos(), false);
         }
         if (blockHit.getBlock() == Blocks.PACKED_ICE){
-            level.destroyBlock(ray.getBlockPos(), false);
+            this.level().destroyBlock(ray.getBlockPos(), false);
         }
 
         this.discard();
@@ -79,7 +77,7 @@ public class FireProjectile extends ThrowableProjectile {
             double particleMotionX = (random.nextFloat() * 2 - 1) * particlesSpeed;
             double particleMotionY = (random.nextFloat() * 2 - 1) * particlesSpeed;
             double particleMotionZ = (random.nextFloat() * 2 - 1) * particlesSpeed;
-            level.addParticle(ParticleTypes.FLAME, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
+            this.level().addParticle(ParticleTypes.FLAME, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
         }
         if (this.isInFluidType()){
             this.discard();

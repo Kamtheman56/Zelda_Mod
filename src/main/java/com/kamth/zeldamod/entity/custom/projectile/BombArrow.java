@@ -66,15 +66,15 @@ public class BombArrow extends AbstractArrow {
 
 }
     private void explode() {
-        this.level.explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
+        this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
         this.discard();
         //credit to SupersLegends for the destroying specific block code
         BlockPos explosionPos = this.blockPosition();
         int radius = 3;
         for (BlockPos pos : BlockPos.betweenClosed(explosionPos.offset(-radius, -radius, -radius), explosionPos.offset(radius, radius, radius))) {
-            Block block = this.level.getBlockState(pos).getBlock();
+            Block block = this.level().getBlockState(pos).getBlock();
             if (block == Blocks.COBBLED_DEEPSLATE) {
-                this.level.destroyBlock(pos, false);
+                this.level().destroyBlock(pos, false);
             }
 
         }}

@@ -14,7 +14,7 @@ public class WaterHopping extends MobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier){
-        if (!pLivingEntity.level.isClientSide()) {
+        if (!pLivingEntity.level().isClientSide()) {
             Vec3 vec3 = pLivingEntity.getDeltaMovement();
          pLivingEntity.setDeltaMovement(vec3.x, -0.05, vec3.z);
         }
