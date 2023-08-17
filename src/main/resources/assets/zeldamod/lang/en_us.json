@@ -34,6 +34,8 @@
   "item.zeldamod.hylian_shield": "Hylian Shield",
   "item.zeldamod.master_sword2": "Tempered Sword",
   "item.zeldamod.master_sword3": "Golden Sword",
+  "item.zeldamod.master_sword_true": "True Master Sword",
+  "item.zeldamod.fierce_sword": "Fierce Deity Sword",
   "item.zeldamod.slingshot": "Slingshot",
   "item.zeldamod.scattershot": "Scattershot",
   "item.zeldamod.roc_feather": "Roc's Feather",
@@ -58,7 +60,8 @@
   "item.zeldamod.digging_mitts": "Digging Mitt",
   "item.zeldamod.mogma_mitts": "Mogma Mitt",
   "item.zeldamod.glider": "Paraglider",
-
+  "item.zeldamod.red_ring": "Red Ring",
+  "item.zeldamod.blue_ring": "Blue Ring",
 
 
 

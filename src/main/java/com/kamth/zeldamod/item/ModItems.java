@@ -20,7 +20,7 @@ public class ModItems {
 
     //These are generic items
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new RedRingItem(new Item.Properties().defaultDurability(250).tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
@@ -73,13 +73,16 @@ public class ModItems {
                     new Item.Properties().defaultDurability(10).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_SWORD2 = ITEMS.register("master_sword2",
             () -> new MasterSwordItem(ModTiers.ZELDAU, 5, -2.4f,
-                    new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
+                    new Item.Properties().rarity(Rarity.RARE).fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_SWORD3 = ITEMS.register("master_sword3",
             () -> new MasterSwordItem(ModTiers.ZELDAU, 6, -2.4f,
-                    new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
+                    new Item.Properties().rarity(Rarity.RARE).fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> MASTER_SWORD_TRUE = ITEMS.register("master_sword_true",
-            () -> new TrueMasterSwordItem(ModTiers.ZELDAU, 8, -2.4f,
-                    new Item.Properties().fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
+            () -> new TrueMasterSwordItem(ModTiers.ZELDAU, 9, -2.4f,
+                    new Item.Properties().fireResistant().rarity(Rarity.RARE).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> FIERCE_SWORD = ITEMS.register("fierce_sword",
+            () -> new FierceSwordItem(ModTiers.ZELDAU, 7, -1.4f,
+                    new Item.Properties().defaultDurability(250).fireResistant().tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
             () -> new SlingshotItem(new Item.Properties().defaultDurability(284).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> SCATTERSHOT = ITEMS.register("scattershot",
@@ -131,6 +134,11 @@ public class ModItems {
                     new Item.Properties().defaultDurability(780).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> GLIDER = ITEMS.register("glider",
             () -> new GliderItem(new Item.Properties().stacksTo(1).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> BLUE_RING = ITEMS.register("blue_ring",
+            () -> new BlueRingItem(new Item.Properties().defaultDurability(64).tab(ModCreativeModeTab.ZELDA_TAB)));
+    public static final RegistryObject<Item> RED_RING = ITEMS.register("red_ring",
+            () -> new RedRingItem(new Item.Properties().defaultDurability(128).tab(ModCreativeModeTab.ZELDA_TAB)));
+
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168).tab(ModCreativeModeTab.ZELDA_TAB)));
     public static final RegistryObject<Item> HYLIAN_SHIELD = ITEMS.register("hylian_shield",

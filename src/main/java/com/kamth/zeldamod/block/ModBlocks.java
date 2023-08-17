@@ -7,10 +7,7 @@ import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -26,7 +23,7 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, ZeldaMod.MOD_ID);
 public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_stone", ()-> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(16f).requiresCorrectToolForDrops()),ModCreativeModeTab.ZELDA_BLOCKS);
     public static final RegistryObject<Block> MASTER_ORE = registerBlock("masters_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE).strength(6f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)), ModCreativeModeTab.ZELDA_BLOCKS);
-    public static final RegistryObject<Block> PORK_BLOCK = registerBlock("pork_block", ()-> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOL, MaterialColor.COLOR_PINK).strength(4f).sound(SoundType.WOOL)),ModCreativeModeTab.ZELDA_BLOCKS);
+    public static final RegistryObject<Block> PORK_BLOCK = registerBlock("pork_block", ()-> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(4f).sound(SoundType.WOOL)),ModCreativeModeTab.ZELDA_BLOCKS);
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
     registerBlockItem(name, toReturn, tab);

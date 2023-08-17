@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.custom.projectile.SwordBeam;
+import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -30,9 +31,9 @@ public class TrueMasterSwordItem extends SwordItem {
     }
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
-        if (pState.is(Blocks.SCULK)) {   return 10.0F;
+        if (pState.is(ModTags.Blocks.DEMON)) {   return 10.0F;
         }
-      else return 1;
+        else return 1;
     }
 
 
@@ -40,6 +41,7 @@ public class TrueMasterSwordItem extends SwordItem {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
         if (!pLevel.isClientSide && player.isCrouching() && player.getHealth() >= 10 ) {
+            player.getCooldowns().addCooldown(this, 10);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 1F, 5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
             SwordBeam projectile = new SwordBeam(pLevel,player);
             projectile.setOwner(player);
@@ -60,7 +62,8 @@ public class TrueMasterSwordItem extends SwordItem {
         if(Screen.hasShiftDown()) {
             components.add(Component.literal("Shoots Beams at full health!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("The sword that seals the darkness").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("The sword that").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("seals the darkness ").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         }
 
     }

@@ -30,12 +30,10 @@ public class RedRingItem extends Item {
     public void onLivingHurtEvent(LivingHurtEvent event){
         if (event.getEntity() instanceof Player) { // Check if the entity taking damage is a Player
             Player player = (Player) event.getEntity();
-            ItemStack stack = new ItemStack(ModItems.RED_EMERALD.get());
-            if (event.getEntity().getItemBySlot(EquipmentSlot.OFFHAND).getItem() == ModItems.RED_EMERALD.get()) {
-             stack.hurtAndBreak(4, player, (p_40665_) -> p_40665_.broadcastBreakEvent(player.getItemInHand(InteractionHand.OFF_HAND).getEquipmentSlot()));
+            ItemStack itemstack = player.getItemInHand(InteractionHand.OFF_HAND);
+            if (event.getEntity().getItemBySlot(EquipmentSlot.OFFHAND).getItem() == ModItems.RED_RING.get()) {
                 event.setAmount(event.getAmount() / 2f);
-            }
-        }
-    }
-  }
+                itemstack.hurtAndBreak(7, player, (p_43296_) ->
+                    p_43296_.broadcastBreakEvent(EquipmentSlot.OFFHAND));
+            }}}}
 
