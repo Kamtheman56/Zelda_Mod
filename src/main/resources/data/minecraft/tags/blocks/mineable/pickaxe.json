@@ -1,6 +1,6 @@
 {
-  "replace": false,
   "values": [
-    "zeldamod:masters_ore"
+"zeldamod:masters_ore",
+    "zeldamod:secret_stone"
   ]
 }

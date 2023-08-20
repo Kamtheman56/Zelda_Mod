@@ -9,7 +9,9 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
@@ -49,13 +51,13 @@ public class BombProjectile extends ThrowableProjectile {
     protected boolean inGround;
 
     @Override
-    protected void onHitBlock(BlockHitResult ray) {
-        super.onHitBlock(ray);
-        Vec3 vector3d = ray.getLocation().subtract(this.getX(), this.getY(), this.getZ());
+    protected void onHitBlock(BlockHitResult hit) {
+        super.onHitBlock(hit);
+        Vec3 vector3d = hit.getLocation().subtract(this.getX(), this.getY(), this.getZ());
         this.setDeltaMovement(vector3d);
-        Vec3 vector3d1 = vector3d.normalize().scale((double)0.05F);
+        Vec3 vector3d1 = vector3d.normalize().scale(getGravity());
         this.setPosRaw(this.getX() - vector3d1.x, this.getY() - vector3d1.y, this.getZ() - vector3d1.z);
-        this.inGround = true;
+        this.inGround=true;
     }
 
 
@@ -73,12 +75,13 @@ protected float getGravity() {
 @Override
     public void tick() {
     super.tick();
-   // HitResult hitresult = ProjectileUtil.getEntityHitResult(this, this::canHitEntity);
-    boolean flag = false;
+  //  HitResult hitresult = this.level().clip(new ClipContext(this.getDeltaMovement(), this.getDeltaMovement(), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
+//  boolean flag = false;
 
-   // if (hitresult.getType() != HitResult.Type.MISS && !flag && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, hitresult)) {
-   //     this.onHit(hitresult);
-   // }
+// if (hitresult.getType() != HitResult.Type.MISS && !flag && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, hitresult)) {
+      // this.onHit(hitresult);
+ //  }
+    this.setOnGround(true);
     if (this.isOnFire())
     {explode();}
     if (this.isInWater())
@@ -121,6 +124,9 @@ protected float getGravity() {
 
         }}
 
+    @Override
+    protected void updateRotation() {
+    }
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);

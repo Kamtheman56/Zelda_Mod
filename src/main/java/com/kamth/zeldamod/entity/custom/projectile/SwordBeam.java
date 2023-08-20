@@ -4,6 +4,7 @@ import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -77,10 +78,7 @@ public class SwordBeam extends AbstractArrow {
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
         this.discard();
-        BlockState blockHit = level().getBlockState(ray.getBlockPos());
-        if (blockHit.is(BlockTags.FLOWERS) ){
-            level().destroyBlock(ray.getBlockPos(), false);
-        }
+
 }
 
     @Override
@@ -103,13 +101,13 @@ public class SwordBeam extends AbstractArrow {
         }
 
     }
+@Override
+    protected SoundEvent getDefaultHitGroundSoundEvent() {
+        return SoundEvents.EMPTY;
+    }
 
 
 
-    @Override
-protected SoundEvent getDefaultHitGroundSoundEvent() {
-    return null;
-}
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);

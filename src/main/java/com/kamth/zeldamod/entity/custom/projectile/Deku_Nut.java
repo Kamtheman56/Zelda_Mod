@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -38,6 +39,8 @@ public class Deku_Nut extends ThrowableProjectile {
         entity.hurt(damageSources().generic(), (float)2);
         if (entity instanceof LivingEntity livingEntity) {
             livingEntity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 60, 0));
+            level().addParticle(ParticleTypes.EXPLOSION, (double)pResult.getLocation().x + 0.5D, pResult.getLocation().y  + 1.2D, pResult.getLocation().z + 0.5D, (double)1 / 24.0D, 0.0D, 0.0D);
+
         }
     }
 
@@ -45,7 +48,9 @@ public class Deku_Nut extends ThrowableProjectile {
     @Override
     protected void onHitBlock(BlockHitResult ray) {
         super.onHitBlock(ray);
-     this.discard();
+        level().addParticle(ParticleTypes.EXPLOSION, ray.getBlockPos().getX() + 0.5D, ray.getBlockPos().getY()  + 1.2D, ray.getBlockPos().getZ() + 0.5D, (double)1 / 24.0D, 0.0D, 0.0D);
+
+        this.discard();
         }
     @Override
     protected float getGravity() {

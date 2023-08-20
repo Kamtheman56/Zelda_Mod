@@ -103,6 +103,9 @@ public class IceArrow extends AbstractArrow {
         this.discard();
 
 }
+    protected float getWaterInertia() {
+        return 0.01F;
+    }
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);

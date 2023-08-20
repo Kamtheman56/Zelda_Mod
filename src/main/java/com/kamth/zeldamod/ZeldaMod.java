@@ -146,6 +146,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.SECRET_STONE);
             event.accept(ModBlocks.MASTER_ORE);
             event.accept(ModBlocks.PORK_BLOCK);
+            event.accept(ModBlocks.GLOOM_BLOCK);
         }
 
 

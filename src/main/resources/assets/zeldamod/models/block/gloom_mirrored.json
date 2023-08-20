@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_mirrored_all",
   "textures": {
     "all": "zeldamod:block/gloom_block"
   }

@@ -1,5 +1,20 @@
 {
   "variants": {
-    "": {"model": "zeldamod:block/gloom_block"}
+    "": [
+      {
+        "model": "zeldamod:block/gloom_block"
+      },
+      {
+        "model": "zeldamod:block/gloom_mirrored"
+      },
+      {
+        "model": "zeldamod:block/gloom_block",
+        "y": 180
+      },
+      {
+        "model": "zeldamod:block/gloom_mirrored",
+        "y": 180
+      }
+    ]
   }
 }
