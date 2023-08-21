@@ -34,7 +34,7 @@ if (player.isSleeping()){
     Vec3 explosionPos = player.getEyePosition(1.0F).add(player.getLookAngle().multiply(0.5D, 0.5D, 0.5D));
     player.level().explode(player, explosionPos.x, explosionPos.y, explosionPos.z, .9F, Level.ExplosionInteraction.NONE);
 player.getCooldowns().addCooldown(ModItems.NIGHT_MASK.get(),250);
-player.hurt(DamageSource.class.cast(DamageTypes.MAGIC), 9);
+player.hurt(player.damageSources().magic(), 9);
 
 }
 

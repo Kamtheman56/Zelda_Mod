@@ -2,7 +2,6 @@ package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.custom.projectile.SwordBeam;
 import com.kamth.zeldamod.item.ModItems;
-import com.kamth.zeldamod.item.ModTiers;
 import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -21,14 +20,13 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class MasterSwordItem extends SwordItem {
-    public MasterSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
+public class InjuredSwordItem extends SwordItem {
+    public InjuredSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
@@ -36,27 +34,32 @@ public class MasterSwordItem extends SwordItem {
     }
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
-        if (pState.is(ModTags.Blocks.DEMON)) {   return 18.0F;
+        if (pState.is(ModTags.Blocks.DEMON)) {   return 15.0F;
         }
       else return 1;
     }
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-        pStack.hurtAndBreak(0, pAttacker, (p_43296_) -> {
-            p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-        });
+        pStack.hurtAndBreak(3, pAttacker, (p_43276_) -> p_43276_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+        if(pStack.getDamageValue() < pStack.getMaxDamage() - 2) {
+        }
+        else {
+            ItemStack	newItemStack = new ItemStack(ModItems.MASTER_SWORD_DAGGER.get());
+            pAttacker.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
+            pAttacker.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+        }
         return true;
     }
 
+
     @Override
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
-        if (pState.is(ModTags.Blocks.DEMON) && this.getTier() != ModTiers.MASTER) {
-            pStack.hurtAndBreak(3, pEntityLiving, (p_43276_) -> p_43276_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+        if (pState.is(ModTags.Blocks.DEMON)) {
+            pStack.hurtAndBreak(6, pEntityLiving, (p_43276_) -> p_43276_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
             if(pStack.getDamageValue() < pStack.getMaxDamage() - 2) {
             }
             else {
-                ItemStack	newItemStack = new ItemStack(ModItems.MASTER_SWORD_INJURED.get());
-
+                ItemStack	newItemStack = new ItemStack(ModItems.MASTER_SWORD_DAGGER.get());
                 pEntityLiving.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
                 pEntityLiving.broadcastBreakEvent(EquipmentSlot.MAINHAND);
             }
@@ -71,13 +74,9 @@ public class MasterSwordItem extends SwordItem {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
         if (!pLevel.isClientSide && player.isCrouching() && player.getHealth() >= 20 ) {
-        player.getCooldowns().addCooldown(this, 30);
-        pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 1F, 5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
-            SwordBeam projectile = new SwordBeam(pLevel,player);
-            projectile.setOwner(player);
-            projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
-            projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f,0f);
-            pLevel.addFreshEntity(projectile);
+        player.getCooldowns().addCooldown(this, 60);
+        pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 1F, -2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
+            player.displayClientMessage(Component.literal("You're unable to do that").withStyle(ChatFormatting.BLUE).withStyle(ChatFormatting.BOLD), true);
         }
         else {
             return InteractionResultHolder.pass(itemstack);
@@ -90,9 +89,10 @@ public class MasterSwordItem extends SwordItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Shoots Beams at full health!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("It's been corrupted by Gloom...").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("Blade of Evil's Bane").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Former Blade").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("of evil's bane").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
 
     }

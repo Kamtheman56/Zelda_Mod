@@ -20,6 +20,9 @@ public class ModTiers {
     public static final ForgeTier ZELDAU = new ForgeTier(2, 0, 1.5f, 2f,
             0, BlockTags.NEEDS_IRON_TOOL,
             () -> Ingredient.of(ItemStack.EMPTY));
+    public static final ForgeTier MASTER = new ForgeTier(2, 0, 1.5f, 2f,
+            0, BlockTags.NEEDS_DIAMOND_TOOL,
+            () -> Ingredient.of(ItemStack.EMPTY));
 
 
 }
