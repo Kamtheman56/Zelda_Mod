@@ -6,8 +6,8 @@ import com.kamth.zeldamod.item.custom.ModArmorMaterials;
 import com.kamth.zeldamod.item.custom.ModFoods;
 import com.kamth.zeldamod.item.items.*;
 import com.kamth.zeldamod.item.masks.*;
+import net.minecraft.client.Minecraft;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -31,6 +31,10 @@ public class ModItems {
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> MASTER_ORE2 = ITEMS.register("refined_master_ore",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> MASTER_UPGRADE = ITEMS.register("master_upgrade",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> DEFAULT_UPGRADE = ITEMS.register("default_upgrade",
+            () -> new Item(new Item.Properties()));
 
 
     //These are potions or consumables
@@ -63,8 +67,8 @@ public class ModItems {
             () -> new SwordItem(ModTiers.GILDED, 3, -2.4f,
                     new Item.Properties()));
     public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
-            () -> new MasterSwordItem(ModTiers.ZELDAU, 4, -2.4f,
-                    new Item.Properties().rarity(Rarity.RARE).fireResistant()));
+            () -> new MasterSwordItem(ModTiers.RAZOR, 4, -2.4f,
+                    new Item.Properties().defaultDurability(100).rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> BIGGORON_SWORD = ITEMS.register("biggoron_sword",
             () -> new SwordItem(ModTiers.ZELDAU, 7, -3.3f,
                     new Item.Properties().fireResistant()));
@@ -199,7 +203,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new ScentMask(ModArmorMaterials.SCENT, ArmorItem.Type.HELMET,
                     new Item.Properties()));
     public static final RegistryObject<ArmorItem> TRUTH_MASK = ITEMS.register("truthmask",
-            ()-> new TruthMask(ModArmorMaterials.TRUTH, ArmorItem.Type.HELMET,
+            ()-> new RomaniMask(ModArmorMaterials.TRUTH, ArmorItem.Type.HELMET,
                     new Item.Properties()));
     public static final RegistryObject<ArmorItem> KEATON_MASK = ITEMS.register("keatonmask",
             ()-> new KeatonMask(ModArmorMaterials.KEATON, ArmorItem.Type.HELMET,

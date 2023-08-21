@@ -4,12 +4,15 @@ import com.kamth.zeldamod.entity.custom.projectile.SwordBeam;
 import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
@@ -31,11 +34,28 @@ public class MasterSwordItem extends SwordItem {
     }
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
-        if (pState.is(ModTags.Blocks.DEMON)) {   return 10.0F;
+        if (pState.is(ModTags.Blocks.DEMON)) {   return 15.0F;
         }
       else return 1;
     }
+    @Override
+    public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
+        pStack.hurtAndBreak(0, pAttacker, (p_43296_) -> {
+            p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+        });
+        return true;
+    }
 
+    @Override
+    public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
+        if (pState.is(ModTags.Blocks.DEMON)) {
+            pStack.hurtAndBreak(30, pEntityLiving, (p_43276_) -> {
+                p_43276_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+            });
+        }
+
+        return true;
+    }
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {

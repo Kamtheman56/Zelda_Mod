@@ -84,7 +84,7 @@ public class BoomerangProjectile extends AbstractArrow {
                 this.turn(this.getY(),this.getX());
                 this.setNoPhysics(true);
                 Vec3 vec3 = entity.getEyePosition().subtract(this.position());
-               // this.setPosRaw(this.getX(), this.getY() + vec3.y * 0.015D * (double)i, this.getZ());
+               this.setPosRaw(this.getX(), this.getY() + vec3.y * 0.015D * (double)i, this.getZ());
                 if (this.level().isClientSide) {
                     this.yOld = this.getY();
                 }

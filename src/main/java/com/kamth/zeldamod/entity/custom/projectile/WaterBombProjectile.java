@@ -3,6 +3,7 @@ package com.kamth.zeldamod.entity.custom.projectile;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvents;
@@ -18,7 +19,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 
 public class WaterBombProjectile extends ThrowableProjectile {
-    private float ticksToExplode =100f;
+    private float ticksToExplode =80f;
     private int explosionPower = 1;
 
     public WaterBombProjectile(EntityType<WaterBombProjectile> waterBombProjectileEntityType, Level level) {
@@ -40,13 +41,14 @@ public class WaterBombProjectile extends ThrowableProjectile {
     protected boolean inGround;
 
     @Override
-    protected void onHitBlock(BlockHitResult ray) {
-        super.onHitBlock(ray);
-        Vec3 vector3d = ray.getLocation().subtract(this.getX(), this.getY(), this.getZ());
+    protected void onHitBlock(BlockHitResult hit) {
+        super.onHitBlock(hit);
+        Vec3 vector3d = hit.getLocation().subtract(this.getX(), this.getY(), this.getZ());
         this.setDeltaMovement(vector3d);
-        Vec3 vector3d1 = vector3d.normalize().scale((double)0.05F);
+        Vec3 vector3d1 = vector3d.normalize().scale(getGravity());
         this.setPosRaw(this.getX() - vector3d1.x, this.getY() - vector3d1.y, this.getZ() - vector3d1.z);
-        this.inGround = true;
+        this.setOnGround(true);
+
     }
 
 
@@ -57,30 +59,40 @@ public class WaterBombProjectile extends ThrowableProjectile {
 
 @Override
 protected float getGravity() {
-    return 0.1F;
+    return 0.15F;
 }
 
-@Override
+    @Override
     public void tick() {
-    super.tick();
-  //  HitResult hitresult = ProjectileUtil.getHitResult(this, this::canHitEntity);
-    boolean flag = false;
-
-  //  if (hitresult.getType() != HitResult.Type.MISS && !flag && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, hitresult)) {
-  //      this.onHit(hitresult);
-  //  }
-
+        super.tick();
+        if (this.onGround() == true){
+            this.setDeltaMovement(0,-.45f,0);
+        }
     if (this.isOnFire())
     {explode();}
     if (this.isInWater())
     {
         this.explosionPower=3;
     }
+        int particlesDensity = 1;
+        float particlesSpeed = .2F;
+        float particlesSpread = .2F;
+
+        for (int i = 0; i < particlesDensity; i++)
+        {
+            double particleX = getX() + (random.nextFloat() * 2 - 1) * particlesSpread;
+            double particleY = getY() + (random.nextFloat() * 3 - 1) * particlesSpread;
+            double particleZ = getZ() + (random.nextFloat() * 2 - 1) * particlesSpread;
+            double particleMotionX = (random.nextFloat() * 0 - 0) * particlesSpeed;
+            double particleMotionY = (random.nextFloat() * 1 - 0) * particlesSpeed;
+            double particleMotionZ = (random.nextFloat() * 0 - 0) * particlesSpeed;
+            this.level().addParticle(ParticleTypes.BUBBLE_POP, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
+        }
     if (!this.level().isClientSide) {
             if (this.ticksToExplode <= this.tickCount) {
                 explode();}
-        else   if(this.tickCount % 25 == 0) {
-                this.playSound(SoundEvents.TNT_PRIMED, 1, 1);
+        else   if(this.tickCount % 20 == 0) {
+                this.playSound(SoundEvents.TNT_PRIMED, 1, 5/ (this.level().getRandom().nextFloat() * 0.4F + 0.8F));
             }}}
 
     private void explode() {
@@ -95,6 +107,9 @@ protected float getGravity() {
             if (blockState.is(ModTags.Blocks.BOMB)){
                 this.level().destroyBlock(pos, false);
             }}}
+    @Override
+    protected void updateRotation() {
+    }
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);

@@ -17,7 +17,7 @@ import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
 public class BombRender extends EntityRenderer<BombProjectile> {
-    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/item/bomb2.png");
+    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/item/bomb.png");
     private static final RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
 
     public BombRender(EntityRendererProvider.Context pContext) {

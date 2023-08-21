@@ -13,9 +13,11 @@ public class ModEffects {
             = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, ZeldaMod.MOD_ID);
 
     public static final RegistryObject<MobEffect> DEKU = MOB_EFFECTS.register("deku",
-            () -> new WaterHopping(MobEffectCategory.HARMFUL, 3124687));
+            () -> new WaterHopping(MobEffectCategory.BENEFICIAL, 3124687));
     public static final RegistryObject<MobEffect> HOVER = MOB_EFFECTS.register("hover",
             () -> new WaterHopping(MobEffectCategory.BENEFICIAL, 3124687));
+    public static final RegistryObject<MobEffect> GLOOM = MOB_EFFECTS.register("gloom",
+            () -> new GloomEffect(MobEffectCategory.HARMFUL, 3124687));
 
     public static void register(IEventBus eventbus){
         MOB_EFFECTS.register(eventbus);

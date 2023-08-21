@@ -23,7 +23,7 @@ public class BombProjectile extends ThrowableProjectile {
 
 
     private static  int TICKS_PER_SECOND = 20;
-    private float ticksToExplode =150f;
+    private float ticksToExplode =100f;
     private int explosionPower = 2;
 
     public BombProjectile(EntityType<BombProjectile> bombProjectileEntityType, Level level) {
@@ -57,8 +57,9 @@ public class BombProjectile extends ThrowableProjectile {
         this.setDeltaMovement(vector3d);
         Vec3 vector3d1 = vector3d.normalize().scale(getGravity());
         this.setPosRaw(this.getX() - vector3d1.x, this.getY() - vector3d1.y, this.getZ() - vector3d1.z);
-        this.inGround=true;
-    }
+       this.setOnGround(true);
+
+          }
 
 
 
@@ -75,13 +76,11 @@ protected float getGravity() {
 @Override
     public void tick() {
     super.tick();
-  //  HitResult hitresult = this.level().clip(new ClipContext(this.getDeltaMovement(), this.getDeltaMovement(), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
-//  boolean flag = false;
+if (this.onGround() == true){
+    this.setDeltaMovement(0,-.45f,0);
 
-// if (hitresult.getType() != HitResult.Type.MISS && !flag && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, hitresult)) {
-      // this.onHit(hitresult);
- //  }
-    this.setOnGround(true);
+}
+
     if (this.isOnFire())
     {explode();}
     if (this.isInWater())
@@ -106,7 +105,7 @@ protected float getGravity() {
             if (this.ticksToExplode <= this.tickCount) {
                 explode();}
         else   if(this.tickCount % 25 == 0) {
-                this.playSound(SoundEvents.TNT_PRIMED, 1, 1);
+                this.playSound(SoundEvents.TNT_PRIMED, 1, 1/ (this.level().getRandom().nextFloat() * 0.4F + 0.8F));
 
             }}}
 

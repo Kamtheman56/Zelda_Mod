@@ -8,15 +8,26 @@ import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.util.ModItemProperties;
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.kamth.zeldamod.block.custom.GloomBlock.damageTimer;
+import static com.kamth.zeldamod.block.custom.GloomBlock.healTimer;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ZeldaMod.MOD_ID)
@@ -43,6 +54,7 @@ public class ZeldaMod
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
+
     }
 private void clientSetup(final FMLClientSetupEvent event){
        ModItemProperties.addCustomItemProperties();
@@ -119,6 +131,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.MASTER_ORE);
         event.accept(ModItems.MASTER_ORE2);
         event.accept(ModItems.GOLD_DUST);
+        event.accept(ModItems.DEFAULT_UPGRADE);
+        event.accept(ModItems.MASTER_UPGRADE);
         event.accept(ModItems.PUMPKIN_SOUP);
         event.accept(ModItems.STAMINA);
         event.accept(ModItems.HEART_POTION);

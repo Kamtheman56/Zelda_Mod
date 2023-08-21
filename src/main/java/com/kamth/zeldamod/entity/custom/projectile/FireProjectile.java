@@ -28,7 +28,7 @@ public class FireProjectile extends ThrowableProjectile {
     @Override
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
-        if (this.level().isEmptyBlock(this.blockPosition()))
+        if (this.level().isEmptyBlock(this.blockPosition().above()))
             this.level().setBlock(this.blockPosition(), Blocks.FIRE.defaultBlockState(),11);
         BlockState blockHit = this.level().getBlockState(ray.getBlockPos());
         if (blockHit.getBlock() == Blocks.ICE){

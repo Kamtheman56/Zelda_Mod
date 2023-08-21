@@ -39,14 +39,7 @@ public class SeedProjectile extends AbstractArrow {
         return new ItemStack(this.referenceItem);
     }
 
-    public void shoot(Vec3 direction, float speed, float spread) {
-        super.shoot(direction.x, direction.y, direction.z, speed * getFlightSpeed(), 2);
-        
-    }
 
-    protected float getFlightSpeed() {
-        return 1.3F;
-    }
     @Override
     public void tick() {
         super.tick();

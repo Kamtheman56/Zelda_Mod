@@ -28,9 +28,8 @@ public class IceProjectile extends ThrowableProjectile {
         @Override
         protected void onHitBlock(@NotNull BlockHitResult ray) {
             super.onHitBlock(ray);
-            BlockState blockHit = level().getBlockState(ray.getBlockPos());
-            if (level().isEmptyBlock(this.blockPosition())){
-                level().setBlockAndUpdate(this.blockPosition(), Blocks.SNOW.defaultBlockState());}
+           // if (this.level().isEmptyBlock(this.blockPosition().above())){
+          //      this.level().setBlockAndUpdate(this.blockPosition(), Blocks.SNOW.defaultBlockState());}
             this.discard();
         }
 
@@ -57,6 +56,7 @@ public class IceProjectile extends ThrowableProjectile {
     if (this.tickCount==35){
         this.discard();
     }
+
         if (this.isInWater()){
             level().setBlockAndUpdate(this.blockPosition(), Blocks.FROSTED_ICE.defaultBlockState());
             this.discard();}

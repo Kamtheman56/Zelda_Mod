@@ -21,7 +21,7 @@ public class ModCreativeModeTab {
             CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.MASTER_SWORD_INJURED.get())).title(Component.translatable("zelda_blocks")).build());
 
     public static RegistryObject<CreativeModeTab> ZELDA_MATERIAL = CREATIVE_MODE_TABS.register("zelda_material", () ->
-            CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.GOLD_DUST.get())).title(Component.translatable("zelda_misc")).build());
+            CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.MASTER_ORE.get())).title(Component.translatable("zelda_misc")).build());
 
     public static RegistryObject<CreativeModeTab> ZELDA_MASK = CREATIVE_MODE_TABS.register("zelda_mask", () ->
             CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.DEKU_MASK.get())).title(Component.translatable("zelda_masks")).build());
