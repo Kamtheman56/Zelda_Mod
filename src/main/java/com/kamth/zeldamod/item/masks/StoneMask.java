@@ -35,6 +35,7 @@ public class StoneMask extends ArmorItem {
         return stack.getItem() == ModItems.STONE_MASK.get();
     }
 
+
     //this adds effects that do not create particles.
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {

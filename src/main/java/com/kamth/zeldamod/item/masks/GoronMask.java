@@ -43,6 +43,7 @@ public void onLivingHurtEvent(LivingHurtEvent event){
         if (event.getSource().is(DamageTypes.FALL)) {
             event.setAmount(event.getAmount() * .2F);
         }
+
     }}
 
     @Override
