@@ -151,9 +151,11 @@ public class ModItems {
     public static final RegistryObject<Item> GLIDER = ITEMS.register("glider",
             () -> new GliderItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BLUE_RING = ITEMS.register("blue_ring",
-            () -> new BlueRingItem(new Item.Properties().defaultDurability(64)));
+            () -> new BlueRingItem(new Item.Properties().defaultDurability(80)));
     public static final RegistryObject<Item> RED_RING = ITEMS.register("red_ring",
-            () -> new RedRingItem(new Item.Properties().defaultDurability(128)));
+            () -> new RedRingItem(new Item.Properties().defaultDurability(80)));
+    public static final RegistryObject<Item> PURPLE_RING = ITEMS.register("purple_ring",
+            () -> new PurpleRingItem(new Item.Properties().defaultDurability(160)));
 
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168)));

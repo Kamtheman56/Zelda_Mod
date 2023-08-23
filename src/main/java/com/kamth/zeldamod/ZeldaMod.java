@@ -60,10 +60,10 @@ private void clientSetup(final FMLClientSetupEvent event){
 private void addCreative(BuildCreativeModeTabContentsEvent event){
     if (event.getTab() == ModCreativeModeTab.ZELDA_BLOCKS.get()){
         event.accept(ModItems.KOKIRI_HAT);
-        event.accept(ModItems.KOKIRI_TUNIC);
         event.accept(ModItems.GORON_HAT);
-        event.accept(ModItems.GORON_TUNIC);
         event.accept(ModItems.ZORA_HAT);
+        event.accept(ModItems.KOKIRI_TUNIC);
+        event.accept(ModItems.GORON_TUNIC);
         event.accept(ModItems.ZORA_TUNIC);
         event.accept(ModItems.CHAMPION_TUNIC);
         event.accept(ModItems.CHAMPIONS_TUNIC);
@@ -113,6 +113,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.DEKU_NUT);
         event.accept(ModItems.BLUE_RING);
         event.accept(ModItems.RED_RING);
+        event.accept(ModItems.PURPLE_RING);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MATERIAL.get()){
         event.accept(ModItems.RED_EMERALD);

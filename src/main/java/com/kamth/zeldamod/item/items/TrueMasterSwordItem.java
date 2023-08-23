@@ -56,7 +56,9 @@ public class TrueMasterSwordItem extends SwordItem {
         player.awardStat(Stats.ITEM_USED.get(this));
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }
-
+    public boolean isFoil(ItemStack pStack) {
+        return true;
+    }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
