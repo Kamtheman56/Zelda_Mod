@@ -3,14 +3,12 @@ package com.kamth.zeldamod.item.items;
 import com.kamth.zeldamod.entity.custom.projectile.BoomerangProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.GustProjectile;
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
-import net.minecraft.world.entity.projectile.FishingHook;
-import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.phys.EntityHitResult;
@@ -31,7 +29,6 @@ public class MirrorShieldItem extends ShieldItem {
     public void ShieldBlockEvent(ShieldBlockEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.MIRROR_SHIELD.get()  && !event.getDamageSource().is(DamageTypeTags.IS_PROJECTILE)) {
       event.getEntity().getUseItem().hurtAndBreak(12, event.getEntity(), (p_43276_) -> p_43276_.broadcastBreakEvent(InteractionHand.MAIN_HAND));
-
         }
 
 
@@ -52,7 +49,7 @@ public class MirrorShieldItem extends ShieldItem {
     }
 
     private static <T extends Projectile> boolean tryReflect(T projectile, LivingEntity entityBlocking, boolean takeOwnership) {
-        if (entityBlocking.isBlocking() ) {
+        if (!projectile.getType().is(ModTags.Entities.MIRROR) && entityBlocking.isBlocking()) {
             ItemStack itemUsed = entityBlocking.getUseItem();
             if (itemUsed.is(ModItems.MIRROR_SHIELD.get())){
                 return parryProjectile(projectile, entityBlocking, takeOwnership);
@@ -73,8 +70,6 @@ public class MirrorShieldItem extends ShieldItem {
             damagingProjectile.yPower = reboundAngle.y * 0.1D;
             damagingProjectile.zPower = reboundAngle.z * 0.1D;
         }
-
-        // Also used in parrying Ghast Fireball
         projectile.hurtMarked = true;
 
         return true;

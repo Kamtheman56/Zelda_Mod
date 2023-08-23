@@ -15,5 +15,6 @@ public class HeroBowItem extends BowItem {
         return stack -> stack.is(ModTags.Items.BOW_AMMO);
 
 
+
     }
 }

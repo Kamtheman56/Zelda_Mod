@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:arrow",
+    "minecraft:trident",
+    "zeldamod:boomerang_projectile",
+    "zeldamod:magic_boomerang_projectile",
+    "zeldamod:gust_projectile"
+  ]
+}
