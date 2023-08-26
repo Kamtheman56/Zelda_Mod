@@ -41,7 +41,7 @@ public class BoomerangProjectile extends AbstractArrow {
     }
 
     boolean dealtDamage;
-    public int clientSideReturnTridentTickCount;
+    public int boomerangreturn;
 
     public BoomerangProjectile(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -91,12 +91,12 @@ public class BoomerangProjectile extends AbstractArrow {
                 }
 
                 double d0 = 0.5D * (double)i;
-                this.setDeltaMovement(this.getDeltaMovement().scale(0.95D).add(vec3.normalize().scale(d0)));
-                if (this.clientSideReturnTridentTickCount == 0) {
+               this.setDeltaMovement(this.getDeltaMovement().scale(0.95D).add(vec3.normalize().scale(d0)));
+                if (this.boomerangreturn == 0) {
                     this.playSound(SoundEvents.WOOD_BREAK, 1.0F, 1.0F);
                 }
 
-                ++this.clientSideReturnTridentTickCount;
+                ++this.boomerangreturn;
             }
         }
 

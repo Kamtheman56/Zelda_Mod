@@ -24,6 +24,8 @@ import java.util.UUID;
 
 @Mixin(LivingEntity.class)
 public abstract class MixinLivingEntity extends Entity {
+
+
     public MixinLivingEntity(EntityType<?> pEntityType, Level pLevel) {
         super(null, null);
     }
@@ -44,7 +46,10 @@ public abstract class MixinLivingEntity extends Entity {
         if (((Object)this) instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HOVER_BOOTS.get()) {
             cir.setReturnValue(.96F);}
  if (((Object)this) instanceof LivingEntity living  && living.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
-        cir.setReturnValue(.96F);}}}
+        cir.setReturnValue(.96F);}}
+
+
+}
 
 
 

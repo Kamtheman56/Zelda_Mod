@@ -44,12 +44,6 @@ public class SeedProjectile extends AbstractArrow {
     @Override
     public void tick() {
         super.tick();
-
-        if (!isNoPhysics()) {
-            Vec3 previousMovement = getDeltaMovement();
-            setDeltaMovement(previousMovement.x, previousMovement.y, previousMovement.z);
-        }
-
         if (inGround) {
             this.setRemoved(RemovalReason.DISCARDED);
         }

@@ -161,7 +161,7 @@ public class ModItems {
     public static final RegistryObject<Item> PURPLE_RING = ITEMS.register("purple_ring",
             () -> new PurpleRingItem(new Item.Properties().defaultDurability(160)));
     public static final RegistryObject<Item> HOOKSHOT = ITEMS.register("hookshot",
-            () -> new PurpleRingItem(new Item.Properties().defaultDurability(160)));
+            () -> new HookshotItem(new Item.Properties().defaultDurability(160)));
 
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168)));

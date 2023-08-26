@@ -60,6 +60,7 @@ if (player.isOnFire()){
         if (event.phase != TickEvent.Phase.START) {
             return;
         }
+
         AttributeInstance stepHeight;
         stepHeight = event.player.getAttribute(ForgeMod.ENTITY_REACH.get());
         if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get()) {
