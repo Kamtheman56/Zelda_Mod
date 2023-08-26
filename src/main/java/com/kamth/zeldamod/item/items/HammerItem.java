@@ -51,21 +51,12 @@ public HammerItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModif
     public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
         return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
     }
-    @SubscribeEvent
-    public static void onPlayerLeftClickBlock(PlayerInteractEvent.LeftClickBlock event)
-    {
-        BlockState blockState = event.getLevel().getBlockState(event.getPos());
-        if (blockState.is(ModTags.Blocks.BOMB))
-        {
-            event.getLevel().destroyBlock(event.getPos(), false, event.getEntity());
-            Block.dropResources(blockState, event.getLevel(), event.getPos());
-        }
-    }
+
     public InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
-        //Only destroys all blocks for now?
+
         if (blockstate.is(ModTags.Blocks.HAMMER)) {
             level.destroyBlock(blockpos,false, pContext.getPlayer());
             return InteractionResult.SUCCESS;

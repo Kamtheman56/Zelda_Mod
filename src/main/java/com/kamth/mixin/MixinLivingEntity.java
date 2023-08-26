@@ -34,18 +34,10 @@ public abstract class MixinLivingEntity extends Entity {
                 return 1.05F;
         }
         if (entity instanceof LivingEntity living  && living.hasEffect(MobEffects.MOVEMENT_SPEED) && living.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
-            return 1.07F;
+            return 1.08F;
         }
         return state.getFriction(level, pos, entity);}
-    @Inject(method = "playHurtSound", at = @At("HEAD"), cancellable = true)
-    private void Hurtsound(DamageSource pSource, CallbackInfo ci)
-    {
-        Player player = level().getPlayerByUUID(uuid);
-        if (player != null && player.getUseItem().getItem() == ModItems.MIRROR_SHIELD.get() && pSource.is(DamageTypeTags.BYPASSES_SHIELD)){
-           ci.cancel();
-        }
 
-    }
 
     @Inject(method = "getBlockSpeedFactor", at = @At("HEAD"), cancellable = true)
     private void onGetBlockSpeedFactor(CallbackInfoReturnable<Float> cir) {

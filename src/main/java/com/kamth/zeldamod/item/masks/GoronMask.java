@@ -5,6 +5,7 @@ import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -34,14 +35,14 @@ public class GoronMask extends ArmorItem {
 //Mask that gives combat prowess and nether exploration
 public void onLivingHurtEvent(LivingHurtEvent event){
     if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
-        if (event.getSource().is(DamageTypes.FALLING_STALACTITE)) {
-            event.setAmount(event.getAmount() * 0);
+        if (!event.getSource().is(DamageTypeTags.BYPASSES_ARMOR)) {
+            event.setAmount(event.getAmount() / 2);
         }
         if (event.getSource().is(DamageTypes.DROWN)) {
             event.setAmount(event.getAmount() * 2);
         }
         if (event.getSource().is(DamageTypes.FALL)) {
-            event.setAmount(event.getAmount() * .2F);
+            event.setAmount(event.getAmount() / 2F);
         }
 
     }}
@@ -50,7 +51,6 @@ public void onLivingHurtEvent(LivingHurtEvent event){
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 
         player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 10, 0, true, false));
-        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 10,1,true,false));
         player.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 10,0,true,false));
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10,1,true,false));
       //  player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10,0,true,false));

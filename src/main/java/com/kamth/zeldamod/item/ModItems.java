@@ -60,6 +60,10 @@ public class ModItems {
             () -> new BluePotionItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.BLUE)));
     public static final RegistryObject<Item> MILK_MAGIC = ITEMS.register("magic_milk",
             () -> new DrinkItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.MILK_MAGIC)));
+    public static final RegistryObject<Item> SUPER_MUSHROOM = ITEMS.register("mushroom_super",
+            () -> new Item(new Item.Properties().food(ModFoods.SUPER_MUSHROOM)));
+    public static final RegistryObject<Item> LIFE_MUSHROOM = ITEMS.register("mushroom_life",
+            () -> new Item(new Item.Properties().food(ModFoods.LIFE_MUSHROOM)));
 
 
     //This is where Tools start
@@ -155,6 +159,8 @@ public class ModItems {
     public static final RegistryObject<Item> RED_RING = ITEMS.register("red_ring",
             () -> new RedRingItem(new Item.Properties().defaultDurability(80)));
     public static final RegistryObject<Item> PURPLE_RING = ITEMS.register("purple_ring",
+            () -> new PurpleRingItem(new Item.Properties().defaultDurability(160)));
+    public static final RegistryObject<Item> HOOKSHOT = ITEMS.register("hookshot",
             () -> new PurpleRingItem(new Item.Properties().defaultDurability(160)));
 
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",

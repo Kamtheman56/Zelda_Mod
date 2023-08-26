@@ -28,5 +28,6 @@ public class ClientModEventSubscriber {
         event.registerEntityRenderer(ModEntityTypes.ICE_PROJECTILE.get(), IceRender::new);
         event.registerEntityRenderer(ModEntityTypes.BOOMERANG.get(), BoomerangRender::new);
         event.registerEntityRenderer(ModEntityTypes.MAGIC_BOOMERANG.get(), MagicBoomerangRender::new);
+        event.registerEntityRenderer(ModEntityTypes.SAND_PROJECTILE.get(), SandRender::new);
     }
 }

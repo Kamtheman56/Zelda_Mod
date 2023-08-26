@@ -1,11 +1,13 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -50,23 +52,11 @@ public class SwordBeam extends AbstractArrow {
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
-        int z = entity instanceof Zombie ? 2 : 0;
+        int z = entity.getType().is(ModTags.Entities.UNDEAD)? 2 : 0;
         entity.hurt(damageSources().generic(), (float)z);
-        int k = entity instanceof Skeleton ? 2 : 0;
-        entity.hurt(damageSources().generic(), (float)k);
-        int p = entity instanceof Phantom ? 2 : 0;
-        entity.hurt(damageSources().generic(), (float)p);
-        int r = entity instanceof Stray ? 2 : 0;
-        entity.hurt(damageSources().generic(), (float)r);
-        int h = entity instanceof Husk ? 2 : 0;
-        entity.hurt(damageSources().generic(), (float)h);
-        int w = entity instanceof WitherSkeleton ? 10 : 0;
+        int w = entity.getType().is(ModTags.Entities.EVIL) ? 10 : 0;
         entity.hurt(damageSources().generic(), (float)w);
-        int e = entity instanceof WitherBoss ? 20 : 0;
-        entity.hurt(damageSources().generic(), (float)e);
-        int s = entity instanceof Warden ? 20 : 0;
-        entity.hurt(damageSources().generic(), (float)s);
-        this.discard();
+      this.discard();
     }
     @Override
     public void onAddedToWorld() {
@@ -92,6 +82,7 @@ public class SwordBeam extends AbstractArrow {
     public void tick()
     {
         super.tick();
+
         if (tickCount > 15)
         {
             this.discard();

@@ -65,6 +65,7 @@ public class BoomerangProjectile extends AbstractArrow {
     public void tick() {
         this.setNoGravity(true);
         this.captureDrops();
+
         if (this.tickCount > 15) {
             this.dealtDamage = true;
 
@@ -127,7 +128,7 @@ public class BoomerangProjectile extends AbstractArrow {
     protected void onHitEntity(@NotNull EntityHitResult pResult) {
         Entity entity = pResult.getEntity();
         entity.hurt(damageSources().generic(), (float) this.getBaseDamage());
-this.dealtDamage=true;
+            this.dealtDamage=true;
         Entity entity1 = this.getOwner();
         if (entity instanceof LivingEntity) {
             LivingEntity livingentity1 = (LivingEntity)entity;

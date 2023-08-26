@@ -114,6 +114,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.BLUE_RING);
         event.accept(ModItems.RED_RING);
         event.accept(ModItems.PURPLE_RING);
+        event.accept(ModItems.HOOKSHOT);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MATERIAL.get()){
         event.accept(ModItems.RED_EMERALD);
@@ -134,6 +135,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.MILK_MAGIC);
         event.accept(ModItems.SHIELD_POTION);
         event.accept(ModItems.BLUE_POTION);
+        event.accept(ModItems.SUPER_MUSHROOM);
+        event.accept(ModItems.LIFE_MUSHROOM);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MASK.get()){
         event.accept(ModItems.DEKU_MASK);

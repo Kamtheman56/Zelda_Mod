@@ -20,6 +20,8 @@
   "item.zeldamod.pearl_power": "Din's Pearl",
   "item.zeldamod.pearl_wisdom": "Nayru's Pearl",
   "item.zeldamod.pearl_courage": "Farore's Pearl",
+  "item.zeldamod.mushroom_super": "Super Mushroom",
+  "item.zeldamod.mushroom_life": "1-UP Mushroom",
 
   "itemGroup.zeldatab": "Zelda Items",
   "itemGroup.zeldamask": "Zelda Masks",
@@ -73,6 +75,7 @@
   "item.zeldamod.red_ring": "Red Ring",
   "item.zeldamod.blue_ring": "Blue Ring",
   "item.zeldamod.purple_ring": "Purple Ring",
+  "item.zeldamod.hookshot": "Hookshot",
 
 
 
@@ -96,9 +99,9 @@
   "item.zeldamod.kokiritunic": "Kokiri Tunic",
   "item.zeldamod.zoratunic": "Zora Tunic",
   "item.zeldamod.gorontunic": "Goron Tunic",
-  "item.zeldamod.zorahelmet": "Zora Helmet",
-  "item.zeldamod.goronhelmet": "Goron Helmet",
-  "item.zeldamod.kokirihat": "Kokiri Helmet",
+  "item.zeldamod.zorahelmet": "Zora Hat",
+  "item.zeldamod.goronhelmet": "Goron Hat",
+  "item.zeldamod.kokirihat": "Kokiri Hat",
   "item.zeldamod.kokiripants": "Kokiri Pants",
   "item.zeldamod.roc_cape": "Roc's Cape",
   "item.zeldamod.flippers": "Zora Flippers",

@@ -83,78 +83,66 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.CHAIN); });
 
 
-    private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
     private final String name;
     private final int durabilityMultiplier;
-    private final int[] slotProtections;
+    private final int[] protectionAmounts;
     private final int enchantmentValue;
-    private final SoundEvent sound;
+    private final SoundEvent equipSound;
     private final float toughness;
     private final float knockbackResistance;
+    private final Supplier<Ingredient> repairIngredient;
 
-    private final LazyLoadedValue<Ingredient> repairIngredient;
+    private static final int[] BASE_DURABILITY = { 11, 16, 16, 13 };
 
-    private ModArmorMaterials(String p_40474_, int durability, int[] slotProtections, int enchantmentvalue, SoundEvent sound, float toughness, float knockbackresistance, Supplier<Ingredient> p_40481_) {
-        this.name = p_40474_;
-        this.durabilityMultiplier = durability;
-        this.slotProtections = slotProtections;
-        this.enchantmentValue = enchantmentvalue;
-        this.sound = sound;
+    ModArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantmentValue, SoundEvent equipSound,
+                      float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
+        this.name = name;
+        this.durabilityMultiplier = durabilityMultiplier;
+        this.protectionAmounts = protectionAmounts;
+        this.enchantmentValue = enchantmentValue;
+        this.equipSound = equipSound;
         this.toughness = toughness;
-        this.knockbackResistance = knockbackresistance;
-        this.repairIngredient = new LazyLoadedValue<>(p_40481_);
+        this.knockbackResistance = knockbackResistance;
+        this.repairIngredient = repairIngredient;
     }
 
-    public int getDurabilityForSlot(EquipmentSlot p_40484_) {
-        return HEALTH_PER_SLOT[p_40484_.getIndex()] * this.durabilityMultiplier;
-    }
-
-    public int getDefenseForSlot(EquipmentSlot p_40487_) {
-        return this.slotProtections[p_40487_.getIndex()];
-    }
-
-    /**
-     * @param pType
-     * @return
-     */
     @Override
     public int getDurabilityForType(ArmorItem.Type pType) {
-
-        return 0;
+        return BASE_DURABILITY[pType.ordinal()] * this.durabilityMultiplier;
     }
 
-    /**
-     * @param pType
-     * @return
-     */
     @Override
     public int getDefenseForType(ArmorItem.Type pType) {
-        return 0;
+        return this.protectionAmounts[pType.ordinal()];
     }
 
+    @Override
     public int getEnchantmentValue() {
-        return this.enchantmentValue;
+        return enchantmentValue;
     }
 
+    @Override
     public SoundEvent getEquipSound() {
-        return this.sound;
+        return this.equipSound;
     }
 
+    @Override
     public Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
     }
 
+    @Override
     public String getName() {
         return ZeldaMod.MOD_ID + ":" + this.name;
     }
 
+    @Override
     public float getToughness() {
         return this.toughness;
     }
 
+    @Override
     public float getKnockbackResistance() {
         return this.knockbackResistance;
-
-
     }
 }

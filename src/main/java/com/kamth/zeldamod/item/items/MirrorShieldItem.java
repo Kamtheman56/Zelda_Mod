@@ -61,14 +61,14 @@ public class MirrorShieldItem extends ShieldItem {
     private static <T extends Projectile> boolean parryProjectile(T projectile, LivingEntity entityBlocking, boolean takeOwnership) {
         if (takeOwnership) transferOwnership(projectile, entityBlocking);
 
-        Vec3 reboundAngle = entityBlocking.getLookAngle();
+        Vec3 reflectAngle = entityBlocking.getLookAngle();
 
-        projectile.shoot(reboundAngle.x, reboundAngle.y, reboundAngle.z, 1.1F, 0.1F);  // reflect faster and more accurately
+        projectile.shoot(reflectAngle.x, reflectAngle.y, reflectAngle.z, 1.1F, 0.2F);
 
         if (projectile instanceof AbstractHurtingProjectile damagingProjectile) {
-            damagingProjectile.xPower = reboundAngle.x * 0.1D;
-            damagingProjectile.yPower = reboundAngle.y * 0.1D;
-            damagingProjectile.zPower = reboundAngle.z * 0.1D;
+            damagingProjectile.xPower = reflectAngle.x * 0.1D;
+            damagingProjectile.yPower = reflectAngle.y * 0.1D;
+            damagingProjectile.zPower = reflectAngle.z * 0.1D;
         }
         projectile.hurtMarked = true;
 
@@ -76,20 +76,12 @@ public class MirrorShieldItem extends ShieldItem {
     }
     private static <T extends Projectile> void transferOwnership(T projectile, LivingEntity entityBlocking) {
         if (projectile instanceof AbstractArrow arrow) {
-            // AbstractArrow overrides setOwner, override changes state for its pickup based on owner
             AbstractArrow.Pickup priorPickupState = arrow.pickup;
-
             arrow.setOwner(entityBlocking);
-
-
-            // Forge's event for rebounding projectiles has an issue that causes the server-side to stall if piercing arrows are involved
-            // Though this is a reasonable long-term nerf anyway: Loss of 1 pierce level upon rebound
             byte pierceLevel = arrow.getPierceLevel();
             if (pierceLevel > 0) {
                 return;
             }
-
-            // Re-set the pre-fetched value
             arrow.pickup = priorPickupState;
         } else {
             projectile.setOwner(entityBlocking);

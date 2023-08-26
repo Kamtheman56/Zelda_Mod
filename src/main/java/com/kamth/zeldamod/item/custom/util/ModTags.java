@@ -47,6 +47,12 @@ return BlockTags.create(new ResourceLocation("forge", name));
     public static class Entities{
         public static final TagKey<EntityType<?>>MIRROR
                 = tag("cannot_reflect");
+        public static final TagKey<EntityType<?>>UNDEAD
+                = tag("undead");
+        public static final TagKey<EntityType<?>>EVIL
+                = tag("evil");
+        public static final TagKey<EntityType<?>>BUGS
+                = tag("bugs");
 
         private static TagKey<EntityType<?>> tag(String name){
             return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(ZeldaMod.MOD_ID, name));

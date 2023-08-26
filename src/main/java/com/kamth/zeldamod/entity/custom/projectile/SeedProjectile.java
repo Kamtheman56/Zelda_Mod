@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvent;
@@ -63,16 +64,8 @@ public class SeedProjectile extends AbstractArrow {
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
-       int i = entity instanceof Silverfish ? 20 : 0;
-        entity.hurt(damageSources().generic(), (float)i);
-     int k = entity instanceof Spider ? 2 : 0;
-       entity.hurt(damageSources().generic(), (float)k);
-       int e = entity instanceof CaveSpider ? 2 : 0;
-      entity.hurt(damageSources().generic(), (float)e);
-       int b = entity instanceof Bee ? 20 : 0;
-      entity.hurt(damageSources().generic(), (float)b);
-      int r = entity instanceof Endermite ? 20 : 0;
-      entity.hurt(damageSources().generic(), (float)r);
+        int z = entity.getType().is(ModTags.Entities.BUGS)? 4 : 0;
+        entity.hurt(damageSources().generic(), (float)z);
 
         if (pResult.getEntity() instanceof LivingEntity) {
             LivingEntity target = (LivingEntity) pResult.getEntity();
