@@ -23,7 +23,9 @@ public class HookshotItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
             Hookshot projectile = new Hookshot(pLevel,player);
-            projectile.setOwner(player);
+
+        pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.DISPENSER_LAUNCH, SoundSource.PLAYERS, 1F, -3F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
+        projectile.setOwner(player);
             projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f,0f);
         projectile.Properties(itemstack, 20, 10, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
             pLevel.addFreshEntity(projectile);

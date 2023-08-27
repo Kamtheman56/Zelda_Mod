@@ -1,7 +1,9 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
+import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.custom.util.ModTags;
 import com.kamth.zeldamod.item.items.HookshotItem;
 import com.mojang.math.Axis;
 import net.minecraft.core.BlockPos;
@@ -16,6 +18,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,6 +28,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.AxisAlignedLinearPosTest;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -75,17 +80,13 @@ public class Hookshot extends AbstractArrow {
     @Override
     public void tick() {
         super.tick();
-        if(this.tickCount % 3 == 0)
-        {
-            BlockPos currentPos = this.blockPosition();
-           // this.level().playSound(null, currentPos.getX(), currentPos.getY(), currentPos.getZ(), SoundInit.HOOKSHOT_EXTENDED.get(), SoundCategory.PLAYERS, 1.0f, 1.0f);
-        }
-
         if (getOwner() instanceof Player) {
             owner = (Player) getOwner();
 
-            if (isPulling && tickCount % 2 == 0) { //This is the sound that sounds when the hook is moving you.
-                //level.playSound(null, owner.blockPosition(), SoundEvents.AXE_STRIP, SoundCategory.PLAYERS, 1F, 1F);
+            if (isPulling && tickCount % 3 == 0) { //This is the sound that sounds when the hook is moving you.
+                BlockPos currentPos = this.owner.blockPosition();
+                this.level().playSound(null, currentPos.getX(), currentPos.getY(), currentPos.getZ(), SoundEvents.CHAIN_HIT, SoundSource.PLAYERS, .5f, 1.0f);
+
             }
             if (!level().isClientSide) {
                 if (this.hookedEntity != null) { //In case the mob you are hooked to dies while you go towards it ..
@@ -184,27 +185,21 @@ public class Hookshot extends AbstractArrow {
             }
         }
     }
+
     @Override
     protected void onHitBlock(@NotNull BlockHitResult blockHitResult) {
         super.onHitBlock(blockHitResult);
-        isPulling = true;
 
 
-        if (!level().isClientSide && owner != null && hookedEntity == null) {
-            owner.setNoGravity(false);
+        BlockState blockHit = this.level().getBlockState(blockHitResult.getBlockPos());
+        if (blockHit.is(ModTags.Blocks.HOOKSHOT)) {
+            isPulling = true;
+            if (!level().isClientSide && owner != null && hookedEntity == null) {
+                owner.setNoGravity(false);
 
-            //Initialization of the list of ItemEntities found on the floor
-            // and selection of the size of the Bounding Box in which to search for them.
-            List<ItemEntity> list = level().getEntitiesOfClass(ItemEntity.class, this.getBoundingBox().expandTowards(1D, 0.5D, 1D));
-                //Catch Items
-                if(list != null && list.size() > 0){
-                    for (Entity entity : list) {
-                        hookedEntity = entity;
-                    }
-                    isPulling = true;
-                    onRemovedFromWorld();
-                }
             }
+        }
+        else kill();
         }
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
