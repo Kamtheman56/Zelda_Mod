@@ -1,15 +1,20 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.AbstractCandleBlock;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -38,22 +43,24 @@ public class GustProjectile extends ThrowableProjectile {
     @Override
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
-
+        Direction direction = ray.getDirection();
+        BlockPos blockpos = ray.getBlockPos();
+        BlockPos blockpos1 = blockpos.relative(direction);
         BlockState blockHit = this.level().getBlockState(ray.getBlockPos());
+        this.dowseFire(blockpos1);
+        this.dowseFire(blockpos1.relative(direction.getOpposite()));
+        for(Direction direction1 : Direction.Plane.HORIZONTAL) {
+            this.dowseFire(blockpos1.relative(direction1));}
         if (blockHit.is(BlockTags.FLOWERS)){
             this.level().destroyBlock(ray.getBlockPos(), false);
         }
-
         if (blockHit.is(BlockTags.LEAVES)){
             this.level().destroyBlock(ray.getBlockPos(), true);
         }
         if (blockHit.is(BlockTags.SAND)){
             this.level().destroyBlock(ray.getBlockPos(), true);
         }
-        if (blockHit.getBlock() == Blocks.FIRE){
-            this.level().destroyBlock(ray.getBlockPos(), false);
-        }
-       else if (!blockHit.is(BlockTags.LEAVES) && !blockHit.is(BlockTags.SAND)  ){
+       else if (!blockHit.is(BlockTags.LEAVES) && !blockHit.is(BlockTags.SAND) && !blockHit.is(BlockTags.FIRE) ){
             this.discard();
         }
 
@@ -99,6 +106,19 @@ public class GustProjectile extends ThrowableProjectile {
             this.discard();
         }
         this.clearFire();
+    }
+    private void dowseFire(BlockPos pPos) {
+        BlockState blockstate = this.level().getBlockState(pPos);
+        if (blockstate.is(BlockTags.FIRE)) {
+            this.level().removeBlock(pPos, false);
+        } else if (AbstractCandleBlock.isLit(blockstate)) {
+            AbstractCandleBlock.extinguish(null, blockstate, this.level(), pPos);
+        } else if (CampfireBlock.isLitCampfire(blockstate)) {
+            this.level().levelEvent(null, 1009, pPos, 0);
+            CampfireBlock.dowse(this.getOwner(), this.level(), pPos, blockstate);
+            this.level().setBlockAndUpdate(pPos, blockstate.setValue(CampfireBlock.LIT, Boolean.valueOf(false)));
+        }
+
     }
     @Override
     protected float getGravity() {

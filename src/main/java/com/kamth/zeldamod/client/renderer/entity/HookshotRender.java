@@ -3,6 +3,7 @@ package com.kamth.zeldamod.client.renderer.entity;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.custom.projectile.Hookshot;
 import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
+import com.mojang.authlib.minecraft.client.MinecraftClient;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -15,6 +16,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
+
+import static com.ibm.icu.impl.CurrencyData.provider;
 
 public class HookshotRender extends EntityRenderer<Hookshot> {
     private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/item/deku_nut.png");
@@ -34,6 +37,7 @@ public class HookshotRender extends EntityRenderer<Hookshot> {
         pMatrixStack.mulPose(this.entityRenderDispatcher.cameraOrientation());
         pMatrixStack.mulPose(Axis.YP.rotationDegrees(180.0F));
         PoseStack.Pose posestack$pose = pMatrixStack.last();
+
         Matrix4f matrix4f = posestack$pose.pose();
         Matrix3f matrix3f = posestack$pose.normal();
         VertexConsumer vertexconsumer = pBuffer.getBuffer(RENDER_TYPE);
