@@ -1,20 +1,15 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:logs",
-    "#minecraft:planks",
     "minecraft:ladder",
     "minecraft:pumpkin",
     "minecraft:scaffolding",
-    "minecraft:trapped_chest",
-    "minecraft:chest",
-    "#minecraft:wooden_doors",
-    "#minecraft:wooden_fences",
-    "#minecraft:wooden_stairs",
     "#minecraft:wooden_trapdoors",
     "minecraft:mangrove_roots",
-    "minecraft:crafting_table",
+    "minecraft:hay_block",
+    "minecraft:iron_bars",
     "minecraft:barrel",
+    "zeldamod:claw_target",
     "zeldamod:hook_target"
   ]
 }

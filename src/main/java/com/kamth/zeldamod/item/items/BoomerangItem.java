@@ -22,7 +22,7 @@ public class BoomerangItem extends Item {
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 1F, 0.2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
             BoomerangProjectile bombEntity = new BoomerangProjectile(pLevel,player);
-            bombEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.3F, 0.9F);
+            bombEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.6F, 0.9F);
             pLevel.addFreshEntity(bombEntity);
         }
 

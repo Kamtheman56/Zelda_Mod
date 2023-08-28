@@ -162,6 +162,12 @@ public class ModItems {
             () -> new PurpleRingItem(new Item.Properties().defaultDurability(160)));
     public static final RegistryObject<Item> HOOKSHOT = ITEMS.register("hookshot",
             () -> new HookshotItem(new Item.Properties().defaultDurability(160)));
+    public static final RegistryObject<Item> LONGSHOT = ITEMS.register("longshot",
+            () -> new HookshotItem(new Item.Properties().defaultDurability(160)));
+    public static final RegistryObject<Item> CLAWSHOT = ITEMS.register("clawshot",
+            () -> new ClawshotItem(new Item.Properties().defaultDurability(160)));
+    public static final RegistryObject<Item> CLAWSHOT_GODDESS = ITEMS.register("clawshot_goddess",
+            () -> new ClawshotItem(new Item.Properties().defaultDurability(160)));
 
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168)));
@@ -229,6 +235,12 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties()));
     public static final RegistryObject<ArmorItem> TROUPE_MASK = ITEMS.register("troupemask",
             ()-> new TroupeMask(ModArmorMaterials.TROUPE, ArmorItem.Type.HELMET,
+                    new Item.Properties()));
+    public static final RegistryObject<ArmorItem> ROMANI_MASK = ITEMS.register("romanimask",
+            ()-> new RomaniMask(ModArmorMaterials.ROMANI, ArmorItem.Type.HELMET,
+                    new Item.Properties()));
+    public static final RegistryObject<ArmorItem> GERO_MASK = ITEMS.register("geromask",
+            ()-> new RomaniMask(ModArmorMaterials.GERO, ArmorItem.Type.HELMET,
                     new Item.Properties()));
 
 

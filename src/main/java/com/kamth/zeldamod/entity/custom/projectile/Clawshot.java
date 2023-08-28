@@ -1,13 +1,11 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
-import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.util.ModTags;
+import com.kamth.zeldamod.item.items.ClawshotItem;
 import com.kamth.zeldamod.item.items.HookshotItem;
-import com.mojang.math.Axis;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -15,7 +13,6 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -28,55 +25,45 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.structure.templatesystem.AxisAlignedLinearPosTest;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.network.NetworkHooks;
-import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
-import org.joml.Quaternionf;
 import org.joml.Vector3d;
 
-import javax.annotation.Nullable;
-import java.util.List;
-
-public class Hookshot extends AbstractArrow {
+public class Clawshot extends AbstractArrow {
     private static final double BASE_DAMAGE = 5.0D;
-    private final ItemStack hookshot = new ItemStack(ModItems.HOOKSHOT.get());
-    private static final EntityDataAccessor<Integer>  HOOKED_ENTITY_ID = SynchedEntityData.defineId(Hookshot.class, EntityDataSerializers.INT);
+    private final ItemStack hookshot = new ItemStack(ModItems.CLAWSHOT.get());
+    private static final EntityDataAccessor<Integer>  HOOKED_ENTITY_ID = SynchedEntityData.defineId(Clawshot.class, EntityDataSerializers.INT);
     boolean isPulling = false;
     private Entity hookedEntity;
     private double maxRange = 0D;
     private double maxSpeed = 0D;
-    //public AbstractArrow.Pickup pickup = AbstractArrow.Pickup.DISALLOWED;
+
     private Player owner;
 
     private boolean motionUp = false;
     private double prevDistance = 30.D;
     private ItemStack stack;
 
-    public Hookshot(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
+    public Clawshot(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-     //   this.pickup = AbstractArrow.Pickup.ALLOWED;
+       this.pickup = Pickup.DISALLOWED;
 
     }
 
 
-    public Hookshot(EntityType<? extends AbstractArrow> pEntityType, LivingEntity pShooter, Level pLevel) {
+    public Clawshot(EntityType<? extends AbstractArrow> pEntityType, LivingEntity pShooter, Level pLevel) {
         super(pEntityType, pShooter, pLevel);
     }
 
-    public Hookshot(Level world, Player user) {
-        super(ModEntityTypes.HOOKSHOT.get(), user, world);
-      //  this.pickup = AbstractArrow.Pickup.ALLOWED;
-        this.setOwner(user);
+    public Clawshot(Level world, Player user) {
+        super(ModEntityTypes.CLAWSHOT.get(), user, world);
+        this.pickup = Pickup.DISALLOWED;
     }
     @Override
     public boolean canChangeDimensions() {
@@ -111,6 +98,7 @@ public class Hookshot extends AbstractArrow {
                 this.level().playSound(null, currentPos.getX(), currentPos.getY(), currentPos.getZ(), SoundEvents.CHAIN_HIT, SoundSource.PLAYERS, .5f, 1.0f);
 
             }
+
             if (!level().isClientSide) {
                 if (this.hookedEntity != null) { //In case the mob you are hooked to dies while you go towards it ..
                     if (isAlive()) {
@@ -122,15 +110,13 @@ public class Hookshot extends AbstractArrow {
                 }
 
                 if (owner != null) { //Reasons to remove the hook.
-                    if (owner.isDeadOrDying() || this.tickCount == 80 ||
-                            !(owner.getMainHandItem().getItem() instanceof HookshotItem ||
-                                    owner.getOffhandItem().getItem() instanceof HookshotItem)){
+                    if (owner.isDeadOrDying() || this.tickCount == 35 ||
+                           owner.distanceTo(this) > maxRange ||
+                            !(owner.getMainHandItem().getItem() instanceof ClawshotItem ||
+                                    owner.getOffhandItem().getItem() instanceof ClawshotItem )){
                        kill();
 
                     }
-                if    (owner.distanceTo(this) > maxRange){
-                    this.discard();
-                }
                 }
 
                 if (owner.getMainHandItem() == stack || owner.getOffhandItem() == stack) {
@@ -171,13 +157,10 @@ public class Hookshot extends AbstractArrow {
                             motion = owner.getDeltaMovement();
                             if (distance.length() > prevDistance && prevDistance < 1){
                                 kill();
-
-
                             }
-                            //Timer if the entity is too BIG.
+                            //Timer if the entity if too BIG.
                             if(tickCount > 50){
-                            this.discard();
-                              // kill();
+                               kill();
 
                             }
                         }
@@ -194,24 +177,17 @@ public class Hookshot extends AbstractArrow {
                             }
                         }
                         prevDistance = distance.length();
-
-                        //Take the entity if it is an item and check that it is in your inventory to kill the hook.
-                       if(hookedEntity instanceof ItemEntity){
-                            if(owner.getInventory().add(((ItemEntity) hookedEntity).getItem())) {
-                               kill();
-                            }}}}}}}
+                    }}}}}
 
     @Override
     protected void onHitBlock(@NotNull BlockHitResult blockHitResult) {
         super.onHitBlock(blockHitResult);
         BlockState blockHit = this.level().getBlockState(blockHitResult.getBlockPos());
-        if (blockHit.is(ModTags.Blocks.HOOKSHOT)) {
+        if (blockHit.is(ModTags.Blocks.CLAWSHOT)) {
             isPulling = true;
             if (!level().isClientSide && owner != null && hookedEntity == null) {
-
                 owner.setNoGravity(false);}}
-    //  else kill();
-    else     this.discard();
+        else this.discard();
         }
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
@@ -247,14 +223,6 @@ isPulling=false;
     {
         return true;
     }
-    public void setOwner(@Nullable Entity pOwner) {
-        super.setOwner(pOwner);
-    }
-    @Nullable
-    public Player getPlayerOwner() {
-        Entity entity = this.getOwner();
-        return entity instanceof Player ? (Player)entity : null;
-    }
 
 @Override
 protected SoundEvent getDefaultHitGroundSoundEvent() {
@@ -289,7 +257,7 @@ protected SoundEvent getDefaultHitGroundSoundEvent() {
         Player player = event.player;
         if(this.getOwner() == player) {
             if (this.isPulling) {
-                player.setPose(Pose.SWIMMING);
+              player.hasPose(Pose.SWIMMING);
                 player.setSwimming(true);
             }
         }

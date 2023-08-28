@@ -7,6 +7,7 @@ import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.util.ModItemProperties;
+import com.kamth.zeldamod.particle.ModParticles;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -40,6 +41,7 @@ public class ZeldaMod
         modEventBus.addListener(this::clientSetup);
 
         ModEffects.register(modEventBus);
+        ModParticles.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -115,6 +117,9 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.RED_RING);
         event.accept(ModItems.PURPLE_RING);
         event.accept(ModItems.HOOKSHOT);
+        event.accept(ModItems.LONGSHOT);
+        event.accept(ModItems.CLAWSHOT);
+        event.accept(ModItems.CLAWSHOT_GODDESS);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MATERIAL.get()){
         event.accept(ModItems.RED_EMERALD);
@@ -151,6 +156,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.SCENT_MASK);
         event.accept(ModItems.TROUPE_MASK);
         event.accept(ModItems.TRUTH_MASK);
+        event.accept(ModItems.ROMANI_MASK);
+        event.accept(ModItems.GERO_MASK);
         event.accept(ModItems.MAJORA_MASK);
     }
         if (event.getTab() == ModCreativeModeTab.ZELDA_TAB.get()){
@@ -158,6 +165,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.MASTER_ORE);
             event.accept(ModBlocks.PORK_BLOCK);
             event.accept(ModBlocks.GLOOM_BLOCK);
+            event.accept(ModBlocks.HOOK_TARGET);
+            event.accept(ModBlocks.CLAW_TARGET);
         }
 
 

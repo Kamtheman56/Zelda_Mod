@@ -34,13 +34,13 @@ public class BlastMask extends ArmorItem {
         Vec3 explosionPos = player.getEyePosition(1.0F).add(player.getLookAngle().multiply(.5D, .5D, .5D));
         player.level().explode(player, explosionPos.x, explosionPos.y, explosionPos.z, 4F, Level.ExplosionInteraction.NONE);
                 player.getCooldowns().addCooldown(ModItems.BLAST_MASK.get(),350);
-       player.hurt(DamageSource.class.cast(DamageTypes.MAGIC), 10);
+       player.hurt(player.damageSources().magic(), 10);
             }
             else if (player.isCrouching() && player.isBlocking()){
             Vec3 explosionPos = player.getEyePosition(1.0F).add(player.getLookAngle().multiply(.5D, .5D, .5D));
             player.level().explode(player, explosionPos.x, explosionPos.y, explosionPos.z, 4F, Level.ExplosionInteraction.NONE);
             player.getCooldowns().addCooldown(ModItems.BLAST_MASK.get(),400);
-            player.hurt(DamageSource.class.cast(DamageTypes.MAGIC), 0);
+                player.hurt(player.damageSources().magic(), 0);
 }}
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {

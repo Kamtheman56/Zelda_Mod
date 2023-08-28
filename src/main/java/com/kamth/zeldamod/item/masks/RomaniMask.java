@@ -13,6 +13,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -33,7 +34,7 @@ public class RomaniMask extends ArmorItem {
 
     public void onPlayerEntityInteract(PlayerInteractEvent.EntityInteract event)
     {
-        if( !event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.TRUTH_MASK.get()) {
+        if( !event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ROMANI_MASK.get()) {
             if (event.getTarget() instanceof Cow) {
                 ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
                 if (itemstack.is(Items.GLASS_BOTTLE)){
@@ -41,9 +42,8 @@ itemstack.shrink(1);
 event.getEntity().addItem(ModItems.MILK_BOTTLE1.get().getDefaultInstance());
 event.getTarget().playSound(SoundEvents.COW_MILK, 1, 1.8f);
                 }
-
-
             }}}
+
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         components.add(Component.literal("Moove").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));

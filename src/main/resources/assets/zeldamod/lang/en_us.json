@@ -76,6 +76,9 @@
   "item.zeldamod.blue_ring": "Blue Ring",
   "item.zeldamod.purple_ring": "Purple Ring",
   "item.zeldamod.hookshot": "Hookshot",
+  "item.zeldamod.longshot": "Longshot",
+  "item.zeldamod.clawshot": "Clawshot",
+  "item.zeldamod.clawshot_goddess": "Goddess Clawshot",
 
 
 
@@ -96,6 +99,8 @@
   "item.zeldamod.truthmask": "Mask of Truth",
   "item.zeldamod.keatonmask": "Keaton Mask",
   "item.zeldamod.troupemask": "Troupe Leader's Mask",
+  "item.zeldamod.romanimask": "Romani's Mask",
+  "item.zeldamod.geromask": "Don Gero's Mask",
   "item.zeldamod.kokiritunic": "Kokiri Tunic",
   "item.zeldamod.zoratunic": "Zora Tunic",
   "item.zeldamod.gorontunic": "Goron Tunic",
@@ -116,6 +121,7 @@
   "block.zeldamod.secret_stone": "Secret Stone",
   "block.zeldamod.masters_ore": "Master Ore",
   "block.zeldamod.pork_block": "Pork Block",
+  "block.zeldamod.hook_target": "Hookshot Target",
   "Nightmask": "You don't think you should do this"
 
 

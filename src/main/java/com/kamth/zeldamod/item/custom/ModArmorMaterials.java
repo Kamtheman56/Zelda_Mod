@@ -54,6 +54,12 @@ public enum ModArmorMaterials implements ArmorMaterial {
     TROUPE("troupe", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.VILLAGER_NO,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.AIR); }),
+    ROMANI("romani", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.COW_AMBIENT,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.AIR); }),
+    GERO("gero", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.FROG_AMBIENT,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.AIR); }),
     ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_IRON,
             0.0F, 4.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),

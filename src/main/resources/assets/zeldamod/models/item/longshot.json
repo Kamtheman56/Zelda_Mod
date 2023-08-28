@@ -1,22 +1,22 @@
 {
   "loader": "forge:separate_transforms",
   "base": {
-    "parent": "zeldamod:item/hookshot_model"
+    "parent": "zeldamod:item/longshot_model"
   },
   "perspectives": {
     "gui": {
-      "parent": "zeldamod:item/hookshot_gui"
+      "parent": "zeldamod:item/longshot_gui"
     },
     "ground": {
-      "parent": "zeldamod:item/hookshot_gui"
+      "parent": "zeldamod:item/longshot_gui"
     },
     "fixed": {
-      "parent": "zeldamod:item/hookshot_gui"
+      "parent": "zeldamod:item/longshot_gui"
     }
   },
   "textures": {
-    "layer0": "zeldamod:item/hookshot",
-    "particle": "zeldamod:item/hookshot"
+    "layer0": "zeldamod:item/longshot",
+    "particle": "zeldamod:item/longshot"
   },
   "gui_light": "front",
   "display": {
