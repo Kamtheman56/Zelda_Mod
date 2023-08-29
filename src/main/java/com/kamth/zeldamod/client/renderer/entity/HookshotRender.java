@@ -23,7 +23,7 @@ import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
 public class HookshotRender extends EntityRenderer<Hookshot> {
-    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/item/deku_nut.png");
+    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/projectiles/hook.png");
     private static final RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
 
     public HookshotRender(EntityRendererProvider.Context pContext) {

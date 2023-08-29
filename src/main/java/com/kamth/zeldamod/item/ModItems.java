@@ -146,6 +146,9 @@ public class ModItems {
     public static final RegistryObject<Item> HAMMER = ITEMS.register("wooden_hammer",
             () -> new HammerItem(ModTiers.ZELDA, 6, -3f,
                     new Item.Properties().defaultDurability(260)));
+    public static final RegistryObject<Item> MEGATON = ITEMS.register("megaton_hammer",
+            () -> new HammerItem(ModTiers.ZELDA, 8, -3f,
+                    new Item.Properties().defaultDurability(460)));
     public static final RegistryObject<Item> MITTS = ITEMS.register("digging_mitts",
             () -> new MittsItem(1,-2f,Tiers.STONE, BlockTags.MINEABLE_WITH_PICKAXE,
                     new Item.Properties().defaultDurability(390)));

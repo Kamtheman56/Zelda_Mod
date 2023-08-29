@@ -106,6 +106,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.BOOMERANG);
         event.accept(ModItems.MAGIC_BOOMERANG);
         event.accept(ModItems.HAMMER);
+        event.accept(ModItems.MEGATON);
         event.accept(ModItems.DEKU_LEAF);
         event.accept(ModItems.GLIDER);
         event.accept(ModItems.MITTS);

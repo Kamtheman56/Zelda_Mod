@@ -98,7 +98,7 @@ public class Hookshot extends AbstractArrow {
             double particleMotionX = (random.nextFloat() * 2 - 1) * particlesSpeed;
             double particleMotionY = (random.nextFloat() * 2 - 1) * particlesSpeed;
             double particleMotionZ = (random.nextFloat() * 2 - 1) * particlesSpeed;
-            this.level().addParticle(ParticleTypes.NOTE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
+            this.level().addParticle(ParticleTypes.CRIT, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
         }
 
 
@@ -122,7 +122,7 @@ public class Hookshot extends AbstractArrow {
                 }
 
                 if (owner != null) { //Reasons to remove the hook.
-                    if (owner.isDeadOrDying() || this.tickCount == 80 ||
+                    if (owner.isDeadOrDying() || this.tickCount == 50 ||
                             !(owner.getMainHandItem().getItem() instanceof HookshotItem ||
                                     owner.getOffhandItem().getItem() instanceof HookshotItem)){
                        kill();

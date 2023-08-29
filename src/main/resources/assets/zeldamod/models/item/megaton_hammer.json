@@ -1,0 +1,47 @@
+{
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "zeldamod:item/megaton_hammer_model"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "zeldamod:item/megaton_hammer_gui"
+    },
+    "ground": {
+      "parent": "zeldamod:item/megaton_hammer_gui"
+    },
+    "fixed": {
+      "parent": "zeldamod:item/megaton_hammer_gui"
+    }
+  },
+  "textures": {
+    "layer0": "zeldamod:item/hammer_megaton",
+    "particle": "zeldamod:item/hammer_megaton"
+  },
+  "gui_light": "front",
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [0, -1, 0]
+    },
+    "thirdperson_lefthand": {
+      "translation": [0, -1, 0]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 90, 0]
+    },
+    "ground": {
+      "rotation": [90, 0, 0]
+    },
+    "gui": {
+      "rotation": [-67.5, 0, 45],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    "head": {
+      "rotation": [90, 0, 90],
+      "translation": [5.5, 0, 0],
+      "scale": [1.6, 1.6, 1.6]
+    },
+    "fixed": {
+      "translation": [0, 0, -1.5],
+      "scale": [1.5, 1.5, 1.5]
+    }}}

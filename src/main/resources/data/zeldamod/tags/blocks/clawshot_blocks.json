@@ -9,6 +9,15 @@
     "minecraft:hay_block",
     "minecraft:iron_bars",
     "minecraft:barrel",
+    "minecraft:weeping_vines",
+    "minecraft:weeping_vines_plant",
+    "minecraft:twisting_vines",
+    "minecraft:twisting_vines_plant",
+    "minecraft:cave_vines",
+    "minecraft:cave_vines_plant",
+    "minecraft:spore_blossom",
+    "minecraft:glow_lichen",
+    "minecraft:vine",
     "zeldamod:claw_target",
     "zeldamod:hook_target"
   ]
