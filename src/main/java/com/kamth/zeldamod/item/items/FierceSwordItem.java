@@ -60,7 +60,7 @@ public class FierceSwordItem extends SwordItem {
         if(Screen.hasShiftDown()) {
             components.add(Component.literal("Shoots Beams").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("Destruction...").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Sword of a Deity").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
 
     }

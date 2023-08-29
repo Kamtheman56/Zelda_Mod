@@ -1,6 +1,8 @@
 {
   "values": [
 "zeldamod:masters_ore",
-    "zeldamod:secret_stone"
+    "zeldamod:secret_stone",
+    "zeldamod:hook_target",
+    "zeldamod:claw_target"
   ]
 }

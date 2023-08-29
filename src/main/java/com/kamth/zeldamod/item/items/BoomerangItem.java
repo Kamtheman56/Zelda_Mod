@@ -1,5 +1,7 @@
 package com.kamth.zeldamod.item.items;
 
+import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.BoomerangProjectile;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -21,9 +23,11 @@ public class BoomerangItem extends Item {
         ItemStack itemstack = player.getItemInHand(pHand);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 1F, 0.2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
-            BoomerangProjectile bombEntity = new BoomerangProjectile(pLevel,player);
-            bombEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.6F, 0.9F);
-            pLevel.addFreshEntity(bombEntity);
+            player.getCooldowns().addCooldown(this, 35);
+          BoomerangProjectile boomerang = new BoomerangProjectile(ModEntityTypes.BOOMERANG.get(), pLevel, player);
+            boomerang.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.6F, 0.9F);
+            boomerang.setThrowData(pHand.ordinal(), itemstack);
+            pLevel.addFreshEntity(boomerang);
         }
 
         player.awardStat(Stats.ITEM_USED.get(this));

@@ -4,6 +4,9 @@ import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.custom.projectile.Hookshot;
 import com.kamth.zeldamod.entity.custom.projectile.SwordBeam;
 import com.kamth.zeldamod.item.ModItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -13,7 +16,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 
 public class HookshotItem extends Item {
@@ -39,7 +46,12 @@ public class HookshotItem extends Item {
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }
 
-
-
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if(Screen.hasShiftDown()) {
+            components.add(Component.literal("Only works on wood").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        } else {
+            components.add(Component.literal("Go from A to B!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }}
 
 }
