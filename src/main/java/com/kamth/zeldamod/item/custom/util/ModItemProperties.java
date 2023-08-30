@@ -15,6 +15,7 @@ public class ModItemProperties {
         makeBow(ModItems.HERO_BOW.get());
         makeShield(ModItems.DEKU_LEAF.get());
         makeShield(ModItems.GLIDER.get());
+        makeShield(ModItems.LENS_OF_TRUTH.get());
     }
 
     private static void makeShield(Item item) {

@@ -22,7 +22,7 @@ public class ModItems {
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
-            () -> new Item(new Item.Properties()));
+            () -> new LensItem(new Item.Properties()));
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
@@ -171,6 +171,8 @@ public class ModItems {
             () -> new ClawshotItem(new Item.Properties().defaultDurability(160)));
     public static final RegistryObject<Item> CLAWSHOT_GODDESS = ITEMS.register("clawshot_goddess",
             () -> new ClawshotItem(new Item.Properties().defaultDurability(160)));
+    public static final RegistryObject<Item> LENS_OF_TRUTH = ITEMS.register("lens",
+            () -> new LensItem(new Item.Properties()));
 
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168)));
@@ -231,7 +233,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new ScentMask(ModArmorMaterials.SCENT, ArmorItem.Type.HELMET,
                     new Item.Properties()));
     public static final RegistryObject<ArmorItem> TRUTH_MASK = ITEMS.register("truthmask",
-            ()-> new RomaniMask(ModArmorMaterials.TRUTH, ArmorItem.Type.HELMET,
+            ()-> new TruthMask(ModArmorMaterials.TRUTH, ArmorItem.Type.HELMET,
                     new Item.Properties()));
     public static final RegistryObject<ArmorItem> KEATON_MASK = ITEMS.register("keatonmask",
             ()-> new KeatonMask(ModArmorMaterials.KEATON, ArmorItem.Type.HELMET,

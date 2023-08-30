@@ -1,0 +1,13 @@
+{
+  "parent": "item/handheld",
+        "textures": {
+          "layer0": "zeldamod:item/lens_of_truth"
+        },
+  "overrides": [
+    {
+      "predicate": {
+        "minecraft:blocking": 1
+      },
+      "model": "zeldamod:item/lens_blocking"
+    }]
+}

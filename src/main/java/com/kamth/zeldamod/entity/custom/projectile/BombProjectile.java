@@ -22,7 +22,6 @@ import net.minecraftforge.network.NetworkHooks;
 public class BombProjectile extends ThrowableProjectile {
 
 
-    private static  int TICKS_PER_SECOND = 20;
     private float ticksToExplode =100f;
     private int explosionPower = 2;
 

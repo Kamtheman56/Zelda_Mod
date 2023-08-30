@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LensItem extends Item {
-    private static final List<LivingEntity> AFFECTED_ENTITIES = new ArrayList<>();
+    public static final List<LivingEntity> AFFECTED_ENTITIES = new ArrayList<>();
     public LensItem(Properties pProperties) {
         super(pProperties);
     }
@@ -45,39 +45,7 @@ public class LensItem extends Item {
 
     }
 
-    @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
-    public static void onLivingPreRender(RenderLivingEvent.Pre<LivingEntity, EntityModel<LivingEntity>> event) {
-        if (event.getEntity().isInvisible()) {
-            Minecraft client = Minecraft.getInstance();
-            Player player = client.player;
-            boolean isLocalPlayerUsingLens = player.isUsingItem() && player.getItemInHand(player.getUsedItemHand()).getItem() == ModItems.BLUE_EMERALD.get();
 
-            if (isLocalPlayerUsingLens) {
-                removeEntityInvisibility(event.getEntity());
-            }
-        }
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
-    public static void onLivingPostRender(RenderLivingEvent.Post<LivingEntity, EntityModel<LivingEntity>> event) {
-        if (AFFECTED_ENTITIES.contains(event.getEntity())) {
-            restoreEntityInvisibility(event.getEntity());
-        }
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    private static void restoreEntityInvisibility(LivingEntity livingEntity) {
-        AFFECTED_ENTITIES.remove(livingEntity);
-        livingEntity.setInvisible(true);
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    private static void removeEntityInvisibility(LivingEntity livingEntity) {
-        livingEntity.setInvisible(false);
-        AFFECTED_ENTITIES.add(livingEntity);
-    }
 }
 
 

@@ -16,14 +16,9 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ambient.Bat;
-import net.minecraft.world.entity.animal.Bee;
-import net.minecraft.world.entity.animal.Sheep;
-import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.ForgeMod;
@@ -62,8 +57,9 @@ public class TruthMask extends ArmorItem {
                 truth.removeModifier(TRUTH);}}}
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.literal("Stare into the truth").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-
+        if (stack.is(ModItems.TRUTH_MASK.get())) {
+            components.add(Component.literal("Stare into the truth").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
     }
 
 }

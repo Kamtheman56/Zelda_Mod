@@ -121,6 +121,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.LONGSHOT);
         event.accept(ModItems.CLAWSHOT);
         event.accept(ModItems.CLAWSHOT_GODDESS);
+        event.accept(ModItems.LENS_OF_TRUTH);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MATERIAL.get()){
         event.accept(ModItems.RED_EMERALD);
