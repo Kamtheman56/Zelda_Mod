@@ -149,6 +149,12 @@ public class ModItems {
     public static final RegistryObject<Item> MEGATON = ITEMS.register("megaton_hammer",
             () -> new HammerItem(ModTiers.ZELDA, 8, -3f,
                     new Item.Properties().defaultDurability(460)));
+    public static final RegistryObject<Item> DEKU_STICK = ITEMS.register("deku_stick",
+            () -> new StickItem(Tiers.WOOD, 2, 0f,
+                    new Item.Properties().defaultDurability(1)));
+    public static final RegistryObject<Item> DEKU_STICK_LIT = ITEMS.register("deku_stick_lit",
+            () -> new StickItem(Tiers.WOOD, 4, 0f,
+                    new Item.Properties().defaultDurability(100)));
     public static final RegistryObject<Item> MITTS = ITEMS.register("digging_mitts",
             () -> new MittsItem(1,-2f,Tiers.STONE, BlockTags.MINEABLE_WITH_PICKAXE,
                     new Item.Properties().defaultDurability(390)));

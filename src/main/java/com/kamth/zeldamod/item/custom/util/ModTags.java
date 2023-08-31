@@ -27,6 +27,10 @@ public static final TagKey<Block> BOMB
                 = tag("hookshot_blocks");
         public static final TagKey<Block> CLAWSHOT
                 = tag("clawshot_blocks");
+        public static final TagKey<Block> FLAME
+                = tag("flame_blocks");
+        public static final TagKey<Block> BURN
+                = tag("burnable_blocks");
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }

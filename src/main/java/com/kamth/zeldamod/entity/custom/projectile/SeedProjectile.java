@@ -24,7 +24,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 
 public class SeedProjectile extends AbstractArrow {
-    private static final double BASE_DAMAGE = 3.0D;
+    private static final double BASE_DAMAGE = 5.0D;
     private Item referenceItem;
     public SeedProjectile(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);

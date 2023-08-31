@@ -156,7 +156,7 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.20.1-47.1.0'
+    minecraft 'net.minecraftforge:forge:1.20.1-47.1.3'
     implementation fg.deobf("be.florens:expandability-forge:9.0.0")
     implementation 'com.github.LlamaLad7:MixinExtras:0.1.0-rc5'
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
@@ -179,7 +179,7 @@ jar {
         attributes([
                 "Specification-Title"     : "zeldamod",
                 "Specification-Vendor"    : "zeldamodsareus",
-                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Specification-Version"   : "1.0", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "zeldamodsareus",

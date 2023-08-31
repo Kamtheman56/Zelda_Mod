@@ -6,6 +6,7 @@ import com.kamth.zeldamod.item.custom.util.ModTags;
 import com.kamth.zeldamod.item.items.ClawshotItem;
 import com.kamth.zeldamod.item.items.HookshotItem;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -25,6 +26,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -98,6 +100,7 @@ public class Clawshot extends AbstractArrow {
                 this.level().playSound(null, currentPos.getX(), currentPos.getY(), currentPos.getZ(), SoundEvents.CHAIN_HIT, SoundSource.PLAYERS, .5f, 1.0f);
 
             }
+
 
             if (!level().isClientSide) {
                 if (this.hookedEntity != null) { //In case the mob you are hooked to dies while you go towards it ..

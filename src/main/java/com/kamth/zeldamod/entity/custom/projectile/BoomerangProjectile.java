@@ -169,6 +169,7 @@ public class BoomerangProjectile extends Projectile {
     @Override
     protected void onHit(@Nonnull HitResult result) {
 super.onHit(result);
+
         if (result.getType() == HitResult.Type.BLOCK && result instanceof BlockHitResult blockHitResult) {
             BlockPos hit = blockHitResult.getBlockPos();
             BlockState state = level().getBlockState(hit);

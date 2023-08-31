@@ -3,6 +3,9 @@ package com.kamth.zeldamod.item.items;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.BoomerangProjectile;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -11,7 +14,11 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class BoomerangItem extends Item {
     public BoomerangItem(Properties pProperties) {
@@ -29,17 +36,18 @@ public class BoomerangItem extends Item {
             boomerang.setThrowData(pHand.ordinal(), itemstack);
             pLevel.addFreshEntity(boomerang);
         }
-
         player.awardStat(Stats.ITEM_USED.get(this));
-        if (!player.getAbilities().instabuild) {
             itemstack.shrink(1);
-        }
-        if (player.getAbilities().instabuild) {
-            itemstack.shrink(1);
-        }
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if(Screen.hasShiftDown()) {
+            components.add(Component.literal("Brings items back and flicks levers!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
+        super.appendHoverText(stack, level, components, flag);
 }
+    }
 
 
 
