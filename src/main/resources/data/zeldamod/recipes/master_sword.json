@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "zeldamod:pearl_courage"
+    },
+    {
+      "item": "zeldamod:pearl_wisdom"
+    },
+    {
+      "item": "zeldamod:pearl_power"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:master_sword",
+    "count": 1
+  }
+}

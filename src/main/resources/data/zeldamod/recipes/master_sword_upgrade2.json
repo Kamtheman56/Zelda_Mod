@@ -1,10 +1,13 @@
 {
-  "type": "minecraft:smithing",
-  "addition": {
-    "item": "zeldamod:refined_master_ore"
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
   },
   "base": {
     "item": "zeldamod:master_sword2"
+  },
+  "addition": {
+    "item": "zeldamod:master_ore2"
   },
   "result": {
     "item": "zeldamod:master_sword3"

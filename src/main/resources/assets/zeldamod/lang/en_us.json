@@ -7,6 +7,10 @@
   "item.zeldamod.blue_emerald": "Blue Emerald",
   "item.zeldamod.master_ore": "Master Ore",
   "item.zeldamod.gold_dust": "Gold Dust",
+  "item.zeldamod.master_upgrade": "Master Upgrade Template",
+  "item.zeldamod.default_upgrade": "Base Upgrade Template",
+  "item.zeldamod.extender": "Chain Extender Upgrade",
+  "item.zeldamod.claw": "Claw Upgrade",
   "item.zeldamod.pumpkin_soup": "Pumpkin Soup",
   "item.zeldamod.stamina_potion": "Stamina Potion",
   "item.zeldamod.heart_potion": "Heart Potion",
@@ -22,6 +26,7 @@
   "item.zeldamod.pearl_courage": "Farore's Pearl",
   "item.zeldamod.mushroom_super": "Super Mushroom",
   "item.zeldamod.mushroom_life": "1-UP Mushroom",
+
 
   "itemGroup.zeldatab": "Zelda Items",
   "itemGroup.zeldamask": "Zelda Masks",

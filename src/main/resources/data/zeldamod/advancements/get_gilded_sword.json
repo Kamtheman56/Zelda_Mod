@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:gilded_sword"
+    },
+    "title": "Time Travel Proof!",
+    "description": "Use gold dust to improve your Razor Sword",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_razor_sword",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:gilded_sword"
+            ],
+            "count": 0
+          }
+        ]
+      }
+    }
+  }
+}

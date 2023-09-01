@@ -138,10 +138,51 @@ public class ModEvents {
                     new ItemStack(ModItems.RAZOR_SWORD.get(), 1), new ItemStack(ModItems.GOLD_DUST.get()),
                     stack,2,5,0.02F));
         }
+        if(event.getType() == VillagerProfession.FLETCHER) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.FIRE_ARROW.get(), 5);
+            int villagerLevel = 3;
 
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 8),
+                    stack,4,5,0.02F));
+        }
+        if(event.getType() == VillagerProfession.FLETCHER) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.ICE_ARROW.get(), 5);
+            int villagerLevel = 3;
 
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 8),
+                    stack,5,5,0.04F));
+        }
+        if(event.getType() == VillagerProfession.FLETCHER) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+        ItemStack stack = new ItemStack(ModItems.LIGHT_ARROW.get(), 5);
+            int villagerLevel = 5;
 
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 24),
+                    stack,5,5,0.03F));
+        }
+        if(event.getType() == VillagerProfession.FLETCHER) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.BOMB_ARROW.get(), 5);
+            int villagerLevel = 5;
 
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 24),
+                    stack,3,5,0.08F));
+        }
+        if(event.getType() == VillagerProfession.ARMORER) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.BOMB.get(), 3);
+            int villagerLevel = 1;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 6),
+                    stack,8,5,0.02F));
+        }
 
 
     }

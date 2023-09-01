@@ -10,7 +10,7 @@ public class ModTiers {
     public static final ForgeTier ZELDA = new ForgeTier(2, 59, 1.5f, 2f,
             3, BlockTags.NEEDS_IRON_TOOL,
             () -> Ingredient.of(Items.IRON_INGOT));
-    public static final ForgeTier RAZOR = new ForgeTier(2, 200, 2.5f, 2f,
+    public static final ForgeTier RAZOR = new ForgeTier(3, 200, 2.5f, 2f,
             3, BlockTags.NEEDS_IRON_TOOL,
             () -> Ingredient.of(ModItems.KOKIRI_SWORD.get()));
 
@@ -22,6 +22,12 @@ public class ModTiers {
             0, BlockTags.NEEDS_IRON_TOOL,
             () -> Ingredient.of(ItemStack.EMPTY));
     public static final ForgeTier MASTER = new ForgeTier(2, 0, 1.5f, 2f,
+            0, BlockTags.NEEDS_IRON_TOOL,
+            () -> Ingredient.of(ModItems.MASTER_ORE.get()));
+    public static final ForgeTier GORON = new ForgeTier(2, 0, 1.5f, 2f,
+            0, BlockTags.NEEDS_IRON_TOOL,
+            () -> Ingredient.of(Items.NETHERITE_SCRAP));
+    public static final ForgeTier MASTER_TRUE = new ForgeTier(2, 0, 1.5f, 2f,
             0, BlockTags.NEEDS_DIAMOND_TOOL,
             () -> Ingredient.of(ItemStack.EMPTY));
 

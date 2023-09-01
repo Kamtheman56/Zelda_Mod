@@ -3,12 +3,12 @@
   "conditions": [
     {
       "condition": "forge:loot_table_id",
-      "loot_table_id": "minecraft:chests/jungle_temple"
+      "loot_table_id": "minecraft:chests/stronghold_crossing"
     },
     {
-      "chance": 0.45,
+      "chance": 0.42,
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "zeldamod:hero_bow"
+  "item": "zeldamod:hylian_shield"
 }

@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:kokiri_sword"
+    },
+    "title": "Better write your name on it",
+    "description": "Find a sword fit for a hero!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:base",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:kokiri_sword"
+            ],
+            "count": 0
+          }
+        ]
+      }
+    }
+  }
+}

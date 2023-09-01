@@ -3,12 +3,12 @@
   "conditions": [
     {
       "condition": "forge:loot_table_id",
-      "loot_table_id": "minecraft:chests/jungle_temple"
+      "loot_table_id": "minecraft:chests/village/village_fletcher"
     },
     {
-      "chance": 0.45,
+      "chance": 0.05,
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "zeldamod:hero_bow"
+  "item": "zeldamod:roc_feather"
 }

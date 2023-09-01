@@ -1,9 +1,25 @@
 {
   "entries": [
-    "zeldamod:hookshot_from_jungle_temples",
+    "zeldamod:mirror_shield_from_desert_temples",
+    "zeldamod:hylian_shield_from_village_armorer",
+    "zeldamod:deku_shield_from_dungeons",
+    "zeldamod:nayru_pearl_from_shipwreck",
+    "zeldamod:farore_pearl_from_desert_temples",
     "zeldamod:bomb_from_creeper",
     "zeldamod:herobow_from_jungle_temples",
-    "zeldamod:longshot_from_jungle_temples"
+    "zeldamod:hylian_shield_from_strongholds",
+    "zeldamod:roc_feather_from_fletcher",
+    "zeldamod:din_pearl_from_dungeon",
+    "zeldamod:roc_feather_from_chicken",
+    "zeldamod:nayru_pearl_from_elder_guardian",
+    "zeldamod:din_pearl_from_strongholds",
+    "zeldamod:deku_shield_from_plains",
+    "zeldamod:hookshot_from_pillager",
+    "zeldamod:farore_pearl_from_jungle_temples",
+    "zeldamod:hylian_shield_from_dungeons",
+    "zeldamod:deku_shield_from_village_armorer",
+    "zeldamod:herobow_from_fletcher",
+    "zeldamod:megaton_from_bastion_treasure"
   ],
   "replace": false
 }

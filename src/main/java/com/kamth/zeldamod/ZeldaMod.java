@@ -131,11 +131,13 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.MASTER_ORE);
         event.accept(ModItems.MASTER_ORE2);
         event.accept(ModItems.GOLD_DUST);
+        event.accept(ModItems.DEFAULT_UPGRADE);
+        event.accept(ModItems.MASTER_UPGRADE);
+        event.accept(ModItems.XTENDER);
+        event.accept(ModItems.CLAW);
         event.accept(ModItems.FARORE_PEARL);
         event.accept(ModItems.DIN_PEARL);
         event.accept(ModItems.NAYRU_PEARL);
-        event.accept(ModItems.DEFAULT_UPGRADE);
-        event.accept(ModItems.MASTER_UPGRADE);
         event.accept(ModItems.PUMPKIN_SOUP);
         event.accept(ModItems.STAMINA);
         event.accept(ModItems.HEART_POTION);

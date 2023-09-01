@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:razor_sword"
+    },
+    "title": "Could always be better",
+    "description": "Upgrade your Kokiri Sword to the Razor Sword",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_kokiri_sword",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:razor_sword"
+            ],
+            "count": 0
+          }
+        ]
+      }
+    }
+  }
+}

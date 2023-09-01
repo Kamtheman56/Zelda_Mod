@@ -4,12 +4,12 @@
     "item": "zeldamod:default_upgrade"
   },
   "base": {
-    "item": "zeldamod:razor_sword"
+    "item": "zeldamod:hookshot"
   },
   "addition": {
-    "item": "zeldamod:gold_dust"
+    "item": "zeldamod:claw"
   },
   "result": {
-    "item": "zeldamod:gilded_sword"
+    "item": "zeldamod:clawshot"
   }
 }

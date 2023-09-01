@@ -1,15 +1,15 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "zeldamod:master_ore"
+  "template": {
+    "item": "zeldamod:master_upgrade"
   },
   "base": {
     "item": "zeldamod:master_sword"
   },
-  "result": {
-    "item": "zeldamod:master_sword1"
+  "addition": {
+    "item": "zeldamod:master_ore"
   },
-  "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
+  "result": {
+    "item": "zeldamod:master_sword2"
   }
 }

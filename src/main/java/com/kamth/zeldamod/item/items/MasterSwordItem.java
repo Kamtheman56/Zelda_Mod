@@ -42,7 +42,7 @@ public class MasterSwordItem extends SwordItem {
     }
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-        pStack.hurtAndBreak(0, pAttacker, (p_43296_) -> {
+        pStack.hurtAndBreak(1, pAttacker, (p_43296_) -> {
             p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
         });
         return true;
@@ -50,7 +50,7 @@ public class MasterSwordItem extends SwordItem {
 
     @Override
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
-        if (pState.is(ModTags.Blocks.DEMON) && this.getTier() != ModTiers.MASTER) {
+        if (pState.is(ModTags.Blocks.DEMON) && this.getTier() != ModTiers.MASTER_TRUE) {
             pStack.hurtAndBreak(3, pEntityLiving, (p_43276_) -> p_43276_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
             if(pStack.getDamageValue() < pStack.getMaxDamage() - 2) {
             }

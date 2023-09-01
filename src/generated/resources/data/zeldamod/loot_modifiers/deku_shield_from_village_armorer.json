@@ -3,12 +3,12 @@
   "conditions": [
     {
       "condition": "forge:loot_table_id",
-      "loot_table_id": "minecraft:chests/jungle_temple"
+      "loot_table_id": "minecraft:chests/village/village_armorer"
     },
     {
       "chance": 0.45,
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "zeldamod:hero_bow"
+  "item": "zeldamod:deku_shield"
 }

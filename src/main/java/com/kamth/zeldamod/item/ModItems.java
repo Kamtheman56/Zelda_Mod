@@ -41,6 +41,10 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> NAYRU_PEARL = ITEMS.register("pearl_wisdom",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> XTENDER = ITEMS.register("extender",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CLAW= ITEMS.register("claw",
+            () -> new Item(new Item.Properties()));
 
 
     //These are potions or consumables
@@ -78,27 +82,27 @@ public class ModItems {
                     new Item.Properties().defaultDurability(2000)));
     public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
             () -> new MasterSwordItem(ModTiers.ZELDAU, 4, -2.4f,
-                    new Item.Properties().defaultDurability(450).rarity(Rarity.RARE).fireResistant()));
+                    new Item.Properties().defaultDurability(1800).rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> BIGGORON_SWORD = ITEMS.register("biggoron_sword",
-            () -> new SwordItem(ModTiers.ZELDAU, 7, -3.3f,
+            () -> new SwordItem(ModTiers.GORON, 7, -3.3f,
                     new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> BIGGORON_KNIFE = ITEMS.register("biggoron_knife",
-            () -> new SwordItem(ModTiers.ZELDAU, 7, -3.3f,
+            () -> new SwordItem(ModTiers.GORON, 7, -3.3f,
                     new Item.Properties().defaultDurability(10)));
     public static final RegistryObject<Item> MASTER_SWORD2 = ITEMS.register("master_sword2",
             () -> new MasterSwordItem(ModTiers.MASTER, 5, -2.4f,
-                    new Item.Properties().rarity(Rarity.RARE).fireResistant()));
+                    new Item.Properties().defaultDurability(2700).rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> MASTER_SWORD3 = ITEMS.register("master_sword3",
             () -> new MasterSwordItem(ModTiers.MASTER, 6, -2.4f,
-                    new Item.Properties().rarity(Rarity.RARE).fireResistant()));
+                    new Item.Properties().defaultDurability(3600).rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> MASTER_SWORD_TRUE = ITEMS.register("master_sword_true",
-            () -> new TrueMasterSwordItem(ModTiers.MASTER, 9, -2.4f,
+            () -> new TrueMasterSwordItem(ModTiers.MASTER_TRUE, 9, -2.4f,
                     new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MASTER_SWORD_INJURED = ITEMS.register("master_sword_injured",
-            () -> new InjuredSwordItem(ModTiers.ZELDAU, 1, -2.4f,
+            () -> new InjuredSwordItem(ModTiers.MASTER, 1, -2.4f,
                     new Item.Properties().defaultDurability(131).fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MASTER_SWORD_DAGGER = ITEMS.register("master_sword_dagger",
-            () -> new DaggerSwordItem(ModTiers.ZELDAU, -1, -2.4f,
+            () -> new DaggerSwordItem(ModTiers.MASTER, -1, -2.4f,
                     new Item.Properties().defaultDurability(59).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> FIERCE_SWORD = ITEMS.register("fierce_sword",
             () -> new FierceSwordItem(ModTiers.ZELDAU, 7, -1.4f,
