@@ -32,6 +32,8 @@ public class BlastMask extends ArmorItem {
         }
             if (player.isCrouching() && !player.isBlocking() ){
         Vec3 explosionPos = player.getEyePosition(1.0F).add(player.getLookAngle().multiply(.5D, .5D, .5D));
+                player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(10, player, (p_43296_) -> {
+                    p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
         player.level().explode(player, explosionPos.x, explosionPos.y, explosionPos.z, 4F, Level.ExplosionInteraction.NONE);
                 player.getCooldowns().addCooldown(ModItems.BLAST_MASK.get(),350);
        player.hurt(player.damageSources().magic(), 10);

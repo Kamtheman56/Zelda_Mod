@@ -12,6 +12,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -34,6 +35,9 @@ public class HookshotItem extends Item {
         player.getCooldowns().addCooldown(this, 40);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1F, -4F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         projectile.setOwner(player);
+       itemstack.hurtAndBreak(3, player, (p_43296_) -> {
+            p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+        });
             projectile.shootFromRotation(player, player.xRotO, player.yRotO, 1F, 1.6f,0f);
             if (itemstack.is(ModItems.HOOKSHOT.get())){
                 projectile.Properties(itemstack, 15, 10, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));

@@ -26,15 +26,34 @@ public class ScentMask extends ArmorItem {
         {
             return;
         }
-        if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.SCENT_MASK.get() && level.getBlockState(player.getOnPos()).is(ModTags.Blocks.SCENT) ) {
+        if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.SCENT_MASK.get() && !player.isCrouching() && level.getBlockState(player.getOnPos()).is(ModTags.Blocks.SCENT) ) {
             player.setSwimming(true);
             player.hasPose(Pose.SWIMMING);
             if (level.isRaining()){
                 if(new Random().nextFloat() > .9f) {
                     player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
+player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(10, player, (p_43296_) -> {
+    p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
+                    player.spawnAtLocation(ModItems.SUPER_MUSHROOM.get());
+                   player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),20);
+                };
+                if(new Random().nextFloat() > .7f) {
+                    player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
                     player.spawnAtLocation(Items.BROWN_MUSHROOM);
-                    player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),350);
-                }}
+                    player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(4, player, (p_43296_) -> {
+                        p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
+                   player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),20);
+                }
+                if(new Random().nextFloat() > .6f) {
+                    player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
+                    player.spawnAtLocation(Items.RED_MUSHROOM);
+                    player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(3, player, (p_43296_) -> {
+                        p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
+                    player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),20);
+                }
+
+
+            }
         }
      }
     @Override

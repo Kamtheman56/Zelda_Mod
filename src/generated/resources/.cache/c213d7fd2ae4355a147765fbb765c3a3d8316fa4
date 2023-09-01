@@ -1,0 +1,6 @@
+// 1.20.1	2023-08-31T12:04:26.2358785	Global Loot Modifiers : zeldamod
+199dda8897187c736e78e34faaaeb0d931a22fe0 data/forge/loot_modifiers/global_loot_modifiers.json
+281453ff273db725a62c6e2c7b52f97d2f20611f data/zeldamod/loot_modifiers/bomb_from_creeper.json
+1cde6a34824717743780f84e4520674d0c697136 data/zeldamod/loot_modifiers/herobow_from_jungle_temples.json
+8d02ce95a70f36ed83c269260320027a5a32a22a data/zeldamod/loot_modifiers/hookshot_from_jungle_temples.json
+7a78f485b7d3e51327493187929f0fa38504261b data/zeldamod/loot_modifiers/longshot_from_jungle_temples.json

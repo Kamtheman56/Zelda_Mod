@@ -71,11 +71,11 @@ public class ModItems {
             () -> new SwordItem(ModTiers.ZELDA, 1, -2.4f,
                     new Item.Properties()));
     public static final RegistryObject<Item> RAZOR_SWORD = ITEMS.register("razor_sword",
-            () -> new SwordItem(ModTiers.RAZOR, 2, -1.4f,
+            () -> new RazorSwordItem(ModTiers.RAZOR, 2, -1.4f,
                     new Item.Properties()));
     public static final RegistryObject<Item> GILDED_SWORD = ITEMS.register("gilded_sword",
             () -> new SwordItem(ModTiers.GILDED, 3, -2.4f,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(2000)));
     public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
             () -> new MasterSwordItem(ModTiers.ZELDAU, 4, -2.4f,
                     new Item.Properties().defaultDurability(450).rarity(Rarity.RARE).fireResistant()));
@@ -210,25 +210,25 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
 
     public static final RegistryObject<ArmorItem> DEKU_MASK = ITEMS.register("dekumask",
             ()-> new DekuMask(ModArmorMaterials.DEKU, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(250).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<ArmorItem> GORON_MASK = ITEMS.register("goronmask",
             ()-> new GoronMask(ModArmorMaterials.GORON, ArmorItem.Type.HELMET,
-                    new Item.Properties().fireResistant()));
+                    new Item.Properties().defaultDurability(250).rarity(Rarity.UNCOMMON).fireResistant()));
     public static final RegistryObject<ArmorItem> ZORA_MASK = ITEMS.register("zoramask",
             ()-> new ZoraMask(ModArmorMaterials.ZORA, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(250).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<ArmorItem> STONE_MASK = ITEMS.register("stonemask",
             ()-> new StoneMask(ModArmorMaterials.STONE, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> BUNNY_MASK = ITEMS.register("bunnymask",
             ()-> new BunnyMask(ModArmorMaterials.BUNNY, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> NIGHT_MASK = ITEMS.register("nightmask",
             ()-> new NightMask(ModArmorMaterials.NIGHT, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> BLAST_MASK = ITEMS.register("blastmask",
             ()-> new BlastMask(ModArmorMaterials.BLAST, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> FIERCE_MASK = ITEMS.register("fiercemask",
             ()-> new FierceMask(ModArmorMaterials.FIERCE, ArmorItem.Type.HELMET,
                     new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
@@ -237,22 +237,22 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<ArmorItem> SCENT_MASK = ITEMS.register("scentmask",
             ()-> new ScentMask(ModArmorMaterials.SCENT, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(145)));
     public static final RegistryObject<ArmorItem> TRUTH_MASK = ITEMS.register("truthmask",
             ()-> new TruthMask(ModArmorMaterials.TRUTH, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> KEATON_MASK = ITEMS.register("keatonmask",
             ()-> new KeatonMask(ModArmorMaterials.KEATON, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> TROUPE_MASK = ITEMS.register("troupemask",
             ()-> new TroupeMask(ModArmorMaterials.TROUPE, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(455)));
     public static final RegistryObject<ArmorItem> ROMANI_MASK = ITEMS.register("romanimask",
             ()-> new RomaniMask(ModArmorMaterials.ROMANI, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> GERO_MASK = ITEMS.register("geromask",
             ()-> new RomaniMask(ModArmorMaterials.GERO, ArmorItem.Type.HELMET,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(165)));
 
 
    //Tunics

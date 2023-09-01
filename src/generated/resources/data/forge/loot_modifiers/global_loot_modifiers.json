@@ -1,0 +1,9 @@
+{
+  "entries": [
+    "zeldamod:hookshot_from_jungle_temples",
+    "zeldamod:bomb_from_creeper",
+    "zeldamod:herobow_from_jungle_temples",
+    "zeldamod:longshot_from_jungle_temples"
+  ],
+  "replace": false
+}

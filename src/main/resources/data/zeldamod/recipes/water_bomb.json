@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "L": [
+      {
+        "item": "minecraft:nautilus_shell"
+      }
+    ],
+    "X": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "pattern": [
+    "X#X",
+    "#L#",
+    "X#X"
+  ],
+  "result": {
+    "item": "zeldamod:bomb"
+  },
+  "show_notification": true
+}

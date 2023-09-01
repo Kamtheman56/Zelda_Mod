@@ -7,6 +7,7 @@ import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.util.ModItemProperties;
+import com.kamth.zeldamod.loot.ModLootModifiers;
 import com.kamth.zeldamod.particle.ModParticles;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
@@ -42,7 +43,7 @@ public class ZeldaMod
 
         ModEffects.register(modEventBus);
         ModParticles.register(modEventBus);
-
+        ModLootModifiers.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
 
