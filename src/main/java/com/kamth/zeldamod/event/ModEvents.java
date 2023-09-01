@@ -3,7 +3,10 @@ package com.kamth.zeldamod.event;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.item.ModItems;
+
+
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.network.chat.Component;
@@ -12,12 +15,18 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.frog.Frog;
+
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
+
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderLivingEvent;
@@ -25,12 +34,17 @@ import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+
+
 import net.minecraftforge.event.village.VillagerTradesEvent;
+
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fml.common.Mod;
 
+
 import java.util.List;
+
 
 import static com.kamth.zeldamod.item.items.LensItem.AFFECTED_ENTITIES;
 
@@ -94,6 +108,7 @@ public class ModEvents {
         livingEntity.setInvisible(false);
         AFFECTED_ENTITIES.add(livingEntity);
     }
+
     @SubscribeEvent
     public static void addCustomTrades(VillagerTradesEvent event) {
         if(event.getType() == VillagerProfession.WEAPONSMITH) {
@@ -130,6 +145,7 @@ public class ModEvents {
 
 
     }
+
 
 }
 
