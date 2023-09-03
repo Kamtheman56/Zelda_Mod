@@ -17,6 +17,7 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -31,8 +32,6 @@ public class KeatonMask extends ArmorItem {
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerEntityInteract);
 
     }
-
-
     public void onPlayerEntityInteract(PlayerInteractEvent.EntityInteract event)
     {
         if( event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.KEATON_MASK.get()) {

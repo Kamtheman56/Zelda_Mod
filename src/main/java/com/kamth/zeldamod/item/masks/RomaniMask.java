@@ -39,5 +39,8 @@ public class RomaniMask extends ArmorItem {
         if (stack.is(ModItems.GERO_MASK.get())) {
             components.add(Component.literal("Conduct those frogs!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
+        if (stack.is(ModItems.HAWK_MASK.get())) {
+            components.add(Component.literal("Snipe enemies with ease").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
     }
 }

@@ -52,20 +52,19 @@ public class ClawshotItem extends Item {
         if (!world.isClientSide) {
                 Clawshot projectile = new Clawshot(world, (Player) entity);
                 projectile.setOwner(player);
+                projectile.setBaseDamage(4);
                 projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f, 0f);
                 projectile.Properties(itemstack, 20, 12, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
                 world.addFreshEntity(projectile);
             }
+
         if (itemstack.is(ModItems.CLAWSHOT.get())) {
             player.getCooldowns().addCooldown(this, 40);
         }
         if (itemstack.is(ModItems.CLAWSHOT_GODDESS.get())) {
             player.getCooldowns().addCooldown(this, 40);
         }
-
-        }
-
-
+            }
 
 
     public int getUseDuration(ItemStack pStack) {
@@ -75,7 +74,7 @@ public class ClawshotItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Only works on grabables").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Only works on grabbables").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         } else {
             components.add(Component.literal("Go from C to D!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }}

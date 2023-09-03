@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
+import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.tags.BlockTags;
@@ -35,7 +36,7 @@ public class SandProjectile extends ThrowableProjectile {
         super.onHitBlock(ray);
 
         BlockState blockHit = this.level().getBlockState(ray.getBlockPos());
-        if (!blockHit.is(BlockTags.SAND)  ){
+        if (!blockHit.is(BlockTags.SAND)    ){
             this.discard();
         }
 

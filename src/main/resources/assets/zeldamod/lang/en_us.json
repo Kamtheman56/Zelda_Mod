@@ -108,6 +108,7 @@
   "item.zeldamod.troupemask": "Troupe Leader's Mask",
   "item.zeldamod.romanimask": "Romani's Mask",
   "item.zeldamod.geromask": "Don Gero's Mask",
+  "item.zeldamod.hawkmask": "Hawkeye Mask",
   "item.zeldamod.kokiritunic": "Kokiri Tunic",
   "item.zeldamod.zoratunic": "Zora Tunic",
   "item.zeldamod.gorontunic": "Goron Tunic",
@@ -130,7 +131,8 @@
   "block.zeldamod.pork_block": "Pork Block",
   "block.zeldamod.hook_target": "Hookshot Target",
   "block.zeldamod.claw_target": "Clawshot Target",
-  "Nightmask": "You don't think you should do this"
+  "Nightmask": "You don't think you should do this",
+  "entity.minecraft.villager.zeldamod.mask_trader": "Mask Salesman"
 
 
 

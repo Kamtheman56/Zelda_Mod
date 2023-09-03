@@ -9,6 +9,7 @@ import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.util.ModItemProperties;
 import com.kamth.zeldamod.loot.ModLootModifiers;
 import com.kamth.zeldamod.particle.ModParticles;
+import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -40,7 +41,7 @@ public class ZeldaMod
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
-
+        ModVillagers.register(modEventBus);
         ModEffects.register(modEventBus);
         ModParticles.register(modEventBus);
         ModLootModifiers.register(modEventBus);
@@ -56,8 +57,8 @@ private void clientSetup(final FMLClientSetupEvent event){
 }
 
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
+    private void commonSetup(final FMLCommonSetupEvent event){
+
 
     }
 private void addCreative(BuildCreativeModeTabContentsEvent event){
@@ -163,6 +164,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.TRUTH_MASK);
         event.accept(ModItems.ROMANI_MASK);
         event.accept(ModItems.GERO_MASK);
+        event.accept(ModItems.HAWK_MASK);
         event.accept(ModItems.MAJORA_MASK);
     }
         if (event.getTab() == ModCreativeModeTab.ZELDA_TAB.get()){

@@ -257,6 +257,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> GERO_MASK = ITEMS.register("geromask",
             ()-> new RomaniMask(ModArmorMaterials.GERO, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> HAWK_MASK = ITEMS.register("hawkmask",
+            ()-> new RomaniMask(ModArmorMaterials.HAWK, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165)));
 
 
    //Tunics
