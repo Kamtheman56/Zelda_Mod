@@ -249,7 +249,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new KeatonMask(ModArmorMaterials.KEATON, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> TROUPE_MASK = ITEMS.register("troupemask",
-            ()-> new TroupeMask(ModArmorMaterials.TROUPE, ArmorItem.Type.HELMET,
+            ()-> new RomaniMask(ModArmorMaterials.TROUPE, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(455)));
     public static final RegistryObject<ArmorItem> ROMANI_MASK = ITEMS.register("romanimask",
             ()-> new RomaniMask(ModArmorMaterials.ROMANI, ArmorItem.Type.HELMET,
@@ -259,6 +259,12 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> HAWK_MASK = ITEMS.register("hawkmask",
             ()-> new RomaniMask(ModArmorMaterials.HAWK, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> GIANT_MASK = ITEMS.register("giantmask",
+            ()-> new GiantMask(ModArmorMaterials.GIANT, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> COUPLES_MASK = ITEMS.register("couplesmask",
+            ()-> new RomaniMask(ModArmorMaterials.COUPLES, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
 
 

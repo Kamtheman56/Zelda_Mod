@@ -61,7 +61,13 @@ public enum ModArmorMaterials implements ArmorMaterial {
     GERO("gero", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.FROG_AMBIENT,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.SLIME_BALL); }),
-    HAWK("hawk", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.CROSSBOW_LOADING_START,
+    HAWK("hawk", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.SPYGLASS_USE,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.COPPER_INGOT); }),
+    GIANT("giant", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.LODESTONE_COMPASS_LOCK,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.COPPER_INGOT); }),
+    COUPLES("couples", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.COPPER_INGOT); }),
     ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_IRON,

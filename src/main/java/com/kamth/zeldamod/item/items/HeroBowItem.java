@@ -22,6 +22,7 @@ import net.minecraftforge.event.ForgeEventFactory;
 import java.util.function.Predicate;
 
 public class HeroBowItem extends BowItem {
+
     public HeroBowItem(Properties pProperties) {
         super(pProperties);
     }

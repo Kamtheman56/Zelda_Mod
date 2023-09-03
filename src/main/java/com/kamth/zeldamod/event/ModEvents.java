@@ -12,9 +12,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.frog.Frog;
@@ -80,7 +82,21 @@ public class ModEvents {
 
                 event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Please bring me to some magma cubes!"));
                     event.getTarget().playSound(SoundEvents.FROG_AMBIENT, 1, 2.6f);
-                }}}
+                }}
+        if(!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.COUPLES_MASK.get()) {
+            if (event.getTarget() instanceof LivingEntity)
+            {
+                event.getEntity().hurt(event.getEntity().damageSources().magic(), 2);
+                event.getTarget().playSound(SoundEvents.VILLAGER_CELEBRATE, 1, 2.6f);
+                ((LivingEntity) event.getTarget()).heal(2);
+            }}
+        if(event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.COUPLES_MASK.get()) {
+            if (event.getTarget() instanceof LivingEntity)
+            {
+                event.getLevel().addParticle(ParticleTypes.HEART, true, event.getTarget().getX() +0, event.getTarget().getY() +.6, event.getTarget().getZ() +0, 0, 0, 0);
+            }}
+
+    }
 
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
@@ -88,7 +104,7 @@ public class ModEvents {
         if (event.getEntity().isInvisible()) {
             Minecraft client = Minecraft.getInstance();
             Player player = client.player;
-            boolean isLocalPlayerUsingLens = player.isUsingItem() && player.getItemInHand(player.getUsedItemHand()).getItem() == ModItems.LENS_OF_TRUTH.get();
+            boolean isLocalPlayerUsingLens = player.isUsingItem() && player.getItemInHand(player.getUsedItemHand()).getItem() == ModItems.LENS_OF_TRUTH.get() || player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.TRUTH_MASK.get());
 
             if (isLocalPlayerUsingLens) {
                 removeEntityInvisibility(event.getEntity());
@@ -116,20 +132,17 @@ public class ModEvents {
         AFFECTED_ENTITIES.add(livingEntity);
     }
     @SubscribeEvent
-    public static void onFovUpdate(ComputeFovModifierEvent event)
-    {
+    public static void onFovUpdate(ComputeFovModifierEvent event) {
         LivingEntity player = event.getPlayer();
         Item item = player.getUseItem().getItem();
 
 
-  if  (event.getPlayer().getUseItem().getItem() instanceof BowItem && event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.HAWK_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()){
-      float FOVModifier = player.getTicksUsingItem() / (float)BowItem.MAX_DRAW_DURATION;
-        event.setNewFovModifier(event.getFovModifier() * (1.0f - FOVModifier * 1.4f));
-
-  }
-
+        if (event.getPlayer().getUseItem().getItem() instanceof BowItem && event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.HAWK_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
+            float FOVModifier = player.getTicksUsingItem() / (float) BowItem.MAX_DRAW_DURATION;
+            event.setNewFovModifier(event.getFovModifier() * (1.0f - FOVModifier * 1.4f));
         }
 
+    }
 
     @SubscribeEvent
     public static void addCustomTrades(VillagerTradesEvent event) {

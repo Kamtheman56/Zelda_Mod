@@ -3,6 +3,7 @@ package com.kamth.zeldamod.item.masks;
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -24,12 +25,30 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public class RomaniMask extends ArmorItem {
     public RomaniMask(ArmorMaterial pMaterial, Type type, Properties pProperties) {
         super(pMaterial,type, pProperties);
     }
+    @Override
+    public void onArmorTick(ItemStack stack, Level level, Player player) {
+        if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.TROUPE_MASK.get() && player.isCrouching()) {
+            double particleX = player.getX() + (player.getRandom().nextBoolean() ? -0.1D : 0);
+            double particleY = player.getY() + player.getRandom().nextFloat() * 0 - -1.2D;
+            double particleZ = player.getZ() + (player.getRandom().nextBoolean() ? -0.1D : 0);
+            player.level().addParticle(ParticleTypes.RAIN, particleX, particleY, particleZ, 0, 0, 0);
+
+        }
+        if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.COUPLES_MASK.get() && player.isCrouching()) {
+            if(new Random().nextFloat() > .9f) {
+                double particleX = player.getX() + (player.getRandom().nextBoolean() ? 0.1D : 0);
+                double particleY = player.getY() + player.getRandom().nextFloat() * 0 + 1.2D;
+                double particleZ = player.getZ() + (player.getRandom().nextBoolean() ? +0.8D : 0);
+                player.level().addParticle(ParticleTypes.HEART, particleX, particleY, particleZ, 0, 0, 0);
+            }
+        }}
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
@@ -41,6 +60,12 @@ public class RomaniMask extends ArmorItem {
         }
         if (stack.is(ModItems.HAWK_MASK.get())) {
             components.add(Component.literal("Snipe enemies with ease").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
+        if (stack.is(ModItems.TROUPE_MASK.get())) {
+            components.add(Component.literal("How sad").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
+        if (stack.is(ModItems.COUPLES_MASK.get())) {
+            components.add(Component.literal("True love").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
     }
 }
