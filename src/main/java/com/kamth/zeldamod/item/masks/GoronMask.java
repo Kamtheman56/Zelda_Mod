@@ -60,8 +60,7 @@ public void onLivingHurtEvent(LivingHurtEvent event){
 
 
 
-//Maybe add ice physics when running
-// when springing have thorns armor effect
+
             Level level = world;
 
             if (level.getBlockState(player.getOnPos()).is(Tags.Blocks.GLASS)) {
@@ -74,7 +73,8 @@ public void onLivingHurtEvent(LivingHurtEvent event){
             }
             if (player.isSprinting() && !player.isEyeInFluidType(ForgeMod.WATER_TYPE.get())) {
                 player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
-                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 25,6,true,false));}
+
+                    player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 25,6,true,false));}
 
 
     }

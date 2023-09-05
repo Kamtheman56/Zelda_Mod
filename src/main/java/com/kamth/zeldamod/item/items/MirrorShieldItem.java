@@ -52,13 +52,13 @@ public class MirrorShieldItem extends ShieldItem {
         if (!projectile.getType().is(ModTags.Entities.MIRROR) && entityBlocking.isBlocking()) {
             ItemStack itemUsed = entityBlocking.getUseItem();
             if (itemUsed.is(ModItems.MIRROR_SHIELD.get())){
-                return parryProjectile(projectile, entityBlocking, takeOwnership);
+                return ReflectProjectile(projectile, entityBlocking, takeOwnership);
             }
         }
 
         return false;
     }
-    private static <T extends Projectile> boolean parryProjectile(T projectile, LivingEntity entityBlocking, boolean takeOwnership) {
+    private static <T extends Projectile> boolean ReflectProjectile(T projectile, LivingEntity entityBlocking, boolean takeOwnership) {
         if (takeOwnership) transferOwnership(projectile, entityBlocking);
 
         Vec3 reflectAngle = entityBlocking.getLookAngle();

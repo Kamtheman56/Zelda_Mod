@@ -3,6 +3,7 @@ package com.kamth.zeldamod.item.masks;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -39,14 +40,20 @@ public class StoneMask extends ArmorItem {
     //this adds effects that do not create particles.
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-
-        player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 10, 0, true, false));
-
+if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.STONE_MASK.get())) {
+    player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 10, 0, true, false));
+}
+        if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.GIBDO_MASK.get())) {
+        player.removeEffect(MobEffects.HUNGER);
+        }
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.literal("Become as plain as stone").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-
-
+        if (stack.is(ModItems.STONE_MASK.get())){
+            components.add(Component.literal("Become as plain as stone").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
+        if (stack.is(ModItems.GIBDO_MASK.get())){
+            components.add(Component.literal("Hunger immune").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
     }
 }

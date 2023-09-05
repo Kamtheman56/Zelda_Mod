@@ -46,7 +46,7 @@ public abstract class MixinLivingEntity extends Entity {
         if (((Object)this) instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HOVER_BOOTS.get()) {
             cir.setReturnValue(.96F);}
  if (((Object)this) instanceof LivingEntity living  && living.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
-        cir.setReturnValue(.96F);}}
+        cir.setReturnValue(.97F);}}
 
 
 }

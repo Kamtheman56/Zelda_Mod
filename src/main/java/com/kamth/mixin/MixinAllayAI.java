@@ -7,6 +7,7 @@ import net.minecraft.world.entity.animal.allay.AllayAi;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 
@@ -19,14 +20,14 @@ public abstract class MixinAllayAI
         super();
     }
 
-    @Inject(method = "getLikedPlayer", at = @At("HEAD"), cancellable = true)
-    private static void Player(LivingEntity pEntity, CallbackInfoReturnable<Boolean> ci)
+    @Inject(method = "getLikedPlayer", at = @At("RETURN"), cancellable = true)
+    private static void Player(LivingEntity pEntity, CallbackInfoReturnable<Integer> ci)
     {
 
         if (pEntity != null && pEntity.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.SCENT_MASK.get())
         {
 
-            ci.setReturnValue(false);
+            ci.setReturnValue(150);
         }
     }
 }

@@ -166,6 +166,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.GERO_MASK);
         event.accept(ModItems.COUPLES_MASK);
         event.accept(ModItems.GIANT_MASK);
+        event.accept(ModItems.GIBDO_MASK);
         event.accept(ModItems.HAWK_MASK);
         event.accept(ModItems.MAJORA_MASK);
     }

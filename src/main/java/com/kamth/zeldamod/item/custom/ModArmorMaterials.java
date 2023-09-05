@@ -69,7 +69,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.COPPER_INGOT); }),
     COUPLES("couples", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Items.COPPER_INGOT); }),
+        return Ingredient.of(Items.GHAST_TEAR); }),
+    GIBDO("gibdo", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.HUSK_AMBIENT,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.ROTTEN_FLESH); }),
     ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_IRON,
             0.0F, 4.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),

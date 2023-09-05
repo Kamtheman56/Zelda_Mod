@@ -246,7 +246,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new TruthMask(ModArmorMaterials.TRUTH, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> KEATON_MASK = ITEMS.register("keatonmask",
-            ()-> new KeatonMask(ModArmorMaterials.KEATON, ArmorItem.Type.HELMET,
+            ()-> new RomaniMask(ModArmorMaterials.KEATON, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> TROUPE_MASK = ITEMS.register("troupemask",
             ()-> new RomaniMask(ModArmorMaterials.TROUPE, ArmorItem.Type.HELMET,
@@ -265,6 +265,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> COUPLES_MASK = ITEMS.register("couplesmask",
             ()-> new RomaniMask(ModArmorMaterials.COUPLES, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> GIBDO_MASK = ITEMS.register("gibdomask",
+            ()-> new StoneMask(ModArmorMaterials.GIBDO, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
 
 

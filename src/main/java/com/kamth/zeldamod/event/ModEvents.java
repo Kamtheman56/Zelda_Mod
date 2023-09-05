@@ -15,13 +15,24 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.goal.GoalSelector;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.frog.Frog;
 
+import net.minecraft.world.entity.monster.Husk;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
 
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -38,7 +49,12 @@ import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.EntityEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
@@ -54,7 +70,8 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.List;
 
 
-import static com.kamth.zeldamod.item.items.LensItem.AFFECTED_ENTITIES;
+
+import static com.kamth.zeldamod.item.items.LensItem.IN_SIGHT;
 
 
 @Mod.EventBusSubscriber(modid = ZeldaMod.MOD_ID)
@@ -71,18 +88,12 @@ public class ModEvents {
                     event.getEntity().addItem(ModItems.MILK_BOTTLE1.get().getDefaultInstance());
                     event.getTarget().playSound(SoundEvents.COW_MILK, 1, 1.8f);
                 }
-            else if (itemstack.is(Items.AIR)){
-                    event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Knowing you're a friend to all cows, I'll show you how to put my milk into a bottle."));
-
-    }
+            else if (itemstack.is(Items.AIR)){event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Knowing you're a friend to all cows, I'll show you how to put my milk into a bottle."));}
             }}
         if( event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GERO_MASK.get()) {
-            if (event.getTarget() instanceof Frog)
-            {
-
+            if (event.getTarget() instanceof Frog){
                 event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Please bring me to some magma cubes!"));
-                    event.getTarget().playSound(SoundEvents.FROG_AMBIENT, 1, 2.6f);
-                }}
+                    event.getTarget().playSound(SoundEvents.FROG_AMBIENT, 1, 2.6f);}}
         if(!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.COUPLES_MASK.get()) {
             if (event.getTarget() instanceof LivingEntity)
             {
@@ -104,9 +115,9 @@ public class ModEvents {
         if (event.getEntity().isInvisible()) {
             Minecraft client = Minecraft.getInstance();
             Player player = client.player;
-            boolean isLocalPlayerUsingLens = player.isUsingItem() && player.getItemInHand(player.getUsedItemHand()).getItem() == ModItems.LENS_OF_TRUTH.get() || player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.TRUTH_MASK.get());
+            boolean LensMode = player.isUsingItem() && player.getItemInHand(player.getUsedItemHand()).getItem() == ModItems.LENS_OF_TRUTH.get() || player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.TRUTH_MASK.get());
 
-            if (isLocalPlayerUsingLens) {
+            if (LensMode) {
                 removeEntityInvisibility(event.getEntity());
             }
         }
@@ -115,33 +126,30 @@ public class ModEvents {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onLivingPostRender(RenderLivingEvent.Post<LivingEntity, EntityModel<LivingEntity>> event) {
-        if (AFFECTED_ENTITIES.contains(event.getEntity())) {
+        if (IN_SIGHT.contains(event.getEntity())) {
             restoreEntityInvisibility(event.getEntity());
         }
     }
 
     @OnlyIn(Dist.CLIENT)
     private static void restoreEntityInvisibility(LivingEntity livingEntity) {
-        AFFECTED_ENTITIES.remove(livingEntity);
+        IN_SIGHT.remove(livingEntity);
         livingEntity.setInvisible(true);
     }
 
     @OnlyIn(Dist.CLIENT)
     private static void removeEntityInvisibility(LivingEntity livingEntity) {
         livingEntity.setInvisible(false);
-        AFFECTED_ENTITIES.add(livingEntity);
+        IN_SIGHT.add(livingEntity);
     }
     @SubscribeEvent
     public static void onFovUpdate(ComputeFovModifierEvent event) {
         LivingEntity player = event.getPlayer();
         Item item = player.getUseItem().getItem();
-
-
         if (event.getPlayer().getUseItem().getItem() instanceof BowItem && event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.HAWK_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
             float FOVModifier = player.getTicksUsingItem() / (float) BowItem.MAX_DRAW_DURATION;
             event.setNewFovModifier(event.getFovModifier() * (1.0f - FOVModifier * 1.4f));
         }
-
     }
 
     @SubscribeEvent
@@ -238,6 +246,9 @@ public class ModEvents {
         }
 
     }
+
+
+
 
 
 }

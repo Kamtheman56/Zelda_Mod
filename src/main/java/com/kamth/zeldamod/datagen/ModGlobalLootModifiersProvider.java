@@ -4,6 +4,7 @@ package com.kamth.zeldamod.datagen;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.loot.AddItemModifier;
+import com.kamth.zeldamod.loot.AddSusSandItemModifier;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
@@ -191,11 +192,11 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.13f).build()}, ModItems.XTENDER.get()));
 
         //items from archaeology
-        add("golddust_from_archaeology", new AddItemModifier(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("archaeology/trail_ruins_rare")).build(),
-                LootItemRandomChanceCondition.randomChance(0.14f).build()}, ModItems.GOLD_DUST.get()));
-        add("boomerang_from_archaeology", new AddItemModifier(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("archaeology/trail_ruins_rare")).build(),
-                LootItemRandomChanceCondition.randomChance(0.20f).build()}, ModItems.BOOMERANG.get()));
+        add("golddust_from_archaeology", new AddSusSandItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("archaeology/trail_ruins_rare")).build()}, ModItems.GOLD_DUST.get()));
+        add("boomerang_from_archaeology", new AddSusSandItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("archaeology/trail_ruins_rare")).build()}, ModItems.BOOMERANG.get()));
+        add("claw__from_archaeology", new AddSusSandItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("archaeology/trail_ruins_rare")).build()}, ModItems.CLAW.get()));
 
     }}
