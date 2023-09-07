@@ -4,25 +4,21 @@
   "key": {
     "#": [
       {
-        "item": "minecraft:iron_ingot"
+        "item": "minecraft:nautilus_shell"
       }
     ],
     "L": [
       {
-        "item": "minecraft:nautilus_shell"
+        "item": "zeldamod:bomb"
       }
-    ],
-    "X": {
-      "item": "minecraft:gunpowder"
-    }
-  },
+    ]},
   "pattern": [
-    "X#X",
+    " # ",
     "#L#",
-    "X#X"
+    " # "
   ],
   "result": {
-    "item": "zeldamod:bomb"
+    "item": "zeldamod:water_bomb"
   },
   "show_notification": true
 }

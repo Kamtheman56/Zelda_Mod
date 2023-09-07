@@ -31,5 +31,6 @@ public class ClientModEventSubscriber {
         event.registerEntityRenderer(ModEntityTypes.SAND_PROJECTILE.get(), SandRender::new);
         event.registerEntityRenderer(ModEntityTypes.HOOKSHOT.get(), HookshotRender::new);
         event.registerEntityRenderer(ModEntityTypes.CLAWSHOT.get(), ClawshotRender::new);
+        event.registerEntityRenderer(ModEntityTypes.BOMB_FLOWER.get(), BombFlowerRender::new);
     }
 }

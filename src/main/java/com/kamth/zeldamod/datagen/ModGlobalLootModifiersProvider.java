@@ -196,7 +196,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 new LootTableIdCondition.Builder(new ResourceLocation("archaeology/trail_ruins_rare")).build()}, ModItems.GOLD_DUST.get()));
         add("boomerang_from_archaeology", new AddSusSandItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("archaeology/trail_ruins_rare")).build()}, ModItems.BOOMERANG.get()));
-        add("claw__from_archaeology", new AddSusSandItemModifier(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("archaeology/trail_ruins_rare")).build()}, ModItems.CLAW.get()));
+        add("claw_from_archaeology", new AddSusSandItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("archaeology/desert_pyramid")).build()}, ModItems.CLAW.get()));
 
     }}

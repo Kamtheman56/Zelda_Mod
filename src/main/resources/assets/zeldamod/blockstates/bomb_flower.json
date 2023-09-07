@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "zeldamod:block/bomb_flower_stage0"
+    },
+    "age=1": {
+      "model": "zeldamod:block/bomb_flower_stage1"
+    },
+    "age=2": {
+      "model": "zeldamod:block/bomb_flower_stage2"
+    },
+    "age=3": {
+      "model": "zeldamod:block/bomb_flower_stage3"
+    },
+    "age=4": {
+      "model": "zeldamod:block/bomb_flower_stage4"
+    },
+    "age=5": {
+      "model": "zeldamod:block/bomb_flower_stage5"
+    },
+
+    "age=6": {
+      "model": "zeldamod:block/bomb_flower_stage5"
+    },
+
+    "age=7": {
+      "model": "zeldamod:block/bomb_flower_stage5"
+    }
+  }
+}

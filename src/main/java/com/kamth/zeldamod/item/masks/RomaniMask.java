@@ -70,5 +70,11 @@ public class RomaniMask extends ArmorItem {
         if (stack.is(ModItems.KEATON_MASK.get())) {
             components.add(Component.literal("It looks valuable!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
+        if (stack.is(ModItems.FAIRY_MASK.get())) {
+            components.add(Component.literal("Heal with style").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
+        if (stack.is(ModItems.KAFEI_MASK.get())) {
+            components.add(Component.literal("It looks valuable!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
     }
 }

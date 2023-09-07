@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item;
 
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.item.armors.*;
 import com.kamth.zeldamod.item.custom.ModArmorMaterials;
 import com.kamth.zeldamod.item.custom.ModFoods;
@@ -68,6 +69,9 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(ModFoods.SUPER_MUSHROOM)));
     public static final RegistryObject<Item> LIFE_MUSHROOM = ITEMS.register("mushroom_life",
             () -> new Item(new Item.Properties().food(ModFoods.LIFE_MUSHROOM)));
+    public static final RegistryObject<Item> BOMB_SEEDS = ITEMS.register("bomb_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.BOMBFLOWER.get(),new  Item.Properties()));
+
 
 
     //This is where Tools start
@@ -119,6 +123,8 @@ public class ModItems {
             () -> new BombItem(new Item.Properties().stacksTo(16).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> WATER_BOMB = ITEMS.register("water_bomb",
             () -> new WaterBombItem(new Item.Properties().stacksTo(8).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> BOMB_FLOWER = ITEMS.register("bomb_flower",
+            () -> new BombFlowerItem(new Item.Properties().stacksTo(4).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> HERO_BOW = ITEMS.register("hero_bow",
             () -> new HeroBowItem(new Item.Properties().defaultDurability(550)));
     public static final RegistryObject<Item> FIRE_ARROW = ITEMS.register("fire_arrow",
@@ -152,13 +158,13 @@ public class ModItems {
                     new Item.Properties().defaultDurability(260)));
     public static final RegistryObject<Item> MEGATON = ITEMS.register("megaton_hammer",
             () -> new HammerItem(ModTiers.ZELDA, 8, -3f,
-                    new Item.Properties().defaultDurability(460)));
+                    new Item.Properties().defaultDurability(520)));
     public static final RegistryObject<Item> DEKU_STICK = ITEMS.register("deku_stick",
-            () -> new StickItem(Tiers.WOOD, 2, 0f,
-                    new Item.Properties().defaultDurability(1)));
+            () -> new StickItem(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> DEKU_STICK_LIT = ITEMS.register("deku_stick_lit",
-            () -> new StickItem(Tiers.WOOD, 4, 0f,
-                    new Item.Properties().defaultDurability(100)));
+            () -> new StickItem(new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> DEKU_STICK_LIT2 = ITEMS.register("deku_stick_lit2",
+            () -> new StickItem(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> MITTS = ITEMS.register("digging_mitts",
             () -> new MittsItem(1,-2f,Tiers.STONE, BlockTags.MINEABLE_WITH_PICKAXE,
                     new Item.Properties().defaultDurability(390)));
@@ -268,6 +274,12 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> GIBDO_MASK = ITEMS.register("gibdomask",
             ()-> new StoneMask(ModArmorMaterials.GIBDO, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> FAIRY_MASK = ITEMS.register("fairymask",
+            ()-> new RomaniMask(ModArmorMaterials.FAIRY, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> KAFEI_MASK = ITEMS.register("kafeimask",
+            ()-> new RomaniMask(ModArmorMaterials.KAFEI, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
 
 

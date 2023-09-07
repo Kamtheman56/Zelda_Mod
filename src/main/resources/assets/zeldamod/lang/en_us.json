@@ -26,7 +26,7 @@
   "item.zeldamod.pearl_courage": "Farore's Pearl",
   "item.zeldamod.mushroom_super": "Super Mushroom",
   "item.zeldamod.mushroom_life": "1-UP Mushroom",
-
+  "item.zeldamod.bomb_seeds": "Bomb Flower Seeds",
 
   "itemGroup.zeldatab": "Zelda Items",
   "itemGroup.zeldamask": "Zelda Masks",
@@ -59,6 +59,7 @@
   "item.zeldamod.sand_rod": "Sand Rod",
   "item.zeldamod.bomb": "Bomb",
   "item.zeldamod.water_bomb": "Water Bomb",
+  "item.zeldamod.bomb_flower": "Bomb Flower",
   "item.zeldamod.hero_bow": "Hero's Bow",
   "item.zeldamod.fire_arrow": "Fire Arrow",
   "item.zeldamod.ice_arrow": "Ice Arrow",
@@ -86,6 +87,8 @@
   "item.zeldamod.clawshot": "Clawshot",
   "item.zeldamod.clawshot_goddess": "Goddess Clawshot",
   "item.zeldamod.lens": "Lens of Truth",
+  "item.zeldamod.deku_stick": "Deku Stick",
+  "item.zeldamod.deku_stick_lit": "Deku Stick",
 
 
 
@@ -112,6 +115,8 @@
   "item.zeldamod.giantmask": "Giant's Mask",
   "item.zeldamod.couplesmask": "Couple's Mask",
   "item.zeldamod.gibdomask": "Gibdo Mask",
+  "item.zeldamod.fairymask": "Great Fairy Mask",
+  "item.zeldamod.kafeimask": "Kafei Mask",
   "item.zeldamod.kokiritunic": "Kokiri Tunic",
   "item.zeldamod.zoratunic": "Zora Tunic",
   "item.zeldamod.gorontunic": "Goron Tunic",

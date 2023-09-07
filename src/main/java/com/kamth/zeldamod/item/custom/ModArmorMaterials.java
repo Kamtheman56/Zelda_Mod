@@ -16,63 +16,69 @@ import net.minecraftforge.common.Tags;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    ZORA("zora", 0, new int[]{1, 4, 5, 2}, 0, SoundEvents.AXOLOTL_SWIM,
+    ZORA("zora", 0, new int[]{0, 4, 5, 2}, 0, SoundEvents.AXOLOTL_SWIM,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.NAUTILUS_SHELL); }),
-    DEKU("deku", 0, new int[]{1, 4, 5, 1}, 0, SoundEvents.AZALEA_LEAVES_PLACE,
+    DEKU("deku", 0, new int[]{0, 4, 5, 1}, 0, SoundEvents.AZALEA_LEAVES_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Blocks.AZALEA); }),
-    GORON("goron", 0, new int[]{1, 4, 5, 4}, 0, SoundEvents.ANCIENT_DEBRIS_PLACE,
+    GORON("goron", 0, new int[]{4, 4, 5, 4}, 0, SoundEvents.ANCIENT_DEBRIS_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Blocks.MAGMA_BLOCK); }),
-    STONE("stone", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.STONE_PLACE,
+    STONE("stone", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.STONE_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Blocks.SMOOTH_STONE); }),
-    BUNNY("bunny", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.WOOL_PLACE,
+    BUNNY("bunny", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.WOOL_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.RABBIT_FOOT); }),
-    FIERCE("fierce", 0, new int[]{1, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
+    FIERCE("fierce", 0, new int[]{0, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
             0.0F, 6.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    NIGHT("night", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.AMBIENT_CAVE.get(),
+    NIGHT("night", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.AMBIENT_CAVE.get(),
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    BLAST("blast", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.CREEPER_PRIMED,
+    BLAST("blast", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.CREEPER_PRIMED,
             0.0F, 0.0F, () -> {
         return Ingredient.of(ModItems.BOMB.get()); }),
-    MAJORA("majora", 0, new int[]{1, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
+    MAJORA("majora", 0, new int[]{0, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
             0.0F, 6.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    SCENT("scent", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.PIGLIN_AMBIENT,
+    SCENT("scent", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.PIGLIN_AMBIENT,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.PORKCHOP); }),
-    TRUTH("truth", 0, new int[]{1, 4, 5,0}, 0, SoundEvents.AMETHYST_BLOCK_CHIME,
+    TRUTH("truth", 0, new int[]{0, 4, 5,0}, 0, SoundEvents.AMETHYST_BLOCK_CHIME,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GOLDEN_APPLE); }),
-    KEATON("keaton", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.FOX_AMBIENT,
+    KEATON("keaton", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.FOX_AMBIENT,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.SWEET_BERRIES); }),
-    TROUPE("troupe", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.VILLAGER_NO,
+    TROUPE("troupe", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.VILLAGER_NO,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GHAST_TEAR); }),
-    ROMANI("romani", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.COW_AMBIENT,
+    ROMANI("romani", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.COW_AMBIENT,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.MILK_BUCKET); }),
-    GERO("gero", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.FROG_AMBIENT,
+    GERO("gero", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.FROG_AMBIENT,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.SLIME_BALL); }),
-    HAWK("hawk", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.SPYGLASS_USE,
+    HAWK("hawk", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.SPYGLASS_USE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.COPPER_INGOT); }),
-    GIANT("giant", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.LODESTONE_COMPASS_LOCK,
+    GIANT("giant", 0, new int[]{4, 4, 5, 0}, 0, SoundEvents.LODESTONE_COMPASS_LOCK,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.COPPER_INGOT); }),
-    COUPLES("couples", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+    COUPLES("couples", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GHAST_TEAR); }),
-    GIBDO("gibdo", 0, new int[]{1, 4, 5, 0}, 0, SoundEvents.HUSK_AMBIENT,
+    GIBDO("gibdo", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.HUSK_AMBIENT,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.ROTTEN_FLESH); }),
+   FAIRY("fairy", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.ALLAY_AMBIENT_WITH_ITEM,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.ROTTEN_FLESH); }),
+    KAFEI("kafei", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.LEATHER); }),
     ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_IRON,
             0.0F, 4.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),

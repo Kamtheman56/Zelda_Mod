@@ -115,7 +115,9 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.MOGMA_MITTS);
         event.accept(ModItems.BOMB);
         event.accept(ModItems.WATER_BOMB);
+        event.accept(ModItems.BOMB_FLOWER);
         event.accept(ModItems.DEKU_NUT);
+        event.accept(ModItems.DEKU_STICK);
         event.accept(ModItems.BLUE_RING);
         event.accept(ModItems.RED_RING);
         event.accept(ModItems.PURPLE_RING);
@@ -136,6 +138,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.MASTER_UPGRADE);
         event.accept(ModItems.XTENDER);
         event.accept(ModItems.CLAW);
+        event.accept(ModItems.BOMB_SEEDS);
         event.accept(ModItems.FARORE_PEARL);
         event.accept(ModItems.DIN_PEARL);
         event.accept(ModItems.NAYRU_PEARL);
@@ -167,6 +170,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.COUPLES_MASK);
         event.accept(ModItems.GIANT_MASK);
         event.accept(ModItems.GIBDO_MASK);
+        event.accept(ModItems.FAIRY_MASK);
+        event.accept(ModItems.KAFEI_MASK);
         event.accept(ModItems.HAWK_MASK);
         event.accept(ModItems.MAJORA_MASK);
     }

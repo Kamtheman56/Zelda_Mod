@@ -9,9 +9,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
-import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
@@ -19,19 +17,19 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 
-public class BombProjectile extends ThrowableProjectile {
+public class BombFlower extends ThrowableProjectile {
 
 
-    private float ticksToExplode =100f;
-    private int explosionPower = 3;
+    private float ticksToExplode =80f;
+    private int explosionPower = 2;
 
-    public BombProjectile(EntityType<BombProjectile> bombProjectileEntityType, Level level) {
-        super(bombProjectileEntityType,level);
+    public BombFlower(EntityType<BombFlower> bombFlowerEntityType, Level level) {
+        super(bombFlowerEntityType,level);
 
     }
 
-    public BombProjectile(Level world, LivingEntity owner) {
-        super(ModEntityTypes.BOMB.get(), owner, world);
+    public BombFlower(Level world, LivingEntity owner) {
+        super(ModEntityTypes.BOMB_FLOWER.get(), owner, world);
     }
 
 
@@ -103,7 +101,7 @@ if (this.onGround() == true){
     if (!this.level().isClientSide) {
             if (this.ticksToExplode <= this.tickCount) {
                 explode();}
-        else   if(this.tickCount % 25 == 0) {
+        else   if(this.tickCount % 20 == 0) {
                 this.playSound(SoundEvents.TNT_PRIMED, 1, 1/ (this.level().getRandom().nextFloat() * 0.4F + 0.8F));
 
             }}}

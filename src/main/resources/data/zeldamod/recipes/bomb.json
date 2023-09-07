@@ -12,9 +12,9 @@
     }
   },
   "pattern": [
-    "X#X",
+    " # ",
     "#X#",
-    "X#X"
+    " # "
   ],
   "result": {
     "item": "zeldamod:bomb"
