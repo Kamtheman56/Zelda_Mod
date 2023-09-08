@@ -30,12 +30,10 @@ public class LensItem extends Item {
     public int getUseDuration(ItemStack stack) {
         return 72000;
     }
-
     @Override
     public UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.BLOCK;
     }
-
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
@@ -44,7 +42,6 @@ public class LensItem extends Item {
             return InteractionResultHolder.consume(itemstack);
 
     }
-
 
 }
 

@@ -160,13 +160,14 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.BLAST_MASK);
         event.accept(ModItems.STONE_MASK);
         event.accept(ModItems.NIGHT_MASK);
-        event.accept(ModItems.BUNNY_MASK);
         event.accept(ModItems.KEATON_MASK);
+        event.accept(ModItems.BREMEN_MASK);
+        event.accept(ModItems.BUNNY_MASK);
+        event.accept(ModItems.GERO_MASK);
         event.accept(ModItems.SCENT_MASK);
         event.accept(ModItems.TROUPE_MASK);
         event.accept(ModItems.TRUTH_MASK);
         event.accept(ModItems.ROMANI_MASK);
-        event.accept(ModItems.GERO_MASK);
         event.accept(ModItems.COUPLES_MASK);
         event.accept(ModItems.GIANT_MASK);
         event.accept(ModItems.GIBDO_MASK);

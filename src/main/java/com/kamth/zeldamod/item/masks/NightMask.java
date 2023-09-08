@@ -40,8 +40,11 @@ player.hurt(player.damageSources().magic(), 9);
 
 if (world.isNight()){
     player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600, 0, true, false));}
-
+        if (world.getMoonPhase() == 5 && world.isNight()){
+            player.removeEffect(MobEffects.BLINDNESS);}
     }
+
+
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         components.add(Component.literal("You shouldn't try to sleep").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));

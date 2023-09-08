@@ -2,6 +2,8 @@ package com.kamth.zeldamod.event;
 
 
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.entity.ai.BremenMask;
+import com.kamth.zeldamod.entity.ai.FairyMask;
 import com.kamth.zeldamod.item.ModItems;
 
 
@@ -9,36 +11,24 @@ import com.kamth.zeldamod.villager.ModVillagers;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.entity.ai.goal.GoalSelector;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.target.TargetGoal;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Cow;
+import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.animal.frog.Frog;
 
-import net.minecraft.world.entity.monster.Husk;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
 
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
@@ -47,23 +37,16 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ComputeFovModifierEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.client.event.ViewportEvent;
-import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.*;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 
 import net.minecraftforge.event.village.VillagerTradesEvent;
 
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fml.common.Mod;
+import org.apache.commons.lang3.tuple.ImmutableTriple;
 
 
 import java.util.List;
@@ -127,9 +110,7 @@ public class ModEvents {
             boolean LensMode = player.isUsingItem() && player.getItemInHand(player.getUsedItemHand()).getItem() == ModItems.LENS_OF_TRUTH.get() || player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.TRUTH_MASK.get());
 
             if (LensMode) {
-                removeEntityInvisibility(event.getEntity());
-            }
-        }
+                removeEntityInvisibility(event.getEntity());}}
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -160,6 +141,24 @@ public class ModEvents {
             event.setNewFovModifier(event.getFovModifier() * (1.0f - FOVModifier * 1.4f));
         }
     }
+
+    @SubscribeEvent
+    public static void onEntityConstructing(EntityJoinLevelEvent event)
+    {
+        if (event.getEntity() instanceof Animal)
+        {
+            Animal animal = (Animal) event.getEntity();
+
+            animal.goalSelector.addGoal(3, new BremenMask(animal, 1.2D));
+        }
+        if (event.getEntity() instanceof Allay)
+        {
+            Allay allay = (Allay) event.getEntity();
+
+            allay.goalSelector.addGoal(3, new FairyMask(allay, 1.2D));
+        }
+    }
+
 
     @SubscribeEvent
     public static void addCustomTrades(VillagerTradesEvent event) {

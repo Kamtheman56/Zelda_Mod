@@ -281,6 +281,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> KAFEI_MASK = ITEMS.register("kafeimask",
             ()-> new RomaniMask(ModArmorMaterials.KAFEI, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> BREMEN_MASK = ITEMS.register("bremenmask",
+            ()-> new RomaniMask(ModArmorMaterials.BREMEN, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165)));
 
 
    //Tunics

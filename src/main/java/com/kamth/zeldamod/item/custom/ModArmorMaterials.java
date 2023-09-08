@@ -79,6 +79,9 @@ public enum ModArmorMaterials implements ArmorMaterial {
     KAFEI("kafei", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.LEATHER); }),
+    BREMEN("bremen", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.CHICKEN_AMBIENT,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.FEATHER); }),
     ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_IRON,
             0.0F, 4.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
