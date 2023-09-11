@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:zoratunic"
+  },
+  "addition": {
+    "item": "zeldamod:pearl_wisdom"
+  },
+  "result": {
+    "item": "zeldamod:scale_dragon"
+  }
+}

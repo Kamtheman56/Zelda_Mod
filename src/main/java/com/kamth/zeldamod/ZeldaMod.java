@@ -126,6 +126,10 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.CLAWSHOT);
         event.accept(ModItems.CLAWSHOT_GODDESS);
         event.accept(ModItems.LENS_OF_TRUTH);
+        event.accept(ModItems.SILVER_SCALE);
+        event.accept(ModItems.GOLDEN_SCALE);
+        event.accept(ModItems.DRAGON_SCALE);
+        event.accept(ModItems.FIRE_SHIELD);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MATERIAL.get()){
         event.accept(ModItems.RED_EMERALD);

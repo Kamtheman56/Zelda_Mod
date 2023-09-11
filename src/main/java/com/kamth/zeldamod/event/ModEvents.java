@@ -37,6 +37,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ComputeFovModifierEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -58,6 +59,8 @@ import static com.kamth.zeldamod.item.items.LensItem.IN_SIGHT;
 
 @Mod.EventBusSubscriber(modid = ZeldaMod.MOD_ID)
 public class ModEvents {
+    boolean isPulling = false;
+
     @SubscribeEvent
     public static void onPlayerEntityInteract(PlayerInteractEvent.EntityInteract event)
     {
@@ -142,6 +145,7 @@ public class ModEvents {
         }
     }
 
+
     @SubscribeEvent
     public static void onEntityConstructing(EntityJoinLevelEvent event)
     {
@@ -154,7 +158,6 @@ public class ModEvents {
         if (event.getEntity() instanceof Allay)
         {
             Allay allay = (Allay) event.getEntity();
-
             allay.goalSelector.addGoal(3, new FairyMask(allay, 1.2D));
         }
     }
@@ -252,6 +255,16 @@ public class ModEvents {
                     new ItemStack(Items.EMERALD, 6),
                     stack,1,5,0.02F));
         }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.KAFEI_MASK.get(), 1);
+            int villagerLevel = 1;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 8),
+                    stack,1,5,0.02F));
+        }
+
 
     }
 

@@ -39,6 +39,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<Hookshot>> HOOKSHOT = ENTITY_TYPES.register("hookshot_projectile", () -> Builder.<Hookshot>of(Hookshot::new, MobCategory.MISC).sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "hookshot_projectile").toString()));
     public static final RegistryObject<EntityType<Clawshot>> CLAWSHOT = ENTITY_TYPES.register("clawshot_projectile", () -> Builder.<Clawshot>of(Clawshot::new, MobCategory.MISC).sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "clawshot_projectile").toString()));
     public static final RegistryObject<EntityType<BombFlower>> BOMB_FLOWER = ENTITY_TYPES.register("bomb_flower", () -> Builder.<BombFlower>of(BombFlower::new, MobCategory.MISC).sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bomb_flower").toString()));
+    public static final RegistryObject<EntityType<SwordBeam2>> SWORD_BEAM2 = ENTITY_TYPES.register("sword_beam2", () -> Builder.<SwordBeam2>of(SwordBeam2::new, MobCategory.MISC).sized(1.3f,0.5f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "sword_beam2").toString()));
     public static void register(IEventBus modEventBus) {
         ENTITY_TYPES.register(modEventBus);
 

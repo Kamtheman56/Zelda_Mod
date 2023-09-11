@@ -149,11 +149,6 @@ public class BoomerangProjectile extends Projectile {
                     onHit(result);
                 }
             }
-
-            if(tries-- <= 0) {
-                (new RuntimeException("Pickarang hit way too much, this shouldn't happen")).printStackTrace();
-                return;
-            }
         }
     }
 
@@ -182,10 +177,6 @@ super.onHit(result);
     protected void setReturning() {
         entityData.set(RETURNING, true);
     }
-    @Override
-    public boolean isPushedByFluid() {
-        return false;
-    }
     @Nullable
     public LivingEntity getThrower() {
         if (this.owner == null && this.ownerId != null && this.level() instanceof ServerLevel) {
@@ -209,7 +200,8 @@ super.onHit(result);
 
     @Override
     protected boolean canAddPassenger(@Nonnull Entity passenger) {
-        return super.canAddPassenger(passenger) || passenger instanceof ItemEntity || passenger instanceof ExperienceOrb;
+        return super.canAddPassenger(passenger) || passenger instanceof ItemEntity || passenger instanceof ExperienceOrb
+                || passenger instanceof BombProjectile ;
     }
 
     @Override
@@ -318,6 +310,7 @@ super.onHit(result);
             noPhysics = true;
             List<ItemEntity> items = level().getEntitiesOfClass(ItemEntity.class, getBoundingBox().inflate(2));
             List<ExperienceOrb> xp = level().getEntitiesOfClass(ExperienceOrb.class, getBoundingBox().inflate(2));
+            List<BombProjectile> bomb = level().getEntitiesOfClass(BombProjectile.class, getBoundingBox().inflate(2));
 
             Vec3 ourPos = position();
             for(ItemEntity item : items) {
@@ -332,6 +325,11 @@ super.onHit(result);
                 if (xpOrb.isPassenger())
                     continue;
                 xpOrb.startRiding(this);
+            }
+            for(BombProjectile bombProjectile : bomb) {
+                if (bombProjectile.isPassenger())
+                    continue;
+                bombProjectile.startRiding(this);
             }
 
             Vec3 ownerPos = owner.position().add(0, 1, 0);

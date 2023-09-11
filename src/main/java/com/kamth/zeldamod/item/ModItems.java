@@ -102,6 +102,9 @@ public class ModItems {
     public static final RegistryObject<Item> MASTER_SWORD_TRUE = ITEMS.register("master_sword_true",
             () -> new TrueMasterSwordItem(ModTiers.MASTER_TRUE, 9, -2.4f,
                     new Item.Properties().fireResistant().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> MASTER_SWORD_REFORGED = ITEMS.register("master_sword_reforged",
+            () -> new ReforgedSword(Tiers.DIAMOND, 9, -2.4f,
+                    new Item.Properties().defaultDurability(4200).fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MASTER_SWORD_INJURED = ITEMS.register("master_sword_injured",
             () -> new InjuredSwordItem(ModTiers.MASTER, 1, -2.4f,
                     new Item.Properties().defaultDurability(131).fireResistant().rarity(Rarity.RARE)));
@@ -189,6 +192,10 @@ public class ModItems {
             () -> new ClawshotItem(new Item.Properties().defaultDurability(160)));
     public static final RegistryObject<Item> LENS_OF_TRUTH = ITEMS.register("lens",
             () -> new LensItem(new Item.Properties()));
+    public static final RegistryObject<Item> SILVER_SCALE = ITEMS.register("scale_silver",
+            () -> new ScaleItem(new Item.Properties()));
+    public static final RegistryObject<Item> GOLDEN_SCALE = ITEMS.register("scale_gold",
+            () -> new ScaleItem(new Item.Properties()));
 
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168)));
@@ -210,6 +217,12 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties()));
     public static final RegistryObject<Flippers> FLIPPERS = ITEMS.register("flippers",
             ()-> new Flippers(ModArmorMaterials.ZoraTunic, ArmorItem.Type.BOOTS,
+                    new Item.Properties().defaultDurability(195)));
+    public static final RegistryObject<DragonScale> DRAGON_SCALE = ITEMS.register("scale_dragon",
+            ()-> new DragonScale(ModArmorMaterials.Dragon, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().defaultDurability(195)));
+    public static final RegistryObject<FireShield> FIRE_SHIELD = ITEMS.register("fire_shield",
+            ()-> new FireShield(ModArmorMaterials.Fire, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(195)));
 
 
@@ -309,7 +322,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new ArmorItem(ModArmorMaterials.GoronTunic, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(200)));
     public static final RegistryObject<ArmorItem> KOKIRI_BOOTS = ITEMS.register("kokiriboots",
-            ()-> new ArmorItem(ModArmorMaterials.Kokiri,ArmorItem.Type.CHESTPLATE,
+            ()-> new ArmorItem(ModArmorMaterials.Kokiri,ArmorItem.Type.BOOTS,
                     new Item.Properties().defaultDurability(65)));
     public static final RegistryObject<ArmorItem> ROC_CAPE = ITEMS.register("roc_cape",
             ()-> new RocCape(ModArmorMaterials.Roc,ArmorItem.Type.CHESTPLATE,

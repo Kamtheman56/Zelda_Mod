@@ -52,6 +52,7 @@
   "item.zeldamod.master_sword_true": "True Master Sword",
   "item.zeldamod.master_sword_injured": "Injured Master Sword",
   "item.zeldamod.master_sword_dagger": "Master Dagger",
+  "item.zeldamod.master_sword_reforged": "Reforged Master Sword",
   "item.zeldamod.fierce_sword": "Fierce Deity Sword",
   "item.zeldamod.slingshot": "Slingshot",
   "item.zeldamod.scattershot": "Scattershot",
@@ -89,6 +90,8 @@
   "item.zeldamod.lens": "Lens of Truth",
   "item.zeldamod.deku_stick": "Deku Stick",
   "item.zeldamod.deku_stick_lit": "Deku Stick",
+  "item.zeldamod.scale_silver": "Silver Scale",
+  "item.zeldamod.scale_gold": "Golden Scale",
 
 
 
@@ -129,9 +132,13 @@
   "item.zeldamod.flippers": "Zora Flippers",
   "item.zeldamod.champion_tunic": "Champion's Tunic",
   "item.zeldamod.champions_tunic": "Champion's Leathers",
+  "item.zeldamod.scale_dragon": "Water Dragon's Scale",
+  "item.zeldamod.fire_shield": "Fire Shield Earrings",
 
-"effect.zeldamod.deku": "Water Hopping",
+
+  "effect.zeldamod.deku": "Water Hopping",
   "effect.zeldamod.hover": "Hover",
+  "effect.zeldamod.fire": "Fire Shield Earrings",
 
 
   "block.zeldamod.gloom_block": "Gloom Block",

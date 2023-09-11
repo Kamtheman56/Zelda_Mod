@@ -82,7 +82,10 @@ public class DekuMask extends ArmorItem {
             }
             //if not standing on water or in water, get effect. Else get nothing
             if (player.onGround() && level.getBlockState(player.getOnPos().below(1)).getBlock() != Blocks.WATER) {
-                player.addEffect(((new MobEffectInstance(ModEffects.DEKU.get(), 40, 0, true, false))));
+                player.addEffect(((new MobEffectInstance(ModEffects.DEKU.get(), 40, 0, true, true))));
+            }
+            if (level.getBlockState(player.getOnPos().below(0)).getBlock() == Blocks.LAVA) {
+                player.removeEffect(ModEffects.DEKU.get());
             }
             else if (player.isSwimming()){
                 player.removeEffect(ModEffects.DEKU.get());

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:gorontunic"
+  },
+  "addition": {
+    "item": "zeldamod:pearl_power"
+  },
+  "result": {
+    "item": "zeldamod:fire_shield"
+  }
+}

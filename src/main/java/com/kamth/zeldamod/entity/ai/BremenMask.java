@@ -7,6 +7,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
@@ -46,12 +47,12 @@ public class BremenMask  extends Goal
                 }
                 else
                 {
-                    return shouldFollow(player);
+                    return Follow(player);
                 }
             }
         }
 
-        private <L> boolean shouldFollow(Player player)
+        private <L> boolean Follow(Player player)
         {
             ItemStack stack0 = player.getItemBySlot(EquipmentSlot.HEAD);
             boolean l = player.isCrouching();

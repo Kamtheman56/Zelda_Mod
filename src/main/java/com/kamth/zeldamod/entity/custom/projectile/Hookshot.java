@@ -55,7 +55,6 @@ public class Hookshot extends AbstractArrow {
     private Entity hookedEntity;
     private double maxRange = 0D;
     private double maxSpeed = 0D;
-    //public AbstractArrow.Pickup pickup = AbstractArrow.Pickup.DISALLOWED;
     private Player owner;
 
     private boolean motionUp = false;

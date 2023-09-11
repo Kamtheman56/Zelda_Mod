@@ -1,7 +1,8 @@
 package com.kamth.zeldamod.client.renderer.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
+import com.kamth.zeldamod.entity.custom.projectile.SwordBeam;
+import com.kamth.zeldamod.entity.custom.projectile.SwordBeam2;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -14,33 +15,22 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
-import org.joml.Vector3f;
 
-public class BombRender extends EntityRenderer<BombProjectile> {
-    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/item/bomb.png");
+public class SwordBeam2Render extends EntityRenderer<SwordBeam2> {
+    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/projectiles/sword_beam2.png");
     private static final RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
 
-    public BombRender(EntityRendererProvider.Context pContext) {
+    public SwordBeam2Render(EntityRendererProvider.Context pContext) {
         super(pContext);
     }
 
-    /**
-     * Returns the location of an entity's texture.
-     *
-     * @param pEntity
-     */
-    @Override
-    public ResourceLocation getTextureLocation(BombProjectile pEntity) {
-        return TEXTURE_LOCATION;
-    }
-
-    protected int getBlockLightLevel(BombProjectile pEntity, BlockPos pPos) {
+    protected int getBlockLightLevel(SwordBeam2 pEntity, BlockPos pPos) {
         return 15;
     }
 
-    public void render(BombProjectile pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(SwordBeam2 pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
         pMatrixStack.pushPose();
-        pMatrixStack.scale(0.8F, 0.8F, 0.8F);
+        pMatrixStack.scale(1.3F, 1.3F, 1.3F);
         pMatrixStack.mulPose(this.entityRenderDispatcher.cameraOrientation());
         pMatrixStack.mulPose(Axis.YP.rotationDegrees(180.0F));
         PoseStack.Pose posestack$pose = pMatrixStack.last();
@@ -58,5 +48,14 @@ public class BombRender extends EntityRenderer<BombProjectile> {
     private static void vertex(VertexConsumer p_114090_, Matrix4f p_114091_, Matrix3f p_114092_, int p_114093_, float p_114094_, int p_114095_, int p_114096_, int p_114097_) {
         p_114090_.vertex(p_114091_, p_114094_ - 0.5F, (float)p_114095_ - 0.25F, 0.0F).color(255, 255, 255, 255).uv((float)p_114096_, (float)p_114097_).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(p_114093_).normal(p_114092_, 0.0F, 1.0F, 0.0F).endVertex();
     }
+
+
+    @Override
+    public ResourceLocation getTextureLocation(SwordBeam2 pEntity) {
+        return TEXTURE_LOCATION;
+    }
+
+
+
 
 }
