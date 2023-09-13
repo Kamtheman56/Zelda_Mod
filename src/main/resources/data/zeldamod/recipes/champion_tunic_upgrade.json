@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:default_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:champion_tunic"
+  },
+  "addition": {
+    "item": "minecraft:chainmail_chestplate"
+  },
+  "result": {
+    "item": "zeldamod:champions_tunic"
+  }
+}

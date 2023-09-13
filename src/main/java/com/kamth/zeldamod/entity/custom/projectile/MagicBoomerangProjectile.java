@@ -145,11 +145,6 @@ import java.util.UUID;
                         onHit(result);
                     }
                 }
-
-                if(tries-- <= 0) {
-                    (new RuntimeException("Pickarang hit way too much, this shouldn't happen")).printStackTrace();
-                    return;
-                }
             }
         }
 

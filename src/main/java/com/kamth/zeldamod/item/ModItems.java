@@ -156,6 +156,8 @@ public class ModItems {
             () -> new BoomerangItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> MAGIC_BOOMERANG = ITEMS.register("magic_boomerang",
             () -> new MagicBoomerangItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> GALE_BOOMERANG = ITEMS.register("boomerang_gale",
+            () -> new GaleBoomerangItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> HAMMER = ITEMS.register("wooden_hammer",
             () -> new HammerItem(ModTiers.ZELDA, 6, -3f,
                     new Item.Properties().defaultDurability(260)));
@@ -165,7 +167,7 @@ public class ModItems {
     public static final RegistryObject<Item> DEKU_STICK = ITEMS.register("deku_stick",
             () -> new StickItem(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> DEKU_STICK_LIT = ITEMS.register("deku_stick_lit",
-            () -> new StickItem(new Item.Properties().stacksTo(64)));
+            () -> new StickItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> DEKU_STICK_LIT2 = ITEMS.register("deku_stick_lit2",
             () -> new StickItem(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> MITTS = ITEMS.register("digging_mitts",

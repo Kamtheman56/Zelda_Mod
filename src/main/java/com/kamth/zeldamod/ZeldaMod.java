@@ -11,6 +11,8 @@ import com.kamth.zeldamod.loot.ModLootModifiers;
 import com.kamth.zeldamod.particle.ModParticles;
 import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -58,7 +60,9 @@ private void clientSetup(final FMLClientSetupEvent event){
 
 
     private void commonSetup(final FMLCommonSetupEvent event){
-
+event.enqueueWork(() -> {
+    (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.NIGHTSHADE.getId(), ModBlocks.POTTED_NIGHTSHADE);
+});
 
     }
 private void addCreative(BuildCreativeModeTabContentsEvent event){
@@ -107,15 +111,16 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.ROC_CAPE);
         event.accept(ModItems.BOOMERANG);
         event.accept(ModItems.MAGIC_BOOMERANG);
+        event.accept(ModItems.GALE_BOOMERANG);
         event.accept(ModItems.HAMMER);
         event.accept(ModItems.MEGATON);
         event.accept(ModItems.DEKU_LEAF);
         event.accept(ModItems.GLIDER);
         event.accept(ModItems.MITTS);
         event.accept(ModItems.MOGMA_MITTS);
+        event.accept(ModItems.BOMB_FLOWER);
         event.accept(ModItems.BOMB);
         event.accept(ModItems.WATER_BOMB);
-        event.accept(ModItems.BOMB_FLOWER);
         event.accept(ModItems.DEKU_NUT);
         event.accept(ModItems.DEKU_STICK);
         event.accept(ModItems.BLUE_RING);
@@ -187,6 +192,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.GLOOM_BLOCK);
             event.accept(ModBlocks.HOOK_TARGET);
             event.accept(ModBlocks.CLAW_TARGET);
+            event.accept(ModBlocks.NIGHTSHADE);
+            event.accept(ModBlocks.SUNDELION);
         }
 
 

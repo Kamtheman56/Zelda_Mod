@@ -20,11 +20,11 @@
     },
 
     "age=6": {
-      "model": "zeldamod:block/bomb_flower_stage5"
+      "model": "zeldamod:block/bomb_flower_stage6"
     },
 
     "age=7": {
-      "model": "zeldamod:block/bomb_flower_stage5"
+      "model": "zeldamod:block/bomb_flower_stage7"
     }
   }
 }

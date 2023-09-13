@@ -77,6 +77,7 @@
   "item.zeldamod.wooden_hammer": "Magic Hammer",
   "item.zeldamod.megaton_hammer": "Megaton Hammer",
   "item.zeldamod.magic_boomerang": "Magic Boomerang",
+  "item.zeldamod.boomerang_gale": "Gale Boomerang",
   "item.zeldamod.digging_mitts": "Digging Mitt",
   "item.zeldamod.mogma_mitts": "Mogma Mitt",
   "item.zeldamod.glider": "Paraglider",
@@ -147,6 +148,8 @@
   "block.zeldamod.pork_block": "Pork Block",
   "block.zeldamod.hook_target": "Hookshot Target",
   "block.zeldamod.claw_target": "Clawshot Target",
+  "block.zeldamod.nightshade": "Blue Nightshade",
+  "block.zeldamod.sundelion": "Sundelion",
   "Nightmask": "You don't think you should do this",
   "entity.minecraft.villager.zeldamod.mask_trader": "Mask Salesman"
 

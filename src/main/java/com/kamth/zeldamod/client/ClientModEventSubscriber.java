@@ -33,6 +33,7 @@ public class ClientModEventSubscriber {
         event.registerEntityRenderer(ModEntityTypes.CLAWSHOT.get(), ClawshotRender::new);
         event.registerEntityRenderer(ModEntityTypes.BOMB_FLOWER.get(), BombFlowerRender::new);
         event.registerEntityRenderer(ModEntityTypes.SWORD_BEAM2.get(), SwordBeam2Render::new);
+        event.registerEntityRenderer(ModEntityTypes.GALE_BOOMERANG.get(), GaleBoomerangRender::new);
 
     }
 }

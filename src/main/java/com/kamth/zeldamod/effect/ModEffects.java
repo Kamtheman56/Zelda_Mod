@@ -19,7 +19,9 @@ public class ModEffects {
     public static final RegistryObject<MobEffect> HOVER = MOB_EFFECTS.register("hover",
             () -> new WaterHopping(MobEffectCategory.BENEFICIAL, 3124687));
     public static final RegistryObject<MobEffect> GLOOM = MOB_EFFECTS.register("gloom",
-            () -> new GloomEffect(MobEffectCategory.HARMFUL, 3124687));
+            () -> new GloomEffect(MobEffectCategory.HARMFUL, 13901836));
+    public static final RegistryObject<MobEffect> GLOOM_RESIST = MOB_EFFECTS.register("gloom_resist",
+            () -> new GloomEffect(MobEffectCategory.BENEFICIAL, 15726080));
 
     public static void register(IEventBus eventbus){
         MOB_EFFECTS.register(eventbus);

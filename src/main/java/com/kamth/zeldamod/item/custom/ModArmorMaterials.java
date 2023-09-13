@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.custom;
 
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -82,33 +83,33 @@ public enum ModArmorMaterials implements ArmorMaterial {
     BREMEN("bremen", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.CHICKEN_AMBIENT,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.FEATHER); }),
-    ZELDAH("heavy", 0, new int[]{3, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_IRON,
+    ZELDAH("heavy", 0, new int[]{0, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_IRON,
             0.0F, 4.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    HOVER("hover", 0, new int[]{1, 4, 5, 2}, 0, SoundEvents.ARMOR_EQUIP_ELYTRA,
+    HOVER("hover", 0, new int[]{1, 4, 5, 1}, 0, SoundEvents.ARMOR_EQUIP_ELYTRA,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
-    PEGASUS("pegasus", 0, new int[]{1, 4, 5, 2}, 0, SoundEvents.HORSE_GALLOP,
+    PEGASUS("pegasus", 0, new int[]{1, 4, 5, 1}, 0, SoundEvents.HORSE_GALLOP,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.SADDLE); }),
-    Kokiri("kokiri", 0, new int[]{1, 2, 4, 1}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Kokiri("kokiri", 0, new int[]{1, 4, 2, 1}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Blocks.GREEN_WOOL); }),
-    GoronTunic("gorontunic", 0, new int[]{1, 2, 4, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+    GoronTunic("gorontunic", 0, new int[]{1, 4, 4, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.MAGMA_CREAM); }),
-    ZoraTunic("zoratunic", 0, new int[]{1, 2, 4, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+    ZoraTunic("zoratunic", 0, new int[]{1, 4, 2, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.NAUTILUS_SHELL); }),
     Roc("roc", 0, new int[]{1, 2, 2, 1}, 0, SoundEvents.PARROT_FLY,
             0.0F, 0.0F, () -> {
         return Ingredient.of(ModItems.ROC_FEATHER.get()); }),
-    Champions("champions", 0, new int[]{1, 2, 7, 1}, 16, SoundEvents.ARMOR_EQUIP_CHAIN,
+    Champions("champions", 0, new int[]{1, 7, 7, 1}, 16, SoundEvents.ARMOR_EQUIP_CHAIN,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.CHAIN); }),
-   Champion("champion", 0, new int[]{1, 2, 5, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+   Champion("champion", 0, new int[]{1, 5, 5, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Items.CHAIN); }),
+        return Ingredient.of(ModBlocks.NIGHTSHADE.get()); }),
     Fire("fire", 0, new int[]{2, 2, 5, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(ModItems.DIN_PEARL.get()); }),
