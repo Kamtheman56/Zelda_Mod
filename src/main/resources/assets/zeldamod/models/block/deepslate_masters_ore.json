@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "zeldamod:block/deepslate_masters_ore"
+  }
+}

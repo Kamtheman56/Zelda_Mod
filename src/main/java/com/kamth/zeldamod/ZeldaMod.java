@@ -188,6 +188,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         if (event.getTab() == ModCreativeModeTab.ZELDA_TAB.get()){
             event.accept(ModBlocks.SECRET_STONE);
             event.accept(ModBlocks.MASTER_ORE);
+            event.accept(ModBlocks.DEEPSLATE_MASTER_ORE);
             event.accept(ModBlocks.PORK_BLOCK);
             event.accept(ModBlocks.GLOOM_BLOCK);
             event.accept(ModBlocks.HOOK_TARGET);

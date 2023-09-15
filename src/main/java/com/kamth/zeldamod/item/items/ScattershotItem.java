@@ -18,6 +18,7 @@ import javax.annotation.Nonnull;
 import java.util.function.Predicate;
 
 public class ScattershotItem extends SlingshotItem {
+    public static final int MAX_DRAW_DURATION = 10;
     public ScattershotItem(Properties pProperties) {
         super(pProperties);
     }
