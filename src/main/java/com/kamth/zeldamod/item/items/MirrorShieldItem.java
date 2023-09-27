@@ -4,6 +4,9 @@ import com.kamth.zeldamod.entity.custom.projectile.BoomerangProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.GustProjectile;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.util.ModTags;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -11,11 +14,16 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class MirrorShieldItem extends ShieldItem {
     public MirrorShieldItem(Properties pProperties) {
@@ -35,7 +43,13 @@ public class MirrorShieldItem extends ShieldItem {
 
     }
 
-
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if(Screen.hasShiftDown()) {
+            components.add(Component.literal("Reflects projectiles!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
+        super.appendHoverText(stack, level, components, flag);
+    }
 
     public void reflector(ProjectileImpactEvent event) {
         if (!event.getEntity().level().isClientSide()

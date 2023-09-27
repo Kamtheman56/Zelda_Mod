@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "down": "zeldamod:block/pearl_power_top",
+    "particle": "zeldamod:block/pearl_power",
+    "up": "zeldamod:block/pearl_power_top",
+    "side": "zeldamod:block/pearl_power"
+  }}

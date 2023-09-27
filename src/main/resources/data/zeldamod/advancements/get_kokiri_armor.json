@@ -1,0 +1,77 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:kokiritunic"
+    },
+    "title": {
+      "text": "Adventuring in Style"
+    },
+    "description": {
+      "text": "Get equipped with a look fit for a hero"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:base",
+  "criteria": {
+    "kokirihat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:kokirihat"
+            ]
+          }
+        ]
+      }
+    },
+    "kokiritunic": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:kokiritunic"
+            ]
+          }
+        ]
+      }
+    },
+    "kokiripants": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:kokiripants"
+            ]
+          }
+        ]
+      }
+    },
+    "kokiriboots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:kokiriboots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kokirihat",
+      "kokiripants",
+      "kokiritunic",
+      "kokiriboots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

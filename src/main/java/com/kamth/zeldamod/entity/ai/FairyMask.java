@@ -54,7 +54,8 @@ public class FairyMask extends Goal
         private <L> boolean shouldFollow(Player player)
         {
             ItemStack stack0 = player.getItemBySlot(EquipmentSlot.HEAD);
-            if ((!stack0.isEmpty()))
+            boolean l =  (this.mob.distanceTo(this.player) < 12D);
+            if ((!stack0.isEmpty() && l))
                 return stack0.getItem() == ModItems.FAIRY_MASK.get();
             return false;
         }
@@ -63,15 +64,9 @@ public class FairyMask extends Goal
 
         public void tick()
         {
+
             this.mob.getLookControl().setLookAt(this.player, (float) (this.mob.getMaxHeadYRot() + 20), (float) this.mob.getMaxHeadXRot());
-            if (this.mob.distanceToSqr(this.player) < 6.25D)
-            {
-                this.mob.getNavigation().stop();
-            }
-            else
-            {
                 this.mob.getNavigation().moveTo(this.player, this.speedModifier);
-            }
 
         }
 

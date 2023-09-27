@@ -83,6 +83,18 @@ public enum ModArmorMaterials implements ArmorMaterial {
     BREMEN("bremen", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.CHICKEN_AMBIENT,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.FEATHER); }),
+    CAPTAIN("captain", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.SKELETON_AMBIENT,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.BONE); }),
+    KAMARO("kamaro", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.MUSIC_DISC_CAT); }),
+    GARO("garo", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.CHAIN); }),
+    POSTMAN("postman", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.CHAIN); }),
     ZELDAH("heavy", 0, new int[]{0, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_IRON,
             0.0F, 4.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),

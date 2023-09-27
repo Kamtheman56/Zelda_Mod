@@ -1,6 +1,9 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "zeldamod:block/pearl_wisdom3"
+    "down": "zeldamod:block/pearl_wisdom_top",
+    "particle": "zeldamod:block/pearl_wisdom",
+    "up": "zeldamod:block/pearl_wisdom_top",
+    "side": "zeldamod:block/pearl_wisdom"
   }
 }

@@ -4,6 +4,9 @@
     "down": "zeldamod:block/pork_block_bottom",
     "particle": "zeldamod:block/pork_block",
     "up": "zeldamod:block/pork_block_top",
-    "side": "zeldamod:block/pork_block"
+    "north": "zeldamod:block/pork_block",
+    "east": "zeldamod:block/pork_block_side",
+    "south": "zeldamod:block/pork_block_top",
+    "west":"zeldamod:block/pork_block_side"
   }
 }

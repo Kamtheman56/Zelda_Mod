@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "down": "zeldamod:block/mask_block_top",
+    "particle": "zeldamod:block/mask_block",
+    "up": "zeldamod:block/mask_block_top",
+    "north": "zeldamod:block/mask_block",
+    "east": "zeldamod:block/mask_block",
+    "south": "zeldamod:block/mask_block",
+    "west":"zeldamod:block/mask_block"
+  }
+}

@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "zeldamod:block/pork_block"}
+    "facing=north": { "model": "zeldamod:block/pork_block" },
+    "facing=east": { "model": "zeldamod:block/pork_block", "y": 90 },
+    "facing=south": { "model": "zeldamod:block/pork_block", "y": 180 },
+    "facing=west": { "model": "zeldamod:block/pork_block", "y": 270 }
   }
 }

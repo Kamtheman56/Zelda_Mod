@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:default_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:clawshot"
+  },
+  "addition": {
+    "item": "zeldamod:extender"
+  },
+  "result": {
+    "item": "zeldamod:clawshot_goddess"
+  }
+}

@@ -2,8 +2,11 @@ package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.custom.projectile.FireProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.SandProjectile;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -13,11 +16,15 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class SandWandItem extends Item {
     public SandWandItem(Properties pProperties) {
@@ -39,7 +46,13 @@ public class SandWandItem extends Item {
 
         return super.use(world, player, hand);
     }
-
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if(Screen.hasShiftDown()) {
+            components.add(Component.literal("Summons a line of sand!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
+        super.appendHoverText(stack, level, components, flag);
+    }
 
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {

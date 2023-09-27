@@ -10,6 +10,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
@@ -31,12 +32,17 @@ public class FierceSwordItem extends SwordItem {
     }
 
 
-
+@Override
+public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
+    pStack.hurtAndBreak(3, pAttacker, (p_43296_) -> {
+        p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+    });
+    return true;
+}
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
         if (!pLevel.isClientSide ) {
-      //  player.getCooldowns().addCooldown(this, 10);
         player.causeFoodExhaustion(5);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 1F, 5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
             SwordBeam projectile = new SwordBeam(pLevel,player);

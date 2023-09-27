@@ -9,6 +9,7 @@ import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.util.ModItemProperties;
 import com.kamth.zeldamod.loot.ModLootModifiers;
 import com.kamth.zeldamod.particle.ModParticles;
+import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.level.block.Blocks;
@@ -40,7 +41,7 @@ public class ZeldaMod
         ModItems.register(modEventBus);
         ModEntityTypes.register(modEventBus);
         ModBlocks.register(modEventBus);
-
+        ModSounds.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
         ModVillagers.register(modEventBus);
@@ -62,6 +63,9 @@ private void clientSetup(final FMLClientSetupEvent event){
     private void commonSetup(final FMLCommonSetupEvent event){
 event.enqueueWork(() -> {
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.NIGHTSHADE.getId(), ModBlocks.POTTED_NIGHTSHADE);
+    (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.SUNDELION.getId(), ModBlocks.POTTED_SUNDELION);
+    (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.HEART_FLOWER.getId(), ModBlocks.POTTED_HEART_FLOWER);
+    (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.PRIMO_FLOWER.getId(), ModBlocks.POTTED_PRIMO_FLOWER);
 });
 
     }
@@ -147,6 +151,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.MASTER_UPGRADE);
         event.accept(ModItems.XTENDER);
         event.accept(ModItems.CLAW);
+        event.accept(ModItems.DEITY_SHARD);
         event.accept(ModItems.BOMB_SEEDS);
         event.accept(ModItems.FARORE_PEARL);
         event.accept(ModItems.DIN_PEARL);
@@ -160,6 +165,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.BLUE_POTION);
         event.accept(ModItems.SUPER_MUSHROOM);
         event.accept(ModItems.LIFE_MUSHROOM);
+        event.accept(ModItems.SUPER_LEAF);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MASK.get()){
         event.accept(ModItems.DEKU_MASK);
@@ -182,6 +188,10 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.GIBDO_MASK);
         event.accept(ModItems.FAIRY_MASK);
         event.accept(ModItems.KAFEI_MASK);
+        event.accept(ModItems.CAPTAIN_MASK);
+        event.accept(ModItems.KAMARO_MASK);
+        event.accept(ModItems.GARO_MASK);
+        event.accept(ModItems.POSTMAN_MASK);
         event.accept(ModItems.HAWK_MASK);
         event.accept(ModItems.MAJORA_MASK);
     }
@@ -189,12 +199,18 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.SECRET_STONE);
             event.accept(ModBlocks.MASTER_ORE);
             event.accept(ModBlocks.DEEPSLATE_MASTER_ORE);
+            event.accept(ModBlocks.MASK_BLOCK);
+            event.accept(ModBlocks.COURAGE_BLOCK);
+            event.accept(ModBlocks.WISDOM_BLOCK);
+            event.accept(ModBlocks.POWER_BLOCK);
             event.accept(ModBlocks.PORK_BLOCK);
             event.accept(ModBlocks.GLOOM_BLOCK);
             event.accept(ModBlocks.HOOK_TARGET);
             event.accept(ModBlocks.CLAW_TARGET);
             event.accept(ModBlocks.NIGHTSHADE);
             event.accept(ModBlocks.SUNDELION);
+            event.accept(ModBlocks.HEART_FLOWER);
+            event.accept(ModBlocks.PRIMO_FLOWER);
         }
 
 

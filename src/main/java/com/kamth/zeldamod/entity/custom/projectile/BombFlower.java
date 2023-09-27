@@ -103,7 +103,6 @@ if (this.onGround() == true){
                 explode();}
         else   if(this.tickCount % 20 == 0) {
                 this.playSound(SoundEvents.TNT_PRIMED, 1, 1/ (this.level().getRandom().nextFloat() * 0.4F + 0.8F));
-
             }}}
 
     private void explode() {

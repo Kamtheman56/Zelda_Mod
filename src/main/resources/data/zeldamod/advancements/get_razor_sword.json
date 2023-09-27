@@ -12,18 +12,26 @@
   },
   "parent": "zeldamod:get_kokiri_sword",
   "criteria": {
-    "requirement": {
+    "razor_sword": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
               "zeldamod:razor_sword"
-            ],
-            "count": 0
+            ]
           }
         ]
       }
     }
-  }
+  },
+  "requirements": [
+    [
+      "razor_sword"
+    ]
+  ],
+  "rewards": {
+    "experience": 3
+  },
+  "sends_telemetry_event": true
 }

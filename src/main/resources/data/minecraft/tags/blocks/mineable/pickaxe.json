@@ -2,7 +2,12 @@
   "values": [
 "zeldamod:masters_ore",
     "zeldamod:secret_stone",
+    "zeldamod:deepslate_secret_stone",
     "zeldamod:hook_target",
-    "zeldamod:claw_target"
+    "zeldamod:claw_target",
+    "zeldamod:mask_block",
+    "zeldamod:power_block",
+    "zeldamod:courage_block",
+    "zeldamod:wisdom_block"
   ]
 }

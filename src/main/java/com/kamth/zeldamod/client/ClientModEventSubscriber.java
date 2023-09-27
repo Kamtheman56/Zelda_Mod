@@ -3,6 +3,7 @@ package com.kamth.zeldamod.client;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.client.renderer.entity.*;
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.entity.custom.projectile.BombSeedProjectile;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -34,6 +35,7 @@ public class ClientModEventSubscriber {
         event.registerEntityRenderer(ModEntityTypes.BOMB_FLOWER.get(), BombFlowerRender::new);
         event.registerEntityRenderer(ModEntityTypes.SWORD_BEAM2.get(), SwordBeam2Render::new);
         event.registerEntityRenderer(ModEntityTypes.GALE_BOOMERANG.get(), GaleBoomerangRender::new);
+        event.registerEntityRenderer(ModEntityTypes.BOMB_SEED.get(), BombSeedRender::new);
 
     }
 }

@@ -31,6 +31,8 @@ public static final TagKey<Block> BOMB
                 = tag("flame_blocks");
         public static final TagKey<Block> BURN
                 = tag("burnable_blocks");
+        public static final TagKey<Block> DEKU
+                = tag("deku_blocks");
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }
@@ -44,6 +46,8 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("sling_ammo");
         public static final TagKey<Item> BOW_AMMO
                 = tag("bow");
+        public static final TagKey<Item> MASKS
+                = tag("masks");
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }

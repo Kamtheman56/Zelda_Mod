@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "minecraft:stone"
+      }
+    ],
+    "l": [
+      {
+        "tag": "zeldamod:masks"
+      }
+    ]},
+  "pattern": [
+    "###",
+    "#l#",
+    "###"
+  ],
+  "result": {
+    "item": "zeldamod:mask_block"
+  },
+  "show_notification": true
+}

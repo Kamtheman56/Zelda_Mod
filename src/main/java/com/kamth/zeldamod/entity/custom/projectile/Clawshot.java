@@ -87,7 +87,7 @@ public class Clawshot extends AbstractArrow {
             double particleMotionX = (random.nextFloat() * 2 - 1) * particlesSpeed;
             double particleMotionY = (random.nextFloat() * 2 - 1) * particlesSpeed;
             double particleMotionZ = (random.nextFloat() * 2 - 1) * particlesSpeed;
-            this.level().addParticle(ParticleTypes.NOTE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
+            this.level().addParticle(ParticleTypes.CRIT, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
         }
 
 
@@ -95,7 +95,7 @@ public class Clawshot extends AbstractArrow {
         if (getOwner() instanceof Player) {
             owner = (Player) getOwner();
 
-            if (isPulling && tickCount % 4 == 0) { //This is the sound that sounds when the hook is moving you.
+            if (isPulling && tickCount % 4 == 0) {
                 BlockPos currentPos = this.owner.blockPosition();
                 this.level().playSound(null, currentPos.getX(), currentPos.getY(), currentPos.getZ(), SoundEvents.CHAIN_HIT, SoundSource.PLAYERS, .5f, 1.0f);
 
@@ -103,7 +103,7 @@ public class Clawshot extends AbstractArrow {
 
 
             if (!level().isClientSide) {
-                if (this.hookedEntity != null) { //In case the mob you are hooked to dies while you go towards it ..
+                if (this.hookedEntity != null) {
                     if (isAlive()) {
                         this.hookedEntity = null;
                         onRemovedFromWorld();
@@ -112,7 +112,7 @@ public class Clawshot extends AbstractArrow {
                     }
                 }
 
-                if (owner != null) { //Reasons to remove the hook.
+                if (owner != null) {
                     if (owner.isDeadOrDying() || this.tickCount == 35 ||
                            owner.distanceTo(this) > maxRange ||
                             !(owner.getMainHandItem().getItem() instanceof ClawshotItem ||

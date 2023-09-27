@@ -30,6 +30,9 @@ public class ModTiers {
     public static final ForgeTier MASTER_TRUE = new ForgeTier(2, 0, 1.5f, 2f,
             0, BlockTags.NEEDS_DIAMOND_TOOL,
             () -> Ingredient.of(ItemStack.EMPTY));
+    public static final ForgeTier DEITY = new ForgeTier(2, 0, 1.5f, 2f,
+            0, BlockTags.NEEDS_DIAMOND_TOOL,
+            () -> Ingredient.of(ModItems.DEITY_SHARD.get()));
 
 
 }

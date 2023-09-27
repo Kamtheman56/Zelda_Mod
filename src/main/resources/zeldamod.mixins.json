@@ -9,7 +9,8 @@
     "MixinLivingEntity",
     "MixinFoxEntity",
     "MixinMushroomBlock",
-    "MixinAllayAI"
+    "MixinAllayAI",
+    "MixinVillager"
   ],
   "client": [
   ],

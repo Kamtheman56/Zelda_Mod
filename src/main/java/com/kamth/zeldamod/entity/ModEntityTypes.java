@@ -41,6 +41,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<BombFlower>> BOMB_FLOWER = ENTITY_TYPES.register("bomb_flower", () -> Builder.<BombFlower>of(BombFlower::new, MobCategory.MISC).sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bomb_flower").toString()));
     public static final RegistryObject<EntityType<SwordBeam2>> SWORD_BEAM2 = ENTITY_TYPES.register("sword_beam2", () -> Builder.<SwordBeam2>of(SwordBeam2::new, MobCategory.MISC).sized(1.3f,0.5f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "sword_beam2").toString()));
     public static final RegistryObject<EntityType<GaleBoomerangProjectile>> GALE_BOOMERANG = ENTITY_TYPES.register("gale_boomerang_projectile", () -> Builder.<GaleBoomerangProjectile>of(GaleBoomerangProjectile::new, MobCategory.MISC).sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "gale_boomerang").toString()));
+    public static final RegistryObject<EntityType<BombSeedProjectile>> BOMB_SEED = ENTITY_TYPES.register("bomb_seed_projectile", () -> Builder.<BombSeedProjectile>of(BombSeedProjectile::new, MobCategory.MISC).sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bomb_seed").toString()));
 
     public static void register(IEventBus modEventBus) {
         ENTITY_TYPES.register(modEventBus);

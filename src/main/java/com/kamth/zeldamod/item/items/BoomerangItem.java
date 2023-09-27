@@ -35,6 +35,7 @@ public class BoomerangItem extends Item {
             boomerang.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.6F, 0.9F);
             boomerang.setThrowData(pHand.ordinal(), itemstack);
             pLevel.addFreshEntity(boomerang);
+
         }
         player.awardStat(Stats.ITEM_USED.get(this));
             itemstack.shrink(1);

@@ -45,7 +45,6 @@ public class MajoraMask extends ArmorItem {
         super(pMaterial, type, pProperties);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
         MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
-        MinecraftForge.EVENT_BUS.addListener(this::onPlayerEntityInteract);
     }
     private static final AttributeModifier STEP_HEIGHT_BONUS = new AttributeModifier(UUID.fromString("4a312f09-78e0-4f3a-95c2-07ed63212483"), "zeldamod:majora", 2, AttributeModifier.Operation.ADDITION);
 
@@ -88,17 +87,7 @@ event.player.getAbilities().setFlyingSpeed(.1f);
             components.add(Component.literal("True power...").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
 
     }
-    public void onPlayerEntityInteract(PlayerInteractEvent.EntityInteract event)
-    {
 
-        if( !event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get())  {
-            if (event.getTarget() instanceof Pig)
-            {
-event.getTarget().discard();
-event.getTarget().playSound(SoundEvents.PIG_HURT,1, -4);
-event.getTarget().playSound(SoundEvents.AMBIENT_CAVE.get(),1.2f, 0);
-event.getTarget().spawnAtLocation(ModBlocks.PORK_BLOCK.get());}}
-    }
     public void onLivingHurtEvent(LivingHurtEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get()) {
             if (event.getSource().is(DamageTypes.MAGIC)) {

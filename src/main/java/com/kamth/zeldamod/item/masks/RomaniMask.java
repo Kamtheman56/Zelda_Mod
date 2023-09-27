@@ -74,10 +74,13 @@ public class RomaniMask extends ArmorItem {
             components.add(Component.literal("Heal with style").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.KAFEI_MASK.get())) {
-            components.add(Component.literal("It looks valuable!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Who could say no to that face?").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.BREMEN_MASK.get())) {
             components.add(Component.literal("Follow the leader!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
+        if (stack.is(ModItems.POSTMAN_MASK.get())) {
+            components.add(Component.literal("Everyone gives good deals with this on!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
     }
 }

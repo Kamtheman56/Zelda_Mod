@@ -1,7 +1,12 @@
 {
-  "parent": "minecraft:block/cube_column_horizontal",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "minecraft:block/quartz_pillar_top",
-    "side": "minecraft:block/quartz_pillar"
+    "down": "zeldamod:block/pork_block_bottom",
+    "particle": "zeldamod:block/pork_block",
+    "up": "zeldamod:block/pork_block",
+    "north": "zeldamod:block/pork_block_top",
+    "east": "zeldamod:block/pork_block_side",
+    "south": "zeldamod:block/pork_block_top",
+    "west":"zeldamod:block/pork_block_side"
   }
 }

@@ -40,7 +40,7 @@ public class BremenMask  extends Goal
             }
             else
             {
-                this.player = this.mob.level().getNearestPlayer(TargetingConditions.DEFAULT,2D,2D, 1);
+                this.player = this.mob.level().getNearestPlayer(TargetingConditions.DEFAULT,3D,2D, 3D);
                 if (this.player == null)
                 {
                     return false;
@@ -55,8 +55,8 @@ public class BremenMask  extends Goal
         private <L> boolean Follow(Player player)
         {
             ItemStack stack0 = player.getItemBySlot(EquipmentSlot.HEAD);
-            boolean l = player.isCrouching();
-            if ((!stack0.isEmpty() && !l))
+            boolean l =  (this.mob.distanceTo(this.player) < 10.25D);
+            if ((!stack0.isEmpty() && l))
                 return stack0.getItem() == ModItems.BREMEN_MASK.get();
             return false;
         }
@@ -66,14 +66,8 @@ public class BremenMask  extends Goal
         public void tick()
         {
             this.mob.getLookControl().setLookAt(this.player, (float) (this.mob.getMaxHeadYRot() + 20), (float) this.mob.getMaxHeadXRot());
-            if (this.mob.distanceToSqr(this.player) < 6.25D)
-            {
-                this.mob.getNavigation().stop();
-            }
-            else
-            {
                 this.mob.getNavigation().moveTo(this.player, this.speedModifier);
-            }
+
 
         }
 

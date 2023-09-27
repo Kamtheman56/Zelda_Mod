@@ -7,7 +7,7 @@
     "item": "zeldamod:master_sword2"
   },
   "addition": {
-    "item": "zeldamod:master_ore2"
+    "item": "zeldamod:refined_master_ore"
   },
   "result": {
     "item": "zeldamod:master_sword3"

@@ -1,0 +1,20 @@
+{
+  "heal": {
+    "subtitle": "sounds.zeldamod.heal",
+    "sounds": [
+      "zeldamod:heal"
+    ]
+  },
+  "leaf": {
+    "subtitle": "sounds.zeldamod.leaf",
+    "sounds": [
+      "zeldamod:leaf"
+    ]
+  },
+  "whoosh": {
+    "subtitle": "sounds.zeldamod.whoosh",
+    "sounds": [
+      "zeldamod:whoosh"
+    ]
+  }
+}

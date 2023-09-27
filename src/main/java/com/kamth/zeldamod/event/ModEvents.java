@@ -2,14 +2,12 @@ package com.kamth.zeldamod.event;
 
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.entity.ai.BremenMask;
-import com.kamth.zeldamod.entity.ai.FairyMask;
+import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.entity.ai.*;
 import com.kamth.zeldamod.item.ModItems;
-
-
+import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.core.particles.ParticleTypes;
@@ -17,42 +15,38 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Cow;
+import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.animal.frog.Frog;
-
-import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
-
+import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.entity.monster.Husk;
+import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.entity.monster.piglin.Piglin;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
-
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ComputeFovModifierEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-
-
 import net.minecraftforge.event.village.VillagerTradesEvent;
-
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.apache.commons.lang3.tuple.ImmutableTriple;
-
 
 import java.util.List;
-
-
 
 import static com.kamth.zeldamod.item.items.LensItem.IN_SIGHT;
 
@@ -83,7 +77,7 @@ public class ModEvents {
             if (event.getTarget() instanceof LivingEntity)
             {
                 event.getEntity().hurt(event.getEntity().damageSources().magic(), 2);
-                event.getTarget().playSound(SoundEvents.VILLAGER_CELEBRATE, 1, 2.6f);
+                event.getTarget().playSound(ModSounds.HEAL.get(), 1, 1f);
                 ((LivingEntity) event.getTarget()).heal(2);
             }}
         if(event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.COUPLES_MASK.get()) {
@@ -92,6 +86,37 @@ public class ModEvents {
                 event.getLevel().addParticle(ParticleTypes.HEART, true, event.getTarget().getX() +0, event.getTarget().getY() +.6, event.getTarget().getZ() +0, 0, 0, 0);
             }}
 
+        //These are the Majoras Mask Effects
+        if( !event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get())  {
+            if (event.getTarget() instanceof Pig)
+            {
+                event.getTarget().discard();
+                event.getTarget().playSound(SoundEvents.PIG_HURT,1, -4);
+                event.getTarget().playSound(SoundEvents.AMBIENT_CAVE.get(),1.2f, 0);
+                event.getTarget().spawnAtLocation(ModBlocks.PORK_BLOCK.get());}
+
+        if (!event.getLevel().isClientSide && event.getTarget() instanceof Creeper)
+        {
+            event.getTarget().discard();
+            event.getTarget().playSound(SoundEvents.FIREWORK_ROCKET_TWINKLE,1, 1.1F);
+        }
+        if(event.getLevel().isClientSide() && event.getTarget() instanceof Creeper ){
+                event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() +0, event.getTarget().getY() , event.getTarget().getZ() +0, 0, .5, 0);
+            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() +.3, event.getTarget().getY() , event.getTarget().getZ() +0, .2, .3, 0);
+            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() -.3, event.getTarget().getY() , event.getTarget().getZ() +0, .2, .3, 0);
+            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() +.3, event.getTarget().getY() , event.getTarget().getZ() +0, -.2, .3, 0);
+            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() -.3, event.getTarget().getY() , event.getTarget().getZ() +0, -.2, .3, 0);
+            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() , event.getTarget().getY() , event.getTarget().getZ() +.3, 0, .3, .2);
+            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() , event.getTarget().getY() , event.getTarget().getZ() -.3, 0, .3, .2);
+            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() , event.getTarget().getY() , event.getTarget().getZ() +.3, 0, .3, -.2);
+            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() , event.getTarget().getY() , event.getTarget().getZ() -.3, 0, .3, -.2);
+            }
+        if (!event.getLevel().isClientSide && event.getTarget() instanceof Villager)
+        {
+           ((Villager) event.getTarget()).setBaby(true);
+            event.getTarget().playSound(SoundEvents.AMBIENT_CAVE.get(),1.2f, 1.2f);
+        }
+        }
     }
 
 
@@ -99,7 +124,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void HealMode(LivingHealEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.FAIRY_MASK.get()) && !event.getEntity().hasEffect(MobEffects.REGENERATION)){
-            event.setAmount(event.getAmount() + 3);
+            event.setAmount(event.getAmount() + 2);
         }
     }
 
@@ -149,16 +174,25 @@ public class ModEvents {
     @SubscribeEvent
     public static void onEntityConstructing(EntityJoinLevelEvent event)
     {
-        if (event.getEntity() instanceof Animal)
+        if (event.getEntity() instanceof Animal animal)
         {
-            Animal animal = (Animal) event.getEntity();
-
-            animal.goalSelector.addGoal(3, new BremenMask(animal, 1.2D));
+            animal.goalSelector.addGoal(3, new BremenMask(animal, 1.3D));
         }
-        if (event.getEntity() instanceof Allay)
+        if (event.getEntity() instanceof Allay allay)
         {
-            Allay allay = (Allay) event.getEntity();
             allay.goalSelector.addGoal(3, new FairyMask(allay, 1.2D));
+        }
+        if (event.getEntity() instanceof Husk allay)
+        {
+            allay.goalSelector.addGoal(1, new GibdoMask(allay));
+        }
+        if (event.getEntity() instanceof Skeleton allay)
+        {
+            allay.goalSelector.addGoal(1, new CaptainMask(allay));
+        }
+        if (event.getEntity() instanceof Piglin allay)
+        {
+            allay.goalSelector.addGoal(1, new KamaroMask(allay));
         }
     }
 
@@ -253,7 +287,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 6),
-                    stack,1,5,0.02F));
+                    stack,2,5,0.02F));
         }
         if(event.getType() == ModVillagers.MASK_TRADER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -262,7 +296,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 8),
-                    stack,1,5,0.02F));
+                    stack,2,6,0.02F));
         }
 
 

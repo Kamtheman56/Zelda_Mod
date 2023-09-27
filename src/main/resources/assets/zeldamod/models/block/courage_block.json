@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "down": "zeldamod:block/pearl_courage_top",
+    "particle": "zeldamod:block/pearl_courage",
+    "up": "zeldamod:block/pearl_courage_top",
+    "side": "zeldamod:block/pearl_courage"
+  }}

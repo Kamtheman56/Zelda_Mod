@@ -5,25 +5,33 @@
     },
     "title": "Time Travel Proof!",
     "description": "Use gold dust to improve your Razor Sword",
-    "frame": "task",
+    "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
   "parent": "zeldamod:get_razor_sword",
   "criteria": {
-    "requirement": {
+    "gilded_sword": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
               "zeldamod:gilded_sword"
-            ],
-            "count": 0
+            ]
           }
         ]
       }
     }
-  }
+  },
+  "requirements": [
+    [
+      "gilded_sword"
+    ]
+  ],
+  "rewards": {
+    "experience": 3
+  },
+  "sends_telemetry_event": true
 }

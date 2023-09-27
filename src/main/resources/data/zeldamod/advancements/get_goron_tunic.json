@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:gorontunic"
+    },
+    "title": "Magma Pro",
+    "description": "Acquire a Goron Tunic",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_kokiri_armor",
+  "criteria": {
+    "goron_tunic": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:gorontunic"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "goron_tunic"
+    ]
+  ],
+  "rewards": {
+    "experience": 0
+  },
+  "sends_telemetry_event": true
+}

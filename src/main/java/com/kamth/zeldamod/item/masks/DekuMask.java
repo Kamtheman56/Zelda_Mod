@@ -4,6 +4,7 @@ package com.kamth.zeldamod.item.masks;
 import be.florens.expandability.api.forge.LivingFluidCollisionEvent;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -72,7 +73,7 @@ public class DekuMask extends ArmorItem {
         {
             //Simulate the jumping flowers from MM. Replace with modded flower later
             Level level = world;
-            if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.HAY_BLOCK) {
+            if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.DEKU)) {
                 if (player.isCrouching()) {
                     player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.JUMP, 10, 6, true, false));
                 }

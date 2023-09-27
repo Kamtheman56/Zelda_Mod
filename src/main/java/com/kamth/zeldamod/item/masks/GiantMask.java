@@ -41,16 +41,33 @@ public class GiantMask extends ArmorItem {
         punchmode = event.player.getAttribute(Attributes.ATTACK_DAMAGE);
         AttributeInstance giantknockback;
         giantknockback = event.player.getAttribute(Attributes.ATTACK_KNOCKBACK);
-        if (!punchmode.hasModifier(BIG_PUNCH)  && !stepHeight.hasModifier(STEP_HEIGHT_BONUS) && !giantknockback.hasModifier(KNOCKBACK) && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GIANT_MASK.get() && event.player.getItemBySlot(EquipmentSlot.MAINHAND).is(Items.AIR)) {
-            punchmode.addTransientModifier(BIG_PUNCH);
-            giantknockback.addTransientModifier(KNOCKBACK);
-            stepHeight.addTransientModifier(STEP_HEIGHT_BONUS);}
+        if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GIANT_MASK.get()) {
+            stepHeight.addTransientModifier(STEP_HEIGHT_BONUS);
+        }
         else {
-            if (punchmode.hasModifier(BIG_PUNCH) && giantknockback.hasModifier(KNOCKBACK) && stepHeight.hasModifier(STEP_HEIGHT_BONUS)) {
-                punchmode.removeModifier(BIG_PUNCH);
-                giantknockback.removeModifier(KNOCKBACK);
+            if (stepHeight.hasModifier(STEP_HEIGHT_BONUS)) {
                 stepHeight.removeModifier(STEP_HEIGHT_BONUS);
-            }}}
+            }
+        }
+        if (!giantknockback.hasModifier(KNOCKBACK) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.AIR  && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GIANT_MASK.get()) {
+            giantknockback.addTransientModifier(KNOCKBACK);
+        }
+        else {
+            if (giantknockback.hasModifier(KNOCKBACK)) {
+                giantknockback.removeModifier(KNOCKBACK);
+            }
+        }
+        if (!punchmode.hasModifier(BIG_PUNCH) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.AIR && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GIANT_MASK.get()) {
+            punchmode.addTransientModifier(BIG_PUNCH);
+        }
+        else {
+            if (punchmode.hasModifier(BIG_PUNCH)) {
+                punchmode.removeModifier(BIG_PUNCH);
+            }
+        }
+
+
+    }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         components.add(Component.literal("Big punches for a big mask").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));

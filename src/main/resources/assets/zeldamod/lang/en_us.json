@@ -1,8 +1,4 @@
 {
-
-
-
-
   "item.zeldamod.red_emerald": "Red Emerald",
   "item.zeldamod.blue_emerald": "Blue Emerald",
   "item.zeldamod.master_ore": "Master Ore",
@@ -26,7 +22,9 @@
   "item.zeldamod.pearl_courage": "Farore's Pearl",
   "item.zeldamod.mushroom_super": "Super Mushroom",
   "item.zeldamod.mushroom_life": "1-UP Mushroom",
+  "item.zeldamod.super_leaf": "Super Leaf",
   "item.zeldamod.bomb_seeds": "Bomb Flower Seeds",
+  "item.zeldamod.sword_fragment": "Deity Shard",
 
   "itemGroup.zeldatab": "Zelda Items",
   "itemGroup.zeldamask": "Zelda Masks",
@@ -39,6 +37,7 @@
 
 
   "item.zeldamod.kokiri_sword": "Kokiri Sword",
+  "item.zeldamod.sword_kokiri": "Kokiri Sword",
   "item.zeldamod.razor_sword": "Razor Sword",
   "item.zeldamod.gilded_sword": "Gilded Sword",
   "item.zeldamod.biggoron_sword": "Biggoron Sword",
@@ -57,6 +56,7 @@
   "item.zeldamod.slingshot": "Slingshot",
   "item.zeldamod.scattershot": "Scattershot",
   "item.zeldamod.roc_feather": "Roc's Feather",
+  "item.zeldamod.roc_feather_2": "Roc's Feather Lvl 2",
   "item.zeldamod.sand_rod": "Sand Rod",
   "item.zeldamod.bomb": "Bomb",
   "item.zeldamod.water_bomb": "Water Bomb",
@@ -122,6 +122,10 @@
   "item.zeldamod.fairymask": "Great Fairy Mask",
   "item.zeldamod.kafeimask": "Kafei Mask",
   "item.zeldamod.bremenmask": "Bremen Mask",
+  "item.zeldamod.captainmask": "Captain's Mask",
+  "item.zeldamod.kamaromask": "Kamaro Mask",
+  "item.zeldamod.garomask": "Garo Mask",
+  "item.zeldamod.postmanmask": "Postman's Hat",
   "item.zeldamod.kokiritunic": "Kokiri Tunic",
   "item.zeldamod.zoratunic": "Zora Tunic",
   "item.zeldamod.gorontunic": "Goron Tunic",
@@ -141,15 +145,24 @@
   "effect.zeldamod.hover": "Hover",
   "effect.zeldamod.fire": "Fire Shield Earrings",
 
+  "sounds.zeldamod.leaf": "Gusts",
+  "sounds.zeldamod.heal": "Healed from heart",
 
   "block.zeldamod.gloom_block": "Gloom Block",
   "block.zeldamod.secret_stone": "Secret Stone",
   "block.zeldamod.masters_ore": "Master Ore",
+  "block.zeldamod.deepslate_masters_ore": "Deepslate Master Ore",
   "block.zeldamod.pork_block": "Pork Block",
   "block.zeldamod.hook_target": "Hookshot Target",
   "block.zeldamod.claw_target": "Clawshot Target",
   "block.zeldamod.nightshade": "Blue Nightshade",
+  "block.zeldamod.heart_flower": "Heart Flower",
+  "block.zeldamod.primo_flower": "Primo Heart Flower",
   "block.zeldamod.sundelion": "Sundelion",
+  "block.zeldamod.power_block": "Block of Power",
+  "block.zeldamod.courage_block": "Block of Courage",
+  "block.zeldamod.wisdom_block": "Block of Wisdom",
+  "block.zeldamod.mask_block": "Mask Block",
   "Nightmask": "You don't think you should do this",
   "entity.minecraft.villager.zeldamod.mask_trader": "Mask Salesman"
 

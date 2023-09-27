@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.custom.projectile.GustProjectile;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -32,6 +33,11 @@ public class TornadoRodItem extends Item {
             player.setDeltaMovement(vec3.x, 1.3, vec3.z);
             world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PARROT_FLY, SoundSource.NEUTRAL, 1F, 2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
             player.getCooldowns().addCooldown(this, 18);
+            double particleX = player.getX() + (player.getRandom().nextBoolean() ? 0.1D : 0);
+            double particleY = player.getY() + player.getRandom().nextFloat() * 0 + 1.2D;
+            double particleZ = player.getZ() + (player.getRandom().nextBoolean() ? +0.8D : 0);
+            player.level().addParticle(ParticleTypes.CLOUD, particleX, particleY, particleZ, 0, 0, 0);
+            player.level().addParticle(ParticleTypes.CLOUD, particleX+.2, particleY, particleZ, 0, 0, 0);
             player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 20, 0,true,false));
             ItemStack stack = player.getItemInHand(hand);
             stack.hurtAndBreak(2, player, (p_43296_) -> {

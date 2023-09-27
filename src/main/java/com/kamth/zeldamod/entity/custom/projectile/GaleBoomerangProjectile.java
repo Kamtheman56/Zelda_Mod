@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.sound.ModSounds;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -83,6 +84,15 @@ public class GaleBoomerangProjectile extends Projectile {
         super(pEntityType, pLevel);
     }
 
+    public void shoot(Entity entityThrower, float rotationPitchIn, float rotationYawIn, float pitchOffset, float velocity, float inaccuracy) {
+        float f = -Mth.sin(rotationYawIn * ((float)Math.PI / 180F)) * Mth.cos(rotationPitchIn * ((float)Math.PI / 180F));
+        float f1 = -Mth.sin((rotationPitchIn + pitchOffset) * ((float)Math.PI / 180F));
+        float f2 = Mth.cos(rotationYawIn * ((float)Math.PI / 180F)) * Mth.cos(rotationPitchIn * ((float)Math.PI / 180F));
+        this.shoot(f, f1, f2, velocity, inaccuracy);
+        Vec3 Vector3d = entityThrower.getDeltaMovement();
+        this.setDeltaMovement(this.getDeltaMovement().add(Vector3d.x, entityThrower.onGround() ? 0.0D : Vector3d.y, Vector3d.z));
+    }
+
     @Override
     public void shoot(double x, double y, double z, float velocity, float inaccuracy) {
         Vec3 vec = (new Vec3(x, y, z)).normalize().add(this.random.nextGaussian() * 0.0075F * inaccuracy, this.random.nextGaussian() * 0.0075F * inaccuracy, this.random.nextGaussian() * 0.0075F * inaccuracy).scale(velocity);
@@ -103,6 +113,7 @@ public class GaleBoomerangProjectile extends Projectile {
         }
     }
     @Override
+    @OnlyIn(Dist.CLIENT)
     public void lerpMotion(double x, double y, double z) {
         this.setDeltaMovement(x, y, z);
         if (this.xRotO == 0.0F && this.yRotO == 0.0F) {
@@ -219,7 +230,6 @@ public class GaleBoomerangProjectile extends Projectile {
         itemEntity.playerTouch(player);
 
         if (itemEntity.isAlive()) {
-            // Player could not pick up everything
             ItemStack drop = itemEntity.getItem();
 
             player.drop(drop, false);
@@ -238,6 +248,7 @@ public class GaleBoomerangProjectile extends Projectile {
     }
     @Override
     public void tick() {
+        super.tick();
         int particlesDensity = 3;
         float particlesSpeed = 0.1F;
         float particlesSpread = 0.6F;
@@ -261,6 +272,7 @@ public class GaleBoomerangProjectile extends Projectile {
 
         if(!isReturning())
             checkImpact();
+
 
         Vec3 ourMotion = this.getDeltaMovement();
         setPos(pos.x + ourMotion.x, pos.y + ourMotion.y, pos.z + ourMotion.z);
@@ -369,7 +381,7 @@ public class GaleBoomerangProjectile extends Projectile {
                     discard();
                 }
             } else
-                setDeltaMovement(motion.normalize().scale(0.7 + 1 * 0.325F));
+                setDeltaMovement(motion.normalize().scale(0.7 + 1f * 0.325F));
         }
     }
 

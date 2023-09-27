@@ -3,14 +3,14 @@
   "category": "equipment",
   "ingredients": [
     {
-      "item": "zeldamod:kokiritunic"
+      "item": "zeldamod:kokirihat"
     },
     {
-      "item": "minecraft:magma_cream"
+      "item": "minecraft:nautilus_shell"
     }
   ],
   "result": {
-    "item": "zeldamod:gorontunic",
+    "item": "zeldamod:zorahat",
     "count": 1
   }
 }

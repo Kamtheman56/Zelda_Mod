@@ -1,12 +1,15 @@
 package com.kamth.zeldamod.item.items;
 
+import com.kamth.zeldamod.entity.custom.projectile.BombSeedProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
+import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -38,10 +41,6 @@ public class ScattershotItem extends SlingshotItem {
             ItemStack itemStack = player.getProjectile(stack);
             int i = getUseDuration(stack) - timeLeft;
             i = ForgeEventFactory.onArrowLoose(stack, world, player, i, !itemStack.isEmpty() || infiniteAmmo);
-
-            if (itemStack.getItem() == Items.ARROW) {
-                itemStack = new ItemStack(Items.WHEAT_SEEDS);
-            }
 
             if (i < 0) {
                 return;
@@ -84,7 +83,10 @@ public class ScattershotItem extends SlingshotItem {
                 }}}}
     @Nonnull
     private SeedProjectile createAmmoEntity(Level level, ItemStack itemStack) {
-        return new SeedProjectile(level);
+        Item bullet = itemStack.getItem();
+        if (bullet == ModItems.BOMB_SEEDS.get()) {
+            return new BombSeedProjectile(level);}
+        else  return new SeedProjectile(level);
     }
     public static float getPowerForTime(int timeInUse) {
         float power = (float) timeInUse / 20.0F;

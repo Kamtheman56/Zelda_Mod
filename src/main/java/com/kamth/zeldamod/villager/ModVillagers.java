@@ -23,7 +23,7 @@ public class ModVillagers {
             DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, ZeldaMod.MOD_ID);
 
 public static final RegistryObject<PoiType> MASK_BLOCK_POI = POI_TYPES.register("mask_block_poi",
-        () -> new PoiType(ImmutableSet.copyOf(ModBlocks.MASTER_ORE.get().getStateDefinition().getPossibleStates()),
+        () -> new PoiType(ImmutableSet.copyOf(ModBlocks.MASK_BLOCK.get().getStateDefinition().getPossibleStates()),
                 1,2));
 public static final RegistryObject<VillagerProfession> MASK_TRADER = VILLAGER_PROFESSIONS.register("mask_trader",
         () -> new VillagerProfession("mask_trader", x -> x.get() == MASK_BLOCK_POI.get(),

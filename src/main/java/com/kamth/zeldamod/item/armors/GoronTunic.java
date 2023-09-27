@@ -25,8 +25,11 @@ public class GoronTunic extends ArmorItem {
         player.removeEffect(MobEffects.POISON);
         //damages the armor if they're on fire only
         if(player.isOnFire()) {
-      //  if(new Random().nextFloat() > 0.9f) { // 40% of damaging the armor! Possibly!
-       //        player.getInventory().hurtArmor(player.damageSources().magic(),9, 2), 1f, new int[]{0, 1, 2, 3});
+            if (world.random.nextInt(20) == 0) {
+                this.damageItem(stack, 4, player,  (p_43296_) -> {
+                    p_43296_.broadcastBreakEvent(EquipmentSlot.CHEST);
+                } );
+            }
     }
 
         if (player.isOnFire()){
