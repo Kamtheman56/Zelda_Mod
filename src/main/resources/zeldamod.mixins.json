@@ -10,7 +10,8 @@
     "MixinFoxEntity",
     "MixinMushroomBlock",
     "MixinAllayAI",
-    "MixinVillager"
+    "MixinVillager",
+    "MixinMouse"
   ],
   "client": [
   ],

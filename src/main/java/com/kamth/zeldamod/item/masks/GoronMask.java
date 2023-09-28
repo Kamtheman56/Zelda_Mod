@@ -3,8 +3,10 @@ package com.kamth.zeldamod.item.masks;
 import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -53,7 +55,10 @@ public void onLivingHurtEvent(LivingHurtEvent event){
         player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 10, 0, true, false));
         player.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 10,0,true,false));
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10,1,true,false));
-      //  player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10,0,true,false));
+
+        if (!player.isSprinting()){
+            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60,0,true,true));
+        }
 
             if (player.isOnFire()){
                 player.setRemainingFireTicks(0);}
@@ -71,8 +76,12 @@ public void onLivingHurtEvent(LivingHurtEvent event){
             if (player.isCrouching() && !player.onGround()){
                 player.setDeltaMovement(0,-1,0);
             }
-            if (player.isSprinting() && !player.isEyeInFluidType(ForgeMod.WATER_TYPE.get())) {
-                player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
+            if (player.isSprinting() && !player.isEyeInFluidType(ForgeMod.WATER_TYPE.get()) && !player.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
+               // player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
+player.causeFoodExhaustion(.3f);
+               // if(player.tickCount % 10 == 0) {
+               //     player.playSound(SoundEvents.MINECART_RIDING, .4f, 1/ (player.level().getRandom().nextFloat() * 0.4F + 0.8F));
+               // }
 
                     player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 25,6,true,false));}
 
@@ -82,11 +91,7 @@ public void onLivingHurtEvent(LivingHurtEvent event){
     public void onPlayerSwim(PlayerSwimEvent event) {
 
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
-            event.setResult(Event.Result.DENY);
-
-
-
-        }
+            event.setResult(Event.Result.DENY);}
     }
 @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {

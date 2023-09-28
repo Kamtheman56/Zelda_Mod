@@ -53,7 +53,7 @@ public abstract class MixinLivingEntity extends Entity {
         }
         return state.getFriction(level, pos, entity);}
 
-
+    @SuppressWarnings("InvalidInjectorMethodSignature")
     @Inject(method = "getBlockSpeedFactor", at = @At("HEAD"), cancellable = true)
     private void onGetBlockSpeedFactor(CallbackInfoReturnable<Float> cir) {
         if (((Object)this) instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HOVER_BOOTS.get()) {

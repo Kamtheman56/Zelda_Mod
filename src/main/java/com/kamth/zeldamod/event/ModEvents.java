@@ -166,9 +166,13 @@ public class ModEvents {
         Item item = player.getUseItem().getItem();
         if (event.getPlayer().getUseItem().getItem() instanceof BowItem && event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.HAWK_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
             float FOVModifier = player.getTicksUsingItem() / (float) BowItem.MAX_DRAW_DURATION;
+
             event.setNewFovModifier(event.getFovModifier() * (1.0f - FOVModifier * 1.4f));
         }
-    }
+        if (event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.GORON_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
+            event.setNewFovModifier(event.getFovModifier() * (1.0f - player.getSpeed() * 1.2f));
+        }
+        }
 
 
     @SubscribeEvent
