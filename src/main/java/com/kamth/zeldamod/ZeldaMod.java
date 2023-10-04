@@ -6,7 +6,7 @@ import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ModItems;
-import com.kamth.zeldamod.item.custom.util.ModItemProperties;
+import com.kamth.zeldamod.item.custom.ModItemProperties;
 import com.kamth.zeldamod.loot.ModLootModifiers;
 import com.kamth.zeldamod.particle.ModParticles;
 import com.kamth.zeldamod.sound.ModSounds;
@@ -211,6 +211,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.SUNDELION);
             event.accept(ModBlocks.HEART_FLOWER);
             event.accept(ModBlocks.PRIMO_FLOWER);
+            event.accept(ModBlocks.STAMINA_FRUIT);
         }
 
 

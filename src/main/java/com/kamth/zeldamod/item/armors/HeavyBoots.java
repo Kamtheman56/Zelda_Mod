@@ -4,9 +4,11 @@ import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.google.common.collect.ImmutableMap;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.ModArmorMaterials;
+import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -21,6 +23,7 @@ import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.Event;
 
 import javax.annotation.Nullable;
@@ -40,9 +43,13 @@ public class HeavyBoots extends ArmorItem {
         super(material, type, settings);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerSwim);
         MinecraftForge.EVENT_BUS.addListener(this::LivingFallEvent);
-
+        MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
     }
-
+    public void onLivingHurtEvent(LivingHurtEvent event){
+        if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HEAVY_BOOTS.get()) {
+            if (!event.getSource().is(DamageTypeTags.IS_LIGHTNING)) {
+            event.getEntity().addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 60, 10, true, true));
+            }}}
 
 
         public void onPlayerSwim (PlayerSwimEvent event){
@@ -71,7 +78,13 @@ public class HeavyBoots extends ArmorItem {
 
              if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE && !player.isCrouching()) {
                 level.destroyBlock(player.getOnPos(), false);
-                return;}}
+              }
+            if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.HEAVY)) {
+                player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 1, true, false));
+            }
+
+        }
     }
 
 

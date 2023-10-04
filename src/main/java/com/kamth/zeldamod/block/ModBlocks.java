@@ -61,6 +61,9 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> POTTED_PRIMO_FLOWER = BLOCKS.register("potted_primo_flower",
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ModBlocks.PRIMO_FLOWER,
                     BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM).noOcclusion()));
+    public static final RegistryObject<Block> STAMINA_FRUIT = registerBlock("stamina_fruit",
+            () -> new StaminaFruitBlock(() -> MobEffects.SATURATION, 1,
+                    BlockBehaviour.Properties.of().sound(SoundType.FLOWERING_AZALEA).noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> BOMBFLOWER = BLOCKS.register("bomb_flower",
             () -> new BombFlowerBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));

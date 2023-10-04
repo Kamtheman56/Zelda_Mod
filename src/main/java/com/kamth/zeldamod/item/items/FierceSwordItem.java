@@ -50,6 +50,7 @@ public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pA
             projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
             projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f,.7f);
             pLevel.addFreshEntity(projectile);
+            projectile.setBaseDamage(7);
            itemstack.hurtAndBreak(6, player, (p_43296_) -> {
                 p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);});
         }

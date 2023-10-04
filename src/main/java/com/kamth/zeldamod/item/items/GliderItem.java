@@ -1,15 +1,10 @@
 package com.kamth.zeldamod.item.items;
 
-import com.kamth.zeldamod.entity.custom.projectile.GustProjectile;
-import com.kamth.zeldamod.item.ModItems;
-import com.kamth.zeldamod.item.custom.util.ModTags;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;

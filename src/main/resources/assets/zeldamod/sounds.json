@@ -16,5 +16,11 @@
     "sounds": [
       "zeldamod:whoosh"
     ]
+  },
+  "majora": {
+    "subtitle": "sounds.zeldamod.majora",
+    "sounds": [
+      "zeldamod:majora"
+    ]
   }
 }

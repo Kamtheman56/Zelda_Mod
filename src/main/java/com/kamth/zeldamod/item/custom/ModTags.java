@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.item.custom.util;
+package com.kamth.zeldamod.item.custom;
 
 import com.kamth.zeldamod.ZeldaMod;
 import net.minecraft.core.registries.Registries;
@@ -33,6 +33,8 @@ public static final TagKey<Block> BOMB
                 = tag("burnable_blocks");
         public static final TagKey<Block> DEKU
                 = tag("deku_blocks");
+        public static final TagKey<Block> HEAVY
+                = tag("heavy_boots_blocks");
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }

@@ -15,6 +15,7 @@ public class ModSounds {
     
     public static final RegistryObject<SoundEvent> HEAL = registerSoundEvents ("heal");
     public static final RegistryObject<SoundEvent> LEAF = registerSoundEvents ("leaf");
+    public static final RegistryObject<SoundEvent> MAJORA = registerSoundEvents ("majora");
 
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {

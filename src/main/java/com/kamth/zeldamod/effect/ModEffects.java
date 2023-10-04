@@ -14,6 +14,8 @@ public class ModEffects {
 
     public static final RegistryObject<MobEffect> DEKU = MOB_EFFECTS.register("deku",
             () -> new WaterHopping(MobEffectCategory.BENEFICIAL, 3124687));
+    public static final RegistryObject<MobEffect> GORON = MOB_EFFECTS.register("goron",
+            () -> new WaterHopping(MobEffectCategory.BENEFICIAL, 3124687));
     public static final RegistryObject<MobEffect> FIRE = MOB_EFFECTS.register("fire",
             () -> new WaterHopping(MobEffectCategory.BENEFICIAL, 3124687));
     public static final RegistryObject<MobEffect> HOVER = MOB_EFFECTS.register("hover",

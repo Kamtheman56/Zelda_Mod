@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.masks;
 
 import com.kamth.zeldamod.item.ModItems;
-import com.kamth.zeldamod.item.custom.util.ModTags;
+import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;

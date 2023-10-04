@@ -1,9 +1,8 @@
 package com.kamth.zeldamod.item.items;
 
-import ca.weblite.objc.Proxy;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import com.kamth.zeldamod.item.custom.util.ModTags;
+import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;

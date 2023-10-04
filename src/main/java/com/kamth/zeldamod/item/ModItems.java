@@ -111,8 +111,8 @@ public class ModItems {
             () -> new TrueMasterSwordItem(ModTiers.MASTER_TRUE, 9, -2.4f,
                     new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MASTER_SWORD_REFORGED = ITEMS.register("master_sword_reforged",
-            () -> new ReforgedSword(ModTiers.MASTER, 9, -2.4f,
-                    new Item.Properties().defaultDurability(4200).fireResistant().rarity(Rarity.RARE)));
+            () -> new ReforgedSword(ModTiers.MASTER_TRUE, 11, -2.4f,
+                    new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MASTER_SWORD_INJURED = ITEMS.register("master_sword_injured",
             () -> new InjuredSwordItem(ModTiers.MASTER, 1, -2.4f,
                     new Item.Properties().defaultDurability(131).fireResistant().rarity(Rarity.RARE)));

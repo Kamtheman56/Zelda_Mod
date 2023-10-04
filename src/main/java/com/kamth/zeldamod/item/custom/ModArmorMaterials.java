@@ -3,6 +3,7 @@ package com.kamth.zeldamod.item.custom;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
@@ -41,7 +42,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     BLAST("blast", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.CREEPER_PRIMED,
             0.0F, 0.0F, () -> {
         return Ingredient.of(ModItems.BOMB.get()); }),
-    MAJORA("majora", 0, new int[]{0, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
+    MAJORA("majora", 0, new int[]{0, 4, 5, 6}, 0, ModSounds.MAJORA.get(),
             0.0F, 6.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     SCENT("scent", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.PIGLIN_AMBIENT,

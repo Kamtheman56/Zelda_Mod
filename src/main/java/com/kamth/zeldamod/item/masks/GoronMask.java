@@ -1,12 +1,13 @@
 package com.kamth.zeldamod.item.masks;
 
 import be.florens.expandability.api.forge.PlayerSwimEvent;
+import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
+
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
+
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -46,7 +47,6 @@ public void onLivingHurtEvent(LivingHurtEvent event){
         if (event.getSource().is(DamageTypes.FALL)) {
             event.setAmount(event.getAmount() / 2F);
         }
-
     }}
 
     @Override
@@ -57,35 +57,22 @@ public void onLivingHurtEvent(LivingHurtEvent event){
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10,1,true,false));
 
         if (!player.isSprinting()){
-            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60,0,true,true));
+            player.addEffect(new MobEffectInstance(ModEffects.GORON.get(), 60,0,true,true));
         }
-
             if (player.isOnFire()){
                 player.setRemainingFireTicks(0);}
 
+            if (world.getBlockState(player.getOnPos()).is(Tags.Blocks.GLASS)) {
+                world.destroyBlock(player.getOnPos(), false);}
 
-
-
-            Level level = world;
-
-            if (level.getBlockState(player.getOnPos()).is(Tags.Blocks.GLASS)) {
-                level.destroyBlock(player.getOnPos(), false);}
-
-            if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE ) {
-                level.destroyBlock(player.getOnPos(), false);}
+            if (world.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE ) {
+                world.destroyBlock(player.getOnPos(), false);}
             if (player.isCrouching() && !player.onGround()){
                 player.setDeltaMovement(0,-1,0);
             }
-            if (player.isSprinting() && !player.isEyeInFluidType(ForgeMod.WATER_TYPE.get()) && !player.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) {
-               // player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
-player.causeFoodExhaustion(.3f);
-               // if(player.tickCount % 10 == 0) {
-               //     player.playSound(SoundEvents.MINECART_RIDING, .4f, 1/ (player.level().getRandom().nextFloat() * 0.4F + 0.8F));
-               // }
-
+            if (player.isSprinting() && !player.isEyeInFluidType(ForgeMod.WATER_TYPE.get()) && !player.hasEffect(ModEffects.GORON.get())) {
+                    player.causeFoodExhaustion(.15f);
                     player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 25,6,true,false));}
-
-
     }
 
     public void onPlayerSwim(PlayerSwimEvent event) {

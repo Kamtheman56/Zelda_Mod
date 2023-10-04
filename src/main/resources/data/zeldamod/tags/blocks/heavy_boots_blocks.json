@@ -1,0 +1,11 @@
+{
+  "replace": false,
+"values": [
+"minecraft:rail",
+"minecraft:copper_block",
+  "minecraft:waxed_copper_block",
+  "minecraft:powered_rail",
+  "minecraft:iron_block"
+
+]
+}

@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.item.custom.util;
+package com.kamth.zeldamod.item.custom;
 
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.client.renderer.item.ItemProperties;
