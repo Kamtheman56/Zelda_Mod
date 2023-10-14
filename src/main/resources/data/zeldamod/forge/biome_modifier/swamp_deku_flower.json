@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "features": "zeldamod:swamp_deku_flower",
+  "biomes": [
+    "minecraft:swamp"
+  ],
+
+  "step": "vegetal_decoration"
+}

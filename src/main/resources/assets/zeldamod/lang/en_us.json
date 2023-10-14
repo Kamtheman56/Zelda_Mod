@@ -148,6 +148,7 @@
 
   "sounds.zeldamod.leaf": "Gusts",
   "sounds.zeldamod.heal": "Healed from heart",
+  "sounds.zeldamod.majora": "Majora's influence takes over",
 
   "block.zeldamod.gloom_block": "Gloom Block",
   "block.zeldamod.secret_stone": "Secret Stone",
@@ -164,6 +165,9 @@
   "block.zeldamod.courage_block": "Block of Courage",
   "block.zeldamod.wisdom_block": "Block of Wisdom",
   "block.zeldamod.mask_block": "Mask Block",
+  "block.zeldamod.deku_block": "Deku Flower",
+  "block.zeldamod.deku_block_gold": "Golden Deku Flower",
+  "block.zeldamod.stamina_fruit": "Stamina Fruit",
   "Nightmask": "You don't think you should do this",
   "entity.minecraft.villager.zeldamod.mask_trader": "Mask Salesman"
 

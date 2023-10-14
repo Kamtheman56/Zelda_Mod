@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "minecraft:dandelion"
+      }
+    ],
+    "L": [
+      {
+        "item": "zeldamod:deku_block"
+      }
+    ]},
+  "pattern": [
+    " # ",
+    "#L#",
+    " # "
+  ],
+  "result": {
+    "item": "zeldamod:deku_block_gold"
+  },
+  "show_notification": true
+}

@@ -77,12 +77,17 @@ public class DekuMask extends ArmorItem {
                     player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.JUMP, 10, 6, true, false));
                 }
             }
+            if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.DEKU_GOLD)) {
+                if (player.isCrouching()) {
+                    player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.JUMP, 10, 9, true, false));
+                }
+            }
             if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.LILY_PAD) {
-                player.addEffect((new MobEffectInstance(ModEffects.DEKU.get(), 40, 0, true, false)));
+                player.addEffect((new MobEffectInstance(ModEffects.DEKU.get(), 80, 0, true, false)));
             }
             //if not standing on water or in water, get effect. Else get nothing
             if (player.onGround() && level.getBlockState(player.getOnPos().below(1)).getBlock() != Blocks.WATER) {
-                player.addEffect(((new MobEffectInstance(ModEffects.DEKU.get(), 40, 0, true, true))));
+                player.addEffect(((new MobEffectInstance(ModEffects.DEKU.get(), 80, 0, true, false))));
             }
             if (level.getBlockState(player.getOnPos().below(0)).getBlock() == Blocks.LAVA) {
                 player.removeEffect(ModEffects.DEKU.get());
@@ -95,7 +100,7 @@ public class DekuMask extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
-            components.add(Component.literal("Excel at platforming!").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Run on water, high jump, and utilize nature!").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
         } else {
             components.add(Component.literal("Become one with nature!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 

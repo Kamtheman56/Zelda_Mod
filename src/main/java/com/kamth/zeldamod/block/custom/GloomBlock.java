@@ -36,7 +36,6 @@ public class GloomBlock extends Block {
                     livingentity.addEffect(new MobEffectInstance(ModEffects.GLOOM.get(), 40));
                 }
             }
-
         }
     }
 }

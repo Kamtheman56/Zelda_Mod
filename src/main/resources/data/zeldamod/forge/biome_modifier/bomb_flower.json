@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "features": "zeldamod:bomb_flower",
+  "biomes": "#minecraft:is_overworld",
+  "step": "underground_ores"
+}

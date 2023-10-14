@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "features": "zeldamod:flower_field_primo_flower",
+  "biomes": [
+    "minecraft:sunflower_plains"
+  ],
+
+  "step": "vegetal_decoration"
+}

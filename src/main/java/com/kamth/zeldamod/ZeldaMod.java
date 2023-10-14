@@ -54,9 +54,6 @@ public class ZeldaMod
     }
 private void clientSetup(final FMLClientSetupEvent event){
        ModItemProperties.addCustomItemProperties();
-
-
-
 }
 
 
@@ -209,6 +206,9 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.CLAW_TARGET);
             event.accept(ModBlocks.NIGHTSHADE);
             event.accept(ModBlocks.SUNDELION);
+            event.accept(ModBlocks.DEKU_BLOCK);
+            event.accept(ModBlocks.DEKU_BLOCK_BLUE);
+            event.accept(ModBlocks.DEKU_BLOCK_GOLD);
             event.accept(ModBlocks.HEART_FLOWER);
             event.accept(ModBlocks.PRIMO_FLOWER);
             event.accept(ModBlocks.STAMINA_FRUIT);

@@ -2,6 +2,7 @@
   "replace": false,
 "values": [
   "minecraft:hay_block",
-  "minecraft:moss_block"
+  "zeldamod:deku_block",
+  "zeldamod:deku_block_blue"
 ]
 }

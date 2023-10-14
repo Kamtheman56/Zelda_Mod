@@ -23,6 +23,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -86,7 +87,10 @@ public class Clawshot extends AbstractArrow {
             this.level().addParticle(ParticleTypes.CRIT, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
         }
 
-
+if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)){
+    isPulling = true;
+    this.setDeltaMovement(0,0,0);
+}
 
         if (getOwner() instanceof Player) {
             owner = (Player) getOwner();
@@ -212,6 +216,8 @@ isPulling=false;
             owner.setNoGravity(false);
             owner.setPose(Pose.STANDING);
             owner.setDeltaMovement(0, 0, 0);
+            this.owner.setDeltaMovement(0,0,0);
+
         }
         owner.hurtMarked = true;
         super.kill();

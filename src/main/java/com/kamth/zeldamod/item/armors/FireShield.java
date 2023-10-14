@@ -49,7 +49,7 @@ public class FireShield extends ArmorItem {
             return;
         }
 
-        if (player.getRemainingFireTicks() >= 15){
+        if (player.getRemainingFireTicks() >= 30){
             player.setRemainingFireTicks(0);
             player.playSound(SoundEvents.FIRE_EXTINGUISH);
         }
@@ -80,5 +80,5 @@ public class FireShield extends ArmorItem {
     }
 @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.literal("Boost through the lava!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.literal("Boost over the lava!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 }}

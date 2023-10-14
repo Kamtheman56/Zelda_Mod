@@ -3,6 +3,7 @@ package com.kamth.zeldamod.item.items;
 import com.kamth.zeldamod.entity.custom.projectile.Clawshot;
 import com.kamth.zeldamod.entity.custom.projectile.Hookshot;
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -35,7 +36,7 @@ public class ClawshotItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
 
-
+pPlayer.playSound(ModSounds.CLAWSHOT.get());
         boolean flag = false;
         InteractionResultHolder<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(itemstack, pLevel, pPlayer, pHand, flag);
         if (ret != null) return ret;

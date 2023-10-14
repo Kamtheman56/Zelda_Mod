@@ -22,5 +22,11 @@
     "sounds": [
       "zeldamod:majora"
     ]
+  },
+  "clawshot": {
+    "subtitle": "sounds.zeldamod.clawshot",
+    "sounds": [
+      "zeldamod:clawshot"
+    ]
   }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "features": "zeldamod:flower_field_heart_flower",
+  "biomes": [
+    "minecraft:meadow",
+    "minecraft:flower_forest",
+    "minecraft:windswept_forest"
+  ],
+  "step": "vegetal_decoration"
+}

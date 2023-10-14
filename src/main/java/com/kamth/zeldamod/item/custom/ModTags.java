@@ -33,6 +33,8 @@ public static final TagKey<Block> BOMB
                 = tag("burnable_blocks");
         public static final TagKey<Block> DEKU
                 = tag("deku_blocks");
+        public static final TagKey<Block> DEKU_GOLD
+                = tag("deku_blocks_gold");
         public static final TagKey<Block> HEAVY
                 = tag("heavy_boots_blocks");
         private static TagKey<Block> tag(String name){
