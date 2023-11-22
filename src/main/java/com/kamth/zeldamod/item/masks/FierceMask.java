@@ -48,6 +48,7 @@ public class FierceMask extends ArmorItem {
         player.removeEffect(MobEffects.WEAKNESS);
         player.removeEffect(MobEffects.HUNGER);
         player.removeEffect(MobEffects.BLINDNESS);
+
     }
     public void onLivingHurtEvent(LivingHurtEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.FIERCE_MASK.get()) {

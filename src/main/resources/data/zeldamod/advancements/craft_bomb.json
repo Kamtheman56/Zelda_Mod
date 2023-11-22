@@ -1,0 +1,41 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:bomb"
+    },
+    "title": {
+      "text": "Bombastic Connoisseur"
+    },
+    "description": {
+      "text": "Craft a Bomb from a Bomb Flower"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:plant_bomb",
+  "criteria": {
+    "kokiri_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:bomb"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kokiri_sword"
+    ]
+  ],
+  "rewards": {
+    "experience": 3
+  },
+  "sends_telemetry_event": true
+}

@@ -65,7 +65,7 @@ public class DekuMask extends ArmorItem {
             }}
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-        player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.SLOW_FALLING, 10, 1, true, false, false));
+       // player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.SLOW_FALLING, 10, 1, true, false, false));
         if (player.isCrouching()) {
             player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.JUMP, 10, 2, true, false));
         }

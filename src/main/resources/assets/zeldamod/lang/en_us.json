@@ -22,6 +22,7 @@
   "item.zeldamod.pearl_courage": "Farore's Pearl",
   "item.zeldamod.mushroom_super": "Super Mushroom",
   "item.zeldamod.mushroom_life": "1-UP Mushroom",
+  "item.zeldamod.mushroom_mini": "Mini Mushroom",
   "item.zeldamod.super_leaf": "Super Leaf",
   "item.zeldamod.bomb_seeds": "Bomb Flower Seeds",
   "item.zeldamod.sword_fragment": "Deity Shard",
@@ -129,8 +130,8 @@
   "item.zeldamod.kokiritunic": "Kokiri Tunic",
   "item.zeldamod.zoratunic": "Zora Tunic",
   "item.zeldamod.gorontunic": "Goron Tunic",
-  "item.zeldamod.zorahelmet": "Zora Hat",
-  "item.zeldamod.goronhelmet": "Goron Hat",
+  "item.zeldamod.zorahat": "Zora Hat",
+  "item.zeldamod.goronhat": "Goron Hat",
   "item.zeldamod.kokirihat": "Kokiri Hat",
   "item.zeldamod.kokiripants": "Kokiri Pants",
   "item.zeldamod.roc_cape": "Roc's Cape",
@@ -139,12 +140,15 @@
   "item.zeldamod.champions_tunic": "Champion's Leathers",
   "item.zeldamod.scale_dragon": "Water Dragon's Scale",
   "item.zeldamod.fire_shield": "Fire Shield Earrings",
+  "item.zeldamod.classic_hat": "Classic Hat",
+  "item.zeldamod.classic_tunic": "Classic Tunic",
 
 
   "effect.zeldamod.deku": "Water Hopping",
   "effect.zeldamod.goron": "Goron",
   "effect.zeldamod.hover": "Hover",
   "effect.zeldamod.fire": "Fire Shield Earrings",
+  "effect.zeldamod.mini": "Mini",
 
   "sounds.zeldamod.leaf": "Gusts",
   "sounds.zeldamod.heal": "Healed from heart",
@@ -168,6 +172,8 @@
   "block.zeldamod.deku_block": "Deku Flower",
   "block.zeldamod.deku_block_gold": "Golden Deku Flower",
   "block.zeldamod.stamina_fruit": "Stamina Fruit",
+  "block.zeldamod.red_emerald_block": "Block of Red Emerald",
+  "block.zeldamod.blue_emerald_block": "Block of Blue Emerald",
   "Nightmask": "You don't think you should do this",
   "entity.minecraft.villager.zeldamod.mask_trader": "Mask Salesman"
 

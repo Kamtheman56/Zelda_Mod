@@ -33,12 +33,6 @@ import java.util.Map;
 
 
 public class HeavyBoots extends ArmorItem {
-    private static final Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
-            (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
-                    .put(ModArmorMaterials.ZELDAH,
-                            new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 2,false,false)).build();
-
-
     public HeavyBoots(ArmorMaterial material, Type type, Properties settings) {
         super(material, type, settings);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerSwim);
@@ -66,6 +60,7 @@ public class HeavyBoots extends ArmorItem {
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10, 1, true, false));
         player.removeEffect(MobEffects.LEVITATION);
         player.removeEffect(MobEffects.SLOW_FALLING);
+        player.removeEffect(MobEffects.JUMP);
 
         if (player.isEyeInFluidType(ForgeMod.WATER_TYPE.get())){
             player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
@@ -73,12 +68,8 @@ public class HeavyBoots extends ArmorItem {
         {
             Level level = world;
 
-             if (level.getBlockState(player.getOnPos()).is(Tags.Blocks.GLASS)  && !player.isCrouching()) {
+            if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.HEAVY2)  && !player.isCrouching()) {
                 level.destroyBlock(player.getOnPos(), false);}
-
-             if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.ICE && !player.isCrouching()) {
-                level.destroyBlock(player.getOnPos(), false);
-              }
             if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.HEAVY)) {
                 player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 1, true, false));

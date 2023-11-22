@@ -47,8 +47,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
-
-import static com.kamth.zeldamod.item.items.LensItem.IN_SIGHT;
+import static com.kamth.zeldamod.item.items.LensItem.LOOKING;
 
 
 @Mod.EventBusSubscriber(modid = ZeldaMod.MOD_ID)
@@ -62,10 +61,12 @@ public class ModEvents {
             if (event.getTarget() instanceof Cow)
             {
                 ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
-                if (itemstack.is(Items.GLASS_BOTTLE)){
+                if (itemstack.is(Items.GLASS_BOTTLE)) {
                     itemstack.shrink(1);
                     event.getEntity().addItem(ModItems.MILK_BOTTLE1.get().getDefaultInstance());
                     event.getTarget().playSound(SoundEvents.COW_MILK, 1, 1.8f);
+                    event.getEntity().getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(4, event.getEntity(), ((p_43296_) ->
+                            p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD)));
                 }
             else if (itemstack.is(Items.AIR)){event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Knowing you're a friend to all cows, I'll show you how to put my milk into a bottle."));}
             }}
@@ -97,20 +98,12 @@ public class ModEvents {
 
         if (!event.getLevel().isClientSide && event.getTarget() instanceof Creeper)
         {
-            event.getTarget().discard();
-            event.getTarget().playSound(SoundEvents.FIREWORK_ROCKET_TWINKLE,1, 1.1F);
+
+            event.getTarget().setDeltaMovement(0,1,0);
+            ((Creeper) event.getTarget()).setHealth(1);
+            event.getTarget().playSound(SoundEvents.FIREWORK_ROCKET_LAUNCH,1, 1.5F);
+
         }
-        if(event.getLevel().isClientSide() && event.getTarget() instanceof Creeper ){
-                event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() +0, event.getTarget().getY() , event.getTarget().getZ() +0, 0, .5, 0);
-            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() +.3, event.getTarget().getY() , event.getTarget().getZ() +0, .2, .3, 0);
-            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() -.3, event.getTarget().getY() , event.getTarget().getZ() +0, .2, .3, 0);
-            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() +.3, event.getTarget().getY() , event.getTarget().getZ() +0, -.2, .3, 0);
-            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() -.3, event.getTarget().getY() , event.getTarget().getZ() +0, -.2, .3, 0);
-            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() , event.getTarget().getY() , event.getTarget().getZ() +.3, 0, .3, .2);
-            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() , event.getTarget().getY() , event.getTarget().getZ() -.3, 0, .3, .2);
-            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() , event.getTarget().getY() , event.getTarget().getZ() +.3, 0, .3, -.2);
-            event.getLevel().addParticle(ParticleTypes.FIREWORK, true, event.getTarget().getX() , event.getTarget().getY() , event.getTarget().getZ() -.3, 0, .3, -.2);
-            }
         if (!event.getLevel().isClientSide && event.getTarget() instanceof Villager)
         {
            ((Villager) event.getTarget()).setBaby(true);
@@ -144,21 +137,21 @@ public class ModEvents {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onLivingPostRender(RenderLivingEvent.Post<LivingEntity, EntityModel<LivingEntity>> event) {
-        if (IN_SIGHT.contains(event.getEntity())) {
+        if (LOOKING.contains(event.getEntity())) {
             restoreEntityInvisibility(event.getEntity());
         }
     }
 
     @OnlyIn(Dist.CLIENT)
     private static void restoreEntityInvisibility(LivingEntity livingEntity) {
-        IN_SIGHT.remove(livingEntity);
+        LOOKING.remove(livingEntity);
         livingEntity.setInvisible(true);
     }
 
     @OnlyIn(Dist.CLIENT)
     private static void removeEntityInvisibility(LivingEntity livingEntity) {
         livingEntity.setInvisible(false);
-        IN_SIGHT.add(livingEntity);
+        LOOKING.add(livingEntity);
     }
     @SubscribeEvent
     public static void onFovUpdate(ComputeFovModifierEvent event) {
@@ -166,11 +159,10 @@ public class ModEvents {
         Item item = player.getUseItem().getItem();
         if (event.getPlayer().getUseItem().getItem() instanceof BowItem && event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.HAWK_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
             float FOVModifier = player.getTicksUsingItem() / (float) BowItem.MAX_DRAW_DURATION;
-
             event.setNewFovModifier(event.getFovModifier() * (1.0f - FOVModifier * 1.4f));
         }
         if (event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.GORON_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
-            event.setNewFovModifier(event.getFovModifier() * (1.0f - player.getSpeed() * 1.2f));
+            event.setNewFovModifier(event.getFovModifier() * (0.9f - player.getSpeed() * 1.1f));
         }
         }
 
@@ -302,7 +294,7 @@ public class ModEvents {
                     new ItemStack(Items.EMERALD, 8),
                     stack,2,6,0.02F));
         }
-
+//make more trades dude
 
     }
 

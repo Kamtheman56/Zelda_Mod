@@ -55,7 +55,7 @@ pPlayer.playSound(ModSounds.CLAWSHOT.get());
                 projectile.setOwner(player);
                 projectile.setBaseDamage(4);
                 projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f, 0f);
-                projectile.Properties(itemstack, 20, 12, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
+                projectile.Properties(itemstack, 25, 12, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
                 world.addFreshEntity(projectile);
             }
 

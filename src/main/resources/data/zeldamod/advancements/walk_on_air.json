@@ -1,0 +1,52 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:hoverboots"
+    },
+    "title": "1kg of Feathers",
+    "description": "Walk on air whilst wearing the Hover Boots",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_goron_tunic",
+      "criteria": {
+        "hover_boots": {
+          "trigger": "minecraft:location",
+          "conditions": {
+            "player": [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "stepping_on": {
+                    "block": {
+                      "blocks": [
+                        "minecraft:air"
+                      ]
+                    }
+                  },
+                  "equipment": {
+                    "feet": {
+                      "items": [
+                        "zeldamod:hoverboots"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+  "requirements": [
+    [
+      "hover_boots"
+    ]
+  ],
+  "rewards": {
+    "experience": 10
+  },
+  "sends_telemetry_event": true
+}

@@ -28,6 +28,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.network.NetworkHooks;
@@ -39,21 +40,18 @@ import javax.annotation.Nullable;
 public class Hookshot extends AbstractArrow {
     private static final double BASE_DAMAGE = 5.0D;
     private final ItemStack hookshot = new ItemStack(ModItems.HOOKSHOT.get());
-    private static final EntityDataAccessor<Integer>  HOOKED_ENTITY_ID = SynchedEntityData.defineId(Hookshot.class, EntityDataSerializers.INT);
     boolean isPulling = false;
     private Entity hookedEntity;
     private double maxRange = 0D;
     private double maxSpeed = 0D;
     private Player owner;
 
-    private boolean motionUp = false;
     private double prevDistance = 30.D;
     private ItemStack stack;
 
     public Hookshot(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
      //   this.pickup = AbstractArrow.Pickup.ALLOWED;
-
     }
 
 
@@ -146,7 +144,7 @@ public class Hookshot extends AbstractArrow {
                         //In case the movement is only upwards.
                         else if (new Vector3d(distance.x, 0, distance.z).length() < new Vector3d(target.getBbWidth() / 2, 0, target.getBbWidth() / 2).length() / 1.4) {
                             motion = new Vec3(0, motion.y, 0);
-                            motionUp = true;
+                            boolean motionUp = true;
                         }
 
                         target.fallDistance = 0; //Cancel Fall Damage
@@ -272,16 +270,15 @@ protected SoundEvent getDefaultHitGroundSoundEvent() {
         pCompound.putBoolean("Pulling", this.isPulling);
     }
 
-    @SubscribeEvent
-    public  void onPlayerTick(TickEvent.PlayerTickEvent event){
-        Player player = event.player;
-        if(this.getOwner() == player) {
-            if (this.isPulling) {
-                player.setPose(Pose.SWIMMING);
-                player.setSwimming(true);
-            }
-        }
-    }
+   // public  void onPlayerTick(TickEvent.PlayerTickEvent event){
+ //       Player player = event.player;
+   //     if(this.getOwner() == player) {
+    //        if (this.isPulling) {
+     //           player.setPose(Pose.SWIMMING);
+      //          player.setSwimming(true);
+     //       }
+  //      }
+ //   }
 
 
     @Override

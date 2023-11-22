@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "template": {
-    "item": "zeldamod:default_upgrade"
+    "item": "zeldamod:master_upgrade"
   },
   "base": {
     "item": "zeldamod:hookshot"

@@ -1,0 +1,50 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:heavyboots"
+    },
+    "title": "1kg of Steel",
+    "description": "Carefully walk on a fragile block whilst wearing the Heavy Boots",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_zora_tunic",
+      "criteria": {
+        "hover_boots": {
+          "trigger": "minecraft:location",
+          "conditions": {
+            "player": [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "stepping_on": {
+                    "block": {
+                      "tag": "zeldamod:heavy_boots_fragile_blocks"
+                    }
+                  },
+                  "equipment": {
+                    "feet": {
+                      "items": [
+                        "zeldamod:heavyboots"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+  "requirements": [
+    [
+      "hover_boots"
+    ]
+  ],
+  "rewards": {
+    "experience": 10
+  },
+  "sends_telemetry_event": true
+}

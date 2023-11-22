@@ -173,7 +173,7 @@ if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)
                             if (distance.length() > prevDistance && prevDistance < 1){
                                 kill();
 
-                            } else if (new Vector3d(distance.x, 0, distance.z).length() < 0.3D) {
+                            } else if (new Vector3d(distance.x, 0, distance.z).length() < 0.2D) {
                                kill();
 
 
@@ -257,23 +257,13 @@ protected SoundEvent getDefaultHitGroundSoundEvent() {
         pCompound.putBoolean("Pulling", this.isPulling);
     }
 
-    @SubscribeEvent
-    public  void onPlayerTick(TickEvent.PlayerTickEvent event){
-        Player player = event.player;
-        if(this.getOwner() == player) {
-            if (this.isPulling) {
-              player.hasPose(Pose.SWIMMING);
-                player.setSwimming(true);
-            }
-        }
-    }
 
 
     @Override
     protected ItemStack getPickupItem() {
         return  ItemStack.EMPTY;}
     protected float getWaterInertia() {
-        return 1F;
+        return .9F;
     }
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {

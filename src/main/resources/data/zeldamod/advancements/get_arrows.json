@@ -1,0 +1,62 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:light_arrow"
+    },
+    "title": "So many flavors",
+    "description": "Acquire an arrow of every type",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_equipment",
+  "criteria": {
+    "mask_block": {
+      "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "zeldamod:fire_arrow"
+              ]
+            },
+            {
+              "items": [
+                "zeldamod:ice_arrow"
+              ]
+            },
+            {
+              "items": [
+                "zeldamod:light_arrow"
+              ]
+            },
+            {
+              "items": [
+                "zeldamod:lightning_arrow"
+              ]
+            },
+            {
+              "items": [
+                "zeldamod:ancient_arrow"
+              ]
+            },
+            {
+              "items": [
+                "zeldamod:bomb_arrow"
+              ]
+            }
+          ]
+        }
+      }
+    },
+  "requirements": [
+    [
+      "mask_block"
+    ]
+  ],
+  "rewards": {
+    "experience": 60
+  },
+  "sends_telemetry_event": true
+}

@@ -71,6 +71,8 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(ModFoods.SUPER_MUSHROOM)));
     public static final RegistryObject<Item> LIFE_MUSHROOM = ITEMS.register("mushroom_life",
             () -> new Item(new Item.Properties().food(ModFoods.LIFE_MUSHROOM)));
+    public static final RegistryObject<Item> MINI_MUSHROOM = ITEMS.register("mushroom_mini",
+            () -> new Item(new Item.Properties().food(ModFoods.MINI_MUSHROOM)));
     public static final RegistryObject<Item> SUPER_LEAF = ITEMS.register("super_leaf",
             () -> new SuperLeafItem(new Item.Properties().stacksTo(1).defaultDurability(3)));
 
@@ -88,7 +90,7 @@ public class ModItems {
                     new Item.Properties().defaultDurability(118)));
     public static final RegistryObject<Item> RAZOR_SWORD = ITEMS.register("razor_sword",
             () -> new RazorSwordItem(ModTiers.RAZOR, 2, -1.4f,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(260)));
     public static final RegistryObject<Item> GILDED_SWORD = ITEMS.register("gilded_sword",
             () -> new SwordItem(ModTiers.GILDED, 3, -2.4f,
                     new Item.Properties().defaultDurability(2000)));
@@ -97,7 +99,7 @@ public class ModItems {
                     new Item.Properties().defaultDurability(1800).rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> BIGGORON_SWORD = ITEMS.register("biggoron_sword",
             () -> new SwordItem(ModTiers.GORON, 7, -3.3f,
-                    new Item.Properties().fireResistant()));
+                    new Item.Properties().fireResistant().defaultDurability(3500)));
     public static final RegistryObject<Item> BIGGORON_KNIFE = ITEMS.register("biggoron_knife",
             () -> new SwordItem(ModTiers.GORON, 7, -3.3f,
                     new Item.Properties().defaultDurability(10)));
@@ -121,21 +123,23 @@ public class ModItems {
                     new Item.Properties().defaultDurability(59).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> FIERCE_SWORD = ITEMS.register("fierce_sword",
             () -> new FierceSwordItem(ModTiers.ZELDAU, 7, -1.4f,
-                    new Item.Properties().defaultDurability(250).rarity(Rarity.RARE).fireResistant()));
+                    new Item.Properties().rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
             () -> new SlingshotItem(new Item.Properties().defaultDurability(284)));
     public static final RegistryObject<Item> SCATTERSHOT = ITEMS.register("scattershot",
             () -> new ScattershotItem(new Item.Properties().defaultDurability(488)));
     public static final RegistryObject<Item> ROC_FEATHER = ITEMS.register("roc_feather",
-            () -> new FeatherItem(new Item.Properties().stacksTo(1)));
+            () -> new FeatherItem(new Item.Properties().defaultDurability(90)));
+    public static final RegistryObject<Item> ROC_FEATHER_2 = ITEMS.register("roc_feather_2",
+            () -> new FeatherItem(new Item.Properties().defaultDurability(180)));
     public static final RegistryObject<Item> SAND_ROD = ITEMS.register("sand_rod",
             () -> new SandWandItem(new Item.Properties().durability(96)));
     public static final RegistryObject<Item> BOMB = ITEMS.register("bomb",
-            () -> new BombItem(new Item.Properties().stacksTo(16).rarity(Rarity.UNCOMMON)));
+            () -> new BombItem(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> WATER_BOMB = ITEMS.register("water_bomb",
-            () -> new WaterBombItem(new Item.Properties().stacksTo(8).rarity(Rarity.UNCOMMON)));
+            () -> new WaterBombItem(new Item.Properties().stacksTo(32).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> BOMB_FLOWER = ITEMS.register("bomb_flower",
-            () -> new BombFlowerItem(new Item.Properties().stacksTo(4).rarity(Rarity.UNCOMMON)));
+            () -> new BombFlowerItem(new Item.Properties().stacksTo(16).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> HERO_BOW = ITEMS.register("hero_bow",
             () -> new HeroBowItem(new Item.Properties().defaultDurability(550)));
     public static final RegistryObject<Item> FIRE_ARROW = ITEMS.register("fire_arrow",
@@ -296,7 +300,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new RomaniMask(ModArmorMaterials.COUPLES, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> GIBDO_MASK = ITEMS.register("gibdomask",
-            ()-> new StoneMask(ModArmorMaterials.GIBDO, ArmorItem.Type.HELMET,
+            ()-> new RomaniMask(ModArmorMaterials.GIBDO, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
     public static final RegistryObject<ArmorItem> FAIRY_MASK = ITEMS.register("fairymask",
             ()-> new RomaniMask(ModArmorMaterials.FAIRY, ArmorItem.Type.HELMET,
@@ -337,10 +341,10 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> KOKIRI_HAT = ITEMS.register("kokirihat",
             ()-> new ArmorItem(ModArmorMaterials.Kokiri, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(200)));
-    public static final RegistryObject<ArmorItem> ZORA_HAT = ITEMS.register("zorahelmet",
+    public static final RegistryObject<ArmorItem> ZORA_HAT = ITEMS.register("zorahat",
             ()-> new ArmorItem(ModArmorMaterials.ZoraTunic, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(200)));
-    public static final RegistryObject<ArmorItem> GORON_HAT = ITEMS.register("goronhelmet",
+    public static final RegistryObject<ArmorItem> GORON_HAT = ITEMS.register("goronhat",
             ()-> new ArmorItem(ModArmorMaterials.GoronTunic, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(200)));
     public static final RegistryObject<ArmorItem> KOKIRI_BOOTS = ITEMS.register("kokiriboots",
@@ -355,6 +359,12 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> CHAMPIONS_TUNIC = ITEMS.register("champions_tunic",
             ()-> new ArmorItem(ModArmorMaterials.Champions, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(560)));
+    public static final RegistryObject<ArmorItem> CLASSIC_TUNIC = ITEMS.register("classic_tunic",
+            ()-> new ArmorItem(ModArmorMaterials.Classic, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().defaultDurability(440)));
+    public static final RegistryObject<ArmorItem> CLASSIC_HAT = ITEMS.register("classic_hat",
+            ()-> new ArmorItem(ModArmorMaterials.Classic, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(200)));
 
 
 

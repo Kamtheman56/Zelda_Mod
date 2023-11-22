@@ -1,0 +1,14 @@
+{
+  "type": "zeldamod:add_item",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/ruined_portal"
+    },
+    {
+      "chance": 0.23,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "item": "zeldamod:gorontunic"
+}

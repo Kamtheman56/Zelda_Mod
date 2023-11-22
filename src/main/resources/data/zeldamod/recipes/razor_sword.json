@@ -1,15 +1,15 @@
 {
   "type": "minecraft:smithing_transform",
   "template": {
-    "item": "zeldamod:default_upgrade"
+    "item": "zeldamod:master_upgrade"
   },
   "base": {
-    "item": "zeldamod:razor_sword"
+    "item": "zeldamod:sword_kokiri"
   },
   "addition": {
-    "item": "zeldamod:gold_dust"
+    "item": "minecraft:iron_block"
   },
   "result": {
-    "item": "zeldamod:gilded_sword"
+    "item": "zeldamod:razor_sword"
   }
 }

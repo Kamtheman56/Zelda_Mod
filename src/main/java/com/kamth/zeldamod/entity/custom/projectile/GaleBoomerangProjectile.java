@@ -50,9 +50,9 @@ import java.util.UUID;
 
 public class GaleBoomerangProjectile extends Projectile {
     private static final double BASE_DAMAGE = 4.0D;
-    private static final EntityDataAccessor<ItemStack> STACK = SynchedEntityData.defineId(BoomerangProjectile.class, EntityDataSerializers.ITEM_STACK);
-    private static final EntityDataAccessor<Boolean> RETURNING = SynchedEntityData.defineId(BoomerangProjectile.class, EntityDataSerializers.BOOLEAN);
-    private final ItemStack boomerangItem = new ItemStack(ModItems.BOOMERANG.get());
+    private static final EntityDataAccessor<ItemStack> STACK = SynchedEntityData.defineId(GaleBoomerangProjectile.class, EntityDataSerializers.ITEM_STACK);
+    private static final EntityDataAccessor<Boolean> RETURNING = SynchedEntityData.defineId(GaleBoomerangProjectile.class, EntityDataSerializers.BOOLEAN);
+    private final ItemStack boomerangItem = new ItemStack(ModItems.GALE_BOOMERANG.get());
 
 
 
@@ -82,15 +82,6 @@ public class GaleBoomerangProjectile extends Projectile {
 
     public GaleBoomerangProjectile(EntityType<? extends Projectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-    }
-
-    public void shoot(Entity entityThrower, float rotationPitchIn, float rotationYawIn, float pitchOffset, float velocity, float inaccuracy) {
-        float f = -Mth.sin(rotationYawIn * ((float)Math.PI / 180F)) * Mth.cos(rotationPitchIn * ((float)Math.PI / 180F));
-        float f1 = -Mth.sin((rotationPitchIn + pitchOffset) * ((float)Math.PI / 180F));
-        float f2 = Mth.cos(rotationYawIn * ((float)Math.PI / 180F)) * Mth.cos(rotationPitchIn * ((float)Math.PI / 180F));
-        this.shoot(f, f1, f2, velocity, inaccuracy);
-        Vec3 Vector3d = entityThrower.getDeltaMovement();
-        this.setDeltaMovement(this.getDeltaMovement().add(Vector3d.x, entityThrower.onGround() ? 0.0D : Vector3d.y, Vector3d.z));
     }
 
     @Override
@@ -129,7 +120,7 @@ public class GaleBoomerangProjectile extends Projectile {
 
     @Override
     protected void defineSynchedData() {
-        entityData.define(STACK, new ItemStack(ModItems.BOOMERANG.get()));
+        entityData.define(STACK, new ItemStack(ModItems.GALE_BOOMERANG.get()));
         entityData.define(RETURNING, false);
     }
     protected void checkImpact() {
@@ -140,8 +131,6 @@ public class GaleBoomerangProjectile extends Projectile {
         Vec3 rayEnd = position.add(motion);
 
         boolean doEntities = true;
-        int tries = 10;
-
         while(isAlive() && !isReturning()) {
             if(doEntities) {
                 EntityHitResult result = raycastEntities(position, rayEnd);
@@ -164,7 +153,7 @@ public class GaleBoomerangProjectile extends Projectile {
         return ProjectileUtil.getEntityHitResult(level(), this, from, to, getBoundingBox().expandTowards(getDeltaMovement()).inflate(1.0D), (entity) ->
                 !entity.isSpectator()
                         && entity.isAlive()
-                        && (entity.isPickable() || entity instanceof BoomerangProjectile)
+                        && (entity.isPickable() || entity instanceof GaleBoomerangProjectile)
                         && entity != getThrower()
                         && (entitiesHit == null || !entitiesHit.contains(entity.getId())));
     }
@@ -315,7 +304,7 @@ public class GaleBoomerangProjectile extends Projectile {
         }
 
         if(!returning) {
-            if(liveTime > 18)
+            if(liveTime > 20)
                 setReturning();}
         else {
             noPhysics = true;
@@ -409,15 +398,11 @@ public class GaleBoomerangProjectile extends Projectile {
 
     }
 
-
-
     @Override
     public void playerTouch(@NotNull Player pEntity) {
         if (this.ownedBy(pEntity) || this.getOwner() == null) {
             super.playerTouch(pEntity);
         }
-
-
     }
     @Override
     public void readAdditionalSaveData(@Nonnull CompoundTag compound) {
@@ -429,7 +414,7 @@ public class GaleBoomerangProjectile extends Projectile {
         if (compound.contains(TAG_ITEM_STACK))
             setStack(ItemStack.of(compound.getCompound(TAG_ITEM_STACK)));
         else
-            setStack(new ItemStack(ModItems.BOOMERANG.get()));
+            setStack(new ItemStack(ModItems.GALE_BOOMERANG.get()));
 
         if (compound.contains("owner", 10)) {
             Tag owner = compound.get("owner");

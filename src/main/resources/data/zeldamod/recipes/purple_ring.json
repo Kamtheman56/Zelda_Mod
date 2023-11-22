@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "zeldamod:blue_ring"
+    },
+    {
+      "item": "zeldamod:red_ring"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:purple_ring",
+    "count": 1
+  }
+}

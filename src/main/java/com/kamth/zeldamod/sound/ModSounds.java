@@ -19,6 +19,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> CLAWSHOT = registerSoundEvents ("clawshot");
 
 
+
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(ZeldaMod.MOD_ID, name)));
     }

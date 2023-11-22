@@ -1,51 +1,45 @@
 {
   "type": "minecraft:block",
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
-    }
-  ],
   "pools": [
     {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "zeldamod:bomb_flower"
-            },
-            {
-              "type": "minecraft:item",
-              "name": "zeldamod:bomb_seeds"
-            }
-          ]
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "zeldamod:bomb_flower",
+          "conditions": [
             {
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:binomial_with_bonus_count",
-              "function": "minecraft:apply_bonus",
-              "parameters": {
-                "extra": 3,
-                "probability": 0.5714286
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": [
+                  "minecraft:shears"
+                ]
               }
             }
-          ],
-          "name": "zeldamod:bomb_seeds"
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:bomb_flower",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.6
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:bomb_seeds",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.3
+            }
+          ]
         }
-      ],
-      "rolls": 1.0
+      ]
     }
   ],
-  "random_sequence": "zeldamod:blocks/bomb_flower_wild"
+  "random_sequence": "zeldamod:bomb_flower_wild"
 }

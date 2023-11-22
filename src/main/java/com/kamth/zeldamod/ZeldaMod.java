@@ -12,10 +12,15 @@ import com.kamth.zeldamod.particle.ModParticles;
 import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionBrewing;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.brewing.PotionBrewEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -58,11 +63,18 @@ private void clientSetup(final FMLClientSetupEvent event){
 
 
     private void commonSetup(final FMLCommonSetupEvent event){
+        PotionBrewing.mix(ModBlocks.HEART_FLOWER.get().asItem().getDefaultInstance(), ModItems.HEART_POTION.get().getDefaultInstance());
+        PotionBrewing.hasMix(ModItems.HEART_POTION.get().getDefaultInstance(),ModBlocks.HEART_FLOWER.get().asItem().getDefaultInstance());
+
+        PotionBrewing.isIngredient(ModBlocks.HEART_FLOWER.get().asItem().getDefaultInstance());
+
 event.enqueueWork(() -> {
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.NIGHTSHADE.getId(), ModBlocks.POTTED_NIGHTSHADE);
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.SUNDELION.getId(), ModBlocks.POTTED_SUNDELION);
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.HEART_FLOWER.getId(), ModBlocks.POTTED_HEART_FLOWER);
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.PRIMO_FLOWER.getId(), ModBlocks.POTTED_PRIMO_FLOWER);
+
+
 });
 
     }
@@ -76,6 +88,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.ZORA_TUNIC);
         event.accept(ModItems.CHAMPION_TUNIC);
         event.accept(ModItems.CHAMPIONS_TUNIC);
+        event.accept(ModItems.CLASSIC_HAT);
+        event.accept(ModItems.CLASSIC_TUNIC);
         event.accept(ModItems.KOKIRI_PANTS);
         event.accept(ModItems.KOKIRI_BOOTS);
         event.accept(ModItems.HEAVY_BOOTS);
@@ -109,6 +123,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.TORNADO_ROD);
         event.accept(ModItems.SAND_ROD);
         event.accept(ModItems.ROC_FEATHER);
+        event.accept(ModItems.ROC_FEATHER_2);
         event.accept(ModItems.ROC_CAPE);
         event.accept(ModItems.BOOMERANG);
         event.accept(ModItems.MAGIC_BOOMERANG);
@@ -156,12 +171,13 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.PUMPKIN_SOUP);
         event.accept(ModItems.STAMINA);
         event.accept(ModItems.HEART_POTION);
+        event.accept(ModItems.BLUE_POTION);
         event.accept(ModItems.MILK_BOTTLE1);
         event.accept(ModItems.MILK_MAGIC);
         event.accept(ModItems.SHIELD_POTION);
-        event.accept(ModItems.BLUE_POTION);
         event.accept(ModItems.SUPER_MUSHROOM);
         event.accept(ModItems.LIFE_MUSHROOM);
+        event.accept(ModItems.MINI_MUSHROOM);
         event.accept(ModItems.SUPER_LEAF);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MASK.get()){
@@ -200,6 +216,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.COURAGE_BLOCK);
             event.accept(ModBlocks.WISDOM_BLOCK);
             event.accept(ModBlocks.POWER_BLOCK);
+            event.accept(ModBlocks.RED_EMERALD_BLOCK);
+            event.accept(ModBlocks.BLUE_EMERALD_BLOCK);
             event.accept(ModBlocks.PORK_BLOCK);
             event.accept(ModBlocks.GLOOM_BLOCK);
             event.accept(ModBlocks.HOOK_TARGET);
@@ -212,6 +230,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.HEART_FLOWER);
             event.accept(ModBlocks.PRIMO_FLOWER);
             event.accept(ModBlocks.STAMINA_FRUIT);
+
         }
 
 

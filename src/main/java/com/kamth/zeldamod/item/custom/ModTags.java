@@ -37,6 +37,10 @@ public static final TagKey<Block> BOMB
                 = tag("deku_blocks_gold");
         public static final TagKey<Block> HEAVY
                 = tag("heavy_boots_blocks");
+        public static final TagKey<Block> HEAVY2
+                = tag("heavy_boots_fragile_blocks");
+        public static final TagKey<Block> SWORD_BEAM
+                = tag("sword_beam_blocks");
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }
@@ -52,6 +56,8 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("bow");
         public static final TagKey<Item> MASKS
                 = tag("masks");
+        public static final TagKey<Item> LEGENDARY_ITEMS
+                = tag("items");
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }

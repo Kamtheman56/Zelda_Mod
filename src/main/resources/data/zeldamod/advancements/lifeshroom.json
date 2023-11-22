@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:mushroom_life"
+    },
+    "title": "An Odder Mushroom",
+    "description": "Dig up a 1UP Mushroom using the Mask of Scents and consume it",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "zeldamod:supershroom",
+  "criteria": {
+    "mask_block": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "zeldamod:mushroom_life"
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mask_block"
+    ]
+  ],
+  "rewards": {
+    "experience": 10
+  },
+  "sends_telemetry_event": true
+}

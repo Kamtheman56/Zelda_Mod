@@ -1,0 +1,61 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:hawkmask"
+    },
+    "title": "Practically Cheating",
+    "description": "Slay a Skeleton with an arrow from at least 50 meters away. Do this while wearing the Hawkeye Mask",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_mask",
+  "criteria": {
+    "mask_block": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "head": {
+              "items": [
+                "zeldamod:hawkmask"
+              ]
+            }
+          }
+        },
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:skeleton",
+              "distance": {
+                "horizontal": {
+                  "min": 50
+                }
+              }
+            }
+          }
+        ],
+        "killing_blow": {
+          "tags": [
+            {
+              "id": "minecraft:is_projectile",
+              "expected": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mask_block"
+    ]
+  ],
+  "rewards": {
+    "experience": 35
+  },
+  "sends_telemetry_event": true
+}

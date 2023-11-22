@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:hookshot"
+    },
+    "title": "Over here!",
+    "description": "Use the Hookshot to propel you somewhere else",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:shoot_slingshot",
+  "criteria": {
+    "mask_block": {
+      "trigger": "minecraft:item_durability_changed",
+      "conditions": {
+        "item": {
+          "items": [
+            "zeldamod:hookshot"
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mask_block"
+    ]
+  ],
+  "rewards": {
+    "experience": 10
+  },
+  "sends_telemetry_event": true
+}

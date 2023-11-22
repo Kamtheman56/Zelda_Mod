@@ -15,7 +15,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:base",
+  "parent": "zeldamod:get_equipment",
   "criteria": {
     "zeldamod:slingshot": {
       "trigger": "minecraft:player_killed_entity",

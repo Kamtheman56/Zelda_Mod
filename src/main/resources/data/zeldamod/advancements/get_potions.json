@@ -1,0 +1,47 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:heart_potion"
+    },
+    "title": "Too many flavors!",
+    "description": "Acquire a Red, Blue, and Green Potion",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_rods",
+  "criteria": {
+    "mask_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:blue_potion"
+            ]
+          },
+          {
+            "items": [
+              "zeldamod:stamina_potion"
+            ]
+          },
+          {
+            "items": [
+              "zeldamod:heart_potion"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mask_block"
+    ]
+  ],
+  "rewards": {
+    "experience": 10
+  },
+  "sends_telemetry_event": true
+}

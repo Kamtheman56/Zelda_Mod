@@ -45,7 +45,7 @@ public class FireProjectile extends ThrowableProjectile {
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
-        entity.setSecondsOnFire(30);
+        entity.setSecondsOnFire(45);
         entity.hurt(damageSources().magic(),6);
         this.discard();
         this.playSound(SoundEvents.FIRECHARGE_USE);

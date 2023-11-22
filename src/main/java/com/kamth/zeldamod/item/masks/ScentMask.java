@@ -3,6 +3,7 @@ package com.kamth.zeldamod.item.masks;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -27,27 +28,32 @@ public class ScentMask extends ArmorItem {
             return;
         }
         if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.SCENT_MASK.get() && !player.isCrouching() && level.getBlockState(player.getOnPos()).is(ModTags.Blocks.SCENT) ) {
-            player.setSwimming(true);
-            player.hasPose(Pose.SWIMMING);
+
+            if (!level.isRaining()){
+                player.hasPose(Pose.SWIMMING);
+                player.setSwimming(true);
+            }
+
+
             if (level.isRaining()){
                 if(new Random().nextFloat() > .9f) {
                     player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
-player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(10, player, (p_43296_) -> {
+player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(5, player, (p_43296_) -> {
     p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
                     player.spawnAtLocation(ModItems.SUPER_MUSHROOM.get());
-                   player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),20);
+                   player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),50);
                 };
                 if(new Random().nextFloat() > .7f) {
                     player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
                     player.spawnAtLocation(Items.BROWN_MUSHROOM);
-                    player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(4, player, (p_43296_) -> {
+                    player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(2, player, (p_43296_) -> {
                         p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
-                   player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),20);
+                   player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),25);
                 }
                 if(new Random().nextFloat() > .6f) {
                     player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
                     player.spawnAtLocation(Items.RED_MUSHROOM);
-                    player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(3, player, (p_43296_) -> {
+                    player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(2, player, (p_43296_) -> {
                         p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
                     player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),20);
                 }
@@ -63,8 +69,10 @@ player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(10, player, (p_43296_) -> 
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.literal("Smells like mushrooms").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-
-    }
+        if (Screen.hasShiftDown()) {
+            components.add(Component.literal("Try digging around in the dirt when it's raining").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        } else {
+            components.add(Component.literal("Smells like mushrooms").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }}
 
 }

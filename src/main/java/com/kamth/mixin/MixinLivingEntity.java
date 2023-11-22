@@ -7,6 +7,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -25,6 +26,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -39,6 +41,14 @@ public abstract class MixinLivingEntity extends Entity {
 
     @Shadow public abstract boolean hasEffect(MobEffect pEffect);
 
+    @Shadow public abstract boolean hasItemInSlot(EquipmentSlot pSlot);
+
+    @Shadow public abstract boolean addEffect(MobEffectInstance pEffectInstance);
+
+    @Shadow public abstract boolean removeAllEffects();
+
+    @Shadow public abstract void setHealth(float pHealth);
+
     public MixinLivingEntity(EntityType<?> pEntityType, Level pLevel) {
         super(null, null);
     }
@@ -52,6 +62,19 @@ public abstract class MixinLivingEntity extends Entity {
             return 1.08F;
         }
         return state.getFriction(level, pos, entity);}
+    @ModifyVariable(method = "travel", at = @At("LOAD"), name = "d0", ordinal = 0, index = 2)//return
+    public double inject3(double value) {
+        if (this.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.ROC_FEATHER_2.get())) {
+                return 0.04;
+        }
+            if (this.getItemBySlot(EquipmentSlot.OFFHAND).is(ModItems.ROC_FEATHER_2.get())) {
+                return 0.04;
+            }
+    if (this.hasEffect(ModEffects.MINI.get())) {
+                return 0.02;
+        }
+        return value;
+    }
 
     @SuppressWarnings("InvalidInjectorMethodSignature")
     @Inject(method = "getBlockSpeedFactor", at = @At("HEAD"), cancellable = true)
@@ -60,13 +83,6 @@ public abstract class MixinLivingEntity extends Entity {
             cir.setReturnValue(.96F);}
  if (((Object)this) instanceof LivingEntity living  && living.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
         cir.setReturnValue(.97F);}}
-
-
-
-
-
-
-
 
 }
 

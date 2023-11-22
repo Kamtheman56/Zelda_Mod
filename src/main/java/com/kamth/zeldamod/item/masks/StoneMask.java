@@ -52,8 +52,6 @@ if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.STONE_MASK.get())) {
         if (stack.is(ModItems.STONE_MASK.get())){
             components.add(Component.literal("Become as plain as stone").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
-        if (stack.is(ModItems.GIBDO_MASK.get())){
-            components.add(Component.literal("Hunger immune").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-        }
+
     }
 }

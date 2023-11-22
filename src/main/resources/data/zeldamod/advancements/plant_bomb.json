@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:bomb_flower"
+    },
+    "title": "Blue Thumb",
+    "description": "Plant a Bomb Flower in your garden",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:base",
+  "criteria": {
+    "mask_block": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "zeldamod:bomb_flower",
+            "properties": {}
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mask_block"
+    ]
+  ],
+  "rewards": {
+    "experience": 10
+  },
+  "sends_telemetry_event": true
+}

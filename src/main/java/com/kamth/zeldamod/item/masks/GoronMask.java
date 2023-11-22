@@ -57,7 +57,7 @@ public void onLivingHurtEvent(LivingHurtEvent event){
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10,1,true,false));
 
         if (!player.isSprinting()){
-            player.addEffect(new MobEffectInstance(ModEffects.GORON.get(), 60,0,true,true));
+            player.addEffect(new MobEffectInstance(ModEffects.GORON.get(), 60,0,true,false));
         }
             if (player.isOnFire()){
                 player.setRemainingFireTicks(0);}
@@ -83,7 +83,7 @@ public void onLivingHurtEvent(LivingHurtEvent event){
 @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
     if (Screen.hasShiftDown()) {
-        components.add(Component.literal("Boost, stomp, and punch!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.literal("Buildup speed to boost, punch, and stomp!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
     } else {
         components.add(Component.literal("Become grounded!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 }}}

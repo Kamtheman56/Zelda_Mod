@@ -22,37 +22,38 @@ public class FeatherItem extends Item {
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int pSlotId, boolean pIsSelected) {
         if (!world.isClientSide) {
-                if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() == ModItems.ROC_FEATHER.get()) {
+                if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() instanceof  FeatherItem) {
                     ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 1, true, false));
                     entity.resetFallDistance();
                 }
-                if  (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() == ModItems.ROC_FEATHER.get() && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PEGASUS_BOOTS.get()) {
+                if  (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() instanceof  FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PEGASUS_BOOTS.get()) {
                     ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 3, true, false));
                     entity.resetFallDistance();
             }
-                if (entity instanceof Player && ((Player) entity).getMainHandItem().getItem() == ModItems.ROC_FEATHER.get() && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PEGASUS_BOOTS.get()) {
+                if (entity instanceof Player && ((Player) entity).getMainHandItem().getItem() instanceof  FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PEGASUS_BOOTS.get()) {
                     ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 3, true, false));
                     entity.resetFallDistance();
             }
-                if (entity instanceof Player && ((Player) entity).getMainHandItem().getItem() == ModItems.ROC_FEATHER.get()) {
+                if (entity instanceof Player && ((Player) entity).getMainHandItem().getItem() instanceof  FeatherItem ) {
                     ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 1, true, false));
                     entity.resetFallDistance();}
-            if (entity instanceof Player && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HEAVY_BOOTS.get()) {
-                ((Player) entity).removeEffect(new MobEffectInstance(MobEffects.JUMP, 10, 1, true, false).getEffect());
-              }
             }
         }
     @Override
 
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         Vec3 vec3 = player.getDeltaMovement();
+
 world.playSound(null,player.getX(),player.getY(),player.getZ(), SoundEvents.WOOL_FALL, SoundSource.NEUTRAL, 1F, 0.2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
-        player.setDeltaMovement(vec3.x, 0.5, vec3.z);
-        player.getCooldowns().addCooldown(this, 20);
-
-
-
+        player.setDeltaMovement(vec3.x, 0.6, vec3.z);
+        player.getCooldowns().addCooldown(this, 50);
+        if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof FeatherItem){
+        player.getItemBySlot(EquipmentSlot.MAINHAND).hurtAndBreak(2, player, (p_43296_) -> {
+            p_43296_.broadcastBreakEvent(InteractionHand.MAIN_HAND);
+        });}
+        if (player.getItemBySlot(EquipmentSlot.OFFHAND).getItem() instanceof FeatherItem){
+            player.getItemBySlot(EquipmentSlot.OFFHAND).hurtAndBreak(2, player, (p_43296_) -> {
+                p_43296_.broadcastBreakEvent(InteractionHand.OFF_HAND);
+            });}
         return super.use(world, player, hand);
 }}
-
-//Todo feather and heavy boots interaction

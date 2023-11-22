@@ -25,7 +25,7 @@ public class KamaroMask extends Goal
         public KamaroMask(Entity mob)
         {
             this.mob = (Piglin) mob;
-            this.setFlags(EnumSet.of(Flag.TARGET, Flag.LOOK));
+            this.setFlags(EnumSet.of(Flag.TARGET, Flag.JUMP));
         }
 
 

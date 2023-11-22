@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LensItem extends Item {
-    public static final List<LivingEntity> IN_SIGHT = new ArrayList<>();
+    public static final List<LivingEntity> LOOKING = new ArrayList<>();
     public LensItem(Properties pProperties) {
         super(pProperties);
     }

@@ -4,7 +4,7 @@
       "item": "zeldamod:razor_sword"
     },
     "title": "Could always be better",
-    "description": "Upgrade your Kokiri Sword to the Razor Sword",
+    "description": "Upgrade your Kokiri Sword to the Razor Sword with the help of a local Blacksmith",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
@@ -31,7 +31,7 @@
     ]
   ],
   "rewards": {
-    "experience": 3
+    "experience": 8
   },
   "sends_telemetry_event": true
 }

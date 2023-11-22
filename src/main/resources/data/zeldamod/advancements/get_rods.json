@@ -1,0 +1,52 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:fire_rod"
+    },
+    "title": "So many flavors!",
+    "description": "Acquire a Magic Rod of every type",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_arrows",
+  "criteria": {
+    "mask_block": {
+      "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "zeldamod:fire_rod"
+              ]
+            },
+            {
+              "items": [
+                "zeldamod:ice_rod"
+              ]
+            },
+            {
+              "items": [
+                "zeldamod:tornado_rod"
+              ]
+            },
+            {
+              "items": [
+                "zeldamod:sand_rod"
+              ]
+            }
+          ]
+        }
+      }
+    },
+  "requirements": [
+    [
+      "mask_block"
+    ]
+  ],
+  "rewards": {
+    "experience": 60
+  },
+  "sends_telemetry_event": true
+}

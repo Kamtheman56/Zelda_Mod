@@ -32,13 +32,7 @@ public class FierceSwordItem extends SwordItem {
     }
 
 
-@Override
-public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-    pStack.hurtAndBreak(3, pAttacker, (p_43296_) -> {
-        p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-    });
-    return true;
-}
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
@@ -48,12 +42,9 @@ public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pA
             SwordBeam projectile = new SwordBeam(pLevel,player);
             projectile.setOwner(player);
             projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
-            projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f,.7f);
+            projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f,1.8f);
             pLevel.addFreshEntity(projectile);
-            projectile.setBaseDamage(7);
-           itemstack.hurtAndBreak(6, player, (p_43296_) -> {
-                p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);});
-        }
+            projectile.setBaseDamage(7);}
         else {
             return InteractionResultHolder.pass(itemstack);
         }
@@ -62,12 +53,16 @@ public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pA
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }
 
+    public boolean isFoil(ItemStack pStack) {
+        return true;
+    }
+
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Shoots Beams").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Shoots Beams").withStyle(ChatFormatting.DARK_RED).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("Sword of a Deity").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Sword of a Deity").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         }
 
     }

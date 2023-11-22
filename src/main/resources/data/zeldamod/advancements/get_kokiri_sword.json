@@ -14,7 +14,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:base",
+  "parent": "zeldamod:get_kokiri_armor",
   "criteria": {
     "kokiri_sword": {
       "trigger": "minecraft:inventory_changed",

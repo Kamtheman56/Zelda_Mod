@@ -1,0 +1,14 @@
+{
+  "type": "zeldamod:add_item",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/igloo_chest"
+    },
+    {
+      "chance": 0.65,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "item": "zeldamod:ice_rod"
+}
