@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:razor_sword"
+  },
+  "addition": {
+    "item": "zeldamod:gold_dust"
+  },
+  "result": {
+    "item": "zeldamod:gilded_sword"
+  }
+}
