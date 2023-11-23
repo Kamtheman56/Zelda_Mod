@@ -2,6 +2,7 @@ package com.kamth.zeldamod;
 
 
 import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.block.entity.ModBlockEntities;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
@@ -53,8 +54,10 @@ public class ZeldaMod
         ModEffects.register(modEventBus);
         ModParticles.register(modEventBus);
         ModLootModifiers.register(modEventBus);
+
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
+        ModBlockEntities.register(modEventBus);
 
     }
 private void clientSetup(final FMLClientSetupEvent event){
