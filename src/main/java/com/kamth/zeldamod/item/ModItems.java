@@ -23,7 +23,7 @@ public class ModItems {
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
-            () -> new LensItem(new Item.Properties()));
+            () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
@@ -47,6 +47,14 @@ public class ModItems {
     public static final RegistryObject<Item> CLAW= ITEMS.register("claw",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> DEITY_SHARD = ITEMS.register("sword_fragment",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MASK_GOHT = ITEMS.register("mask_goht",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MASK_GYORG = ITEMS.register("mask_gyorg",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MASK_TWINMOLD = ITEMS.register("mask_twinmold",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MASK_ODOLWA = ITEMS.register("mask_odolwa",
             () -> new Item(new Item.Properties()));
 
 

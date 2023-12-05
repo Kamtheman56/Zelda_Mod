@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "zeldamod:kamaromask"
+    },
+    {
+      "item": "zeldamod:gibdomask"
+    },
+    {
+      "item": "zeldamod:garomask"
+    },
+    {
+      "item": "zeldamod:captainmask"
+    },
+    {
+      "item": "zeldamod:giantmask"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:mask_twinmold"
+  }
+}

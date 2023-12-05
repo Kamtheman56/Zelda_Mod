@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "zeldamod:postmanmask"
+    },
+    {
+      "item": "zeldamod:nightmask"
+    },
+    {
+      "item": "zeldamod:blastmask"
+    },
+    {
+      "item": "zeldamod:stonemask"
+    },
+    {
+      "item": "zeldamod:fairymask"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:mask_odolwa"
+  }
+}

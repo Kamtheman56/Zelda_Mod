@@ -26,6 +26,11 @@
   "item.zeldamod.super_leaf": "Super Leaf",
   "item.zeldamod.bomb_seeds": "Bomb Flower Seeds",
   "item.zeldamod.sword_fragment": "Deity Shard",
+  "item.zeldamod.mask_goht": "Goht's Remains",
+  "item.zeldamod.mask_odolwa": "Odolwa's Remains",
+  "item.zeldamod.mask_twinmold": "Twinmold's Remains",
+  "item.zeldamod.mask_gyorg": "Gyorg's Remains",
+
 
   "itemGroup.zeldatab": "Zelda Items",
   "itemGroup.zeldamask": "Zelda Masks",

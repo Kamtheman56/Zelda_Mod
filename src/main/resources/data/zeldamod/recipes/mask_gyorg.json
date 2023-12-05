@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "zeldamod:romanimask"
+    },
+    {
+      "item": "zeldamod:troupemask"
+    },
+    {
+      "item": "zeldamod:kafeimask"
+    },
+    {
+      "item": "zeldamod:couplemask"
+    },
+    {
+      "item": "zeldamod:truthmask"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:mask_gyorg"
+  }
+}

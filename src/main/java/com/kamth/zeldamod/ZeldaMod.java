@@ -210,6 +210,11 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.POSTMAN_MASK);
         event.accept(ModItems.HAWK_MASK);
         event.accept(ModItems.MAJORA_MASK);
+        event.accept(ModItems.MASK_ODOLWA);
+        event.accept(ModItems.MASK_GOHT);
+        event.accept(ModItems.MASK_GYORG);
+        event.accept(ModItems.MASK_TWINMOLD);
+
     }
         if (event.getTab() == ModCreativeModeTab.ZELDA_TAB.get()){
             event.accept(ModBlocks.SECRET_STONE);
