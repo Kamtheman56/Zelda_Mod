@@ -1,6 +1,8 @@
 package com.kamth.zeldamod.block.entity.renderer;
 
 import com.kamth.zeldamod.block.entity.SwordPedestalEntity;
+import com.kamth.zeldamod.item.custom.ModTags;
+import com.mojang.authlib.minecraft.client.MinecraftClient;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
@@ -24,27 +26,28 @@ public class SwordPedestalEntityRenderer implements BlockEntityRenderer<SwordPed
 
     @Override
     public void render(SwordPedestalEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
-        ItemStack sword = pBlockEntity.getWeapon();
-        if (!sword.isEmpty()) {
-            this.renderItem( pBlockEntity, sword, pPartialTick, pPoseStack, pBuffer, pPackedLight, pPackedOverlay);
+        ItemStack sword = pBlockEntity.getRenderStack();
+        ItemRenderer renderer = Minecraft.getInstance().getItemRenderer();
+        pPoseStack.pushPose();
+        if(sword.is(ModTags.Items.LEGENDARY_ITEMS));
+        pPoseStack.translate(0.0D, -0.3D, 0.0D);
+        pPoseStack.scale(1,1,1);
+        renderer.renderStatic(sword, ItemDisplayContext.FIXED, getLightLevel(pBlockEntity.getLevel(), pBlockEntity.getBlockPos()),
+                OverlayTexture.NO_OVERLAY, pPoseStack, pBuffer, pBlockEntity.getLevel(), 1);
+        pPoseStack.popPose();
         }
-    }
+
+
+
     public void renderItem(SwordPedestalEntity pBlockEntity, ItemStack sword, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
-        ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-        ItemStack itemStack = pBlockEntity.getRenderStack();
-        if (!itemStack.isEmpty()) {
-            pPoseStack.pushPose();
-            pPoseStack.translate(0.5D, 0.6D, 0.5D);
-            pPoseStack.scale(0.80F, 0.80F, 0.80F);
-            pPoseStack.mulPose(Axis.XP.rotationDegrees(0));
-            itemRenderer.renderStatic(itemStack, ItemDisplayContext.FIXED, getLightLevel(pBlockEntity.getLevel(), pBlockEntity.getBlockPos()),
-                    OverlayTexture.NO_OVERLAY, pPoseStack, pBuffer, pBlockEntity.getLevel(), 1);
-            pPoseStack.popPose();
-        }
-
-
+        ItemRenderer renderer = Minecraft.getInstance().getItemRenderer();
+        pPoseStack.pushPose();
+        if(sword.is(ModTags.Items.LEGENDARY_ITEMS));
+        pPoseStack.translate(0.0D, -0.3D, 0.0D);
+        renderer.renderStatic(sword, ItemDisplayContext.FIXED, getLightLevel(pBlockEntity.getLevel(), pBlockEntity.getBlockPos()),
+                OverlayTexture.NO_OVERLAY, pPoseStack, pBuffer, pBlockEntity.getLevel(), 1);
+        pPoseStack.popPose();
     }
-
 
 
 

@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.block.custom;
 
 import com.kamth.zeldamod.block.entity.SwordPedestalEntity;
+import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerLevel;
@@ -47,6 +48,7 @@ public class SwordPedestalBlock extends BaseEntityBlock {
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new SwordPedestalEntity(pPos, pState);
     }
+
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos,
                                  Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
@@ -54,19 +56,31 @@ public class SwordPedestalBlock extends BaseEntityBlock {
         if (!pLevel.isClientSide && te instanceof SwordPedestalEntity displayTile && pHand == pHand.MAIN_HAND) {
             ItemStack inHand = pPlayer.getItemInHand(InteractionHand.MAIN_HAND);
 
-                ItemStack inPedestal = displayTile.getRenderStack().copy();
-                inHand = pPlayer.getItemInHand(InteractionHand.MAIN_HAND);
-                ItemStack toPedestal = inHand.copy();
-                toPedestal.setCount(1);
-                displayTile.setWeapon(toPedestal);
-                inHand.shrink(1);
-                pPlayer.setItemInHand(InteractionHand.MAIN_HAND,inPedestal);
+            ItemStack inPedestal = displayTile.getRenderStack().copy();
+            inHand = pPlayer.getItemInHand(InteractionHand.MAIN_HAND);
+            ItemStack toPedestal = inHand.copy();
+            toPedestal.setCount(1);
+            displayTile.setWeapon(toPedestal);
+            inHand.shrink(1);
+            pPlayer.setItemInHand(InteractionHand.MAIN_HAND,inPedestal);
 
-                pLevel.updateNeighborsAt(pPos,this);
-                return InteractionResult.SUCCESS;
-            }
+            pLevel.updateNeighborsAt(pPos,this);
+            return InteractionResult.SUCCESS;
+        }
         return InteractionResult.PASS;
     }
-
+    private boolean isAllowed(ItemStack stack){
+        return stack.is(ModTags.Items.SWORDS);
+    }
+    @Override
+    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
+        if (pState.getBlock() != pNewState.getBlock()) {
+            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+            if (blockEntity instanceof SwordPedestalEntity) {
+                ((SwordPedestalEntity) blockEntity).drops();
+            }
+        }
+        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+    }
 
 }

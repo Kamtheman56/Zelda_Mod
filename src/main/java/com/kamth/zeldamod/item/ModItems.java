@@ -143,9 +143,9 @@ public class ModItems {
     public static final RegistryObject<Item> SAND_ROD = ITEMS.register("sand_rod",
             () -> new SandWandItem(new Item.Properties().durability(96)));
     public static final RegistryObject<Item> BOMB = ITEMS.register("bomb",
-            () -> new BombItem(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
+            () -> new BombItem(new Item.Properties().stacksTo(32).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> WATER_BOMB = ITEMS.register("water_bomb",
-            () -> new WaterBombItem(new Item.Properties().stacksTo(32).rarity(Rarity.UNCOMMON)));
+            () -> new WaterBombItem(new Item.Properties().stacksTo(16).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> BOMB_FLOWER = ITEMS.register("bomb_flower",
             () -> new BombFlowerItem(new Item.Properties().stacksTo(16).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> HERO_BOW = ITEMS.register("hero_bow",
@@ -230,22 +230,22 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     //Boots tier
     public static final RegistryObject<HeavyBoots> HEAVY_BOOTS = ITEMS.register("heavyboots",
             ()-> new HeavyBoots(ModArmorMaterials.ZELDAH, ArmorItem.Type.BOOTS,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(250)));
     public static final RegistryObject<HoverBoots> HOVER_BOOTS = ITEMS.register("hoverboots",
             ()-> new HoverBoots(ModArmorMaterials.HOVER, ArmorItem.Type.BOOTS,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(250)));
     public static final RegistryObject<PegasusBoots> PEGASUS_BOOTS = ITEMS.register("pegasusboots",
             ()-> new PegasusBoots(ModArmorMaterials.PEGASUS, ArmorItem.Type.BOOTS,
-                    new Item.Properties()));
+                    new Item.Properties().defaultDurability(195)));
     public static final RegistryObject<Flippers> FLIPPERS = ITEMS.register("flippers",
             ()-> new Flippers(ModArmorMaterials.ZoraTunic, ArmorItem.Type.BOOTS,
                     new Item.Properties().defaultDurability(195)));
     public static final RegistryObject<DragonScale> DRAGON_SCALE = ITEMS.register("scale_dragon",
             ()-> new DragonScale(ModArmorMaterials.Dragon, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().defaultDurability(195)));
+                    new Item.Properties().defaultDurability(255)));
     public static final RegistryObject<FireShield> FIRE_SHIELD = ITEMS.register("fire_shield",
             ()-> new FireShield(ModArmorMaterials.Fire, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(195)));
+                    new Item.Properties().defaultDurability(255)));
 
 
 
@@ -357,7 +357,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().defaultDurability(200)));
     public static final RegistryObject<ArmorItem> KOKIRI_BOOTS = ITEMS.register("kokiriboots",
             ()-> new ArmorItem(ModArmorMaterials.Kokiri,ArmorItem.Type.BOOTS,
-                    new Item.Properties().defaultDurability(65)));
+                    new Item.Properties().defaultDurability(180)));
     public static final RegistryObject<ArmorItem> ROC_CAPE = ITEMS.register("roc_cape",
             ()-> new RocCape(ModArmorMaterials.Roc,ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(380)));

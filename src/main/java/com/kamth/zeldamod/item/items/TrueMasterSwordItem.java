@@ -39,7 +39,7 @@ public class TrueMasterSwordItem extends SwordItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
-        if (!pLevel.isClientSide && player.isCrouching() && player.getHealth() >= 10 ) {
+        if (!pLevel.isClientSide && player.isCrouching()) {
             player.getCooldowns().addCooldown(this, 10);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 1F, 5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
             SwordBeam projectile = new SwordBeam(pLevel,player);
@@ -51,7 +51,6 @@ public class TrueMasterSwordItem extends SwordItem {
         else {
             return InteractionResultHolder.pass(itemstack);
         }
-
         player.awardStat(Stats.ITEM_USED.get(this));
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }
@@ -61,7 +60,7 @@ public class TrueMasterSwordItem extends SwordItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Shoots Beams at full health!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Shoots Beams!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         } else {
             components.add(Component.literal("The sword that").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
             components.add(Component.literal("seals the darkness ").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));

@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "X": {
-      "block": "zeldamod:nightshade"
+      "item": "zeldamod:nightshade"
     },
     "L": {
       "item": "zeldamod:kokiritunic"

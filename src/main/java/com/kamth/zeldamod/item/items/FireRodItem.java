@@ -48,7 +48,7 @@ public class FireRodItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Burn your opponents").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Burn your opponents").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         }
         super.appendHoverText(stack, level, components, flag);
     }

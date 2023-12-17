@@ -45,7 +45,7 @@ public class StaminaFruitBlock extends FlowerBlock {
     if (pEntity instanceof LivingEntity) {
         LivingEntity livingentity = (LivingEntity)pEntity;
             if ((!pEntity.isCrouching())) {
-           livingentity.addEffect(new MobEffectInstance(MobEffects.SATURATION, 6, 0));
+           livingentity.addEffect(new MobEffectInstance(MobEffects.SATURATION, 5, 0));
                 pLevel.removeBlock(pPos,false);
                 pLevel.playSound(null,pPos, ModSounds.HEAL.get(), SoundSource.BLOCKS, 1,2.5f);
             }}}

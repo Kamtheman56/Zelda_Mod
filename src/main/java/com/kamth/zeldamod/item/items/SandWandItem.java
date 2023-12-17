@@ -49,7 +49,7 @@ public class SandWandItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Summons a line of sand!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Summons a line of sand!").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
         super.appendHoverText(stack, level, components, flag);
     }

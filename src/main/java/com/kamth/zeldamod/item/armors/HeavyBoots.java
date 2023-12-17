@@ -82,9 +82,9 @@ public class HeavyBoots extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("These boots look impossible to swim with equipped!").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("These boots look impossible to swim with equipped!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("Press SHIFT for more info").withStyle(ChatFormatting.YELLOW));
+            components.add(Component.literal("Extra Heavy").withStyle(ChatFormatting.GRAY));
         }
 
         super.appendHoverText(stack, level, components, flag);

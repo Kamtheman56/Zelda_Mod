@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "minecraft:shield"
+  },
+  "addition": {
+    "item": "zeldamod:master_ore"
+  },
+  "result": {
+    "item": "zeldamod:hylian_shield"
+  }
+}

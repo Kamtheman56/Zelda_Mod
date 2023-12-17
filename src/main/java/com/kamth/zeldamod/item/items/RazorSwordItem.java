@@ -22,7 +22,7 @@ public class RazorSwordItem extends SwordItem {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return false;
+        return true;
     }
 
     @Override

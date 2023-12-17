@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "zeldamod:masters_ore",
     "zeldamod:deepslate_masters_ore"

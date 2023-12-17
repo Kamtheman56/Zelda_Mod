@@ -58,6 +58,8 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("masks");
         public static final TagKey<Item> LEGENDARY_ITEMS
                 = tag("items");
+        public static final TagKey<Item> SWORDS
+                = tag("swords");
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }

@@ -11,6 +11,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
@@ -34,28 +36,20 @@ public class SwordPedestalEntity extends BlockEntity {
         setWeapon(weapon);
     }
 
-    public ItemStack getWeapon(){
-        return weapon;
-    }
     public void setWeapon(ItemStack itemStack){
         weapon = itemStack;
-
+        this.requestModelDataUpdate();
     }
     public ItemStack getRenderStack() {
    return weapon;
     }
 
 
-    public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for(int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
-        }
-        Containers.dropContents(this.level, this.worldPosition, inventory);
-    }
+
     @Override
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory", itemHandler.serializeNBT());
+        pTag.put("weapon", itemHandler.serializeNBT());
         super.saveAdditional(pTag);
     }
     @Nullable
@@ -65,11 +59,25 @@ public class SwordPedestalEntity extends BlockEntity {
     }
 
     @Override
-    public void load(CompoundTag pTag) {
-        super.load(pTag);
-        itemHandler.deserializeNBT(pTag.getCompound("inventory"));
-
+    public void onLoad() {
+        super.onLoad();
+        lazyItemHandler = LazyOptional.of(() -> itemHandler);
     }
+
+    @Override
+    public void invalidateCaps() {
+        super.invalidateCaps();
+        lazyItemHandler.invalidate();
+    }
+    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+    public void drops() {
+        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+        for(int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        }
+        Containers.dropItemStack(this.level, this.getBlockPos().getX(), this.getBlockPos().getY(),this.getBlockPos().getZ(), this.weapon);
+    }
+
     @Override
     public CompoundTag getUpdateTag() {
         return saveWithoutMetadata();

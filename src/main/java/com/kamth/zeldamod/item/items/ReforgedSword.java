@@ -62,7 +62,7 @@ public class ReforgedSword extends SwordItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Shoots Beams at full health!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Shoots Beams...").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         } else {
             components.add(Component.literal("The sword that").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
             components.add(Component.literal("sealed the darkness ").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));

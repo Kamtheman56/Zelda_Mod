@@ -3,8 +3,10 @@ package com.kamth.zeldamod;
 
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.block.entity.ModBlockEntities;
+import com.kamth.zeldamod.block.entity.renderer.SwordPedestalEntityRenderer;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.event.ModEventBusClientEvents;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.ModItemProperties;
@@ -13,12 +15,14 @@ import com.kamth.zeldamod.particle.ModParticles;
 import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.brewing.PotionBrewEvent;
@@ -162,7 +166,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.MASTER_ORE);
         event.accept(ModItems.MASTER_ORE2);
         event.accept(ModItems.GOLD_DUST);
-        event.accept(ModItems.DEFAULT_UPGRADE);
+      //  event.accept(ModItems.DEFAULT_UPGRADE);
         event.accept(ModItems.MASTER_UPGRADE);
         event.accept(ModItems.XTENDER);
         event.accept(ModItems.CLAW);
@@ -239,6 +243,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.PRIMO_FLOWER);
             event.accept(ModBlocks.STAMINA_FRUIT);
 
+
         }
 
 
@@ -250,7 +255,6 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
         }
 
     }

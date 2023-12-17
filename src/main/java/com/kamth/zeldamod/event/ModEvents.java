@@ -99,10 +99,10 @@ public class ModEvents {
         if (!event.getLevel().isClientSide && event.getTarget() instanceof Creeper)
         {
 
-            event.getTarget().setDeltaMovement(0,1,0);
+            event.getTarget().setDeltaMovement(0,1.5f,0);
             ((Creeper) event.getTarget()).setHealth(1);
             event.getTarget().playSound(SoundEvents.FIREWORK_ROCKET_LAUNCH,1, 1.5F);
-
+((Creeper) event.getTarget()).ignite();
         }
         if (!event.getLevel().isClientSide && event.getTarget() instanceof Villager)
         {
@@ -287,8 +287,26 @@ public class ModEvents {
         }
         if(event.getType() == ModVillagers.MASK_TRADER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            ItemStack stack = new ItemStack(ModItems.KAFEI_MASK.get(), 1);
+            ItemStack stack = new ItemStack(ModItems.GERO_MASK.get(), 1);
             int villagerLevel = 1;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 6),
+                    stack,2,5,0.02F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.COUPLES_MASK.get(), 1);
+            int villagerLevel = 1;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 7),
+                    stack,2,5,0.02F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.KAFEI_MASK.get(), 1);
+            int villagerLevel = 3;
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 8),
