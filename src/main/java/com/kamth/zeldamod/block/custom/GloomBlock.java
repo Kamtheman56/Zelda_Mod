@@ -29,7 +29,7 @@ public class GloomBlock extends Block {
     public static final Map<String, Integer> healTimer = new HashMap<>();
     @Override
     public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
-        if (!pLevel.isClientSide && pLevel.getDifficulty() != Difficulty.PEACEFUL) {
+        if (!pLevel.isClientSide) {
             if (pEntity instanceof LivingEntity) {
                 LivingEntity livingentity = (LivingEntity)pEntity;
                 if (!livingentity.isInvulnerableTo(pLevel.damageSources().wither())) {
