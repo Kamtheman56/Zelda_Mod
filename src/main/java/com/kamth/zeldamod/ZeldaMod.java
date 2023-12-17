@@ -242,7 +242,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.HEART_FLOWER);
             event.accept(ModBlocks.PRIMO_FLOWER);
             event.accept(ModBlocks.STAMINA_FRUIT);
-
+            event.accept(ModBlocks.BombFlower2);
 
         }
 

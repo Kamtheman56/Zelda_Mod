@@ -76,6 +76,7 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
             () -> new BombFlowerBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
     public static final RegistryObject<Block> BOMBFLOWER_WILD = BLOCKS.register("bomb_flower_wild",
             () -> new WildBombFlowerBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.GRASS).noOcclusion().noCollission()));
+    public static final RegistryObject<Block> BombFlower2 = registerBlock("wild_bomb_flower", ()-> new WildBombFlowerBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.GRASS).noOcclusion().noCollission()));
   //  public static final RegistryObject<Block> SAND_WAND = registerBlock("sand_wand_block", ()-> new SandWandBlock(BlockBehaviour.Properties.copy(Blocks.SAND).sound(SoundType.SAND)));
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
