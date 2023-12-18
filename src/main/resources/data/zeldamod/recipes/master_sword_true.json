@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "zeldamod:courage_block"
+    },
+    {
+      "item": "zeldamod:power_block"
+    },
+    {
+      "item": "zeldamod:wisdom_block"
+    },
+    {
+      "item": "zeldamod:master_sword3"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:master_sword_true"
+  }
+}

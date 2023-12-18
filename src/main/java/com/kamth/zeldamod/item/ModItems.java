@@ -118,19 +118,29 @@ public class ModItems {
             () -> new MasterSwordItem(ModTiers.MASTER, 6, -2.4f,
                     new Item.Properties().defaultDurability(3600).rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> MASTER_SWORD_TRUE = ITEMS.register("master_sword_true",
-            () -> new TrueMasterSwordItem(ModTiers.MASTER_TRUE, 9, -2.4f,
+            () -> new TrueMasterSwordItem(ModTiers.MASTER_TRUE, 9, -2.2f,
                     new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MASTER_SWORD_REFORGED = ITEMS.register("master_sword_reforged",
-            () -> new ReforgedSword(ModTiers.MASTER_TRUE, 11, -2.4f,
+            () -> new ReforgedSword(ModTiers.MASTER_TRUE, 12, -2f,
                     new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MASTER_SWORD_INJURED = ITEMS.register("master_sword_injured",
-            () -> new InjuredSwordItem(ModTiers.MASTER, 1, -2.4f,
+            () -> new InjuredSwordItem(ModTiers.MASTER, 1, -2.5f,
                     new Item.Properties().defaultDurability(131).fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MASTER_SWORD_DAGGER = ITEMS.register("master_sword_dagger",
-            () -> new DaggerSwordItem(ModTiers.MASTER, -1, -2.4f,
-                    new Item.Properties().defaultDurability(59).rarity(Rarity.RARE)));
+            () -> new DaggerSwordItem(ModTiers.MASTER, -1, -2.5f,
+                    new Item.Properties().defaultDurability(65).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> REFORGED_MASTER = ITEMS.register("reforged_sword",
+            () -> new InjuredSwordItem(ModTiers.MASTER, 3, -2.4f,
+                    new Item.Properties().defaultDurability(680).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> REFORGED_MASTER1 = ITEMS.register("reforged_sword_1",
+            () -> new InjuredSwordItem(ModTiers.MASTER, 6, -2.3f,
+                    new Item.Properties().defaultDurability(1260).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> REFORGED_MASTER2 = ITEMS.register("reforged_sword_2",
+            () -> new InjuredSwordItem(ModTiers.MASTER, 8, -2.2f,
+                    new Item.Properties().defaultDurability(1850).rarity(Rarity.RARE)));
+
     public static final RegistryObject<Item> FIERCE_SWORD = ITEMS.register("fierce_sword",
-            () -> new FierceSwordItem(ModTiers.ZELDAU, 7, -1.4f,
+            () -> new FierceSwordItem(ModTiers.DEITY, 7, -1.4f,
                     new Item.Properties().rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
             () -> new SlingshotItem(new Item.Properties().defaultDurability(284)));

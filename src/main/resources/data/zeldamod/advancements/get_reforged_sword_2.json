@@ -1,26 +1,24 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:fiercemask"
+      "item": "zeldamod:reforged_sword_2"
     },
-    "title": "Hero of Termina",
-    "bold": true,
-    "description": "Sacrifice all masks to obtain the Fierce Deity Mask",
+    "title": "One More Lies Ahead",
+    "description": "You're on the cusp of something great",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": true
   },
-  "parent": "zeldamod:get_zora_mask",
+  "parent": "zeldamod:get_reforged_sword_1",
   "criteria": {
-    "mask_block": {
+    "master_sword_injured": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "zeldamod:fiercemask"
-
+              "zeldamod:reforged_sword_2"
             ]
           }
         ]
@@ -29,11 +27,11 @@
   },
   "requirements": [
     [
-      "mask_block"
+      "master_sword_injured"
     ]
   ],
   "rewards": {
-    "experience": 90
+    "experience": 20
   },
   "sends_telemetry_event": true
 }

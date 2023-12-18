@@ -1,26 +1,28 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:fiercemask"
+      "item": "zeldamod:water_bomb"
     },
-    "title": "Hero of Termina",
-    "bold": true,
-    "description": "Sacrifice all masks to obtain the Fierce Deity Mask",
-    "frame": "challenge",
+    "title": {
+      "text": "37,000 Leagues"
+    },
+    "description": {
+      "text": "Craft a Water Bomb from a Bomb"
+    },
+    "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
-    "hidden": true
+    "hidden": false
   },
-  "parent": "zeldamod:get_zora_mask",
+  "parent": "zeldamod:craft_bomb",
   "criteria": {
-    "mask_block": {
+    "kokiri_sword": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "zeldamod:fiercemask"
-
+              "zeldamod:water_bomb"
             ]
           }
         ]
@@ -29,11 +31,11 @@
   },
   "requirements": [
     [
-      "mask_block"
+      "kokiri_sword"
     ]
   ],
   "rewards": {
-    "experience": 90
+    "experience": 10
   },
   "sends_telemetry_event": true
 }

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "XXX",
+    "XLX",
+    "XMX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:gold_block"
+    },
+    "L": {
+      "item": "minecraft:golden_sword"
+    },
+    "M": {
+      "item": "zeldamod:master_sword_dagger"
+    }
+  },
+  "result": {
+    "item": "zeldamod:reforged_sword"
+  }
+}

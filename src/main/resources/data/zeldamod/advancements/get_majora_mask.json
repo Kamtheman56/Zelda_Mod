@@ -1,11 +1,11 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:fiercemask"
+      "item": "zeldamod:majoramask"
     },
-    "title": "Hero of Termina",
+    "title": "Scourge of Termina",
     "bold": true,
-    "description": "Sacrifice all masks to obtain the Fierce Deity Mask",
+    "description": "Uncover an ancient power",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
@@ -19,7 +19,7 @@
         "items": [
           {
             "items": [
-              "zeldamod:fiercemask"
+              "zeldamod:majoramask"
 
             ]
           }
@@ -33,7 +33,7 @@
     ]
   ],
   "rewards": {
-    "experience": 90
+    "experience": 110
   },
   "sends_telemetry_event": true
 }

@@ -58,6 +58,9 @@
   "item.zeldamod.master_sword_injured": "Injured Master Sword",
   "item.zeldamod.master_sword_dagger": "Master Dagger",
   "item.zeldamod.master_sword_reforged": "Reforged Master Sword",
+  "item.zeldamod.reforged_sword": "Improved Master Dagger",
+  "item.zeldamod.refogred_sword_1": "Iterated Sword",
+  "item.zeldamod.refogred_sword_2": "Streamlined Sword",
   "item.zeldamod.fierce_sword": "Fierce Deity Sword",
   "item.zeldamod.slingshot": "Slingshot",
   "item.zeldamod.scattershot": "Scattershot",
@@ -151,12 +154,13 @@
 
   "effect.zeldamod.deku": "Water Hopping",
   "effect.zeldamod.goron": "Goron",
+  "effect.zeldamod.gloom": "Gloom Sickness",
   "effect.zeldamod.hover": "Hover",
   "effect.zeldamod.fire": "Fire Shield Earrings",
   "effect.zeldamod.mini": "Mini",
 
   "sounds.zeldamod.leaf": "Gusts",
-  "sounds.zeldamod.heal": "Healed from heart",
+  "sounds.zeldamod.heal": "Absorbed a plant",
   "sounds.zeldamod.majora": "Majora's influence takes over",
 
   "block.zeldamod.gloom_block": "Gloom Block",
@@ -180,6 +184,7 @@
   "block.zeldamod.red_emerald_block": "Block of Red Emerald",
   "block.zeldamod.blue_emerald_block": "Block of Blue Emerald",
   "block.zeldamod.sword_pedestal": "Sword Pedestal",
+  "block.zeldamod.wild_bomb_flower": "Wild Bomb Flower",
   "Nightmask": "You don't think you should do this",
   "entity.minecraft.villager.zeldamod.mask_trader": "Mask Salesman"
 

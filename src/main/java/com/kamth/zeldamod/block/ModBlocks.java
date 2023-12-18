@@ -29,6 +29,7 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
             .strength(6f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
     public static final RegistryObject<Block> PORK_BLOCK = registerBlock("pork_block", ()-> new PorkBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(.4f).sound(SoundType.WOOL)));
     public static final RegistryObject<Block> GLOOM_BLOCK = registerBlock("gloom_block", ()-> new GloomBlock(BlockBehaviour.Properties.copy(Blocks.SCULK).strength(3f)));
+    public static final RegistryObject<Block> GLOOM_VEIN = registerBlock("gloom_vein", ()-> new SculkVeinBlock(BlockBehaviour.Properties.copy(Blocks.SCULK_VEIN).noOcclusion().dynamicShape().strength(3f)));
     public static final RegistryObject<Block> HOOK_TARGET = registerBlock("hook_target", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.COPPER)));
     public static final RegistryObject<Block> CLAW_TARGET = registerBlock("claw_target", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.COPPER)));
     public static final RegistryObject<Block> WISDOM_BLOCK = registerBlock("wisdom_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.COPPER)));

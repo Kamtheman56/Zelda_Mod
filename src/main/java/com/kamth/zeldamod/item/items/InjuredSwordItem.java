@@ -91,7 +91,7 @@ public class InjuredSwordItem extends SwordItem {
             components.add(Component.literal("It's been corrupted by Gloom...").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         } else {
             components.add(Component.literal("Former Blade").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.literal("of evil's bane").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("of Evil's Bane").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
 
     }

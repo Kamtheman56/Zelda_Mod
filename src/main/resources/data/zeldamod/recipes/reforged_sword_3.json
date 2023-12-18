@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "NXN",
+    "XLX",
+    "NMN"
+  ],
+  "key": {
+    "X": {
+      "item": "zeldamod:refined_master_ore"
+    },
+    "L": {
+      "item": "minecraft:netherite_sword"
+    },
+    "M": {
+      "item": "zeldamod:reforged_sword_2"
+    },
+    "N": {
+      "item": "minecraft:netherite_block"
+    }
+  },
+  "result": {
+    "item": "zeldamod:master_sword_reforged"
+  }
+}

@@ -20,6 +20,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class GloomBlock extends Block {
     public GloomBlock(Properties pProperties) {
@@ -32,8 +33,8 @@ public class GloomBlock extends Block {
         if (!pLevel.isClientSide) {
             if (pEntity instanceof LivingEntity) {
                 LivingEntity livingentity = (LivingEntity)pEntity;
-                if (!livingentity.isInvulnerableTo(pLevel.damageSources().wither())) {
-                    livingentity.addEffect(new MobEffectInstance(ModEffects.GLOOM.get(), 40));
+                if (!livingentity.isInvulnerableTo(pLevel.damageSources().wither()) && new Random().nextFloat() > .9f) {
+                    livingentity.addEffect(new MobEffectInstance(ModEffects.GLOOM.get(), 45));
                 }
             }
         }

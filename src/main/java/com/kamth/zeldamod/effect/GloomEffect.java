@@ -5,6 +5,8 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 
+import java.util.Random;
+
 public class GloomEffect extends MobEffect {
 
     protected GloomEffect(MobEffectCategory pCategory, int pColor) {
@@ -15,10 +17,8 @@ public class GloomEffect extends MobEffect {
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier){
         super.applyEffectTick(pLivingEntity, pAmplifier);
-        if (this == ModEffects.GLOOM.get()) {
-            if (pLivingEntity.getHealth() > 1.0F) {
+        if (this == ModEffects.GLOOM.get() &&new Random().nextFloat() > .7f) {
                 pLivingEntity.hurt(pLivingEntity.damageSources().wither(), 1.0F);
-            }
     }}
 
     @Override

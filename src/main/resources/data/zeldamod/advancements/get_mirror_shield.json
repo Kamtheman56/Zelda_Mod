@@ -1,17 +1,16 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:fiercemask"
+      "item": "zeldamod:mirror_shield"
     },
-    "title": "Hero of Termina",
-    "bold": true,
-    "description": "Sacrifice all masks to obtain the Fierce Deity Mask",
-    "frame": "challenge",
+    "title": "The Final Shield",
+    "description": "Acquire the Mirror Shield",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": true
   },
-  "parent": "zeldamod:get_zora_mask",
+  "parent": "zeldamod:get_hylian_shield",
   "criteria": {
     "mask_block": {
       "trigger": "minecraft:inventory_changed",
@@ -19,7 +18,7 @@
         "items": [
           {
             "items": [
-              "zeldamod:fiercemask"
+              "zeldamod:mirror_shield"
 
             ]
           }
@@ -33,7 +32,7 @@
     ]
   ],
   "rewards": {
-    "experience": 90
+    "experience": 40
   },
   "sends_telemetry_event": true
 }

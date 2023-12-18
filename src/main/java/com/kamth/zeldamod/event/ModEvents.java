@@ -3,6 +3,7 @@ package com.kamth.zeldamod.event;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ai.*;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.sound.ModSounds;
@@ -118,6 +119,9 @@ public class ModEvents {
     public static void HealMode(LivingHealEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.FAIRY_MASK.get()) && !event.getEntity().hasEffect(MobEffects.REGENERATION)){
             event.setAmount(event.getAmount() + 2);
+        }
+        if (event.getEntity().hasEffect(ModEffects.GLOOM.get())){
+ event.setCanceled(true);
         }
     }
 

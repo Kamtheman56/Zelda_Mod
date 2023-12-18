@@ -1,26 +1,24 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:fiercemask"
+      "item": "zeldamod:master_sword_dagger"
     },
-    "title": "Hero of Termina",
-    "bold": true,
-    "description": "Sacrifice all masks to obtain the Fierce Deity Mask",
+    "title": "The Beginning of a New Cycle",
+    "description": "Perhaps there's a way to forge a new sword?",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": true
   },
-  "parent": "zeldamod:get_zora_mask",
+  "parent": "zeldamod:get_master_sword_injured",
   "criteria": {
-    "mask_block": {
+    "master_sword_injured": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "zeldamod:fiercemask"
-
+              "zeldamod:master_sword_dagger"
             ]
           }
         ]
@@ -29,11 +27,11 @@
   },
   "requirements": [
     [
-      "mask_block"
+      "master_sword_injured"
     ]
   ],
   "rewards": {
-    "experience": 90
+    "experience": 15
   },
   "sends_telemetry_event": true
 }

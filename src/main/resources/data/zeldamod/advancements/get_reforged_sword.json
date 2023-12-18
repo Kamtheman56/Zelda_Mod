@@ -1,26 +1,24 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:fiercemask"
+      "item": "zeldamod:reforged_sword"
     },
-    "title": "Hero of Termina",
-    "bold": true,
-    "description": "Sacrifice all masks to obtain the Fierce Deity Mask",
+    "title": "The First Step of Many",
+    "description": "It can stand to be stronger",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": true
   },
-  "parent": "zeldamod:get_zora_mask",
+  "parent": "zeldamod:get_master_dagger",
   "criteria": {
-    "mask_block": {
+    "master_sword_injured": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "zeldamod:fiercemask"
-
+              "zeldamod:reforged_sword"
             ]
           }
         ]
@@ -29,11 +27,11 @@
   },
   "requirements": [
     [
-      "mask_block"
+      "master_sword_injured"
     ]
   ],
   "rewards": {
-    "experience": 90
+    "experience": 20
   },
   "sends_telemetry_event": true
 }
