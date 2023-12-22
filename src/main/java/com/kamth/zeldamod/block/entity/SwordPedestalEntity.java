@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.block.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -9,11 +10,13 @@ import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
@@ -29,19 +32,23 @@ public class SwordPedestalEntity extends BlockEntity {
     };
 
 
-    private ItemStack weapon;
+    private ItemStack sword;
     public SwordPedestalEntity( BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.SWORD_PEDESTAL_BE.get(), pPos, pBlockState);
-        this.weapon = ItemStack.EMPTY;
-        setWeapon(weapon);
-    }
-
-    public void setWeapon(ItemStack itemStack){
-        weapon = itemStack;
+        this.sword = this.getSword();
         this.requestModelDataUpdate();
     }
+    public ItemStack getSword() {
+        return itemHandler.getStackInSlot(0);
+    }
+
+    public void setSword(ItemStack stack) {
+        itemHandler.setStackInSlot(0, stack);
+        setChanged();
+        this.getUpdateTag();
+    }
     public ItemStack getRenderStack() {
-   return weapon;
+   return getSword();
     }
 
 
@@ -49,7 +56,6 @@ public class SwordPedestalEntity extends BlockEntity {
     @Override
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory", itemHandler.serializeNBT());
-        pTag.put("weapon", itemHandler.serializeNBT());
         super.saveAdditional(pTag);
     }
     @Nullable
@@ -63,7 +69,19 @@ public class SwordPedestalEntity extends BlockEntity {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
     }
+    @Override
+    public void load(CompoundTag pTag) {
+        super.load(pTag);
+        itemHandler.deserializeNBT(pTag.getCompound("inventory"));}
 
+    @Override
+    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+        if(cap == ForgeCapabilities.ITEM_HANDLER) {
+            return lazyItemHandler.cast();
+        }
+
+        return super.getCapability(cap, side);
+    }
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
@@ -75,11 +93,11 @@ public class SwordPedestalEntity extends BlockEntity {
         for(int i = 0; i < itemHandler.getSlots(); i++) {
             inventory.setItem(i, itemHandler.getStackInSlot(i));
         }
-        Containers.dropItemStack(this.level, this.getBlockPos().getX(), this.getBlockPos().getY(),this.getBlockPos().getZ(), this.weapon);
+        Containers.dropItemStack(this.level, this.getBlockPos().getX(), this.getBlockPos().getY(),this.getBlockPos().getZ(), this.getSword());
     }
-
     @Override
     public CompoundTag getUpdateTag() {
         return saveWithoutMetadata();
     }
+
 }

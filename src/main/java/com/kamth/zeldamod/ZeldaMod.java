@@ -230,6 +230,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.POWER_BLOCK);
             event.accept(ModBlocks.RED_EMERALD_BLOCK);
             event.accept(ModBlocks.BLUE_EMERALD_BLOCK);
+            event.accept(ModBlocks.SWORD_PEDESTAL);
             event.accept(ModBlocks.PORK_BLOCK);
             event.accept(ModBlocks.GLOOM_BLOCK);
             event.accept(ModBlocks.HOOK_TARGET);

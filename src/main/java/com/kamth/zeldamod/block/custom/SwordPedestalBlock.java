@@ -1,30 +1,28 @@
 package com.kamth.zeldamod.block.custom;
 
 import com.kamth.zeldamod.block.entity.SwordPedestalEntity;
-import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.gameevent.GameEventListener;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class SwordPedestalBlock extends BaseEntityBlock {
@@ -32,45 +30,65 @@ public class SwordPedestalBlock extends BaseEntityBlock {
     public static final VoxelShape SHAPE = Block.box(0,0,0, 16,2,16);
     public SwordPedestalBlock(Properties pProperties) {
         super(pProperties);
-
+        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
     }
     @Override
-    public RenderShape getRenderShape(BlockState pState) {
+    public @NotNull RenderShape getRenderShape(@NotNull BlockState pState) {
         return RenderShape.MODEL;
     }
 
-    @Nullable
     @Override
+    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
+    }
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRotation) {
+        return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
+    }
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
+    }
+    @Override @Nullable
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new SwordPedestalEntity(pPos, pState);
     }
 
+
+
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos,
-                                 Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public InteractionResult  use(BlockState pState, Level pLevel, BlockPos pPos,
+                                  Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        ItemStack stackInHand = pPlayer.getItemInHand(pHand);
         BlockEntity te = pLevel.getBlockEntity(pPos);
-        if (!pLevel.isClientSide && te instanceof SwordPedestalEntity displayTile && pHand == pHand.MAIN_HAND) {
-            ItemStack inHand = pPlayer.getItemInHand(InteractionHand.MAIN_HAND);
 
-            ItemStack inPedestal = displayTile.getRenderStack().copy();
-            inHand = pPlayer.getItemInHand(InteractionHand.MAIN_HAND);
-            ItemStack toPedestal = inHand.copy();
-            toPedestal.setCount(1);
-            displayTile.setWeapon(toPedestal);
-            inHand.shrink(1);
-            pPlayer.setItemInHand(InteractionHand.MAIN_HAND,inPedestal);
+        if (te instanceof SwordPedestalEntity)
+        {
+            SwordPedestalEntity pedestal = (SwordPedestalEntity) pLevel.getBlockEntity(pPos);
 
-            pLevel.updateNeighborsAt(pPos,this);
-            return InteractionResult.SUCCESS;
+            if (stackInHand.getItem() instanceof SwordItem && pedestal.getSword().isEmpty())
+            {
+                pedestal.setSword(stackInHand);
+                pLevel.playSound(pPlayer,pPos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
+                pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
+                pLevel.updateNeighborsAt(pPos,this);
+                return InteractionResult.SUCCESS;
+            }
+            else if (stackInHand.isEmpty() && !pedestal.getSword().isEmpty())
+            {
+                pLevel.updateNeighborsAt(pPos,this);
+                pPlayer.setItemInHand(pHand, pedestal.getSword());
+                pedestal.setSword(stackInHand);
+                pLevel.playSound(pPlayer,pPos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS);
+                return InteractionResult.SUCCESS;
+            }
         }
-        return InteractionResult.PASS;
-    }
-    private boolean isAllowed(ItemStack stack){
-        return stack.is(ModTags.Items.SWORDS);
+
+        return InteractionResult.FAIL;
     }
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
@@ -81,6 +99,10 @@ public class SwordPedestalBlock extends BaseEntityBlock {
             }
         }
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+    }
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(FACING);
     }
 
 }
