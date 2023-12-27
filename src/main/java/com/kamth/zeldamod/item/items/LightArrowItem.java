@@ -3,6 +3,7 @@ package com.kamth.zeldamod.item.items;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.custom.projectile.LightArrow;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -24,8 +25,7 @@ public class LightArrowItem extends ArrowItem {
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if (Screen.hasShiftDown()){
         components.add(Component.literal("Smite evil in style").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
-
-        }
-
+        }}
     }

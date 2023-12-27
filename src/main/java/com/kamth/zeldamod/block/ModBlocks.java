@@ -24,7 +24,7 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, ZeldaMod.MOD_ID);
-public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_stone", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).strength(16f).requiresCorrectToolForDrops()));
+public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_stone", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).strength(18f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> MASTER_ORE = registerBlock("masters_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
             .strength(6f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
     public static final RegistryObject<Block> PORK_BLOCK = registerBlock("pork_block", ()-> new PorkBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(.4f).sound(SoundType.WOOL)));
@@ -42,6 +42,7 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
 
     public static final RegistryObject<Block> MASK_BLOCK = registerBlock("mask_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> SWORD_PEDESTAL = registerBlock("sword_pedestal", ()-> new SwordPedestalBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> MASTER_SWORD_PEDESTAL = registerBlock("master_sword_pedestal", ()-> new MasterSwordPedestalBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).strength(20,14)));
     public static final RegistryObject<Block> DEKU_BLOCK = registerBlock("deku_block", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(0)));
     public static final RegistryObject<Block> DEKU_BLOCK_GOLD = registerBlock("deku_block_gold", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(0).noOcclusion()));
     public static final RegistryObject<Block> DEKU_BLOCK_BLUE = registerBlock("deku_block_blue", ()-> new BlueDekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(0).noOcclusion()));
@@ -74,10 +75,8 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
                     BlockBehaviour.Properties.of().sound(SoundType.FLOWERING_AZALEA).lightLevel((p_50755_) -> 10).noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> BOMBFLOWER = BLOCKS.register("bomb_flower",
-            () -> new BombFlowerBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
-    public static final RegistryObject<Block> BOMBFLOWER_WILD = BLOCKS.register("bomb_flower_wild",
-            () -> new WildBombFlowerBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.GRASS).noOcclusion().noCollission()));
-    public static final RegistryObject<Block> BombFlower2 = registerBlock("wild_bomb_flower", ()-> new WildBombFlowerBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.GRASS).noOcclusion().noCollission()));
+            () -> new BombFlowerBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().ignitedByLava().noCollission()));
+    public static final RegistryObject<Block> BombFlower2 = registerBlock("wild_bomb_flower", ()-> new WildBombFlowerBlock(BlockBehaviour.Properties.of().ignitedByLava().instabreak().sound(SoundType.GRASS).noOcclusion().noCollission()));
   //  public static final RegistryObject<Block> SAND_WAND = registerBlock("sand_wand_block", ()-> new SandWandBlock(BlockBehaviour.Properties.copy(Blocks.SAND).sound(SoundType.SAND)));
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

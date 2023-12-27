@@ -217,11 +217,11 @@ public class ModItems {
     public static final RegistryObject<Item> HOOKSHOT = ITEMS.register("hookshot",
             () -> new HookshotItem(new Item.Properties().defaultDurability(160)));
     public static final RegistryObject<Item> LONGSHOT = ITEMS.register("longshot",
-            () -> new HookshotItem(new Item.Properties().defaultDurability(160)));
+            () -> new HookshotItem(new Item.Properties().defaultDurability(320)));
     public static final RegistryObject<Item> CLAWSHOT = ITEMS.register("clawshot",
             () -> new ClawshotItem(new Item.Properties().defaultDurability(160)));
     public static final RegistryObject<Item> CLAWSHOT_GODDESS = ITEMS.register("clawshot_goddess",
-            () -> new ClawshotItem(new Item.Properties().defaultDurability(160)));
+            () -> new ClawshotItem(new Item.Properties().defaultDurability(320)));
     public static final RegistryObject<Item> LENS_OF_TRUTH = ITEMS.register("lens",
             () -> new LensItem(new Item.Properties()));
     public static final RegistryObject<Item> SILVER_SCALE = ITEMS.register("scale_silver",
@@ -252,10 +252,10 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().defaultDurability(195)));
     public static final RegistryObject<DragonScale> DRAGON_SCALE = ITEMS.register("scale_dragon",
             ()-> new DragonScale(ModArmorMaterials.Dragon, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().defaultDurability(255)));
+                    new Item.Properties().defaultDurability(600)));
     public static final RegistryObject<FireShield> FIRE_SHIELD = ITEMS.register("fire_shield",
             ()-> new FireShield(ModArmorMaterials.Fire, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(255)));
+                    new Item.Properties().defaultDurability(600)));
 
 
 

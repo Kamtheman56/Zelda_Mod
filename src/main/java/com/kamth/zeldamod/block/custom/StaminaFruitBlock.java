@@ -4,6 +4,7 @@ import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -11,7 +12,9 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -26,7 +29,7 @@ public class StaminaFruitBlock extends FlowerBlock {
         super(effectSupplier, pEffectDuration, pProperties);
 
     }
-    protected static final VoxelShape SHAPE2 = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 5.0D, 11.0D);
+    protected static final VoxelShape SHAPE2 = Block.box(5.1D, 0.0D, 5.1D, 11.0D, 5.1D, 11.0D);
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         Vec3 vec3 = pState.getOffset(pLevel, pPos);
@@ -49,6 +52,16 @@ public class StaminaFruitBlock extends FlowerBlock {
                 pLevel.removeBlock(pPos,false);
                 pLevel.playSound(null,pPos, ModSounds.HEAL.get(), SoundSource.BLOCKS, 1,2.5f);
             }}}
+    @Override
+    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+        BlockPos blockpos = pPos.below();
+        BlockState blockstate = pLevel.getBlockState(blockpos);
+        if (blockstate.is(BlockTags.MUSHROOM_GROW_BLOCK) || blockstate.is(Blocks.MOSS_BLOCK) || blockstate.is(Blocks.CLAY) || blockstate.is(BlockTags.BASE_STONE_OVERWORLD)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
 }

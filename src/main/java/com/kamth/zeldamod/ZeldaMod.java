@@ -11,6 +11,7 @@ import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.ModItemProperties;
 import com.kamth.zeldamod.loot.ModLootModifiers;
+import com.kamth.zeldamod.painting.ModPaintings;
 import com.kamth.zeldamod.particle.ModParticles;
 import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
@@ -58,6 +59,7 @@ public class ZeldaMod
         ModEffects.register(modEventBus);
         ModParticles.register(modEventBus);
         ModLootModifiers.register(modEventBus);
+        ModPaintings.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -104,6 +106,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.FLIPPERS);
         event.accept(ModItems.PEGASUS_BOOTS);
         event.accept(ModItems.KOKIRI_SWORD);
+        event.accept(ModItems.KOKIRI_SWORD2);
         event.accept(ModItems.RAZOR_SWORD);
         event.accept(ModItems.GILDED_SWORD);
         event.accept(ModItems.BIGGORON_KNIFE);

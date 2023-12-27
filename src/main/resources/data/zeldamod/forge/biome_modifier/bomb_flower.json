@@ -1,6 +1,13 @@
 {
   "type": "forge:add_features",
   "features": "zeldamod:bomb_flower",
-  "biomes": "#minecraft:is_overworld",
+  "biomes":  [  "stony_shore", "swamp", "snowy_slopes", "snowy_plains",
+    "snowy_beach", "windswept_gravelly_hills",
+    "grove", "windswept_hills",  "windswept_forest",
+    "plains", "meadow", "dark_forest", "savanna_plateau", "savanna", "jungle", "badlands",
+    "eroded_badlands", "desert", "wooded_badlands", "jagged_peaks", "stony_peaks",
+    "sparse_jungle",  "windswept_savanna",  "mangrove_swamp",
+    "cherry_grove"
+  ],
   "step": "underground_ores"
 }

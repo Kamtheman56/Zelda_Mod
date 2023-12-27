@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.block.custom;
 
+import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.stats.Stats;
@@ -54,6 +55,7 @@ public class WildBombFlowerBlock extends BushBlock  {
     public static void explode(Level pLevel, BlockPos pPos) {
         explode(pLevel, pPos, (LivingEntity)null);
     }
+
 
     @Deprecated //Forge: Prefer using IForgeBlock#catchFire
     private static void explode(Level pLevel, BlockPos pPos, @Nullable LivingEntity pEntity) {

@@ -1,5 +1,8 @@
 package com.kamth.zeldamod.item.armors;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -9,8 +12,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Random;
 
 public class GoronTunic extends ArmorItem {
@@ -31,10 +37,16 @@ public class GoronTunic extends ArmorItem {
                 } );
             }
     }
-
         if (player.isOnFire()){
             player.setRemainingFireTicks(0);
 
     }
+    }
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if(Screen.hasShiftDown()) {
+            components.add(Component.literal("Withstand Lava").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+        }
+        super.appendHoverText(stack, level, components, flag);
     }
 }

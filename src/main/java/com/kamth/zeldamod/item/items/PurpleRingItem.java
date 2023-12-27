@@ -38,7 +38,7 @@ public class PurpleRingItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
             components.add(Component.literal("Offers protection").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.literal("from all attacks! ").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("from all attacks").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 
     }
 

@@ -29,7 +29,5 @@ public class SuperLeafItem extends Item {
         itemstack.hurtAndBreak(1, player, (p_41288_) -> {
             p_41288_.broadcastBreakEvent(hand);
         });
-
-
         return super.use(world, player, hand);
 }}

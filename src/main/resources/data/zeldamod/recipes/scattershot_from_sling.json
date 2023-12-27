@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:slingshot"
+  },
+  "addition": {
+    "item": "minecraft:slime_block"
+  },
+  "result": {
+    "item": "zeldamod:scattershot"
+  }
+}

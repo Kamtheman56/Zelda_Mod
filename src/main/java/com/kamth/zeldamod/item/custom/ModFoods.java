@@ -7,7 +7,7 @@ import net.minecraft.world.food.FoodProperties;
 
 public class ModFoods {
 
-    public static final FoodProperties PUMPKIN_SOUP = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.5F).build();
+    public static final FoodProperties PUMPKIN_SOUP = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.5F).build();
     public static final FoodProperties STAMINA = (new FoodProperties.Builder()).nutrition(20).saturationMod(1F).build();
     public static final FoodProperties HEART = (new FoodProperties.Builder()).nutrition(0).saturationMod(0F).alwaysEat().effect(new MobEffectInstance(MobEffects.HEAL, 10, 0), 1.0F).build();
     public static final FoodProperties MILK_BOTTLE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).alwaysEat().effect(new MobEffectInstance(MobEffects.HEAL, 1, 0), 1.0F).build();

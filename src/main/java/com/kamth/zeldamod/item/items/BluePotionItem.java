@@ -1,6 +1,9 @@
 package com.kamth.zeldamod.item.items;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -12,6 +15,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class BluePotionItem extends Item {
     public BluePotionItem(Properties pProperties) {
@@ -54,7 +60,13 @@ public class BluePotionItem extends Item {
             return pStack;
         }
     }
-
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if(Screen.hasShiftDown()) {
+            components.add(Component.literal("Restores Hunger and Health").withStyle(ChatFormatting.BLUE).withStyle(ChatFormatting.ITALIC));
+        }
+        super.appendHoverText(stack, level, components, flag);
+    }
 
     public int getUseDuration(ItemStack pStack) {
         return 65;

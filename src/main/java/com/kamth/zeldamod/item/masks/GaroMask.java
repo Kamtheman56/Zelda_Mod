@@ -2,6 +2,7 @@ package com.kamth.zeldamod.item.masks;
 
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
@@ -32,13 +33,15 @@ public class GaroMask extends ArmorItem {
            player.level().addFreshEntity(pillager);
            pillager.setItemInHand(InteractionHand.MAIN_HAND, Items.CROSSBOW.getDefaultInstance());
      pillager.moveTo(player.getX()+2, player.getY() , player.getZ() +1, player.getYRot(), player.getXRot());
-           player.getCooldowns().addCooldown(ModItems.GARO_MASK.get(),350);
+           player.getCooldowns().addCooldown(ModItems.GARO_MASK.get(),500);
        }}}
 
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.literal("Attracts unwanted attention").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        if(Screen.hasShiftDown()) {
+            components.add(Component.literal("Summons Pillagers in the Badlands").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));}
+  else   components.add(Component.literal("Attracts unwanted attention").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 
     }
 

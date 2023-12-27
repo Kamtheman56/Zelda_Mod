@@ -60,6 +60,8 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("items");
         public static final TagKey<Item> SWORDS
                 = tag("swords");
+        public static final TagKey<Item> SHIELDS
+                = tag("shields");
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }

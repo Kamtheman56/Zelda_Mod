@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:shield",
+    "zeldamod:deku_shield",
+    "zeldamod:mirror_shield",
+    "zeldamod:hylian_shield"
+  ]
+}

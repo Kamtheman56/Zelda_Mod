@@ -179,13 +179,22 @@
   "block.zeldamod.wisdom_block": "Block of Wisdom",
   "block.zeldamod.mask_block": "Mask Block",
   "block.zeldamod.deku_block": "Deku Flower",
+  "block.zeldamod.deku_block_blue": "Blue Deku Flower",
   "block.zeldamod.deku_block_gold": "Golden Deku Flower",
   "block.zeldamod.stamina_fruit": "Stamina Fruit",
   "block.zeldamod.red_emerald_block": "Block of Red Emerald",
   "block.zeldamod.blue_emerald_block": "Block of Blue Emerald",
   "block.zeldamod.sword_pedestal": "Sword Pedestal",
   "block.zeldamod.wild_bomb_flower": "Wild Bomb Flower",
+  "block.zeldamod.master_sword_pedestal": "Master Sword Pedestal",
+
   "Nightmask": "You don't think you should do this",
+  "Courage": "The Pedestal radiates with Courage",
+  "Wisdom": "The Pedestal radiates with Wisdom",
+  "Power": "The Pedestal radiates with Power",
+  "Sword_Drain": "The Pedestal drains your energy...",
+  "Sword_Drain_Hint": "Try offering a pendent of power to the pedestal",
+  "death.attack.master_sword": "%1$s life force was sacrificed to the sword",
   "entity.minecraft.villager.zeldamod.mask_trader": "Mask Salesman"
 
 

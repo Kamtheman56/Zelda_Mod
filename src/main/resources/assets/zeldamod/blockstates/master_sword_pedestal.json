@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "unlocked=false": {"model": "zeldamod:block/master_sword_pedestal"},
+      "unlocked=true": {   "model": "zeldamod:block/master_sword_pedestal_activated"}
+}
+}

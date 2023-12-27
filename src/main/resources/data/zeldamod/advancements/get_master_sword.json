@@ -4,7 +4,7 @@
       "item": "zeldamod:master_sword"
     },
     "title": "The Legendary Sword",
-    "description": "Forge the Legendary Sword from the three Pearls",
+    "description": "Retrieve the Legendary Sword from pedestal using the three Pearls",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

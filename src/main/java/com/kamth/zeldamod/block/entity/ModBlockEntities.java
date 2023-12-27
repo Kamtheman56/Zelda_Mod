@@ -16,6 +16,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("sword_pedestal_be", () ->
                     BlockEntityType.Builder.of(SwordPedestalEntity::new,
                             ModBlocks.SWORD_PEDESTAL.get()).build(null));
+    public static final RegistryObject<BlockEntityType<MasterSwordPedestalEntity>> MASTER_SWORD_PEDESTAL_BE =
+            BLOCK_ENTITIES.register("master_sword_pedestal_be", () ->
+                    BlockEntityType.Builder.of(MasterSwordPedestalEntity::new,
+                            ModBlocks.MASTER_SWORD_PEDESTAL.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

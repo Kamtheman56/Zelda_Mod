@@ -35,8 +35,11 @@ public HammerItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModif
     builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", (double)pAttackSpeedModifier, AttributeModifier.Operation.ADDITION));
     this.defaultModifiers = builder.build();
 }
-    public float getDamage() {
-        return this.attackDamage;
+    public float getDamage() {return this.attackDamage;
+    }
+    public  boolean canDisableShield(ItemStack stack, ItemStack shield, LivingEntity entity, LivingEntity attacker)
+    {
+        return this instanceof HammerItem;
     }
 
     public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {

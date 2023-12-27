@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "features": "zeldamod:stamina_fruit",
+  "biomes": [
+    "minecraft:lush_caves"
+  ],
+
+  "step": "vegetal_decoration"
+}

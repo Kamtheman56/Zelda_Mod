@@ -47,7 +47,7 @@ public class LightningArrow extends AbstractArrow {
         Entity entity = pResult.getEntity();
             if (this.level() instanceof ServerLevel) {
                 BlockPos blockpos = entity.blockPosition();
-                if (this.level().canSeeSky(blockpos)) {
+                if (this.level().canSeeSky(blockpos) && this.level().isRaining()) {
                     LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
                     lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
                     this.level().addFreshEntity(lightningbolt);
@@ -74,7 +74,7 @@ public class LightningArrow extends AbstractArrow {
 }
 @Override
 protected SoundEvent getDefaultHitGroundSoundEvent() {
-    return SoundEvents.LIGHTNING_BOLT_THUNDER;
+    return SoundEvents.ARROW_HIT;
 }
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {

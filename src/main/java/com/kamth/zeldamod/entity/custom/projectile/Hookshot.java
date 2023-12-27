@@ -51,9 +51,10 @@ public class Hookshot extends AbstractArrow {
 
     public Hookshot(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-     //   this.pickup = AbstractArrow.Pickup.ALLOWED;
+
     }
 
+    //Credits to SuperWorldSun for the code on this! It's heavily based on his!
 
     public Hookshot(EntityType<? extends AbstractArrow> pEntityType, LivingEntity pShooter, Level pLevel) {
         super(pEntityType, pShooter, pLevel);
@@ -61,7 +62,7 @@ public class Hookshot extends AbstractArrow {
 
     public Hookshot(Level world, Player user) {
         super(ModEntityTypes.HOOKSHOT.get(), user, world);
-      //  this.pickup = AbstractArrow.Pickup.ALLOWED;
+
         this.setOwner(user);
     }
     @Override
@@ -92,13 +93,13 @@ public class Hookshot extends AbstractArrow {
         if (getOwner() instanceof Player) {
             owner = (Player) getOwner();
 
-            if (isPulling && tickCount % 4 == 0) { //This is the sound that sounds when the hook is moving you.
+            if (isPulling && tickCount % 4 == 0) {
                 BlockPos currentPos = this.owner.blockPosition();
                 this.level().playSound(null, currentPos.getX(), currentPos.getY(), currentPos.getZ(), SoundEvents.CHAIN_HIT, SoundSource.PLAYERS, .5f, 1.0f);
 
             }
             if (!level().isClientSide) {
-                if (this.hookedEntity != null) { //In case the mob you are hooked to dies while you go towards it ..
+                if (this.hookedEntity != null) {
                     if (isAlive()) {
                         this.hookedEntity = null;
                         onRemovedFromWorld();
@@ -107,7 +108,7 @@ public class Hookshot extends AbstractArrow {
                     }
                 }
 
-                if (owner != null) { //Reasons to remove the hook.
+                if (owner != null) {
                     if (owner.isDeadOrDying() || this.tickCount == 50 ||
                             !(owner.getMainHandItem().getItem() instanceof HookshotItem ||
                                     owner.getOffhandItem().getItem() instanceof HookshotItem)){
@@ -164,23 +165,15 @@ public class Hookshot extends AbstractArrow {
                             if(tickCount > 50){
                             this.discard();
                               // kill();
-
-                            }
-                        }
+                                 }}
                         //Makes you off the hook early if block.
                         if(hookedEntity == null) {
                             motion = owner.getDeltaMovement();
                             if (distance.length() > prevDistance && prevDistance < 1){
                                 kill();
-
                             } else if (new Vector3d(distance.x, 0, distance.z).length() < 0.3D) {
-                               kill();
-
-
-                            }
-                        }
+                               kill();}}
                         prevDistance = distance.length();
-
                         //Take the entity if it is an item and check that it is in your inventory to kill the hook.
                        if(hookedEntity instanceof ItemEntity){
                             if(owner.getInventory().add(((ItemEntity) hookedEntity).getItem())) {
@@ -249,9 +242,7 @@ protected SoundEvent getDefaultHitGroundSoundEvent() {
     @Override
     public void onAddedToWorld() {
         super.onAddedToWorld();
-        setBaseDamage(BASE_DAMAGE);
-
-    }
+        setBaseDamage(BASE_DAMAGE);}
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
@@ -270,15 +261,6 @@ protected SoundEvent getDefaultHitGroundSoundEvent() {
         pCompound.putBoolean("Pulling", this.isPulling);
     }
 
-   // public  void onPlayerTick(TickEvent.PlayerTickEvent event){
- //       Player player = event.player;
-   //     if(this.getOwner() == player) {
-    //        if (this.isPulling) {
-     //           player.setPose(Pose.SWIMMING);
-      //          player.setSwimming(true);
-     //       }
-  //      }
- //   }
 
 
     @Override

@@ -2,6 +2,9 @@ package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.ModTags;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -9,14 +12,13 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.ArrowItem;
-import net.minecraft.world.item.BowItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.function.Predicate;
 
 public class HeroBowItem extends BowItem {
@@ -99,5 +101,12 @@ public class HeroBowItem extends BowItem {
                 }
             }
         }
+    }
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if(Screen.hasShiftDown()) {
+            components.add(Component.literal("Shoots specialized arrows").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+        }
+        super.appendHoverText(stack, level, components, flag);
     }
 }

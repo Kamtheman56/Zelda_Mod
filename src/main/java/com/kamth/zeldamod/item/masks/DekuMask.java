@@ -70,7 +70,7 @@ public class DekuMask extends ArmorItem {
             player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.JUMP, 10, 2, true, false));
         }
         {
-            //Simulate the jumping flowers from MM. Replace with modded flower later
+
             Level level = world;
             if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.DEKU)) {
                 if (player.isCrouching()) {
