@@ -68,6 +68,7 @@ public class FairyMask extends Goal
             this.mob.getLookControl().setLookAt(this.player, (float) (this.mob.getMaxHeadYRot() + 20), (float) this.mob.getMaxHeadXRot());
                 this.mob.getNavigation().moveTo(this.player, this.speedModifier);
 
+
         }
 
     }

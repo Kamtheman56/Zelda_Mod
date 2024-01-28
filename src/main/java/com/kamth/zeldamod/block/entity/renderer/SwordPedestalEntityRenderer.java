@@ -30,17 +30,7 @@ public class SwordPedestalEntityRenderer implements BlockEntityRenderer<SwordPed
   }
 
 
-    public void render1(SwordPedestalEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
-        ItemStack sword = pBlockEntity.getRenderStack();
-       System.out.println("Rendering");
-       ItemRenderer renderer = Minecraft.getInstance().getItemRenderer();
-       pPoseStack.pushPose();
-            pPoseStack.translate(0.0D, -0.3D, 0.0D);
-            pPoseStack.scale(1,1,1);
-            renderer.renderStatic(sword, ItemDisplayContext.FIXED, getLightLevel(pBlockEntity.getLevel(), pBlockEntity.getBlockPos()),
-                    OverlayTexture.NO_OVERLAY, pPoseStack, pBuffer, pBlockEntity.getLevel(), 1);
-            pPoseStack.popPose();
-     }
+
 
     @Override
     public void render (SwordPedestalEntity te, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
@@ -49,15 +39,6 @@ public class SwordPedestalEntityRenderer implements BlockEntityRenderer<SwordPed
         {
             this.renderItem2(te, sword, pPartialTick, pPoseStack, pBuffer, pPackedLight, pPackedOverlay);
         }
-    }
-    public void renderItem(SwordPedestalEntity pBlockEntity, ItemStack sword, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
-        ItemRenderer renderer = Minecraft.getInstance().getItemRenderer();
-        pPoseStack.pushPose();
-        if(sword.is(ModTags.Items.LEGENDARY_ITEMS));
-        pPoseStack.translate(0.0D, -0.3D, 0.0D);
-        renderer.renderStatic(sword, ItemDisplayContext.FIXED, getLightLevel(pBlockEntity.getLevel(), pBlockEntity.getBlockPos()),
-                OverlayTexture.NO_OVERLAY, pPoseStack, pBuffer, pBlockEntity.getLevel(), 1);
-        pPoseStack.popPose();
     }
 
     private void renderItem2(SwordPedestalEntity te, ItemStack sword, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {

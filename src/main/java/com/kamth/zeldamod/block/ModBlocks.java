@@ -42,10 +42,14 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
 
     public static final RegistryObject<Block> MASK_BLOCK = registerBlock("mask_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> SWORD_PEDESTAL = registerBlock("sword_pedestal", ()-> new SwordPedestalBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> MASTER_SWORD_PEDESTAL = registerBlock("master_sword_pedestal", ()-> new MasterSwordPedestalBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).strength(20,14)));
+    public static final RegistryObject<Block> MASTER_SWORD_PEDESTAL = registerBlock("master_sword_pedestal", ()-> new MasterSwordPedestalBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK)));
+    public static final RegistryObject<Block> UNLOCKED_SWORD_PEDESTAL = registerBlock("unlocked_sword_pedestal", ()-> new UnlockedSwordPedestalBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> DEKU_BLOCK = registerBlock("deku_block", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(0)));
     public static final RegistryObject<Block> DEKU_BLOCK_GOLD = registerBlock("deku_block_gold", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(0).noOcclusion()));
     public static final RegistryObject<Block> DEKU_BLOCK_BLUE = registerBlock("deku_block_blue", ()-> new BlueDekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(0).noOcclusion()));
+    public static final RegistryObject<Block> COURAGE_FLAME = registerBlock("courage_flame", ()-> new WisdomFlameBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0).noCollission().noLootTable()) );
+    public static final RegistryObject<Block> POWER_FLAME = registerBlock("power_flame", ()-> new WisdomFlameBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0).noCollission().noLootTable()));
+    public static final RegistryObject<Block> WISDOM_FLAME = registerBlock("wisdom_flame", ()-> new WisdomFlameBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0).noCollission().randomTicks().noLootTable()));
     public static final RegistryObject<Block> NIGHTSHADE = registerBlock("nightshade",
             () -> new FlowerBlock(() -> MobEffects.DAMAGE_RESISTANCE, 5,
                     BlockBehaviour.Properties.copy(Blocks.ALLIUM).noOcclusion().lightLevel((p_50755_) -> 3).noCollission()));

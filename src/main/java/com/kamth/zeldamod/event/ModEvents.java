@@ -15,12 +15,15 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.Pig;
+import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.monster.Creeper;
@@ -36,6 +39,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ComputeFovModifierEvent;
@@ -56,11 +60,9 @@ public class ModEvents {
     boolean isPulling = false;
 
     @SubscribeEvent
-    public static void onPlayerEntityInteract(PlayerInteractEvent.EntityInteract event)
-    {
-        if( !event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ROMANI_MASK.get()) {
-            if (event.getTarget() instanceof Cow)
-            {
+    public static void onPlayerEntityInteract(PlayerInteractEvent.EntityInteract event) {
+        if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ROMANI_MASK.get()) {
+            if (event.getTarget() instanceof Cow) {
                 ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
                 if (itemstack.is(Items.GLASS_BOTTLE)) {
                     itemstack.shrink(1);
@@ -68,60 +70,102 @@ public class ModEvents {
                     event.getTarget().playSound(SoundEvents.COW_MILK, 1, 1.8f);
                     event.getEntity().getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(4, event.getEntity(), ((p_43296_) ->
                             p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD)));
+                } else if (itemstack.is(Items.AIR)) {
+                    event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Knowing you're a friend to all cows, I'll show you how to put my milk into a bottle."));
                 }
-            else if (itemstack.is(Items.AIR)){event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Knowing you're a friend to all cows, I'll show you how to put my milk into a bottle."));}
-            }}
-        if( event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GERO_MASK.get()) {
-            if (event.getTarget() instanceof Frog){
+            }
+        }
+        if (event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GERO_MASK.get()) {
+            if (event.getTarget() instanceof Frog) {
+                event.getEntity().rideTick();
                 event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Please bring me to some magma cubes!"));
-                    event.getTarget().playSound(SoundEvents.FROG_AMBIENT, 1, 2.6f);}}
-        if(!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && !event.getEntity().getAbilities().instabuild &&  event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.COUPLES_MASK.get()) {
-            if (event.getTarget() instanceof LivingEntity)
-            {
+                event.getTarget().playSound(SoundEvents.FROG_AMBIENT, 1, 2.6f);
+            }
+        }
+        if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && !event.getEntity().getAbilities().instabuild && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.COUPLES_MASK.get()) {
+            if (event.getTarget() instanceof LivingEntity) {
                 event.getEntity().hurt(event.getEntity().damageSources().magic(), 2);
                 event.getTarget().playSound(ModSounds.HEAL.get(), 1, 1f);
                 ((LivingEntity) event.getTarget()).heal(2);
-            }}
-        if(event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.COUPLES_MASK.get()) {
-            if (event.getTarget() instanceof LivingEntity)
-            {
-                event.getLevel().addParticle(ParticleTypes.HEART, true, event.getTarget().getX() +0, event.getTarget().getY() +.6, event.getTarget().getZ() +0, 0, 0, 0);
-            }}
+            }
+        }
+        if (event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.COUPLES_MASK.get()) {
+            if (event.getTarget() instanceof LivingEntity) {
+                event.getLevel().addParticle(ParticleTypes.HEART, true, event.getTarget().getX() + 0, event.getTarget().getY() + .6, event.getTarget().getZ() + 0, 0, 0, 0);
+            }
+        }
         //This is how to obtain the Magic Boomerang
-        if(!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && !event.getEntity().getAbilities().instabuild &&  event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.BOOMERANG.get()) {
-            if (event.getTarget() instanceof Allay)
-            {
+        if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && !event.getEntity().getAbilities().instabuild && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.BOOMERANG.get()) {
+            if (event.getTarget() instanceof Allay) {
                 event.getEntity().getUseItem().shrink(1);
                 event.getTarget().discard();
                 event.getTarget().spawnAtLocation(ModItems.MAGIC_BOOMERANG.get());
                 event.getTarget().playSound(SoundEvents.ALLAY_AMBIENT_WITH_ITEM, 1, 2);
+            }
+        }
+//Obtain Masks
+        if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.GOLDEN_APPLE) {
+            if (event.getTarget() instanceof Cow) {
+                ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
+                itemstack.shrink(1);
+                event.getTarget().spawnAtLocation(ModItems.ROMANI_MASK.get());
+                event.getTarget().playSound(SoundEvents.COW_AMBIENT, 1, 1.9f);
+                event.getTarget().playSound(SoundEvents.HORSE_EAT, 1, 1.9f);
+                ((Cow) event.getTarget()).addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 80));
             }}
-
-        //These are the Majoras Mask Effects
-        if( !event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get())  {
-            if (event.getTarget() instanceof Pig)
-            {
+        if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.GOLDEN_APPLE) {
+            if (event.getTarget() instanceof Allay && event.getEntity().isCrouching()) {
+                ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
+                itemstack.shrink(1);
+                event.getTarget().spawnAtLocation(ModItems.FAIRY_MASK.get());
+                event.getTarget().playSound(SoundEvents.ALLAY_AMBIENT_WITH_ITEM, 1, 1.4f);
+                event.getTarget().playSound(SoundEvents.HORSE_EAT, 1, 1.9f);
                 event.getTarget().discard();
-                event.getTarget().playSound(SoundEvents.PIG_HURT,1, -4);
-                event.getTarget().playSound(SoundEvents.AMBIENT_CAVE.get(),1.2f, 0);
-                event.getTarget().spawnAtLocation(ModBlocks.PORK_BLOCK.get());}
+            }}
+        if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.GOLDEN_CARROT) {
+            if (event.getTarget() instanceof Rabbit && ((Rabbit) event.getTarget()).hasEffect(MobEffects.MOVEMENT_SPEED)) {
+                ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
+                itemstack.shrink(1);
+                event.getTarget().spawnAtLocation(ModItems.BUNNY_MASK.get());
+                event.getTarget().playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1, 1.4f);
+                event.getTarget().playSound(SoundEvents.HORSE_EAT, 1, 1.2f);
+                event.getTarget().discard();
+            }}
+            if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.GOAT_HORN) {
+                if (event.getTarget() instanceof Husk && ((Husk) event.getTarget()).hasEffect(MobEffects.WEAKNESS)) {
+                    ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
+                    itemstack.shrink(1);
+                    event.getTarget().spawnAtLocation(ModItems.GIBDO_MASK.get());
+                    event.getTarget().playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1, 1.4f);
+                    event.getTarget().playSound(SoundEvents.GOAT_HORN_PLAY, 1, 1.2f);
+                    event.getTarget().discard();
+                }}
 
-        if (!event.getLevel().isClientSide && event.getTarget() instanceof Creeper)
-        {
+            //These are the Majoras Mask Effects
+            if (!event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get()) {
+                if (event.getTarget() instanceof Pig) {
+                    event.getTarget().discard();
+                    event.getTarget().playSound(SoundEvents.PIG_HURT, 1, -4);
+                    event.getTarget().playSound(SoundEvents.AMBIENT_CAVE.get(), 1.2f, 0);
+                    event.getTarget().spawnAtLocation(ModBlocks.PORK_BLOCK.get());
+                }
 
-            event.getTarget().setDeltaMovement(0,1.5f,0);
-            ((Creeper) event.getTarget()).setHealth(1);
-            event.getTarget().playSound(SoundEvents.FIREWORK_ROCKET_LAUNCH,1, 1.5F);
-((Creeper) event.getTarget()).ignite();
-        }
-        if (!event.getLevel().isClientSide && event.getTarget() instanceof Villager)
-        {
-           ((Villager) event.getTarget()).setBaby(true);
-            event.getTarget().playSound(SoundEvents.AMBIENT_CAVE.get(),1.2f, 1.2f);
-        }
-        }
-    }
+                if (!event.getLevel().isClientSide && event.getTarget() instanceof Creeper) {
+                    event.getTarget().setDeltaMovement(0, 1.5f, 0);
+                    ((Creeper) event.getTarget()).setHealth(1);
+                    event.getTarget().playSound(SoundEvents.FIREWORK_ROCKET_LAUNCH, 1, 1.5F);
+                    ((Creeper) event.getTarget()).ignite();
+                }
+                if (!event.getLevel().isClientSide && event.getTarget() instanceof Rabbit) {
+                    event.getTarget().discard();
+                    event.getTarget().playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1.4f, 1.5F);
 
+                }
+                if (!event.getLevel().isClientSide && event.getTarget() instanceof Villager) {
+                    ((Villager) event.getTarget()).setBaby(true);
+                    event.getTarget().playSound(SoundEvents.AMBIENT_CAVE.get(), 1.2f, 1.2f);}
+            else event.getTarget().setSecondsOnFire(400);
+            }}
 
 
     @SubscribeEvent
@@ -215,7 +259,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 4),
-                    stack,3,1,0.02F));
+                    stack,3,6,0.02F));
         }
         if(event.getType() == VillagerProfession.WEAPONSMITH) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -224,7 +268,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 15), new ItemStack(ModItems.KOKIRI_SWORD.get()),
-                    stack,2,3,0.02F));
+                    stack,2,30,0.02F));
         }
         if(event.getType() == VillagerProfession.WEAPONSMITH) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -233,7 +277,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(ModItems.RAZOR_SWORD.get(), 1), new ItemStack(ModItems.GOLD_DUST.get()),
-                    stack,2,5,0.02F));
+                    stack,2,65,0.02F));
         }
         if(event.getType() == VillagerProfession.FLETCHER) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -242,16 +286,16 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 8),
-                    stack,4,5,0.02F));
+                    stack,5,18,0.02F));
         }
         if(event.getType() == VillagerProfession.FLETCHER) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             ItemStack stack = new ItemStack(ModItems.ICE_ARROW.get(), 5);
-            int villagerLevel = 3;
+            int villagerLevel = 4;
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 8),
-                    stack,5,5,0.04F));
+                    stack,5,38,0.04F));
         }
         if(event.getType() == VillagerProfession.FLETCHER) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -260,7 +304,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 24),
-                    stack,2,5,0.03F));
+                    stack,2,60,0.03F));
         }
         if(event.getType() == VillagerProfession.FLETCHER) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -269,7 +313,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 24),
-                    stack,3,5,0.08F));
+                    stack,3,18,0.08F));
         }
         if(event.getType() == VillagerProfession.FLETCHER) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -277,8 +321,8 @@ public class ModEvents {
             int villagerLevel = 2;
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 5),
-                    stack,3,5,0.02F));
+                    new ItemStack(Items.EMERALD, 6),
+                    stack,3,18,0.02F));
         }
         if(event.getType() == VillagerProfession.ARMORER) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -287,8 +331,10 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 6),
-                    stack,8,5,0.02F));
+                    stack,8,2,0.02F));
         }
+
+        //Mask Trader Trades
         if(event.getType() == ModVillagers.MASK_TRADER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             ItemStack stack = new ItemStack(ModItems.KEATON_MASK.get(), 1);
@@ -296,7 +342,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 6),
-                    stack,2,5,0.02F));
+                    stack,2,6,0.02F));
         }
         if(event.getType() == ModVillagers.MASK_TRADER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -305,25 +351,142 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 6),
+                    stack,2,6,0.02F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.GERUDO_MASK.get(), 1);
+            int villagerLevel = 1;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 6),
                     stack,2,5,0.02F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.SPOOKY_MASK.get(), 1);
+            int villagerLevel = 1;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 4),
+                    stack,2,4,0.02F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.SKULL_MASK.get(), 1);
+            int villagerLevel = 1;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 6),
+                    stack,2,6,0.02F));
         }
         if(event.getType() == ModVillagers.MASK_TRADER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             ItemStack stack = new ItemStack(ModItems.COUPLES_MASK.get(), 1);
-            int villagerLevel = 1;
+            int villagerLevel = 2;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 8),
+                    stack,2,35,0.02F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.KAMARO_MASK.get(), 1);
+            int villagerLevel = 2;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 6),
+                    stack,2,35,0.05F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.SCENT_MASK.get(), 1);
+            int villagerLevel = 2;
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 7),
-                    stack,2,5,0.02F));
+                    stack,2,35,0.02F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.TROUPE_MASK.get(), 1);
+            int villagerLevel = 2;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 3),
+                    stack,2,35,0.02F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.BLAST_MASK.get(), 1);
+            int villagerLevel = 3;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 14),
+                    stack,2,75,0.02F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.BREMEN_MASK.get(), 1);
+            int villagerLevel = 3;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 14),
+                    stack,2,75,0.02F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.BUNNY_MASK.get(), 1);
+            int villagerLevel = 3;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 20),
+                    stack,2,75,0.04F));
         }
         if(event.getType() == ModVillagers.MASK_TRADER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             ItemStack stack = new ItemStack(ModItems.KAFEI_MASK.get(), 1);
+            int villagerLevel = 4;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 18),
+                    stack,1,125,0.03F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.TRUTH_MASK.get(), 1);
+            int villagerLevel = 4;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 18),
+                    stack,1,125,0.03F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.DEKU_MASK.get(), 1);
+            int villagerLevel = 4;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 20),
+                    stack,1,125,0.06F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.GORON_MASK.get(), 1);
             int villagerLevel = 5;
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 8),
-                    stack,2,6,0.03F));
+                    new ItemStack(Items.EMERALD, 22),
+                    stack,1,250,0.06F));
+        }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.ZORA_MASK.get(), 1);
+            int villagerLevel = 5;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 28),
+                    stack,1,250,0.07F));
         }
 //make more trades dude
 

@@ -1,0 +1,90 @@
+{
+  "multipart": [
+    {
+      "apply": [
+        {
+          "model": "zeldamod:block/wisdom_fire_floor0"
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_floor1"
+        }
+      ]
+    },
+    {
+      "apply": [
+        {
+          "model": "zeldamod:block/wisdom_fire_side0"
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_side1"
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_side_alt0"
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_side_alt1"
+        }
+      ]
+    },
+    {
+      "apply": [
+        {
+          "model": "zeldamod:block/wisdom_fire_side0",
+          "y": 90
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_side1",
+          "y": 90
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_side_alt0",
+          "y": 90
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_side_alt1",
+          "y": 90
+        }
+      ]
+    },
+    {
+      "apply": [
+        {
+          "model": "zeldamod:block/wisdom_fire_side0",
+          "y": 180
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_side1",
+          "y": 180
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_side_alt0",
+          "y": 180
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_side_alt1",
+          "y": 180
+        }
+      ]
+    },
+    {
+      "apply": [
+        {
+          "model": "zeldamod:block/wisdom_fire_side0",
+          "y": 270
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_side1",
+          "y": 270
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_side_alt0",
+          "y": 270
+        },
+        {
+          "model": "zeldamod:block/wisdom_fire_side_alt1",
+          "y": 270
+        }
+      ]
+    }
+  ]
+}

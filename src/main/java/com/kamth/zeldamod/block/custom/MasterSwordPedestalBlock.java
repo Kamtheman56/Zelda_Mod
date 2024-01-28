@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.block.custom;
 
+import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.block.entity.MasterSwordPedestalEntity;
 import com.kamth.zeldamod.block.entity.SwordPedestalEntity;
 import com.kamth.zeldamod.item.ModItems;
@@ -118,6 +119,8 @@ public class MasterSwordPedestalBlock extends BaseEntityBlock {
                     && !pState.getValue(unlocked)) {
                 pLevel.playSound(pPlayer,pPos, SoundEvents.BEACON_ACTIVATE,SoundSource.BLOCKS);
                 pLevel.setBlock(pPos, pState.cycle(unlocked),3);
+
+               pLevel.setBlockAndUpdate(pPos, ModBlocks.SWORD_PEDESTAL.get().defaultBlockState());
                 return InteractionResult.SUCCESS;
             }
            if (stackInHand.isEmpty() && pState.getValue(unlocked)&& !pedestal.getSword().isEmpty()|| pPlayer.getAbilities().instabuild)

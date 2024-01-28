@@ -135,6 +135,9 @@
   "item.zeldamod.kamaromask": "Kamaro Mask",
   "item.zeldamod.garomask": "Garo Mask",
   "item.zeldamod.postmanmask": "Postman's Hat",
+  "item.zeldamod.spookymask": "Spooky Mask",
+  "item.zeldamod.skullmask": "Skull Mask",
+  "item.zeldamod.gerudomask": "Gerudo Mask",
   "item.zeldamod.kokiritunic": "Kokiri Tunic",
   "item.zeldamod.zoratunic": "Zora Tunic",
   "item.zeldamod.gorontunic": "Goron Tunic",
@@ -187,6 +190,7 @@
   "block.zeldamod.sword_pedestal": "Sword Pedestal",
   "block.zeldamod.wild_bomb_flower": "Wild Bomb Flower",
   "block.zeldamod.master_sword_pedestal": "Master Sword Pedestal",
+  "block.zeldamod.unlocked_sword_pedestal": "Unlocked Master Sword Pedestal",
 
   "Nightmask": "You don't think you should do this",
   "Courage": "The Pedestal radiates with Courage",

@@ -4,6 +4,7 @@ import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.entity.ModBlockEntities;
 import com.kamth.zeldamod.block.entity.renderer.MasterSwordPedestalEntityRenderer;
 import com.kamth.zeldamod.block.entity.renderer.SwordPedestalEntityRenderer;
+import com.kamth.zeldamod.block.entity.renderer.UnlockedSwordPedestalEntityRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -15,5 +16,8 @@ public class ModEventBusClientEvents {
     public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.SWORD_PEDESTAL_BE.get(), SwordPedestalEntityRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.MASTER_SWORD_PEDESTAL_BE.get(), MasterSwordPedestalEntityRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.UNLOCKED_SWORD_PEDESTAL_BE.get(), UnlockedSwordPedestalEntityRenderer::new);
+
+
     }
 }

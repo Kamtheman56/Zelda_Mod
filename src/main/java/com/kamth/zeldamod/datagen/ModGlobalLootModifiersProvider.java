@@ -2,6 +2,7 @@ package com.kamth.zeldamod.datagen;
 
 
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.loot.AddItemModifier;
 import com.kamth.zeldamod.loot.AddSusSandItemModifier;
@@ -24,13 +25,13 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         //items from entities
         add("bomb_from_creeper", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/creeper")).build(),
-                LootItemRandomChanceCondition.randomChance(0.25f).build()}, ModItems.BOMB.get()));
+                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ModItems.BOMB.get()));
         add("roc_feather_from_chicken", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/chicken")).build(),
                 LootItemRandomChanceCondition.randomChance(0.05f).build()}, ModItems.ROC_FEATHER.get()));
         add("bunny_hood_from_rabbit", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/rabbit")).build(),
-                LootItemRandomChanceCondition.randomChance(0.05f).build()}, ModItems.BUNNY_MASK.get()));
+                LootItemRandomChanceCondition.randomChance(0.01f).build()}, ModItems.BUNNY_MASK.get()));
         add("garo_from_pillager", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/pillager")).build(),
                 LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.GARO_MASK.get()));
@@ -45,19 +46,19 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.XTENDER.get()));
         add("fire_arrow_from_skeleton", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/skeleton")).build(),
-                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ModItems.FIRE_ARROW.get()));
+                LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.FIRE_ARROW.get()));
         add("ice_arrow_from_skeleton", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/skeleton")).build(),
-                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ModItems.ICE_ARROW.get()));
+                LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.ICE_ARROW.get()));
         add("lightning_arrow_from_skeleton", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/skeleton")).build(),
-                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ModItems.FIRE_ARROW.get()));
+                LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.FIRE_ARROW.get()));
         add("fire_arrow_from_wither_skeleton", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/wither_skeleton")).build(),
-                LootItemRandomChanceCondition.randomChance(0.25f).build()}, ModItems.FIRE_ARROW.get()));
+                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ModItems.FIRE_ARROW.get()));
         add("ice_arrow_from_stray", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/stray")).build(),
-                LootItemRandomChanceCondition.randomChance(0.25f).build()}, ModItems.ICE_ARROW.get()));
+                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ModItems.ICE_ARROW.get()));
 
 
 
@@ -338,6 +339,19 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
                 LootItemRandomChanceCondition.randomChance(0.35f).build()}, ModItems.HYLIAN_SHIELD.get()));
 
+//from strongholds
+        add("all_night_from_strongholds", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/stronghold_crossing")).build(),
+                LootItemRandomChanceCondition.randomChance(0.35f).build()}, ModItems.NIGHT_MASK.get()));
+        add("blast_from_strongholds", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/stronghold_library")).build(),
+                LootItemRandomChanceCondition.randomChance(0.35f).build()}, ModItems.BLAST_MASK.get()));
+        add("hylian_from_strongholds", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/stronghold_corridor")).build(),
+                LootItemRandomChanceCondition.randomChance(0.32f).build()}, ModItems.HYLIAN_SHIELD.get()));
+        add("giant_from_strongholds", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/stronghold_corridor")).build(),
+                LootItemRandomChanceCondition.randomChance(0.24f).build()}, ModItems.GIANT_MASK.get()));
 
 
         //pearl locations
@@ -355,7 +369,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.NAYRU_PEARL.get()));
         add("din_pearl_from_strongholds", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/stronghold_crossing")).build(),
-                LootItemRandomChanceCondition.randomChance(0.45f).build()}, ModItems.DIN_PEARL.get()));
+                LootItemRandomChanceCondition.randomChance(0.65f).build()}, ModItems.DIN_PEARL.get()));
         add("din_pearl_from_dungeon", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/simple_dungeon")).build(),
                 LootItemRandomChanceCondition.randomChance(0.15f).build()}, ModItems.DIN_PEARL.get()));
@@ -416,6 +430,35 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("goron_tunic_from_ruined_portal", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/ruined_portal")).build(),
                 LootItemRandomChanceCondition.randomChance(0.23f).build()}, ModItems.GORON_TUNIC.get()));
+        add("goron_tunic_from_nether_bridge", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/nether_bridge")).build(),
+                LootItemRandomChanceCondition.randomChance(0.12f).build()}, ModItems.GORON_TUNIC.get()));
+
+        //items from hero of village
+        add("fire_arrow_from_fletcher", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/fletcher_gift")).build(),
+                LootItemRandomChanceCondition.randomChance(0.18f).build()}, ModItems.FIRE_ARROW.get()));
+        add("ice_arrow_from_fletcher", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/fletcher_gift")).build(),
+                LootItemRandomChanceCondition.randomChance(0.18f).build()}, ModItems.ICE_ARROW.get()));
+        add("lightning_arrow_from_fletcher", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/fletcher_gift")).build(),
+                LootItemRandomChanceCondition.randomChance(0.18f).build()}, ModItems.LIGHTNING_ARROW.get()));
+
+        add("stamina_potion_from_cleric", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/cleric_gift")).build(),
+                LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.STAMINA.get()));
+        add("heart_potion_from_cleric", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/cleric_gift")).build(),
+                LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.STAMINA.get()));
+
+        add("deku_shield_from_weaponsmith", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/weaponsmith_gift")).build(),
+                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ModItems.DEKU_SHIELD.get()));
+        add("kokiri_sword_from_weaponsmith", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/weaponsmith_gift")).build(),
+                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ModItems.KOKIRI_SWORD.get()));
+
 
         //items from fishing
         add("water_bomb_from_fishing", new AddItemModifier(new LootItemCondition[] {
@@ -433,6 +476,11 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("upgrade_from_fishing", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("gameplay/fishing/treasure")).build(),
                 LootItemRandomChanceCondition.randomChance(0.10f).build()}, ModItems.MASTER_UPGRADE.get()));
+
+        //items from piglins
+        add("scent_mask_from_piglins", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("gameplay/piglin_bartering")).build(),
+                LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.SCENT_MASK.get()));
 
         //items from archaeology
         add("golddust_from_archaeology", new AddSusSandItemModifier(new LootItemCondition[] {

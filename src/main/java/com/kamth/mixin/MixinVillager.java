@@ -29,7 +29,7 @@ public abstract class MixinVillager{
           i = 120;
         }
         if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.KAFEI_MASK.get())) {
-            i = 50;
+            i = 30;
         }
         return i;
     }

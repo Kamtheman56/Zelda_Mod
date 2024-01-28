@@ -341,6 +341,15 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> POSTMAN_MASK = ITEMS.register("postmanmask",
             ()-> new RomaniMask(ModArmorMaterials.POSTMAN, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> SPOOKY_MASK = ITEMS.register("spookymask",
+            ()-> new RomaniMask(ModArmorMaterials.SPOOKY, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> SKULL_MASK = ITEMS.register("skullmask",
+            ()-> new RomaniMask(ModArmorMaterials.SKULL, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> GERUDO_MASK = ITEMS.register("gerudomask",
+            ()-> new RomaniMask(ModArmorMaterials.GERUDO, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165)));
 
 
    //Tunics
