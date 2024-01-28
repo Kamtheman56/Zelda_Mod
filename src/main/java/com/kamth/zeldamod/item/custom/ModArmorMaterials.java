@@ -23,19 +23,19 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.NAUTILUS_SHELL); }),
     DEKU("deku", 0, new int[]{0, 4, 5, 1}, 0, SoundEvents.AZALEA_LEAVES_PLACE,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Blocks.AZALEA); }),
+        return Ingredient.of(Items.AZALEA); }),
     GORON("goron", 0, new int[]{4, 4, 5, 4}, 0, SoundEvents.ANCIENT_DEBRIS_PLACE,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Blocks.MAGMA_BLOCK); }),
+        return Ingredient.of(Items.MAGMA_BLOCK); }),
     STONE("stone", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.STONE_PLACE,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Blocks.SMOOTH_STONE); }),
+        return Ingredient.of(Items.STONE); }),
     BUNNY("bunny", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.WOOL_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.RABBIT_FOOT); }),
     FIERCE("fierce", 0, new int[]{0, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
             0.0F, 6.0F, () -> {
-        return Ingredient.of(Items.IRON_INGOT); }),
+        return Ingredient.of(ModItems.DEITY_SHARD.get()); }),
     NIGHT("night", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.AMBIENT_CAVE.get(),
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
@@ -44,7 +44,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(ModItems.BOMB.get()); }),
     MAJORA("majora", 0, new int[]{0, 4, 5, 6}, 0, ModSounds.MAJORA.get(),
             0.0F, 6.0F, () -> {
-        return Ingredient.of(Items.IRON_INGOT); }),
+        return Ingredient.of(ModItems.DEITY_SHARD.get()); }),
     SCENT("scent", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.PIGLIN_AMBIENT,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.PORKCHOP); }),
@@ -68,7 +68,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.COPPER_INGOT); }),
     GIANT("giant", 0, new int[]{4, 4, 5, 0}, 0, SoundEvents.LODESTONE_COMPASS_LOCK,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Items.COPPER_INGOT); }),
+        return Ingredient.of(Items.DIAMOND); }),
     COUPLES("couples", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GHAST_TEAR); }),
@@ -77,7 +77,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.ROTTEN_FLESH); }),
    FAIRY("fairy", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.ALLAY_AMBIENT_WITH_ITEM,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Items.ROTTEN_FLESH); }),
+        return Ingredient.of(Items.AMETHYST_SHARD); }),
     KAFEI("kafei", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.LEATHER); }),
@@ -95,7 +95,16 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.CHAIN); }),
     POSTMAN("postman", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Items.CHAIN); }),
+        return Ingredient.of(Items.PAPER); }),
+    SPOOKY("spooky", 0, new int[]{0, 2, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.OAK_PLANKS); }),
+    SKULL("skull", 0, new int[]{0, 2, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.BONE); }),
+    GERUDO("gerudo", 0, new int[]{0, 2, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.SAND); }),
     ZELDAH("heavy", 0, new int[]{0, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_IRON,
             0.0F, 4.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
@@ -107,7 +116,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.SADDLE); }),
     Kokiri("kokiri", 0, new int[]{1, 4, 2, 1}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Blocks.GREEN_WOOL); }),
+        return Ingredient.of(Items.GREEN_WOOL); }),
     GoronTunic("gorontunic", 0, new int[]{1, 4, 4, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.MAGMA_CREAM); }),

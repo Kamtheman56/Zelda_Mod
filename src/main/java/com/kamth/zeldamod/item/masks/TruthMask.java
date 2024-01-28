@@ -36,7 +36,7 @@ public class TruthMask extends ArmorItem {
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerEntityInteract);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
     }
-    private static final AttributeModifier TRUTH = new AttributeModifier(UUID.fromString("dcd170af-4e0f-4307-9df9-8039f79f39c9"), "zeldamod:truthmask", 2, AttributeModifier.Operation.ADDITION);
+    private static final AttributeModifier TRUTH = new AttributeModifier(UUID.fromString("dcd170af-4e0f-4307-9df9-8039f79f39c9"), "zeldamod:truthmask", 3, AttributeModifier.Operation.ADDITION);
 
 
     public void onPlayerEntityInteract(PlayerInteractEvent.EntityInteract event)
@@ -44,16 +44,13 @@ public class TruthMask extends ArmorItem {
         if( event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.TRUTH_MASK.get()) {
             if (event.getTarget() instanceof Wolf)
             {
-                event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Thank you for all of your help with ideas! You're a truly valued friend of mine"));}}}
+                event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Thank you for downloading the mod!"));}}}
     private void onPlayerTick(TickEvent.PlayerTickEvent event) {
-        if (event.phase != TickEvent.Phase.START) {
-            return;}
+        if (event.phase != TickEvent.Phase.START) {return;}
         AttributeInstance truth = event.player.getAttribute(Attributes.LUCK);
         if (!truth.hasModifier(TRUTH) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.TRUTH_MASK.get()) {
             truth.addTransientModifier(TRUTH);}
-        else {
-
-            if (truth.hasModifier(TRUTH)) {
+        else {if (truth.hasModifier(TRUTH)) {
                 truth.removeModifier(TRUTH);}}}
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {

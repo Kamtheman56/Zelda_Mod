@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:boomerang"
+  },
+  "addition": {
+    "item": "zeldamod:deku_leaf"
+  },
+  "result": {
+    "item": "zeldamod:boomerang_gale"
+  }
+}

@@ -216,6 +216,9 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.GARO_MASK);
         event.accept(ModItems.POSTMAN_MASK);
         event.accept(ModItems.HAWK_MASK);
+        event.accept(ModItems.SKULL_MASK);
+        event.accept(ModItems.SPOOKY_MASK);
+        event.accept(ModItems.GERUDO_MASK);
         event.accept(ModItems.MAJORA_MASK);
         event.accept(ModItems.MASK_ODOLWA);
         event.accept(ModItems.MASK_GOHT);
@@ -234,6 +237,11 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.RED_EMERALD_BLOCK);
             event.accept(ModBlocks.BLUE_EMERALD_BLOCK);
             event.accept(ModBlocks.SWORD_PEDESTAL);
+            event.accept(ModBlocks.MASTER_SWORD_PEDESTAL);
+            event.accept(ModBlocks.UNLOCKED_SWORD_PEDESTAL);
+            event.accept(ModBlocks.COURAGE_FLAME);
+            event.accept(ModBlocks.WISDOM_FLAME);
+            event.accept(ModBlocks.POWER_FLAME);
             event.accept(ModBlocks.PORK_BLOCK);
             event.accept(ModBlocks.GLOOM_BLOCK);
             event.accept(ModBlocks.HOOK_TARGET);

@@ -6,7 +6,7 @@
       "loot_table_id": "minecraft:entities/rabbit"
     },
     {
-      "chance": 0.05,
+      "chance": 0.01,
       "condition": "minecraft:random_chance"
     }
   ],

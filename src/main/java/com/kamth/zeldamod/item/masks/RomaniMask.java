@@ -48,7 +48,8 @@ public class RomaniMask extends ArmorItem {
                 double particleZ = player.getZ() + (player.getRandom().nextBoolean() ? +0.8D : 0);
                 player.level().addParticle(ParticleTypes.HEART, particleX, particleY, particleZ, 0, 0, 0);
             }
-        }}
+        }
+    }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
@@ -87,6 +88,15 @@ public class RomaniMask extends ArmorItem {
         }
         if (stack.is(ModItems.GIBDO_MASK.get())){
             components.add(Component.literal("Friend to Husks").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
+        if (stack.is(ModItems.SKULL_MASK.get())){
+            components.add(Component.literal("Looks tough").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
+        if (stack.is(ModItems.SPOOKY_MASK.get())){
+            components.add(Component.literal("Looks spooky").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }
+        if (stack.is(ModItems.GERUDO_MASK.get())){
+            components.add(Component.literal("Looks pretty").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
     }
 }

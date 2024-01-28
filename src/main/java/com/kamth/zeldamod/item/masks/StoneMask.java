@@ -32,18 +32,10 @@ public class StoneMask extends ArmorItem {
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer){
         return stack.getItem() == ModItems.STONE_MASK.get();
     }
-
-
-
-    //this adds effects that do not create particles.
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.STONE_MASK.get())) {
-    player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 10, 0, true, false));
-}
-        if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.GIBDO_MASK.get())) {
-        player.removeEffect(MobEffects.HUNGER);
-        }
+    player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 10, 0, true, false));}
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {

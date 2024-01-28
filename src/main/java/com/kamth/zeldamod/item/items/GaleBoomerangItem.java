@@ -44,7 +44,7 @@ public class GaleBoomerangItem extends Item {
     @Override
     public void releaseUsing(ItemStack stack, Level world, LivingEntity entity, int timeLeft) {
         Player player = (Player) entity;
-        world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 1F, -0.2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
+        world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.PLAYERS, 1F, -0.2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!world.isClientSide) {
             GaleBoomerangProjectile projectile = new GaleBoomerangProjectile(ModEntityTypes.GALE_BOOMERANG.get(), world, player);
             projectile.setOwner(player);
