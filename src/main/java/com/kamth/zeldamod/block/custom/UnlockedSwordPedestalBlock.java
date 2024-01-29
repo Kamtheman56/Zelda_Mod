@@ -76,15 +76,19 @@ public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
         {
             UnlockedSwordPedestalEntity pedestal = (UnlockedSwordPedestalEntity) pLevel.getBlockEntity(pPos);
 
-            if (stackInHand.getItem() instanceof SwordItem && pedestal.getSword().isEmpty())
+
+            if (stackInHand.is(ModItems.MASTER_SWORD3.get()) && pedestal.getSword().isEmpty())
             {
-                pedestal.setSword(stackInHand);
-                pLevel.playSound(pPlayer,pPos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
+                if (stackInHand.getAllEnchantments().containsKey(Enchantments.SMITE) &&
+                        stackInHand.getAllEnchantments().containsKey(Enchantments.SWEEPING_EDGE) &&
+                        stackInHand.getAllEnchantments().containsKey(Enchantments.UNBREAKING)){
+                pedestal.setSword(ModItems.MASTER_SWORD_TRUE.get().getDefaultInstance());
+                pLevel.playSound(pPlayer,pPos, SoundEvents.BEACON_ACTIVATE, SoundSource.BLOCKS);
                 pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
                 pLevel.updateNeighborsAt(pPos,this);
-                return InteractionResult.SUCCESS;
+                return InteractionResult.SUCCESS;}
             }
-            else if (stackInHand.isEmpty() && !pedestal.getSword().isEmpty())
+            if (stackInHand.isEmpty() && !pedestal.getSword().isEmpty())
             {
                 pLevel.updateNeighborsAt(pPos,this);
                 pPlayer.setItemInHand(pHand, pedestal.getSword());
@@ -92,8 +96,15 @@ public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
                 pLevel.playSound(pPlayer,pPos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS);
                 return InteractionResult.SUCCESS;
             }
+            else  if (stackInHand.getItem() instanceof SwordItem && pedestal.getSword().isEmpty())
+        {
+            pedestal.setSword(stackInHand);
+            pLevel.playSound(pPlayer,pPos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
+            pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
+            pLevel.updateNeighborsAt(pPos,this);
+            return InteractionResult.SUCCESS;
         }
-
+        }
         return InteractionResult.FAIL;
     }
     @Override

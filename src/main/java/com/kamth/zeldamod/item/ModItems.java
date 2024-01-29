@@ -115,7 +115,7 @@ public class ModItems {
             () -> new MasterSwordItem(ModTiers.MASTER, 5, -2.4f,
                     new Item.Properties().defaultDurability(2700).rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> MASTER_SWORD3 = ITEMS.register("master_sword3",
-            () -> new MasterSwordItem(ModTiers.MASTER, 6, -2.4f,
+            () -> new MasterSwordGoldItem(ModTiers.MASTER, 6, -2.4f,
                     new Item.Properties().defaultDurability(3600).rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> MASTER_SWORD_TRUE = ITEMS.register("master_sword_true",
             () -> new TrueMasterSwordItem(ModTiers.MASTER_TRUE, 9, -2.2f,

@@ -38,6 +38,7 @@ import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
@@ -166,7 +167,6 @@ public class ModEvents {
                     event.getTarget().playSound(SoundEvents.AMBIENT_CAVE.get(), 1.2f, 1.2f);}
             else event.getTarget().setSecondsOnFire(400);
             }}
-
 
     @SubscribeEvent
     public static void HealMode(LivingHealEvent event){

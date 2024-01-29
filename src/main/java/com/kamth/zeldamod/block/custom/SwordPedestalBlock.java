@@ -85,7 +85,6 @@ public class SwordPedestalBlock extends BaseEntityBlock {
             {
                 pLevel.updateNeighborsAt(pPos,this);
                 pPlayer.setItemInHand(pHand, pedestal.getSword());
-            //    pedestal.getSword().enchant(Enchantments.SMITE,2);
                 pedestal.setSword(stackInHand);
                 pLevel.playSound(pPlayer,pPos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS);
                 return InteractionResult.SUCCESS;
