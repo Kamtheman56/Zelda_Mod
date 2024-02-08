@@ -4,7 +4,7 @@
       "item": "zeldamod:master_sword_true"
     },
     "title": "The Final Form",
-    "description": "Bring out the true power of the Master Sword",
+    "description": "Bathe the Master Sword in the sacred flames and return it to it's pedestal",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

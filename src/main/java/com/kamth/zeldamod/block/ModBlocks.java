@@ -47,9 +47,9 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> DEKU_BLOCK = registerBlock("deku_block", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(0)));
     public static final RegistryObject<Block> DEKU_BLOCK_GOLD = registerBlock("deku_block_gold", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(0).noOcclusion()));
     public static final RegistryObject<Block> DEKU_BLOCK_BLUE = registerBlock("deku_block_blue", ()-> new BlueDekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).strength(0).noOcclusion()));
-    public static final RegistryObject<Block> COURAGE_FLAME = registerBlock("courage_flame", ()-> new WisdomFlameBlock(BlockBehaviour.Properties.copy(Blocks.FIRE).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()) );
-    public static final RegistryObject<Block> POWER_FLAME = registerBlock("power_flame", ()-> new WisdomFlameBlock(BlockBehaviour.Properties.copy(Blocks.FIRE).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()));
-    public static final RegistryObject<Block> WISDOM_FLAME = registerBlock("wisdom_flame", ()-> new WisdomFlameBlock(BlockBehaviour.Properties.copy(Blocks.FIRE).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()));
+    public static final RegistryObject<Block> COURAGE_FLAME = registerBlock("courage_flame", ()-> new WisdomFlameBlock(BlockBehaviour.Properties.of().strength(8).sound(SoundType.EMPTY).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()) );
+    public static final RegistryObject<Block> POWER_FLAME = registerBlock("power_flame", ()-> new WisdomFlameBlock(BlockBehaviour.Properties.of().strength(8).sound(SoundType.EMPTY).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()));
+    public static final RegistryObject<Block> WISDOM_FLAME = registerBlock("wisdom_flame", ()-> new WisdomFlameBlock(BlockBehaviour.Properties.of().strength(8).sound(SoundType.EMPTY).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()));
     public static final RegistryObject<Block> NIGHTSHADE = registerBlock("nightshade",
             () -> new FlowerBlock(() -> MobEffects.DAMAGE_RESISTANCE, 5,
                     BlockBehaviour.Properties.copy(Blocks.ALLIUM).noOcclusion().lightLevel((p_50755_) -> 3).noCollission()));

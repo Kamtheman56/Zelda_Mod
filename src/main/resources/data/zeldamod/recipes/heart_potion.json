@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "L": [
+      {
+        "item": "minecraft:potion"
+      }
+    ],
+    "#": [
+      {
+        "item": "zeldamod:heart_flower"
+      }
+    ]},
+  "pattern": [
+    " # ",
+    "#L#",
+    " # "
+  ],
+  "result": {
+    "item": "zeldamod:heart_potion"
+  },
+  "show_notification": true
+}
