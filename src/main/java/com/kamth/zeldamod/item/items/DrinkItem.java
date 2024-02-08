@@ -56,7 +56,7 @@ public class DrinkItem extends Item {
             components.add(Component.literal("Heals health").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.STAMINA.get()) && Screen.hasShiftDown()) {
-            components.add(Component.literal("Heals hunger").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Restores hunger").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.PUMPKIN_SOUP.get()) && Screen.hasShiftDown()) {
             components.add(Component.literal("A hearty soup").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));

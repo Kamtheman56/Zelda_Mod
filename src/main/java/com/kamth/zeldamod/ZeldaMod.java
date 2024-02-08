@@ -13,6 +13,7 @@ import com.kamth.zeldamod.item.custom.ModItemProperties;
 import com.kamth.zeldamod.loot.ModLootModifiers;
 import com.kamth.zeldamod.painting.ModPaintings;
 import com.kamth.zeldamod.particle.ModParticles;
+import com.kamth.zeldamod.potion.BetterBrewing;
 import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
@@ -25,6 +26,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipe;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.brewing.PotionBrewEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -68,14 +71,12 @@ public class ZeldaMod
     }
 private void clientSetup(final FMLClientSetupEvent event){
        ModItemProperties.addCustomItemProperties();
+
 }
 
 
     private void commonSetup(final FMLCommonSetupEvent event){
-        PotionBrewing.mix(ModBlocks.HEART_FLOWER.get().asItem().getDefaultInstance(), ModItems.HEART_POTION.get().getDefaultInstance());
-        PotionBrewing.hasMix(ModItems.HEART_POTION.get().getDefaultInstance(),ModBlocks.HEART_FLOWER.get().asItem().getDefaultInstance());
 
-        PotionBrewing.isIngredient(ModBlocks.HEART_FLOWER.get().asItem().getDefaultInstance());
 
 event.enqueueWork(() -> {
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.NIGHTSHADE.getId(), ModBlocks.POTTED_NIGHTSHADE);

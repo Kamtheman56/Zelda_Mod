@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "C#C",
+    "#L#",
+    "C#C"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_bars"
+    },
+    "C": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "L": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "zeldamod:claw_target",
+    "count": 3
+  }
+}

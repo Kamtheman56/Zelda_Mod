@@ -40,7 +40,6 @@ public class TrueMasterSwordItem extends SwordItem {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
         if (!pLevel.isClientSide && player.isCrouching()) {
-            player.getCooldowns().addCooldown(this, 10);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 1F, 5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
             SwordBeam projectile = new SwordBeam(pLevel,player);
             projectile.setOwner(player);

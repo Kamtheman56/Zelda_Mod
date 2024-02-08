@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:gibdomask"
+    },
+    "title": "Hardly Heard it",
+    "description": "Play a song on a weakened Husk",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_fairy_mask",
+  "criteria": {
+    "mask_block": {
+      "trigger": "minecraft:inventory_changed",
+      "items": [
+        {
+          "items": [
+            "zeldamod:gibdomask"]
+        },
+          {}
+        ]
+      }
+    },
+  "requirements": [
+    [
+      "mask_block"
+    ]
+  ],
+  "rewards": {
+    "experience": 35
+  },
+  "sends_telemetry_event": true
+}

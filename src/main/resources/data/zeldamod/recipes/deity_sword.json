@@ -6,10 +6,15 @@
       {
         "item": "zeldamod:sword_fragment"
       }
+    ],
+    "f": [
+      {
+        "item": "zeldamod:master_sword_true"
+      }
     ]},
   "pattern": [
     "###",
-    "###",
+    "#f#",
     "###"
   ],
   "result": {

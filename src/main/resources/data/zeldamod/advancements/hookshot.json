@@ -10,7 +10,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:shoot_slingshot",
+  "parent": "zeldamod:get_scattershot",
   "criteria": {
     "mask_block": {
       "trigger": "minecraft:item_durability_changed",

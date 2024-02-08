@@ -20,11 +20,5 @@ public class MittsItem2 extends MittsItem{
     }
     @Override
     public float getDestroySpeed(ItemStack itemstack, BlockState blockstate) {return 12f;}
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Digs dirt and stone").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.literal("with ease").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-        }
-    }
+
 }

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "pattern": [
     "#S#",
     "#C#",
@@ -10,10 +9,10 @@
     "#": {
       "item": "zeldamod:master_shard"
     },
-    "C": {
+    "S": {
       "item": "minecraft:cobblestone"
     },
-    "S": {
+    "C": {
       "item": "zeldamod:master_upgrade"
     }
   },

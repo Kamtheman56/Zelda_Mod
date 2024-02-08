@@ -1,8 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:slingshot",
-      "nbt": "{Damage:0}"
+      "item": "zeldamod:slingshot"
     },
     "title": {
       "text": "Slingshotta"
