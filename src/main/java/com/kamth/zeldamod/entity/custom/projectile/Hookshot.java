@@ -55,7 +55,7 @@ public class Hookshot extends AbstractArrow {
     }
 
     //Credits to SuperWorldSun for the code on this! It's heavily based on his!
-
+    //https://github.com/superworldsun/SupersLegend/blob/1.16.5/src/main/java/com/superworldsun/superslegend/entities/projectiles/hooks/HookshotEntity.java
     public Hookshot(EntityType<? extends AbstractArrow> pEntityType, LivingEntity pShooter, Level pLevel) {
         super(pEntityType, pShooter, pLevel);
     }

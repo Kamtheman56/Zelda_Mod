@@ -3,12 +3,12 @@
   "conditions": [
     {
       "condition": "forge:loot_table_id",
-      "loot_table_id": "minecraft:chests/simple_dungeon"
+      "loot_table_id": "minecraft:chests/jungle_temple"
     },
     {
-      "chance": 0.12,
+      "chance": 0.25,
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "zeldamod:blue_potion"
+  "item": "zeldamod:deku_leaf"
 }

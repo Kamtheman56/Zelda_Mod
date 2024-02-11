@@ -120,7 +120,7 @@ public class MasterSwordPedestalBlock extends BaseEntityBlock {
                 pLevel.playSound(pPlayer,pPos, SoundEvents.BEACON_ACTIVATE,SoundSource.BLOCKS);
                 pLevel.setBlock(pPos, pState.cycle(unlocked),3);
 
-               pLevel.setBlockAndUpdate(pPos, ModBlocks.SWORD_PEDESTAL.get().defaultBlockState());
+               pLevel.setBlockAndUpdate(pPos, ModBlocks.UNLOCKED_SWORD_PEDESTAL.get().defaultBlockState());
                 return InteractionResult.SUCCESS;
             }
            if (stackInHand.isEmpty() && pState.getValue(unlocked)&& !pedestal.getSword().isEmpty()|| pPlayer.getAbilities().instabuild)

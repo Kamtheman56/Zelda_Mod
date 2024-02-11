@@ -10,5 +10,5 @@
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "zeldamod:stamina_potion"
+  "item": "zeldamod:heart_potion"
 }

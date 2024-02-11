@@ -87,6 +87,9 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("green_potion_from_jungle_temples", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/jungle_temple")).build(),
                 LootItemRandomChanceCondition.randomChance(0.65f).build()}, ModItems.STAMINA.get()));
+        add("deku_leaf_from_jungle_temples", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/jungle_temple")).build(),
+                LootItemRandomChanceCondition.randomChance(0.25f).build()}, ModItems.DEKU_LEAF.get()));
 
 
         add("herobow_from_fletcher", new AddItemModifier(new LootItemCondition[] {
@@ -360,7 +363,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ModItems.FARORE_PEARL.get()));
         add("farore_pearl_from_desert_temples", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/desert_pyramid")).build(),
-                LootItemRandomChanceCondition.randomChance(0.25f).build()}, ModItems.FARORE_PEARL.get()));
+                LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.FARORE_PEARL.get()));
         add("nayru_pearl_from_elder_guardian", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/elder_guardian")).build(),
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ModItems.NAYRU_PEARL.get()));
@@ -372,7 +375,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.65f).build()}, ModItems.DIN_PEARL.get()));
         add("din_pearl_from_dungeon", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/simple_dungeon")).build(),
-                LootItemRandomChanceCondition.randomChance(0.12f).build()}, ModItems.DIN_PEARL.get()));
+                LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.DIN_PEARL.get()));
 
 
         //armor from structures
@@ -460,7 +463,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.1f).build()}, ModItems.KOKIRI_SWORD.get()));
         add("upgrade_from_weaponsmith", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/weaponsmith_gift")).build(),
-                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ModItems.MASTER_UPGRADE.get()));
+                LootItemRandomChanceCondition.randomChance(0.09f).build()}, ModItems.MASTER_UPGRADE.get()));
 
 
         //items from fishing

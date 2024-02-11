@@ -55,10 +55,6 @@ public class Deku_Nut extends AbstractArrow {
     @Override
     protected void onHitBlock(BlockHitResult ray) {
         super.onHitBlock(ray);
-
-        if (this.level().isClientSide) {
-            this.level().addParticle(ParticleTypes.SOUL, ray.getBlockPos().getX() + 0.5D, ray.getBlockPos().getY() + 1.2D, ray.getBlockPos().getZ() + 0.5D, (double) 1 / 24.0D, 0.0D, 0.0D);
-        }
         this.discard();
         }
 

@@ -14,15 +14,18 @@
   "criteria": {
     "mask_block": {
       "trigger": "minecraft:inventory_changed",
-      "items": [
-        {
-          "items": [
-            "zeldamod:bunnymask"]
-        },
-          {}
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:bunnymask"
+
+            ]
+          }
         ]
       }
-    },
+    }
+  },
   "requirements": [
     [
       "mask_block"

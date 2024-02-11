@@ -12,6 +12,7 @@ import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biomes;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -38,27 +39,25 @@ public class ScentMask extends ArmorItem {
             if (level.isRaining()){
                 if(new Random().nextFloat() > .9f) {
                     player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
-player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(5, player, (p_43296_) -> {
+player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(6, player, (p_43296_) -> {
     p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
-                    player.spawnAtLocation(ModItems.SUPER_MUSHROOM.get());
-                   player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),50);
+                    player.spawnAtLocation(ModItems.LIFE_MUSHROOM.get());
+                   player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),70);
                 };
                 if(new Random().nextFloat() > .7f) {
                     player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
-                    player.spawnAtLocation(Items.BROWN_MUSHROOM);
-                    player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(2, player, (p_43296_) -> {
+                    player.spawnAtLocation(ModItems.MINI_MUSHROOM.get());
+                    player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(3, player, (p_43296_) -> {
                         p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
-                   player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),25);
+                   player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),65);
                 }
                 if(new Random().nextFloat() > .6f) {
                     player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
-                    player.spawnAtLocation(Items.RED_MUSHROOM);
+                    player.spawnAtLocation(ModItems.SUPER_MUSHROOM.get());
                     player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(2, player, (p_43296_) -> {
                         p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
-                    player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),20);
+                    player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),55);
                 }
-
-
             }
         }
      }
@@ -66,7 +65,6 @@ player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(5, player, (p_43296_) -> {
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer){
         return stack.getItem() == ModItems.SCENT_MASK.get();
     }
-
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {

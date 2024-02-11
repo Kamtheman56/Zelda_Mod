@@ -14,15 +14,18 @@
   "criteria": {
     "mask_block": {
       "trigger": "minecraft:inventory_changed",
-      "items": [
-        {
-          "items": [
-            "zeldamod:captainmask"]
-        },
-          {}
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:captainmask"
+
+            ]
+          }
         ]
       }
-    },
+    }
+  },
   "requirements": [
     [
       "mask_block"

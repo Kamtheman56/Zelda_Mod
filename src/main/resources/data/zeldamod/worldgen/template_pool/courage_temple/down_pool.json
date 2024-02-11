@@ -6,9 +6,9 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
-        "location": "zeldamod:courage_temple_lower_fire",
+        "location": "zeldamod:courage_temple_lower_fire_treasure",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

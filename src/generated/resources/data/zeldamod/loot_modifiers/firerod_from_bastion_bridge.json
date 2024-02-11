@@ -6,7 +6,7 @@
       "loot_table_id": "minecraft:chests/bastion_bridge"
     },
     {
-      "chance": 0.3,
+      "chance": 0.07,
       "condition": "minecraft:random_chance"
     }
   ],

@@ -3,12 +3,12 @@
   "conditions": [
     {
       "condition": "forge:loot_table_id",
-      "loot_table_id": "minecraft:chests/simple_dungeon"
+      "loot_table_id": "minecraft:gameplay/hero_of_the_village/weaponsmith_gift"
     },
     {
-      "chance": 0.12,
+      "chance": 0.09,
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "zeldamod:blue_potion"
+  "item": "zeldamod:master_upgrade"
 }

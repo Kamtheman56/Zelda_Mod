@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "category": "equipment",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:roc_feather"
+  },
+  "addition": {
+    "item": "zeldamod:mini_mushroom"
+  },
+  "result": {
+    "item": "zeldamod:roc_feather_2"
+  }
+}
