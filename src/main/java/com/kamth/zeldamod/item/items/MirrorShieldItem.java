@@ -36,9 +36,6 @@ public class MirrorShieldItem extends ShieldItem {
         if (event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.MIRROR_SHIELD.get()  && !event.getDamageSource().is(DamageTypeTags.IS_PROJECTILE)) {
       event.getEntity().getUseItem().hurtAndBreak(12, event.getEntity(), (p_43276_) -> p_43276_.broadcastBreakEvent(InteractionHand.MAIN_HAND));
         }
-
-
-
     }
 
     @Override

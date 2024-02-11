@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "features": "zeldamod:nightshade",
+  "biomes": [
+    "minecraft:meadow",
+    "minecraft:flower_forest"
+  ],
+  "step": "vegetal_decoration"
+}
