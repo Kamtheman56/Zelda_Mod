@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "zeldamod:stamina_potion"
+    },
+    {
+      "item": "zeldamod:heart_potion"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:blue_potion",
+    "count": 1
+  }
+}
