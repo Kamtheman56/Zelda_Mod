@@ -3,6 +3,7 @@ package com.kamth.zeldamod.item.masks;
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;

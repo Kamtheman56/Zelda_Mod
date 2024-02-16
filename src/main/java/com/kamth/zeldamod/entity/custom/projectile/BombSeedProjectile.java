@@ -34,13 +34,6 @@ public class BombSeedProjectile extends SeedProjectile {
         return new ItemStack(this.referenceItem);
     }
 
-
-    @Override
-    public void tick() {
-        super.tick();
-        if (inGround) {
-            this.setRemoved(RemovalReason.DISCARDED);
-        }}
     @Override
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);

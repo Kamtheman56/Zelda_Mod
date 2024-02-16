@@ -2,6 +2,7 @@ package com.kamth.zeldamod.item.masks;
 
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -39,9 +40,10 @@ if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.STONE_MASK.get())) {
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if (stack.is(ModItems.STONE_MASK.get())){
-            components.add(Component.literal("Become as plain as stone").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-        }
 
-    }
+        if (Screen.hasShiftDown()) {
+            components.add(Component.literal("Turn Invisible").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        } else {
+            components.add(Component.literal("Become as plain as stone").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        }}
 }

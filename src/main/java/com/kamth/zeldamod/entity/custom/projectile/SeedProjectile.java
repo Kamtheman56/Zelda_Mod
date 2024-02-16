@@ -42,14 +42,6 @@ public class SeedProjectile extends AbstractArrow {
 
 
     @Override
-    public void tick() {
-        super.tick();
-        if (inGround) {
-            this.setRemoved(RemovalReason.DISCARDED);
-        }
-
-    }
-    @Override
     public void onAddedToWorld() {
         super.onAddedToWorld();
         setBaseDamage(BASE_DAMAGE);

@@ -67,8 +67,6 @@ public class LightningArrow extends AbstractArrow {
     @Override
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
-
-
         this.discard();
 
 }

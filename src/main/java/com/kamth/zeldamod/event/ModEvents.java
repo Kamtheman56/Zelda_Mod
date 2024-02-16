@@ -20,10 +20,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.Cow;
-import net.minecraft.world.entity.animal.Pig;
-import net.minecraft.world.entity.animal.Rabbit;
+import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.monster.Creeper;
@@ -225,9 +222,9 @@ public class ModEvents {
     @SubscribeEvent
     public static void onEntityConstructing(EntityJoinLevelEvent event)
     {
-        if (event.getEntity() instanceof Animal animal)
+        if (event.getEntity() instanceof Animal chicken)
         {
-            animal.goalSelector.addGoal(3, new BremenMask(animal, 1.3D));
+            chicken.goalSelector.addGoal(3, new BremenMask(chicken, 1.3D));
         }
         if (event.getEntity() instanceof Allay allay)
         {

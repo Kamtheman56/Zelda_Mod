@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.entity.custom.projectile.BoomerangProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.Clawshot;
 import com.kamth.zeldamod.entity.custom.projectile.GaleBoomerangProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.MagicBoomerangProjectile;
@@ -31,32 +32,21 @@ public class GaleBoomerangItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
-        ItemStack itemstack = pPlayer.getItemInHand(pHand);
-
-        pPlayer.playSound(SoundEvents.ARMOR_EQUIP_GENERIC);
-        boolean flag = false;
-        InteractionResultHolder<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(itemstack, pLevel, pPlayer, pHand, flag);
-        if (ret != null) return ret;
-        pPlayer.startUsingItem(pHand);
-        return InteractionResultHolder.consume(itemstack);
-    }
-    @Override
-    public void releaseUsing(ItemStack stack, Level world, LivingEntity entity, int timeLeft) {
-        Player player = (Player) entity;
-        world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.PLAYERS, 1F, -0.2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
-        if (!world.isClientSide) {
-            GaleBoomerangProjectile projectile = new GaleBoomerangProjectile(ModEntityTypes.GALE_BOOMERANG.get(), world, player);
-            projectile.setOwner(player);
-            projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f, 0f);
-            world.addFreshEntity(projectile);
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
+        ItemStack itemstack = player.getItemInHand(pHand);
+        pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.PLAYERS, 1F, 0.2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
+        if (!pLevel.isClientSide) {
             player.getCooldowns().addCooldown(this, 35);
+            GaleBoomerangProjectile boomerang = new GaleBoomerangProjectile(ModEntityTypes.GALE_BOOMERANG.get(), pLevel, player);
+            boomerang.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.6F, 0.9F);
+            boomerang.setThrowData(pHand.ordinal(), itemstack);
+            pLevel.addFreshEntity(boomerang);
         }
+        player.awardStat(Stats.ITEM_USED.get(this));
+        itemstack.shrink(1);
+        return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }
 
-    public int getUseDuration(ItemStack pStack) {
-        return 72000;
-    }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
