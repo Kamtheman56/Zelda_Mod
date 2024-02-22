@@ -225,9 +225,9 @@ public class ModItems {
     public static final RegistryObject<Item> LENS_OF_TRUTH = ITEMS.register("lens",
             () -> new LensItem(new Item.Properties()));
     public static final RegistryObject<Item> SILVER_SCALE = ITEMS.register("scale_silver",
-            () -> new ScaleItem(new Item.Properties()));
+            () -> new ScaleItem(new Item.Properties().defaultDurability(124)));
     public static final RegistryObject<Item> GOLDEN_SCALE = ITEMS.register("scale_gold",
-            () -> new ScaleItem(new Item.Properties()));
+            () -> new ScaleItem(new Item.Properties().defaultDurability(248)));
 
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168)));

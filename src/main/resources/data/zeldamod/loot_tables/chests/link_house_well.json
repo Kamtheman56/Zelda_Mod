@@ -17,13 +17,7 @@
         {
           "type": "minecraft:item",
           "weight": 4,
-          "name": "zeldamod:slingshot",
-          "functions": [
-            {
-              "function": "minecraft:set_damage",
-              "damage": 0
-            }
-          ]
+          "name": "zeldamod:slingshot"
         },
         {
           "type": "minecraft:item",
@@ -68,26 +62,6 @@
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:map",
-          "functions": [
-            {
-              "function": "minecraft:exploration_map",
-              "destination": "zeldamod:master_sword",
-              "decoration": "red_x",
-              "zoom": 1,
-              "skip_existing_chunks": false
-            },
-            {
-              "function": "minecraft:set_name",
-              "name": {
-                "text": "Master Sword Map"
-              }
             }
           ]
         },

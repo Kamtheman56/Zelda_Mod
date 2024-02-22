@@ -10,7 +10,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:get_kokiri_armor",
+  "parent": "zeldamod:base",
   "criteria": {
     "mask_block": {
       "trigger": "minecraft:inventory_changed",

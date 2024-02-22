@@ -112,7 +112,7 @@ public class MittsItem extends DiggerItem {
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
             components.add(Component.literal("Digs dirt and stone").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
-        components.add(Component.literal("with ease").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("with ease").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }}
 }
 

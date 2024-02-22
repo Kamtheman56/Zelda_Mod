@@ -1,40 +1,13 @@
 {
   "replace": false,
   "values": [
-  "zeldamod:master_sword",
-    "zeldamod:slingshot",
-    "zeldamod:scattershot",
-    "zeldamod:roc_feather",
-    "zeldamod:sand_rod",
-    "zeldamod:fire_rod",
-    "zeldamod:tornado_rod",
-    "zeldamod:ice_rod",
-    "zeldamod:bomb",
-    "zeldamod:water_bomb",
-    "zeldamod:hero_bow",
-    "zeldamod:hookshot",
-    "zeldamod:longshot",
-    "zeldamod:clawshot",
-    "zeldamod:clawshot_goddess",
-    "zeldamod:deku_leaf",
-    "zeldamod:magic_boomerang",
-    "zeldamod:gale_boomerang",
-    "zeldamod:wooden_hammer",
-    "zeldamod:megaton_hammer",
-    "zeldamod:digging_mitts",
-    "zeldamod:mogma_mitts",
-    "zeldamod:glider",
-    "zeldamod:lens_of_truth",
-    "zeldamod:deku_shield",
-    "zeldamod:hylian_shield",
-    "zeldamod:mirror_shield",
-    "zeldamod:heavyboots",
-    "zeldamod:hoverboots",
-    "zeldamod:pegasusboots",
-    "zeldamod:flippers",
-    "zeldamod:scale_dragon",
-    "zeldamod:fire_shield"
-
-
+    "zeldamod:kokiri_sword",
+    "zeldamod:sword_kokiri",
+    "zeldamod:razor_sword",
+    "minecraft:wooden_sword",
+    "minecraft:stone_sword",
+    "minecraft:iron_sword",
+    "minecraft:golden_sword",
+    "minecraft:diamond_sword"
   ]
 }

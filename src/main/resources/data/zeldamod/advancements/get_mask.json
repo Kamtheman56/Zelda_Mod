@@ -8,9 +8,8 @@
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
-    "hidden": false
+    "background": "zeldamod:textures/block/mask_block.png"
   },
-  "parent": "zeldamod:base",
   "criteria": {
     "mask_block": {
       "trigger": "minecraft:inventory_changed",

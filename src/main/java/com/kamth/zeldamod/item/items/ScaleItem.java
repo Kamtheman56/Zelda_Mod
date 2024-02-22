@@ -3,6 +3,9 @@ package com.kamth.zeldamod.item.items;
 import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.GustProjectile;
 import com.kamth.zeldamod.item.ModItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -19,10 +22,14 @@ import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeMod;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ScaleItem extends Item {
     public ScaleItem(Properties pProperties) {
@@ -35,6 +42,10 @@ public class ScaleItem extends Item {
         if ( player.isInWater() && itemstack.is(ModItems.SILVER_SCALE.get())) {
             Vec3 vec3 = player.getDeltaMovement();
            // player.startUsingItem(pHand);
+            itemstack.hurtAndBreak(3, player, (p_43296_) -> {
+                p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+                p_43296_.broadcastBreakEvent(EquipmentSlot.OFFHAND);
+            });
             float f7 = player.getYRot();
             float f = player.getXRot();
             float f1 = -Mth.sin(f7 * ((float) Math.PI / 180F)) * Mth.cos(f * ((float) Math.PI / 180F));
@@ -47,10 +58,15 @@ public class ScaleItem extends Item {
             f3 *= f5 / f4;
             player.push((double) f1, (double) f2, (double) f3);
             player.startAutoSpinAttack(20);
+            player.getCooldowns().addCooldown(itemstack.getItem(), 40);
             return InteractionResultHolder.success(itemstack);
         }
         if ( player.isInWater() && itemstack.is(ModItems.GOLDEN_SCALE.get())) {
             Vec3 vec3 = player.getDeltaMovement();
+            itemstack.hurtAndBreak(5, player, (p_43296_) -> {
+                p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+                p_43296_.broadcastBreakEvent(EquipmentSlot.OFFHAND);
+            });
             // player.startUsingItem(pHand);
             float f7 = player.getYRot();
             float f = player.getXRot();
@@ -64,6 +80,7 @@ public class ScaleItem extends Item {
             f3 *= f5 / f4;
             player.push((double) f1, (double) f2, (double) f3);
             player.startAutoSpinAttack(30);
+            player.getCooldowns().addCooldown(itemstack.getItem(), 60);
             return InteractionResultHolder.success(itemstack);
         }
 
@@ -88,6 +105,15 @@ public class ScaleItem extends Item {
 
         }
 
+    }
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if(Screen.hasShiftDown()) {
+            components.add(Component.literal("Hold for some water breathing").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Right click for a boost underwater").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+        }
+
+        super.appendHoverText(stack, level, components, flag);
     }
 
 }
