@@ -1,12 +1,17 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
@@ -47,8 +52,9 @@ public class SwordBeam2 extends AbstractArrow {
     }
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
-
+        super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
+        this.discard();
         if (this.level() instanceof ServerLevel) {
             BlockPos blockpos = entity.blockPosition();
             if (this.level().canSeeSky(blockpos)) {
@@ -56,7 +62,6 @@ public class SwordBeam2 extends AbstractArrow {
                 lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
                 this.level().addFreshEntity(lightningbolt);
             }}
-
     }
     @Override
     public void onAddedToWorld() {
@@ -89,8 +94,9 @@ public class SwordBeam2 extends AbstractArrow {
         if (this.isInWater()){
             this.discard();
         }
-
-    }
+        if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.SWORD_BEAM)){
+            this.level().destroyBlock(this.blockPosition(), true);
+        }}
 @Override
     protected SoundEvent getDefaultHitGroundSoundEvent() {
         return SoundEvents.EMPTY;

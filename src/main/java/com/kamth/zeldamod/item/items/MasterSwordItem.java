@@ -55,7 +55,6 @@ public class MasterSwordItem extends SwordItem {
             }
             else {
                 ItemStack	newItemStack = new ItemStack(ModItems.MASTER_SWORD_INJURED.get());
-
                 pEntityLiving.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
                 pEntityLiving.broadcastBreakEvent(EquipmentSlot.MAINHAND);
             }

@@ -30,7 +30,7 @@ archivesBaseName = 'zeldamod'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
+jarJar.enable()
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
     // The mappings can be changed at any time and must be in the following format.
@@ -167,11 +167,16 @@ dependencies {
 
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
-
+    jarJar(group: 'be.florens', name: 'expandability-forge', version: '[9.0.0,9.0.1)') {
+        // Includes examplelib 2.8.0
+        jarJar.pin(it, '9.0.0')
+    }
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
+
+
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {

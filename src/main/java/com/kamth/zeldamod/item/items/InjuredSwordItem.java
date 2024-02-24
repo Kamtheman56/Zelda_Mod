@@ -40,13 +40,6 @@ public class InjuredSwordItem extends SwordItem {
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
         pStack.hurtAndBreak(3, pAttacker, (p_43276_) -> p_43276_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-        if(pStack.getDamageValue() < pStack.getMaxDamage() - 2) {
-        }
-        else {
-            ItemStack	newItemStack = new ItemStack(ModItems.MASTER_SWORD_DAGGER.get());
-            pAttacker.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
-            pAttacker.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-        }
         return true;
     }
 
@@ -56,6 +49,7 @@ public class InjuredSwordItem extends SwordItem {
         if (pState.is(ModTags.Blocks.DEMON)) {
             pStack.hurtAndBreak(6, pEntityLiving, (p_43276_) -> p_43276_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
             if(pStack.getDamageValue() < pStack.getMaxDamage() - 2) {
+                pStack.hurtAndBreak(1, pEntityLiving, (p_43276_) -> p_43276_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
             }
             else {
                 ItemStack	newItemStack = new ItemStack(ModItems.MASTER_SWORD_DAGGER.get());
