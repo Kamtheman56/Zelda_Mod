@@ -104,7 +104,6 @@ public class GaleBoomerangProjectile extends Projectile {
         }
     }
     @Override
-    @OnlyIn(Dist.CLIENT)
     public void lerpMotion(double x, double y, double z) {
         this.setDeltaMovement(x, y, z);
         if (this.xRotO == 0.0F && this.yRotO == 0.0F) {
@@ -304,7 +303,7 @@ public class GaleBoomerangProjectile extends Projectile {
         }
 
         if(!returning) {
-            if(liveTime > 20)
+            if(liveTime > 18)
                 setReturning();}
         else {
             noPhysics = true;

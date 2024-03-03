@@ -10,7 +10,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:get_captain_mask",
+  "parent": "zeldamod:get_mask",
   "criteria": {
     "mask_block": {
       "trigger": "minecraft:player_killed_entity",

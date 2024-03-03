@@ -5,6 +5,7 @@ import com.kamth.zeldamod.entity.custom.projectile.MagicBoomerangProjectile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -12,6 +13,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemDisplayContext;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
@@ -28,21 +30,21 @@ public class MagicBoomerangRender extends EntityRenderer<MagicBoomerangProjectil
     }
 
     public void render(MagicBoomerangProjectile pEntity, float pEntityYaw, float pPartialTicks, PoseStack matrixStackIn, MultiBufferSource pBuffer, int pPackedLight) {
-        matrixStackIn.pushPose();
-        matrixStackIn.scale(1F, 1F, 1F);
-        matrixStackIn.mulPose(Axis.YP.rotationDegrees(-pEntityYaw + 90.0f));
-        matrixStackIn.mulPose(Axis.YN.rotationDegrees(90.0f));
-        VertexConsumer vertexconsumer = pBuffer.getBuffer(RENDER_TYPE);
-        PoseStack.Pose posestack$pose = matrixStackIn.last();
-        Matrix4f matrix4f = posestack$pose.pose();
-        Matrix3f matrix3f = posestack$pose.normal();
-        vertex(vertexconsumer, matrix4f, matrix3f, pPackedLight, 0.0F, 0, 0, 1);
-        vertex(vertexconsumer, matrix4f, matrix3f, pPackedLight, 1.0F, 0, 1, 1);
-        vertex(vertexconsumer, matrix4f, matrix3f, pPackedLight, 1.0F, 1, 1, 0);
-        vertex(vertexconsumer, matrix4f, matrix3f, pPackedLight, 0.0F, 1, 0, 0);
-        matrixStackIn.popPose();
-        super.render(pEntity, pEntityYaw, pPartialTicks, matrixStackIn, pBuffer, pPackedLight);
+        if (pEntity.tickCount >= 2) {
+            matrixStackIn.pushPose();
+            matrixStackIn.translate(0, 0.2, 0);
+            matrixStackIn.mulPose(Axis.XP.rotationDegrees(90F));
+
+            Minecraft mc = Minecraft.getInstance();
+            float time = pEntity.tickCount + (mc.isPaused() ? 0 : pPartialTicks);
+            matrixStackIn.mulPose(Axis.ZP.rotationDegrees(time * 20F));
+
+            mc.getItemRenderer().renderStatic(pEntity.getStack(), ItemDisplayContext.FIXED, pPackedLight, OverlayTexture.WHITE_OVERLAY_V, matrixStackIn, pBuffer, pEntity.level(), 2);
+
+            matrixStackIn.popPose();
+        }
     }
+
 
 
 

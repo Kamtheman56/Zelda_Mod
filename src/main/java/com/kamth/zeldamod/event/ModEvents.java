@@ -312,6 +312,15 @@ public class ModEvents {
         }
         if(event.getType() == VillagerProfession.FLETCHER) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.HAWK_MASK.get(), 1);
+            int villagerLevel = 5;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 24),
+                    stack,1,18,30F));
+        }
+        if(event.getType() == VillagerProfession.FLETCHER) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             ItemStack stack = new ItemStack(ModItems.SLINGSHOT.get(), 1);
             int villagerLevel = 2;
 
