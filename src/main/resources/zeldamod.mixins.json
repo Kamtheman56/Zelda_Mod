@@ -9,7 +9,8 @@
     "MixinFoxEntity",
     "MixinLivingEntity",
     "MixinMouse",
-    "MixinVillager"
+    "MixinVillager",
+    "MixinPlayerModel"
   ],
   "minVersion": "0.8"
 }
