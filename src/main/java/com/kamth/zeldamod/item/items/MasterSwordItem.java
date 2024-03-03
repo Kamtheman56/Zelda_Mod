@@ -41,9 +41,15 @@ public class MasterSwordItem extends SwordItem {
     }
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-        pStack.hurtAndBreak(1, pAttacker, (p_43296_) -> {
-            p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-        });
+        if(pStack.getDamageValue() < pStack.getMaxDamage() - 1) {
+            super.hurtEnemy(pStack, pTarget, pAttacker);
+        }
+
+        else {
+            ItemStack	newItemStack = new ItemStack(ModItems.MASTER_SWORD_INJURED.get());
+            pAttacker.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
+            pAttacker.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+        }
         return true;
     }
 
