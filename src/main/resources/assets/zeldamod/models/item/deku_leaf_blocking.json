@@ -5,13 +5,23 @@
         },
   "display": {
   "firstperson_righthand": {
-    "rotation": [0, 0, 62],
-    "translation": [ 0, 2.7, 0],
-    "scale": [ 0.7, 0.7, 0.7 ]
+    "rotation": [-108.23, 1.27, 136.29],
+    "translation": [-8, 12.5, 3.25],
+    "scale": [ 1, 1, 1 ]
   },
   "firstperson_lefthand": {
-    "rotation": [0, 0, 62],
-    "translation": [ 0, 2.7, 0],
-    "scale": [ 0.7, 0.7, 0.7 ]
-  }}
+    "rotation": [-95.67, 6.31, 38.95],
+    "translation": [-10, 12.25, 3.25],
+    "scale": [ 1, 1, 1 ]
+  },
+    "thirdperson_lefthand": {
+      "rotation": [-6.47, -5.95, 55.36],
+      "translation": [-5, -1.25, -1.75],
+      "scale": [ 1.1, 1.1, 1.1 ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [177.17, -0.48, 130.57],
+      "translation": [-6.25, -1.75, -1.75],
+      "scale": [ 1.1, 1.1, 1.1 ]
+    }}
 }

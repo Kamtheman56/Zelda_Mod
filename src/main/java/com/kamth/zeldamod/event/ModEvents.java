@@ -15,26 +15,27 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.*;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Cow;
+import net.minecraft.world.entity.animal.Pig;
+import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Husk;
 import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.entity.monster.WitherSkeleton;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ComputeFovModifierEvent;
@@ -43,10 +44,12 @@ import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
+import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
+
 import static com.kamth.zeldamod.item.items.LensItem.LOOKING;
 
 
@@ -135,6 +138,24 @@ public class ModEvents {
                     event.getTarget().playSound(SoundEvents.GOAT_HORN_PLAY, 1, 1.2f);
                     event.getTarget().discard();
                 }}
+        if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof RecordItem) {
+            if (event.getTarget() instanceof Husk && ((Husk) event.getTarget()).hasEffect(MobEffects.WEAKNESS)) {
+                ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
+                itemstack.shrink(1);
+                event.getTarget().spawnAtLocation(ModItems.GIBDO_MASK.get());
+                event.getTarget().playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1, 1.4f);
+                event.getTarget().playSound(SoundEvents.GOAT_HORN_PLAY, 1, 1.2f);
+                event.getTarget().discard();
+            }}
+        if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.WITHER_SKELETON_SKULL) {
+            if (event.getTarget() instanceof WitherSkeleton) {
+                ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
+                itemstack.shrink(1);
+                event.getTarget().spawnAtLocation(ModItems.CAPTAIN_MASK.get());
+                event.getTarget().playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1, 1.4f);
+                event.getTarget().playSound(SoundEvents.WITHER_SKELETON_DEATH, 1, 1.2f);
+                event.getTarget().discard();
+            }}
 
             //These are the Majoras Mask Effects
             if (!event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get()) {
@@ -243,6 +264,8 @@ public class ModEvents {
             allay.goalSelector.addGoal(1, new KamaroMask(allay));
         }
     }
+
+
 
 
     @SubscribeEvent
@@ -456,6 +479,7 @@ public class ModEvents {
                     new ItemStack(Items.EMERALD, 18),
                     stack,1,125,0.03F));
         }
+
         if(event.getType() == ModVillagers.MASK_TRADER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             ItemStack stack = new ItemStack(ModItems.TRUTH_MASK.get(), 1);
@@ -495,12 +519,30 @@ public class ModEvents {
 //make more trades dude
 
     }
+    @SubscribeEvent
+    public static void addCustomWanderingTrades(WandererTradesEvent event) {
+        List<VillagerTrades.ItemListing> genericTrades = event.getGenericTrades();
+        List<VillagerTrades.ItemListing> rareTrades = event.getRareTrades();
 
-
-
-
-
+        rareTrades.add((pTrader, pRandom) -> new MerchantOffer(
+                new ItemStack(Items.EMERALD, 16),
+                new ItemStack(ModItems.SPOOKY_MASK.get(), 1),
+                2, 12, 0.15f));
+        rareTrades.add((pTrader, pRandom) -> new MerchantOffer(
+                new ItemStack(Items.EMERALD, 12),
+                new ItemStack(ModItems.GERUDO_MASK.get(), 1),
+                2, 12, 0.15f));
+        rareTrades.add((pTrader, pRandom) -> new MerchantOffer(
+                new ItemStack(Items.EMERALD, 13),
+                new ItemStack(ModItems.SKULL_MASK.get(), 1),
+                2, 12, 0.15f));
+    }
 }
+
+
+
+
+
 
 
 

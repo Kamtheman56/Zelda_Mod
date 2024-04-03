@@ -28,5 +28,11 @@
     "sounds": [
       "zeldamod:clawshot"
     ]
+  },
+  "door_unlock": {
+    "subtitle": "sounds.zeldamod.door_unlock",
+    "sounds": [
+      "zeldamod:door_unlock"
+    ]
   }
 }

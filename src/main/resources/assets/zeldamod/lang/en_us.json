@@ -30,7 +30,8 @@
   "item.zeldamod.mask_odolwa": "Odolwa's Remains",
   "item.zeldamod.mask_twinmold": "Twinmold's Remains",
   "item.zeldamod.mask_gyorg": "Gyorg's Remains",
-
+  "item.zeldamod.key_small": "Small Key",
+  "item.zeldamod.key_big": "Big Key",
 
   "itemGroup.zeldatab": "Zelda Items",
   "itemGroup.zeldamask": "Zelda Masks",
@@ -165,6 +166,7 @@
   "sounds.zeldamod.leaf": "Gusts",
   "sounds.zeldamod.heal": "Absorbed a plant",
   "sounds.zeldamod.majora": "Majora's influence takes over",
+  "sounds.zeldamod.door_unlock": "Door unlocks",
 
   "block.zeldamod.gloom_block": "Gloom Block",
   "block.zeldamod.secret_stone": "Secret Stone",
@@ -194,7 +196,11 @@
   "block.zeldamod.courage_flame": "Flames of Courage",
   "block.zeldamod.wisdom_flame": "Flames of Wisdom",
   "block.zeldamod.power_flame": "Flames of Power",
-
+  "block.zeldamod.hammer_peg": "Hammer Peg",
+  "block.zeldamod.copper_peg": "Copper Peg",
+  "block.zeldamod.locked_door": "Locked Door",
+  "block.zeldamod.locked_boss_door": "Locked Boss Door",
+  "master_map": "Master Sword Map",
   "Nightmask": "You don't think you should do this",
   "Courage": "The Pedestal radiates with Courage",
   "Wisdom": "The Pedestal radiates with Wisdom",

@@ -3,6 +3,28 @@
         "textures": {
           "layer0": "zeldamod:item/deku_leaf"
         },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ 0, 270, 40 ],
+      "translation": [ 0, 8, 1],
+      "scale": [ 1.1, 1.1, 1.1 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, 270, 40 ],
+      "translation": [ 0, 8, 1 ],
+      "scale": [ 1, 1, 1 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 90, -40 ],
+      "translation": [ 0, 8, 1 ],
+      "scale": [ 1.0, 1.0, 1.0 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ 0, 90, -40 ],
+      "translation": [0, 8, 1 ],
+      "scale": [ 1.0, 1.0, 1.0 ]
+    }
+  },
   "overrides": [
     {
       "predicate": {

@@ -3,7 +3,7 @@
   "conditions": [
     {
       "condition": "forge:loot_table_id",
-      "loot_table_id": "minecraft:archaeology/trail_ruins_rare"
+      "loot_table_id": "minecraft:archaeology/desert_pyramid"
     }
   ],
   "item": "zeldamod:gold_dust"

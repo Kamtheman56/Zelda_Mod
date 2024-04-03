@@ -3,33 +3,21 @@ package com.kamth.zeldamod;
 
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.block.entity.ModBlockEntities;
-import com.kamth.zeldamod.block.entity.renderer.SwordPedestalEntityRenderer;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.event.ModEventBusClientEvents;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.ModItemProperties;
 import com.kamth.zeldamod.loot.ModLootModifiers;
 import com.kamth.zeldamod.painting.ModPaintings;
 import com.kamth.zeldamod.particle.ModParticles;
-import com.kamth.zeldamod.potion.BetterBrewing;
 import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionBrewing;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.brewing.BrewingRecipe;
-import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.brewing.PotionBrewEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -77,17 +65,15 @@ private void clientSetup(final FMLClientSetupEvent event){
 
     private void commonSetup(final FMLCommonSetupEvent event){
 
-
 event.enqueueWork(() -> {
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.NIGHTSHADE.getId(), ModBlocks.POTTED_NIGHTSHADE);
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.SUNDELION.getId(), ModBlocks.POTTED_SUNDELION);
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.HEART_FLOWER.getId(), ModBlocks.POTTED_HEART_FLOWER);
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.PRIMO_FLOWER.getId(), ModBlocks.POTTED_PRIMO_FLOWER);
 
-
 });
-
     }
+
 private void addCreative(BuildCreativeModeTabContentsEvent event){
     if (event.getTab() == ModCreativeModeTab.ZELDA_BLOCKS.get()){
         event.accept(ModItems.KOKIRI_HAT);
@@ -170,8 +156,9 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.MASTER_ORE);
         event.accept(ModItems.MASTER_ORE2);
         event.accept(ModItems.GOLD_DUST);
-      //  event.accept(ModItems.DEFAULT_UPGRADE);
         event.accept(ModItems.MASTER_UPGRADE);
+        event.accept(ModItems.SMALL_KEY);
+        event.accept(ModItems.BIG_KEY);
         event.accept(ModItems.XTENDER);
         event.accept(ModItems.CLAW);
         event.accept(ModItems.DEITY_SHARD);
@@ -247,6 +234,11 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.GLOOM_BLOCK);
             event.accept(ModBlocks.HOOK_TARGET);
             event.accept(ModBlocks.CLAW_TARGET);
+            event.accept(ModBlocks.HAMMER_PEG);
+            event.accept(ModBlocks.COPPER_PEG);
+            event.accept(ModBlocks.EYE_SWITCH);
+            event.accept(ModBlocks.LOCKED_DOOR);
+            event.accept(ModBlocks.LOCKED_BOSS_DOOR);
             event.accept(ModBlocks.NIGHTSHADE);
             event.accept(ModBlocks.SUNDELION);
             event.accept(ModBlocks.DEKU_BLOCK);

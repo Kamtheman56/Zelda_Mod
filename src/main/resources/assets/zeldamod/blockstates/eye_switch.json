@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "zeldamod:block/eye_switch" },
+    "facing=east": { "model": "zeldamod:block/eye_switch", "y": 90 },
+    "facing=south": { "model": "zeldamod:block/eye_switch", "y": 180 },
+    "facing=west": { "model": "zeldamod:block/eye_switch", "y": 270 }
+  }
+}

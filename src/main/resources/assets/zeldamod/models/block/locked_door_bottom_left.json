@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "zeldamod:block/locked_door_bottom",
+    "top": "zeldamod:block/locked_door_top"
+  }
+}

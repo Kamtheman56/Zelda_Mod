@@ -18,6 +18,8 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> MAJORA = registerSoundEvents ("majora");
     public static final RegistryObject<SoundEvent> CLAWSHOT = registerSoundEvents ("clawshot");
 
+    public static final RegistryObject<SoundEvent> DOOR_UNLOCK = registerSoundEvents ("door_unlock");
+
 
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {

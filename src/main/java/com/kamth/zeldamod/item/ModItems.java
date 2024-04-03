@@ -7,7 +7,6 @@ import com.kamth.zeldamod.item.custom.ModArmorMaterials;
 import com.kamth.zeldamod.item.custom.ModFoods;
 import com.kamth.zeldamod.item.items.*;
 import com.kamth.zeldamod.item.masks.*;
-import net.minecraft.client.Minecraft;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -34,8 +33,7 @@ public class ModItems {
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> MASTER_UPGRADE = ITEMS.register("master_upgrade",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DEFAULT_UPGRADE = ITEMS.register("default_upgrade",
-            () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> DIN_PEARL = ITEMS.register("pearl_power",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> FARORE_PEARL = ITEMS.register("pearl_courage",
@@ -56,7 +54,10 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> MASK_ODOLWA = ITEMS.register("mask_odolwa",
             () -> new Item(new Item.Properties()));
-
+    public static final RegistryObject<Item> SMALL_KEY = ITEMS.register("key_small",
+            () -> new KeyItem(new Item.Properties()));
+    public static final RegistryObject<Item> BIG_KEY = ITEMS.register("key_big",
+            () -> new BigKeyItem(new Item.Properties()));
 
     //These are potions or consumables
     public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
@@ -128,7 +129,7 @@ public class ModItems {
                     new Item.Properties().defaultDurability(131).fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MASTER_SWORD_DAGGER = ITEMS.register("master_sword_dagger",
             () -> new DaggerSwordItem(ModTiers.MASTER, -1, -2.5f,
-                    new Item.Properties().defaultDurability(65).rarity(Rarity.RARE)));
+                    new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> REFORGED_MASTER = ITEMS.register("reforged_sword",
             () -> new InjuredSwordItem(ModTiers.MASTER, 3, -2.4f,
                     new Item.Properties().defaultDurability(680).rarity(Rarity.RARE)));
@@ -192,7 +193,7 @@ public class ModItems {
             () -> new HammerItem(ModTiers.ZELDA, 6, -3f,
                     new Item.Properties().defaultDurability(260)));
     public static final RegistryObject<Item> MEGATON = ITEMS.register("megaton_hammer",
-            () -> new HammerItem(ModTiers.ZELDA, 8, -3f,
+            () -> new MegatonItem(ModTiers.ZELDA, 8, -3f,
                     new Item.Properties().defaultDurability(520)));
     public static final RegistryObject<Item> DEKU_STICK = ITEMS.register("deku_stick",
             () -> new StickItem(new Item.Properties().stacksTo(64)));

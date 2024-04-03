@@ -1,18 +1,22 @@
 package com.kamth.zeldamod.item.items;
 
+import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -50,6 +54,22 @@ public class DaggerSwordItem extends SwordItem {
 
         player.awardStat(Stats.ITEM_USED.get(this));
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext pContext) {
+        Level level = pContext.getLevel();
+        BlockPos blockpos = pContext.getClickedPos();
+        BlockState blockstate = level.getBlockState(blockpos);
+
+        if (blockstate.is(ModTags.Blocks.SACRED_FLAMES)) {
+            pContext.getItemInHand().shrink(1);
+            pContext.getPlayer().setItemInHand(pContext.getHand(), ModItems.MASTER_SWORD.get().getDefaultInstance());
+            pContext.getLevel().playSound(pContext.getPlayer(),blockpos,SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS,1,1f);
+              return InteractionResult.SUCCESS;}
+
+
+        else return InteractionResult.FAIL;
     }
 
     @Override

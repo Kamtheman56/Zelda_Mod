@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:mask_gyorg"
+    },
+    "title": "Mask Conquerer III",
+    "description": "Combine the Romani's Mask, Troupe Leader's Mask, Kafei's Mask, Couple's Mask, and the Mask of Truth to prove your power",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_goht_mask",
+  "criteria": {
+    "mask_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:mask_gyorg"
+
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mask_block"
+    ]
+  ],
+  "rewards": {
+    "experience": 30
+  },
+  "sends_telemetry_event": true
+}

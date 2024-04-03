@@ -76,7 +76,7 @@ public class MasterSwordItem extends SwordItem {
         ItemStack itemstack = player.getItemInHand(pHand);
         if (!pLevel.isClientSide && player.isCrouching() && player.getHealth() >= 20 ||  player.isCrouching() && player.getAbilities().instabuild) {
         player.getCooldowns().addCooldown(this, 30);
-        pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 1F, 5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
+        pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, .8F, 5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
             SwordBeam projectile = new SwordBeam(pLevel,player);
             projectile.setOwner(player);
             projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));

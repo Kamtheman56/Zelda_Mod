@@ -52,6 +52,22 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "minecraft:filled_map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "zeldamod:on_master_map",
+              "decoration": "red_x",
+              "zoom": 1,
+              "search_radius": 10000,
+              "skip_existing_chunks": true
+            },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
           "weight": 2,
           "name": "zeldamod:champions_tunic"
         },

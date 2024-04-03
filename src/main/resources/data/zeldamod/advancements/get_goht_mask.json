@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:mask_goht"
+    },
+    "title": "Mask Conquerer II",
+    "description": "Combine the Keaton Mask, Bremen Mask, Bunny Hood, Don Gero's Mask, and the Mask of Scents to prove your power",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_odolwa_mask",
+  "criteria": {
+    "mask_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:mask_goht"
+
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mask_block"
+    ]
+  ],
+  "rewards": {
+    "experience": 30
+  },
+  "sends_telemetry_event": true
+}

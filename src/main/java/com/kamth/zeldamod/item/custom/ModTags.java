@@ -9,8 +9,25 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.structure.StructureType;
 
 public class ModTags {
+
+
+    public static class Structures
+    {
+
+        public static final TagKey<StructureType<?>> ON_MASTER_MAP
+                = tag("on_master_map");
+        private static TagKey<StructureType<?>> forgetag(String name){
+        return TagKey.create(Registries.STRUCTURE_TYPE,(new ResourceLocation("forge", name)));
+    }
+        private static TagKey<StructureType<?>> tag(String name){
+        return TagKey.create(Registries.STRUCTURE_TYPE, new ResourceLocation(ZeldaMod.MOD_ID, name));
+    }
+    }
+
+
     public static class Blocks{
 
 public static final TagKey<Block> BOMB
@@ -41,6 +58,8 @@ public static final TagKey<Block> BOMB
                 = tag("heavy_boots_fragile_blocks");
         public static final TagKey<Block> SWORD_BEAM
                 = tag("sword_beam_blocks");
+        public static final TagKey<Block> SACRED_FLAMES
+                = tag("sacred_flame_blocks");
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }
@@ -69,6 +88,17 @@ return BlockTags.create(new ResourceLocation("forge", name));
             return ItemTags.create(new ResourceLocation("forge", name));
         }
 
+        public static class Structures{
+            public static final TagKey<StructureType<?>> ON_MASTER_MAP
+                    = tag("on_master_map");
+            private static TagKey<StructureType<?>> forgetag(String name){
+                return TagKey.create(Registries.STRUCTURE_TYPE,(new ResourceLocation("forge", name)));
+            }
+            private static TagKey<StructureType<?>> tag(String name){
+                return TagKey.create(Registries.STRUCTURE_TYPE, new ResourceLocation(ZeldaMod.MOD_ID, name));
+            }
+        }
+
     }
     public static class Entities{
         public static final TagKey<EntityType<?>>MIRROR
@@ -86,5 +116,6 @@ return BlockTags.create(new ResourceLocation("forge", name));
         private static TagKey<EntityType<?>> forgetag(String name){
             return TagKey.create(Registries.ENTITY_TYPE,(new ResourceLocation("forge", name)));
         }
-    }
-}
+    }}
+
+

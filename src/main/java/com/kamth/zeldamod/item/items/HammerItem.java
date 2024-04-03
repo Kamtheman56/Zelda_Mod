@@ -2,6 +2,7 @@ package com.kamth.zeldamod.item.items;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -63,14 +64,21 @@ public HammerItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModif
         if (blockstate.is(ModTags.Blocks.HAMMER)) {
             level.destroyBlock(blockpos,false, pContext.getPlayer());
             return InteractionResult.SUCCESS;
-        } else {
-
+        }  if (blockstate.is(ModBlocks.HAMMER_PEG.get())) {
+             if (!pContext.getPlayer().getAbilities().instabuild){
+                ItemStack stack = pContext.getItemInHand();
+                stack.setDamageValue(stack.getDamageValue() + 3);
+                if (stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);}
+            level.destroyBlock(blockpos,false, pContext.getPlayer());
+            level.setBlockAndUpdate(blockpos, ModBlocks.HAMMERED_PEG.get().defaultBlockState());
+            return InteractionResult.SUCCESS;
         }
-        return InteractionResult.FAIL;
+        else return InteractionResult.FAIL;
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
             components.add(Component.literal("Smash through weak blocks").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Pound down wooden pegs").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }}
 }

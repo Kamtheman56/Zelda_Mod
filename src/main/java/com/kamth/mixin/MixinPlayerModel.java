@@ -1,23 +1,15 @@
 package com.kamth.mixin;
 
 
-import com.kamth.zeldamod.item.ModItems;
-import com.kamth.zeldamod.item.items.GliderItem;
+import com.kamth.zeldamod.item.items.LeafItem;
 import com.kamth.zeldamod.item.masks.ZoraMask;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.MouseHandler;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.util.Mth;
-import net.minecraft.util.SmoothDouble;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -44,6 +36,8 @@ public abstract class MixinPlayerModel extends HumanoidModel<LivingEntity> {
                                     float headPitch,
                                     CallbackInfo ci){
         ItemStack stack = entity.getItemBySlot(EquipmentSlot.HEAD);
+        ItemStack stack2 = entity.getItemBySlot(EquipmentSlot.MAINHAND);
+        ItemStack stack3 = entity.getItemBySlot(EquipmentSlot.OFFHAND);
         if(stack.getItem() instanceof ZoraMask && entity.isSwimming()){
             leftArm.xRot = ARM_ROTATION;
             leftArm.zRot = 34.5f;
@@ -52,6 +46,14 @@ public abstract class MixinPlayerModel extends HumanoidModel<LivingEntity> {
          //   leftLeg.xRot = 0f;
          //   rightLeg.xRot = ;
         }
+        if(stack2.getItem() instanceof LeafItem && entity.isUsingItem() || stack3.getItem() instanceof LeafItem && entity.isUsingItem() ){
+            leftArm.xRot = ARM_ROTATION;
+            leftArm.zRot = 0f;
+            rightArm.xRot = ARM_ROTATION ;
+            rightArm.zRot = 0f;
+        }
+
+
     }
 
 

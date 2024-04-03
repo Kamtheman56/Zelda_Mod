@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:digging_mitts"
+  },
+  "addition": {
+    "item": "zeldamod:master_shard"
+  },
+  "result": {
+    "item": "zeldamod:mogma_mitts"
+  }
+}

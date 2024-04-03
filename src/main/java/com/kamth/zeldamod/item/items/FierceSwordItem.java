@@ -9,13 +9,13 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -38,7 +38,7 @@ public class FierceSwordItem extends SwordItem {
         ItemStack itemstack = player.getItemInHand(pHand);
         if (!pLevel.isClientSide &&  player.getFoodData().getFoodLevel() >2) {
         player.causeFoodExhaustion(5);
-        pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 1F, 5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
+        pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, .8F, 5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
             SwordBeam projectile = new SwordBeam(pLevel,player);
             projectile.setOwner(player);
             projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));

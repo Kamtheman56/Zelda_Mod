@@ -11,6 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.warden.Warden;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -49,6 +50,8 @@ public class AncientArrow extends AbstractArrow {
       entity.hurt(damageSources().generic(), (float)w);
         int s = entity instanceof Warden ? 10 : 0;
        entity.hurt(damageSources().generic(), (float)s);
+        int p = entity instanceof Player ? 0 : 0;
+        entity.hurt(damageSources().generic(), (float)p);
 
 
     }

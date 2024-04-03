@@ -30,9 +30,14 @@ public class HeroBowItem extends BowItem {
     public Predicate<ItemStack> getAllSupportedProjectiles() {
         return stack -> stack.is(ModTags.Items.BOW_AMMO);
     }
+
+   @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return false;
+    }
     @Override
     public int getDefaultProjectileRange() {
-        return 35;
+        return 40;
     }
     @Override
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
@@ -88,7 +93,6 @@ public class HeroBowItem extends BowItem {
 
                         pLevel.addFreshEntity(abstractarrow);
                     }
-
                     pLevel.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                     if (!flag1 && !player.getAbilities().instabuild) {
                         itemstack.shrink(1);
@@ -96,7 +100,6 @@ public class HeroBowItem extends BowItem {
                             player.getInventory().removeItem(itemstack);
                         }
                     }
-
                     player.awardStat(Stats.ITEM_USED.get(this));
                 }
             }

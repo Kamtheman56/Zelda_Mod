@@ -86,7 +86,7 @@ protected float getGravity() {
             double particleMotionX = (random.nextFloat() * 0 - 0) * particlesSpeed;
             double particleMotionY = (random.nextFloat() * 1 - 0) * particlesSpeed;
             double particleMotionZ = (random.nextFloat() * 0 - 0) * particlesSpeed;
-            this.level().addParticle(ParticleTypes.BUBBLE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
+            this.level().addParticle(ParticleTypes.SMOKE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
         }
     if (!this.level().isClientSide) {
             if (this.ticksToExplode <= this.tickCount) {

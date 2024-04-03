@@ -33,7 +33,7 @@ public class RazorSwordItem extends SwordItem {
         if(pStack.getDamageValue() < pStack.getMaxDamage() - 2) {
         }
         else {
-            ItemStack	newItemStack = new ItemStack(ModItems.KOKIRI_SWORD.get());
+            ItemStack	newItemStack = new ItemStack(ModItems.KOKIRI_SWORD2.get());
 
             pAttacker.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
             pAttacker.broadcastBreakEvent(EquipmentSlot.MAINHAND);
@@ -50,7 +50,7 @@ public class RazorSwordItem extends SwordItem {
             if(pStack.getDamageValue() < pStack.getMaxDamage() - 3) {
             }
             else {
-                ItemStack	newItemStack = new ItemStack(ModItems.KOKIRI_SWORD.get());
+                ItemStack	newItemStack = new ItemStack(ModItems.KOKIRI_SWORD2.get());
 
                 pEntityLiving.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
                 pEntityLiving.broadcastBreakEvent(EquipmentSlot.MAINHAND);
