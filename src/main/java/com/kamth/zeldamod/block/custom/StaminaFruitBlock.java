@@ -1,10 +1,9 @@
 package com.kamth.zeldamod.block.custom;
 
+import com.kamth.zeldamod.item.custom.ModTags;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -14,12 +13,10 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.function.Supplier;
@@ -56,7 +53,7 @@ public class StaminaFruitBlock extends FlowerBlock {
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockPos blockpos = pPos.below();
         BlockState blockstate = pLevel.getBlockState(blockpos);
-        if (blockstate.is(BlockTags.MUSHROOM_GROW_BLOCK) || blockstate.is(Blocks.MOSS_BLOCK) || blockstate.is(Blocks.CLAY) || blockstate.is(BlockTags.BASE_STONE_OVERWORLD)) {
+        if (blockstate.is(ModTags.Blocks.STAMINA_FRUIT)) {
             return true;
         } else {
             return false;

@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"2": "zeldamod:block/eye_switch",
+		"2": "zeldamod:block/eye_switch_closed",
 		"3": "minecraft:block/gold_block",
 		"particle": "zeldamod:block/eye_switch"
 	},
@@ -20,7 +20,6 @@
 			}
 		}
 	],
-	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [75, 45, 0],
@@ -47,10 +46,10 @@
 		},
 		"gui": {
 			"rotation": [178.78, 0, 180],
-			"translation": [0.5, -0.5, 0]
+			"translation": [0.5, -3.25, 0]
 		},
 		"fixed": {
-			"translation": [-0.5, -0.5, -7]
+			"translation": [-0.5, -3, -7]
 		}
 	}
 }

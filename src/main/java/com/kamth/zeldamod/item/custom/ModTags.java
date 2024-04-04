@@ -60,6 +60,8 @@ public static final TagKey<Block> BOMB
                 = tag("sword_beam_blocks");
         public static final TagKey<Block> SACRED_FLAMES
                 = tag("sacred_flame_blocks");
+        public static final TagKey<Block> STAMINA_FRUIT
+                = tag("stamina_fruit_blocks");
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }

@@ -1,13 +1,8 @@
 package com.kamth.zeldamod.block.custom;
 
-import com.kamth.zeldamod.effect.ModEffects;
-import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -42,7 +37,10 @@ public class BlueDekuFlowerBlock extends Block implements IPlantable {
         return pState.is(BlockTags.DIRT) || pState.is(Blocks.FARMLAND);
     }
 
-
+    @Override
+    public void fallOn(Level p_153362_, BlockState p_153363_, BlockPos p_153364_, Entity p_153365_, float p_153366_) {
+        p_153365_.causeFallDamage(p_153366_, 0.2F, p_153362_.damageSources().fall());
+    }
     public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         return 1.0F;
     }

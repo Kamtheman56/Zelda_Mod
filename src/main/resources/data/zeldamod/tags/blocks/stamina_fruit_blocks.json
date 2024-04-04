@@ -1,0 +1,13 @@
+{
+  "replace": false,
+"values": [
+  "minecraft:coarse_dirt",
+  "minecraft:podzol",
+  "minecraft:mycelium",
+  "minecraft:mud",
+  "minecraft:moss_block",
+  "#minecraft:base_stone_overworld",
+  "#minecraft:lush_ground_replaceable",
+  "#minecraft:dirt"
+]
+}

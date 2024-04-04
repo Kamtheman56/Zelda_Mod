@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:deku_block_blue"
+          "name": "zeldamod:eye_switch"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "zeldamod:blocks/deku_block_blue"
+  "random_sequence": "zeldamod:blocks/eye_switch"
 }

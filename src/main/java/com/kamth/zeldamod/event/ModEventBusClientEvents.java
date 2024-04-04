@@ -2,6 +2,7 @@ package com.kamth.zeldamod.event;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.entity.ModBlockEntities;
+import com.kamth.zeldamod.block.entity.renderer.LockedChestEntityRenderer;
 import com.kamth.zeldamod.block.entity.renderer.MasterSwordPedestalEntityRenderer;
 import com.kamth.zeldamod.block.entity.renderer.SwordPedestalEntityRenderer;
 import com.kamth.zeldamod.block.entity.renderer.UnlockedSwordPedestalEntityRenderer;
@@ -17,6 +18,7 @@ public class ModEventBusClientEvents {
         event.registerBlockEntityRenderer(ModBlockEntities.SWORD_PEDESTAL_BE.get(), SwordPedestalEntityRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.MASTER_SWORD_PEDESTAL_BE.get(), MasterSwordPedestalEntityRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.UNLOCKED_SWORD_PEDESTAL_BE.get(), UnlockedSwordPedestalEntityRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.LOCKED_CHEST_BE.get(), LockedChestEntityRenderer::new);
 
 
     }

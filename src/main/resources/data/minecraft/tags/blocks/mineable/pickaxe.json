@@ -16,6 +16,8 @@
     "zeldamod:sword_pedestal",
     "zeldamod:master_sword_pedestal",
     "zeldamod:unlocked_sword_pedestal",
-    "zeldamod:copper_peg"
+    "zeldamod:copper_peg",
+    "zeldamod:hammered_copper_peg",
+    "zeldamod:eye_switch"
   ]
 }

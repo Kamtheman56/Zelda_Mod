@@ -25,6 +25,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("unlocked_sword_pedestal_be", () ->
                     BlockEntityType.Builder.of(UnlockedSwordPedestalEntity::new,
                             ModBlocks.UNLOCKED_SWORD_PEDESTAL.get()).build(null));
+    public static final RegistryObject<BlockEntityType<LockedChestEntity>> LOCKED_CHEST_BE =
+            BLOCK_ENTITIES.register("locked_chest_be", () ->
+                    BlockEntityType.Builder.of(LockedChestEntity::new,
+                            ModBlocks.LOCKED_CHEST.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

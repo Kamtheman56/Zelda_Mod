@@ -267,9 +267,9 @@ public class ModEvents {
 
 
 
-
     @SubscribeEvent
     public static void addCustomTrades(VillagerTradesEvent event) {
+
         if(event.getType() == VillagerProfession.WEAPONSMITH) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             ItemStack stack = new ItemStack(ModItems.KOKIRI_SWORD.get(), 1);
@@ -279,6 +279,7 @@ public class ModEvents {
                     new ItemStack(Items.EMERALD, 4),
                     stack,3,6,0.02F));
         }
+
         if(event.getType() == VillagerProfession.WEAPONSMITH) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             ItemStack stack = new ItemStack(ModItems.RAZOR_SWORD.get(), 1);
@@ -355,6 +356,7 @@ public class ModEvents {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             ItemStack stack = new ItemStack(ModItems.BOMB.get(), 3);
             int villagerLevel = 1;
+
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 6),
@@ -537,7 +539,7 @@ public class ModEvents {
                 new ItemStack(ModItems.SKULL_MASK.get(), 1),
                 2, 12, 0.15f));
     }
-}
+    }
 
 
 
