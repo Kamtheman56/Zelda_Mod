@@ -177,6 +177,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.LIFE_MUSHROOM);
         event.accept(ModItems.MINI_MUSHROOM);
         event.accept(ModItems.SUPER_LEAF);
+        event.accept(ModItems.BAKED_APPLE);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MASK.get()){
         event.accept(ModItems.DEKU_MASK);

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "minecraft:apple"
+  },
+  "result": "zeldamod:baked_apple",
+  "experience": 0.35,
+  "cookingtime": 200
+}

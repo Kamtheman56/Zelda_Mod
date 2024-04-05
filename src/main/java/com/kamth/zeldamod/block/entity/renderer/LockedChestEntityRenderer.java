@@ -1,5 +1,7 @@
 package com.kamth.zeldamod.block.entity.renderer;
 
+import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.block.entity.LockedChestEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -14,8 +16,12 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.BrightnessCombiner;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.AbstractChestBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ChestBlock;
+import net.minecraft.world.level.block.DoubleBlockCombiner;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.entity.LidBlockEntity;
@@ -33,6 +39,7 @@ public class LockedChestEntityRenderer<T extends BlockEntity & LidBlockEntity> i
     private static final String BOTTOM = "bottom";
     private static final String LID = "lid";
     private static final String LOCK = "lock";
+    private static final ResourceLocation TEXTURE = new ResourceLocation(ZeldaMod.MOD_ID, "textures/blocks/locked_chest.png");
     private final ModelPart lid;
     private final ModelPart bottom;
     private final ModelPart lock;
@@ -80,7 +87,7 @@ public class LockedChestEntityRenderer<T extends BlockEntity & LidBlockEntity> i
     public void render(LockedChestEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
             Level level = pBlockEntity.getLevel();
             boolean flag = level != null;
-            BlockState blockstate = flag ? pBlockEntity.getBlockState() : Blocks.CHEST.defaultBlockState().setValue(ChestBlock.FACING, Direction.SOUTH);
+            BlockState blockstate = flag ? pBlockEntity.getBlockState() : ModBlocks.LOCKED_CHEST.get().defaultBlockState().setValue(ChestBlock.FACING, Direction.SOUTH);
             ChestType chesttype = blockstate.hasProperty(ChestBlock.TYPE) ? blockstate.getValue(ChestBlock.TYPE) : ChestType.SINGLE;
             Block block = blockstate.getBlock();
             if (block instanceof AbstractChestBlock<?> abstractchestblock) {
@@ -132,4 +139,5 @@ public class LockedChestEntityRenderer<T extends BlockEntity & LidBlockEntity> i
     public boolean shouldRender(LockedChestEntity pBlockEntity, Vec3 pCameraPos) {
         return BlockEntityRenderer.super.shouldRender(pBlockEntity, pCameraPos);
     }
+
 }

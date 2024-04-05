@@ -55,7 +55,6 @@ import static com.kamth.zeldamod.item.items.LensItem.LOOKING;
 
 @Mod.EventBusSubscriber(modid = ZeldaMod.MOD_ID)
 public class ModEvents {
-    boolean isPulling = false;
 
     @SubscribeEvent
     public static void onPlayerEntityInteract(PlayerInteractEvent.EntityInteract event) {
@@ -193,6 +192,7 @@ public class ModEvents {
  event.setCanceled(true);
         }
     }
+
 
 
     @OnlyIn(Dist.CLIENT)

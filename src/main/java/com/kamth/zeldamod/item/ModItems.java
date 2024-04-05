@@ -8,6 +8,7 @@ import com.kamth.zeldamod.item.custom.ModFoods;
 import com.kamth.zeldamod.item.items.*;
 import com.kamth.zeldamod.item.masks.*;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -82,6 +83,8 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(ModFoods.LIFE_MUSHROOM)));
     public static final RegistryObject<Item> MINI_MUSHROOM = ITEMS.register("mushroom_mini",
             () -> new Item(new Item.Properties().food(ModFoods.MINI_MUSHROOM)));
+    public static final RegistryObject<Item> BAKED_APPLE = ITEMS.register("baked_apple",
+            () -> new Item(new Item.Properties().food(Foods.BAKED_POTATO)));
     public static final RegistryObject<Item> SUPER_LEAF = ITEMS.register("super_leaf",
             () -> new SuperLeafItem(new Item.Properties().stacksTo(1).defaultDurability(3)));
 
