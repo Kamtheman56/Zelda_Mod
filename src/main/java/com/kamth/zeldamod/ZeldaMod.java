@@ -232,6 +232,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.WISDOM_FLAME);
             event.accept(ModBlocks.POWER_FLAME);
             event.accept(ModBlocks.PORK_BLOCK);
+            event.accept(ModBlocks.CARMINE_FROGLIGHT);
             event.accept(ModBlocks.GLOOM_BLOCK);
             event.accept(ModBlocks.HOOK_TARGET);
             event.accept(ModBlocks.CLAW_TARGET);

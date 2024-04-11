@@ -11,6 +11,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -104,19 +105,13 @@ public class EyeSwitchBlock extends Block {
             serverplayer.awardStat(Stats.TARGET_HIT);
             pLevel.playSound(pLevel.getNearestPlayer(entity, 10),pHit.getBlockPos(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.BLOCKS);
             pLevel.setBlock(pHit.getBlockPos(), pState.cycle(POWERED),3);
-            if (pLevel.isClientSide){
-                pLevel.playSound(pLevel.getNearestPlayer(entity, 10),pHit.getBlockPos(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.BLOCKS);
-            }
         }}
     public @NotNull InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-       if (!pLevel.isClientSide && pHand == InteractionHand.MAIN_HAND){
+       if (pHand == InteractionHand.MAIN_HAND && pPlayer.getUseItem() == ItemStack.EMPTY && pPlayer.getAbilities().instabuild){
         pLevel.setBlock(pHit.getBlockPos(), pState.cycle(POWERED),3);
+        pLevel.playSound(pPlayer,pPos, SoundEvents.STONE_BUTTON_CLICK_ON,SoundSource.BLOCKS);
            return InteractionResult.SUCCESS;
     }
-       if (pLevel.isClientSide){
-           pLevel.playSound(pPlayer,pPos, SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.BLOCKS);
-           return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
-       }
        else return InteractionResult.FAIL;
     }
 

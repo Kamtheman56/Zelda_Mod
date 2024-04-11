@@ -18,6 +18,8 @@
     "zeldamod:unlocked_sword_pedestal",
     "zeldamod:copper_peg",
     "zeldamod:hammered_copper_peg",
-    "zeldamod:eye_switch"
+    "zeldamod:eye_switch",
+    "zeldamod:locked_door",
+    "zeldamod:locked_boss_door"
   ]
 }

@@ -25,10 +25,7 @@ import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.animal.frog.Frog;
-import net.minecraft.world.entity.monster.Creeper;
-import net.minecraft.world.entity.monster.Husk;
-import net.minecraft.world.entity.monster.Skeleton;
-import net.minecraft.world.entity.monster.WitherSkeleton;
+import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -154,6 +151,19 @@ public class ModEvents {
                 event.getTarget().playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1, 1.4f);
                 event.getTarget().playSound(SoundEvents.WITHER_SKELETON_DEATH, 1, 1.2f);
                 event.getTarget().discard();
+            }}
+        if (!event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GERO_MASK.get()) {
+            if (event.getTarget() instanceof MagmaCube) {
+                event.getTarget().discard();
+                event.getTarget().playSound(SoundEvents.FROG_EAT, 1, 1);
+                event.getTarget().playSound(SoundEvents.PLAYER_BURP, 1, 1);
+                event.getTarget().spawnAtLocation(ModBlocks.CARMINE_FROGLIGHT.get());
+            }}
+        if (!event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GERO_MASK.get()) {
+            if (event.getTarget() instanceof Slime) {
+                event.getTarget().discard();
+                event.getTarget().playSound(SoundEvents.FROG_EAT, 1, 1);
+                event.getTarget().playSound(SoundEvents.PLAYER_BURP, 1, 1);
             }}
 
             //These are the Majoras Mask Effects

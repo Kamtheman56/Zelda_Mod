@@ -4,14 +4,13 @@
   "item.zeldamod.master_ore": "Master Ore",
   "item.zeldamod.gold_dust": "Gold Dust",
   "item.zeldamod.master_upgrade": "Master Upgrade Template",
-  "item.zeldamod.default_upgrade": "Base Upgrade Template",
   "item.zeldamod.extender": "Chain Extender Upgrade",
   "item.zeldamod.claw": "Claw Upgrade",
   "item.zeldamod.pumpkin_soup": "Pumpkin Soup",
   "item.zeldamod.stamina_potion": "Stamina Potion",
   "item.zeldamod.heart_potion": "Heart Potion",
   "item.zeldamod.milk_bottle1": "Bottle of Milk",
-  "item.zeldamod.milk_bottle2": "Bottle of Milk",
+  "item.zeldamod.milk_bottle2": "Half Bottle of Milk",
   "item.zeldamod.shield_potion": "Revitalizing Potion",
   "item.zeldamod.blue_potion": "Blue Potion",
   "item.zeldamod.magic_milk": "Chateau Romani",
@@ -164,7 +163,7 @@
   "effect.zeldamod.fire": "Fire Shield Earrings",
   "effect.zeldamod.mini": "Mini",
 
-  "sounds.zeldamod.leaf": "Gusts",
+  "sounds.zeldamod.leaf": "Gust blows",
   "sounds.zeldamod.heal": "Absorbed a plant",
   "sounds.zeldamod.majora": "Majora's influence takes over",
   "sounds.zeldamod.door_unlock": "Door unlocks",
@@ -202,7 +201,8 @@
   "block.zeldamod.locked_door": "Locked Door",
   "block.zeldamod.locked_boss_door": "Locked Boss Door",
   "block.zeldamod.eye_switch": "Eye Switch",
-  "master_map": "Master Sword Map",
+  "block.zeldamod.carmine_froglight": "Carmine Froglight",
+
   "Nightmask": "You don't think you should do this",
   "Courage": "The Pedestal radiates with Courage",
   "Wisdom": "The Pedestal radiates with Wisdom",
@@ -210,9 +210,14 @@
   "Sword_Drain": "The Pedestal drains your energy...",
   "Sword_Drain_Hint": "Try offering a pendent of power to the pedestal",
   "death.attack.master_sword": "%1$s life force was sacrificed to the sword",
-  "entity.minecraft.villager.zeldamod.mask_trader": "Mask Salesman"
+  "entity.minecraft.villager.zeldamod.mask_trader": "Mask Salesman",
 
-
-
-
+  "filled_map.master_map": "Master Map",
+  "filled_map.courage_map": "Courage Temple Map",
+  "filled_map.wisdom_map": "Wisdom Temple Map",
+  "filled_map.power_map": "Power Temple Map",
+  "filled_map.clock_map": "Clock Tower Map",
+  "filled_map.jungle_map": "Jungle Temple Map",
+  "filled_map.desert_map": "Desert Pyramid Map",
+  "filled_map.monster_map": "Dungeon Map"
 }

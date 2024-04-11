@@ -16,14 +16,8 @@ public class ModTags {
 
     public static class Structures
     {
-
-        public static final TagKey<StructureType<?>> ON_MASTER_MAP
-                = tag("on_master_map");
         private static TagKey<StructureType<?>> forgetag(String name){
         return TagKey.create(Registries.STRUCTURE_TYPE,(new ResourceLocation("forge", name)));
-    }
-        private static TagKey<StructureType<?>> tag(String name){
-        return TagKey.create(Registries.STRUCTURE_TYPE, new ResourceLocation(ZeldaMod.MOD_ID, name));
     }
     }
 
@@ -89,18 +83,6 @@ return BlockTags.create(new ResourceLocation("forge", name));
         private static TagKey<Item> forgetag(String name){
             return ItemTags.create(new ResourceLocation("forge", name));
         }
-
-        public static class Structures{
-            public static final TagKey<StructureType<?>> ON_MASTER_MAP
-                    = tag("on_master_map");
-            private static TagKey<StructureType<?>> forgetag(String name){
-                return TagKey.create(Registries.STRUCTURE_TYPE,(new ResourceLocation("forge", name)));
-            }
-            private static TagKey<StructureType<?>> tag(String name){
-                return TagKey.create(Registries.STRUCTURE_TYPE, new ResourceLocation(ZeldaMod.MOD_ID, name));
-            }
-        }
-
     }
     public static class Entities{
         public static final TagKey<EntityType<?>>MIRROR

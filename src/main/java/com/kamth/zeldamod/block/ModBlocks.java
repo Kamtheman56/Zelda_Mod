@@ -38,6 +38,7 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
             .strength(6f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
     public static final RegistryObject<Block> MASK_BLOCK = registerBlock("mask_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> CARMINE_FROGLIGHT = registerBlock("carmine_froglight", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.OCHRE_FROGLIGHT)));
     public static final RegistryObject<Block> SUPERSHROOM_BLOCK = registerBlock("super_shroom_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM)));
     public static final RegistryObject<Block> HAMMER_PEG = registerBlock("hammer_peg", ()-> new HammerPegBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion()));
     public static final RegistryObject<Block> HAMMERED_PEG = registerBlock("hammered_peg", ()-> new HammeredPegBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE)));

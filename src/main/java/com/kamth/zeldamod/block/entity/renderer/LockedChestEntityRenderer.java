@@ -31,15 +31,13 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import java.util.Calendar;
-
 
 @OnlyIn(Dist.CLIENT)
 public class LockedChestEntityRenderer<T extends BlockEntity & LidBlockEntity> implements BlockEntityRenderer<LockedChestEntity> {
     private static final String BOTTOM = "bottom";
     private static final String LID = "lid";
     private static final String LOCK = "lock";
-    private static final ResourceLocation TEXTURE = new ResourceLocation(ZeldaMod.MOD_ID, "textures/blocks/locked_chest.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(ZeldaMod.MOD_ID, "textures/block/locked.png");
     private final ModelPart lid;
     private final ModelPart bottom;
     private final ModelPart lock;
@@ -50,12 +48,12 @@ public class LockedChestEntityRenderer<T extends BlockEntity & LidBlockEntity> i
     private final ModelPart doubleRightBottom;
     private final ModelPart doubleRightLock;
     private boolean xmasTextures;
+    public static final Material LOCKED = createCustomChestTextureId("locked");
+    public static final Material LOCKED_LEFT = createCustomChestTextureId("locked_left");
+    public static final Material LOCKED_RIGHT = createCustomChestTextureId("locked_right");
 
     public LockedChestEntityRenderer(BlockEntityRendererProvider.Context pContext) {
-        Calendar calendar = Calendar.getInstance();
-        if (calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26) {
-            this.xmasTextures = true;
-        }
+
 
         ModelPart modelpart = pContext.bakeLayer(ModelLayers.CHEST);
         this.bottom = modelpart.getChild("bottom");
@@ -78,9 +76,17 @@ public class LockedChestEntityRenderer<T extends BlockEntity & LidBlockEntity> i
         pLockPart.render(pPoseStack, pConsumer, pPackedLight, pPackedOverlay);
         pBottomPart.render(pPoseStack, pConsumer, pPackedLight, pPackedOverlay);
     }
+    private static Material createCustomChestTextureId(String variant) {
+        return new Material(Sheets.CHEST_SHEET , new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/chest" + variant));
+    }
 
-    protected Material getMaterial(T blockEntity, ChestType chestType) {
-        return Sheets.chooseMaterial(blockEntity, chestType, this.xmasTextures);
+
+    private static Material getMaterial(ChestType type) {
+        return switch (type) {
+            case LEFT -> LOCKED_LEFT;
+            case RIGHT -> LOCKED_RIGHT;
+            default -> LOCKED;
+        };
     }
 
     @Override
@@ -108,7 +114,7 @@ public class LockedChestEntityRenderer<T extends BlockEntity & LidBlockEntity> i
                 f1 = 1.0F - f1;
                 f1 = 1.0F - f1 * f1 * f1;
                 int i = neighborcombineresult.apply(new BrightnessCombiner<>()).applyAsInt(pPackedLight);
-                Material material = this.getMaterial((T) pBlockEntity, chesttype);
+                Material material = getMaterial(chesttype);
                 VertexConsumer vertexconsumer = material.buffer(pBuffer, RenderType::entityCutout);
                 if (flag1) {
                     if (chesttype == ChestType.LEFT) {

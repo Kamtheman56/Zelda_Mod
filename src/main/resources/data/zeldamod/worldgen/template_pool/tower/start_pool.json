@@ -1,0 +1,65 @@
+{
+  // More info on template pools can be found here: https://minecraft.gamepedia.com/Custom_world_generation#JSON_format_8
+  // Yes, worldgen json files can have comments. Minecraft does "lenient" parsing of these json files.
+
+  // This is the name of the template pool itself. I tend to just put the file path and file name here with modid.
+  "name": "zeldamod:tower/start_pool",
+
+  // The template pool to refer to if the entries in 'elements' fails to generate.
+  "fallback": "minecraft:empty",
+
+  // Here you can list as many nbt files or placed features to spawn.
+  // Do note that placed features needs a special element entry stuff.
+  "elements": [
+    {
+
+      "weight": 3,
+      "element": {
+        "location": "zeldamod:tower",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:tower_clean",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 2,
+      "element": {
+        "location": "zeldamod:tower_damaged",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:tower_damaged_alt",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 2,
+      "element": {
+        "location": "zeldamod:tower_derilect",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

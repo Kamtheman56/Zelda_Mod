@@ -203,21 +203,19 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:filled_map",
+          "name": "minecraft:map",
           "functions": [
             {
               "function": "minecraft:exploration_map",
               "destination": "zeldamod:on_master_map",
               "decoration": "red_x",
               "zoom": 1,
-              "search_radius": 10000,
-              "skip_existing_chunks": true
+              "skip_existing_chunks": false
             },
             {
               "function": "minecraft:set_name",
-              "target": "item_name",
               "name": {
-                "text": "Master Map"
+                "translate": "filled_map.master_map"
               }
             }
           ]
