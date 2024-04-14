@@ -2,7 +2,6 @@ package com.kamth.zeldamod.item.items;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -60,17 +59,8 @@ public HammerItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModif
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
-
         if (blockstate.is(ModTags.Blocks.HAMMER)) {
             level.destroyBlock(blockpos,false, pContext.getPlayer());
-            return InteractionResult.SUCCESS;
-        }  if (blockstate.is(ModBlocks.HAMMER_PEG.get())) {
-             if (!pContext.getPlayer().getAbilities().instabuild){
-                ItemStack stack = pContext.getItemInHand();
-                stack.setDamageValue(stack.getDamageValue() + 3);
-                if (stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);}
-            level.destroyBlock(blockpos,false, pContext.getPlayer());
-            level.setBlockAndUpdate(blockpos, ModBlocks.HAMMERED_PEG.get().defaultBlockState());
             return InteractionResult.SUCCESS;
         }
         else return InteractionResult.FAIL;

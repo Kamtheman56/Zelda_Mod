@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "zeldamod:shock_switch"
+    },
+    {
+      "item": "minecraft:clock"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:timed_shock_switch",
+    "count": 1
+  }
+}

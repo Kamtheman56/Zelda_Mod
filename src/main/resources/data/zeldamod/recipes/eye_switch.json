@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XLX",
+    "LOL",
+    "XLX"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:gold_ingot"
+    },
+    "O": {
+      "item": "minecraft:observer"
+    }
+  },
+  "result": {
+    "item": "zeldamod:eye_switch",
+    "count": 1
+  }
+}
+

@@ -333,6 +333,35 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
                 LootItemRandomChanceCondition.randomChance(0.12f).build()}, ModItems.HYLIAN_SHIELD.get()));
 
+        //from shipwrecks
+        add("flippers_from_shipwreck", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/shipwreck_treasure")).build(),
+                LootItemRandomChanceCondition.randomChance(0.12f).build()}, ModItems.FLIPPERS.get()));
+        add("zora_mask_from_shipwreck", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/shipwreck_treasure")).build(),
+                LootItemRandomChanceCondition.randomChance(0.06f).build()}, ModItems.ZORA_MASK.get()));
+
+        //from underwater ruins
+        add("zora_mask_from_ruins", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/underwater_ruin_big")).build(),
+                LootItemRandomChanceCondition.randomChance(0.06f).build()}, ModItems.ZORA_MASK.get()));
+        add("ice_arrow_from_ruins", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/underwater_ruin_big")).build(),
+                LootItemRandomChanceCondition.randomChance(0.06f).build()}, ModItems.ICE_ARROW.get()));
+        add("water_bomb_from_big_ruins", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/underwater_ruin_big")).build(),
+                LootItemRandomChanceCondition.randomChance(0.34f).build()}, ModItems.WATER_BOMB.get()));
+        add("water_bomb_from_small_ruins", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/underwater_ruin_small")).build(),
+                LootItemRandomChanceCondition.randomChance(0.28f).build()}, ModItems.WATER_BOMB.get()));
+        add("flippers_from_small_ruins", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/underwater_ruin_small")).build(),
+                LootItemRandomChanceCondition.randomChance(0.15f).build()}, ModItems.FLIPPERS.get()));
+        add("heavy_boots_from_small_ruins", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/underwater_ruin_small")).build(),
+                LootItemRandomChanceCondition.randomChance(0.15f).build()}, ModItems.HEAVY_BOOTS.get()));
+
+
 //from strongholds
         add("all_night_from_strongholds", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/stronghold_crossing")).build(),
@@ -376,6 +405,12 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("zora_tunic_from_buried_treasure", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/buried_treasure")).build(),
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ModItems.ZORA_TUNIC.get()));
+        add("zora_tunic_from_shipwreck_treasure", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/shipwreck_treasure")).build(),
+                LootItemRandomChanceCondition.randomChance(0.20f).build()}, ModItems.ZORA_TUNIC.get()));
+        add("zora_hat_from_shipwreck_treasure", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/shipwreck_treasure")).build(),
+                LootItemRandomChanceCondition.randomChance(0.20f).build()}, ModItems.ZORA_HAT.get()));
         add("zora_hat_from_buried_treasure", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/buried_treasure")).build(),
                 LootItemRandomChanceCondition.randomChance(0.45f).build()}, ModItems.ZORA_HAT.get()));

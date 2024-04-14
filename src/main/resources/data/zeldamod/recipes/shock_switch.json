@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "XLX",
+    "LOL",
+    "XLX"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "O": {
+      "item": "minecraft:glowstone"
+    }
+  },
+  "result": {
+    "item": "zeldamod:shock_switch",
+    "count": 1
+  }
+}

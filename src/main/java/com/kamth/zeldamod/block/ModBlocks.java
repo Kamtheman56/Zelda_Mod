@@ -41,16 +41,16 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> CARMINE_FROGLIGHT = registerBlock("carmine_froglight", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.OCHRE_FROGLIGHT)));
     public static final RegistryObject<Block> SUPERSHROOM_BLOCK = registerBlock("super_shroom_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM)));
     public static final RegistryObject<Block> HAMMER_PEG = registerBlock("hammer_peg", ()-> new HammerPegBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion()));
-    public static final RegistryObject<Block> HAMMERED_PEG = registerBlock("hammered_peg", ()-> new HammeredPegBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE)));
-    public static final RegistryObject<Block> COPPER_PEG = registerBlock("copper_peg", ()-> new HammerPegBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> HAMMERED_COPPER_PEG = registerBlock("hammered_copper_peg", ()-> new HammeredCopperPegBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> COPPER_PEG = registerBlock("copper_peg", ()-> new CopperPegBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK).noOcclusion()));
     public static final RegistryObject<Block> EYE_SWITCH = registerBlock("eye_switch", ()-> new EyeSwitchBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
+    public static final RegistryObject<Block> TIMED_EYE_SWITCH = registerBlock("timed_eye_switch", ()-> new TimedEyeSwitchBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion(),60, false));
+    public static final RegistryObject<Block> SHOCK_SWITCH = registerBlock("shock_switch", ()-> new ShockSwitchBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).lightLevel(state -> state.getValue(ShockSwitchBlock.POWERED) ? 12 : 8).noOcclusion()));
+    public static final RegistryObject<Block> TIMED_SHOCK_SWITCH = registerBlock("timed_shock_switch", ()-> new TimedShockSwitchBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).noOcclusion().lightLevel(state -> state.getValue(ShockSwitchBlock.POWERED) ? 12 : 8),80, false));
     public static final RegistryObject<Block> LOCKED_DOOR = registerBlock("locked_door",
             () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.METAL).noOcclusion(), BlockSetType.IRON));
     public static final RegistryObject<Block> LOCKED_BOSS_DOOR = registerBlock("locked_boss_door",
             () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK).sound(SoundType.METAL).noOcclusion(), BlockSetType.IRON));
     public static final RegistryObject<Block> LOCKED_CHEST = registerBlock("locked_chest", ()-> new LockedChestBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
-
     public static final RegistryObject<Block> SWORD_PEDESTAL = registerBlock("sword_pedestal", ()-> new SwordPedestalBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> MASTER_SWORD_PEDESTAL = registerBlock("master_sword_pedestal", ()-> new MasterSwordPedestalBlock(BlockBehaviour.Properties.copy(Blocks.BEDROCK)));
     public static final RegistryObject<Block> UNLOCKED_SWORD_PEDESTAL = registerBlock("unlocked_sword_pedestal", ()-> new UnlockedSwordPedestalBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));

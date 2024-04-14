@@ -1,5 +1,6 @@
 {
   "variants": {
-    "": {"model": "zeldamod:block/hammer_peg"}
+    "powered=false": { "model": "zeldamod:block/hammer_peg" },
+    "powered=true": {"model": "zeldamod:block/hammer_peg_pounded"}
   }
 }

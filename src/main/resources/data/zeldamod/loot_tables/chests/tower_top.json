@@ -118,23 +118,6 @@
           "functions": [
             {
               "function": "minecraft:exploration_map",
-              "destination": "zeldamod:has_monster_room",
-              "decoration": "red_x",
-              "zoom": 1
-            },
-            {
-              "function": "minecraft:set_name",
-              "name": {
-                "translate": "filled_map.monster_map"
-              }}
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:map",
-          "functions": [
-            {
-              "function": "minecraft:exploration_map",
               "destination": "zeldamod:has_power_temple",
               "decoration": "red_x",
               "zoom": 1
@@ -148,7 +131,6 @@
         }
       ]
     },
-
     {
       "rolls": 4,
       "bonus_rolls": 0,

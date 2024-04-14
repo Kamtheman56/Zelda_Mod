@@ -34,5 +34,17 @@
     "sounds": [
       "zeldamod:door_unlock"
     ]
+  },
+  "locked_door": {
+    "subtitle": "sounds.zeldamod.locked_door",
+    "sounds": [
+      "zeldamod:locked_door"
+    ]
+  },
+  "wooden_hammer": {
+    "subtitle": "sounds.zeldamod.wooden_hammer",
+    "sounds": [
+      "zeldamod:wooden_hammer"
+    ]
   }
 }

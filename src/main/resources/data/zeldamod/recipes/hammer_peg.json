@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "blocks",
+  "pattern": [
+    "XLX",
+    "XLX",
+    "XLX"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:stripped_oak_log"
+    }
+  },
+  "result": {
+    "item": "zeldamod:hammer_peg",
+    "count": 3
+  }
+}

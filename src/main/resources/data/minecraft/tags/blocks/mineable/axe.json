@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "zeldamod:pork_block",
-    "zeldamod:hammer_peg",
-    "zeldamod:hammered_peg"
+    "zeldamod:hammer_peg"
   ]
 }

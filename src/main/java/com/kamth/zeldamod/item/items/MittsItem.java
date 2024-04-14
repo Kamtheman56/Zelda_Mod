@@ -2,7 +2,6 @@ package com.kamth.zeldamod.item.items;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -53,29 +52,10 @@ public class MittsItem extends DiggerItem {
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
-        if (blockstate.is(ModBlocks.HAMMERED_COPPER_PEG.get())) {
-            if (!pContext.getPlayer().getAbilities().instabuild){
-                ItemStack stack = pContext.getItemInHand();
-                stack.setDamageValue(stack.getDamageValue() + 3);
-                if (stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);}
-            level.destroyBlock(blockpos,false, pContext.getPlayer());
-            level.playSound(pContext.getPlayer(), blockpos, SoundEvents.COPPER_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
-            level.setBlockAndUpdate(blockpos, ModBlocks.COPPER_PEG.get().defaultBlockState());
-            return InteractionResult.SUCCESS;
-        }
-        if (blockstate.is(ModBlocks.HAMMERED_PEG.get())) {
-            if (!pContext.getPlayer().getAbilities().instabuild){
-                ItemStack stack = pContext.getItemInHand();
-                stack.setDamageValue(stack.getDamageValue() + 3);
-                if (stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);}
-            level.destroyBlock(blockpos,false, pContext.getPlayer());
-            level.playSound(pContext.getPlayer(), blockpos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
-            level.setBlockAndUpdate(blockpos, ModBlocks.HAMMER_PEG.get().defaultBlockState());
-            return InteractionResult.SUCCESS;
-        }
 
 
-     else if (pContext.getClickedFace() == Direction.DOWN) {
+
+  if (pContext.getClickedFace() == Direction.DOWN) {
             return InteractionResult.PASS;
         } else {
             Player player = pContext.getPlayer();

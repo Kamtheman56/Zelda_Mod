@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": {"model": "zeldamod:block/locked_chest"}
+    "": {
+      "model": "zeldamod:block/locked_chest"
+    }
   }
 }

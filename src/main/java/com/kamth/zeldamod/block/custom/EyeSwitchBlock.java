@@ -23,11 +23,13 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
 
+
+//A block that activates when hit with a projectile only
 public class EyeSwitchBlock extends Block {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
@@ -79,48 +81,59 @@ public class EyeSwitchBlock extends Block {
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
-
-    @Override
-    public boolean isSignalSource(BlockState pState) {
-        return true;
-    }
-    @Override
-    public void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pBlock, BlockPos pFromPos, boolean pIsMoving) {
-        if (pState.getValue(POWERED) == this.hasNeighborSignal(pLevel, pPos, pState) && !pLevel.getBlockTicks().willTickThisTick(pPos, this)) {
-            pLevel.scheduleTick(pPos, this, 2);
-        }
-
-    }
-    protected boolean hasNeighborSignal(Level pLevel, BlockPos pPos, BlockState pState) {
-        return pLevel.hasSignal(pPos.below(), Direction.DOWN);
-    }
-@Override
-    public int getDirectSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
-        return pSide == Direction.DOWN ? pBlockState.getSignal(pBlockAccess, pPos, pSide) : 0;
-    }
     @Override
     public void onProjectileHit(Level pLevel, BlockState pState, BlockHitResult pHit, Projectile pProjectile) {
         Entity entity = pProjectile.getOwner();
         if (entity instanceof ServerPlayer serverplayer) {
             serverplayer.awardStat(Stats.TARGET_HIT);
-            pLevel.playSound(pLevel.getNearestPlayer(entity, 10),pHit.getBlockPos(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.BLOCKS);
+            float f = pState.getValue(POWERED) ? 0.6F : 0.5F;
+            pLevel.playSound((Player)null, pHit.getBlockPos(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.BLOCKS, 0.8F, f);
             pLevel.setBlock(pHit.getBlockPos(), pState.cycle(POWERED),3);
+            this.press(pState, pLevel, pHit.getBlockPos());
         }}
-    public @NotNull InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-       if (pHand == InteractionHand.MAIN_HAND && pPlayer.getUseItem() == ItemStack.EMPTY && pPlayer.getAbilities().instabuild){
-        pLevel.setBlock(pHit.getBlockPos(), pState.cycle(POWERED),3);
-        pLevel.playSound(pPlayer,pPos, SoundEvents.STONE_BUTTON_CLICK_ON,SoundSource.BLOCKS);
-           return InteractionResult.SUCCESS;
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getUseItem().is(ItemStack.EMPTY.getItem()) && pPlayer.getAbilities().instabuild){
+            this.press(pState, pLevel, pPos);
+            float f = pState.getValue(POWERED) ? 0.6F : 0.5F;
+            pLevel.playSound((Player)null, pPos, SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.BLOCKS, 1F, f);
+            pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
+        }
+        return InteractionResult.SUCCESS;
     }
-       else return InteractionResult.FAIL;
+    @Override
+    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
+        if (!pIsMoving && !pState.is(pNewState.getBlock())) {
+            if (pState.getValue(POWERED)) {
+                this.updateNeighbours(pState, pLevel, pPos);
+            }
+            super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+        }
     }
-
+    private void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
+        pLevel.updateNeighborsAt(pPos, this);
+        pLevel.updateNeighborsAt(pPos.relative(getConnectedDirection(pState).getOpposite()), this);
+    }
     public void press(BlockState pState, Level pLevel, BlockPos pPos) {
-        pLevel.setBlock(pPos, pState.setValue(POWERED, Boolean.valueOf(true)), 3);
+        pState = pState.cycle(POWERED);
+        pLevel.setBlock(pPos, pState, 3);
+        this.updateNeighbours(pState, pLevel, pPos);
     }
+    @Override
+    public boolean isSignalSource(BlockState pState) {
+        return true;
+    }
+    @Override
     public int getSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
         return pBlockState.getValue(POWERED) ? 15 : 0;
     }
+    @Override
+    public int getDirectSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
+        return pBlockState.getValue(POWERED) && getConnectedDirection(pBlockState) == pSide ? 15 : 0;
+    }
+    protected static Direction getConnectedDirection(BlockState pState) {
+                return pState.getValue(FACING);
+        }
+
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {

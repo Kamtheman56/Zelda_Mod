@@ -67,22 +67,8 @@ public MegatonItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModi
         if (blockstate.is(ModTags.Blocks.HAMMER)) {
             level.destroyBlock(blockpos,false, pContext.getPlayer());
             return InteractionResult.SUCCESS;
-        }  if (blockstate.is(ModBlocks.COPPER_PEG.get())) {
-            if (!pContext.getPlayer().getAbilities().instabuild){
-                ItemStack stack = pContext.getItemInHand();
-                stack.setDamageValue(stack.getDamageValue() + 3);
-                if (stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);}
-            level.destroyBlock(blockpos,false, pContext.getPlayer());
-            level.setBlockAndUpdate(blockpos, ModBlocks.HAMMERED_COPPER_PEG.get().defaultBlockState());
-            return InteractionResult.SUCCESS;
         }
-        if (blockstate.is(ModBlocks.HAMMER_PEG.get())) {
-            if (!pContext.getPlayer().getAbilities().instabuild){
-                ItemStack stack = pContext.getItemInHand();
-                stack.setDamageValue(stack.getDamageValue() + 3);
-                if (stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);}
-            level.destroyBlock(blockpos,false, pContext.getPlayer());
-            level.setBlockAndUpdate(blockpos, ModBlocks.HAMMERED_PEG.get().defaultBlockState());
+        if (blockstate.is(ModBlocks.HAMMER_PEG.get()) || blockstate.is(ModBlocks.COPPER_PEG.get())){
             return InteractionResult.SUCCESS;
         }
         else return InteractionResult.FAIL;

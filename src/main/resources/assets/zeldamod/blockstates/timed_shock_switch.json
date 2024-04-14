@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "powered=false": { "model": "zeldamod:block/timed_shock_switch" },
+    "powered=true": {"model": "zeldamod:block/timed_shock_switch_powered"}
+  }
+}

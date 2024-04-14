@@ -17,8 +17,9 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> LEAF = registerSoundEvents ("leaf");
     public static final RegistryObject<SoundEvent> MAJORA = registerSoundEvents ("majora");
     public static final RegistryObject<SoundEvent> CLAWSHOT = registerSoundEvents ("clawshot");
-
+    public static final RegistryObject<SoundEvent> DOOR_LOCK = registerSoundEvents ("locked_door");
     public static final RegistryObject<SoundEvent> DOOR_UNLOCK = registerSoundEvents ("door_unlock");
+    public static final RegistryObject<SoundEvent> WOODEN_HAMMER = registerSoundEvents ("wooden_hammer");
 
 
 

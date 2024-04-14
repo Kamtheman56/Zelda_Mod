@@ -24,7 +24,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
 
-version = '1.0'
+version = '1.1'
 group = 'com.kamth.zeldamod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'zeldamod'
 
@@ -157,7 +157,7 @@ dependencies {
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
-    implementation fg.deobf("be.florens:expandability-forge:9.0.0")
+    implementation fg.deobf("be.florens:expandability-forge:9.0.1")
     implementation 'com.github.LlamaLad7:MixinExtras:0.1.0-rc5'
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     // Real mod deobf dependency examples - these get remapped to your current mappings
@@ -167,7 +167,7 @@ dependencies {
 
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
-    jarJar(group: 'be.florens', name: 'expandability-forge', version: '[9.0.0,9.0.1)') {
+    jarJar(group: 'be.florens', name: 'expandability-forge', version: '[9.0.1,9.0.2)') {
         // Includes examplelib 2.8.0
         jarJar.pin(it, '9.0.0')
     }
@@ -184,7 +184,7 @@ jar {
         attributes([
                 "Specification-Title"     : "zeldamod",
                 "Specification-Vendor"    : "zeldamodsareus",
-                "Specification-Version"   : "1.0", // We are version 1 of ourselves
+                "Specification-Version"   : "1.1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "zeldamodsareus",

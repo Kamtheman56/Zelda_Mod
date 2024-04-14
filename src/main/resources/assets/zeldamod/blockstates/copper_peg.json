@@ -1,5 +1,6 @@
 {
   "variants": {
-    "": {"model": "zeldamod:block/copper_peg"}
+    "powered=false": { "model": "zeldamod:block/copper_peg" },
+    "powered=true": {"model": "zeldamod:block/hammered_copper_peg"}
   }
 }

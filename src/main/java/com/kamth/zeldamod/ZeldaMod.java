@@ -238,9 +238,12 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.CLAW_TARGET);
             event.accept(ModBlocks.HAMMER_PEG);
             event.accept(ModBlocks.COPPER_PEG);
+            event.accept(ModBlocks.TIMED_EYE_SWITCH);
             event.accept(ModBlocks.EYE_SWITCH);
             event.accept(ModBlocks.LOCKED_DOOR);
             event.accept(ModBlocks.LOCKED_BOSS_DOOR);
+            event.accept(ModBlocks.SHOCK_SWITCH);
+            event.accept(ModBlocks.TIMED_SHOCK_SWITCH);
             event.accept(ModBlocks.NIGHTSHADE);
             event.accept(ModBlocks.SUNDELION);
             event.accept(ModBlocks.DEKU_BLOCK);

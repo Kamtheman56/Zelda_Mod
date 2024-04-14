@@ -167,6 +167,8 @@
   "sounds.zeldamod.heal": "Absorbed a plant",
   "sounds.zeldamod.majora": "Majora's influence takes over",
   "sounds.zeldamod.door_unlock": "Door unlocks",
+  "sounds.zeldamod.wooden_hammer": "Hammer pounds",
+  "sounds.zeldamod.locked_door": "Lock rattles",
 
   "block.zeldamod.gloom_block": "Gloom Block",
   "block.zeldamod.secret_stone": "Secret Stone",
@@ -201,6 +203,9 @@
   "block.zeldamod.locked_door": "Locked Door",
   "block.zeldamod.locked_boss_door": "Locked Boss Door",
   "block.zeldamod.eye_switch": "Eye Switch",
+  "block.zeldamod.timed_eye_switch": "Timed Eye Switch",
+  "block.zeldamod.shock_switch": "Shock Switch",
+  "block.zeldamod.timed_shock_switch": "Timed Shock Switch",
   "block.zeldamod.carmine_froglight": "Carmine Froglight",
 
   "Nightmask": "You don't think you should do this",

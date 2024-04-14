@@ -71,6 +71,10 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("bow");
         public static final TagKey<Item> MASKS
                 = tag("masks");
+        public static final TagKey<Item> SHOVEL_ITEMS
+                = tag("shovel_items");
+        public static final TagKey<Item> HAMMERS
+                = tag("hammers");
         public static final TagKey<Item> LEGENDARY_ITEMS
                 = tag("items");
         public static final TagKey<Item> SWORDS
