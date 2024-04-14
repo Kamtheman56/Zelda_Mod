@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jetbrains.annotations.NotNull;
 
 public class CopperPegBlock extends HammerPegBlock {
     public CopperPegBlock(Properties pProperties) {
@@ -25,37 +24,34 @@ public class CopperPegBlock extends HammerPegBlock {
 
     }
 
-@Override
-    public @NotNull InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (pPlayer.getMainHandItem().is(ModItems.MEGATON.get()) || pPlayer.getAbilities().instabuild){
+    @Override
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ModItems.MEGATON.get())){
             this.slam(pState, pLevel, pPos);
             float f = pState.getValue(POWERED) ? 0.6F : 0.5F;
-            pLevel.playSound((Player)null, pPos, SoundEvents.COPPER_BREAK, SoundSource.BLOCKS, 1F, f);
-            this.updateNeighbours(pState, pLevel, pPos);
+            pLevel.playSound((Player)null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, f);
             pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
-            return  InteractionResult.SUCCESS;
         }
-    if (pPlayer.getAbilities().instabuild){
-        this.press(pState, pLevel, pPos);
-        float f = pState.getValue(POWERED) ? 0.6F : 0.5F;
-        pLevel.playSound((Player)null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, f);
-        pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
-    }
-        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ModTags.Items.SHOVEL_ITEMS) && !pState.getValue(POWERED)){
-            pState = pState.setValue(POWERED,Boolean.valueOf(false));
-            pLevel.setBlock(pPos, pState, 3);
-            this.updateNeighbours(pState, pLevel, pPos);
+        if (pPlayer.getAbilities().instabuild){
+            this.press(pState, pLevel, pPos);
+            float f = pState.getValue(POWERED) ? 0.6F : 0.5F;
+            pLevel.playSound((Player)null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, f);
+            pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
+        }
+        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ModTags.Items.SHOVEL_ITEMS) && pState.getValue(POWERED) == true){
+            this.pull(pState, pLevel, pPos);
             pLevel.playSound((Player)null, pPos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 1F, 1);
         }
-    if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ModTags.Items.SHOVEL_ITEMS)){
-        this.pull(pState, pLevel, pPos);
-        pLevel.playSound((Player)null, pPos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 1F, 1);
+        return InteractionResult.SUCCESS;
     }
-    return InteractionResult.SUCCESS;
-}
 
     private void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
         pLevel.updateNeighborsAt(pPos, this);
+        pLevel.updateNeighborsAt(pPos.below(), this);
+        pLevel.updateNeighborsAt(pPos.east(), this);
+        pLevel.updateNeighborsAt(pPos.west(), this);
+        pLevel.updateNeighborsAt(pPos.south(), this);
+        pLevel.updateNeighborsAt(pPos.north(), this);
     }
     public void press(BlockState pState, Level pLevel, BlockPos pPos) {
         pState = pState.cycle(POWERED);
@@ -83,7 +79,7 @@ public class CopperPegBlock extends HammerPegBlock {
     }
     @Override
     public int getSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
-        return pBlockState.getValue(POWERED) ? 15 : 0;
+        return pBlockState.getValue(POWERED) && Direction.UP != pSide ? 15 : 0;
     }
     @Override
     public int getDirectSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {

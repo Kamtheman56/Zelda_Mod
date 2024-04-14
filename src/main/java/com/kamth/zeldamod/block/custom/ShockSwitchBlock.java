@@ -63,6 +63,11 @@ public class ShockSwitchBlock extends Block {
         }}
     private void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
         pLevel.updateNeighborsAt(pPos, this);
+        pLevel.updateNeighborsAt(pPos.below(), this);
+        pLevel.updateNeighborsAt(pPos.east(), this);
+        pLevel.updateNeighborsAt(pPos.west(), this);
+        pLevel.updateNeighborsAt(pPos.south(), this);
+        pLevel.updateNeighborsAt(pPos.north(), this);
     }
     public void press(BlockState pState, Level pLevel, BlockPos pPos) {
         pState = pState.cycle(POWERED);
@@ -110,7 +115,18 @@ public class ShockSwitchBlock extends Block {
         Vec3 vec3 = pState.getOffset(pLevel, pPos);
         return SHAPE.move(vec3.x, vec3.y, vec3.z);
     }
-
+    @Override
+    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
+        if (!pIsMoving && !pState.is(pNewState.getBlock())) {
+            if (pState.getValue(POWERED)) {
+                this.updateNeighbours(pState, pLevel, pPos);
+            }
+            for(Direction direction : Direction.values()) {
+                pLevel.updateNeighborsAt(pPos.relative(direction), this);
+            }
+            super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+        }
+    }
 
 
 }

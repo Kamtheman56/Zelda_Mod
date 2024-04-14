@@ -2,6 +2,7 @@ package com.kamth.zeldamod.block.custom;
 
 import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -106,7 +107,18 @@ public class HammerPegBlock extends Block {
         else
         return SHAPE.move(vec3.x, vec3.y, vec3.z);
     }
-
+    @Override
+    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
+        if (!pIsMoving && !pState.is(pNewState.getBlock())) {
+            if (pState.getValue(POWERED)) {
+                this.updateNeighbours(pState, pLevel, pPos);
+            }
+            for(Direction direction : Direction.values()) {
+                pLevel.updateNeighborsAt(pPos.relative(direction), this);
+            }
+            super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+        }
+    }
 
 
 }
