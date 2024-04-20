@@ -1,0 +1,51 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:megaton_hammer"
+    },
+    "title": {
+      "text": "Hammer Time!"
+    },
+    "description": {
+      "text": "Megaton Hammer down a pesky copper peg"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:hammer_time",
+  "criteria": {
+    "use_lodestone": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "zeldamod:copper_peg"
+                ]
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": [
+                "zeldamod:megaton_hammer"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "use_lodestone"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

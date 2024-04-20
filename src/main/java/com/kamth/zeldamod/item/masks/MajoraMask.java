@@ -1,43 +1,28 @@
 package com.kamth.zeldamod.item.masks;
 
-import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.animal.Pig;
-import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 public class MajoraMask extends ArmorItem {
@@ -51,9 +36,9 @@ public class MajoraMask extends ArmorItem {
 
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
- if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get()){
+        player.addEffect(new MobEffectInstance(ModEffects.MAJORA.get(), 10, 0, true, false));
 if (player.isOnFire()){
-    player.setRemainingFireTicks(0);}}}
+    player.setRemainingFireTicks(0);}}
 
     private void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.START) {
@@ -62,19 +47,19 @@ if (player.isOnFire()){
 
         AttributeInstance stepHeight;
         stepHeight = event.player.getAttribute(ForgeMod.ENTITY_REACH.get());
-        if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get()) {
+        if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player  && event.player.hasEffect(ModEffects.MAJORA.get()) && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get()) {
             stepHeight.addTransientModifier(STEP_HEIGHT_BONUS);
             event.player.getAbilities().mayfly = true;
-event.player.getAbilities().setFlyingSpeed(.1f);
+            event.player.getAbilities().setFlyingSpeed(.1f);
         }
 
-
+//sends the player downward and removes the ability to fly
         else if (event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() != ModItems.MAJORA_MASK.get()) {
 
             if (stepHeight.hasModifier(STEP_HEIGHT_BONUS)) {
+                event.player.removeEffect(ModEffects.MAJORA.get());
                 stepHeight.removeModifier(STEP_HEIGHT_BONUS);
                 event.player.setDeltaMovement(0,-200,0);
-
                 event.player.getAbilities().setFlyingSpeed(.05f);
                 event.player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 20, 0));
                 event.player.causeFoodExhaustion(12);

@@ -157,7 +157,7 @@ dependencies {
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
-    implementation fg.deobf("be.florens:expandability-forge:9.0.1")
+    implementation fg.deobf("be.florens:expandability-forge:9.0.3")
     implementation 'com.github.LlamaLad7:MixinExtras:0.1.0-rc5'
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     // Real mod deobf dependency examples - these get remapped to your current mappings
@@ -167,7 +167,7 @@ dependencies {
 
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
-    jarJar(group: 'be.florens', name: 'expandability-forge', version: '[9.0.1,9.0.2)') {
+    jarJar(group: 'be.florens', name: 'expandability-forge', version: '[9.0.1,9.0.4)') {
         // Includes examplelib 2.8.0
         jarJar.pin(it, '9.0.0')
     }

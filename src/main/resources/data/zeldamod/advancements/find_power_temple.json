@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:power_flame"
+    },
+    "title": {
+      "text": "Poiwer from below"
+    },
+    "description": {
+      "text": "Locate a Power Temple in the Nether"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:find_wisdom_temple",
+  "criteria": {
+    "in_stronghold": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "zeldamod:power_temple"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_stronghold"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

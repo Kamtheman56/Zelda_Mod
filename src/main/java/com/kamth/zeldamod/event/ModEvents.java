@@ -72,7 +72,7 @@ public class ModEvents {
         if (event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GERO_MASK.get()) {
             if (event.getTarget() instanceof Frog) {
                 event.getEntity().rideTick();
-                event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Please bring me to some magma cubes!"));
+                event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + "Try eating some Magma Cubes!"));
                 event.getTarget().playSound(SoundEvents.FROG_AMBIENT, 1, 2.6f);
             }
         }

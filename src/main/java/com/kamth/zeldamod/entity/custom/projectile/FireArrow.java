@@ -62,9 +62,7 @@ public class FireArrow extends AbstractArrow {
         if (blockHit.getBlock() == Blocks.PACKED_ICE){
             level().destroyBlock(ray.getBlockPos(), false);
         }
-
         this.discard();
-
 }
 @Override
 protected SoundEvent getDefaultHitGroundSoundEvent() {

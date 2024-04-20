@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "XXX",
+    "XLX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:green_wool"
+    },
+    "L": {
+      "item": "minecraft:leather_helmet"
+    }
+  },
+  "result": {
+    "item": "zeldamod:kokirihat"
+  }
+}

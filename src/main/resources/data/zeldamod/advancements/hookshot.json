@@ -10,7 +10,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:get_scattershot",
+  "parent": "zeldamod:get_equipment",
   "criteria": {
     "mask_block": {
       "trigger": "minecraft:item_durability_changed",

@@ -26,6 +26,8 @@ public class ModEffects {
             () -> new GloomEffect(MobEffectCategory.HARMFUL, 13901836));
     public static final RegistryObject<MobEffect> GLOOM_RESIST = MOB_EFFECTS.register("gloom_resist",
             () -> new GloomEffect(MobEffectCategory.BENEFICIAL, 15726080));
+    public static final RegistryObject<MobEffect> MAJORA = MOB_EFFECTS.register("majora",
+            () -> new MajoraEffect(MobEffectCategory.HARMFUL,11141290));
 
     public static void register(IEventBus eventbus){
         MOB_EFFECTS.register(eventbus);
