@@ -4,13 +4,12 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "zeldamod.refmap.json",
   "mixins": [
-    "MixinAllayAI",
     "MixinDekuLeafBlock",
     "MixinFoxEntity",
     "MixinLivingEntity",
     "MixinMouse",
-    "MixinVillager",
-    "MixinPlayerModel"
+    "MixinPlayerModel",
+    "MixinVillager"
   ],
   "minVersion": "0.8"
 }

@@ -29,6 +29,7 @@ public class ModEffects {
     public static final RegistryObject<MobEffect> MAJORA = MOB_EFFECTS.register("majora",
             () -> new MajoraEffect(MobEffectCategory.HARMFUL,11141290));
 
+
     public static void register(IEventBus eventbus){
         MOB_EFFECTS.register(eventbus);
     }

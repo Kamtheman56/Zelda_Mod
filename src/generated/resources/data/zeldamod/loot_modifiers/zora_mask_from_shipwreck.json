@@ -6,7 +6,7 @@
       "loot_table_id": "minecraft:chests/shipwreck_treasure"
     },
     {
-      "chance": 0.06,
+      "chance": 0.02,
       "condition": "minecraft:random_chance"
     }
   ],

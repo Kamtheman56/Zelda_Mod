@@ -49,13 +49,10 @@ if (player.isOnFire()){
         stepHeight = event.player.getAttribute(ForgeMod.ENTITY_REACH.get());
         if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player  && event.player.hasEffect(ModEffects.MAJORA.get()) && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get()) {
             stepHeight.addTransientModifier(STEP_HEIGHT_BONUS);
-            event.player.getAbilities().mayfly = true;
             event.player.getAbilities().setFlyingSpeed(.1f);
         }
-
-//sends the player downward and removes the ability to fly
+//sends the player downward and removes the increased flight speed
         else if (event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() != ModItems.MAJORA_MASK.get()) {
-
             if (stepHeight.hasModifier(STEP_HEIGHT_BONUS)) {
                 event.player.removeEffect(ModEffects.MAJORA.get());
                 stepHeight.removeModifier(STEP_HEIGHT_BONUS);
@@ -64,15 +61,11 @@ if (player.isOnFire()){
                 event.player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 20, 0));
                 event.player.causeFoodExhaustion(12);
             }
-        if (!event.player.getAbilities().instabuild){
-            event.player.getAbilities().mayfly = false;}
         }}
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
             components.add(Component.literal("True power...").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
-
     }
-
     public void onLivingHurtEvent(LivingHurtEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get()) {
             if (event.getSource().is(DamageTypes.MAGIC)) {

@@ -46,6 +46,7 @@ public class HeavyBoots extends ArmorItem {
         player.removeEffect(MobEffects.LEVITATION);
         player.removeEffect(MobEffects.SLOW_FALLING);
         player.removeEffect(MobEffects.JUMP);
+        player.resetFallDistance();
 
         if (player.isEyeInFluidType(ForgeMod.WATER_TYPE.get())){
             player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);

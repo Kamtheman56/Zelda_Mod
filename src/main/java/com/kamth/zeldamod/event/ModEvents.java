@@ -12,6 +12,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -19,6 +20,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.Pig;
@@ -33,15 +35,19 @@ import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ComputeFovModifierEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -71,7 +77,6 @@ public class ModEvents {
         }
         if (event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GERO_MASK.get()) {
             if (event.getTarget() instanceof Frog) {
-                event.getEntity().rideTick();
                 event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + "Try eating some Magma Cubes!"));
                 event.getTarget().playSound(SoundEvents.FROG_AMBIENT, 1, 2.6f);
             }
@@ -202,6 +207,52 @@ public class ModEvents {
  event.setCanceled(true);
         }
     }
+    private static final EquipmentSlot head = EquipmentSlot.HEAD;
+
+
+    private static boolean equipped(LivingEntity player, EquipmentSlot slot, Item item) {
+        return item == player.getItemBySlot(slot).getItem();
+    }
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void TickEvents(TickEvent.PlayerTickEvent event){
+        Item mask = ModItems.MAJORA_MASK.get();
+        Player player = event.player;
+        CompoundTag tag = player.getPersistentData();
+        boolean wasFlying = tag.getBoolean("pastflight");
+        if(!player.isCreative() && !player.isSpectator()){
+            if((player.hasEffect(ModEffects.MAJORA.get()) || equipped(player, head, mask))){
+                if(!player.getAbilities().mayfly){
+                    player.getAbilities().mayfly = true;
+                    tag.putBoolean("pastflight", true);
+                    player.onUpdateAbilities();
+                }
+              if((player.onGround() || player.isInWaterOrBubble() && equipped(player, head, mask))){
+                    player.getAbilities().flying = false;
+                    player.onUpdateAbilities();
+                }
+            } else if(wasFlying && (!player.hasEffect(ModEffects.MAJORA.get()) || !equipped(player, head, mask))) {
+                player.getAbilities().mayfly = false;
+                player.getAbilities().flying = false;
+                tag.putBoolean("pastflight", false);
+                player.onUpdateAbilities();}}
+        if((!player.onGround() && player.getMainHandItem().is(ModItems.GLIDER.get()) && player.getY() <= player.yOld && player.level().isClientSide)){
+            if(Minecraft.getInstance().options.keyJump.isDown()){
+                Vec3 vec = new Vec3(0d, +0.1d, 0d);
+                player.move(MoverType.SELF, vec);
+            }}
+
+    }
+    @SubscribeEvent
+    public static void addNBTData(PlayerEvent.PlayerLoggedInEvent event){
+        Player player = event.getEntity();
+        CompoundTag tag = player.getPersistentData();
+        if (tag.get("pastflight") == null) {
+            tag.putBoolean("pastflight", false);
+        }
+        if (tag.get("activeflight") == null) {
+            tag.putInt("activeflight", 0);
+        }
+    }
 
 
 
@@ -212,7 +263,6 @@ public class ModEvents {
             Minecraft client = Minecraft.getInstance();
             Player player = client.player;
             boolean LensMode = player.isUsingItem() && player.getItemInHand(player.getUsedItemHand()).getItem() == ModItems.LENS_OF_TRUTH.get() || player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.TRUTH_MASK.get());
-
             if (LensMode) {
                 removeEntityInvisibility(event.getEntity());}}
     }

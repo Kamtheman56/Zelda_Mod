@@ -200,7 +200,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.26f).build()}, ModItems.MIRROR_SHIELD.get()));
         add("shard_from_end_city", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/end_city_treasure")).build(),
-                LootItemRandomChanceCondition.randomChance(0.01f).build()}, ModItems.DEITY_SHARD.get()));
+                LootItemRandomChanceCondition.randomChance(0.03f).build()}, ModItems.DEITY_SHARD.get()));
         add("blue_potion_from_end_city", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/end_city_treasure")).build(),
                 LootItemRandomChanceCondition.randomChance(0.12f).build()}, ModItems.BLUE_POTION.get()));
@@ -339,7 +339,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.12f).build()}, ModItems.FLIPPERS.get()));
         add("zora_mask_from_shipwreck", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/shipwreck_treasure")).build(),
-                LootItemRandomChanceCondition.randomChance(0.06f).build()}, ModItems.ZORA_MASK.get()));
+                LootItemRandomChanceCondition.randomChance(0.02f).build()}, ModItems.ZORA_MASK.get()));
 
         //from underwater ruins
         add("zora_mask_from_ruins", new AddItemModifier(new LootItemCondition[] {
@@ -347,7 +347,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.06f).build()}, ModItems.ZORA_MASK.get()));
         add("ice_arrow_from_ruins", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/underwater_ruin_big")).build(),
-                LootItemRandomChanceCondition.randomChance(0.06f).build()}, ModItems.ICE_ARROW.get()));
+                LootItemRandomChanceCondition.randomChance(0.18f).build()}, ModItems.ICE_ARROW.get()));
         add("water_bomb_from_big_ruins", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/underwater_ruin_big")).build(),
                 LootItemRandomChanceCondition.randomChance(0.34f).build()}, ModItems.WATER_BOMB.get()));
@@ -356,6 +356,9 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.28f).build()}, ModItems.WATER_BOMB.get()));
         add("flippers_from_small_ruins", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/underwater_ruin_small")).build(),
+                LootItemRandomChanceCondition.randomChance(0.15f).build()}, ModItems.FLIPPERS.get()));
+        add("flippers_from_big_ruins", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/underwater_ruin_big")).build(),
                 LootItemRandomChanceCondition.randomChance(0.15f).build()}, ModItems.FLIPPERS.get()));
         add("heavy_boots_from_small_ruins", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/underwater_ruin_small")).build(),

@@ -118,14 +118,14 @@
           "functions": [
             {
               "function": "minecraft:exploration_map",
-              "destination": "zeldamod:has_power_temple",
+              "destination": "zeldamod:has_pillager_tower",
               "decoration": "red_x",
               "zoom": 1
             },
             {
               "function": "minecraft:set_name",
               "name": {
-                "translate": "filled_map.power_map"
+                "translate": "filled_map.pillager_map"
               }}
           ]
         }
