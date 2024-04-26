@@ -31,9 +31,7 @@ public class PegasusBoots extends ArmorItem {
     public PegasusBoots(ArmorMaterial p_40386_, Type type, Properties p_40388_) {
         super(p_40386_, type, p_40388_);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
-
     }
-
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 
@@ -64,7 +62,6 @@ public class PegasusBoots extends ArmorItem {
 
         super.appendHoverText(stack, level, components, flag);
     }
-
 
     }
 

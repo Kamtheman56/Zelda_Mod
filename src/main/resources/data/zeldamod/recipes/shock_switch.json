@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "pattern": [
-    "XLX",
+    " L ",
     "LOL",
-    "XLX"
+    " L "
   ],
   "key": {
     "L": {

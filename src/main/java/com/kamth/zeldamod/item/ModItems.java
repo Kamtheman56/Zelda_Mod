@@ -388,7 +388,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new ArmorItem(ModArmorMaterials.Champion, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(340)));
     public static final RegistryObject<ArmorItem> CHAMPIONS_TUNIC = ITEMS.register("champions_tunic",
-            ()-> new ArmorItem(ModArmorMaterials.Champions, ArmorItem.Type.CHESTPLATE,
+            ()-> new ChampionLeathers(ModArmorMaterials.Champions, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(560)));
     public static final RegistryObject<ArmorItem> CLASSIC_TUNIC = ITEMS.register("classic_tunic",
             ()-> new ArmorItem(ModArmorMaterials.Classic, ArmorItem.Type.CHESTPLATE,
@@ -396,6 +396,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> CLASSIC_HAT = ITEMS.register("classic_hat",
             ()-> new ArmorItem(ModArmorMaterials.Classic, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(200)));
+    public static final RegistryObject<ArmorItem> ARCHAIC_TUNIC = ITEMS.register("archaic_tunic",
+            ()-> new ArchaicTunic(ModArmorMaterials.Archaic, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().defaultDurability(240)));
 
 
 

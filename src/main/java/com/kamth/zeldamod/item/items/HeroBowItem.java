@@ -33,8 +33,9 @@ public class HeroBowItem extends BowItem {
 
    @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return false;
+        return true;
     }
+
     @Override
     public int getDefaultProjectileRange() {
         return 40;

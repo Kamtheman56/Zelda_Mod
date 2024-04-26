@@ -105,7 +105,6 @@
   "item.zeldamod.scale_gold": "Golden Scale",
 
 
-
   "item.zeldamod.heavyboots": "Heavy Boots",
   "item.zeldamod.hoverboots": "Hover Boots",
   "item.zeldamod.pegasusboots": "Pegasus Boots",
@@ -154,6 +153,7 @@
   "item.zeldamod.fire_shield": "Fire Shield Earrings",
   "item.zeldamod.classic_hat": "Classic Hat",
   "item.zeldamod.classic_tunic": "Classic Tunic",
+  "item.zeldamod.archaic_tunic": "Archaic Tunic",
 
 
   "effect.zeldamod.deku": "Water Hopping",
