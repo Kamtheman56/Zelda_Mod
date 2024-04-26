@@ -6,14 +6,10 @@ import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.LazyLoadedValue;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.Tags;
 
 import java.util.function.Supplier;
 
@@ -140,7 +136,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(ModItems.DIN_PEARL.get()); }),
     Dragon("dragon", 0, new int[]{2, 2, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(ModItems.NAYRU_PEARL.get()); });
+        return Ingredient.of(ModItems.NAYRU_PEARL.get()); }),
+    Archaic("archaic", 0, new int[]{2, 4, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.GREEN_WOOL); });
 
 
     private final String name;

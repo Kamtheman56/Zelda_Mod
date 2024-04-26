@@ -1,5 +1,5 @@
 {
-  "type": "epicfight:sword",
+  "type": "epicfight:greatsword",
   "attributes": {
     "common": {
       "armor_negation": 10.0,

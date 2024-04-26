@@ -143,6 +143,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.CLAWSHOT);
         event.accept(ModItems.CLAWSHOT_GODDESS);
         event.accept(ModItems.LENS_OF_TRUTH);
+        event.accept(ModItems.OCARINA);
         event.accept(ModItems.SILVER_SCALE);
         event.accept(ModItems.GOLDEN_SCALE);
         event.accept(ModItems.DRAGON_SCALE);
@@ -161,6 +162,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.XTENDER);
         event.accept(ModItems.CLAW);
         event.accept(ModItems.DEITY_SHARD);
+        event.accept(ModItems.HEART_CONTAINER);
         event.accept(ModItems.BOMB_SEEDS);
         event.accept(ModItems.FARORE_PEARL);
         event.accept(ModItems.DIN_PEARL);

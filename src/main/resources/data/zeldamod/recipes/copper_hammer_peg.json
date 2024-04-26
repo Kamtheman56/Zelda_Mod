@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "pattern": [
-    "XLX",
-    "XLX",
-    "XLX"
+    " L ",
+    " L ",
+    " L "
   ],
   "key": {
     "L": {
@@ -12,7 +12,7 @@
     }
   },
   "result": {
-    "item": "zeldamod:copper_hammer_peg",
+    "item": "zeldamod:copper_peg",
     "count": 3
   }
 }

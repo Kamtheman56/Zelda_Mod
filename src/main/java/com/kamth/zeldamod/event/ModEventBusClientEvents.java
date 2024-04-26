@@ -6,6 +6,7 @@ import com.kamth.zeldamod.block.entity.renderer.LockedChestEntityRenderer;
 import com.kamth.zeldamod.block.entity.renderer.MasterSwordPedestalEntityRenderer;
 import com.kamth.zeldamod.block.entity.renderer.SwordPedestalEntityRenderer;
 import com.kamth.zeldamod.block.entity.renderer.UnlockedSwordPedestalEntityRenderer;
+import com.kamth.zeldamod.item.armors.render.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -20,6 +21,13 @@ public class ModEventBusClientEvents {
         event.registerBlockEntityRenderer(ModBlockEntities.UNLOCKED_SWORD_PEDESTAL_BE.get(), UnlockedSwordPedestalEntityRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.LOCKED_CHEST_BE.get(), LockedChestEntityRenderer::new);
 
-
     }
+    @SubscribeEvent
+    public static void registerModelLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(ModModelLayers.ARCHAIC, ArchaicTunicModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.LEATHERS, ChampionLeathersModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.BUNNY, BunnyHoodModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.PEGASUS, PegasusBootsModel::createBodyLayer);
+    }
+
 }

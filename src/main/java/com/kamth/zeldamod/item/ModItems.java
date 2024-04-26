@@ -59,6 +59,8 @@ public class ModItems {
             () -> new KeyItem(new Item.Properties()));
     public static final RegistryObject<Item> BIG_KEY = ITEMS.register("key_big",
             () -> new BigKeyItem(new Item.Properties()));
+    public static final RegistryObject<Item> HEART_CONTAINER = ITEMS.register("heart_container",
+            () -> new HeartContainerItem(new Item.Properties()));
 
     //These are potions or consumables
     public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
@@ -125,7 +127,7 @@ public class ModItems {
             () -> new TrueMasterSwordItem(ModTiers.MASTER_TRUE, 9, -2.2f,
                     new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MASTER_SWORD_REFORGED = ITEMS.register("master_sword_reforged",
-            () -> new ReforgedSword(ModTiers.MASTER_TRUE, 12, -2f,
+            () -> new ReforgedSword(ModTiers.MASTER_TRUE, 11, -2f,
                     new Item.Properties().fireResistant().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MASTER_SWORD_INJURED = ITEMS.register("master_sword_injured",
             () -> new InjuredSwordItem(ModTiers.MASTER, 1, -2.5f,
@@ -232,6 +234,8 @@ public class ModItems {
             () -> new ScaleItem(new Item.Properties().defaultDurability(124)));
     public static final RegistryObject<Item> GOLDEN_SCALE = ITEMS.register("scale_gold",
             () -> new ScaleItem(new Item.Properties().defaultDurability(248)));
+    public static final RegistryObject<Item> OCARINA = ITEMS.register("ocarina",
+            () -> new FluteItem(new Item.Properties().rarity(Rarity.RARE)));
 
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168)));
@@ -388,7 +392,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new ArmorItem(ModArmorMaterials.Champion, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(340)));
     public static final RegistryObject<ArmorItem> CHAMPIONS_TUNIC = ITEMS.register("champions_tunic",
-            ()-> new ArmorItem(ModArmorMaterials.Champions, ArmorItem.Type.CHESTPLATE,
+            ()-> new ChampionLeathers(ModArmorMaterials.Champions, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(560)));
     public static final RegistryObject<ArmorItem> CLASSIC_TUNIC = ITEMS.register("classic_tunic",
             ()-> new ArmorItem(ModArmorMaterials.Classic, ArmorItem.Type.CHESTPLATE,
@@ -396,6 +400,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> CLASSIC_HAT = ITEMS.register("classic_hat",
             ()-> new ArmorItem(ModArmorMaterials.Classic, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(200)));
+    public static final RegistryObject<ArmorItem> ARCHAIC_TUNIC = ITEMS.register("archaic_tunic",
+            ()-> new ArchaicTunic(ModArmorMaterials.Archaic, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().defaultDurability(240)));
 
 
 

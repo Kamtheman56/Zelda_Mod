@@ -21,6 +21,9 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.Pig;
@@ -50,8 +53,11 @@ import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 import static com.kamth.zeldamod.item.items.LensItem.LOOKING;
 
@@ -236,10 +242,9 @@ public class ModEvents {
                 tag.putBoolean("pastflight", false);
                 player.onUpdateAbilities();}}
         if((!player.onGround() && player.getMainHandItem().is(ModItems.GLIDER.get()) && player.getY() <= player.yOld && player.level().isClientSide)){
-            if(Minecraft.getInstance().options.keyJump.isDown()){
-                Vec3 vec = new Vec3(0d, +0.1d, 0d);
+                Vec3 vec = new Vec3(0d, +3d, 0d);
                 player.move(MoverType.SELF, vec);
-            }}
+            }
 
     }
     @SubscribeEvent
@@ -298,6 +303,97 @@ public class ModEvents {
             event.setNewFovModifier(event.getFovModifier() * (0.9f - player.getSpeed() * 1.1f));
         }
         }
+
+
+    public class PlayerHealthEvents {
+        public static final UUID BASE_HEALTH_MODIFIER = UUID.fromString("6ed6de9f-a743-4bee-8e59-8a56d54bb054");
+        public static final UUID HEARTS_MODIFIER = UUID.fromString("3dc4214d-14eb-455c-9700-a2ab1433dfcc");
+
+        @SubscribeEvent
+        public static void adjustBaseHealth(EntityJoinLevelEvent event) {
+            // Only change health of players
+            if (!(event.getEntity() instanceof Player player)) return;
+            AttributeInstance maxHealth = player.getAttribute(Attributes.MAX_HEALTH);
+            AttributeModifier baseModifier = new AttributeModifier(BASE_HEALTH_MODIFIER, "Base", 20 - 18, AttributeModifier.Operation.ADDITION);
+            // Add base modifier only if not added yet
+            Objects.requireNonNull(maxHealth);
+            if (!maxHealth.hasModifier(baseModifier)) {
+                maxHealth.addPermanentModifier(baseModifier);
+            }
+            // Or if config updated and value changed
+            else {
+                AttributeModifier oldModifier = maxHealth.getModifier(BASE_HEALTH_MODIFIER);
+                Objects.requireNonNull(oldModifier);
+                if (oldModifier.getAmount() != baseModifier.getAmount()) {
+                    // Remove old instance and apply new one
+                    maxHealth.removeModifier(BASE_HEALTH_MODIFIER);
+                    maxHealth.addPermanentModifier(baseModifier);
+                }
+            }
+            // Fixing health being higher then max health
+            if (player.getHealth() > player.getMaxHealth()) {
+                player.setHealth(player.getMaxHealth());
+            }
+        }
+        @SubscribeEvent
+        public static void reapplyHealthModifiers(PlayerEvent.Clone event) {
+            if (!event.isWasDeath()) return;
+            AttributeInstance originalMaxHealth = getMaxHealthAttribute(event.getOriginal());
+            AttributeModifier modifier = originalMaxHealth.getModifier(HEARTS_MODIFIER);
+            if (modifier != null) {
+                AttributeInstance cloneMaxHealth = getMaxHealthAttribute(event.getEntity());
+                cloneMaxHealth.addPermanentModifier(modifier);
+                // Also updates current health
+                event.getEntity().setHealth(event.getEntity().getMaxHealth());
+            }
+        }
+
+
+        public static double getBaseHealth(Player player) {
+            AttributeInstance maxHealth = getMaxHealthAttribute(player);
+            double baseHealth = maxHealth.getBaseValue();
+            AttributeModifier heartsModifier = maxHealth.getModifier(PlayerHealthEvents.HEARTS_MODIFIER);
+            if (heartsModifier != null) baseHealth += heartsModifier.getAmount();
+            AttributeModifier baseModifier = maxHealth.getModifier(PlayerHealthEvents.BASE_HEALTH_MODIFIER);
+            if (baseModifier != null) baseHealth += baseModifier.getAmount();
+            return baseHealth;
+        }
+
+
+        public static void addBaseHealthModifier(Player player, float amount) {
+            AttributeInstance maxHealth = getMaxHealthAttribute(player);
+            AttributeModifier modifier = maxHealth.getModifier(PlayerHealthEvents.HEARTS_MODIFIER);
+            if (modifier == null) {
+                modifier = new AttributeModifier(PlayerHealthEvents.HEARTS_MODIFIER, "Hearts", amount, AttributeModifier.Operation.ADDITION);
+            } else {
+                maxHealth.removeModifier(modifier);
+                modifier = new AttributeModifier(PlayerHealthEvents.HEARTS_MODIFIER, "Hearts", modifier.getAmount() + amount, AttributeModifier.Operation.ADDITION);
+            }
+            maxHealth.addPermanentModifier(modifier);
+            if (amount > 0) {
+                player.heal(amount);
+            } else if (player.getHealth() > player.getMaxHealth()) {
+                player.setHealth(player.getMaxHealth());
+            }
+        }
+
+        @NotNull
+        private static AttributeInstance getMaxHealthAttribute(Player player) {
+            AttributeInstance attribute = player.getAttribute(Attributes.MAX_HEALTH);
+            return Objects.requireNonNull(attribute);
+        }
+
+        public static boolean canIncreaseBaseHealth(Player player) {
+            return getBaseHealth(player) < 40;
+        }
+
+        public static boolean canDecreaseBaseHealth(Player player) {
+            return getBaseHealth(player) > 1;
+        }
+    }
+
+
+
 
 
     @SubscribeEvent

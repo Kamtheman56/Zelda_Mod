@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "blocks",
   "pattern": [
-    "XLX",
-    "XLX",
-    "XLX"
+    " L ",
+    " L ",
+    " L "
   ],
   "key": {
     "L": {
