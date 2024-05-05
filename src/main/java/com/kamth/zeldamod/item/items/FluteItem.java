@@ -56,7 +56,6 @@ public class FluteItem extends Item {
                         entity.moveTo(bedLocation.getX() + 0.5D, bedLocation.getY() + 0.6D, bedLocation.getZ() + 0.5D);
                     }
                     entity.fallDistance = 0;
-                    lolo
                 }
                 player.awardStat(Stats.ITEM_USED.get(this));
         }
