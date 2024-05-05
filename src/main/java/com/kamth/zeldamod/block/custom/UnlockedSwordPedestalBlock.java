@@ -5,13 +5,11 @@ import com.kamth.zeldamod.block.entity.UnlockedSwordPedestalEntity;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.Tag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -83,6 +81,9 @@ public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
                         stackInHand.getAllEnchantments().containsKey(Enchantments.SWEEPING_EDGE) &&
                         stackInHand.getAllEnchantments().containsKey(Enchantments.UNBREAKING)){
                 pedestal.setSword(ModItems.MASTER_SWORD_TRUE.get().getDefaultInstance());
+                pedestal.getSword().enchant(Enchantments.SMITE,3);
+                pedestal.getSword().enchant(Enchantments.SWEEPING_EDGE,3);
+                pedestal.getSword().enchant(Enchantments.MOB_LOOTING,3);
                 pLevel.playSound(pPlayer,pPos, SoundEvents.BEACON_ACTIVATE, SoundSource.BLOCKS);
                 pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
                 pLevel.updateNeighborsAt(pPos,this);

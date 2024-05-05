@@ -33,9 +33,6 @@ public class DrinkItem extends Item {
             CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, pStack);
             serverplayer.awardStat(Stats.ITEM_USED.get(this));
         }
-
-
-
         if (pStack.isEmpty()) {
             return new ItemStack(Items.GLASS_BOTTLE);
         } else {
