@@ -33,6 +33,8 @@
   "item.zeldamod.key_big": "Big Key",
   "item.zeldamod.baked_apple": "Baked Apple",
   "item.zeldamod.heart_container": "Heart Container",
+  "item.zeldamod.gloom_container": "Gloom Container",
+  "item.zeldamod.heart_piece": "Heart Piece",
 
   "itemGroup.zeldatab": "Zelda Items",
   "itemGroup.zeldamask": "Zelda Masks",
@@ -64,6 +66,9 @@
   "item.zeldamod.reforged_sword_1": "Iterated Sword",
   "item.zeldamod.reforged_sword_2": "Streamlined Sword",
   "item.zeldamod.fierce_sword": "Fierce Deity Sword",
+  "item.zeldamod.hero_sword": "Hero's Sword",
+  "item.zeldamod.white_sword": "White Sword",
+  "item.zeldamod.magic_sword": "Magic Sword",
   "item.zeldamod.slingshot": "Slingshot",
   "item.zeldamod.scattershot": "Scattershot",
   "item.zeldamod.roc_feather": "Roc's Feather",
@@ -105,6 +110,7 @@
   "item.zeldamod.scale_silver": "Silver Scale",
   "item.zeldamod.scale_gold": "Golden Scale",
   "item.zeldamod.ocarina": "Ocarina",
+  "item.zeldamod.ascend": "Ascend",
 
   "item.zeldamod.heavyboots": "Heavy Boots",
   "item.zeldamod.hoverboots": "Hover Boots",

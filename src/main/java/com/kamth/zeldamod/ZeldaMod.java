@@ -102,6 +102,9 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.MASTER_SWORD3);
         event.accept(ModItems.MASTER_SWORD_TRUE);
         event.accept(ModItems.FIERCE_SWORD);
+        event.accept(ModItems.HERO_SWORD);
+        event.accept(ModItems.WHITE_SWORD);
+        event.accept(ModItems.MAGIC_SWORD);
         event.accept(ModItems.DEKU_SHIELD);
         event.accept(ModItems.HYLIAN_SHIELD);
         event.accept(ModItems.MIRROR_SHIELD);
@@ -157,12 +160,14 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.MASTER_ORE2);
         event.accept(ModItems.GOLD_DUST);
         event.accept(ModItems.MASTER_UPGRADE);
+        event.accept(ModItems.HEART_PIECE);
+        event.accept(ModItems.HEART_CONTAINER);
+        event.accept(ModItems.GLOOM_CONTAINER);
         event.accept(ModItems.SMALL_KEY);
         event.accept(ModItems.BIG_KEY);
         event.accept(ModItems.XTENDER);
         event.accept(ModItems.CLAW);
         event.accept(ModItems.DEITY_SHARD);
-        event.accept(ModItems.HEART_CONTAINER);
         event.accept(ModItems.BOMB_SEEDS);
         event.accept(ModItems.FARORE_PEARL);
         event.accept(ModItems.DIN_PEARL);

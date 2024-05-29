@@ -12,8 +12,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
@@ -27,11 +29,15 @@ public class AscendItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
- if (pLevel.getBlockState(pPlayer.getOnPos().above(6)).is(Blocks.AIR)){
-     pPlayer.startUsingItem(pHand);
- }
-else {
+    //    pLevel.clip(new ClipContext(new Vec3(0,2,0),new Vec3(0,10,0), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, pPlayer)).getType().equals(HitResult.Type.BLOCK);
 
+
+
+ if (pLevel.clip(new ClipContext(new Vec3(0,2,0),new Vec3(0,10,0), ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, pPlayer)).getType().equals(HitResult.Type.BLOCK) ){
+     if (pLevel.getBlockState(pPlayer.getOnPos().above(12)).is(Blocks.AIR)){
+         pPlayer.startUsingItem(pHand);
+     }}
+else {
  }
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         return super.use(pLevel, pPlayer, pHand);
@@ -41,7 +47,7 @@ else {
         Player player = (Player) livingEntity;
     if (pLevel.isClientSide){
         double particleX = player.getX();
-        double particleY = player.getY() + 6;
+        double particleY = player.getY() +2;
         double particleZ = player.getZ();
         player.level().addParticle(ParticleTypes.HAPPY_VILLAGER, particleX, particleY, particleZ, 0, 0, 0);
     }
@@ -52,8 +58,8 @@ else {
         Player pPlayer = (Player) livingEntity;
 
         Vec3 lookAngle = pPlayer.getLookAngle();
-        int radius = 10;
-        pPlayer.teleportTo(pPlayer.getX() + radius * lookAngle.x, pPlayer.getY()+7, pPlayer.getZ() + radius * lookAngle.z);
+        int radius = 12;
+        pPlayer.teleportTo(pPlayer.getX(), pPlayer.getY()+10, pPlayer.getZ());
 
 
     }
@@ -75,7 +81,7 @@ else {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Blast accurate ice shots").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Ascend through the floor").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         }
         super.appendHoverText(stack, level, components, flag);
     }

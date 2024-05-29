@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "zeldamod:heart_piece"
+    },
+    {
+      "item": "zeldamod:heart_piece"
+    },
+    {
+      "item": "zeldamod:heart_piece"
+    },
+    {
+      "item": "zeldamod:heart_piece"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:heart_container",
+    "count": 1
+  }
+}

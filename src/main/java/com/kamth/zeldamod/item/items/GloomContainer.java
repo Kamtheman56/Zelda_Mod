@@ -19,32 +19,41 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class HeartContainerItem extends Item {
+public class GloomContainer extends Item {
 
-    public HeartContainerItem(Properties pProperties) {
+    public GloomContainer(Properties pProperties) {
         super(pProperties);
     }
+
+
+
+
     public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
         return !pPlayer.isCreative();
     }
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
 
         ItemStack stack = player.getItemInHand(pHand);
-        if (!ModEvents.PlayerHealthEvents.canIncreaseBaseHealth(player)) {
+        if (!ModEvents.PlayerHealthEvents.canDecreaseBaseHealth(player)) {
             return InteractionResultHolder.fail(stack);
         } else {
-            ModEvents.PlayerHealthEvents.addBaseHealthModifier(player, 2F);
-            pLevel.playSound(player,player.getOnPos(), ModSounds.HEAL.get(), SoundSource.PLAYERS, .5f, 1);
+            ModEvents.PlayerHealthEvents.addBaseHealthModifier(player, -2F);
+            pLevel.playSound(player,player.getOnPos(), ModSounds.HEAL.get(), SoundSource.PLAYERS, .5f, -3.5f);
             if (!player.getAbilities().instabuild) stack.shrink(1);
             return InteractionResultHolder.consume(stack);
         }
+
+
+
+
     }
 
         @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Increaes your maximum vitality by one!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.literal("Decrease your maximum vitality by one").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         }
     }
 }

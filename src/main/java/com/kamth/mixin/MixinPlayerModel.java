@@ -1,6 +1,7 @@
 package com.kamth.mixin;
 
 
+import com.kamth.zeldamod.item.items.AscendItem;
 import com.kamth.zeldamod.item.items.GliderItem;
 import com.kamth.zeldamod.item.items.LeafItem;
 import com.kamth.zeldamod.item.masks.ZoraMask;
@@ -47,6 +48,14 @@ public abstract class MixinPlayerModel extends HumanoidModel<LivingEntity> {
          //   leftLeg.xRot = 0f;
          //   rightLeg.xRot = ;
         }
+        if(stack2.getItem() instanceof AscendItem && entity.isUsingItem()){
+            rightArm.xRot = ARM_ROTATION ;
+            rightArm.zRot = 0f;
+            //   leftLeg.xRot = 0f;
+            //   rightLeg.xRot = ;
+        }
+
+
         if(stack2.getItem() instanceof LeafItem && entity.isUsingItem() || stack3.getItem() instanceof LeafItem && entity.isUsingItem() ){
             leftArm.xRot = ARM_ROTATION;
             leftArm.zRot = 0f;

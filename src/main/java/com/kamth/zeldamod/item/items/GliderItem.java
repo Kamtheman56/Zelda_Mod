@@ -29,10 +29,7 @@ public class GliderItem extends Item {
 
         }
         return super.use(world, player, hand);
-
     }
-
-
     public UseAnim getUseAnimation(ItemStack pStack) {
         return UseAnim.SPEAR;
     }
@@ -58,7 +55,7 @@ public class GliderItem extends Item {
     }
 }
 
-//   player.startUsingItem(InteractionHand.MAIN_HAND);
+
 
 
 

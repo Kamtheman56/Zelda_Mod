@@ -1,6 +1,57 @@
 {
-  "parent": "item/handheld",
-        "textures": {
-          "layer0": "zeldamod:item/clawshot"
-        }}
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "zeldamod:item/clawshot_model_closed"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "zeldamod:item/clawshot_gui"
+    },
+    "ground": {
+      "parent": "zeldamod:item/clawshot_gui"
+    },
+    "fixed": {
+      "parent": "zeldamod:item/clawshot_gui"
+    }
+  },
+  "textures": {
+    "layer0": "zeldamod:item/clawshot",
+    "particle": "zeldamod:item/clawshot"
+  },
 
+
+  "overrides": [
+    {
+      "predicate": {
+        "minecraft:blocking": 1
+      },
+      "model": "zeldamod:item/clawshot2"
+    }
+  ],
+  "gui_light": "front",
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [0, -1, 0]
+    },
+    "thirdperson_lefthand": {
+      "translation": [0, -1, 0]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 90, 0]
+    },
+    "ground": {
+      "rotation": [90, 0, 0]
+    },
+    "gui": {
+      "rotation": [-67.5, 0, 45],
+      "scale": [1.5, 1.5, 1.5]
+    },
+    "head": {
+      "rotation": [90, 0, 90],
+      "translation": [5.5, 0, 0],
+      "scale": [1.6, 1.6, 1.6]
+    },
+    "fixed": {
+      "translation": [0, 0, -1.5],
+      "scale": [1.5, 1.5, 1.5]
+    }}}

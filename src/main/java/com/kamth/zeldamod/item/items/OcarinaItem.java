@@ -24,8 +24,8 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class FluteItem extends Item {
-    public FluteItem(Properties pProperties) {
+public class OcarinaItem extends Item {
+    public OcarinaItem(Properties pProperties) {
         super(pProperties);
     }
 
@@ -53,14 +53,14 @@ public class FluteItem extends Item {
                         ServerLevel transferWorld = ((ServerLevel)worldIn).getServer().getLevel(player2.getRespawnDimension());
                         player2.teleportTo(transferWorld, bedLocation.getX() + 0.5D, bedLocation.getY() + 0.6D, bedLocation.getZ() + 0.5D, player.getRotationVector().x, player.getRotationVector().y);
                     } else {
-                        entity.moveTo(bedLocation.getX() + 0.5D, bedLocation.getY() + 0.6D, bedLocation.getZ() + 0.5D);
+                        ((ServerPlayer) entity).teleportTo(bedLocation.getX() + 0.5D, bedLocation.getY() + 0.6D, bedLocation.getZ() + 0.5D);
+                        entity.resetFallDistance();
+
                     }
                     entity.fallDistance = 0;
                 }
                 player.awardStat(Stats.ITEM_USED.get(this));
         }
-
-
     }
     @Override
     public @NotNull UseAnim getUseAnimation(ItemStack stack) {
@@ -87,9 +87,6 @@ public class FluteItem extends Item {
             }
         }
     }
-
-
-
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {

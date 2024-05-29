@@ -16,6 +16,7 @@ public class ModItemProperties {
         makeShield(ModItems.DEKU_LEAF.get());
         makeShield(ModItems.GLIDER.get());
         makeShield(ModItems.LENS_OF_TRUTH.get());
+        makeShield(ModItems.CLAWSHOT.get());
     }
 
     private static void makeShield(Item item) {

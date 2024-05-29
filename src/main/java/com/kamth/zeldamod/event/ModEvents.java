@@ -20,7 +20,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -38,7 +37,6 @@ import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ComputeFovModifierEvent;
@@ -59,6 +57,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+import static com.kamth.zeldamod.event.ModEvents.PlayerHealthEvents.HEARTS_MODIFIER;
+import static com.kamth.zeldamod.event.ModEvents.PlayerHealthEvents.getMaxHealthAttribute;
 import static com.kamth.zeldamod.item.items.LensItem.LOOKING;
 
 
@@ -241,11 +241,6 @@ public class ModEvents {
                 player.getAbilities().flying = false;
                 tag.putBoolean("pastflight", false);
                 player.onUpdateAbilities();}}
-        if((!player.onGround() && player.getMainHandItem().is(ModItems.GLIDER.get()) && player.getY() <= player.yOld && player.level().isClientSide)){
-                Vec3 vec = new Vec3(0d, +3d, 0d);
-                player.move(MoverType.SELF, vec);
-            }
-
     }
     @SubscribeEvent
     public static void addNBTData(PlayerEvent.PlayerLoggedInEvent event){
@@ -277,6 +272,18 @@ public class ModEvents {
     public static void onLivingPostRender(RenderLivingEvent.Post<LivingEntity, EntityModel<LivingEntity>> event) {
         if (LOOKING.contains(event.getEntity())) {
             restoreEntityInvisibility(event.getEntity());
+        }
+    }
+    @SubscribeEvent
+    public static void reapplyHealthModifiers(PlayerEvent.Clone event) {
+        if (!event.isWasDeath()) return;
+        AttributeInstance originalMaxHealth = getMaxHealthAttribute(event.getOriginal());
+        AttributeModifier modifier = originalMaxHealth.getModifier(HEARTS_MODIFIER);
+        if (modifier != null) {
+            AttributeInstance cloneMaxHealth = getMaxHealthAttribute(event.getEntity());
+            cloneMaxHealth.addPermanentModifier(modifier);
+            // Also updates current health
+            event.getEntity().setHealth(event.getEntity().getMaxHealth());
         }
     }
 
@@ -352,7 +359,7 @@ public class ModEvents {
         public static double getBaseHealth(Player player) {
             AttributeInstance maxHealth = getMaxHealthAttribute(player);
             double baseHealth = maxHealth.getBaseValue();
-            AttributeModifier heartsModifier = maxHealth.getModifier(PlayerHealthEvents.HEARTS_MODIFIER);
+            AttributeModifier heartsModifier = maxHealth.getModifier(HEARTS_MODIFIER);
             if (heartsModifier != null) baseHealth += heartsModifier.getAmount();
             AttributeModifier baseModifier = maxHealth.getModifier(PlayerHealthEvents.BASE_HEALTH_MODIFIER);
             if (baseModifier != null) baseHealth += baseModifier.getAmount();
@@ -362,12 +369,12 @@ public class ModEvents {
 
         public static void addBaseHealthModifier(Player player, float amount) {
             AttributeInstance maxHealth = getMaxHealthAttribute(player);
-            AttributeModifier modifier = maxHealth.getModifier(PlayerHealthEvents.HEARTS_MODIFIER);
+            AttributeModifier modifier = maxHealth.getModifier(HEARTS_MODIFIER);
             if (modifier == null) {
-                modifier = new AttributeModifier(PlayerHealthEvents.HEARTS_MODIFIER, "Hearts", amount, AttributeModifier.Operation.ADDITION);
+                modifier = new AttributeModifier(HEARTS_MODIFIER, "Hearts", amount, AttributeModifier.Operation.ADDITION);
             } else {
                 maxHealth.removeModifier(modifier);
-                modifier = new AttributeModifier(PlayerHealthEvents.HEARTS_MODIFIER, "Hearts", modifier.getAmount() + amount, AttributeModifier.Operation.ADDITION);
+                modifier = new AttributeModifier(HEARTS_MODIFIER, "Hearts", modifier.getAmount() + amount, AttributeModifier.Operation.ADDITION);
             }
             maxHealth.addPermanentModifier(modifier);
             if (amount > 0) {
@@ -377,8 +384,9 @@ public class ModEvents {
             }
         }
 
+
         @NotNull
-        private static AttributeInstance getMaxHealthAttribute(Player player) {
+        static AttributeInstance getMaxHealthAttribute(Player player) {
             AttributeInstance attribute = player.getAttribute(Attributes.MAX_HEALTH);
             return Objects.requireNonNull(attribute);
         }
@@ -388,7 +396,7 @@ public class ModEvents {
         }
 
         public static boolean canDecreaseBaseHealth(Player player) {
-            return getBaseHealth(player) > 1;
+            return getBaseHealth(player) > 2;
         }
     }
 

@@ -61,6 +61,10 @@ public class ModItems {
             () -> new BigKeyItem(new Item.Properties()));
     public static final RegistryObject<Item> HEART_CONTAINER = ITEMS.register("heart_container",
             () -> new HeartContainerItem(new Item.Properties()));
+    public static final RegistryObject<Item> GLOOM_CONTAINER = ITEMS.register("gloom_container",
+            () -> new GloomContainer(new Item.Properties()));
+    public static final RegistryObject<Item> HEART_PIECE = ITEMS.register("heart_piece",
+            () -> new Item(new Item.Properties()));
 
     //These are potions or consumables
     public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
@@ -148,6 +152,15 @@ public class ModItems {
     public static final RegistryObject<Item> FIERCE_SWORD = ITEMS.register("fierce_sword",
             () -> new FierceSwordItem(ModTiers.DEITY, 7, -1.4f,
                     new Item.Properties().rarity(Rarity.RARE).fireResistant()));
+    public static final RegistryObject<Item> HERO_SWORD = ITEMS.register("hero_sword",
+            () -> new MagicSwordItem(Tiers.WOOD, 3, -2.4f,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> WHITE_SWORD = ITEMS.register("white_sword",
+            () -> new MagicSwordItem(Tiers.STONE, 3, -2.4f,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> MAGIC_SWORD = ITEMS.register("magic_sword",
+            () -> new MagicSwordItem(Tiers.IRON, 4, -2.4f,
+                    new Item.Properties()));
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
             () -> new SlingshotItem(new Item.Properties().defaultDurability(284)));
     public static final RegistryObject<Item> SCATTERSHOT = ITEMS.register("scattershot",
@@ -235,7 +248,9 @@ public class ModItems {
     public static final RegistryObject<Item> GOLDEN_SCALE = ITEMS.register("scale_gold",
             () -> new ScaleItem(new Item.Properties().defaultDurability(248)));
     public static final RegistryObject<Item> OCARINA = ITEMS.register("ocarina",
-            () -> new FluteItem(new Item.Properties().rarity(Rarity.RARE)));
+            () -> new OcarinaItem(new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> ASCEND = ITEMS.register("ascend",
+            () -> new AscendItem(new Item.Properties().rarity(Rarity.RARE)));
 
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168)));

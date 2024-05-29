@@ -38,16 +38,15 @@ public class KeyItem extends Item {
         ItemStack itemstack = pContext.getItemInHand();
         BlockState blockstate = level.getBlockState(blockpos);
 
-
         if (blockstate.is(ModBlocks.LOCKED_DOOR.get())) {
             level.destroyBlock(blockpos,false, pContext.getPlayer());
             level.playSound(pContext.getPlayer(),pContext.getClickedPos(), ModSounds.DOOR_UNLOCK.get(), SoundSource.BLOCKS);
             itemstack.shrink(1);
             return InteractionResult.SUCCESS;
         }
+
         {
     return InteractionResult.FAIL;}}
-
 
         @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {

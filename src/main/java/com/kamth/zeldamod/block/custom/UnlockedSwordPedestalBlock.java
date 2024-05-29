@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -30,6 +31,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     public static final VoxelShape SHAPE = Block.box(0,0,0, 16,2,16);
     public UnlockedSwordPedestalBlock(Properties pProperties) {
         super(pProperties);
@@ -46,7 +48,7 @@ public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(POWERED,false).setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
     @Override
     public BlockState rotate(BlockState pState, Rotation pRotation) {
@@ -69,12 +71,9 @@ public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
         ItemStack stackInHand = pPlayer.getItemInHand(pHand);
         ItemStack three = ModItems.MASTER_SWORD3.get().getDefaultInstance();
         BlockEntity te = pLevel.getBlockEntity(pPos);
-
+        UnlockedSwordPedestalEntity pedestal = (UnlockedSwordPedestalEntity) pLevel.getBlockEntity(pPos);
         if (te instanceof UnlockedSwordPedestalEntity)
         {
-            UnlockedSwordPedestalEntity pedestal = (UnlockedSwordPedestalEntity) pLevel.getBlockEntity(pPos);
-
-
             if (stackInHand.is(ModItems.MASTER_SWORD3.get()) && pedestal.getSword().isEmpty())
             {
                 if (stackInHand.getAllEnchantments().containsKey(Enchantments.SMITE) &&

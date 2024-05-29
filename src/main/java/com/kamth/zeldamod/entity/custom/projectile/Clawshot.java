@@ -23,13 +23,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3d;
@@ -91,14 +88,12 @@ if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)
     isPulling = true;
     this.setDeltaMovement(0,0,0);
 }
-
         if (getOwner() instanceof Player) {
             owner = (Player) getOwner();
 
             if (isPulling && tickCount % 4 == 0) {
                 BlockPos currentPos = this.owner.blockPosition();
                 this.level().playSound(null, currentPos.getX(), currentPos.getY(), currentPos.getZ(), SoundEvents.CHAIN_HIT, SoundSource.PLAYERS, .5f, 1.0f);
-
             }
 
 
@@ -117,7 +112,7 @@ if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)
                            owner.distanceTo(this) > maxRange ||
                             !(owner.getMainHandItem().getItem() instanceof ClawshotItem ||
                                     owner.getOffhandItem().getItem() instanceof ClawshotItem )){
-                       kill();
+                       kill2();
 
                     }
                 }
@@ -217,7 +212,16 @@ isPulling=false;
             owner.setPose(Pose.STANDING);
             owner.setDeltaMovement(0, 0, 0);
             this.owner.setDeltaMovement(0,0,0);
+        }
+        owner.hurtMarked = true;
+        super.kill();
+    }
 
+    public void kill2() {
+        if (!level().isClientSide && owner != null) {
+            isPulling=false;
+            owner.setNoGravity(false);
+            owner.setPose(Pose.STANDING);
         }
         owner.hurtMarked = true;
         super.kill();
