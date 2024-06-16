@@ -234,13 +234,13 @@ public class ModItems {
     public static final RegistryObject<Item> PURPLE_RING = ITEMS.register("purple_ring",
             () -> new PurpleRingItem(new Item.Properties().defaultDurability(160)));
     public static final RegistryObject<Item> HOOKSHOT = ITEMS.register("hookshot",
-            () -> new HookshotItem(new Item.Properties().defaultDurability(160)));
+            () -> new HookshotItem(new Item.Properties().defaultDurability(360)));
     public static final RegistryObject<Item> LONGSHOT = ITEMS.register("longshot",
-            () -> new HookshotItem(new Item.Properties().defaultDurability(320)));
+            () -> new HookshotItem(new Item.Properties().defaultDurability(720)));
     public static final RegistryObject<Item> CLAWSHOT = ITEMS.register("clawshot",
-            () -> new ClawshotItem(new Item.Properties().defaultDurability(160)));
+            () -> new ClawshotItem(new Item.Properties().defaultDurability(360)));
     public static final RegistryObject<Item> CLAWSHOT_GODDESS = ITEMS.register("clawshot_goddess",
-            () -> new ClawshotItem(new Item.Properties().defaultDurability(320)));
+            () -> new ClawshotItem(new Item.Properties().defaultDurability(720)));
     public static final RegistryObject<Item> LENS_OF_TRUTH = ITEMS.register("lens",
             () -> new LensItem(new Item.Properties()));
     public static final RegistryObject<Item> SILVER_SCALE = ITEMS.register("scale_silver",
@@ -251,6 +251,8 @@ public class ModItems {
             () -> new OcarinaItem(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> ASCEND = ITEMS.register("ascend",
             () -> new AscendItem(new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> FLUTE = ITEMS.register("flute",
+            () -> new FluteItem(new Item.Properties().rarity(Rarity.RARE)));
 
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new ShieldItem(new Item.Properties().durability(168)));

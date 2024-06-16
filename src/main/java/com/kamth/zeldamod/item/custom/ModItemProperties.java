@@ -17,6 +17,9 @@ public class ModItemProperties {
         makeShield(ModItems.GLIDER.get());
         makeShield(ModItems.LENS_OF_TRUTH.get());
         makeShield(ModItems.CLAWSHOT.get());
+        makeShield(ModItems.CLAWSHOT_GODDESS.get());
+        makeShield(ModItems.FLUTE.get());
+        makeShield(ModItems.OCARINA.get());
     }
 
     private static void makeShield(Item item) {

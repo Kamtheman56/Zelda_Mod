@@ -1,0 +1,5 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "zeldamod:block/zelda_stone_active"}
+}

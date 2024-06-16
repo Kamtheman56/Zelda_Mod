@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "down": "zeldamod:block/time_brick_ghost",
+    "particle": "zeldamod:block/time_block_ghost",
+    "up": "zeldamod:block/time_brick_ghost",
+    "north": "zeldamod:block/time_block_ghost",
+    "east": "zeldamod:block/time_block_ghost",
+    "south": "zeldamod:block/time_block_ghost",
+    "west":"zeldamod:block/time_block_ghost"
+  }
+}

@@ -146,6 +146,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.CLAWSHOT);
         event.accept(ModItems.CLAWSHOT_GODDESS);
         event.accept(ModItems.LENS_OF_TRUTH);
+        event.accept(ModItems.FLUTE);
         event.accept(ModItems.OCARINA);
         event.accept(ModItems.SILVER_SCALE);
         event.accept(ModItems.GOLDEN_SCALE);
@@ -250,6 +251,10 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.LOCKED_BOSS_DOOR);
             event.accept(ModBlocks.SHOCK_SWITCH);
             event.accept(ModBlocks.TIMED_SHOCK_SWITCH);
+            event.accept(ModBlocks.OWL_STATUE);
+            event.accept(ModBlocks.TIME_BLOCK);
+            event.accept(ModBlocks.TIME_BRICKS);
+            event.accept(ModBlocks.ZELDA_STONE);
             event.accept(ModBlocks.NIGHTSHADE);
             event.accept(ModBlocks.SUNDELION);
             event.accept(ModBlocks.DEKU_BLOCK);

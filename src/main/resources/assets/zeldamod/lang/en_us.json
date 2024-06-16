@@ -111,6 +111,7 @@
   "item.zeldamod.scale_gold": "Golden Scale",
   "item.zeldamod.ocarina": "Ocarina",
   "item.zeldamod.ascend": "Ascend",
+  "item.zeldamod.flute": "Flute",
 
   "item.zeldamod.heavyboots": "Heavy Boots",
   "item.zeldamod.hoverboots": "Hover Boots",
@@ -177,6 +178,14 @@
   "sounds.zeldamod.door_unlock": "Door unlocks",
   "sounds.zeldamod.wooden_hammer": "Hammer pounds",
   "sounds.zeldamod.locked_door": "Lock rattles",
+  "sounds.zeldamod.song_healing": "Song of Healing plays",
+  "sounds.zeldamod.song_soaring": "Song of Soaring plays",
+  "sounds.zeldamod.song_time": "Song of Time plays",
+  "sounds.zeldamod.song_zelda": "Zelda's Lullaby plays",
+  "sounds.zeldamod.song_epona": "Epona's Song plays",
+  "sounds.zeldamod.song_storms": "Song of Storms plays",
+  "sounds.zeldamod.song_sun": "Sun's Song plays",
+  "sounds.zeldamod.ocarina_sound": "Ocarina plays",
 
   "block.zeldamod.gloom_block": "Gloom Block",
   "block.zeldamod.secret_stone": "Secret Stone",
@@ -215,6 +224,9 @@
   "block.zeldamod.shock_switch": "Shock Switch",
   "block.zeldamod.timed_shock_switch": "Timed Shock Switch",
   "block.zeldamod.carmine_froglight": "Carmine Froglight",
+  "block.zeldamod.owl_statue": "Owl Statue",
+  "block.zeldamod.time_block": "Time Block",
+  "block.zeldamod.zelda_stone": "Zelda Stone",
 
   "Nightmask": "You don't think you should do this",
   "Courage": "The Pedestal radiates with Courage",

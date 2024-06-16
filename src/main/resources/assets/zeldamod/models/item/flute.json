@@ -1,13 +1,13 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "zeldamod:item/ocarina_time"
+    "layer0": "zeldamod:item/flute"
   },
   "overrides": [
     {
       "predicate": {
         "minecraft:blocking": 1
       },
-      "model": "zeldamod:item/ocarina_playing"
+      "model": "zeldamod:item/flute_playing"
     }]
 }

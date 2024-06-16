@@ -20,8 +20,14 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> DOOR_LOCK = registerSoundEvents ("locked_door");
     public static final RegistryObject<SoundEvent> DOOR_UNLOCK = registerSoundEvents ("door_unlock");
     public static final RegistryObject<SoundEvent> WOODEN_HAMMER = registerSoundEvents ("wooden_hammer");
-
-
+    public static final RegistryObject<SoundEvent> SONG_HEALING = registerSoundEvents ("song_healing");
+    public static final RegistryObject<SoundEvent> SONG_TIME = registerSoundEvents ("song_time");
+    public static final RegistryObject<SoundEvent> SONG_SOARING = registerSoundEvents ("song_soaring");
+    public static final RegistryObject<SoundEvent> SONG_STORMS = registerSoundEvents ("song_storms");
+    public static final RegistryObject<SoundEvent> SONG_ZELDA = registerSoundEvents ("song_zelda");
+    public static final RegistryObject<SoundEvent> SONG_SUN = registerSoundEvents ("song_sun");
+    public static final RegistryObject<SoundEvent> SONG_EPONA = registerSoundEvents ("song_epona");
+    public static final RegistryObject<SoundEvent> OCARINA = registerSoundEvents ("ocarina_sound");
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(ZeldaMod.MOD_ID, name)));

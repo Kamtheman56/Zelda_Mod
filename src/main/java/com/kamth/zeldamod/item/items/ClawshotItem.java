@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -55,10 +56,14 @@ pPlayer.playSound(ModSounds.CLAWSHOT.get());
                 projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f, 0f);
                 projectile.Properties(itemstack, 25, 12, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
                 world.addFreshEntity(projectile);
+            itemstack.hurtAndBreak(3, player, (p_43296_) -> {
+                p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+            });
             }
 
         if (itemstack.is(ModItems.CLAWSHOT.get())) {
             player.getCooldowns().addCooldown(this, 40);
+
         }
         if (itemstack.is(ModItems.CLAWSHOT_GODDESS.get())) {
             player.getCooldowns().addCooldown(this, 40);

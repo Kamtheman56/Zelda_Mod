@@ -12,11 +12,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.function.Supplier;
@@ -26,7 +27,7 @@ public class StaminaFruitBlock extends FlowerBlock {
         super(effectSupplier, pEffectDuration, pProperties);
 
     }
-    protected static final VoxelShape SHAPE2 = Block.box(5.1D, 0.0D, 5.1D, 11.0D, 5.1D, 11.0D);
+    protected static final VoxelShape SHAPE2 = makeShape();
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         Vec3 vec3 = pState.getOffset(pLevel, pPos);
@@ -58,6 +59,12 @@ public class StaminaFruitBlock extends FlowerBlock {
         } else {
             return false;
         }
+    }
+    public static VoxelShape makeShape(){
+        VoxelShape shape = Shapes.empty();
+        shape = Shapes.join(shape, Shapes.box(0.25, 0.001875, 0.25, 0.75, 0.314375, 0.75), BooleanOp.OR);
+
+        return shape;
     }
 
 

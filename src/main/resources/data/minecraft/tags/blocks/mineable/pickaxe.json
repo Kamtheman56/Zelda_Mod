@@ -22,7 +22,11 @@
     "zeldamod:locked_door",
     "zeldamod:locked_boss_door",
     "zeldamod:shock_switch",
-    "zeldamod:timed_shock_switch"
-
+    "zeldamod:timed_shock_switch",
+    "zeldamod:owl_statue",
+    "zeldamod:time_block",
+    "zeldamod:time_block_ghost",
+    "zeldamod:time_bricks",
+    "zeldamod:zelda_stone"
   ]
 }

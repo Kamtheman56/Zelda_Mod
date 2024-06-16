@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "down": "zeldamod:block/time_brick",
+    "particle": "zeldamod:block/time_block",
+    "up": "zeldamod:block/time_brick",
+    "north": "zeldamod:block/time_block",
+    "east": "zeldamod:block/time_block",
+    "south": "zeldamod:block/time_block",
+    "west":"zeldamod:block/time_block"
+  }
+}

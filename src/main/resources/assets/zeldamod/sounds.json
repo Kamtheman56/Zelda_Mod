@@ -46,5 +46,53 @@
     "sounds": [
       "zeldamod:wooden_hammer"
     ]
+  },
+  "song_healing": {
+    "subtitle": "sounds.zeldamod.song_healing",
+    "sounds": [
+      "zeldamod:song_healing"
+    ]
+  },
+  "song_soaring": {
+    "subtitle": "sounds.zeldamod.song_soaring",
+    "sounds": [
+      "zeldamod:song_soaring"
+    ]
+  },
+  "song_time": {
+    "subtitle": "sounds.zeldamod.song_time",
+    "sounds": [
+      "zeldamod:song_time"
+    ]
+  },
+  "song_zelda": {
+    "subtitle": "sounds.zeldamod.song_zelda",
+    "sounds": [
+      "zeldamod:song_zelda"
+    ]
+  },
+  "song_epona": {
+    "subtitle": "sounds.zeldamod.song_epona",
+    "sounds": [
+      "zeldamod:song_epona"
+    ]
+  },
+  "song_storms": {
+    "subtitle": "sounds.zeldamod.song_storms",
+    "sounds": [
+      "zeldamod:song_storms"
+    ]
+  },
+  "song_sun": {
+    "subtitle": "sounds.zeldamod.song_sun",
+    "sounds": [
+      "zeldamod:song_sun"
+    ]
+  },
+  "ocarina_sound": {
+    "subtitle": "sounds.zeldamod.ocarina_sound",
+    "sounds": [
+      "zeldamod:ocarina_sound"
+    ]
   }
 }
