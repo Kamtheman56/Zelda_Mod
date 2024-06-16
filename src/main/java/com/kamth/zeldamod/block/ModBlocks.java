@@ -37,7 +37,7 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> DEEPSLATE_MASTER_ORE = registerBlock("deepslate_masters_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
             .strength(6f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
-    public static final RegistryObject<Block> MASK_BLOCK = registerBlock("mask_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> MASK_BLOCK = registerBlock("mask_block", ()-> new MaskBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> CARMINE_FROGLIGHT = registerBlock("carmine_froglight", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.OCHRE_FROGLIGHT)));
     public static final RegistryObject<Block> SUPERSHROOM_BLOCK = registerBlock("super_shroom_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM)));
     public static final RegistryObject<Block> HAMMER_PEG = registerBlock("hammer_peg", ()-> new HammerPegBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion()));
@@ -65,6 +65,15 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> TIME_BLOCK_GHOST = registerBlock("time_block_ghost", ()-> new TimeGhostBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).strength(18).noCollission().noOcclusion()));
     public static final RegistryObject<Block> TIME_BRICKS = registerBlock("time_bricks", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
     public static final RegistryObject<Block> ZELDA_STONE = registerBlock("zelda_stone", ()-> new ZeldaStone(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> JAR_BLUE = registerBlock("jar_blue", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_RED = registerBlock("jar_red", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_GREEN = registerBlock("jar_green", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_BROWN = registerBlock("jar_brown", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> PRESSURE_SWITCH = registerBlock("pressure_switch", ()-> new PressureSwitchBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> TIMED_PRESSURE_SWITCH = registerBlock("timed_pressure_switch", ()-> new TimedPressureSwitchBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK),120,false));
+    public static final RegistryObject<Block> RUSTED_PRESSURE_SWITCH = registerBlock("rusted_pressure_switch", ()-> new RustedPressureSwitchBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
+    public static final RegistryObject<Block> RUSTED_TIMED_PRESSURE_SWITCH = registerBlock("rusted_timed_pressure_switch", ()-> new RustedTimedPressureSwitchBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK),120,false));
+
 
     public static final RegistryObject<Block> NIGHTSHADE = registerBlock("nightshade",
             () -> new FlowerBlock(() -> MobEffects.DAMAGE_RESISTANCE, 5,

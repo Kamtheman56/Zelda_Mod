@@ -27,6 +27,11 @@
     "zeldamod:time_block",
     "zeldamod:time_block_ghost",
     "zeldamod:time_bricks",
-    "zeldamod:zelda_stone"
+    "zeldamod:zelda_stone",
+    "zeldamod:pressure_switch",
+    "zeldamod:timed_pressure_switch",
+    "zeldamod:rusted_pressure_switch",
+    "zeldamod:rusted_timed_pressure_switch"
+
   ]
 }

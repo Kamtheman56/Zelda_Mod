@@ -13,6 +13,8 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -51,6 +53,7 @@ public class OcarinaItem extends Item {
            pContext.getPlayer().startUsingItem(pContext.getHand());
            level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_SOARING.get(),SoundSource.PLAYERS, .4f, 1);
            pContext.getPlayer().getCooldowns().addCooldown(this, 120);
+           pContext.getPlayer().addEffect(new MobEffectInstance(MobEffects.CONFUSION,180, 2,true, false));
            return InteractionResult.SUCCESS;
        }
         if (blockstate.is(ModBlocks.TIME_BLOCK.get())){
@@ -79,14 +82,16 @@ public class OcarinaItem extends Item {
                     BlockPos bedLocation = player2.getRespawnPosition(); // find bed in current dimension first
                     if (bedLocation == null) {
                         player2.displayClientMessage(Component.translatable("Ocarina").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.BOLD), true);
-                        return;
-                    }     if(player.level().dimension() != player2.getRespawnDimension()) {
+                        return;}
+                    if(player.level().dimension() != player2.getRespawnDimension()) {
                         LogicalSidedProvider.WORKQUEUE.get(LogicalSide.SERVER);
                         ServerLevel transferWorld = ((ServerLevel)worldIn).getServer().getLevel(player2.getRespawnDimension());
+
                         player2.teleportTo(transferWorld, bedLocation.getX() + 0.5D, bedLocation.getY() + 0.6D, bedLocation.getZ() + 0.5D, player.getRotationVector().x, player.getRotationVector().y);
                     } else {
                         ((ServerPlayer) entity).teleportTo(bedLocation.getX() + 0.5D, bedLocation.getY() + 0.6D, bedLocation.getZ() + 0.5D);
                         entity.resetFallDistance();
+
 
                     }
                     entity.fallDistance = 0;

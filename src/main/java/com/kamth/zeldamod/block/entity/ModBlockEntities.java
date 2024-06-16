@@ -29,6 +29,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("locked_chest_be", () ->
                     BlockEntityType.Builder.of(LockedChestEntity::new,
                             ModBlocks.LOCKED_CHEST.get()).build(null));
+    public static final RegistryObject<BlockEntityType<JarEntity>> JAR_BE =
+            BLOCK_ENTITIES.register("jar_be", () ->
+                    BlockEntityType.Builder.of(JarEntity::new,
+                            ModBlocks.JAR_BLUE.get()).build(null));
+
 
 
     public static void register(IEventBus eventBus) {

@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AbstractClientPlayer.class)
 public abstract class MixinCapeRenderer  {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/armor/roc_cape.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/armor/hylian_cape.png");
         /**
          * Sets the player as having a loaded cape if they have a cape accessory equipped and visible.
          * @param cir The {@link Boolean} {@link CallbackInfoReturnable} used for the method's return value.
@@ -20,7 +20,7 @@ public abstract class MixinCapeRenderer  {
         @Inject(at = @At("HEAD"), method = "isCapeLoaded()Z", cancellable = true)
         private void isCapeLoaded(CallbackInfoReturnable<Boolean> cir) {
             AbstractClientPlayer player = (AbstractClientPlayer) (Object) this;
-            if (player.getItemBySlot(EquipmentSlot.CHEST).is(ModItems.ROC_CAPE.get())) {
+            if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.HYLIAN_HOOD.get())) {
                 cir.setReturnValue(true);
             }
         }
@@ -29,7 +29,7 @@ public abstract class MixinCapeRenderer  {
         @Inject(at = @At("HEAD"), method = "getCloakTextureLocation()Lnet/minecraft/resources/ResourceLocation;", cancellable = true)
         private void getCloakTextureLocation(CallbackInfoReturnable<ResourceLocation> cir) {
             AbstractClientPlayer player = (AbstractClientPlayer) (Object) this;
-            if (player.getItemBySlot(EquipmentSlot.CHEST).is(ModItems.ROC_CAPE.get())) {
+            if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.HYLIAN_HOOD.get())) {
                 ResourceLocation texture = TEXTURE;
                 cir.setReturnValue(texture);
 

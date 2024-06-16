@@ -1,0 +1,32 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "zeldamod:block/pressure_switch_timed",
+		"1": "block/iron_block",
+		"particle": "zeldamod:block/pressure_switch_timed"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 0.5, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 2]},
+			"faces": {
+				"north": {"uv": [0, 14, 9, 16], "texture": "#0"},
+				"east": {"uv": [0, 14, 10, 16], "texture": "#0"},
+				"south": {"uv": [0, 14, 12, 16], "texture": "#0"},
+				"west": {"uv": [0, 14, 10, 16], "texture": "#0"},
+				"up": {"uv": [2, 3, 14, 15], "texture": "#0"},
+				"down": {"uv": [3, 3, 15, 15], "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "VoxelShapes",
+			"origin": [7, 0, 2],
+			"color": 0,
+			"nbt": "{}",
+			"children": [0]
+		}
+	]
+}

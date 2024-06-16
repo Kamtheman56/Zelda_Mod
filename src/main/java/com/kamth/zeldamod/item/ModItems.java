@@ -420,6 +420,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> ARCHAIC_TUNIC = ITEMS.register("archaic_tunic",
             ()-> new ArchaicTunic(ModArmorMaterials.Archaic, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(240)));
+    public static final RegistryObject<ArmorItem> HYLIAN_HOOD = ITEMS.register("hylian_hood",
+            ()-> new ArmorItem(ModArmorMaterials.Hylian, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(200)));
 
 
 

@@ -139,7 +139,11 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(ModItems.NAYRU_PEARL.get()); }),
     Archaic("archaic", 0, new int[]{2, 4, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(Items.GREEN_WOOL); });
+        return Ingredient.of(Items.GREEN_WOOL); }),
+    Hylian("hylian", 0, new int[]{2, 4, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.BLACK_WOOL); });
+
 
 
     private final String name;

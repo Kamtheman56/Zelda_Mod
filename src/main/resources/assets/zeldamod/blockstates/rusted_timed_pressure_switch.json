@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "powered=false": { "model": "zeldamod:block/rusted_timed_pressure_switch" },
+    "powered=true": {"model": "zeldamod:block/rusted_timed_pressure_switch_flat"}
+  }
+}

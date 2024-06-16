@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "zeldamod:block/time_brick"
+    "all": "zeldamod:block/time_bricks"
   }
 }

@@ -2,6 +2,8 @@ package com.kamth.zeldamod.block.entity.renderer;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.entity.LockedChestEntity;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.ChestRenderer;
@@ -22,6 +24,10 @@ public class LockedChestEntityRenderer2 extends ChestRenderer<LockedChestEntity>
         return MATERIAL;
     }
 
+    @Override
+    public void render(LockedChestEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
+
+    }
     public static Material chestMaterial(String chestName) {
         return new Material(Sheets.CHEST_SHEET, new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/chest/" + chestName));
     }

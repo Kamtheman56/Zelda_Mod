@@ -162,6 +162,7 @@
   "item.zeldamod.classic_hat": "Classic Hat",
   "item.zeldamod.classic_tunic": "Classic Tunic",
   "item.zeldamod.archaic_tunic": "Archaic Tunic",
+  "item.zeldamod.hylian_hood": "Hylian Hood",
 
 
   "effect.zeldamod.deku": "Water Hopping",
@@ -226,7 +227,16 @@
   "block.zeldamod.carmine_froglight": "Carmine Froglight",
   "block.zeldamod.owl_statue": "Owl Statue",
   "block.zeldamod.time_block": "Time Block",
+  "block.zeldamod.time_bricks": "Time Bricks",
   "block.zeldamod.zelda_stone": "Zelda Stone",
+  "block.zeldamod.jar_blue": "Blue Pot",
+  "block.zeldamod.jar_red": "Red Pot",
+  "block.zeldamod.jar_green": "Green Pot",
+  "block.zeldamod.jar_brown": "Brown Pot",
+  "block.zeldamod.pressure_switch": "Pressure Switch",
+  "block.zeldamod.timed_pressure_switch": "Timed Pressure Switch",
+  "block.zeldamod.rusted_pressure_switch": "Rusted Pressure Switch",
+  "block.zeldamod.rusted_timed_pressure_switch": "Rusted Timed Pressure Switch",
 
   "Nightmask": "You don't think you should do this",
   "Courage": "The Pedestal radiates with Courage",

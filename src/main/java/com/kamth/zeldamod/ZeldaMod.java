@@ -81,6 +81,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.KOKIRI_TUNIC);
         event.accept(ModItems.GORON_TUNIC);
         event.accept(ModItems.ZORA_TUNIC);
+        event.accept(ModItems.HYLIAN_HOOD);
         event.accept(ModItems.CHAMPION_TUNIC);
         event.accept(ModItems.CHAMPIONS_TUNIC);
         event.accept(ModItems.CLASSIC_HAT);
@@ -251,7 +252,15 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.LOCKED_BOSS_DOOR);
             event.accept(ModBlocks.SHOCK_SWITCH);
             event.accept(ModBlocks.TIMED_SHOCK_SWITCH);
+            event.accept(ModBlocks.PRESSURE_SWITCH);
+            event.accept(ModBlocks.TIMED_PRESSURE_SWITCH);
+            event.accept(ModBlocks.RUSTED_PRESSURE_SWITCH);
+            event.accept(ModBlocks.RUSTED_TIMED_PRESSURE_SWITCH);
             event.accept(ModBlocks.OWL_STATUE);
+            event.accept(ModBlocks.JAR_GREEN);
+            event.accept(ModBlocks.JAR_BLUE);
+            event.accept(ModBlocks.JAR_RED);
+            event.accept(ModBlocks.JAR_BROWN);
             event.accept(ModBlocks.TIME_BLOCK);
             event.accept(ModBlocks.TIME_BRICKS);
             event.accept(ModBlocks.ZELDA_STONE);

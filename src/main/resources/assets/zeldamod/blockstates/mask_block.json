@@ -1,5 +1,6 @@
 {
   "variants": {
-    "": {"model": "zeldamod:block/mask_block"}
+    "powered=false": {"model": "zeldamod:block/mask_block"},
+    "powered=true": {"model": "zeldamod:block/mask_block_active"}
   }
 }
