@@ -57,6 +57,10 @@ public class RustedTimedPressureSwitchBlock extends Block {
             this.pull(pState, pLevel, pPos);
             pLevel.playSound((Player)null, pPos, SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.BLOCKS, 1F, 1);
         }
+        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ModItems.MEGATON.get()) && pState.getValue(POWERED) == false){
+            this.press(pState, pLevel, pPos);
+            pLevel.playSound((Player)null, pPos, SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 1F, 1);
+        }
         return InteractionResult.SUCCESS;
     }
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
@@ -68,7 +72,6 @@ public class RustedTimedPressureSwitchBlock extends Block {
                 pLevel.playSound((Player)null, pPos, SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 1F, 1);
             }
         }}
-
 
     private void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
         pLevel.updateNeighborsAt(pPos, this);

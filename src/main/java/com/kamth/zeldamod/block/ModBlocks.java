@@ -69,6 +69,7 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> JAR_RED = registerBlock("jar_red", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
     public static final RegistryObject<Block> JAR_GREEN = registerBlock("jar_green", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
     public static final RegistryObject<Block> JAR_BROWN = registerBlock("jar_brown", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_CREATIVE = registerBlock("jar_creative", ()-> new Jar2Block(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
     public static final RegistryObject<Block> PRESSURE_SWITCH = registerBlock("pressure_switch", ()-> new PressureSwitchBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> TIMED_PRESSURE_SWITCH = registerBlock("timed_pressure_switch", ()-> new TimedPressureSwitchBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK),120,false));
     public static final RegistryObject<Block> RUSTED_PRESSURE_SWITCH = registerBlock("rusted_pressure_switch", ()-> new RustedPressureSwitchBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));

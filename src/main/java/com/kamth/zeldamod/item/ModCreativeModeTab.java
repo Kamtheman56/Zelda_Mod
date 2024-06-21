@@ -26,7 +26,7 @@ public class ModCreativeModeTab {
     public static RegistryObject<CreativeModeTab> ZELDA_MASK = CREATIVE_MODE_TABS.register("zelda_mask", () ->
             CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.DEKU_MASK.get())).title(Component.translatable("zelda_masks")).build());
     public static RegistryObject<CreativeModeTab> ZELDA_TAB = CREATIVE_MODE_TABS.register("zelda_tab", () ->
-            CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.SECRET_STONE.get())).title(Component.translatable("zelda_tab")).build());
+            CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.COURAGE_BLOCK.get())).title(Component.translatable("zelda_tab")).build());
 
 
 
