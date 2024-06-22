@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.item.custom;
+package com.kamth.zeldamod.custom;
 
 import com.kamth.zeldamod.ZeldaMod;
 import net.minecraft.core.registries.Registries;

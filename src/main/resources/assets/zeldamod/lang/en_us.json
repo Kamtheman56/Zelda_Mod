@@ -238,6 +238,10 @@
   "block.zeldamod.timed_pressure_switch": "Timed Pressure Switch",
   "block.zeldamod.rusted_pressure_switch": "Rusted Pressure Switch",
   "block.zeldamod.rusted_timed_pressure_switch": "Rusted Timed Pressure Switch",
+  "block.zeldamod.sky_stone_chiseled": "Sky Stone Chiseled",
+  "block.zeldamod.sky_stone_mural": "Sky Stone Mural",
+  "block.zeldamod.sun_stone": "Sun Stone",
+
 
   "Nightmask": "You don't think you should do this",
   "Courage": "The Pedestal radiates with Courage",

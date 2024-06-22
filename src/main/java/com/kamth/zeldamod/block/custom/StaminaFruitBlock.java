@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.block.custom;
 
-import com.kamth.zeldamod.item.custom.ModTags;
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;

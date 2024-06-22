@@ -2,8 +2,6 @@ package com.kamth.zeldamod.block.entity.renderer;
 
 import com.kamth.zeldamod.block.custom.SwordPedestalBlock;
 import com.kamth.zeldamod.block.entity.SwordPedestalEntity;
-import com.kamth.zeldamod.item.custom.ModTags;
-import com.mojang.authlib.minecraft.client.MinecraftClient;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
@@ -14,14 +12,10 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
-import org.joml.Quaternionf;
-import org.joml.Vector3f;
+import net.minecraft.world.level.LightLayer;
 
 
 public class SwordPedestalEntityRenderer implements BlockEntityRenderer<SwordPedestalEntity> {

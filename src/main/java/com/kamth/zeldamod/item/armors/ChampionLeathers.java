@@ -1,9 +1,9 @@
 package com.kamth.zeldamod.item.armors;
 
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.custom.ModArmorMaterials;
 import com.kamth.zeldamod.item.armors.render.ChampionLeathersModel;
 import com.kamth.zeldamod.item.armors.render.ModModelLayers;
-import com.kamth.zeldamod.item.custom.ModArmorMaterials;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.resources.ResourceLocation;

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "down": "zeldamod:block/sun_stone_top",
+    "particle": "zeldamod:block/sun_stone",
+    "up": "zeldamod:block/sun_stone_top",
+    "north": "zeldamod:block/sun_stone",
+    "east": "zeldamod:block/sun_stone",
+    "south": "zeldamod:block/sun_stone",
+    "west":"zeldamod:block/sun_stone"
+  }
+}

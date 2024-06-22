@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "down": "zeldamod:block/sky_stone_top",
+    "particle": "zeldamod:block/sky_stone_mural",
+    "up": "zeldamod:block/sky_stone_top",
+    "north": "zeldamod:block/sky_stone_mural_active",
+    "east": "zeldamod:block/sky_stone_mural_active",
+    "south": "zeldamod:block/sky_stone_mural_active",
+    "west":"zeldamod:block/sky_stone_mural_active"
+  }
+}

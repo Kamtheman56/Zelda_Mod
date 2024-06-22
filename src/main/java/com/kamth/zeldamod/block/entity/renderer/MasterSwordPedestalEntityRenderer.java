@@ -2,8 +2,6 @@ package com.kamth.zeldamod.block.entity.renderer;
 
 import com.kamth.zeldamod.block.custom.SwordPedestalBlock;
 import com.kamth.zeldamod.block.entity.MasterSwordPedestalEntity;
-import com.kamth.zeldamod.block.entity.SwordPedestalEntity;
-import com.kamth.zeldamod.item.custom.ModTags;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;

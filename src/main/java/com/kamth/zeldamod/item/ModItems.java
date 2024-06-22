@@ -2,9 +2,9 @@ package com.kamth.zeldamod.item;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.custom.ModArmorMaterials;
+import com.kamth.zeldamod.custom.ModFoods;
 import com.kamth.zeldamod.item.armors.*;
-import com.kamth.zeldamod.item.custom.ModArmorMaterials;
-import com.kamth.zeldamod.item.custom.ModFoods;
 import com.kamth.zeldamod.item.items.*;
 import com.kamth.zeldamod.item.masks.*;
 import net.minecraft.tags.BlockTags;

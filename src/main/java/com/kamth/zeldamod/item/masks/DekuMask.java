@@ -2,9 +2,9 @@ package com.kamth.zeldamod.item.masks;
 
 
 import be.florens.expandability.api.forge.LivingFluidCollisionEvent;
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.item.ModItems;
-import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;

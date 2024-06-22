@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "down": "zeldamod:block/sky_stone_top",
+    "particle": "zeldamod:block/sky_stone_chiseled",
+    "up": "zeldamod:block/sky_stone_top",
+    "north": "zeldamod:block/sky_stone_chiseled",
+    "east": "zeldamod:block/sky_stone_chiseled",
+    "south": "zeldamod:block/sky_stone_chiseled",
+    "west":"zeldamod:block/sky_stone_chiseled"
+  }
+}

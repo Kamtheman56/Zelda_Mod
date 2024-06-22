@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items;
 
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.item.ModItems;
-import com.kamth.zeldamod.item.custom.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;

@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.item.custom;
+package com.kamth.zeldamod.custom;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;

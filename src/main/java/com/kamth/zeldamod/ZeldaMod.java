@@ -3,11 +3,11 @@ package com.kamth.zeldamod;
 
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.block.entity.ModBlockEntities;
+import com.kamth.zeldamod.custom.ModItemProperties;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ModItems;
-import com.kamth.zeldamod.item.custom.ModItemProperties;
 import com.kamth.zeldamod.loot.ModLootModifiers;
 import com.kamth.zeldamod.painting.ModPaintings;
 import com.kamth.zeldamod.particle.ModParticles;
@@ -264,6 +264,9 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.TIME_BLOCK);
             event.accept(ModBlocks.TIME_BRICKS);
             event.accept(ModBlocks.ZELDA_STONE);
+            event.accept(ModBlocks.SUN_STONE);
+            event.accept(ModBlocks.SKY_STONE_CHISELED);
+            event.accept(ModBlocks.SKY_STONE_MURAL);
             event.accept(ModBlocks.NIGHTSHADE);
             event.accept(ModBlocks.SUNDELION);
             event.accept(ModBlocks.DEKU_BLOCK);
@@ -273,7 +276,6 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.PRIMO_FLOWER);
             event.accept(ModBlocks.STAMINA_FRUIT);
             event.accept(ModBlocks.BombFlower2);
-
         }
 
 

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "lit=false": { "model": "zeldamod:block/sky_stone_chiseled" },
+    "lit=true": {"model": "zeldamod:block/sky_stone_chiseled_active"}
+  }
+}
