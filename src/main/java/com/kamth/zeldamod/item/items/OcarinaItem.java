@@ -6,6 +6,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
@@ -25,7 +26,10 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.util.LogicalSidedProvider;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
+import net.minecraftforge.server.ServerLifecycleHooks;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -45,10 +49,26 @@ public class OcarinaItem extends Item {
 
         return InteractionResultHolder.consume(itemstack);
     }
+    @SubscribeEvent
+    public static void onWorldTick(TickEvent.ServerTickEvent event) {
+        boolean was_played = false;
+        if (was_played) {
+            MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+            ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
+            boolean shouldContinue = serverWorld.isNight();
+
+            if (shouldContinue) {
+
+            } else {
+                was_played = false;
+            }
+        }
+    }
     public InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
+        //the effects of the song of warping
        if (blockstate.is(ModBlocks.OWL_STATUE.get())){
            pContext.getPlayer().startUsingItem(pContext.getHand());
            level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_SOARING.get(),SoundSource.PLAYERS, .4f, 1);
@@ -56,6 +76,7 @@ public class OcarinaItem extends Item {
            pContext.getPlayer().addEffect(new MobEffectInstance(MobEffects.CONFUSION,180, 2,true, false));
            return InteractionResult.SUCCESS;
        }
+       //calls the effects of the song of time
         if (blockstate.is(ModBlocks.TIME_BLOCK.get())){
             pContext.getPlayer().getCooldowns().addCooldown(this, 210);
             level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_TIME.get(),SoundSource.PLAYERS, .4f, 1);
@@ -68,6 +89,24 @@ public class OcarinaItem extends Item {
             pContext.getPlayer().getCooldowns().addCooldown(this, 220);
             level.removeBlock(blockpos,false);
             level.setBlockAndUpdate(blockpos, ModBlocks.TIME_BLOCK.get().defaultBlockState());
+            return InteractionResult.SUCCESS;
+        }
+        //calls the effects of the sun song
+        if (blockstate.is(ModBlocks.SUN_STONE.get())){
+            level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_SUN.get(),SoundSource.PLAYERS, .8f, 1f);
+           pContext.getPlayer().getCooldowns().addCooldown(this, 600);
+         if (level.isNight()){
+                    MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+                    ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
+             assert serverWorld != null;
+             ( serverWorld).setDayTime(0);}
+           else if (level.isDay()){
+                MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+                ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
+             assert serverWorld != null;
+             ( serverWorld).setDayTime(13000);
+            }
+
             return InteractionResult.SUCCESS;
         }
 
@@ -107,6 +146,8 @@ public class OcarinaItem extends Item {
     public int getUseDuration(ItemStack pStack) {
         return 72000;
     }
+
+    
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
