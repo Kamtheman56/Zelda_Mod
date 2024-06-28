@@ -94,9 +94,9 @@ public class MasterSwordItem extends SwordItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Shoots Beams at full health!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.master_sword.description_advanced").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("Blade of Evil's Bane").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.master_sword.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
 
     }

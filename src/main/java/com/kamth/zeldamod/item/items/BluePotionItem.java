@@ -63,7 +63,7 @@ public class BluePotionItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Restores Hunger and Health").withStyle(ChatFormatting.BLUE).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.blue_potion.description").withStyle(ChatFormatting.BLUE).withStyle(ChatFormatting.ITALIC));
         }
         super.appendHoverText(stack, level, components, flag);
     }

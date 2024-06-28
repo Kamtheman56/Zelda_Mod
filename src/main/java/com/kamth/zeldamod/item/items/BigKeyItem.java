@@ -52,7 +52,7 @@ public class BigKeyItem extends Item {
         @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Able to unlock any gold locked doors").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.key_big.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
     }
 }

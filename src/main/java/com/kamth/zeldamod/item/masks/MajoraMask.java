@@ -64,7 +64,7 @@ if (player.isOnFire()){
         }}
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-            components.add(Component.literal("True power...").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
+            components.add(Component.translatable("item.majora_mask.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
     }
     public void onLivingHurtEvent(LivingHurtEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.MAJORA_MASK.get()) {

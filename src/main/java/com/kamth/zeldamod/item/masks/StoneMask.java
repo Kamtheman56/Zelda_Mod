@@ -4,14 +4,16 @@ import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
@@ -42,8 +44,8 @@ if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.STONE_MASK.get())) {
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
 
         if (Screen.hasShiftDown()) {
-            components.add(Component.literal("Turn Invisible").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.stone_mask.description_advanced").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("Become as plain as stone").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.stone_mask.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }}
 }

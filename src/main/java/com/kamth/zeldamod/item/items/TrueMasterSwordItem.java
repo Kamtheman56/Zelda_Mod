@@ -59,10 +59,10 @@ public class TrueMasterSwordItem extends SwordItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Shoots Beams!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.master_sword_true.description_advanced").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("The sword that").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.literal("seals the darkness ").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.master_sword_true.description_basic_1").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.master_sword_true.description_basic_2").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         }
 
     }

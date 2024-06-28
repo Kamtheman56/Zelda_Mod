@@ -26,7 +26,7 @@ public class AncientArrowItem extends ArrowItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Obliterate Evil").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.ancient_arrow.description").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
         }
         super.appendHoverText(stack, level, components, flag);
     }

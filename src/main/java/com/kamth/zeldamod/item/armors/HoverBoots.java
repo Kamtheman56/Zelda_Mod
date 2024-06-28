@@ -101,10 +101,10 @@ public class HoverBoots extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Sprint over the air").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("armor.hover_boots.description_advanced").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
         else {
-            components.add(Component.literal("Extra Lightweight").withStyle(ChatFormatting.GRAY));
+            components.add(Component.translatable("armor.hover_boots.description_basic").withStyle(ChatFormatting.GRAY));
         }
         super.appendHoverText(stack, level, components, flag);
     }

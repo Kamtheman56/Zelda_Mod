@@ -103,7 +103,7 @@ public class StickItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("This seems flammable").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.deku_stick.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
     else {
             components.add(Component.literal("5 Attack Damage").withStyle(ChatFormatting.DARK_GREEN));

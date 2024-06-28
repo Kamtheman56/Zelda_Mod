@@ -105,10 +105,10 @@ public class InjuredSwordItem extends SwordItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("It's been corrupted by Gloom...").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.injured_sword.description_advanced").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("Former Blade").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.literal("of Evil's Bane").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.injured_sword.description_basic_1").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.injured_sword.description_basic_2").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
 
     }

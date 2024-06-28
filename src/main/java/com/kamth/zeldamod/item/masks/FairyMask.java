@@ -21,11 +21,11 @@ public class FairyMask extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
-            components.add(Component.literal("Attract Allay to you").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.literal("Heal just a bit extra each time you heal").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.fairy_mask.description_advanced_1").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.fairy_mask.description_advanced_2").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
        else {
-            components.add(Component.literal("Friend to Allay").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.fairy_mask.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
     }
 }

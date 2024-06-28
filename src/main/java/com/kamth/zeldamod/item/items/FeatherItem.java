@@ -46,14 +46,7 @@ public class FeatherItem extends Item {
                     entity.resetFallDistance();}
             }
         }
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Right Click for an extra jump").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
-        }
-        else  components.add(Component.literal("Light as a feather").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-        super.appendHoverText(stack, level, components, flag);
-    }
+
     @Override
 
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
@@ -71,4 +64,15 @@ world.playSound(null,player.getX(),player.getY(),player.getZ(), SoundEvents.WOOL
                 p_43296_.broadcastBreakEvent(InteractionHand.OFF_HAND);
             });}
         return super.use(world, player, hand);
-}}
+}
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if(Screen.hasShiftDown()) {
+            components.add(Component.translatable("item.feather.description_advanced").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+        }
+        else  components.add(Component.translatable("item.feather.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+        super.appendHoverText(stack, level, components, flag);
+    }
+
+
+}

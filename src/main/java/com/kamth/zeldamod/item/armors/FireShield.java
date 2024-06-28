@@ -9,7 +9,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
@@ -18,7 +17,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
 
@@ -82,6 +80,6 @@ public class FireShield extends ArmorItem {
 @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()){
-            components.add(Component.literal("Walk over lava!").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("armor.fire_shield.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         }
 }}

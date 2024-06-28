@@ -117,7 +117,7 @@ player.resetFallDistance();
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Whirl up in the air!").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.tornado_rod.description").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
         }
         super.appendHoverText(stack, level, components, flag);
     }

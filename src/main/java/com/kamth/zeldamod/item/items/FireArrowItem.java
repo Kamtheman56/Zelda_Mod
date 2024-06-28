@@ -26,7 +26,7 @@ public class FireArrowItem extends ArrowItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()){
-            components.add(Component.literal("Burns enemies").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.fire_arrow.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         }}
 
 

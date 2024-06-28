@@ -46,9 +46,9 @@ public class MagicSwordItem extends SwordItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Shoots Beams at full health").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.magic_sword.description_advanced").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("A forgotten sword").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.magic_sword.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
 
     }

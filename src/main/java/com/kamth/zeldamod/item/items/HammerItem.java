@@ -68,7 +68,7 @@ public HammerItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModif
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Smash through weak blocks").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.literal("Pound down wooden pegs").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.hammer.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.hammer.description_advanced").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }}
 }

@@ -4,10 +4,8 @@ import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
-
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -83,7 +81,7 @@ public void onLivingHurtEvent(LivingHurtEvent event){
 @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
     if (Screen.hasShiftDown()) {
-        components.add(Component.literal("Buildup speed to boost, punch, and stomp!").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.goron_mask.description_advanced").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
     } else {
-        components.add(Component.literal("Become grounded!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.goron_mask.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 }}}

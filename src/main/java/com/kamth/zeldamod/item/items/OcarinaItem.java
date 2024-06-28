@@ -106,10 +106,15 @@ public class OcarinaItem extends Item {
              assert serverWorld != null;
              ( serverWorld).setDayTime(13000);
             }
-
             return InteractionResult.SUCCESS;
         }
-
+        //calls the effects of the song of storms
+        if (blockstate.is(ModBlocks.SUN_STONE.get())) {
+            MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+            ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
+            serverWorld.setWeatherParameters(0, 3800, true, false);
+            return InteractionResult.SUCCESS;
+        }
         else return InteractionResult.FAIL;
     }
 
@@ -151,7 +156,7 @@ public class OcarinaItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("A context sensitive item capable of many feats").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.ocarina.description").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         }
         super.appendHoverText(stack, level, components, flag);
     }

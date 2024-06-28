@@ -102,9 +102,10 @@ public class SlingshotItem extends BowItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Shoots various seed types").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.literal("Effective on bugs!").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.slingshot.description_advanced").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
+        else components.add(Component.translatable("item.slingshot.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+
         super.appendHoverText(stack, level, components, flag);
     }
 }

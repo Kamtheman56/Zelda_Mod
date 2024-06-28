@@ -93,7 +93,7 @@ public class FluteItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Always return home with the wind").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.flute.description").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         }
         super.appendHoverText(stack, level, components, flag);
     }

@@ -50,19 +50,19 @@ public class DrinkItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (stack.is(ModItems.HEART_POTION.get()) && Screen.hasShiftDown()) {
-            components.add(Component.literal("Heals health").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.heart_potion.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.STAMINA.get()) && Screen.hasShiftDown()) {
-            components.add(Component.literal("Restores hunger").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.stamina_potion.description").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.PUMPKIN_SOUP.get()) && Screen.hasShiftDown()) {
-            components.add(Component.literal("A hearty soup").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.pumpkin_soup.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.MILK_MAGIC.get()) && Screen.hasShiftDown()) {
-            components.add(Component.literal("Regenerates Hunger").withStyle(ChatFormatting.LIGHT_PURPLE).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.milk_magic.description").withStyle(ChatFormatting.LIGHT_PURPLE).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.SHIELD_POTION.get()) && Screen.hasShiftDown()) {
-            components.add(Component.literal("Regenerates Health and Shields").withStyle(ChatFormatting.LIGHT_PURPLE).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.shield_potion.description").withStyle(ChatFormatting.LIGHT_PURPLE).withStyle(ChatFormatting.ITALIC));
         }
 
     }

@@ -1,28 +1,18 @@
 package com.kamth.zeldamod.item.armors;
 
-import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.eventbus.api.Event;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -66,7 +56,7 @@ public class DragonScale extends ArmorItem {
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
 
    if(Screen.hasShiftDown()) {
-        components.add(Component.literal("Crouch while swimming to boost").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("armor.dragon_scale.description_advanced").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
     }
-   else components.add(Component.literal("Boost through the water!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+   else components.add(Component.translatable("armor.dragon_scale.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 }}

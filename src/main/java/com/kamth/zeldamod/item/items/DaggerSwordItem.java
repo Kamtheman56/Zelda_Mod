@@ -46,7 +46,7 @@ public class DaggerSwordItem extends SwordItem {
         if (!pLevel.isClientSide && player.isCrouching() && player.getHealth() >= 20 ) {
         player.getCooldowns().addCooldown(this, 60);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 1F, -2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
-            player.displayClientMessage(Component.literal("You're unable to do that").withStyle(ChatFormatting.BLUE).withStyle(ChatFormatting.BOLD), true);
+            player.displayClientMessage(Component.translatable("unable_sword_beam").withStyle(ChatFormatting.BLUE).withStyle(ChatFormatting.BOLD), true);
         }
         else {
             return InteractionResultHolder.pass(itemstack);
@@ -75,8 +75,8 @@ public class DaggerSwordItem extends SwordItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         {
-            components.add(Component.literal("It's been fully").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.literal("corrupted by Gloom").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.dagger_sword.description_basic").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.dagger_sword.description_advanced").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         }
 
     }

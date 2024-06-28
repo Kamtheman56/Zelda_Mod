@@ -44,9 +44,9 @@ public class Flippers extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("These make swimming a breeze").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("armor.flippers.description_advanced").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("Extra Aquatic").withStyle(ChatFormatting.GRAY));
+            components.add(Component.translatable("armor.flippers.description_basic").withStyle(ChatFormatting.GRAY));
         }
 
         super.appendHoverText(stack, level, components, flag);

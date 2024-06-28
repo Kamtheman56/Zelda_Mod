@@ -70,9 +70,9 @@ player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(6, player, (p_43296_) -> {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
-            components.add(Component.literal("Try lying around in dirt like blocks when it's raining").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.scent_mask.description_advanced").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.literal("Smells like mushrooms").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.scent_mask.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }}
 
 }

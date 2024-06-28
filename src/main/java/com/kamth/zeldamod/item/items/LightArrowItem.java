@@ -26,6 +26,6 @@ public class LightArrowItem extends ArrowItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()){
-        components.add(Component.literal("Smite evil in style").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.light_arrow.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }}
     }

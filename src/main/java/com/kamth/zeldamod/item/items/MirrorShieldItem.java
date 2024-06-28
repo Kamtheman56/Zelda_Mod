@@ -3,7 +3,6 @@ package com.kamth.zeldamod.item.items;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
@@ -43,9 +42,7 @@ public class MirrorShieldItem extends ShieldItem {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Reflects magical projectiles!").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
-        }
+            components.add(Component.translatable("item.mirror_shield.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         super.appendHoverText(stack, level, components, flag);
     }
 

@@ -3,7 +3,6 @@ package com.kamth.zeldamod.item.items;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
@@ -37,8 +36,8 @@ public class PurpleRingItem extends Item {
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-            components.add(Component.literal("Offers protection").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.literal("from all attacks").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.ring_description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.purple_ring.description_basic2").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 
     }
 

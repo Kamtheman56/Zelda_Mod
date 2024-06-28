@@ -26,6 +26,6 @@ public class IceArrowItem extends ArrowItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()){
-            components.add(Component.literal("Freezes enemies and water").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.ice_arrow.description").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         }}
 }

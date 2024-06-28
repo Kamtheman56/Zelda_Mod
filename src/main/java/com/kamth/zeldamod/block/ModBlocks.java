@@ -74,8 +74,8 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> TIMED_PRESSURE_SWITCH = registerBlock("timed_pressure_switch", ()-> new TimedPressureSwitchBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK),120,false));
     public static final RegistryObject<Block> RUSTED_PRESSURE_SWITCH = registerBlock("rusted_pressure_switch", ()-> new RustedPressureSwitchBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
     public static final RegistryObject<Block> RUSTED_TIMED_PRESSURE_SWITCH = registerBlock("rusted_timed_pressure_switch", ()-> new RustedTimedPressureSwitchBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK),120,false));
-    public static final RegistryObject<Block> SKY_STONE_CHISELED = registerBlock("sky_stone_chiseled", ()-> new SkyStoneBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> SKY_STONE_MURAL = registerBlock("sky_stone_mural", ()-> new SkyStoneBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> SKY_STONE_CHISELED = registerBlock("sky_stone_chiseled", ()-> new SkyStoneBlock(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel(state -> state.getValue(SkyStoneBlock.LIT) ? 12 : 0)));
+    public static final RegistryObject<Block> SKY_STONE_MURAL = registerBlock("sky_stone_mural", ()-> new SkyStoneBlock(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel(state -> state.getValue(SkyStoneBlock.LIT) ? 12 : 0)));
     public static final RegistryObject<Block> SUN_STONE = registerBlock("sun_stone", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> NOTE_STONE = registerBlock("note_stone", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 

@@ -3,9 +3,6 @@ package com.kamth.zeldamod.item.masks;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -16,7 +13,6 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -70,7 +66,7 @@ public class GiantMask extends ArmorItem {
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.literal("Big punches for a big mask").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.giant_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 }
 
 }

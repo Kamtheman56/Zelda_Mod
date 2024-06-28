@@ -3,8 +3,6 @@ package com.kamth.zeldamod.item.masks;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
@@ -47,7 +45,7 @@ if (world.isNight()){
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.literal("You shouldn't try to sleep").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.night_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 
     }
 

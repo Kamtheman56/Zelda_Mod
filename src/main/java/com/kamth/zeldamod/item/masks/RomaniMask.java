@@ -1,33 +1,20 @@
 package com.kamth.zeldamod.item.masks;
 
-import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.animal.Cow;
-import net.minecraft.world.entity.animal.Pig;
-import net.minecraft.world.entity.animal.Wolf;
-import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID;
 
 public class RomaniMask extends ArmorItem {
     public RomaniMask(ArmorMaterial pMaterial, Type type, Properties pProperties) {
@@ -55,49 +42,38 @@ public class RomaniMask extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (stack.is(ModItems.ROMANI_MASK.get())) {
-            components.add(Component.literal("Friend to all cows").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.romani_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.GERO_MASK.get())) {
-            components.add(Component.literal("Conduct those frogs!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.gero_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.HAWK_MASK.get())) {
-            components.add(Component.literal("Snipe enemies with ease").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.hawk_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.TROUPE_MASK.get())) {
-            components.add(Component.literal("How sad").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-        }
-        if (stack.is(ModItems.COUPLES_MASK.get())) {
-            components.add(Component.literal("True love").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.troupe_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.KEATON_MASK.get())) {
             components.add(Component.literal("It looks valuable!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
-        if (stack.is(ModItems.FAIRY_MASK.get())) {
-            components.add(Component.literal("Heal with style").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-        }
-        if (stack.is(ModItems.KAFEI_MASK.get())) {
-            components.add(Component.literal("Who could say no to that face?").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-        }
-        if (stack.is(ModItems.BREMEN_MASK.get())) {
-            components.add(Component.literal("Follow the leader!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-        }
+
         if (stack.is(ModItems.POSTMAN_MASK.get())) {
-            components.add(Component.literal("Everyone gives good deals with this on!").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.postman_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.CAPTAIN_MASK.get())) {
-            components.add(Component.literal("Lead the undead archers").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.captain_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.GIBDO_MASK.get())){
-            components.add(Component.literal("Friend to Husks").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.gibdo_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.SKULL_MASK.get())){
-            components.add(Component.literal("Looks tough").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.skull_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.SPOOKY_MASK.get())){
-            components.add(Component.literal("Looks spooky").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.spooky_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
         if (stack.is(ModItems.GERUDO_MASK.get())){
-            components.add(Component.literal("Looks pretty").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.gerudo_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
     }
 }

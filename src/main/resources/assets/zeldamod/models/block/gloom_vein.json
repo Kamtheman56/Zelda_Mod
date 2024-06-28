@@ -1,8 +1,10 @@
 {
   "ambientocclusion": false,
+  "render_type": "minecraft:cutout",
   "textures": {
-    "particle": "block/sculk_vein",
-    "sculk_vein": "block/sculk_vein"
+    "all": "zeldamod:block/gloom_vein",
+    "particle": "zeldamod:block/gloom_vein",
+    "sculk_vein": "zeldamod:block/gloom_vein"
   },
   "elements": [
     {   "from": [ 0, 0, 0.1 ],

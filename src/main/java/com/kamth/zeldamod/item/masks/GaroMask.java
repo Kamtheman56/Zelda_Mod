@@ -40,8 +40,8 @@ public class GaroMask extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Summons Pillagers in the Badlands").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));}
-  else   components.add(Component.literal("Attracts unwanted attention").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.garo_mask.description_advanced").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));}
+  else   components.add(Component.translatable("item.garo_mask.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 
     }
 

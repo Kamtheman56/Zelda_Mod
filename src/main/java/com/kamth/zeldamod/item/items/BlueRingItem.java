@@ -5,7 +5,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -34,8 +33,8 @@ public class BlueRingItem extends Item {
                         p_43296_.broadcastBreakEvent(EquipmentSlot.OFFHAND));}}}
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.literal("Offers protection").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-        components.add(Component.literal("from physical attacks").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.ring_description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.blue_ring.description_advanced").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 
     }
   }

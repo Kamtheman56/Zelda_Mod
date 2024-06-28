@@ -1,7 +1,6 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.BoomerangProjectile;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -44,7 +43,7 @@ public class BoomerangItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.literal("Brings items back and flicks levers!").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.boomerang.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
         super.appendHoverText(stack, level, components, flag);
 }

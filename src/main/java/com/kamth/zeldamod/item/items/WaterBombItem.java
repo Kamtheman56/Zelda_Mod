@@ -1,6 +1,8 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.custom.projectile.WaterBombProjectile;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -9,7 +11,11 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class WaterBombItem extends Item {
     public WaterBombItem(Properties pProperties) {
@@ -28,8 +34,12 @@ public class WaterBombItem extends Item {
         if (!player.getAbilities().instabuild) {
             itemstack.shrink(1);
         }
-
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
+    }
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+            components.add(Component.translatable("item.water_bomb.description").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+
     }
 }
 
