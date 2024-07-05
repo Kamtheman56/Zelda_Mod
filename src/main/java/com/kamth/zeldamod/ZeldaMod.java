@@ -266,6 +266,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.TIME_BRICKS);
             event.accept(ModBlocks.ZELDA_STONE);
             event.accept(ModBlocks.SUN_STONE);
+            event.accept(ModBlocks.NOTE_STONE);
+            event.accept(ModBlocks.SKY_GRASS);
             event.accept(ModBlocks.SKY_STONE_CHISELED);
             event.accept(ModBlocks.SKY_STONE_MURAL);
             event.accept(ModBlocks.NIGHTSHADE);

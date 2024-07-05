@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:copper_peg"
+          "name": "zeldamod:sky_stone_chiseled"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "zeldamod:blocks/copper_peg"
+  "random_sequence": "zeldamod:blocks/sky_stone_chiseled"
 }

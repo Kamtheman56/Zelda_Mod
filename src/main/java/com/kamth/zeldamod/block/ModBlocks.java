@@ -41,7 +41,7 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> CARMINE_FROGLIGHT = registerBlock("carmine_froglight", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.OCHRE_FROGLIGHT)));
     public static final RegistryObject<Block> SUPERSHROOM_BLOCK = registerBlock("super_shroom_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM)));
     public static final RegistryObject<Block> HAMMER_PEG = registerBlock("hammer_peg", ()-> new HammerPegBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion()));
-    public static final RegistryObject<Block> COPPER_PEG = registerBlock("copper_peg", ()-> new CopperPegBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> COPPER_PEG = registerBlock("copper_peg", ()-> new CopperPegBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion()));
     public static final RegistryObject<Block> EYE_SWITCH = registerBlock("eye_switch", ()-> new EyeSwitchBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
     public static final RegistryObject<Block> TIMED_EYE_SWITCH = registerBlock("timed_eye_switch", ()-> new TimedEyeSwitchBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion(),60, false));
     public static final RegistryObject<Block> SHOCK_SWITCH = registerBlock("shock_switch", ()-> new ShockSwitchBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN).lightLevel(state -> state.getValue(ShockSwitchBlock.POWERED) ? 12 : 8).noOcclusion()));
@@ -78,6 +78,8 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> SKY_STONE_MURAL = registerBlock("sky_stone_mural", ()-> new SkyStoneBlock(BlockBehaviour.Properties.copy(Blocks.STONE).lightLevel(state -> state.getValue(SkyStoneBlock.LIT) ? 12 : 0)));
     public static final RegistryObject<Block> SUN_STONE = registerBlock("sun_stone", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> NOTE_STONE = registerBlock("note_stone", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> SKY_GRASS = registerBlock("sky_grass_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).requiresCorrectToolForDrops()));
+
 
     public static final RegistryObject<Block> NIGHTSHADE = registerBlock("nightshade",
             () -> new FlowerBlock(() -> MobEffects.DAMAGE_RESISTANCE, 5,

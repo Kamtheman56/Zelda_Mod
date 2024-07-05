@@ -6,6 +6,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -32,13 +33,15 @@ public class SkyStoneBlock extends Block {
         pLevel.setBlock(pPos, pState, 3);
     }
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (pHand == InteractionHand.MAIN_HAND || pPlayer.getAbilities().instabuild){
+        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(Items.AIR)|| pPlayer.getAbilities().instabuild && pPlayer.getMainHandItem().is(Items.AIR) ){
             this.press(pState, pLevel, pPos);
             pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
             float f = pState.getValue(LIT) ? 0.6F : 0.5F;
             pLevel.playSound((Player)null, pPos, SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS, .8F, f);
+            return InteractionResult.SUCCESS;
         }
-        return InteractionResult.SUCCESS;
+        else return InteractionResult.PASS;
+
     }
 
 

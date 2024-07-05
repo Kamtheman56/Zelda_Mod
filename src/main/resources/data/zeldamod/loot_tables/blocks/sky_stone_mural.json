@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:hammer_peg"
+          "name": "zeldamod:sky_stone_mural"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "zeldamod:blocks/hammer_peg"
+  "random_sequence": "zeldamod:blocks/sky_stone_mural"
 }
