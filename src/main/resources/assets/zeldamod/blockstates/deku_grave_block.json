@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "zeldamod:block/deku_son" },
+    "facing=east": { "model": "zeldamod:block/deku_son", "y": 90 },
+    "facing=south": { "model": "zeldamod:block/deku_son", "y": 180 },
+    "facing=west": { "model": "zeldamod:block/deku_son", "y": 270 }
+  }
+}

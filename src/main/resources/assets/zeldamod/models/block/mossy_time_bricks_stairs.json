@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "zeldamod:block/mossy_time_bricks",
+    "side": "zeldamod:block/mossy_time_bricks",
+    "top": "zeldamod:block/mossy_time_bricks"
+  }
+}

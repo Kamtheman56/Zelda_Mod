@@ -64,6 +64,14 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> TIME_BLOCK = registerBlock("time_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).strength(16)));
     public static final RegistryObject<Block> TIME_BLOCK_GHOST = registerBlock("time_block_ghost", ()-> new TimeGhostBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS).strength(18).noCollission().noOcclusion()));
     public static final RegistryObject<Block> TIME_BRICKS = registerBlock("time_bricks", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> MOSSY_TIME_BRICKS = registerBlock("mossy_time_bricks", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> CRACKED_TIME_BRICKS = registerBlock("cracked_time_bricks", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> TIME_BRICKS_SLAB = registerBlock("time_bricks_slab", ()-> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> MOSSY_TIME_BRICKS_SLAB = registerBlock("mossy_time_bricks_slab", ()-> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> CRACKED_TIME_BRICKS_SLAB = registerBlock("cracked_time_bricks_slab", ()-> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> TIME_BRICKS_STAIRS = registerBlock("time_bricks_stairs",   () -> new StairBlock(() -> ModBlocks.TIME_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_STAIRS)));
+    public static final RegistryObject<Block> MOSSY_TIME_BRICKS_STAIRS = registerBlock("mossy_time_bricks_stairs",   () -> new StairBlock(() -> ModBlocks.TIME_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_STAIRS)));
+    public static final RegistryObject<Block> CRACKED_TIME_BRICKS_STAIRS = registerBlock("cracked_time_bricks_stairs",   () -> new StairBlock(() -> ModBlocks.TIME_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_STAIRS)));
     public static final RegistryObject<Block> ZELDA_STONE = registerBlock("zelda_stone", ()-> new ZeldaStone(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
     public static final RegistryObject<Block> JAR_BLUE = registerBlock("jar_blue", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
     public static final RegistryObject<Block> JAR_RED = registerBlock("jar_red", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
@@ -79,7 +87,9 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> SUN_STONE = registerBlock("sun_stone", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> NOTE_STONE = registerBlock("note_stone", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> SKY_GRASS = registerBlock("sky_grass_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).requiresCorrectToolForDrops()));
-
+    public static final RegistryObject<Block> DEKU_GRAVE = registerBlock("deku_grave_block", ()-> new DekuSonBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> ZORA_GRAVE = registerBlock("zora_grave_block", ()-> new ZoraGraveBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
+    public static final RegistryObject<Block> GORON_GRAVE = registerBlock("goron_grave_block", ()-> new GoronGraveBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
 
     public static final RegistryObject<Block> NIGHTSHADE = registerBlock("nightshade",
             () -> new FlowerBlock(() -> MobEffects.DAMAGE_RESISTANCE, 5,

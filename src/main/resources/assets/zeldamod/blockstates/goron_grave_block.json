@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "zeldamod:block/goron_grave" },
+    "facing=east": { "model": "zeldamod:block/goron_grave", "y": 90 },
+    "facing=south": { "model": "zeldamod:block/goron_grave", "y": 180 },
+    "facing=west": { "model": "zeldamod:block/goron_grave", "y": 270 }
+  }
+}
