@@ -4,6 +4,7 @@
 	"textures": {
 		"0": "zeldamod:block/deku_son",
 		"1": "zeldamod:block/deku_son_leaf",
+		"2": "minecraft:block/oak_log_top",
 		"particle": "zeldamod:block/deku_son"
 	},
 	"elements": [
@@ -17,7 +18,7 @@
 				"south": {"uv": [8, 0, 16, 10], "texture": "#0"},
 				"west": {"uv": [7, 7, 13, 16], "texture": "#0"},
 				"up": {"uv": [8, 0, 16, 6], "texture": "#0"},
-				"down": {"uv": [4, 5, 12, 11], "texture": "#1"}
+				"down": {"uv": [4, 5, 12, 11], "texture": "#2"}
 			}
 		},
 		{

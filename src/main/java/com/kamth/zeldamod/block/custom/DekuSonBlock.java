@@ -47,7 +47,6 @@ public class DekuSonBlock extends Block {
     public static VoxelShape side(){
         VoxelShape shape = Shapes.empty();
         shape = Shapes.join(shape, Shapes.box(0.3125, 0, 0.25, 0.6875, 0.625, 0.75), BooleanOp.OR);
-
         return shape;
     }
 

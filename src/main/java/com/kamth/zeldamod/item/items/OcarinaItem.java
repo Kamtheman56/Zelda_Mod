@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -64,6 +65,7 @@ public class OcarinaItem extends Item {
             }
         }
     }
+    //if this is good enough for Toby Fox I can use all the if statements I want
     public InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
@@ -115,7 +117,30 @@ public class OcarinaItem extends Item {
             serverWorld.setWeatherParameters(0, 3800, true, true);
             return InteractionResult.SUCCESS;
         }
-        else return InteractionResult.FAIL;
+        //song of healing for masks
+        if (blockstate.is(ModBlocks.DEKU_GRAVE.get())) {
+            pContext.getPlayer().getCooldowns().addCooldown(this, 210);
+            level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_HEALING.get(),SoundSource.PLAYERS, .5f, 1);
+            level.removeBlock(blockpos,false);
+            addItem(pContext.getPlayer(), ModItems.DEKU_MASK.get().asItem());
+            return InteractionResult.SUCCESS;
+        }
+        if (blockstate.is(ModBlocks.GORON_GRAVE.get())) {
+            pContext.getPlayer().getCooldowns().addCooldown(this, 210);
+            level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_HEALING.get(),SoundSource.PLAYERS, .5f, 1);
+            level.removeBlock(blockpos,false);
+            addItem(pContext.getPlayer(), ModItems.GORON_MASK.get().asItem());
+            return InteractionResult.SUCCESS;
+        }
+        if (blockstate.is(ModBlocks.ZORA_GRAVE.get())) {
+            pContext.getPlayer().getCooldowns().addCooldown(this, 210);
+            level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_HEALING.get(),SoundSource.PLAYERS, .5f, 1);
+            level.removeBlock(blockpos,false);
+       addItem(pContext.getPlayer(), ModItems.ZORA_MASK.get().asItem());
+            return InteractionResult.SUCCESS;
+
+        }
+        else return InteractionResult.PASS;
     }
 
     @Override
@@ -135,12 +160,17 @@ public class OcarinaItem extends Item {
                     } else {
                         ((ServerPlayer) entity).teleportTo(bedLocation.getX() + 0.5D, bedLocation.getY() + 0.6D, bedLocation.getZ() + 0.5D);
                         entity.resetFallDistance();
-
-
                     }
                     entity.fallDistance = 0;
                 }
                 player.awardStat(Stats.ITEM_USED.get(this));
+        }
+    }
+    private void addItem(Player player, Item itemSupplier)
+    {
+        if (!player.addItem(new ItemStack(itemSupplier)))
+        {
+            player.spawnAtLocation(itemSupplier);
         }
     }
     @Override
