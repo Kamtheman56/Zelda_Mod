@@ -4,12 +4,14 @@ import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.custom.ModArmorMaterials;
 import com.kamth.zeldamod.custom.ModFoods;
+import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.armors.*;
 import com.kamth.zeldamod.item.items.*;
 import com.kamth.zeldamod.item.masks.*;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -425,6 +427,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().defaultDurability(200)));
 
 
+    public static final RegistryObject<Item> DEKU_SPAWN_EGG = ITEMS.register("deku_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.DEKU, 917142, 43520,
+                    new Item.Properties()));
 
         public static void register (IEventBus eventbus) {
             ITEMS.register(eventbus);

@@ -6,6 +6,7 @@ import com.kamth.zeldamod.block.entity.ModBlockEntities;
 import com.kamth.zeldamod.custom.ModItemProperties;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.entity.client.DekuScrubRenderer;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.loot.ModLootModifiers;
@@ -14,6 +15,7 @@ import com.kamth.zeldamod.particle.ModParticles;
 import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
@@ -186,6 +188,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.MINI_MUSHROOM);
         event.accept(ModItems.SUPER_LEAF);
         event.accept(ModItems.BAKED_APPLE);
+        event.accept(ModItems.DEKU_SPAWN_EGG);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MASK.get()){
         event.accept(ModItems.DEKU_MASK);
@@ -301,6 +304,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntityTypes.DEKU.get(), DekuScrubRenderer::new);
+
         }
 
     }

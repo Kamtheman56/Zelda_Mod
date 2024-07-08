@@ -9,6 +9,8 @@ public class ModModelLayers {
     public static final ModelLayerLocation LEATHERS = create("leathers");
     public static final ModelLayerLocation BUNNY = create("bunny_hood");
     public static final ModelLayerLocation PEGASUS = create("pegasus_boots");
+    public static final ModelLayerLocation DEKU_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "deku_layer"), "main");
 
 
     private static ModelLayerLocation create(String name) {

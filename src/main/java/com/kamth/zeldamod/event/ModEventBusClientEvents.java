@@ -6,6 +6,8 @@ import com.kamth.zeldamod.block.entity.renderer.LockedChestEntityRenderer2;
 import com.kamth.zeldamod.block.entity.renderer.MasterSwordPedestalEntityRenderer;
 import com.kamth.zeldamod.block.entity.renderer.SwordPedestalEntityRenderer;
 import com.kamth.zeldamod.block.entity.renderer.UnlockedSwordPedestalEntityRenderer;
+import com.kamth.zeldamod.entity.client.DekuModel;
+import com.kamth.zeldamod.entity.client.MobModelLayers;
 import com.kamth.zeldamod.item.armors.render.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -28,6 +30,8 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.LEATHERS, ChampionLeathersModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.BUNNY, BunnyHoodModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.PEGASUS, PegasusBootsModel::createBodyLayer);
+        event.registerLayerDefinition(MobModelLayers.DEKU_LAYER, DekuModel::createBodyLayer);
+
     }
 
 }
