@@ -325,6 +325,7 @@
   "item.master_sword.description_basic": "Blade of Evil's Bane",
   "item.megaton_hammer.description_advanced": "Pound down rusty pegs",
   "item.mirror_shield.description": "Reflects magical projectiles!",
+  "item.deku_shield.description": "A humble wooden shield",
   "item.mitts.description_basic1": "Digs dirt and stone",
   "item.mitts.description_basic2": "with ease!",
   "item.ocarina.description": "A context sensitive item capable of many feats",
@@ -400,5 +401,12 @@
   "armor.pegasus_boots.description_advanced": "Dash with the speed of a Pegasus",
   "armor.pegasus_boots.description_basic": "Extra Speedy",
   "armor.roc_cape.description": "Jump high and fall slow",
-  "armor.zora_tunic.description": "Breathe underwater"
+  "armor.zora_tunic.description": "Breathe underwater",
+
+
+
+
+
+
+  "entity.zeldamod.deku": "Deku Scrub"
 }

@@ -257,7 +257,7 @@ public class ModItems {
             () -> new FluteItem(new Item.Properties().rarity(Rarity.RARE)));
 
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
-    () -> new ShieldItem(new Item.Properties().durability(168)));
+    () -> new WoodShieldItem(new Item.Properties().durability(168)));
     public static final RegistryObject<Item> HYLIAN_SHIELD = ITEMS.register("hylian_shield",
             () -> new ShieldItem(new Item.Properties().rarity(Rarity.UNCOMMON).durability(652)));
     public static final RegistryObject<Item> MIRROR_SHIELD = ITEMS.register("mirror_shield",
@@ -283,8 +283,6 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<FireShield> FIRE_SHIELD = ITEMS.register("fire_shield",
             ()-> new FireShield(ModArmorMaterials.Fire, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(600)));
-
-
 
 
 

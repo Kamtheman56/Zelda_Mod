@@ -86,6 +86,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.HYLIAN_HOOD);
         event.accept(ModItems.CHAMPION_TUNIC);
         event.accept(ModItems.CHAMPIONS_TUNIC);
+        event.accept(ModItems.ARCHAIC_TUNIC);
         event.accept(ModItems.CLASSIC_HAT);
         event.accept(ModItems.CLASSIC_TUNIC);
         event.accept(ModItems.KOKIRI_PANTS);

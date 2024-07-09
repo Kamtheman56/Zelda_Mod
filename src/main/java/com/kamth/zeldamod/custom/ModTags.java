@@ -97,6 +97,8 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("evil");
         public static final TagKey<EntityType<?>>BUGS
                 = tag("bugs");
+        public static final TagKey<EntityType<?>>SEED_PROJECTILE
+                = tag("wood_reflect");
 
         private static TagKey<EntityType<?>> tag(String name){
             return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(ZeldaMod.MOD_ID, name));

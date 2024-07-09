@@ -47,6 +47,7 @@ public class HeartContainerItem extends Item {
             Player player = (Player)pEntityLiving;
             CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, pStack);
             ModEvents.PlayerHealthEvents.addBaseHealthModifier((Player) pEntityLiving, 2F);
+            player.heal(player.getMaxHealth());
             serverplayer.awardStat(Stats.ITEM_USED.get(this));
             if (!player.getAbilities().instabuild){
                 player.getUseItem().shrink(1);}}

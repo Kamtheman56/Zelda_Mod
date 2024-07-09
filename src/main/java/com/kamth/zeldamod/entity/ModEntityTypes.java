@@ -45,7 +45,7 @@ public class ModEntityTypes {
 
 
     public static final RegistryObject<EntityType<DekuScrubEntity>> DEKU = ENTITY_TYPES.register("deku", () -> EntityType.Builder.of(DekuScrubEntity::new, MobCategory.MONSTER)
-            .sized(1,.6f).build("deku"));
+            .sized(.8f,.8f).build("deku"));
 
 
 

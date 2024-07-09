@@ -29,7 +29,10 @@ public class SeedProjectile extends AbstractArrow {
     public SeedProjectile(Level worldIn) {
         super(ModEntityTypes.WHEAT_SEED.get(), worldIn);
     }
+    public  SeedProjectile(Level pLevel, LivingEntity pShooter) {
+        super(ModEntityTypes.WHEAT_SEED.get(), pShooter, pLevel);
 
+    }
 
     @Override
     public ItemStack getPickupItem() {
