@@ -165,6 +165,9 @@
   "item.zeldamod.hylian_hood": "Hylian Hood",
 
 
+  "item.zeldamod.deku_spawn_egg": "Deku Spawn Egg",
+  "item.zeldamod.dark_nut_spawn_egg": "Dark Nut Spawn Egg",
+
   "effect.zeldamod.deku": "Water Hopping",
   "effect.zeldamod.goron": "Goron",
   "effect.zeldamod.gloom": "Gloom Sickness",
@@ -408,5 +411,6 @@
 
 
 
-  "entity.zeldamod.deku": "Deku Scrub"
+  "entity.zeldamod.deku": "Deku Scrub",
+  "entity.zeldamod.dark_but": "Dark Nut"
 }

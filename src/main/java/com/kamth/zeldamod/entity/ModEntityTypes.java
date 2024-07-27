@@ -2,6 +2,7 @@ package com.kamth.zeldamod.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.custom.projectile.*;
+import com.kamth.zeldamod.entity.mobs.DarknutEntity;
 import com.kamth.zeldamod.entity.mobs.DekuScrubEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -44,9 +45,10 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<BombSeedProjectile>> BOMB_SEED = ENTITY_TYPES.register("bomb_seed_projectile", () -> Builder.<BombSeedProjectile>of(BombSeedProjectile::new, MobCategory.MISC).sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bomb_seed").toString()));
 
 
-    public static final RegistryObject<EntityType<DekuScrubEntity>> DEKU = ENTITY_TYPES.register("deku", () -> EntityType.Builder.of(DekuScrubEntity::new, MobCategory.MONSTER)
+    public static final RegistryObject<EntityType<DekuScrubEntity>> DEKU = ENTITY_TYPES.register("deku", () -> EntityType.Builder.of(DekuScrubEntity::new, MobCategory.CREATURE)
             .sized(.8f,.8f).build("deku"));
-
+    public static final RegistryObject<EntityType<DarknutEntity>> DARK_NUT = ENTITY_TYPES.register("dark_nut", () -> EntityType.Builder.of(DarknutEntity::new, MobCategory.MONSTER)
+            .sized(.8f,1.8f).build("dark_nut"));
 
 
     public static void register(IEventBus modEventBus) {

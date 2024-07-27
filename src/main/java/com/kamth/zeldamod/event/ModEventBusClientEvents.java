@@ -6,6 +6,7 @@ import com.kamth.zeldamod.block.entity.renderer.LockedChestEntityRenderer2;
 import com.kamth.zeldamod.block.entity.renderer.MasterSwordPedestalEntityRenderer;
 import com.kamth.zeldamod.block.entity.renderer.SwordPedestalEntityRenderer;
 import com.kamth.zeldamod.block.entity.renderer.UnlockedSwordPedestalEntityRenderer;
+import com.kamth.zeldamod.entity.client.DarknutModel;
 import com.kamth.zeldamod.entity.client.DekuModel;
 import com.kamth.zeldamod.entity.client.MobModelLayers;
 import com.kamth.zeldamod.item.armors.render.*;
@@ -31,6 +32,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.BUNNY, BunnyHoodModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.PEGASUS, PegasusBootsModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.DEKU_LAYER, DekuModel::createBodyLayer);
+        event.registerLayerDefinition(MobModelLayers.DARK_NUT_LAYER, DarknutModel::createBodyLayer);
 
     }
 

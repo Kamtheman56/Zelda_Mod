@@ -13,6 +13,7 @@ public class ModModelLayers {
             new ResourceLocation(ZeldaMod.MOD_ID, "deku_layer"), "main");
 
 
+
     private static ModelLayerLocation create(String name) {
         return new ModelLayerLocation(new ResourceLocation(ZeldaMod.MOD_ID, name), "main");
     }
