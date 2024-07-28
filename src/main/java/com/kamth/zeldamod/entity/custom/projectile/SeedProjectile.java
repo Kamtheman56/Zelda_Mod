@@ -45,16 +45,19 @@ public class SeedProjectile extends AbstractArrow {
         super.onAddedToWorld();
         setBaseDamage(BASE_DAMAGE);
     }
+
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
         int z = entity.getType().is(ModTags.Entities.BUGS)? 4 : 0;
         entity.hurt(damageSources().generic(), (float)z);
+        this.discard();
 
         if (pResult.getEntity() instanceof LivingEntity) {
             LivingEntity target = (LivingEntity) pResult.getEntity();
                 target.setArrowCount(target.getArrowCount() - 1);
+            this.discard();
         }
     }
 

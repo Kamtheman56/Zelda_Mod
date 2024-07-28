@@ -79,7 +79,7 @@ public class DekuModel<T extends Entity> extends HierarchicalModel<T> {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 		this.animateWalk(ModAnimationDefinitions.deku_walk, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.animate(((DekuScrubEntity) entity).sitAnimationState, ModAnimationDefinitions.hide, ageInTicks, 1.0F);
+		this.animate(((DekuScrubEntity) entity).sitAnimationState, ModAnimationDefinitions.deku_hide, ageInTicks, 1.0F);
 		this.animate(((DekuScrubEntity) entity).idleAnimationState, ModAnimationDefinitions.deku_idle, ageInTicks, 1f);
 
 	}

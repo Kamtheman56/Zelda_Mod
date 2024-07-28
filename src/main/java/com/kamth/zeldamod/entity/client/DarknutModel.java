@@ -33,31 +33,33 @@ public class DarknutModel<T extends Entity> extends HierarchicalModel<T> {
 
         PartDefinition darknut = partdefinition.addOrReplaceChild("darknut", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 24.0F, 0.0F, 0.0F, -3.098F, 0.0F));
 
-        PartDefinition body = darknut.addOrReplaceChild("body", CubeListBuilder.create().texOffs(30, 35).addBox(-4.002F, -0.4F, 2.012F, 8.0F, 3.0F, 0.0F, new CubeDeformation(0.0F))
-                .texOffs(30, 32).addBox(-4.002F, -0.4F, -2.008F, 8.0F, 3.0F, 0.0F, new CubeDeformation(0.0F))
-                .texOffs(20, 12).addBox(4.008F, -0.4F, -1.998F, 0.0F, 3.0F, 4.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 0).addBox(-4.002F, -0.4F, -2.008F, 0.0F, 3.0F, 4.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 16).addBox(-4.002F, -10.4F, -1.998F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.002F, -13.6F, 0.998F));
+        PartDefinition body = darknut.addOrReplaceChild("body", CubeListBuilder.create().texOffs(44, 44).addBox(-4.002F, -0.4F, 2.022F, 8.0F, 3.0F, 0.0F, new CubeDeformation(0.0F))
+                .texOffs(34, 23).addBox(-4.002F, -0.4F, -2.018F, 8.0F, 3.0F, 0.0F, new CubeDeformation(0.0F))
+                .texOffs(48, 43).addBox(4.018F, -0.4F, -1.998F, 0.0F, 3.0F, 4.0F, new CubeDeformation(0.0F))
+                .texOffs(18, 0).addBox(-4.002F, -0.4F, -2.018F, 0.0F, 3.0F, 4.0F, new CubeDeformation(0.0F))
+                .texOffs(30, 28).addBox(-4.002F, -10.4F, -1.998F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.002F, -13.6F, 0.998F));
 
-        PartDefinition arm_r = body.addOrReplaceChild("arm_r", CubeListBuilder.create().texOffs(24, 16).addBox(-2.0F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(5.998F, -10.4F, -0.998F));
+        PartDefinition arm_r = body.addOrReplaceChild("arm_r", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(5.998F, -10.4F, -0.998F));
 
-        PartDefinition pad_r = arm_r.addOrReplaceChild("pad_r", CubeListBuilder.create().texOffs(32, 7).addBox(-3.0F, -0.5F, -3.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, -0.5F, 1.0F));
+        PartDefinition pad_r = arm_r.addOrReplaceChild("pad_r", CubeListBuilder.create().texOffs(42, 0).addBox(-3.0F, -0.5F, -3.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, -0.5F, 1.0F));
 
         PartDefinition arm_l = body.addOrReplaceChild("arm_l", CubeListBuilder.create().texOffs(0, 32).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-6.002F, -10.4F, 0.002F));
 
-        PartDefinition pad_l = arm_l.addOrReplaceChild("pad_l", CubeListBuilder.create().texOffs(24, 0).addBox(-11.0F, -13.0F, -3.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(7.0F, 12.0F, 0.0F));
+        PartDefinition cube_r1 = arm_l.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(94, 0).addBox(0.0F, -16.0F, -1.0F, 0.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 11.0F, -4.0F, -0.6545F, 0.0F, 0.0F));
+
+        PartDefinition pad_l = arm_l.addOrReplaceChild("pad_l", CubeListBuilder.create().texOffs(34, 16).addBox(-11.0F, -13.0F, -3.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(7.0F, 12.0F, 0.0F));
 
         PartDefinition head = darknut.addOrReplaceChild("head", CubeListBuilder.create().texOffs(16, 25).addBox(0.0F, -7.0F, -4.702F, 0.0F, 6.0F, 7.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 0).addBox(-8.0F, -3.0F, -0.702F, 4.0F, 4.0F, 0.0F, new CubeDeformation(0.0F))
-                .texOffs(36, 14).addBox(4.0F, -3.0F, -0.702F, 4.0F, 4.0F, 0.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 0).addBox(-4.0F, -1.0F, -4.702F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
-                .texOffs(48, 56).addBox(-4.0F, -1.0F, 3.308F, 8.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -31.0F, 1.702F));
+                .texOffs(18, 0).addBox(-8.0F, -3.0F, -0.702F, 4.0F, 4.0F, 0.0F, new CubeDeformation(0.0F))
+                .texOffs(50, 7).addBox(4.0F, -3.0F, -0.702F, 4.0F, 4.0F, 0.0F, new CubeDeformation(0.0F))
+                .texOffs(18, 0).addBox(-4.0F, -1.0F, -4.702F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
+                .texOffs(0, 48).addBox(-4.0F, -1.0F, 3.308F, 8.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -31.0F, 1.702F));
 
-        PartDefinition leg_r = darknut.addOrReplaceChild("leg_r", CubeListBuilder.create().texOffs(17, 48).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, -11.0F, 1.0F));
+        PartDefinition leg_r = darknut.addOrReplaceChild("leg_r", CubeListBuilder.create().texOffs(16, 40).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, -11.0F, 1.0F));
 
-        PartDefinition leg_l = darknut.addOrReplaceChild("leg_l", CubeListBuilder.create().texOffs(0, 48).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, -11.0F, 1.0F));
+        PartDefinition leg_l = darknut.addOrReplaceChild("leg_l", CubeListBuilder.create().texOffs(32, 44).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, -11.0F, 1.0F));
 
-        return LayerDefinition.create(meshdefinition, 64, 64);
+        return LayerDefinition.create(meshdefinition, 128, 128);
     }
 
 
@@ -84,8 +86,8 @@ public class DarknutModel<T extends Entity> extends HierarchicalModel<T> {
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
         this.animateWalk(ModAnimationDefinitions.darknut_walk, limbSwing, limbSwingAmount, 2f, 2.5f);
-
         this.animate(((DarknutEntity) entity).idleAnimationState, ModAnimationDefinitions.darknut_idle, ageInTicks, 1f);
+        this.animate(((DarknutEntity) entity).attackAnimationState, ModAnimationDefinitions.darknut_heavy_swing, ageInTicks, 1f);
 
     }
 }

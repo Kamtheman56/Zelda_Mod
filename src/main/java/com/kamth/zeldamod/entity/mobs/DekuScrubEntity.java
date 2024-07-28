@@ -136,7 +136,7 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
                 .add(Attributes.MAX_HEALTH, 6)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1)
                 .add(Attributes.MOVEMENT_SPEED, .2f)
-                .add(Attributes.ATTACK_DAMAGE, 2)
+                .add(Attributes.ATTACK_DAMAGE, 8)
                 .add(Attributes.ATTACK_SPEED, 3);
     }
 
