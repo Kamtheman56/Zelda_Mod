@@ -19,21 +19,12 @@ public class DekuModel<T extends Entity> extends HierarchicalModel<T> {
 
 	private final ModelPart deku;
 	private final ModelPart head;
-	private final ModelPart leaf;
-	private final ModelPart mouth;
-	private final ModelPart left_leg;
-	private final ModelPart right_leg;
-	private final ModelPart body;
+
 
 
 	public DekuModel(ModelPart root) {
 		this.deku = root.getChild("deku");
 		this.head = deku.getChild("head");
-		this.leaf = deku.getChild("head").getChild("leaf");
-		this.mouth= deku.getChild("head").getChild("mouth");
-		this.left_leg = deku.getChild("left_leg");
-		this.right_leg = deku.getChild("right_leg");
-		this.body = deku.getChild("body");
 	}
 
 

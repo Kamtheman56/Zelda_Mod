@@ -113,6 +113,7 @@ public class OcarinaItem extends Item {
         //calls the effects of the song of storms
         if (blockstate.is(ModBlocks.NOTE_STONE.get())) {
             MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+            level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_STORMS.get(),SoundSource.PLAYERS, .8f, 1f);
             ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
             serverWorld.setWeatherParameters(0, 3800, true, true);
             return InteractionResult.SUCCESS;

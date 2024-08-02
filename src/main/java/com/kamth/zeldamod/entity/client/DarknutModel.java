@@ -33,10 +33,10 @@ public class DarknutModel<T extends Entity> extends HierarchicalModel<T> {
 
         PartDefinition darknut = partdefinition.addOrReplaceChild("darknut", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 24.0F, 0.0F, 0.0F, -3.098F, 0.0F));
 
-        PartDefinition body = darknut.addOrReplaceChild("body", CubeListBuilder.create().texOffs(44, 44).addBox(-4.002F, -0.4F, 2.022F, 8.0F, 3.0F, 0.0F, new CubeDeformation(0.0F))
-                .texOffs(34, 23).addBox(-4.002F, -0.4F, -2.018F, 8.0F, 3.0F, 0.0F, new CubeDeformation(0.0F))
-                .texOffs(48, 43).addBox(4.018F, -0.4F, -1.998F, 0.0F, 3.0F, 4.0F, new CubeDeformation(0.0F))
-                .texOffs(18, 0).addBox(-4.002F, -0.4F, -2.018F, 0.0F, 3.0F, 4.0F, new CubeDeformation(0.0F))
+        PartDefinition body = darknut.addOrReplaceChild("body", CubeListBuilder.create().texOffs(44, 44).addBox(-4.002F, -0.4F, 2.052F, 8.0F, 3.0F, 0.0F, new CubeDeformation(0.0F))
+                .texOffs(34, 23).addBox(-4.002F, -0.4F, -2.048F, 8.0F, 3.0F, 0.0F, new CubeDeformation(0.0F))
+                .texOffs(48, 43).addBox(4.048F, -0.4F, -1.998F, 0.0F, 3.0F, 4.0F, new CubeDeformation(0.0F))
+                .texOffs(18, 0).addBox(-4.002F, -0.4F, -2.048F, 0.0F, 3.0F, 4.0F, new CubeDeformation(0.0F))
                 .texOffs(30, 28).addBox(-4.002F, -10.4F, -1.998F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.002F, -13.6F, 0.998F));
 
         PartDefinition arm_r = body.addOrReplaceChild("arm_r", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(5.998F, -10.4F, -0.998F));
@@ -49,11 +49,11 @@ public class DarknutModel<T extends Entity> extends HierarchicalModel<T> {
 
         PartDefinition pad_l = arm_l.addOrReplaceChild("pad_l", CubeListBuilder.create().texOffs(34, 16).addBox(-11.0F, -13.0F, -3.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(7.0F, 12.0F, 0.0F));
 
-        PartDefinition head = darknut.addOrReplaceChild("head", CubeListBuilder.create().texOffs(16, 25).addBox(0.0F, -7.0F, -4.702F, 0.0F, 6.0F, 7.0F, new CubeDeformation(0.0F))
-                .texOffs(18, 0).addBox(-8.0F, -3.0F, -0.702F, 4.0F, 4.0F, 0.0F, new CubeDeformation(0.0F))
-                .texOffs(50, 7).addBox(4.0F, -3.0F, -0.702F, 4.0F, 4.0F, 0.0F, new CubeDeformation(0.0F))
-                .texOffs(18, 0).addBox(-4.0F, -1.0F, -4.702F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 48).addBox(-4.0F, -1.0F, 3.308F, 8.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -31.0F, 1.702F));
+        PartDefinition head = darknut.addOrReplaceChild("head", CubeListBuilder.create().texOffs(16, 25).addBox(0.0F, -9.0F, -4.702F, 0.0F, 6.0F, 7.0F, new CubeDeformation(0.0F))
+                .texOffs(18, 0).addBox(-8.0F, -5.0F, -0.702F, 4.0F, 4.0F, 0.0F, new CubeDeformation(0.0F))
+                .texOffs(50, 7).addBox(4.0F, -5.0F, -0.702F, 4.0F, 4.0F, 0.0F, new CubeDeformation(0.0F))
+                .texOffs(18, 0).addBox(-4.0F, -3.0F, -4.702F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
+                .texOffs(0, 48).addBox(-4.0F, -3.0F, 3.308F, 8.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -29.0F, 1.702F));
 
         PartDefinition leg_r = darknut.addOrReplaceChild("leg_r", CubeListBuilder.create().texOffs(16, 40).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, -11.0F, 1.0F));
 

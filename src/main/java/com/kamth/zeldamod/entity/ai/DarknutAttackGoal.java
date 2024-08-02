@@ -13,7 +13,7 @@ public class DarknutAttackGoal extends MeleeAttackGoal {
     }
     private final DarknutEntity entity;
     private int attackDelay = 38;
-    private int ticksUntilNextAttack = 40;
+    private int ticksUntilNextAttack = 48;
     private boolean shouldCountTillNextAttack = false;
 
 
@@ -21,8 +21,8 @@ public class DarknutAttackGoal extends MeleeAttackGoal {
     @Override
     public void start() {
         super.start();
-        attackDelay = 36;
-        ticksUntilNextAttack = 40;
+        attackDelay = 38;
+        ticksUntilNextAttack = 48;
     }
 
     @Override
@@ -48,6 +48,9 @@ public class DarknutAttackGoal extends MeleeAttackGoal {
 
     private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
         return pDistToEnemySqr <= this.getAttackReachSqr(pEnemy);
+    }
+    protected double getAttackReachSqr(LivingEntity pAttackTarget) {
+        return (double)(this.mob.getBbWidth() * 4.0F * this.mob.getBbWidth() * 4.0F + pAttackTarget.getBbWidth());
     }
 
     protected void resetAttackCooldown() {

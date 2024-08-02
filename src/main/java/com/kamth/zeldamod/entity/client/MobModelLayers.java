@@ -12,4 +12,7 @@ public class MobModelLayers {
     public static final ModelLayerLocation DARK_NUT_LAYER = new ModelLayerLocation(
             new ResourceLocation(ZeldaMod.MOD_ID, "dark_nut_layer"), "main");
 
+    public static final ModelLayerLocation KEESE_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "keese_layer"), "main");
+
 }

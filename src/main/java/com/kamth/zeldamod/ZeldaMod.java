@@ -8,6 +8,7 @@ import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.client.DarknutRenderer;
 import com.kamth.zeldamod.entity.client.DekuScrubRenderer;
+import com.kamth.zeldamod.entity.client.KeeseRenderer;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.loot.ModLootModifiers;
@@ -192,6 +193,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.BAKED_APPLE);
         event.accept(ModItems.DEKU_SPAWN_EGG);
         event.accept(ModItems.DARK_NUT_SPAWN_EGG);
+        event.accept(ModItems.KEESE_SPAWN_EGG);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MASK.get()){
         event.accept(ModItems.DEKU_MASK);
@@ -309,6 +311,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntityTypes.DEKU.get(), DekuScrubRenderer::new);
             EntityRenderers.register(ModEntityTypes.DARK_NUT.get(), DarknutRenderer::new);
+            EntityRenderers.register(ModEntityTypes.KEESE.get(), KeeseRenderer::new);
         }
 
     }

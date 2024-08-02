@@ -4,6 +4,7 @@ import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.custom.projectile.*;
 import com.kamth.zeldamod.entity.mobs.DarknutEntity;
 import com.kamth.zeldamod.entity.mobs.DekuScrubEntity;
+import com.kamth.zeldamod.entity.mobs.KeeseEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityType.Builder;
@@ -49,6 +50,8 @@ public class ModEntityTypes {
             .sized(.8f,.8f).build("deku"));
     public static final RegistryObject<EntityType<DarknutEntity>> DARK_NUT = ENTITY_TYPES.register("dark_nut", () -> EntityType.Builder.of(DarknutEntity::new, MobCategory.MONSTER)
             .sized(.8f,1.8f).build("dark_nut"));
+    public static final RegistryObject<EntityType<KeeseEntity>> KEESE = ENTITY_TYPES.register("keese", () -> EntityType.Builder.of(KeeseEntity::new, MobCategory.MONSTER)
+            .sized(.6f,.6f).build("keese"));
 
 
     public static void register(IEventBus modEventBus) {
