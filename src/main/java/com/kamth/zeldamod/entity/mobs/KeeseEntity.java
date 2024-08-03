@@ -14,13 +14,12 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.control.LookControl;
 import net.minecraft.world.entity.ai.control.MoveControl;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -34,17 +33,18 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
-public class KeeseEntity extends Monster {
-
+public class KeeseEntity extends FlyingMob implements Enemy {
+    private static final int FLAG_IS_CHARGING = 1;
     private static final EntityDataAccessor<Boolean> ATTACKING =
             SynchedEntityData.defineId(KeeseEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> SITTING =
             SynchedEntityData.defineId(KeeseEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> CHARGING =
+            SynchedEntityData.defineId(KeeseEntity.class, EntityDataSerializers.BOOLEAN);
 
-    public KeeseEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+    public KeeseEntity(EntityType<? extends KeeseEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.moveControl = new KeeseMoveControl(this);
-        this.lookControl = new KeeseLookControl(this);
+        this.moveControl = new KeeseMoveControl2(this);
         this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, -1.0F);
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
         this.setPathfindingMalus(BlockPathTypes.WATER_BORDER, 16.0F);
@@ -53,7 +53,7 @@ public class KeeseEntity extends Monster {
     }
 
 
-
+    protected static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Monster.class, EntityDataSerializers.BYTE);
     public final AnimationState idleAnimationState = new AnimationState();
    public final AnimationState attackAnimationState = new AnimationState();
 
@@ -64,10 +64,11 @@ public class KeeseEntity extends Monster {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new KeeseEntity.RandomFloatAroundGoal(this));
+        this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.goalSelector.addGoal(8, new KeeseEntity.RandomFloatAroundGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.goalSelector.addGoal(0, new MeleeAttackGoal(this, 10, true));
+
+        this.goalSelector.addGoal(4, new KeeseEntity.FlyingAttackGoal());
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 
 
@@ -75,7 +76,7 @@ public class KeeseEntity extends Monster {
     @Override
     public void tick() {
         super.tick();
-        this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
+   //    this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
         if (this.level().isClientSide) {
             setupAnimationStates();
         }
@@ -134,6 +135,7 @@ public class KeeseEntity extends Monster {
                 .add(Attributes.MOVEMENT_SPEED, .3f)
                 .add(Attributes.FLYING_SPEED, .4f)
                 .add(Attributes.ATTACK_DAMAGE, 2)
+                .add(Attributes.FOLLOW_RANGE, 100.0D)
                 .add(Attributes.ATTACK_KNOCKBACK, 0.8f)
                 .add(Attributes.ATTACK_SPEED, 8);
     }
@@ -152,6 +154,12 @@ public class KeeseEntity extends Monster {
         this.entityData.define(ATTACKING, false);
     }
 
+    protected boolean shouldDespawnInPeaceful() {
+        return true;
+    }
+
+
+
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
         return SoundEvents.BAT_HURT;
@@ -165,10 +173,7 @@ public class KeeseEntity extends Monster {
     protected SoundEvent getDeathSound() {
         return SoundEvents.BAT_DEATH;
     }
-    class KeeseLookControl extends LookControl {
-        KeeseLookControl(Mob pMob) {
-            super(pMob);
-        }}
+
     static class RandomFloatAroundGoal extends Goal {
         private final KeeseEntity keese;
 
@@ -212,24 +217,135 @@ public class KeeseEntity extends Monster {
             this.keese.getMoveControl().setWantedPosition(d0, d1, d2, 1.0D);
         }
     }
-    static class KeeseMoveControl extends MoveControl {
-        private final KeeseEntity keese;
+
+
+    public   class FlyingAttackGoal extends Goal {
+        public FlyingAttackGoal() {
+            this.setFlags(EnumSet.of(Goal.Flag.MOVE));
+        }
+
+        /**
+         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
+         * method as well.
+         */
+        public boolean canUse() {
+            LivingEntity livingentity = KeeseEntity.this.getTarget();
+            if (livingentity != null && livingentity.isAlive() && !KeeseEntity.this.getMoveControl().hasWanted() && KeeseEntity.this.random.nextInt(reducedTickDelay(7)) == 0) {
+                return KeeseEntity.this.distanceToSqr(livingentity) > 4.0D;
+            } else {
+                return false;
+            }
+        }
+
+        /**
+         * Returns whether an in-progress EntityAIBase should continue executing
+         */
+        public boolean canContinueToUse() {
+            return KeeseEntity.this.getMoveControl().hasWanted() && !KeeseEntity.this.isAttacking() && KeeseEntity.this.getTarget() != null && KeeseEntity.this.getTarget().isAlive();
+        }
+
+        /**
+         * Execute a one shot task or start executing a continuous task
+         */
+        public void start() {
+            LivingEntity livingentity = KeeseEntity.this.getTarget();
+            if (livingentity != null) {
+                Vec3 vec3 = livingentity.getEyePosition();
+                KeeseEntity.this.moveControl.setWantedPosition(vec3.x, vec3.y, vec3.z, 3.0D);
+            }
+
+
+            KeeseEntity.this.playSound(SoundEvents.VEX_CHARGE, 1.0F, 1.0F);
+        }
+
+        /**
+         * Reset the task's internal state. Called when this task is interrupted by another one
+         */
+        @Override
+        public void stop() {
+            KeeseEntity.this.setAttacking(false);
+            super.stop();
+        }
+
+        public boolean requiresUpdateEveryTick() {
+            return true;
+        }
+
+        /**
+         * Keep ticking a continuous task that has already been started
+         */
+        public void tick() {
+            LivingEntity livingentity = KeeseEntity.this.getTarget();
+            if (livingentity != null) {
+                if (KeeseEntity.this.getBoundingBox().inflate(1.3f).intersects(livingentity.getBoundingBox())) {
+                    KeeseEntity.this.doHurtTarget(livingentity);
+                    KeeseEntity.this.setAttacking(false);
+
+                } else {
+                    double d0 = KeeseEntity.this.distanceToSqr(livingentity);
+                    if (d0 < 9.0D) {
+                        Vec3 vec3 = livingentity.getEyePosition();
+                        KeeseEntity.this.moveControl.setWantedPosition(vec3.x, vec3.y, vec3.z, 3.0D);
+                    }
+                }
+
+            }
+        }
+        private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
+            return pDistToEnemySqr <= this.getAttackReachSqr(pEnemy);
+        }
+        protected double getAttackReachSqr(LivingEntity pAttackTarget) {
+            return (double)(KeeseEntity.this.getBbWidth() * 4.0F * KeeseEntity.this.getBbWidth() * 4.0F + pAttackTarget.getBbWidth());
+        }
+    }
+
+    class KeeseMoveControl extends MoveControl {
+        public KeeseMoveControl(KeeseEntity pVex) {
+            super(pVex);
+        }
+
+        public void tick() {
+            if (this.operation == MoveControl.Operation.MOVE_TO) {
+                Vec3 vec3 = new Vec3(this.wantedX - KeeseEntity.this.getX(), this.wantedY - KeeseEntity.this.getY(), this.wantedZ - KeeseEntity.this.getZ());
+                double d0 = vec3.length();
+                if (d0 < KeeseEntity.this.getBoundingBox().getSize()) {
+                    this.operation = MoveControl.Operation.WAIT;
+                    KeeseEntity.this.setDeltaMovement(KeeseEntity.this.getDeltaMovement().scale(0.5D));
+                } else {
+                    KeeseEntity.this.setDeltaMovement(KeeseEntity.this.getDeltaMovement().add(vec3.scale(this.speedModifier * 0.05D / d0)));
+                    if (KeeseEntity.this.getTarget() == null) {
+                        Vec3 vec31 = KeeseEntity.this.getDeltaMovement();
+                        KeeseEntity.this.setYRot(-((float)Mth.atan2(vec31.x, vec31.z)) * (180F / (float)Math.PI));
+                        KeeseEntity.this.yBodyRot = KeeseEntity.this.getYRot();
+                    } else {
+                        double d2 = KeeseEntity.this.getTarget().getX() - KeeseEntity.this.getX();
+                        double d1 = KeeseEntity.this.getTarget().getZ() - KeeseEntity.this.getZ();
+                        KeeseEntity.this.setYRot(-((float)Mth.atan2(d2, d1)) * (180F / (float)Math.PI));
+                        KeeseEntity.this.yBodyRot = KeeseEntity.this.getYRot();
+                    }
+                }
+
+            }
+        }
+    }
+    static class KeeseMoveControl2 extends MoveControl {
+        private final KeeseEntity ghast;
         private int floatDuration;
 
-        public KeeseMoveControl(KeeseEntity pkeese) {
-            super(pkeese);
-            this.keese = pkeese;
+        public KeeseMoveControl2(KeeseEntity pGhast) {
+            super(pGhast);
+            this.ghast = pGhast;
         }
 
         public void tick() {
             if (this.operation == MoveControl.Operation.MOVE_TO) {
                 if (this.floatDuration-- <= 0) {
-                    this.floatDuration += this.keese.getRandom().nextInt(5) + 2;
-                    Vec3 vec3 = new Vec3(this.wantedX - this.keese.getX(), this.wantedY - this.keese.getY(), this.wantedZ - this.keese.getZ());
+                    this.floatDuration += this.ghast.getRandom().nextInt(5) + 2;
+                    Vec3 vec3 = new Vec3(this.wantedX - this.ghast.getX(), this.wantedY - this.ghast.getY(), this.wantedZ - this.ghast.getZ());
                     double d0 = vec3.length();
                     vec3 = vec3.normalize();
                     if (this.canReach(vec3, Mth.ceil(d0))) {
-                        this.keese.setDeltaMovement(this.keese.getDeltaMovement().add(vec3.scale(0.1D)));
+                        this.ghast.setDeltaMovement(this.ghast.getDeltaMovement().add(vec3.scale(0.1D)));
                     } else {
                         this.operation = MoveControl.Operation.WAIT;
                     }
@@ -239,11 +355,11 @@ public class KeeseEntity extends Monster {
         }
 
         private boolean canReach(Vec3 pPos, int pLength) {
-            AABB aabb = this.keese.getBoundingBox();
+            AABB aabb = this.ghast.getBoundingBox();
 
             for(int i = 1; i < pLength; ++i) {
                 aabb = aabb.move(pPos);
-                if (!this.keese.level().noCollision(this.keese, aabb)) {
+                if (!this.ghast.level().noCollision(this.ghast, aabb)) {
                     return false;
                 }
             }
