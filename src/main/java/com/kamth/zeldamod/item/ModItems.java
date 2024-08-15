@@ -65,6 +65,8 @@ public class ModItems {
             () -> new HeartContainerItem(new Item.Properties()));
     public static final RegistryObject<Item> GLOOM_CONTAINER = ITEMS.register("gloom_container",
             () -> new GloomContainer(new Item.Properties()));
+    public static final RegistryObject<Item> GOLD_CONTAINER = ITEMS.register("gold_heart_container",
+            () -> new GoldHeartContainerItem(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> HEART_PIECE = ITEMS.register("heart_piece",
             () -> new Item(new Item.Properties()));
 
@@ -95,7 +97,6 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(Foods.BAKED_POTATO)));
     public static final RegistryObject<Item> SUPER_LEAF = ITEMS.register("super_leaf",
             () -> new SuperLeafItem(new Item.Properties().stacksTo(1).defaultDurability(3)));
-
     public static final RegistryObject<Item> BOMB_SEEDS = ITEMS.register("bomb_seeds",
             () -> new ItemNameBlockItem(ModBlocks.BOMBFLOWER.get(),new  Item.Properties()));
 
@@ -163,6 +164,14 @@ public class ModItems {
     public static final RegistryObject<Item> MAGIC_SWORD = ITEMS.register("magic_sword",
             () -> new MagicSwordItem(Tiers.IRON, 4, -2.4f,
                     new Item.Properties()));
+    public static final RegistryObject<Item> GLOOM_SWORD = ITEMS.register("gloom_sword",
+            () -> new GloomWeaponItem(Tiers.IRON, 4, -2.4f,
+                    new Item.Properties().defaultDurability(60)));
+    public static final RegistryObject<Item> GLOOM_CLUB = ITEMS.register("gloom_club",
+            () -> new GloomWeaponItem(Tiers.IRON, 8, -3.4f,
+                    new Item.Properties().defaultDurability(120)));
+
+
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
             () -> new SlingshotItem(new Item.Properties().defaultDurability(284)));
     public static final RegistryObject<Item> SCATTERSHOT = ITEMS.register("scattershot",
@@ -391,7 +400,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new ArmorItem(ModArmorMaterials.Kokiri, ArmorItem.Type.LEGGINGS,
                     new Item.Properties().defaultDurability(200)));
     public static final RegistryObject<ArmorItem> KOKIRI_HAT = ITEMS.register("kokirihat",
-            ()-> new ArmorItem(ModArmorMaterials.Kokiri, ArmorItem.Type.HELMET,
+            ()-> new KokiriCap(ModArmorMaterials.Kokiri, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(200)));
     public static final RegistryObject<ArmorItem> ZORA_HAT = ITEMS.register("zorahat",
             ()-> new ArmorItem(ModArmorMaterials.ZoraTunic, ArmorItem.Type.HELMET,

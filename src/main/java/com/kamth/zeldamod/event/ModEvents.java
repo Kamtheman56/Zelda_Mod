@@ -3,6 +3,7 @@ package com.kamth.zeldamod.event;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ai.*;
 import com.kamth.zeldamod.item.ModItems;
@@ -44,6 +45,7 @@ import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
@@ -203,6 +205,16 @@ public class ModEvents {
             else event.getTarget().setSecondsOnFire(400);
             }}
 
+    @SubscribeEvent
+    public static void onLivingHurt(LivingHurtEvent event) {
+
+            if(event.getSource().getEntity() instanceof Player player) {
+                if(player.getMainHandItem().is(ModTags.Items.GLOOM_WEAPONS)) {
+               player.hurt(player.damageSources().wither(),2);
+                }
+                }
+            }
+
 
     @SubscribeEvent
     public static void HealMode(LivingHealEvent event){
@@ -275,7 +287,7 @@ public class ModEvents {
         }
     }
     @SubscribeEvent
-    public static void reapplyHealthModifiers(PlayerEvent.Clone event) {
+    public static void restoreHealthModifiers(PlayerEvent.Clone event) {
         if (!event.isWasDeath()) return;
         AttributeInstance originalMaxHealth = getMaxHealthAttribute(event.getOriginal());
         AttributeModifier modifier = originalMaxHealth.getModifier(HEARTS_MODIFIER);
@@ -327,7 +339,7 @@ public class ModEvents {
             if (!maxHealth.hasModifier(baseModifier)) {
                 maxHealth.addPermanentModifier(baseModifier);
             }
-            // Or if config updated and value changed
+
             else {
                 AttributeModifier oldModifier = maxHealth.getModifier(BASE_HEALTH_MODIFIER);
                 Objects.requireNonNull(oldModifier);
@@ -384,7 +396,9 @@ public class ModEvents {
             }
         }
 
-
+        public static boolean canIncreaseGoldHealth(Player player) {
+            return getBaseHealth(player) < 60;
+        }
         @NotNull
         static AttributeInstance getMaxHealthAttribute(Player player) {
             AttributeInstance attribute = player.getAttribute(Attributes.MAX_HEALTH);

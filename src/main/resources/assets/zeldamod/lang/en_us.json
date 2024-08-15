@@ -35,6 +35,8 @@
   "item.zeldamod.heart_container": "Heart Container",
   "item.zeldamod.gloom_container": "Gloom Container",
   "item.zeldamod.heart_piece": "Heart Piece",
+  "item.zeldamod.gold_heart_container": "Primo Heart Container",
+
 
   "itemGroup.zeldatab": "Zelda Items",
   "itemGroup.zeldamask": "Zelda Masks",
@@ -112,6 +114,10 @@
   "item.zeldamod.ocarina": "Ocarina",
   "item.zeldamod.ascend": "Ascend",
   "item.zeldamod.flute": "Flute",
+  "item.zeldamod.gloom_sword": "Gloom Sword",
+  "item.zeldamod.gloom_club": "Gloom Club",
+
+
 
   "item.zeldamod.heavyboots": "Heavy Boots",
   "item.zeldamod.hoverboots": "Hover Boots",
@@ -405,11 +411,13 @@
   "armor.pegasus_boots.description_basic": "Extra Speedy",
   "armor.roc_cape.description": "Jump high and fall slow",
   "armor.zora_tunic.description": "Breathe underwater",
+  "item.gloom_sword.description_basic": "It glows with evil power",
+"item.gloom_sword.description_advanced": "Consumes a heart for every hit you make...",
 
 
 
-
-
+  "death.attack.gloom_damage": "%1$s was consumed by Gloom",
+  "death.attack.gloom_damage.player": "%1$s was consumed by Gloom whilst trying to escape %2$s",
 
   "entity.zeldamod.deku": "Deku Scrub",
   "entity.zeldamod.dark_nut": "Dark Nut",

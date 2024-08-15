@@ -16,8 +16,10 @@ public class GloomEffect extends MobEffect {
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier){
         super.applyEffectTick(pLivingEntity, pAmplifier);
-        if (this == ModEffects.GLOOM.get() &&new Random().nextFloat() > .7f) {
+        if (this == ModEffects.GLOOM.get() &&new Random().nextFloat() > .8f) {
                 pLivingEntity.hurt(pLivingEntity.damageSources().wither(), 1.0F);
+
+         //   pLivingEntity.hurt(ModDamageTypes.causeMalice(pLivingEntity),1.0F);
     }}
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
