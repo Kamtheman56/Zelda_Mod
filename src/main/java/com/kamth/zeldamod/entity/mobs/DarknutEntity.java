@@ -128,10 +128,10 @@ public class DarknutEntity extends Monster {
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 35)
-                .add(Attributes.KNOCKBACK_RESISTANCE, .0f)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 3f)
                 .add(Attributes.MOVEMENT_SPEED, .2f)
-                .add(Attributes.ATTACK_DAMAGE, 12)
-                .add(Attributes.ATTACK_KNOCKBACK, 0.8f)
+                .add(Attributes.ATTACK_DAMAGE, 10)
+                .add(Attributes.ATTACK_KNOCKBACK, 5f)
                 .add(Attributes.ATTACK_SPEED, 8)
                 .add(Attributes.ARMOR,10);
     }

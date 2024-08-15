@@ -20,6 +20,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> DOOR_LOCK = registerSoundEvents ("locked_door");
     public static final RegistryObject<SoundEvent> DOOR_UNLOCK = registerSoundEvents ("door_unlock");
     public static final RegistryObject<SoundEvent> WOODEN_HAMMER = registerSoundEvents ("wooden_hammer");
+    public static final RegistryObject<SoundEvent> SEED_BREAKS = registerSoundEvents ("seed_breaks");
     public static final RegistryObject<SoundEvent> DARKNUT_INJURED = registerSoundEvents ("darknut_injured");
     public static final RegistryObject<SoundEvent> SONG_HEALING = registerSoundEvents ("song_healing");
     public static final RegistryObject<SoundEvent> SONG_TIME = registerSoundEvents ("song_time");

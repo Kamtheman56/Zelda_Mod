@@ -21,6 +21,7 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Parrot;
+import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
@@ -95,7 +96,7 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
          this.goalSelector.addGoal(1, new RangedAttackGoal(this,1,40,90,10));
-    //    this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 3, 1.5, 1));
+       this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Wolf.class, 3, 1.5, 1));
         this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(this, Parrot.class, false));
 
     }
@@ -134,7 +135,7 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 6)
-                .add(Attributes.KNOCKBACK_RESISTANCE, 1)
+                .add(Attributes.KNOCKBACK_RESISTANCE, .8f)
                 .add(Attributes.MOVEMENT_SPEED, .2f)
                 .add(Attributes.ATTACK_DAMAGE, 8)
                 .add(Attributes.ATTACK_SPEED, 3);
@@ -165,7 +166,7 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
         double d2 = pTarget.getZ() - this.getZ();
         double d3 = Math.sqrt(d0 * d0 + d2 * d2);
         seedprojectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level().getDifficulty().getId() * 4));
-        this.playSound(SoundEvents.DISPENSER_DISPENSE, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
+        this.playSound(SoundEvents.LLAMA_SPIT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
         this.level().addFreshEntity(seedprojectile);
 
     }

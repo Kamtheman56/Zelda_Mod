@@ -65,10 +65,10 @@ public class KeeseEntity extends FlyingMob implements Enemy {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(8, new KeeseEntity.RandomFloatAroundGoal(this));
+        this.goalSelector.addGoal(4, new KeeseEntity.RandomFloatAroundGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
 
-        this.goalSelector.addGoal(4, new KeeseEntity.FlyingAttackGoal());
+        this.goalSelector.addGoal(7, new KeeseEntity.FlyingAttackGoal());
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 
 
@@ -90,16 +90,10 @@ public class KeeseEntity extends FlyingMob implements Enemy {
     }
 
     private void setupAnimationStates() {
-        if (this.idleAnimationTimeout <= 0) {
-            this.idleAnimationTimeout = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.tickCount);
-        } else {
-            --this.idleAnimationTimeout;
-        }
-
 
         if (this.isAttacking() && attackAnimationTimeout<= 0){
-            attackAnimationTimeout = 50;
+            attackAnimationTimeout = 0;
             attackAnimationState.start(tickCount);
         } else {
             --this.attackAnimationTimeout;
@@ -130,12 +124,12 @@ public class KeeseEntity extends FlyingMob implements Enemy {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 4)
+                .add(Attributes.MAX_HEALTH, 2)
                 .add(Attributes.KNOCKBACK_RESISTANCE, -4f)
                 .add(Attributes.MOVEMENT_SPEED, .3f)
                 .add(Attributes.FLYING_SPEED, .4f)
                 .add(Attributes.ATTACK_DAMAGE, 2)
-                .add(Attributes.FOLLOW_RANGE, 100.0D)
+                .add(Attributes.FOLLOW_RANGE, 35.0D)
                 .add(Attributes.ATTACK_KNOCKBACK, 0.8f)
                 .add(Attributes.ATTACK_SPEED, 8);
     }
@@ -230,7 +224,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
          */
         public boolean canUse() {
             LivingEntity livingentity = KeeseEntity.this.getTarget();
-            if (livingentity != null && livingentity.isAlive() && !KeeseEntity.this.getMoveControl().hasWanted() && KeeseEntity.this.random.nextInt(reducedTickDelay(7)) == 0) {
+            if (livingentity != null && livingentity.isAlive() && KeeseEntity.this.random.nextInt(reducedTickDelay(20)) == 0) {
                 return KeeseEntity.this.distanceToSqr(livingentity) > 4.0D;
             } else {
                 return false;
@@ -255,7 +249,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
             }
 
 
-            KeeseEntity.this.playSound(SoundEvents.VEX_CHARGE, 1.0F, 1.0F);
+          //  KeeseEntity.this.playSound(SoundEvents.VEX_CHARGE, 1.0F, 1.0F);
         }
 
         /**
@@ -280,7 +274,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
                 if (KeeseEntity.this.getBoundingBox().inflate(1.3f).intersects(livingentity.getBoundingBox())) {
                     KeeseEntity.this.doHurtTarget(livingentity);
                     KeeseEntity.this.setAttacking(false);
-
+                    stop();
                 } else {
                     double d0 = KeeseEntity.this.distanceToSqr(livingentity);
                     if (d0 < 9.0D) {

@@ -53,6 +53,12 @@
       "zeldamod:darknut_injured"
     ]
   },
+  "seed_breaks": {
+    "subtitle": "sounds.zeldamod.seed_breaks",
+    "sounds": [
+      "zeldamod:seed_breaks"
+    ]
+  },
   "song_healing": {
     "subtitle": "sounds.zeldamod.song_healing",
     "sounds": [
