@@ -21,7 +21,7 @@ public class KokiriCap extends ArmorItem {
 
     private static final String LOC = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/armor/kokiri_cap.png").toString();
     public KokiriCap(ModArmorMaterials pMaterial, Type pType, Properties pProperties) {
-        super(ModArmorMaterials.Archaic, pType, pProperties);
+        super(ModArmorMaterials.Kokiri, pType, pProperties);
     }
 
     @Override

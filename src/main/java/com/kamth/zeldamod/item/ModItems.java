@@ -400,7 +400,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new ArmorItem(ModArmorMaterials.Kokiri, ArmorItem.Type.LEGGINGS,
                     new Item.Properties().defaultDurability(200)));
     public static final RegistryObject<ArmorItem> KOKIRI_HAT = ITEMS.register("kokirihat",
-            ()-> new KokiriCap(ModArmorMaterials.Kokiri, ArmorItem.Type.HELMET,
+            ()-> new ArmorItem(ModArmorMaterials.Kokiri, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(200)));
     public static final RegistryObject<ArmorItem> ZORA_HAT = ITEMS.register("zorahat",
             ()-> new ArmorItem(ModArmorMaterials.ZoraTunic, ArmorItem.Type.HELMET,
@@ -438,7 +438,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             () -> new ForgeSpawnEggItem(ModEntityTypes.DEKU, 917142, 43520,
                     new Item.Properties()));
     public static final RegistryObject<Item> DARK_NUT_SPAWN_EGG = ITEMS.register("dark_nut_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.DARK_NUT, 00500, 00000,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.DARK_NUT, 12566463, 14637912,
                     new Item.Properties()));
     public static final RegistryObject<Item> KEESE_SPAWN_EGG = ITEMS.register("keese_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.KEESE, 10000, 00000,

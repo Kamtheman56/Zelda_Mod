@@ -47,6 +47,12 @@
       "zeldamod:wooden_hammer"
     ]
   },
+  "darknut_injured": {
+    "subtitle": "sounds.zeldamod.darknut_injured",
+    "sounds": [
+      "zeldamod:darknut_injured"
+    ]
+  },
   "song_healing": {
     "subtitle": "sounds.zeldamod.song_healing",
     "sounds": [

@@ -12,7 +12,7 @@ public class PegasusBootsModel extends HumanoidModel<LivingEntity> {
         super((root));
     }
     public static LayerDefinition createBodyLayer() {
-        MeshDefinition meshdefinition = HumanoidModel.createMesh(LayerDefinitions.INNER_ARMOR_DEFORMATION, 0.0F);
+        MeshDefinition meshdefinition = HumanoidModel.createMesh(LayerDefinitions.OUTER_ARMOR_DEFORMATION, 0.0F);
         PartDefinition partdefinition = meshdefinition.getRoot();
         PartDefinition leftLeg = partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(0, 48).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, LayerDefinitions.OUTER_ARMOR_DEFORMATION), PartPose.ZERO);
         PartDefinition rightLeg = partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(0, 32).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, LayerDefinitions.OUTER_ARMOR_DEFORMATION), PartPose.ZERO);

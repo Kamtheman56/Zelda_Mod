@@ -19,15 +19,16 @@ public class CapModel extends HumanoidModel<LivingEntity> {
 
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = HumanoidModel.createMesh(LayerDefinitions.OUTER_ARMOR_DEFORMATION, 0.0F);
+
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 14).addBox(-4.0F, -32.0F, -4.0F, 8.0F, 8.0F, 8.0F,new CubeDeformation(0.0F)), PartPose.ZERO);
-		PartDefinition armorHead = head.addOrReplaceChild("armorHead", CubeListBuilder.create().texOffs(32, 33).addBox(-4.0F, -35.0F, -4.0F, 8.0F, 3.0F, 8.0F,new CubeDeformation(0.4F)), PartPose.offset(0,-11,0));
-		PartDefinition cube_r2 = armorHead.addOrReplaceChild("cube_r2", CubeListBuilder.create().texOffs(-2, 34).addBox(-4.0F, -37.4F, -3.0F, 8.0F, 2.0F, 8.0F, new CubeDeformation(0.1F)),PartPose.offset(0,-10,0));
-		PartDefinition cube_r1 = armorHead.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(36, 0).addBox(-3.0F, -1.0F, 0.0F, 6.0F, 2.0F, 8.0F, new CubeDeformation(0.5F)), PartPose.offsetAndRotation(0.0F, -12.2158F, 4.0478F, -1.0036F, 0.0F, 0.0F));
+		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+				PartDefinition Head2 = partdefinition.addOrReplaceChild("Head2", CubeListBuilder.create()	.texOffs(0, 14).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.5F)),PartPose.offset(0.0F, 0.0F, 0.0F));
+						PartDefinition Head3 = partdefinition.addOrReplaceChild("Head3", CubeListBuilder.create().texOffs(32, 33).addBox(-4.0F, -11.0F, -4.0F, 8.0F, 3.0F, 8.0F, new CubeDeformation(0.4F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+								PartDefinition Head4 = partdefinition.addOrReplaceChild("Head4", CubeListBuilder.create().texOffs(-2, 34).addBox(-4.0F, -13.4F, -3.0F, 8.0F, 2.0F, 8.0F, new CubeDeformation(0.1F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition tail_r1 = Head.addOrReplaceChild("tail_r1", CubeListBuilder.create().texOffs(36, 0).addBox(-3.0F, -1.0F, 0.0F, 6.0F, 2.0F, 8.0F, new CubeDeformation(0.5F)), PartPose.offsetAndRotation(0.0F, -12.2158F, 4.0478F, -1.0036F, 0.0F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
-
-
 }

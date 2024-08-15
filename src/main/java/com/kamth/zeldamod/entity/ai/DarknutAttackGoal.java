@@ -12,8 +12,8 @@ public class DarknutAttackGoal extends MeleeAttackGoal {
         entity = ((DarknutEntity) pMob);
     }
     private final DarknutEntity entity;
-    private int attackDelay = 38;
-    private int ticksUntilNextAttack = 48;
+    private int attackDelay = 18;
+    private int ticksUntilNextAttack = 8;
     private boolean shouldCountTillNextAttack = false;
 
 
@@ -21,8 +21,8 @@ public class DarknutAttackGoal extends MeleeAttackGoal {
     @Override
     public void start() {
         super.start();
-        attackDelay = 38;
-        ticksUntilNextAttack = 48;
+        attackDelay = 18;
+        ticksUntilNextAttack = 8;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class DarknutAttackGoal extends MeleeAttackGoal {
     }
 
     protected void resetAttackCooldown() {
-        this.ticksUntilNextAttack = this.adjustedTickDelay(attackDelay );
+        this.ticksUntilNextAttack = this.adjustedTickDelay(attackDelay ) + 18;
     }
 
     protected boolean isTimeToAttack() {

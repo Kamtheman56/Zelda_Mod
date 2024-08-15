@@ -87,7 +87,7 @@ public class DarknutModel<T extends Entity> extends HierarchicalModel<T> {
         this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
         this.animateWalk(ModAnimationDefinitions.darknut_walk, limbSwing, limbSwingAmount, 2f, 2.5f);
         this.animate(((DarknutEntity) entity).idleAnimationState, ModAnimationDefinitions.darknut_idle, ageInTicks, 1f);
-        this.animate(((DarknutEntity) entity).attackAnimationState, ModAnimationDefinitions.darknut_heavy_swing, ageInTicks, 1f);
+        this.animate(((DarknutEntity) entity).attackAnimationState, ModAnimationDefinitions.darknut_swing, ageInTicks, 1f);
 
     }
 }
