@@ -2,7 +2,7 @@ package com.kamth.zeldamod.item.armors;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.custom.ModArmorMaterials;
-import com.kamth.zeldamod.item.armors.render.CapModel;
+import com.kamth.zeldamod.item.armors.render.CapModel2;
 import com.kamth.zeldamod.item.armors.render.ModModelLayers;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
@@ -19,7 +19,7 @@ import java.util.function.Consumer;
 
 public class KokiriCap extends ArmorItem {
 
-    private static final String LOC = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/armor/kokiri_cap.png").toString();
+    private static final String LOC = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/armor/kokiri_cap2.png").toString();
     public KokiriCap(ModArmorMaterials pMaterial, Type pType, Properties pProperties) {
         super(ModArmorMaterials.Kokiri, pType, pProperties);
     }
@@ -31,13 +31,13 @@ public class KokiriCap extends ArmorItem {
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-            private CapModel model;
+            private CapModel2 model;
 
             @Nullable
             @Override
             public HumanoidModel<?> getHumanoidArmorModel(LivingEntity entityLiving, ItemStack itemStack, EquipmentSlot armorSlot, HumanoidModel<?> _default) {
                 if (null == model) {
-                    model = new CapModel(Minecraft.getInstance().getEntityModels().bakeLayer(ModModelLayers.CAP));
+                    model = new CapModel2(Minecraft.getInstance().getEntityModels().bakeLayer(ModModelLayers.CAP));
                 }
                 return model;
             }

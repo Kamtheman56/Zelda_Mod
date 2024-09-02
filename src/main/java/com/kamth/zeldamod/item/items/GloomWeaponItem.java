@@ -23,7 +23,7 @@ public class GloomWeaponItem extends SwordItem {
         if(Screen.hasShiftDown()) {
             components.add(Component.translatable("item.gloom_sword.description_advanced").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.translatable("item.gloom_sword.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.gloom_sword.description_basic").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         }
 
     }

@@ -35,7 +35,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(MobModelLayers.DEKU_LAYER, DekuModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.DARK_NUT_LAYER, DarknutModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.KEESE_LAYER, KeeseModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.CAP, CapModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.CAP, CapModel2::createBodyLayer);
     }
 
 }

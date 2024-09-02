@@ -131,7 +131,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
                 .add(Attributes.ATTACK_DAMAGE, 2)
                 .add(Attributes.FOLLOW_RANGE, 35.0D)
                 .add(Attributes.ATTACK_KNOCKBACK, 0.8f)
-                .add(Attributes.ATTACK_SPEED, 8);
+                .add(Attributes.ATTACK_SPEED, 1);
     }
 
     public void setAttacking(boolean attacking){

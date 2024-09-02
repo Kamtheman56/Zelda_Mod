@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "zeldamod:block/malice_block"
+      },
+      {
+        "model": "zeldamod:block/malice_mirrored"
+      },
+      {
+        "model": "zeldamod:block/malice_block",
+        "y": 180
+      },
+      {
+        "model": "zeldamod:block/malice_mirrored",
+        "y": 180
+      }
+    ]
+  }
+}

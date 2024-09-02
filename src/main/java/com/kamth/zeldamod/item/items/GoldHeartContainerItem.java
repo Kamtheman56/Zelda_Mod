@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.event.ModEvents;
+import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -35,6 +36,8 @@ public class GoldHeartContainerItem extends Item {
 
         ItemStack stack = player.getItemInHand(pHand);
         if (!ModEvents.PlayerHealthEvents.canIncreaseGoldHealth(player)) {
+            player.getCooldowns().addCooldown(ModItems.GOLD_CONTAINER.get(),80);
+            player.displayClientMessage(Component.translatable("item.gold_heart_container_full").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD), true);
             return InteractionResultHolder.fail(stack);
         } else {
             return ItemUtils.startUsingInstantly(pLevel, player, pHand);
@@ -48,6 +51,7 @@ public class GoldHeartContainerItem extends Item {
             CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, pStack);
             ModEvents.PlayerHealthEvents.addBaseHealthModifier((Player) pEntityLiving, 2F);
             player.heal(player.getMaxHealth());
+            player.removeAllEffects();
             serverplayer.awardStat(Stats.ITEM_USED.get(this));
             if (!player.getAbilities().instabuild){
                 player.getUseItem().shrink(1);}}

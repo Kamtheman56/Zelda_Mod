@@ -441,7 +441,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             () -> new ForgeSpawnEggItem(ModEntityTypes.DARK_NUT, 12566463, 14637912,
                     new Item.Properties()));
     public static final RegistryObject<Item> KEESE_SPAWN_EGG = ITEMS.register("keese_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.KEESE, 10000, 00000,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.KEESE, 12566463, 16252718,
                     new Item.Properties()));
 
         public static void register (IEventBus eventbus) {

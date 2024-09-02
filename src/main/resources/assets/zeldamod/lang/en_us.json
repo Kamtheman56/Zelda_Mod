@@ -173,6 +173,7 @@
 
   "item.zeldamod.deku_spawn_egg": "Deku Spawn Egg",
   "item.zeldamod.dark_nut_spawn_egg": "Dark Nut Spawn Egg",
+  "item.zeldamod.keese_spawn_egg": "Keese Spawn Egg",
 
   "effect.zeldamod.deku": "Water Hopping",
   "effect.zeldamod.goron": "Goron",
@@ -265,6 +266,7 @@
   "block.zeldamod.deku_grave_block": "Deku Grave",
   "block.zeldamod.zora_grave_block": "Zora Grave",
   "block.zeldamod.goron_grave_block": "Goron Grave",
+  "block.zeldamod.malice_block": "Malice Block",
 
 
   "Nightmask": "You don't think you should do this",
@@ -289,6 +291,8 @@
 
   "item.gloom_heart.description": "Decrease your maximum vitality by one",
   "item.heart_container.description": "Increase your maximum vitality by one!",
+  "item.heart_container_full": "Seek greater power to further increase your life force",
+  "item.gold_heart_container_full": "Your life force is maxed out!",
   "item.hammer.description_basic": "Smash through weak blocks",
   "item.hammer.description_advanced": "Pound down wooden pegs",
   "item.ancient_arrow.description": "Obliterate Evil",
