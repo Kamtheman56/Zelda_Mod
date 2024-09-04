@@ -52,47 +52,47 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:filled_map",
+          "name": "minecraft:map",
           "functions": [
             {
               "function": "minecraft:exploration_map",
               "destination": "zeldamod:on_master_map",
               "decoration": "red_x",
               "zoom": 1,
-              "search_radius": 10000,
-              "skip_existing_chunks": true
+              "skip_existing_chunks": false
             },
-    {
-      "rolls": 1,
-      "bonus_rolls": 0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "zeldamod:champions_tunic"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:fishing_rod",
-          "functions": [
             {
-              "function": "minecraft:enchant_randomly"
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "filled_map.master_map"
+              }
             }
           ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 4,
-          "name": "zeldamod:heart_potion"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "zeldamod:light_arrow"
         }
-      ]
-    }
-  ],
-  "random_sequence": "zeldamod:chests/link_house_well"
+        ]},
+        {
+          "rolls": 1,
+          "bonus_rolls": 0,
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "weight": 2,
+              "name": "zeldamod:champions_tunic"
+            },
+            {
+              "type": "minecraft:item",
+              "weight": 4,
+              "name": "zeldamod:heart_potion"
+            },
+            {
+              "type": "minecraft:item",
+              "weight": 1,
+              "name": "zeldamod:light_arrow"
+            }
+          ]
+        }
+      ],
+      "random_sequence": "zeldamod:chests/link_house_well"
 }
+
+

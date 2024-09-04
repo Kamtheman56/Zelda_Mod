@@ -35,14 +35,14 @@ public class ModItems {
     public static final RegistryObject<Item> MASTER_ORE2 = ITEMS.register("refined_master_ore",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> MASTER_UPGRADE = ITEMS.register("master_upgrade",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> DIN_PEARL = ITEMS.register("pearl_power",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> FARORE_PEARL = ITEMS.register("pearl_courage",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> NAYRU_PEARL = ITEMS.register("pearl_wisdom",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> XTENDER = ITEMS.register("extender",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CLAW= ITEMS.register("claw",
@@ -62,13 +62,13 @@ public class ModItems {
     public static final RegistryObject<Item> BIG_KEY = ITEMS.register("key_big",
             () -> new BigKeyItem(new Item.Properties()));
     public static final RegistryObject<Item> HEART_CONTAINER = ITEMS.register("heart_container",
-            () -> new HeartContainerItem(new Item.Properties()));
+            () -> new HeartContainerItem(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> GLOOM_CONTAINER = ITEMS.register("gloom_container",
             () -> new GloomContainer(new Item.Properties()));
     public static final RegistryObject<Item> GOLD_CONTAINER = ITEMS.register("gold_heart_container",
-            () -> new GoldHeartContainerItem(new Item.Properties().rarity(Rarity.RARE)));
+            () -> new GoldHeartContainerItem(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> HEART_PIECE = ITEMS.register("heart_piece",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
     //These are potions or consumables
     public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
@@ -259,11 +259,11 @@ public class ModItems {
     public static final RegistryObject<Item> GOLDEN_SCALE = ITEMS.register("scale_gold",
             () -> new ScaleItem(new Item.Properties().defaultDurability(248)));
     public static final RegistryObject<Item> OCARINA = ITEMS.register("ocarina",
-            () -> new OcarinaItem(new Item.Properties().rarity(Rarity.RARE)));
+            () -> new OcarinaItem(new Item.Properties().rarity(Rarity.RARE).defaultDurability(250)));
     public static final RegistryObject<Item> ASCEND = ITEMS.register("ascend",
             () -> new AscendItem(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> FLUTE = ITEMS.register("flute",
-            () -> new FluteItem(new Item.Properties().rarity(Rarity.RARE)));
+            () -> new FluteItem(new Item.Properties().rarity(Rarity.RARE).defaultDurability(5)));
 
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new WoodShieldItem(new Item.Properties().durability(168)));

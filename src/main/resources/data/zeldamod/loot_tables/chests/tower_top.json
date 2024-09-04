@@ -84,6 +84,40 @@
           "functions": [
             {
               "function": "minecraft:exploration_map",
+              "destination": "zeldamod:has_song_ruins",
+              "decoration": "red_x",
+              "zoom": 1
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "filled_map.song_ruins"
+              }}
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "zeldamod:has_sky_ruins",
+              "decoration": "red_x",
+              "zoom": 1
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "filled_map.sky_ruins"
+              }}
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
               "destination": "zeldamod:has_desert_temple",
               "decoration": "red_x",
               "zoom": 1

@@ -58,5 +58,5 @@ public class DragonScale extends ArmorItem {
    if(Screen.hasShiftDown()) {
         components.add(Component.translatable("armor.dragon_scale.description_advanced").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
     }
-   else components.add(Component.translatable("armor.dragon_scale.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+   else components.add(Component.translatable("armor.dragon_scale.description_basic").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
 }}

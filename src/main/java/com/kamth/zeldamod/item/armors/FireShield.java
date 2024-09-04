@@ -4,7 +4,6 @@ import be.florens.expandability.api.forge.LivingFluidCollisionEvent;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -79,7 +78,6 @@ public class FireShield extends ArmorItem {
     }
 @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if (Screen.hasShiftDown()){
             components.add(Component.translatable("armor.fire_shield.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
-        }
+
 }}

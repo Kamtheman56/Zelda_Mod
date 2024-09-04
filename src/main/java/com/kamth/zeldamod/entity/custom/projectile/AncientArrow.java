@@ -59,8 +59,7 @@ public class AncientArrow extends AbstractArrow {
     public void onAddedToWorld() {
         super.onAddedToWorld();
         setBaseDamage(BASE_DAMAGE);
-
-       setKnockback(5);
+        setKnockback(5);
     }
     @Override
     protected void onHitBlock(@NotNull BlockHitResult ray) {

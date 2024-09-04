@@ -1,17 +1,21 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
 import org.jetbrains.annotations.NotNull;
 
 public class IceProjectile extends ThrowableProjectile {
@@ -39,7 +43,7 @@ public class IceProjectile extends ThrowableProjectile {
         Entity entity = pResult.getEntity();
         entity.setTicksFrozen(40);
         entity.hurt(damageSources().magic(),4);
-        this.playSound(SoundEvents.SNOW_BREAK);
+        this.playSound(SoundEvents.PLAYER_HURT_FREEZE);
     }
 
     /**
@@ -58,8 +62,23 @@ public class IceProjectile extends ThrowableProjectile {
     }
 
         if (this.isInWater()){
-            level().setBlockAndUpdate(this.blockPosition(), Blocks.FROSTED_ICE.defaultBlockState());
-            this.discard();}
+            BlockState blockstate = Blocks.FROSTED_ICE.defaultBlockState();
+            float f = (float)Math.min(1, 1);
+
+
+            for(BlockPos blockpos : BlockPos.betweenClosed(this.blockPosition().offset((int) -f, (int) +1.0D, (int) -f), this.blockPosition().offset((int) f, (int) +1.0D, (int) f))) {
+
+                {
+                    BlockState blockstate2 = level().getBlockState(blockpos);
+                    boolean isFull = blockstate2.getBlock() == Blocks.WATER && blockstate2.getValue(LiquidBlock.LEVEL) == 0; //TODO: Forge, modded waters?
+                    if (blockstate2.getBlock() == Blocks.WATER && isFull && blockstate.canSurvive(level(), blockpos) && level().isUnobstructed(blockstate, blockpos, CollisionContext.empty()) && !net.minecraftforge.event.ForgeEventFactory.onBlockPlace(this, net.minecraftforge.common.util.BlockSnapshot.create(level().dimension(), level(), blockpos), net.minecraft.core.Direction.UP)) {
+                        level().setBlockAndUpdate(blockpos, blockstate);
+                        level().scheduleTick(blockpos, Blocks.FROSTED_ICE, Mth.nextInt(this.random, 60, 150));
+                        this.discard();
+                    }
+                }
+            }
+        }
         if (this.isInLava()){
             level().setBlockAndUpdate(this.blockPosition(), Blocks.FROSTED_ICE.defaultBlockState());
             this.discard();}

@@ -81,7 +81,7 @@ pPlayer.playSound(ModSounds.CLAWSHOT.get());
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.clawshot.description_advanced").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.clawshot.description_advanced").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         } else {
             components.add(Component.translatable("item.clawshot.description_basic").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         }}

@@ -111,12 +111,21 @@ public class OcarinaItem extends Item {
             return InteractionResult.SUCCESS;
         }
         //calls the effects of the song of storms
-        if (blockstate.is(ModBlocks.NOTE_STONE.get())) {
+        if (blockstate.is(ModBlocks.NOTE_STONE.get()) && !level.isRaining()) {
             MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
             level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_STORMS.get(),SoundSource.PLAYERS, .8f, 1f);
             ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
             serverWorld.setWeatherParameters(0, 3800, true, true);
             return InteractionResult.SUCCESS;
+        }
+        {
+            if (blockstate.is(ModBlocks.NOTE_STONE.get()) && level.isRaining()) {
+                MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+                level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_STORMS.get(),SoundSource.PLAYERS, .8f, 1f);
+                ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
+                serverWorld.setWeatherParameters(0, 3800, false, false);
+                return InteractionResult.SUCCESS;
+            }
         }
         //song of healing for masks
         if (blockstate.is(ModBlocks.DEKU_GRAVE.get())) {
