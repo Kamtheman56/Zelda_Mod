@@ -1,5 +1,10 @@
 {
   "variants": {
-    "": {"model": "zeldamod:block/time_bricks_slab"}
+    "type=bottom": {
+      "model": "zeldamod:block/time_bricks_slab"},
+    "type=double": {
+      "model": "zeldamod:block/time_bricks"},
+    "type=top": {
+      "model": "zeldamod:block/time_bricks_slab_top"}
   }
 }

@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:heart_container"
+    },
+    "title": {
+      "text": "Hearty Diet"
+    },
+    "description": {
+      "text": "Obtain and consume a Heart Container"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:base",
+  "criteria": {
+    "apple": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "zeldamod:heart_container"
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "apple"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

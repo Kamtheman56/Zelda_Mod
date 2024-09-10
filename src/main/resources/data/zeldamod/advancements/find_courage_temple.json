@@ -14,7 +14,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:find_graveyard",
+  "parent": "zeldamod:find_song_ruins",
   "criteria": {
     "in_stronghold": {
       "trigger": "minecraft:location",

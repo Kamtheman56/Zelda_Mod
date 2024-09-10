@@ -64,7 +64,7 @@ public class ModItems {
     public static final RegistryObject<Item> HEART_CONTAINER = ITEMS.register("heart_container",
             () -> new HeartContainerItem(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> GLOOM_CONTAINER = ITEMS.register("gloom_container",
-            () -> new GloomContainer(new Item.Properties()));
+            () -> new GloomContainer(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> GOLD_CONTAINER = ITEMS.register("gold_heart_container",
             () -> new GoldHeartContainerItem(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> HEART_PIECE = ITEMS.register("heart_piece",
@@ -74,9 +74,9 @@ public class ModItems {
     public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
             () -> new DrinkItem(new Item.Properties().stacksTo(16).food(ModFoods.PUMPKIN_SOUP)));
     public static final RegistryObject<Item> STAMINA = ITEMS.register("stamina_potion",
-            () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.STAMINA)));
+            () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.STAMINA).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> HEART_POTION = ITEMS.register("heart_potion",
-            () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.HEART)));
+            () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.HEART).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> MILK_BOTTLE1 = ITEMS.register("milk_bottle1",
             () -> new MilkBottleItem(new Item.Properties().stacksTo(1).food(ModFoods.MILK_BOTTLE)));
     public static final RegistryObject<Item> MILK_BOTTLE2 = ITEMS.register("milk_bottle2",
@@ -84,7 +84,7 @@ public class ModItems {
     public static final RegistryObject<Item> SHIELD_POTION = ITEMS.register("shield_potion",
             () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.SHIELD)));
     public static final RegistryObject<Item> BLUE_POTION = ITEMS.register("blue_potion",
-            () -> new BluePotionItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.BLUE)));
+            () -> new BluePotionItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.BLUE).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MILK_MAGIC = ITEMS.register("magic_milk",
             () -> new DrinkItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.MILK_MAGIC)));
     public static final RegistryObject<Item> SUPER_MUSHROOM = ITEMS.register("mushroom_super",
@@ -120,10 +120,10 @@ public class ModItems {
                     new Item.Properties().defaultDurability(1800).rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> BIGGORON_SWORD = ITEMS.register("biggoron_sword",
             () -> new SwordItem(ModTiers.GORON, 7, -3.3f,
-                    new Item.Properties().fireResistant().defaultDurability(3500)));
+                    new Item.Properties().fireResistant().defaultDurability(3500).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> BIGGORON_KNIFE = ITEMS.register("biggoron_knife",
             () -> new SwordItem(ModTiers.GORON, 7, -3.3f,
-                    new Item.Properties().defaultDurability(10)));
+                    new Item.Properties().defaultDurability(10).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> MASTER_SWORD2 = ITEMS.register("master_sword2",
             () -> new MasterSwordItem(ModTiers.MASTER, 5, -2.4f,
                     new Item.Properties().defaultDurability(2700).rarity(Rarity.RARE).fireResistant()));
@@ -132,16 +132,16 @@ public class ModItems {
                     new Item.Properties().defaultDurability(3600).rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> MASTER_SWORD_TRUE = ITEMS.register("master_sword_true",
             () -> new TrueMasterSwordItem(ModTiers.MASTER_TRUE, 9, -2.2f,
-                    new Item.Properties().fireResistant().rarity(Rarity.RARE)));
+                    new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> MASTER_SWORD_REFORGED = ITEMS.register("master_sword_reforged",
             () -> new ReforgedSword(ModTiers.MASTER_TRUE, 11, -2f,
-                    new Item.Properties().fireResistant().rarity(Rarity.RARE)));
+                    new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> MASTER_SWORD_INJURED = ITEMS.register("master_sword_injured",
             () -> new InjuredSwordItem(ModTiers.MASTER, 1, -2.5f,
-                    new Item.Properties().defaultDurability(131).fireResistant().rarity(Rarity.RARE)));
+                    new Item.Properties().defaultDurability(131).fireResistant().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> MASTER_SWORD_DAGGER = ITEMS.register("master_sword_dagger",
             () -> new DaggerSwordItem(ModTiers.MASTER, -1, -2.5f,
-                    new Item.Properties().rarity(Rarity.RARE)));
+                    new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> REFORGED_MASTER = ITEMS.register("reforged_sword",
             () -> new InjuredSwordItem(ModTiers.MASTER, 3, -2.4f,
                     new Item.Properties().defaultDurability(680).rarity(Rarity.RARE)));
@@ -154,76 +154,76 @@ public class ModItems {
 
     public static final RegistryObject<Item> FIERCE_SWORD = ITEMS.register("fierce_sword",
             () -> new FierceSwordItem(ModTiers.DEITY, 7, -1.4f,
-                    new Item.Properties().rarity(Rarity.RARE).fireResistant()));
+                    new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> HERO_SWORD = ITEMS.register("hero_sword",
             () -> new MagicSwordItem(Tiers.WOOD, 3, -2.4f,
-                    new Item.Properties()));
+                    new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> WHITE_SWORD = ITEMS.register("white_sword",
             () -> new MagicSwordItem(Tiers.STONE, 3, -2.4f,
-                    new Item.Properties()));
+                    new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MAGIC_SWORD = ITEMS.register("magic_sword",
-            () -> new MagicSwordItem(Tiers.IRON, 4, -2.4f,
-                    new Item.Properties()));
+            () -> new MagicSwordItem(Tiers.NETHERITE, 5, -2.2f,
+                    new Item.Properties().rarity(Rarity.EPIC).defaultDurability(0)));
     public static final RegistryObject<Item> GLOOM_SWORD = ITEMS.register("gloom_sword",
             () -> new GloomWeaponItem(Tiers.IRON, 4, -2.4f,
-                    new Item.Properties().defaultDurability(60)));
+                    new Item.Properties().defaultDurability(60).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> GLOOM_CLUB = ITEMS.register("gloom_club",
             () -> new GloomWeaponItem(Tiers.IRON, 8, -3.4f,
-                    new Item.Properties().defaultDurability(120)));
+                    new Item.Properties().defaultDurability(120).rarity(Rarity.RARE)));
 
 
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
-            () -> new SlingshotItem(new Item.Properties().defaultDurability(284)));
+            () -> new SlingshotItem(new Item.Properties().defaultDurability(284).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SCATTERSHOT = ITEMS.register("scattershot",
-            () -> new ScattershotItem(new Item.Properties().defaultDurability(488)));
+            () -> new ScattershotItem(new Item.Properties().defaultDurability(488).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ROC_FEATHER = ITEMS.register("roc_feather",
-            () -> new FeatherItem(new Item.Properties().defaultDurability(90)));
+            () -> new FeatherItem(new Item.Properties().defaultDurability(90).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ROC_FEATHER_2 = ITEMS.register("roc_feather_2",
-            () -> new FeatherItem(new Item.Properties().defaultDurability(180)));
+            () -> new FeatherItem(new Item.Properties().defaultDurability(180).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> SAND_ROD = ITEMS.register("sand_rod",
-            () -> new SandWandItem(new Item.Properties().durability(96)));
+            () -> new SandWandItem(new Item.Properties().durability(96).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> BOMB = ITEMS.register("bomb",
             () -> new BombItem(new Item.Properties().stacksTo(32).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> WATER_BOMB = ITEMS.register("water_bomb",
-            () -> new WaterBombItem(new Item.Properties().stacksTo(16).rarity(Rarity.UNCOMMON)));
+            () -> new WaterBombItem(new Item.Properties().stacksTo(16).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> BOMB_FLOWER = ITEMS.register("bomb_flower",
             () -> new BombFlowerItem(new Item.Properties().stacksTo(16).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> HERO_BOW = ITEMS.register("hero_bow",
-            () -> new HeroBowItem(new Item.Properties().defaultDurability(550)));
+            () -> new HeroBowItem(new Item.Properties().defaultDurability(550).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> FIRE_ARROW = ITEMS.register("fire_arrow",
-            () -> new FireArrowItem(new Item.Properties()));
+            () -> new FireArrowItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ICE_ARROW = ITEMS.register("ice_arrow",
-            () -> new IceArrowItem(new Item.Properties()));
+            () -> new IceArrowItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> LIGHT_ARROW = ITEMS.register("light_arrow",
             () -> new LightArrowItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> BOMB_ARROW = ITEMS.register("bomb_arrow",
             () -> new BombArrowItem(new Item.Properties()));
     public static final RegistryObject<Item> LIGHTNING_ARROW = ITEMS.register("lightning_arrow",
-            () -> new LightningArrowItem(new Item.Properties()));
+            () -> new LightningArrowItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ANCIENT_ARROW = ITEMS.register("ancient_arrow",
             () -> new AncientArrowItem(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> DEKU_NUT = ITEMS.register("deku_nut",
             () -> new DekuNutItem(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> DEKU_LEAF = ITEMS.register("deku_leaf",
-            () -> new LeafItem(new Item.Properties().durability(10)));
+            () -> new LeafItem(new Item.Properties().durability(10).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> FIRE_ROD = ITEMS.register("fire_rod",
-            () -> new FireRodItem(new Item.Properties().durability(218)));
+            () -> new FireRodItem(new Item.Properties().durability(218).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> ICE_ROD = ITEMS.register("ice_rod",
-            () -> new IceRodItem(new Item.Properties().durability(218)));
+            () -> new IceRodItem(new Item.Properties().durability(218).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> TORNADO_ROD = ITEMS.register("tornado_rod",
-            () -> new TornadoRodItem(new Item.Properties().durability(218)));
+            () -> new TornadoRodItem(new Item.Properties().durability(218).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> BOOMERANG = ITEMS.register("boomerang",
-            () -> new BoomerangItem(new Item.Properties().stacksTo(1)));
+            () -> new BoomerangItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> MAGIC_BOOMERANG = ITEMS.register("magic_boomerang",
-            () -> new MagicBoomerangItem(new Item.Properties().stacksTo(1)));
+            () -> new MagicBoomerangItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> GALE_BOOMERANG = ITEMS.register("boomerang_gale",
-            () -> new GaleBoomerangItem(new Item.Properties().stacksTo(1)));
+            () -> new GaleBoomerangItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> HAMMER = ITEMS.register("wooden_hammer",
             () -> new HammerItem(ModTiers.ZELDA, 6, -3f,
-                    new Item.Properties().defaultDurability(260)));
+                    new Item.Properties().defaultDurability(260).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> MEGATON = ITEMS.register("megaton_hammer",
             () -> new MegatonItem(ModTiers.ZELDA, 8, -3f,
-                    new Item.Properties().defaultDurability(520)));
+                    new Item.Properties().defaultDurability(520).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> DEKU_STICK = ITEMS.register("deku_stick",
             () -> new StickItem(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> DEKU_STICK_LIT = ITEMS.register("deku_stick_lit",
@@ -232,32 +232,32 @@ public class ModItems {
             () -> new StickItem(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> MITTS = ITEMS.register("digging_mitts",
             () -> new MittsItem(1,-2f,Tiers.STONE, BlockTags.MINEABLE_WITH_PICKAXE,
-                    new Item.Properties().defaultDurability(390)));
+                    new Item.Properties().defaultDurability(390).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> MOGMA_MITTS = ITEMS.register("mogma_mitts",
             () -> new MittsItem2(2,-1.8f,Tiers.IRON, BlockTags.MINEABLE_WITH_PICKAXE,
-                    new Item.Properties().defaultDurability(780)));
+                    new Item.Properties().defaultDurability(780).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> GLIDER = ITEMS.register("glider",
-            () -> new GliderItem(new Item.Properties().stacksTo(1)));
+            () -> new GliderItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> BLUE_RING = ITEMS.register("blue_ring",
-            () -> new BlueRingItem(new Item.Properties().defaultDurability(80)));
+            () -> new BlueRingItem(new Item.Properties().defaultDurability(80).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> RED_RING = ITEMS.register("red_ring",
-            () -> new RedRingItem(new Item.Properties().defaultDurability(80)));
+            () -> new RedRingItem(new Item.Properties().defaultDurability(80).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> PURPLE_RING = ITEMS.register("purple_ring",
-            () -> new PurpleRingItem(new Item.Properties().defaultDurability(160)));
+            () -> new PurpleRingItem(new Item.Properties().defaultDurability(160).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> HOOKSHOT = ITEMS.register("hookshot",
-            () -> new HookshotItem(new Item.Properties().defaultDurability(360)));
+            () -> new HookshotItem(new Item.Properties().defaultDurability(360).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> LONGSHOT = ITEMS.register("longshot",
-            () -> new HookshotItem(new Item.Properties().defaultDurability(720)));
+            () -> new HookshotItem(new Item.Properties().defaultDurability(720).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> CLAWSHOT = ITEMS.register("clawshot",
-            () -> new ClawshotItem(new Item.Properties().defaultDurability(360)));
+            () -> new ClawshotItem(new Item.Properties().defaultDurability(360).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> CLAWSHOT_GODDESS = ITEMS.register("clawshot_goddess",
-            () -> new ClawshotItem(new Item.Properties().defaultDurability(720)));
+            () -> new ClawshotItem(new Item.Properties().defaultDurability(720).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> LENS_OF_TRUTH = ITEMS.register("lens",
-            () -> new LensItem(new Item.Properties()));
+            () -> new LensItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SILVER_SCALE = ITEMS.register("scale_silver",
-            () -> new ScaleItem(new Item.Properties().defaultDurability(124)));
+            () -> new ScaleItem(new Item.Properties().defaultDurability(124).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> GOLDEN_SCALE = ITEMS.register("scale_gold",
-            () -> new ScaleItem(new Item.Properties().defaultDurability(248)));
+            () -> new ScaleItem(new Item.Properties().defaultDurability(248).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> OCARINA = ITEMS.register("ocarina",
             () -> new OcarinaItem(new Item.Properties().rarity(Rarity.RARE).defaultDurability(250)));
     public static final RegistryObject<Item> ASCEND = ITEMS.register("ascend",
@@ -270,28 +270,28 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<Item> HYLIAN_SHIELD = ITEMS.register("hylian_shield",
             () -> new ShieldItem(new Item.Properties().rarity(Rarity.UNCOMMON).durability(652)));
     public static final RegistryObject<Item> MIRROR_SHIELD = ITEMS.register("mirror_shield",
-            () -> new MirrorShieldItem(new Item.Properties().rarity(Rarity.UNCOMMON).durability(800)));
+            () -> new MirrorShieldItem(new Item.Properties().rarity(Rarity.RARE).durability(800)));
 
     //This is where armors are located keep them together
     //Boots tier
     public static final RegistryObject<HeavyBoots> HEAVY_BOOTS = ITEMS.register("heavyboots",
             ()-> new HeavyBoots(ModArmorMaterials.ZELDAH, ArmorItem.Type.BOOTS,
-                    new Item.Properties().defaultDurability(250)));
+                    new Item.Properties().defaultDurability(250).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<HoverBoots> HOVER_BOOTS = ITEMS.register("hoverboots",
             ()-> new HoverBoots(ModArmorMaterials.HOVER, ArmorItem.Type.BOOTS,
-                    new Item.Properties().defaultDurability(250)));
+                    new Item.Properties().defaultDurability(250).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<PegasusBoots> PEGASUS_BOOTS = ITEMS.register("pegasusboots",
             ()-> new PegasusBoots(ModArmorMaterials.PEGASUS, ArmorItem.Type.BOOTS,
-                    new Item.Properties().defaultDurability(195)));
+                    new Item.Properties().defaultDurability(195).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Flippers> FLIPPERS = ITEMS.register("flippers",
             ()-> new Flippers(ModArmorMaterials.ZoraTunic, ArmorItem.Type.BOOTS,
-                    new Item.Properties().defaultDurability(195)));
+                    new Item.Properties().defaultDurability(195).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<DragonScale> DRAGON_SCALE = ITEMS.register("scale_dragon",
             ()-> new DragonScale(ModArmorMaterials.Dragon, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().defaultDurability(600)));
+                    new Item.Properties().defaultDurability(600).rarity(Rarity.RARE)));
     public static final RegistryObject<FireShield> FIRE_SHIELD = ITEMS.register("fire_shield",
             ()-> new FireShield(ModArmorMaterials.Fire, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(600)));
+                    new Item.Properties().defaultDurability(600).rarity(Rarity.RARE)));
 
 
 
@@ -413,13 +413,13 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties().defaultDurability(180)));
     public static final RegistryObject<ArmorItem> ROC_CAPE = ITEMS.register("roc_cape",
             ()-> new RocCape(ModArmorMaterials.Roc,ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().defaultDurability(380)));
+                    new Item.Properties().defaultDurability(380).rarity(Rarity.RARE)));
     public static final RegistryObject<ArmorItem> CHAMPION_TUNIC = ITEMS.register("champion_tunic",
             ()-> new ArmorItem(ModArmorMaterials.Champion, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(340)));
     public static final RegistryObject<ArmorItem> CHAMPIONS_TUNIC = ITEMS.register("champions_tunic",
             ()-> new ChampionLeathers(ModArmorMaterials.Champions, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().defaultDurability(560)));
+                    new Item.Properties().defaultDurability(560).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<ArmorItem> CLASSIC_TUNIC = ITEMS.register("classic_tunic",
             ()-> new ArmorItem(ModArmorMaterials.Classic, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(440)));
@@ -435,13 +435,13 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
 
 
     public static final RegistryObject<Item> DEKU_SPAWN_EGG = ITEMS.register("deku_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.DEKU, 917142, 43520,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.DEKU, 8408862, 14843160,
                     new Item.Properties()));
     public static final RegistryObject<Item> DARK_NUT_SPAWN_EGG = ITEMS.register("dark_nut_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.DARK_NUT, 12566463, 14637912,
                     new Item.Properties()));
     public static final RegistryObject<Item> KEESE_SPAWN_EGG = ITEMS.register("keese_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.KEESE, 12566463, 16252718,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.KEESE, 6176839, 16252718,
                     new Item.Properties()));
 
         public static void register (IEventBus eventbus) {

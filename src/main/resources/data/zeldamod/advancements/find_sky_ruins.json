@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:sky_stone_mural"
+    },
+    "title": {
+      "text": "Tears of the Ruins"
+    },
+    "description": {
+      "text": "Locate the Sky Ruins"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:find_power_temple",
+  "criteria": {
+    "in_stronghold": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "zeldamod:sky_ruins"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_stronghold"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

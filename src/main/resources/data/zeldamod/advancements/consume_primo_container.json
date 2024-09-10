@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:gold_heart_container"
+    },
+    "title": {
+      "text": "A Healthful Solution"
+    },
+    "description": {
+      "text": "Obtain and consume a Gold Heart Container"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:consume_heart_container",
+  "criteria": {
+    "apple": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "zeldamod:gold_heart_container"
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "apple"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

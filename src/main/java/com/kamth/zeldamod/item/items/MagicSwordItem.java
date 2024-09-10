@@ -38,7 +38,6 @@ public class MagicSwordItem extends SwordItem {
         else {
             return InteractionResultHolder.pass(itemstack);
         }
-
         player.awardStat(Stats.ITEM_USED.get(this));
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }

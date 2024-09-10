@@ -2,6 +2,7 @@ package com.kamth.zeldamod.block.custom;
 
 import com.kamth.zeldamod.block.entity.SwordPedestalEntity;
 import com.kamth.zeldamod.block.entity.UnlockedSwordPedestalEntity;
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -87,6 +88,14 @@ public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
                 pLevel.updateNeighborsAt(pPos,this);
                 return InteractionResult.SUCCESS;}
             }
+            if (stackInHand.is(ModTags.Items.BROKEN_SWORDS) && pPlayer.getMaxHealth() >= 26 && pedestal.getSword().isEmpty())
+            {
+                    pedestal.setSword(ModItems.MASTER_SWORD.get().getDefaultInstance());
+                    pLevel.playSound(pPlayer,pPos, SoundEvents.BEACON_ACTIVATE, SoundSource.BLOCKS);
+                    pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
+                    pLevel.updateNeighborsAt(pPos,this);
+                    return InteractionResult.SUCCESS;}
+            }
             if (stackInHand.isEmpty() && !pedestal.getSword().isEmpty())
             {
                 pLevel.updateNeighborsAt(pPos,this);
@@ -102,7 +111,6 @@ public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
             pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
             pLevel.updateNeighborsAt(pPos,this);
             return InteractionResult.SUCCESS;
-        }
         }
         return InteractionResult.FAIL;
     }

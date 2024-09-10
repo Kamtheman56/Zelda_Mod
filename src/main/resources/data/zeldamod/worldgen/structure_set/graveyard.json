@@ -4,12 +4,12 @@
   "structures": [
     {
       "structure": "zeldamod:graveyard",
-      "weight": 1
+      "weight": 2
     }
   ],
   "placement": {
     // Make sure this is unique and does not match any other structure set's salt
-    "salt": 1744141664,
+    "salt": 2038002345,
 
     // The average distance apart in chunks for spawn attempts
     "spacing": 70,

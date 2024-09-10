@@ -106,5 +106,11 @@
     "sounds": [
       "zeldamod:ocarina_sound"
     ]
+  },
+  "brown_bricks": {
+    "subtitle": "sounds.zeldamod.brown_bricks",
+    "sounds": [
+      "zeldamod:brown_bricks"
+    ]
   }
 }

@@ -1,5 +1,6 @@
 {
   "variants": {
-    "": {"model": "zeldamod:block/heart_flower"}
+    "powered=false": {"model": "zeldamod:block/heart_flower_empty"},
+    "powered=true": {"model": "zeldamod:block/heart_flower"}
   }
 }

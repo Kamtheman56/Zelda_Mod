@@ -47,7 +47,7 @@
           "type": "zeldamod:deku",
           "weight": 4,
           "minCount": 1,
-          "maxCount": 16
+          "maxCount": 3
         }
       ]
     }

@@ -8,6 +8,11 @@
     "minecraft:stone_sword",
     "minecraft:iron_sword",
     "minecraft:golden_sword",
-    "minecraft:diamond_sword"
+    "minecraft:diamond_sword",
+    "zeldamod:gilded_sword",
+    "zeldamod:master_sword",
+    "zeldamod:hero_sword",
+    "zeldamod:white_sword",
+    "zeldamod:magic_sword"
   ]
 }

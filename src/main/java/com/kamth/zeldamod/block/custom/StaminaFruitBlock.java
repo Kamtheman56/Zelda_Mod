@@ -12,8 +12,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -22,34 +23,33 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.function.Supplier;
 
-public class StaminaFruitBlock extends FlowerBlock {
+public class StaminaFruitBlock extends HeartFlowerBlock {
+    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
+
     public StaminaFruitBlock(Supplier<MobEffect> effectSupplier, int pEffectDuration, Properties pProperties) {
         super(effectSupplier, pEffectDuration, pProperties);
 
     }
-    protected static final VoxelShape SHAPE2 = makeShape();
-    @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        Vec3 vec3 = pState.getOffset(pLevel, pPos);
-        return SHAPE2.move(vec3.x, vec3.y, vec3.z);
-    }
 
+    protected static final VoxelShape SHAPE2 = makeShape();
+    protected static final VoxelShape FLAT = flat();
 
     public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-        return 1.0F;
+        return 1F;
     }
 
-@Override
+    @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+        if (pEntity instanceof LivingEntity) {
+            LivingEntity livingentity = (LivingEntity) pEntity;
+            if ((!pEntity.isCrouching() && pState.getValue(POWERED))) {
+                livingentity.addEffect(new MobEffectInstance(MobEffects.SATURATION, 5, 0));
+                this.pull(pState, pLevel, pPos);
+                pLevel.playSound(null, pPos, ModSounds.HEAL.get(), SoundSource.BLOCKS, 1, 2.5f);
+            }
+        }
+    }
 
-
-    if (pEntity instanceof LivingEntity) {
-        LivingEntity livingentity = (LivingEntity)pEntity;
-            if ((!pEntity.isCrouching())) {
-           livingentity.addEffect(new MobEffectInstance(MobEffects.SATURATION, 5, 0));
-                pLevel.removeBlock(pPos,false);
-                pLevel.playSound(null,pPos, ModSounds.HEAL.get(), SoundSource.BLOCKS, 1,2.5f);
-            }}}
     @Override
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockPos blockpos = pPos.below();
@@ -60,17 +60,41 @@ public class StaminaFruitBlock extends FlowerBlock {
             return false;
         }
     }
-    public static VoxelShape makeShape(){
+
+    public void pull(BlockState pState, Level pLevel, BlockPos pPos) {
+        pState = pState.setValue(POWERED, false);
+        pLevel.setBlockAndUpdate(pPos, pState);
+    }
+    @Override
+    public VoxelShape getVisualShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        Vec3 vec3 = pState.getOffset(pLevel, pPos);
+        if (pState.getValue(POWERED)){
+            return SHAPE2.move(vec3.x, vec3.y, vec3.z);
+        }
+        else
+            return FLAT.move(vec3.x, vec3.y, vec3.z);
+    }
+    public static VoxelShape makeShape() {
         VoxelShape shape = Shapes.empty();
         shape = Shapes.join(shape, Shapes.box(0.25, 0.001875, 0.25, 0.75, 0.314375, 0.75), BooleanOp.OR);
 
         return shape;
     }
+    @Override
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        Vec3 vec3 = pState.getOffset(pLevel, pPos);
+        if (pState.getValue(POWERED)) {
+            return SHAPE2.move(vec3.x, vec3.y, vec3.z);
+        }
+        else return FLAT.move(vec3.x, vec3.y, vec3.z);
+    }
 
-
+    public static VoxelShape flat() {
+        VoxelShape shape = Shapes.empty();
+        shape = Shapes.join(shape, Shapes.box(0.25, 0.001875, 0.25, 0.75, 0.064375, 0.75), BooleanOp.OR);
+        return shape;
+    }
 }
-
-
 
 
 

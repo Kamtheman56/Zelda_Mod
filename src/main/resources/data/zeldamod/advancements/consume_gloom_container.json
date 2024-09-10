@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:gloom_container"
+    },
+    "title": {
+      "text": "Dubious Food..."
+    },
+    "description": {
+      "text": "Obtain and consume a Gloom Heart Container reducing your maximum health"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:consume_heart_container",
+  "criteria": {
+    "apple": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "zeldamod:gloom_container"
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "apple"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

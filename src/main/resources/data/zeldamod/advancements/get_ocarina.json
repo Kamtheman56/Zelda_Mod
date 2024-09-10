@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:ocarina"
+    },
+    "title": "About Time",
+    "description": "Obtain the Ocarina",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_equipment",
+  "criteria": {
+    "razor_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:ocarina"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "razor_sword"
+    ]
+  ],
+  "rewards": {
+    "experience": 16
+  },
+  "sends_telemetry_event": true
+}

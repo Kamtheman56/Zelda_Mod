@@ -27,11 +27,23 @@
     "zeldamod:time_block",
     "zeldamod:time_block_ghost",
     "zeldamod:time_bricks",
+    "zeldamod:time_bricks_stairs",
+    "zeldamod:time_bricks_slab",
+    "zeldamod:cracked_time_bricks",
+    "zeldamod:cracked_time_bricks_stairs",
+    "zeldamod:cracked_time_bricks_slab",
+    "zeldamod:mossy_time_bricks",
+    "zeldamod:mossy_time_bricks_stairs",
+    "zeldamod:mossy_time_bricks_slab",
     "zeldamod:zelda_stone",
     "zeldamod:pressure_switch",
     "zeldamod:timed_pressure_switch",
     "zeldamod:rusted_pressure_switch",
-    "zeldamod:rusted_timed_pressure_switch"
-
+    "zeldamod:rusted_timed_pressure_switch",
+    "zeldamod:brown_bricks",
+    "zeldamod:sky_stone_chiseled",
+    "zeldamod:sky_stone_mural",
+    "zeldamod:sun_stone",
+    "zeldamod:note_stone"
   ]
 }

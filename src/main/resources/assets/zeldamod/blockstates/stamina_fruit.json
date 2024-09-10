@@ -1,5 +1,6 @@
 {
   "variants": {
-    "": {"model": "zeldamod:block/stamina_fruit"}
+    "powered=false": {"model": "zeldamod:block/stamina_fruit_empty"},
+    "powered=true": {"model": "zeldamod:block/stamina_fruit"}
   }
 }

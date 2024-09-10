@@ -30,6 +30,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> SONG_SUN = registerSoundEvents ("song_sun");
     public static final RegistryObject<SoundEvent> SONG_EPONA = registerSoundEvents ("song_epona");
     public static final RegistryObject<SoundEvent> OCARINA = registerSoundEvents ("ocarina_sound");
+    public static final RegistryObject<SoundEvent> BROWN_BRICKS = registerSoundEvents ("brown_bricks");
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(ZeldaMod.MOD_ID, name)));

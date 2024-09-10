@@ -199,6 +199,7 @@
   "sounds.zeldamod.song_storms": "Song of Storms plays",
   "sounds.zeldamod.song_sun": "Sun's Song plays",
   "sounds.zeldamod.ocarina_sound": "Ocarina plays",
+  "sounds.zeldamod.brown_bricks": "???",
 
   "block.zeldamod.gloom_block": "Gloom Block",
   "block.zeldamod.gloom_vein": "Gloom Vein",
@@ -267,6 +268,8 @@
   "block.zeldamod.zora_grave_block": "Zora Grave",
   "block.zeldamod.goron_grave_block": "Goron Grave",
   "block.zeldamod.malice_block": "Malice Block",
+  "block.zeldamod.brown_bricks": "Brown Bricks",
+  "block.zeldamod.ancient_sword_pedestal": "Ancient Sword Pedestal",
 
 
   "Nightmask": "You don't think you should do this",
@@ -297,7 +300,7 @@
   "item.gold_heart_container_full": "Your life force is maxed out!",
   "item.hammer.description_basic": "Smash through weak blocks",
   "item.hammer.description_advanced": "Pound down wooden pegs",
-  "item.ancient_arrow.description": "Obliterate Evil",
+  "item.ancient_arrow.description": "Completely Obliterate Evil",
   "item.key_big.description": "Able to unlock any gold locked doors",
   "item.blue_potion.description": "Restores Hunger and Health",
   "item.blue_ring.description_basic": "Offers protection",
@@ -402,7 +405,7 @@
   "item.scent_mask.description_basic": "Smells like mushrooms",
   "item.stone_mask.description_advanced": "Turn Invisible",
   "item.stone_mask.description_basic": "Become as plain as stone",
-  "item.truth_mask.description": "Stare into the truth",
+  "item.truth_mask.description": "Reveal the truth",
   "item.zora_mask.description_advanced": "Swim fast and take to the seas",
   "item.zora_mask.description_basic": "Become a swimming pro!",
   "armor.dragon_scale.description_advanced": "Crouch while swimming to boost",
