@@ -12,6 +12,8 @@ public class ModModelLayers {
     public static final ModelLayerLocation CAP = create("cap");
     public static final ModelLayerLocation DEKU_LAYER = new ModelLayerLocation(
             new ResourceLocation(ZeldaMod.MOD_ID, "deku_layer"), "main");
+    public static final ModelLayerLocation DEKU_MAD_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "deku_mad_layer"), "main");
 
 
 

@@ -36,6 +36,8 @@
   "item.zeldamod.gloom_container": "Gloom Container",
   "item.zeldamod.heart_piece": "Heart Piece",
   "item.zeldamod.gold_heart_container": "Primo Heart Container",
+  "item.zeldamod.gloom_clump": "Gloom Clump",
+  "item.zeldamod.gloom_resist_potion": "Gloom Resistance Potion",
 
 
   "itemGroup.zeldatab": "Zelda Items",
@@ -169,15 +171,22 @@
   "item.zeldamod.classic_tunic": "Classic Tunic",
   "item.zeldamod.archaic_tunic": "Archaic Tunic",
   "item.zeldamod.hylian_hood": "Hylian Hood",
+  "item.zeldamod.dark_hat": "Dark Hat",
+  "item.zeldamod.dark_tunic": "Dark Tunic",
+  "item.zeldamod.dark_pants": "Dark Pants",
+  "item.zeldamod.dark_boots": "Dark Boots",
 
 
   "item.zeldamod.deku_spawn_egg": "Deku Spawn Egg",
+  "item.zeldamod.deku_mad_spawn_egg": "Mad Scrub Spawn Egg",
   "item.zeldamod.dark_nut_spawn_egg": "Dark Nut Spawn Egg",
+  "item.zeldamod.dark_knight_spawn_egg": "Dark Knight Spawn Egg",
   "item.zeldamod.keese_spawn_egg": "Keese Spawn Egg",
 
   "effect.zeldamod.deku": "Water Hopping",
   "effect.zeldamod.goron": "Goron",
   "effect.zeldamod.gloom": "Gloom Sickness",
+  "effect.zeldamod.gloom_resist": "Gloom Resistance",
   "effect.zeldamod.hover": "Hover",
   "effect.zeldamod.fire": "Fire Shield Earrings",
   "effect.zeldamod.mini": "Mini",
@@ -292,6 +301,8 @@
   "filled_map.sky_ruins_map": "Sky Ruins Map",
   "filled_map.song_ruins_map": "Song Ruins Map",
   "filled_map.monster_map": "Dungeon Map",
+  "filled_map.arctic_ruins_map": "Arctic Ruins Map",
+
   "Ocarina": "Your notes ring hollow...",
 
   "item.gloom_heart.description": "Decrease your maximum vitality by one",
@@ -422,8 +433,10 @@
   "armor.pegasus_boots.description_basic": "Extra Speedy",
   "armor.roc_cape.description": "Jump high and fall slow",
   "armor.zora_tunic.description": "Breathe underwater",
+  "armor.dark_tunic_description": "Protection from Dark Forces",
   "item.gloom_sword.description_basic": "It glows with evil power",
 "item.gloom_sword.description_advanced": "Consumes a heart for every hit you make...",
+  "item.gloom_resist_potion.description": "Grants immunity to Gloom",
 
 
 

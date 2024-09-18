@@ -124,7 +124,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 2)
+                .add(Attributes.MAX_HEALTH, 1)
                 .add(Attributes.KNOCKBACK_RESISTANCE, -4f)
                 .add(Attributes.MOVEMENT_SPEED, .3f)
                 .add(Attributes.FLYING_SPEED, .4f)

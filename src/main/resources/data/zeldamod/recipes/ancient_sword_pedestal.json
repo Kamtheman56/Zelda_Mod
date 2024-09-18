@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "blocks",
+  "pattern": [
+    "rrr",
+    "rxr",
+    "rrr"
+  ],
+  "key": {
+    "r": {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    "x": {
+      "item": "zeldamod:sword_pedestal"
+    }
+  },
+  "result": {
+    "item": "zeldamod:ancient_sword_pedestal",
+    "count": 1
+  }
+}

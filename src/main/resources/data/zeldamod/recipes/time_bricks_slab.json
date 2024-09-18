@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "zeldamod:time_bricks"
+    }
+  },
+  "result": {
+    "item": "zeldamod:time_bricks_slab",
+    "count": 6
+  },
+  "show_notification": true
+}

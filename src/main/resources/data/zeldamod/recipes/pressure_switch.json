@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "blocks",
+  "pattern": [
+    "rrr"
+  ],
+  "key": {
+    "r": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "zeldamod:pressure_switch",
+    "count": 1
+  }
+}

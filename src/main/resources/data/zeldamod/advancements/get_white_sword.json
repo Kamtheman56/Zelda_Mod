@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:white_sword"
+    },
+    "title": {
+      "text": "Power Sword",
+      "italic": true
+    },
+    "description": {
+      "text": "Place the Hero Sword in an Ancient Sword Pedestal with 15 or more Maximum Health"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_hero_sword",
+  "criteria": {
+    "kokiri_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:white_sword"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kokiri_sword"
+    ]
+  ],
+  "rewards": {
+    "experience": 3
+  },
+  "sends_telemetry_event": true
+}

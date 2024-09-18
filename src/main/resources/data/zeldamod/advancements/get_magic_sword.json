@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:magic_sword"
+    },
+    "title": {
+      "text": "Never Alone",
+      "italic": true
+    },
+    "description": {
+      "text": "Place the White Sword in an Ancient Sword Pedestal with 3 or less Maximum Health"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_white_sword",
+  "criteria": {
+    "kokiri_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:magic_sword"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kokiri_sword"
+    ]
+  ],
+  "rewards": {
+    "experience": 3
+  },
+  "sends_telemetry_event": true
+}

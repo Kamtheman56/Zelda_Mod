@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "C#C",
+    "#L#",
+    "C#C"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gold_block"
+    },
+    "C": {
+      "item": "zeldamod:primo_flower"
+    },
+    "L": {
+      "item": "zeldamod:heart_container"
+    }
+  },
+  "result": {
+    "item": "zeldamod:gold_heart_container",
+    "count": 1
+  }
+}

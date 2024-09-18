@@ -186,6 +186,22 @@
           "id": "minecraft:swiftness"
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:flute",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.3
+            }
+          ]
+        }
+      ]
     }
   ],
   "random_sequence": "zeldamod:chests/graveyard_grave"

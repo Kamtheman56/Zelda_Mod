@@ -171,8 +171,28 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("green_potion_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
                 LootItemRandomChanceCondition.randomChance(0.35f).build()}, ModItems.STAMINA.get()));
+        add("ocarina_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
+                LootItemRandomChanceCondition.randomChance(0.07f).build()}, ModItems.OCARINA.get()));
 
-
+        add("dark_hat_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
+                LootItemRandomChanceCondition.randomChance(0.10f).build()}, ModItems.DARK_HAT.get()));
+        add("dark_boots_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
+                LootItemRandomChanceCondition.randomChance(0.10f).build()}, ModItems.DARK_BOOTS.get()));
+        add("dark_pants_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
+                LootItemRandomChanceCondition.randomChance(0.10f).build()}, ModItems.DARK_PANTS.get()));
+        add("dark_tunic_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
+                LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.DARK_TUNIC.get()));
+        add("gloom_clump_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
+                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ModItems.GLOOM_CLUMP.get()));
+        add("gloom_container_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
+                LootItemRandomChanceCondition.randomChance(0.001f).build()}, ModItems.GLOOM_CONTAINER.get()));
 
         //from woodland mansion
         add("hookshot_from_mansion", new AddItemModifier(new LootItemCondition[] {

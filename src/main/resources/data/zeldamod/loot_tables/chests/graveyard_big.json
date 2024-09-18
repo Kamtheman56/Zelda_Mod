@@ -25,8 +25,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 7,
           "name": "minecraft:wheat",
+          "weight": 7,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -41,8 +41,8 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
           "name": "minecraft:potato",
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -57,8 +57,8 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 5,
           "name": "minecraft:carrot",
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -108,13 +108,13 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 7,
-          "name": "minecraft:experience_bottle"
+          "name": "minecraft:experience_bottle",
+          "weight": 7
         },
         {
           "type": "minecraft:item",
-          "weight": 4,
           "name": "minecraft:string",
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -129,8 +129,8 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 4,
           "name": "minecraft:arrow",
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -145,24 +145,8 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
           "name": "minecraft:tripwire_hook",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1,
-                "max": 3
-              },
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
           "weight": 3,
-          "name": "minecraft:iron_ingot",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -177,9 +161,25 @@
         },
         {
           "type": "minecraft:item",
+          "name": "minecraft:iron_ingot",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:gold_dust",
           "weight": 4,
-          "quality": 1,
-          "name": "zeldamod:gold_dust"
+          "quality": 1
         }
       ]
     },
@@ -236,6 +236,13 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": {
+        "min": 0,
+        "max": 1
+      },
+      "entries": []
     }
   ],
   "random_sequence": "zeldamod:chests/graveyard_big"

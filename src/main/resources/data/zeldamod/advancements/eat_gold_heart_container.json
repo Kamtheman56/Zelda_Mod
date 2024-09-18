@@ -1,27 +1,29 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:gloom_container"
+      "item": "zeldamod:gold_heart_container"
     },
     "title": {
-      "text": "Dubious Food..."
+      "text": "Feelin' Great!",
+      "italic": true
     },
     "description": {
-      "text": "Obtain and consume a Gloom Heart Container reducing your maximum health"
+      "text": "Craft a Primo Heart Container and consume it!"
     },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:consume_heart_container",
+  "parent": "zeldamod:eat_heart_container",
   "criteria": {
-    "apple": {
+    "heart_container": {
       "trigger": "minecraft:consume_item",
       "conditions": {
+        "player": {},
         "item": {
           "items": [
-            "zeldamod:gloom_container"
+            "zeldamod:gold_heart_container"
           ]
         }
       }
@@ -29,7 +31,7 @@
   },
   "requirements": [
     [
-      "apple"
+      "heart_container"
     ]
   ],
   "rewards": {

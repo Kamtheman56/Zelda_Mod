@@ -240,23 +240,10 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
         }
         public void start() {
             this.mob.getNavigation().stop();
-            this.mob.setInSittingPose(true);
             this.mob.sitAnimationState.start(200);
         }
     }
 
-    public boolean isInSittingPose() {
-        return (this.entityData.get(DATA_FLAGS_ID) & 1) != 0;
-    }
 
-    public void setInSittingPose(boolean pSitting) {
-        byte b0 = this.entityData.get(DATA_FLAGS_ID);
-        if (pSitting) {
-            this.entityData.set(DATA_FLAGS_ID, (byte)(b0 | 1));
-        } else {
-            this.entityData.set(DATA_FLAGS_ID, (byte)(b0 & -2));
-        }
-
-    }
 
 }

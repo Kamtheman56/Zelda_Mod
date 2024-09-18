@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xkx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "zeldamod:gloom_clump"
+    },
+    "k": {
+      "item": "zeldamod:kokiriboots"
+    }
+  },
+  "result": {
+    "id": "zeldamod:dark_boots",
+    "count": 1
+  }
+}

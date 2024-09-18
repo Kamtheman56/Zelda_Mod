@@ -696,6 +696,15 @@ public class ModEvents {
                     new ItemStack(Items.EMERALD, 28),
                     stack,1,250,0.07F));
         }
+        if(event.getType() == ModVillagers.MASK_TRADER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.POSTMAN_MASK.get(), 1);
+            int villagerLevel = 5;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 35),
+                    stack,1,250,0.07F));
+        }
 //make more trades dude
 
     }

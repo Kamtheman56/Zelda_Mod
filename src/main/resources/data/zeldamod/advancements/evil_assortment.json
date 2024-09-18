@@ -1,0 +1,53 @@
+{
+  "display": {
+    "icon": {
+      "id": "zeldamod:gloom_sword",
+      "count": 1
+    },
+    "title": {
+      "text": "An Evil Assortment",
+      "italic": true
+    },
+    "description": {
+      "text": "Obtain a full set of Dark Armor and Weapons"
+    },
+    "frame": "challenge"
+  },
+  "parent": "zeldamod:get_kokiri_armor",
+  "criteria": {
+    "netherite_armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zeldamod:dark_hat"
+          },
+          {
+            "items": "zeldamod:dark_tunic"
+          },
+          {
+            "items": "zeldamod:dark_pants"
+          },
+          {
+            "items": "zeldamod:dark_boots"
+          },
+          {
+            "items": "zeldamod:gloom_sword"
+          },
+          {
+            "items": "zeldamod:gloom_club"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "netherite_armor"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

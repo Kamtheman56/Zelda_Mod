@@ -3,7 +3,10 @@
     "icon": {
       "item": "zeldamod:mirror_shield"
     },
-    "title": "The Final Shield",
+    "title": {
+      "text": "Final Shield",
+      "italic": true
+    },
     "description": "Acquire the Mirror Shield",
     "frame": "goal",
     "show_toast": true,

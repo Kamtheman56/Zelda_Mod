@@ -3,7 +3,10 @@
     "icon": {
       "item": "zeldamod:majoramask"
     },
-    "title": "Scourge of Termina",
+    "title": {
+      "text": "Scourge of Termina",
+      "italic": true
+    },
     "bold": true,
     "description": "Uncover an ancient power",
     "frame": "challenge",

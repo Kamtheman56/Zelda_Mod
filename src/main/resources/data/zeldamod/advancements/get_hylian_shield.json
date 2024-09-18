@@ -3,7 +3,10 @@
     "icon": {
       "item": "zeldamod:hylian_shield"
     },
-    "title": "The Legendary Shield",
+    "title": {
+      "text": "Legendary Shield",
+      "italic": true
+    },
     "description": "Find the Legendary Shield",
     "frame": "goal",
     "show_toast": true,

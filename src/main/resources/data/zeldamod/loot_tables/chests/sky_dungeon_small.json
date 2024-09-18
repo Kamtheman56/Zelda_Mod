@@ -19,8 +19,7 @@
               "levels": {
                 "min": 30,
                 "max": 50
-              },
-              "options": "#minecraft:on_random_loot"
+              }
             }
           ]
         },
@@ -34,8 +33,7 @@
               "levels": {
                 "min": 30,
                 "max": 50
-              },
-              "options": "#minecraft:on_random_loot"
+              }
             }
           ]
         },
@@ -167,8 +165,7 @@
                 "type": "minecraft:uniform",
                 "min": 30,
                 "max": 50
-              },
-              "options": "#minecraft:on_random_loot"
+              }
             }
           ]
         },
@@ -178,8 +175,7 @@
           "weight": 3,
           "functions": [
             {
-              "function": "minecraft:enchant_randomly",
-              "options": "minecraft:swift_sneak"
+              "function": "minecraft:enchant_randomly"
             }
           ]
         },
@@ -258,8 +254,7 @@
                 "type": "minecraft:uniform",
                 "min": 20,
                 "max": 39
-              },
-              "options": "#minecraft:on_random_loot"
+              }
             }
           ]
         },
@@ -317,8 +312,7 @@
           "weight": 5,
           "functions": [
             {
-              "function": "minecraft:enchant_randomly",
-              "options": "#minecraft:on_random_loot"
+              "function": "minecraft:enchant_randomly"
             }
           ]
         },
@@ -410,6 +404,25 @@
           "type": "minecraft:item",
           "name": "zeldamod:pegasusboots",
           "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:bomb_arrow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 0,
+                "max": 12
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:gloom_resist_potion",
+          "weight": 2
         }
       ]
     }

@@ -87,6 +87,8 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("gloom_weapons");
         public static final TagKey<Item> BROKEN_SWORDS
                 = tag("broken_master_swords");
+        public static final TagKey<Item> JARS
+                = tag("jars");
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }

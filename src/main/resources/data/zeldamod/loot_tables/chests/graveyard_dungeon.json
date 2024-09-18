@@ -300,6 +300,34 @@
           "name": "zeldamod:blue_potion"
         }
       ]
+    },
+    {
+      "rolls": {
+        "min": 0,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:hookshot",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.2
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:heart_piece",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.35
+            }
+          ]
+        }
+      ]
     }
   ],
   "random_sequence": "zeldamod:chests/graveyard_dungeon"

@@ -14,7 +14,7 @@ public class ModTiers {
             3, BlockTags.NEEDS_IRON_TOOL,
             () -> Ingredient.of(ModItems.KOKIRI_SWORD.get()));
 
-    public static final ForgeTier GILDED = new ForgeTier(4, 2000, 1.5f, 2f,
+    public static final ForgeTier GILDED = new ForgeTier(4, 2001, 1.5f, 2f,
             2, BlockTags.NEEDS_IRON_TOOL,
             () -> Ingredient.of(ModItems.GOLD_DUST.get()));
     //Unbreakable items go in this tier
@@ -33,6 +33,7 @@ public class ModTiers {
     public static final ForgeTier DEITY = new ForgeTier(2, 0, 1.5f, 2f,
             0, BlockTags.NEEDS_DIAMOND_TOOL,
             () -> Ingredient.of(ModItems.DEITY_SHARD.get()));
-
-
+    public static final ForgeTier GLOOM = new ForgeTier(12, 59, 1.5f, 2f,
+            3, BlockTags.NEEDS_IRON_TOOL,
+            () -> Ingredient.of(ModItems.GLOOM_CLUMP.get()));
 }

@@ -1,24 +1,24 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:ocarina"
+      "item": "zeldamod:heart_piece"
     },
-    "title": "About Time",
-    "description": "Obtain the Ocarina",
-    "frame": "task",
+    "title": "Piece of Cake",
+    "description": "Obtain a Piece of Heart",
+    "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:get_equipment",
+  "parent": "zeldamod:base",
   "criteria": {
-    "razor_sword": {
+    "heart_piece": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "zeldamod:ocarina"
+              "zeldamod:heart_piece"
             ]
           }
         ]
@@ -27,11 +27,11 @@
   },
   "requirements": [
     [
-      "razor_sword"
+      "heart_piece"
     ]
   ],
   "rewards": {
-    "experience": 16
+    "experience": 3
   },
   "sends_telemetry_event": true
 }

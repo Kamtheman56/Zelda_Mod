@@ -36,6 +36,8 @@ public class ModItems {
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> MASTER_UPGRADE = ITEMS.register("master_upgrade",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> GLOOM_CLUMP = ITEMS.register("gloom_clump",
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> DIN_PEARL = ITEMS.register("pearl_power",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
@@ -87,6 +89,8 @@ public class ModItems {
             () -> new BluePotionItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.BLUE).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MILK_MAGIC = ITEMS.register("magic_milk",
             () -> new DrinkItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.MILK_MAGIC)));
+    public static final RegistryObject<Item> GLOOM_RESIST_POTION = ITEMS.register("gloom_resist_potion",
+            () -> new GloomResistPotionItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1)));
     public static final RegistryObject<Item> SUPER_MUSHROOM = ITEMS.register("mushroom_super",
             () -> new Item(new Item.Properties().food(ModFoods.SUPER_MUSHROOM)));
     public static final RegistryObject<Item> LIFE_MUSHROOM = ITEMS.register("mushroom_life",
@@ -105,16 +109,16 @@ public class ModItems {
     //This is where Tools start
     public static final RegistryObject<Item> KOKIRI_SWORD = ITEMS.register("kokiri_sword",
             () -> new SwordItem(ModTiers.ZELDA, 1, -2.4f,
-                    new Item.Properties()));
+                    new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> KOKIRI_SWORD2 = ITEMS.register("sword_kokiri",
             () -> new SwordItem(ModTiers.ZELDA, 1, -2.4f,
-                    new Item.Properties().defaultDurability(118)));
+                    new Item.Properties().defaultDurability(118).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> RAZOR_SWORD = ITEMS.register("razor_sword",
             () -> new RazorSwordItem(ModTiers.RAZOR, 2, -1.4f,
-                    new Item.Properties().defaultDurability(260)));
+                    new Item.Properties().defaultDurability(260).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> GILDED_SWORD = ITEMS.register("gilded_sword",
             () -> new SwordItem(ModTiers.GILDED, 3, -2.4f,
-                    new Item.Properties().defaultDurability(2000)));
+                    new Item.Properties().defaultDurability(2000).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
             () -> new MasterSwordItem(ModTiers.ZELDAU, 4, -2.4f,
                     new Item.Properties().defaultDurability(1800).rarity(Rarity.RARE).fireResistant()));
@@ -157,18 +161,18 @@ public class ModItems {
                     new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> HERO_SWORD = ITEMS.register("hero_sword",
             () -> new MagicSwordItem(Tiers.WOOD, 3, -2.4f,
-                    new Item.Properties().rarity(Rarity.UNCOMMON)));
+                    new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(600)));
     public static final RegistryObject<Item> WHITE_SWORD = ITEMS.register("white_sword",
             () -> new MagicSwordItem(Tiers.STONE, 3, -2.4f,
-                    new Item.Properties().rarity(Rarity.RARE)));
+                    new Item.Properties().rarity(Rarity.RARE).defaultDurability(1800)));
     public static final RegistryObject<Item> MAGIC_SWORD = ITEMS.register("magic_sword",
             () -> new MagicSwordItem(Tiers.NETHERITE, 5, -2.2f,
                     new Item.Properties().rarity(Rarity.EPIC).defaultDurability(0)));
     public static final RegistryObject<Item> GLOOM_SWORD = ITEMS.register("gloom_sword",
-            () -> new GloomWeaponItem(Tiers.IRON, 4, -2.4f,
+            () -> new GloomWeaponItem(ModTiers.GLOOM, 4, -2.4f,
                     new Item.Properties().defaultDurability(60).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> GLOOM_CLUB = ITEMS.register("gloom_club",
-            () -> new GloomWeaponItem(Tiers.IRON, 8, -3.4f,
+            () -> new GloomWeaponItem(ModTiers.GLOOM, 8, -3.4f,
                     new Item.Properties().defaultDurability(120).rarity(Rarity.RARE)));
 
 
@@ -432,13 +436,31 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> HYLIAN_HOOD = ITEMS.register("hylian_hood",
             ()-> new ArmorItem(ModArmorMaterials.Hylian, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(200)));
+    public static final RegistryObject<ArmorItem> DARK_TUNIC = ITEMS.register("dark_tunic",
+            ()-> new DarkArmor(ModArmorMaterials.Dark, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().defaultDurability(666)));
+    public static final RegistryObject<ArmorItem> DARK_HAT = ITEMS.register("dark_hat",
+            ()-> new ArmorItem(ModArmorMaterials.Dark, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(450)));
+    public static final RegistryObject<ArmorItem> DARK_PANTS = ITEMS.register("dark_pants",
+            ()-> new ArmorItem(ModArmorMaterials.Dark, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().defaultDurability(580)));
+    public static final RegistryObject<ArmorItem> DARK_BOOTS = ITEMS.register("dark_boots",
+            ()-> new ArmorItem(ModArmorMaterials.Dark, ArmorItem.Type.BOOTS,
+                    new Item.Properties().defaultDurability(450)));
 
 
     public static final RegistryObject<Item> DEKU_SPAWN_EGG = ITEMS.register("deku_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.DEKU, 8408862, 14843160,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.DEKU, 8408862, 778264,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> DEKU_MAD_SPAWN_EGG = ITEMS.register("deku_mad_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.DEKU_MAD, 8408862, 16273174,
                     new Item.Properties()));
     public static final RegistryObject<Item> DARK_NUT_SPAWN_EGG = ITEMS.register("dark_nut_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.DARK_NUT, 12566463, 14637912,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> DARK_KNIGHT_SPAWN_EGG = ITEMS.register("dark_knight_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.DARK_KNIGHT, 6176839, 2561279,
                     new Item.Properties()));
     public static final RegistryObject<Item> KEESE_SPAWN_EGG = ITEMS.register("keese_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.KEESE, 6176839, 16252718,

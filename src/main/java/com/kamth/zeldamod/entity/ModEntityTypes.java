@@ -2,9 +2,7 @@ package com.kamth.zeldamod.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.custom.projectile.*;
-import com.kamth.zeldamod.entity.mobs.DarknutEntity;
-import com.kamth.zeldamod.entity.mobs.DekuScrubEntity;
-import com.kamth.zeldamod.entity.mobs.KeeseEntity;
+import com.kamth.zeldamod.entity.mobs.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityType.Builder;
@@ -48,8 +46,12 @@ public class ModEntityTypes {
 
     public static final RegistryObject<EntityType<DekuScrubEntity>> DEKU = ENTITY_TYPES.register("deku", () -> EntityType.Builder.of(DekuScrubEntity::new, MobCategory.CREATURE)
             .sized(.8f,.8f).build("deku"));
+    public static final RegistryObject<EntityType<DekuMadScrubEntity>> DEKU_MAD = ENTITY_TYPES.register("deku_mad", () -> EntityType.Builder.of(DekuMadScrubEntity::new, MobCategory.MONSTER)
+            .sized(.8f,.8f).build("deku_mad"));
     public static final RegistryObject<EntityType<DarknutEntity>> DARK_NUT = ENTITY_TYPES.register("dark_nut", () -> EntityType.Builder.of(DarknutEntity::new, MobCategory.MONSTER)
             .sized(.8f,1.8f).build("dark_nut"));
+    public static final RegistryObject<EntityType<DarkKnightEntity>> DARK_KNIGHT = ENTITY_TYPES.register("dark_knight", () -> EntityType.Builder.of(DarkKnightEntity::new, MobCategory.MONSTER)
+            .sized(.8f,1.8f).build("dark_knight"));
     public static final RegistryObject<EntityType<KeeseEntity>> KEESE = ENTITY_TYPES.register("keese", () -> EntityType.Builder.of(KeeseEntity::new, MobCategory.MONSTER)
             .sized(.6f,.6f).build("keese"));
 

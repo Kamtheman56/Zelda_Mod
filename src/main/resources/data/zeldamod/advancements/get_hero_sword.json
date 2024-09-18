@@ -1,0 +1,41 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:hero_sword"
+    },
+    "title": {
+      "text": "It's Dangerous to Go Alone!"
+    },
+    "description": {
+      "text": "Take a Hero Sword with you"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:get_equipment",
+  "criteria": {
+    "kokiri_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:hero_sword"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kokiri_sword"
+    ]
+  ],
+  "rewards": {
+    "experience": 3
+  },
+  "sends_telemetry_event": true
+}

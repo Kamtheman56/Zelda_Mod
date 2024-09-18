@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "blocks",
+  "pattern": [
+    "xxx",
+    "xrx",
+    "xxx"
+  ],
+  "key": {
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "x": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "zeldamod:zelda_stone",
+    "count": 3
+  }
+}

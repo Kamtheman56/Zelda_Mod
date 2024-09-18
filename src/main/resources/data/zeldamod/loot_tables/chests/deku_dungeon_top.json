@@ -90,13 +90,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:book",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:enchant_randomly",
-              "options": "#minecraft:on_random_loot"
-            }
-          ]
+          "weight": 10
         }
       ]
     },
@@ -242,6 +236,16 @@
               "add": false
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:kokiritunic",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:kokirihat",
+          "weight": 3
         }
       ]
     },
@@ -320,7 +324,13 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:heart_piece"
+          "name": "zeldamod:heart_piece",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.2
+            }
+          ]
         }
       ]
     }

@@ -1,27 +1,29 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:gold_heart_container"
+      "item": "zeldamod:heart_container"
     },
     "title": {
-      "text": "A Healthful Solution"
+      "text": "Feelin' Good!",
+      "italic": true
     },
     "description": {
-      "text": "Obtain and consume a Gold Heart Container"
+      "text": "Craft a Heart Container using four Heart Pieces and consume it"
     },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:consume_heart_container",
+  "parent": "zeldamod:obtain_heart_piece",
   "criteria": {
-    "apple": {
+    "heart_container": {
       "trigger": "minecraft:consume_item",
       "conditions": {
+        "player": {},
         "item": {
           "items": [
-            "zeldamod:gold_heart_container"
+            "zeldamod:heart_container"
           ]
         }
       }
@@ -29,7 +31,7 @@
   },
   "requirements": [
     [
-      "apple"
+      "heart_container"
     ]
   ],
   "rewards": {

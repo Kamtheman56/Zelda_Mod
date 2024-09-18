@@ -6,9 +6,7 @@ import com.kamth.zeldamod.block.entity.ModBlockEntities;
 import com.kamth.zeldamod.custom.ModItemProperties;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.entity.client.DarknutRenderer;
-import com.kamth.zeldamod.entity.client.DekuScrubRenderer;
-import com.kamth.zeldamod.entity.client.KeeseRenderer;
+import com.kamth.zeldamod.entity.client.*;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.loot.ModLootModifiers;
@@ -82,9 +80,11 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.KOKIRI_HAT);
         event.accept(ModItems.GORON_HAT);
         event.accept(ModItems.ZORA_HAT);
+        event.accept(ModItems.DARK_HAT);
         event.accept(ModItems.KOKIRI_TUNIC);
         event.accept(ModItems.GORON_TUNIC);
         event.accept(ModItems.ZORA_TUNIC);
+        event.accept(ModItems.DARK_TUNIC);
         event.accept(ModItems.HYLIAN_HOOD);
         event.accept(ModItems.CHAMPION_TUNIC);
         event.accept(ModItems.CHAMPIONS_TUNIC);
@@ -92,11 +92,13 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.CLASSIC_HAT);
         event.accept(ModItems.CLASSIC_TUNIC);
         event.accept(ModItems.KOKIRI_PANTS);
+        event.accept(ModItems.DARK_PANTS);
         event.accept(ModItems.KOKIRI_BOOTS);
         event.accept(ModItems.HEAVY_BOOTS);
         event.accept(ModItems.HOVER_BOOTS);
         event.accept(ModItems.FLIPPERS);
         event.accept(ModItems.PEGASUS_BOOTS);
+        event.accept(ModItems.DARK_BOOTS);
         event.accept(ModItems.KOKIRI_SWORD);
         event.accept(ModItems.KOKIRI_SWORD2);
         event.accept(ModItems.RAZOR_SWORD);
@@ -178,6 +180,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.XTENDER);
         event.accept(ModItems.CLAW);
         event.accept(ModItems.DEITY_SHARD);
+        event.accept(ModItems.GLOOM_CLUMP);
         event.accept(ModItems.BOMB_SEEDS);
         event.accept(ModItems.FARORE_PEARL);
         event.accept(ModItems.DIN_PEARL);
@@ -186,6 +189,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.STAMINA);
         event.accept(ModItems.HEART_POTION);
         event.accept(ModItems.BLUE_POTION);
+        event.accept(ModItems.GLOOM_RESIST_POTION);
         event.accept(ModItems.MILK_BOTTLE1);
         event.accept(ModItems.MILK_MAGIC);
         event.accept(ModItems.SHIELD_POTION);
@@ -195,7 +199,9 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.SUPER_LEAF);
         event.accept(ModItems.BAKED_APPLE);
         event.accept(ModItems.DEKU_SPAWN_EGG);
+        event.accept(ModItems.DEKU_MAD_SPAWN_EGG);
         event.accept(ModItems.DARK_NUT_SPAWN_EGG);
+        event.accept(ModItems.DARK_KNIGHT_SPAWN_EGG);
         event.accept(ModItems.KEESE_SPAWN_EGG);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MASK.get()){
@@ -245,6 +251,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.RED_EMERALD_BLOCK);
             event.accept(ModBlocks.BLUE_EMERALD_BLOCK);
             event.accept(ModBlocks.SWORD_PEDESTAL);
+            event.accept(ModBlocks.ANCIENT_SWORD_PEDESTAL);
             event.accept(ModBlocks.MASTER_SWORD_PEDESTAL);
             event.accept(ModBlocks.UNLOCKED_SWORD_PEDESTAL);
             event.accept(ModBlocks.COURAGE_FLAME);
@@ -314,7 +321,9 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntityTypes.DEKU.get(), DekuScrubRenderer::new);
+            EntityRenderers.register(ModEntityTypes.DEKU_MAD.get(), DekuMadScrubRenderer::new);
             EntityRenderers.register(ModEntityTypes.DARK_NUT.get(), DarknutRenderer::new);
+            EntityRenderers.register(ModEntityTypes.DARK_KNIGHT.get(), DarkKnightRenderer::new);
             EntityRenderers.register(ModEntityTypes.KEESE.get(), KeeseRenderer::new);
         }
 
