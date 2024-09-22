@@ -22,7 +22,7 @@ public class GliderItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         player.awardStat(Stats.ITEM_USED.get(this));
-        if  (!player.onGround() && !player.onClimbable()) {
+        if  (!player.onGround() && !player.onClimbable() && !player.isFallFlying()) {
             player.startUsingItem(InteractionHand.MAIN_HAND);
             player.startUsingItem(InteractionHand.OFF_HAND);
             world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.WOOL_PLACE, SoundSource.PLAYERS, 1.2F, 2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));

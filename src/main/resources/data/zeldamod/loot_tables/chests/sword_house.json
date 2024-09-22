@@ -1,0 +1,129 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:kokiriboots",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:pegasusboots",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:kokiripants"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:kokirihat",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:goronhat",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:zorahat",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:kokiritunic",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:zoratunic",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:gorontunic",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:kokiri_sword",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bow",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:sword_kokiri",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:deku_shield",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:hylian_shield",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "zeldamod:chests/sword_house"
+}

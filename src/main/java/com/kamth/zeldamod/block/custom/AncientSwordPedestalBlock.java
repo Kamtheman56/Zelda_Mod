@@ -58,7 +58,7 @@ public class AncientSwordPedestalBlock extends SwordPedestalBlock {
                 pedestal.setSword(ModItems.WHITE_SWORD.get().getDefaultInstance());
                 return InteractionResult.SUCCESS;
             }
-            if (stackInHand.is(ModItems.WHITE_SWORD.get()) && pPlayer.getMaxHealth() == 2 && pedestal.getSword().isEmpty())
+            if (stackInHand.is(ModItems.WHITE_SWORD.get()) && pPlayer.getMaxHealth() <= 6 && pedestal.getSword().isEmpty())
             {
                 pedestal.setSword(stackInHand);
                 pLevel.playSound(pPlayer,pPos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);

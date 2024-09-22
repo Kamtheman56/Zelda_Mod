@@ -41,6 +41,7 @@ public class LightningArrow extends AbstractArrow {
     @Override
     protected ItemStack getPickupItem() {
         return  ModItems.LIGHTNING_ARROW.get().getDefaultInstance();}
+
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);

@@ -297,7 +297,6 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.DEKU_GRAVE);
             event.accept(ModBlocks.GORON_GRAVE);
             event.accept(ModBlocks.ZORA_GRAVE);
-            event.accept(ModBlocks.SKY_GRASS);
             event.accept(ModBlocks.SKY_STONE_CHISELED);
             event.accept(ModBlocks.SKY_STONE_MURAL);
             event.accept(ModBlocks.NIGHTSHADE);
