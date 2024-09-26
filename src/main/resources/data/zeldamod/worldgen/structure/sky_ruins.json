@@ -45,9 +45,31 @@
       "spawns": [
         {
           "type": "zeldamod:keese",
-          "weight": 5,
+          "weight": 8,
           "minCount": 1,
           "maxCount": 10
+        }
+      ]
+    },
+    "monster": {
+      "bounding_box": "full",
+      "spawns": [
+        {
+          "type": "zeldamod:darknut",
+          "weight": 7,
+          "minCount": 1,
+          "maxCount": 10
+        }
+      ]
+    },
+    "monster": {
+      "bounding_box": "full",
+      "spawns": [
+        {
+          "type": "zeldamod:dark_knight",
+          "weight": 3,
+          "minCount": 1,
+          "maxCount": 1
         }
       ]
     }

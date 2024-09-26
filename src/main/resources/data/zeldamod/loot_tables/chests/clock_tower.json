@@ -32,12 +32,7 @@
           "quality": 2,
           "functions": [
             {
-              "function": "minecraft:enchant_randomly",
-              "enchantments": [
-                "minecraft:projectile_protection",
-                "minecraft:unbreaking",
-                "minecraft:protection"
-              ]
+              "function": "minecraft:enchant_randomly"
             }
           ]
         },
@@ -324,6 +319,21 @@
           "type": "minecraft:item",
           "name": "zeldamod:troupemask",
           "weight": 8
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:heart_piece",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.05
+            }
+          ]
         }
       ]
     }
