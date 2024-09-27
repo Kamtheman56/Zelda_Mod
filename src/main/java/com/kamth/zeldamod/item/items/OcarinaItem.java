@@ -97,12 +97,12 @@ public class OcarinaItem extends Item {
         if (blockstate.is(ModBlocks.SUN_STONE.get())){
             level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_SUN.get(),SoundSource.PLAYERS, .8f, 1f);
            pContext.getPlayer().getCooldowns().addCooldown(this, 600);
-         if (level.isNight()){
+         if (level.isNight() && !level.isClientSide){
                     MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
                     ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
              assert serverWorld != null;
              ( serverWorld).setDayTime(0);}
-           else if (level.isDay()){
+           else if (level.isDay() && !level.isClientSide){
                 MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
                 ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
              assert serverWorld != null;
@@ -111,21 +111,23 @@ public class OcarinaItem extends Item {
             return InteractionResult.SUCCESS;
         }
         //calls the effects of the song of storms
-        if (blockstate.is(ModBlocks.NOTE_STONE.get()) && !level.isRaining()) {
-            MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+
+        if (blockstate.is(ModBlocks.NOTE_STONE.get())){
             level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_STORMS.get(),SoundSource.PLAYERS, .8f, 1f);
+            pContext.getPlayer().getCooldowns().addCooldown(this, 600);
+        if (blockstate.is(ModBlocks.NOTE_STONE.get()) && !level.isRaining() && !level.isClientSide) {
+            MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
             ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
             serverWorld.setWeatherParameters(0, 3800, true, true);
             return InteractionResult.SUCCESS;
         }
         {
-            if (blockstate.is(ModBlocks.NOTE_STONE.get()) && level.isRaining()) {
+            if (blockstate.is(ModBlocks.NOTE_STONE.get()) && level.isRaining() && !level.isClientSide) {
                 MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
-                level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_STORMS.get(),SoundSource.PLAYERS, .8f, 1f);
                 ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
                 serverWorld.setWeatherParameters(0, 3800, false, false);
                 return InteractionResult.SUCCESS;
-            }
+            }}
         }
         //song of healing for masks
         if (blockstate.is(ModBlocks.DEKU_GRAVE.get())) {
