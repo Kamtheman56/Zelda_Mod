@@ -27,5 +27,6 @@ public class LightningArrowItem extends ArrowItem {
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()){
             components.add(Component.translatable("item.lightning_arrow.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.lightning_arrow.description_2").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }}
 }

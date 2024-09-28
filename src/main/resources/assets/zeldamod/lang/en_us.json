@@ -118,6 +118,7 @@
   "item.zeldamod.flute": "Flute",
   "item.zeldamod.gloom_sword": "Gloom Sword",
   "item.zeldamod.gloom_club": "Gloom Club",
+  "item.zeldamod.balanced_mirror_shield": "Balanced Mirror Shield",
 
 
 
@@ -349,6 +350,7 @@
   "item.lens.description": "Reveal the unseen",
   "item.light_arrow.description": "Smite evil in style",
   "item.lightning_arrow.description": "Best for rain or in water",
+  "item.lightning_arrow.description_2": "Summons lightning during storms",
   "item.magic_boomerang.description": "Brings items back and flicks levers!",
   "item.magic_sword.description_advanced": "Shoots Beams at full health",
   "item.magic_sword.description_basic": "A forgotten sword",
@@ -356,6 +358,9 @@
   "item.master_sword.description_basic": "Blade of Evil's Bane",
   "item.megaton_hammer.description_advanced": "Pound down rusty pegs",
   "item.mirror_shield.description": "Reflects non-physical projectiles!",
+  "item.mirror_shield.description_2": "Not great for Melee combat",
+  "item.balanced_mirror_shield.description": "Reflects all projectiles!",
+  "item.balanced_mirror_shield.description_2": "Great for all forms of combat",
   "item.deku_shield.description": "A humble wooden shield",
   "item.mitts.description_basic1": "Digs dirt and stone",
   "item.mitts.description_basic2": "with ease!",

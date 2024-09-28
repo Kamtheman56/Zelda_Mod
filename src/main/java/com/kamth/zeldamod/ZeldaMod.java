@@ -118,6 +118,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.DEKU_SHIELD);
         event.accept(ModItems.HYLIAN_SHIELD);
         event.accept(ModItems.MIRROR_SHIELD);
+        event.accept(ModItems.BALANCED_MIRROR_SHIELD);
         event.accept(ModItems.SLINGSHOT);
         event.accept(ModItems.SCATTERSHOT);
         event.accept(ModItems.HERO_BOW);

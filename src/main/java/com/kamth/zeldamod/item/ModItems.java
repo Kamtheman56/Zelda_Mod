@@ -275,6 +275,8 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             () -> new ShieldItem(new Item.Properties().rarity(Rarity.UNCOMMON).durability(652)));
     public static final RegistryObject<Item> MIRROR_SHIELD = ITEMS.register("mirror_shield",
             () -> new MirrorShieldItem(new Item.Properties().rarity(Rarity.RARE).durability(800)));
+    public static final RegistryObject<Item> BALANCED_MIRROR_SHIELD = ITEMS.register("balanced_mirror_shield",
+            () -> new BalancedMirrorShieldItem(new Item.Properties().rarity(Rarity.EPIC).durability(1200)));
 
     //This is where armors are located keep them together
     //Boots tier

@@ -1,19 +1,19 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:mirror_shield"
+      "item": "zeldamod:balanced_mirror_shield"
     },
     "title": {
-      "text": "Reflectionist",
+      "text": "The True Reflectionist",
       "italic": true
     },
-    "description": "Acquire the Mirror Shield",
+    "description": "Forge the Balanced Mirror Shield from a Mirror Shield and Refined Master Ore",
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": true
   },
-  "parent": "zeldamod:get_hylian_shield",
+  "parent": "zeldamod:get_mirror_shield",
   "criteria": {
     "mask_block": {
       "trigger": "minecraft:inventory_changed",
@@ -21,7 +21,7 @@
         "items": [
           {
             "items": [
-              "zeldamod:mirror_shield"
+              "zeldamod:balanced_mirror_shield"
 
             ]
           }
@@ -35,7 +35,7 @@
     ]
   ],
   "rewards": {
-    "experience": 40
+    "experience": 50
   },
   "sends_telemetry_event": true
 }

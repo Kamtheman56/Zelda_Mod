@@ -70,6 +70,14 @@ public class LightningArrow extends AbstractArrow {
         super.onHitBlock(ray);
         this.discard();
 
+        if (this.level() instanceof ServerLevel) {
+            BlockPos blockpos = this.blockPosition();
+            if (this.level().canSeeSky(blockpos) && this.level().isRaining()) {
+                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
+                lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
+                this.level().addFreshEntity(lightningbolt);
+            }}
+
 }
 @Override
 protected SoundEvent getDefaultHitGroundSoundEvent() {

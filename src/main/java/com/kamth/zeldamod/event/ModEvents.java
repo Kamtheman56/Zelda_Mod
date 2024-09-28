@@ -30,6 +30,7 @@ import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.animal.frog.Frog;
+import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.npc.Villager;
@@ -110,7 +111,17 @@ public class ModEvents {
                 event.getTarget().playSound(SoundEvents.ALLAY_AMBIENT_WITH_ITEM, 1, 2);
             }
         }
-//Obtain Masks
+        // Ocarina Effects
+        if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.OCARINA.get()) {
+            if (event.getTarget() instanceof Horse) {
+                ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
+                event.getEntity().getCooldowns().addCooldown(ModItems.OCARINA.get(), 500);
+                event.getTarget().playSound(ModSounds.SONG_EPONA.get(), 1, 1f);
+                ((Horse) event.getTarget()).addEffect(new MobEffectInstance(MobEffects.REGENERATION, 80, 0));
+            }}
+
+
+        //Methods for obtaining Masks
         if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.GOLDEN_APPLE) {
             if (event.getTarget() instanceof Cow) {
                 ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
@@ -138,16 +149,24 @@ public class ModEvents {
                 event.getTarget().playSound(SoundEvents.HORSE_EAT, 1, 1.2f);
                 event.getTarget().discard();
             }}
-            if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.GOAT_HORN) {
+            if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.OCARINA.get()) {
                 if (event.getTarget() instanceof Husk && ((Husk) event.getTarget()).hasEffect(MobEffects.WEAKNESS)) {
                     ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
-                    itemstack.shrink(1);
                     event.getTarget().spawnAtLocation(ModItems.GIBDO_MASK.get());
                     event.getTarget().playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1, 1.4f);
-                    event.getTarget().playSound(SoundEvents.GOAT_HORN_PLAY, 1, 1.2f);
+                    event.getTarget().playSound(ModSounds.SONG_HEALING.get(), 1, 1f);
                     event.getTarget().discard();
                 }}
         if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof RecordItem) {
+            if (event.getTarget() instanceof Husk && ((Husk) event.getTarget()).hasEffect(MobEffects.WEAKNESS)) {
+                ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
+                itemstack.shrink(1);
+                event.getTarget().spawnAtLocation(ModItems.GIBDO_MASK.get());
+                event.getTarget().playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1, 1.4f);
+                event.getTarget().playSound(ModSounds.SONG_HEALING.get(), 1, 1.3f);
+                event.getTarget().discard();
+            }}
+        if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.GOAT_HORN) {
             if (event.getTarget() instanceof Husk && ((Husk) event.getTarget()).hasEffect(MobEffects.WEAKNESS)) {
                 ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
                 itemstack.shrink(1);

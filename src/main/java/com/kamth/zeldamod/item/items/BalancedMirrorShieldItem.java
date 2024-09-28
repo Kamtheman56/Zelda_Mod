@@ -1,12 +1,8 @@
 package com.kamth.zeldamod.item.items;
 
-import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
@@ -20,30 +16,21 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
-import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class MirrorShieldItem extends ShieldItem {
-    public MirrorShieldItem(Properties pProperties) {
+public class BalancedMirrorShieldItem extends ShieldItem {
+    public BalancedMirrorShieldItem(Properties pProperties) {
         super(pProperties);
-        MinecraftForge.EVENT_BUS.addListener(this::ShieldBlockEvent);
-
         MinecraftForge.EVENT_BUS.addListener(this::reflector);
     }
 
 
-    public void ShieldBlockEvent(ShieldBlockEvent event){
-        if (event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.MIRROR_SHIELD.get()  && !event.getDamageSource().is(DamageTypeTags.IS_PROJECTILE)) {
-      event.getEntity().getUseItem().hurtAndBreak(12, event.getEntity(), (p_43276_) -> p_43276_.broadcastBreakEvent(InteractionHand.MAIN_HAND));
-        }
-    }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-            components.add(Component.translatable("item.mirror_shield.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
-        components.add(Component.translatable("item.mirror_shield.description_2").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.balanced_mirror_shield.description").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         super.appendHoverText(stack, level, components, flag);
     }
 
@@ -59,9 +46,9 @@ public class MirrorShieldItem extends ShieldItem {
     }
 
     private static <T extends Projectile> boolean tryReflect(T projectile, LivingEntity entityBlocking, boolean takeOwnership) {
-        if (!projectile.getType().is(ModTags.Entities.MIRROR) && entityBlocking.isBlocking()) {
+        if (entityBlocking.isBlocking()) {
             ItemStack itemUsed = entityBlocking.getUseItem();
-            if (itemUsed.is(ModItems.MIRROR_SHIELD.get())){
+            if (itemUsed.is(ModItems.BALANCED_MIRROR_SHIELD.get())){
                 return ReflectProjectile(projectile, entityBlocking, takeOwnership);
             }
         }

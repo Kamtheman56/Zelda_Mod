@@ -10,6 +10,7 @@ public class ModItemProperties {
         makeShield(ModItems.DEKU_SHIELD.get());
         makeShield(ModItems.HYLIAN_SHIELD.get());
         makeShield(ModItems.MIRROR_SHIELD.get());
+        makeShield(ModItems.BALANCED_MIRROR_SHIELD.get());
         makeBow(ModItems.SLINGSHOT.get());
         makeBow(ModItems.SCATTERSHOT.get());
         makeBow(ModItems.HERO_BOW.get());

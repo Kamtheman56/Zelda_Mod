@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+        "textures": {
+          "layer0": "zeldamod:item/balanced_mirror_shield",
+          "particle": "zeldamod:item/balanced_mirror_shield"
+        }
+}
