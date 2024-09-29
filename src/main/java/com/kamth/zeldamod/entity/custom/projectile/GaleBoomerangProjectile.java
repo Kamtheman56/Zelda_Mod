@@ -1,7 +1,6 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.item.ModItems;
-import com.kamth.zeldamod.sound.ModSounds;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -363,6 +362,8 @@ public class GaleBoomerangProjectile extends Projectile {
                                 giveItemToPlayer(player, (ItemEntity) riding);
                             else if (riding instanceof ExperienceOrb)
                                 riding.playerTouch(player);
+                            if (riding instanceof ItemEntity && !inventory.add(stack))
+                                riding.dismountTo(this.getX(),this.getY(), this.getZ());
                         }
                     }
 

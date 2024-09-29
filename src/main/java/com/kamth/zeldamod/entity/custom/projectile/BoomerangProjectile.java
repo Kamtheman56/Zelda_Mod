@@ -1,6 +1,5 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
-import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.ModItems;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.BlockPos;
@@ -14,12 +13,9 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ExperienceOrb;
@@ -27,7 +23,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.ItemStack;
@@ -364,7 +359,10 @@ super.onHit(result);
                                 giveItemToPlayer(player, (ItemEntity) riding);
                             else if (riding instanceof ExperienceOrb)
                                 riding.playerTouch(player);
+                            if (riding instanceof ItemEntity && !inventory.add(stack))
+                                riding.dismountTo(this.getX(),this.getY(), this.getZ());
                         }
+
                     }
 
                     discard();

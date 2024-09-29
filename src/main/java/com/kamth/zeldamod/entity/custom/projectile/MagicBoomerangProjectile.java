@@ -356,7 +356,9 @@ import java.util.UUID;
                                     giveItemToPlayer(player, (ItemEntity) riding);
                                 else if (riding instanceof ExperienceOrb)
                                     riding.playerTouch(player);
-                            }
+                                if (riding instanceof ItemEntity && !inventory.add(stack))
+                                    riding.dismountTo(this.getX(),this.getY(), this.getZ());
+                        }
                         }
 
                         discard();
