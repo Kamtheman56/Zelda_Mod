@@ -92,6 +92,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.CLASSIC_HAT);
         event.accept(ModItems.CLASSIC_TUNIC);
         event.accept(ModItems.KOKIRI_PANTS);
+        event.accept(ModItems.HYLIAN_PANTS);
         event.accept(ModItems.DARK_PANTS);
         event.accept(ModItems.KOKIRI_BOOTS);
         event.accept(ModItems.HEAVY_BOOTS);

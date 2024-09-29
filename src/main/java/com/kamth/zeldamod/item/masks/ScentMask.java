@@ -45,7 +45,7 @@ player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(6, player, (p_43296_) -> {
     p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
                     player.spawnAtLocation(ModItems.LIFE_MUSHROOM.get());
                    player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),70);
-                };
+                }
                 if(new Random().nextFloat() > .7f) {
                     player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
                     player.spawnAtLocation(ModItems.MINI_MUSHROOM.get());

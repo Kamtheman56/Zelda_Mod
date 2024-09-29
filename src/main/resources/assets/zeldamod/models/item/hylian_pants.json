@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
         "textures": {
-          "layer0": "zeldamod:item/zora_hat"
+          "layer0": "zeldamod:item/hylian_pants"
         }
 }

@@ -3,12 +3,12 @@
   "conditions": [
     {
       "condition": "forge:loot_table_id",
-      "loot_table_id": "minecraft:chests/ancient_city"
+      "loot_table_id": "minecraft:gameplay/hero_of_the_village/weaponsmith_gift"
     },
     {
-      "chance": 0.01,
+      "chance": 0.07,
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "zeldamod:gloom_container"
+  "item": "zeldamod:hero_sword"
 }

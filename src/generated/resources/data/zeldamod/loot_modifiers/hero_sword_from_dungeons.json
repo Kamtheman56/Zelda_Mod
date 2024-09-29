@@ -3,12 +3,12 @@
   "conditions": [
     {
       "condition": "forge:loot_table_id",
-      "loot_table_id": "minecraft:chests/ancient_city"
+      "loot_table_id": "minecraft:chests/simple_dungeon"
     },
     {
-      "chance": 0.01,
+      "chance": 0.05,
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "zeldamod:gloom_container"
+  "item": "zeldamod:hero_sword"
 }

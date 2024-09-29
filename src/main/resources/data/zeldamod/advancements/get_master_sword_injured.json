@@ -10,7 +10,7 @@
     "announce_to_chat": true,
     "hidden": true
   },
-  "parent": "zeldamod:base",
+  "parent": "zeldamod:get_master_sword",
   "criteria": {
     "master_sword_injured": {
       "trigger": "minecraft:inventory_changed",

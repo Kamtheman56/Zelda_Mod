@@ -1,17 +1,16 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:dark_tunic"
+      "item": "zeldamod:deku_nut"
     },
     "title": {
-      "text": "An Evil Assortment",
-      "italic": true,
+      "text": "Deku Nut",
       "hidden": true
     },
-    "description": "Acquire one of every dark item",
-    "frame": "challenge"
+    "description": "Acquire one of every deku based item",
+    "frame": "task"
   },
-  "parent": "zeldamod:get_kokiri_armor",
+  "parent": "zeldamod:shoot_slingshot",
   "criteria": {
     "dark_armor": {
       "trigger": "minecraft:inventory_changed",
@@ -19,32 +18,32 @@
         "items": [
           {
             "items": [
-              "zeldamod:dark_hat"
+              "zeldamod:deku_nut"
             ]
           },
           {
             "items": [
-              "zeldamod:dark_tunic"
+              "zeldamod:deku_stick"
             ]
           },
           {
             "items": [
-              "zeldamod:dark_pants"
+              "zeldamod:dekumask"
             ]
           },
           {
             "items": [
-              "zeldamod:dark_boots"
+              "zeldamod:slingshot"
             ]
           },
           {
             "items": [
-              "zeldamod:gloom_sword"
+              "zeldamod:deku_leaf"
             ]
           },
           {
             "items": [
-              "zeldamod:gloom_club"
+              "zeldamod:deku_shield"
             ]
           }
         ]
@@ -57,7 +56,7 @@
     ]
   ],
   "rewards": {
-    "experience": 100
+    "experience": 40
   },
   "sends_telemetry_event": true
 }

@@ -450,6 +450,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> DARK_BOOTS = ITEMS.register("dark_boots",
             ()-> new ArmorItem(ModArmorMaterials.Dark, ArmorItem.Type.BOOTS,
                     new Item.Properties().defaultDurability(450)));
+    public static final RegistryObject<ArmorItem> HYLIAN_PANTS = ITEMS.register("hylian_pants",
+            ()-> new ArmorItem(ModArmorMaterials.Champion, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().defaultDurability(300)));
 
 
     public static final RegistryObject<Item> DEKU_SPAWN_EGG = ITEMS.register("deku_spawn_egg",

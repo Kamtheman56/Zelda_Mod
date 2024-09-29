@@ -2,15 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-    "XLX",
-    "X X"
+    "XXX",
+    "XBX",
+    "XXX"
   ],
   "key": {
+    "B": {
+      "item": "minecraft:leather_boots"
+    },
     "X": {
       "item": "minecraft:brown_wool"
-    },
-    "L": {
-      "item": "minecraft:leather_boots"
     }
   },
   "result": {

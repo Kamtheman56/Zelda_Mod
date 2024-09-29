@@ -1,17 +1,17 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:dark_tunic"
+      "item": "zeldamod:pegasusboots"
     },
     "title": {
-      "text": "An Evil Assortment",
+      "text": "Boot Enthusiast",
       "italic": true,
       "hidden": true
     },
-    "description": "Acquire one of every dark item",
-    "frame": "challenge"
+    "description": "Acquire all of the boots",
+    "frame": "goal"
   },
-  "parent": "zeldamod:get_kokiri_armor",
+  "parent": "zeldamod:evil_assortment",
   "criteria": {
     "dark_armor": {
       "trigger": "minecraft:inventory_changed",
@@ -19,17 +19,22 @@
         "items": [
           {
             "items": [
-              "zeldamod:dark_hat"
+              "zeldamod:kokiriboots"
             ]
           },
           {
             "items": [
-              "zeldamod:dark_tunic"
+              "zeldamod:heavyboots"
             ]
           },
           {
             "items": [
-              "zeldamod:dark_pants"
+              "zeldamod:hoverboots"
+            ]
+          },
+          {
+            "items": [
+              "zeldamod:pegasusboots"
             ]
           },
           {
@@ -39,12 +44,7 @@
           },
           {
             "items": [
-              "zeldamod:gloom_sword"
-            ]
-          },
-          {
-            "items": [
-              "zeldamod:gloom_club"
+              "zeldamod:flippers"
             ]
           }
         ]
@@ -57,7 +57,7 @@
     ]
   ],
   "rewards": {
-    "experience": 100
+    "experience": 10
   },
   "sends_telemetry_event": true
 }

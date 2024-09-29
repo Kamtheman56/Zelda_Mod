@@ -3,7 +3,7 @@
     "icon": {
       "item": "zeldamod:fire_rod"
     },
-    "title": "So many flavors!",
+    "title": "Magic Initiate",
     "description": "Acquire a Magic Rod of every type",
     "frame": "task",
     "show_toast": true,

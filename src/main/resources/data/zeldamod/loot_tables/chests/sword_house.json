@@ -7,7 +7,7 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:kokiriboots",
-          "weight": 3
+          "weight": 4
         },
         {
           "type": "minecraft:item",
@@ -21,7 +21,13 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokiripants"
+          "name": "zeldamod:kokiripants",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:hylian_pants",
+          "weight": 1
         }
       ]
     },
@@ -71,17 +77,22 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:kokiri_sword",
-          "weight": 3
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:bow",
-          "weight": 2
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:sword_kokiri",
-          "weight": 1
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:hero_sword",
+          "weight": 2
         }
       ]
     },

@@ -3,12 +3,12 @@
   "conditions": [
     {
       "condition": "forge:loot_table_id",
-      "loot_table_id": "minecraft:chests/ancient_city"
+      "loot_table_id": "minecraft:chests/village/plains_house"
     },
     {
-      "chance": 0.01,
+      "chance": 0.65,
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "zeldamod:gloom_container"
+  "item": "zeldamod:deku_nut"
 }

@@ -10,7 +10,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:base",
+  "parent": "zeldamod:base_equipment",
   "criteria": {
     "mask_block": {
       "trigger": "minecraft:inventory_changed",

@@ -112,6 +112,9 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("deku_stick_from_plains", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/village/plains_house")).build(),
                 LootItemRandomChanceCondition.randomChance(0.65f).build()}, ModItems.DEKU_STICK.get()));
+        add("deku_nut_from_plains", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/village/plains_house")).build(),
+                LootItemRandomChanceCondition.randomChance(0.65f).build()}, ModItems.DEKU_NUT.get()));
 
         add("icerod_from_igloo", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/igloo_chest")).build(),
@@ -192,7 +195,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.1f).build()}, ModItems.GLOOM_CLUMP.get()));
         add("gloom_container_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
-                LootItemRandomChanceCondition.randomChance(0.001f).build()}, ModItems.GLOOM_CONTAINER.get()));
+                LootItemRandomChanceCondition.randomChance(0.01f).build()}, ModItems.GLOOM_CONTAINER.get()));
 
         //from woodland mansion
         add("hookshot_from_mansion", new AddItemModifier(new LootItemCondition[] {
@@ -272,6 +275,9 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("hylian_shield_from_dungeons", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/simple_dungeon")).build(),
                 LootItemRandomChanceCondition.randomChance(0.09f).build()}, ModItems.HYLIAN_SHIELD.get()));
+        add("hero_sword_from_dungeons", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/simple_dungeon")).build(),
+                LootItemRandomChanceCondition.randomChance(0.05f).build()}, ModItems.HERO_SWORD.get()));
 
         //from Pillager Outposts
         add("hookshot_from_pillager", new AddItemModifier(new LootItemCondition[] {
@@ -455,6 +461,12 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("kokiri_boots_from_village_armorer", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/village/village_armorer")).build(),
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ModItems.KOKIRI_BOOTS.get()));
+        add("hylian_pants_from_village_armorer", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/village/village_armorer")).build(),
+                LootItemRandomChanceCondition.randomChance(0.65f).build()}, ModItems.HYLIAN_PANTS.get()));
+        add("hylian_hood_from_village_armorer", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/village/village_armorer")).build(),
+                LootItemRandomChanceCondition.randomChance(0.34f).build()}, ModItems.HYLIAN_HOOD.get()));
         add("hover_boots_from_village_armorer", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/village/village_armorer")).build(),
                 LootItemRandomChanceCondition.randomChance(0.09f).build()}, ModItems.HOVER_BOOTS.get()));
@@ -519,6 +531,9 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("upgrade_from_weaponsmith", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/weaponsmith_gift")).build(),
                 LootItemRandomChanceCondition.randomChance(0.09f).build()}, ModItems.MASTER_UPGRADE.get()));
+        add("hero_sword_from_weaponsmith", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/weaponsmith_gift")).build(),
+                LootItemRandomChanceCondition.randomChance(0.07f).build()}, ModItems.HERO_SWORD.get()));
 
 
         //items from fishing

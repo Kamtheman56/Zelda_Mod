@@ -25,6 +25,11 @@
         },
         {
           "type": "minecraft:item",
+          "name": "zeldamod:archaic_tunic",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:iron_chestplate",
           "weight": 2,
           "functions": [

@@ -1,14 +1,14 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:master_sword"
+      "item": "zeldamod:hookshot"
     },
-    "title": "A Hero Awakens",
-    "description": "With a courageous spirit take up arms",
+    "title": "Equipment",
+    "description": "Acquire Legendary Items hidden throughout the world",
     "frame": "task",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "background": "zeldamod:textures/block/secret_stone.png"
+    "show_toast": false,
+    "announce_to_chat": false,
+    "background": "zeldamod:textures/block/time_bricks.png"
   },
   "criteria": {
     "mask_block": {
@@ -30,7 +30,7 @@
     ]
   ],
   "rewards": {
-    "experience": 35
+    "experience": 0
   },
   "sends_telemetry_event": true
 }

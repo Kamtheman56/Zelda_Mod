@@ -3,14 +3,15 @@
   "category": "equipment",
   "pattern": [
     "XXX",
-    "XLX"
+    "XBX",
+    "XXX"
   ],
   "key": {
+    "B": {
+      "item": "minecraft:leather_helmet"
+    },
     "X": {
       "item": "minecraft:green_wool"
-    },
-    "L": {
-      "item": "minecraft:leather_helmet"
     }
   },
   "result": {
