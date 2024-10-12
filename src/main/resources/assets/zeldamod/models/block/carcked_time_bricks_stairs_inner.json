@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "zeldamod:block/cracked_time_bricks",
-    "side": "zeldamod:block/cracked_time_bricks",
-    "top": "zeldamod:block/cracked_time_bricks"
-  }
-}

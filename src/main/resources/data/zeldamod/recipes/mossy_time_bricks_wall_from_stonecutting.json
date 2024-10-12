@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "zeldamod:mossy_time_bricks"
+  },
+  "result": "zeldamod:mossy_time_bricks",
+  "count": 1
+}

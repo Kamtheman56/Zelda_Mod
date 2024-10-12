@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "zeldamod:time_bricks"
+    }
+  },
+  "result": {
+    "item": "zeldamod:time_bricks_wall",
+    "count": 6
+  },
+  "show_notification": true
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "zeldamod:block/cracked_time_bricks"
+  }
+}

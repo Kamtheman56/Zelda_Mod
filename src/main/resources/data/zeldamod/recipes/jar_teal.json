@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "blocks",
+  "ingredients": [
+    {
+      "item": "minecraft:flower_pot"
+    },
+    {
+      "item": "minecraft:cyan_dye"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:jar_teal",
+    "count": 1
+  }
+}

@@ -1,7 +1,11 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.sound.ModSounds;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvent;
@@ -56,7 +60,18 @@ public class Deku_Nut extends AbstractArrow {
         this.discard();
         }
 
+    private ParticleOptions getParticle() {
+        ItemStack itemstack = ModItems.DEKU_NUT.get().getDefaultInstance();
+        return (ParticleOptions)(itemstack.isEmpty() ? ParticleTypes.HEART : new ItemParticleOption(ParticleTypes.ITEM, itemstack));
+    }
+    @Override
+    public void handleEntityEvent(byte pId) {
+        if (pId == 3) {
+            ParticleOptions particleoptions = this.getParticle();
 
+            for(int i = 0; i < 8; ++i) {
+                this.level().addParticle(particleoptions, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
+            }}}
     /**
      * @return
      */

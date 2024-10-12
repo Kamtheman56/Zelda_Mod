@@ -24,10 +24,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.Cow;
-import net.minecraft.world.entity.animal.Pig;
-import net.minecraft.world.entity.animal.Rabbit;
+import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.horse.Horse;
@@ -206,7 +203,6 @@ public class ModEvents {
                     event.getTarget().playSound(SoundEvents.AMBIENT_CAVE.get(), 1.2f, 0);
                     event.getTarget().spawnAtLocation(ModBlocks.PORK_BLOCK.get());
                 }
-
                 if (!event.getLevel().isClientSide && event.getTarget() instanceof Creeper) {
                     event.getTarget().setDeltaMovement(0, 1.5f, 0);
                     ((Creeper) event.getTarget()).setHealth(1);
@@ -216,11 +212,19 @@ public class ModEvents {
                 if (!event.getLevel().isClientSide && event.getTarget() instanceof Rabbit) {
                     event.getTarget().discard();
                     event.getTarget().playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1.4f, 1.5F);
-
                 }
                 if (!event.getLevel().isClientSide && event.getTarget() instanceof Villager) {
                     ((Villager) event.getTarget()).setBaby(true);
                     event.getTarget().playSound(SoundEvents.AMBIENT_CAVE.get(), 1.2f, 1.2f);}
+
+                if (event.getTarget() instanceof SnowGolem) {
+                    event.getTarget().discard();
+                    event.getTarget().playSound(ModSounds.OLD_HURT.get(), 1, 1);
+                    event.getTarget().playSound(SoundEvents.SNOW_BREAK, 1.2f, 0);
+                    event.getTarget().spawnAtLocation(ModBlocks.CLAY_PUMPKIN.get());
+                }
+
+
             else event.getTarget().setSecondsOnFire(400);
             }}
 
@@ -335,7 +339,7 @@ public class ModEvents {
         Item item = player.getUseItem().getItem();
         if (event.getPlayer().getUseItem().getItem() instanceof BowItem && event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.HAWK_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
             float FOVModifier = player.getTicksUsingItem() / (float) BowItem.MAX_DRAW_DURATION;
-            event.setNewFovModifier(event.getFovModifier() * (1.0f - FOVModifier * 1.4f));
+            event.setNewFovModifier(event.getFovModifier() * (1.0f - FOVModifier * 1.3f));
         }
         if (event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.GORON_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
             event.setNewFovModifier(event.getFovModifier() * (0.9f - player.getSpeed() * 1.1f));

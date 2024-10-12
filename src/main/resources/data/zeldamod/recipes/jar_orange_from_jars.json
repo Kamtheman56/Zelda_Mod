@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "blocks",
+  "ingredients": [
+    {
+      "tag": "zeldamod:jars"
+    },
+    {
+      "item": "minecraft:orange_dye"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:jar_orange",
+    "count": 1
+  }
+}

@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
-    "xxx",
-    "xkx",
-    "xxx"
+    "XXX",
+    "XBX",
+    "XXX"
   ],
   "key": {
-    "x": {
-      "item": "zeldamod:gloom_clump"
-    },
-    "k": {
+    "B": {
       "item": "zeldamod:kokiripants"
+    },
+    "X": {
+      "item": "zeldamod:gloom_clump"
     }
   },
   "result": {
-    "id": "zeldamod:dark_pants",
-    "count": 1
+    "item": "zeldamod:dark_pants"
   }
 }

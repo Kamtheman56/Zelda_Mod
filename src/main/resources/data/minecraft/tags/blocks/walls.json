@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "zeldamod:time_bricks_wall",
+    "zeldamod:cracked_time_bricks_wall",
+    "zeldamod:mossy_time_bricks_wall"
+  ]
+}

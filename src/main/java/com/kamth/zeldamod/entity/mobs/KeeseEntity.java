@@ -9,6 +9,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -24,8 +25,9 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -360,5 +362,43 @@ public class KeeseEntity extends FlyingMob implements Enemy {
 
             return true;
         }
+    }
+
+    public float getWalkTargetValue(BlockPos pPos, LevelReader pLevel) {
+        return -pLevel.getPathfindingCostFromLightLevels(pPos);
+    }
+
+    /**
+     * Static predicate for determining if the current light level and environmental conditions allow for a monster to
+     * spawn.
+     */
+    public static boolean isDarkEnoughToSpawn(ServerLevelAccessor pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (pLevel.getBrightness(LightLayer.SKY, pPos) > pRandom.nextInt(32)) {
+            return false;
+        } else {
+            DimensionType dimensiontype = pLevel.dimensionType();
+            int i = dimensiontype.monsterSpawnBlockLightLimit();
+            if (i < 15 && pLevel.getBrightness(LightLayer.BLOCK, pPos) > i) {
+                return false;
+            } else {
+                int j = pLevel.getLevel().isThundering() ? pLevel.getMaxLocalRawBrightness(pPos, 10) : pLevel.getMaxLocalRawBrightness(pPos);
+                return j <= dimensiontype.monsterSpawnLightTest().sample(pRandom);
+            }
+        }
+    }
+
+    /**
+     * Static predicate for determining whether a monster can spawn at the provided location, incorporating a check of
+     * the current light level at the location.
+     */
+    public static boolean checkMonsterSpawnRules(EntityType<? extends Monster> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        return pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn(pLevel, pPos, pRandom) && checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom);
+    }
+
+    /**
+     * Static predicate for determining whether a monster can spawn at the provided location.
+     */
+    public static boolean checkAnyLightMonsterSpawnRules(EntityType<? extends Monster> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        return pLevel.getDifficulty() != Difficulty.PEACEFUL && checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom);
     }
 }

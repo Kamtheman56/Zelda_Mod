@@ -4,6 +4,18 @@
     "zeldamod:jar_brown",
     "zeldamod:jar_red",
     "zeldamod:jar_blue",
-    "zeldamod:jar_green"
+    "zeldamod:jar_green",
+    "zeldamod:jar_white",
+    "zeldamod:jar_gray",
+    "zeldamod:jar_light_gray",
+    "zeldamod:jar_light_blue",
+    "zeldamod:jar_teal",
+    "zeldamod:jar_lime",
+    "zeldamod:jar_orange",
+    "zeldamod:jar_black",
+    "zeldamod:jar_yellow",
+    "zeldamod:jar_pink",
+    "zeldamod:jar_magenta",
+    "zeldamod:jar_purple"
   ]
 }

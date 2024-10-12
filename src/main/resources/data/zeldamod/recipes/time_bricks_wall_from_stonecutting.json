@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "zeldamod:time_bricks"
+  },
+  "result": "zeldamod:time_bricks",
+  "count": 1
+}

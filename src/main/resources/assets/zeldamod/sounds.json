@@ -112,5 +112,23 @@
     "sounds": [
       "zeldamod:brown_bricks"
     ]
+  },
+  "slingshot_pull": {
+    "subtitle": "sounds.zeldamod.slingshot_pull",
+    "sounds": [
+      "zeldamod:slingshot_pull"
+    ]
+  },
+  "slingshot_release": {
+    "subtitle": "sounds.zeldamod.slingshot_release",
+    "sounds": [
+      "zeldamod:slingshot_release"
+    ]
+  },
+  "old_hurt": {
+    "subtitle": "sounds.zeldamod.old_hurt",
+    "sounds": [
+      "zeldamod:oof"
+    ]
   }
 }

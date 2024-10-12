@@ -4,19 +4,25 @@ import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.custom.projectile.BombSeedProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
 import com.kamth.zeldamod.item.ModItems;
-import net.minecraft.sounds.SoundEvents;
+import com.kamth.zeldamod.sound.ModSounds;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.function.Predicate;
 
 public class ScattershotItem extends SlingshotItem {
@@ -71,7 +77,7 @@ public class ScattershotItem extends SlingshotItem {
                        stack.hurtAndBreak(1, player, (p_220009_1_) -> p_220009_1_.broadcastBreakEvent(player.getUsedItemHand()));
                     }
 
-                    world.playSound((Player) entityLiving, player.getX(), player.getY(), player.getZ(), SoundEvents.EGG_THROW, SoundSource.PLAYERS, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F)  * 0.5F);
+                    world.playSound((Player) entityLiving, player.getX(), player.getY(), player.getZ(), ModSounds.SLINGSHOT_RELEASE.get(), SoundSource.PLAYERS, .5F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F)  * 0.5F);
 
                     if (!infiniteAmmo && !player.getAbilities().instabuild) {
                         itemStack.shrink(1);
@@ -97,6 +103,13 @@ public class ScattershotItem extends SlingshotItem {
         }
 
         return power;
+    }
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        if(Screen.hasShiftDown()) {
+            components.add(Component.translatable("item.slingshot.description_advanced").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+        }
+        else components.add(Component.translatable("item.scattershot.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
     }
 
 }

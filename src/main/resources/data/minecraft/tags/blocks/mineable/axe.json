@@ -4,6 +4,9 @@
     "zeldamod:pork_block",
     "zeldamod:hammer_peg",
     "zeldamod:deku_grave_block",
-    "zeldamod:zora_grave_block"
+    "zeldamod:zora_grave_block",
+    "zeldamod:clay_pumpkin",
+    "zeldamod:carved_clay_pumpkin",
+    "zeldamod:clay_jack_o_lantern"
   ]
 }

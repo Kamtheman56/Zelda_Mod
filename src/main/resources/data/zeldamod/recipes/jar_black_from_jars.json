@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "blocks",
+  "ingredients": [
+    {
+      "tag": "zeldamod:jars"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:jar_black",
+    "count": 1
+  }
+}

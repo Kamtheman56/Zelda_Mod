@@ -279,10 +279,22 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.RUSTED_PRESSURE_SWITCH);
             event.accept(ModBlocks.RUSTED_TIMED_PRESSURE_SWITCH);
             event.accept(ModBlocks.OWL_STATUE);
-            event.accept(ModBlocks.JAR_GREEN);
-            event.accept(ModBlocks.JAR_BLUE);
-            event.accept(ModBlocks.JAR_RED);
+            event.accept(ModBlocks.JAR_WHITE);
+            event.accept(ModBlocks.JAR_LIGHT_GRAY);
+            event.accept(ModBlocks.JAR_GRAY);
+            event.accept(ModBlocks.JAR_BLACK);
             event.accept(ModBlocks.JAR_BROWN);
+            event.accept(ModBlocks.JAR_RED);
+            event.accept(ModBlocks.JAR_ORANGE);
+            event.accept(ModBlocks.JAR_YELLOW);
+            event.accept(ModBlocks.JAR_LIME);
+            event.accept(ModBlocks.JAR_GREEN);
+            event.accept(ModBlocks.JAR_TEAL);
+            event.accept(ModBlocks.JAR_BLUE);
+            event.accept(ModBlocks.JAR_LIGHT_BLUE);
+            event.accept(ModBlocks.JAR_PURPLE);
+            event.accept(ModBlocks.JAR_MAGENTA);
+            event.accept(ModBlocks.JAR_PINK);
             event.accept(ModBlocks.TIME_BLOCK);
             event.accept(ModBlocks.TIME_BRICKS);
             event.accept(ModBlocks.CRACKED_TIME_BRICKS);
@@ -293,6 +305,9 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.TIME_BRICKS_STAIRS);
             event.accept(ModBlocks.CRACKED_TIME_BRICKS_STAIRS);
             event.accept(ModBlocks.MOSSY_TIME_BRICKS_STAIRS);
+            event.accept(ModBlocks.TIME_BRICKS_WALL);
+            event.accept(ModBlocks.CRACKED_TIME_BRICKS_WALL);
+            event.accept(ModBlocks.MOSSY_TIME_BRICKS_WALL);
             event.accept(ModBlocks.ZELDA_STONE);
             event.accept(ModBlocks.SUN_STONE);
             event.accept(ModBlocks.NOTE_STONE);
@@ -310,6 +325,9 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.PRIMO_FLOWER);
             event.accept(ModBlocks.STAMINA_FRUIT);
             event.accept(ModBlocks.BombFlower2);
+            event.accept(ModBlocks.CLAY_PUMPKIN);
+            event.accept(ModBlocks.CARVED_CLAY_PUMPKIN);
+            event.accept(ModBlocks.CLAY_JACK_O_LANTERN);
         }
 
 

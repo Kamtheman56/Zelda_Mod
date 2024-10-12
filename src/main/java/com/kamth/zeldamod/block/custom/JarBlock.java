@@ -101,7 +101,6 @@ public class JarBlock extends BaseEntityBlock {
         if (entity instanceof ServerPlayer serverplayer) {
             serverplayer.awardStat(Stats.TARGET_HIT);
            pLevel.destroyBlock(pHit.getBlockPos(),false);
-
         }}
 
 }

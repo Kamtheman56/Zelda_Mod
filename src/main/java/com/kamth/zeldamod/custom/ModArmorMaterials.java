@@ -128,7 +128,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     Champions("champions", 0, new int[]{1, 7, 7, 1}, 16, SoundEvents.ARMOR_EQUIP_CHAIN,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.CHAIN); }),
-   Champion("champion", 0, new int[]{1, 5, 5, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+   Champion("champion", 0, new int[]{1, 5, 4, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(ModBlocks.NIGHTSHADE.get()); }),
     Fire("fire", 0, new int[]{2, 2, 5, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,

@@ -211,6 +211,11 @@
   "sounds.zeldamod.song_sun": "Sun's Song plays",
   "sounds.zeldamod.ocarina_sound": "Ocarina plays",
   "sounds.zeldamod.brown_bricks": "???",
+  "sounds.zeldamod.slingshot_pull": "Slingshot pulls back",
+  "sounds.zeldamod.slingshot_release": "Slingshot fires",
+  "sounds.zeldamod.old_hurt": "Oof",
+
+
 
   "block.zeldamod.gloom_block": "Gloom Block",
   "block.zeldamod.gloom_vein": "Gloom Vein",
@@ -266,6 +271,18 @@
   "block.zeldamod.jar_red": "Red Pot",
   "block.zeldamod.jar_green": "Green Pot",
   "block.zeldamod.jar_brown": "Brown Pot",
+  "block.zeldamod.jar_yellow": "Yellow Pot",
+  "block.zeldamod.jar_orange": "Orange Pot",
+  "block.zeldamod.jar_lime": "Lime Pot",
+  "block.zeldamod.jar_light_blue": "Light Blue Pot",
+  "block.zeldamod.jar_teal": "Cyan Pot",
+  "block.zeldamod.jar_pink": "Pink Pot",
+  "block.zeldamod.jar_magenta": "Magenta Pot",
+  "block.zeldamod.jar_purple": "Purple Pot",
+  "block.zeldamod.jar_light_gray": "Light Gray Pot",
+  "block.zeldamod.jar_gray": "Gray Pot",
+  "block.zeldamod.jar_white": "White Pot",
+  "block.zeldamod.jar_black": "Black Pot",
   "block.zeldamod.jar_creative": "Brown Pot",
   "block.zeldamod.pressure_switch": "Pressure Switch",
   "block.zeldamod.timed_pressure_switch": "Timed Pressure Switch",
@@ -281,7 +298,12 @@
   "block.zeldamod.malice_block": "Malice Block",
   "block.zeldamod.brown_bricks": "Brown Bricks",
   "block.zeldamod.ancient_sword_pedestal": "Ancient Sword Pedestal",
-
+  "block.zeldamod.time_bricks_wall": "Time Bricks Wall",
+  "block.zeldamod.cracked_time_bricks_wall": "Cracked Time Bricks Wall",
+  "block.zeldamod.mossy_time_bricks_wall": "Mossy Time Bricks Wall",
+  "block.zeldamod.clay_pumpkin": "Clay Pumpkin",
+  "block.zeldamod.carved_clay_pumpkin": "Carved Clay Pumpkin",
+  "block.zeldamod.clay_jack_o_lantern": "Clay Jack O' Lantern",
 
   "Nightmask": "You don't think you should do this",
   "Courage": "The Pedestal radiates with Courage",
@@ -380,6 +402,7 @@
   "item.scale.description_basic": "Grants aquatic proficiency",
   "item.slingshot.description_basic": "Shoots various seed types",
   "item.slingshot.description_advanced": "Effective on bugs!",
+  "item.scattershot.description_basic": "Shoots three seeds for the price of one",
   "item.deku_stick.description": "Can be lit to burn blocks",
   "item.tornado_rod.description": "Whirl up in the air!",
   "item.master_sword_true.description_advanced": "Shoots Beams!",
@@ -450,6 +473,8 @@
   "death.attack.gloom_damage.player": "%1$s was consumed by Gloom whilst trying to escape %2$s",
 
   "entity.zeldamod.deku": "Deku Scrub",
+  "entity.zeldamod.deku_mad": "Mad Scrub",
   "entity.zeldamod.dark_nut": "Dark Nut",
+  "entity.zeldamod.dark_knight": "Dark Knight",
   "entity.zeldamod.keese": "Keese"
 }

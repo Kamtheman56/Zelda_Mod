@@ -4,12 +4,14 @@ import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.custom.projectile.BombSeedProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BowItem;
@@ -65,7 +67,7 @@ public class SlingshotItem extends BowItem {
                         world.addFreshEntity(projectile);
                     }
                     itemStack.hurtAndBreak(1, player, (p_40665_) -> p_40665_.broadcastBreakEvent(player.getUsedItemHand()));
-                    world.playSound((Player) entityLiving, player.getX(), player.getY(), player.getZ(), SoundEvents.EGG_THROW, SoundSource.PLAYERS, 1.0F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F)  * 0.5F);
+                    world.playSound((Player) entityLiving, player.getX(), player.getY(), player.getZ(), ModSounds.SLINGSHOT_RELEASE.get(), SoundSource.PLAYERS, .5F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F)  * 0.5F);
 
                     if (!infiniteAmmo && !player.getAbilities().instabuild) {
                         itemStack.shrink(1);
@@ -99,6 +101,25 @@ public class SlingshotItem extends BowItem {
 
         return power;
     }
+
+     @Override
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
+        ItemStack itemstack = pPlayer.getItemInHand(pHand);
+        boolean flag = !pPlayer.getProjectile(itemstack).isEmpty();
+
+        InteractionResultHolder<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(itemstack, pLevel, pPlayer, pHand, flag);
+        if (ret != null) return ret;
+
+        if (!pPlayer.getAbilities().instabuild && !flag) {
+            return InteractionResultHolder.fail(itemstack);
+        } else {
+            pPlayer.startUsingItem(pHand);
+            pLevel.playSound(pPlayer, pPlayer.getOnPos(), ModSounds.SLINGSHOT_PULL.get(),SoundSource.PLAYERS);
+            return InteractionResultHolder.consume(itemstack);
+        }
+    }
+
+
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {

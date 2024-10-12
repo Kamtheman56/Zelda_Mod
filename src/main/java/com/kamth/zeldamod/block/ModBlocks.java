@@ -78,6 +78,18 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> JAR_RED = registerBlock("jar_red", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
     public static final RegistryObject<Block> JAR_GREEN = registerBlock("jar_green", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
     public static final RegistryObject<Block> JAR_BROWN = registerBlock("jar_brown", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_ORANGE = registerBlock("jar_orange", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_LIGHT_BLUE = registerBlock("jar_light_blue", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_TEAL = registerBlock("jar_teal", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_PURPLE = registerBlock("jar_purple", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_MAGENTA = registerBlock("jar_magenta", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_PINK = registerBlock("jar_pink", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_LIME = registerBlock("jar_lime", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_GRAY = registerBlock("jar_gray", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_LIGHT_GRAY = registerBlock("jar_light_gray", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_WHITE = registerBlock("jar_white", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+    public static final RegistryObject<Block> JAR_BLACK = registerBlock("jar_black", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
+   public static final RegistryObject<Block> JAR_YELLOW = registerBlock("jar_yellow", ()-> new JarBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
     public static final RegistryObject<Block> JAR_CREATIVE = registerBlock("jar_creative", ()-> new Jar2Block(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)));
     public static final RegistryObject<Block> PRESSURE_SWITCH = registerBlock("pressure_switch", ()-> new PressureSwitchBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> TIMED_PRESSURE_SWITCH = registerBlock("timed_pressure_switch", ()-> new TimedPressureSwitchBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK),120,false));
@@ -92,6 +104,12 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> ZORA_GRAVE = registerBlock("zora_grave_block", ()-> new ZoraGraveBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
     public static final RegistryObject<Block> GORON_GRAVE = registerBlock("goron_grave_block", ()-> new GoronGraveBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
     public static final RegistryObject<Block> BROWN_BRICKS = registerBlock("brown_bricks", ()-> new BrownBricks(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> TIME_BRICKS_WALL = registerBlock("time_bricks_wall", ()-> new WallBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> MOSSY_TIME_BRICKS_WALL = registerBlock("mossy_time_bricks_wall", ()-> new WallBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> CRACKED_TIME_BRICKS_WALL = registerBlock("cracked_time_bricks_wall", ()-> new WallBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> CLAY_PUMPKIN = registerBlock("clay_pumpkin", ()-> new ClayPumpkinBlock(BlockBehaviour.Properties.copy(Blocks.PUMPKIN)));
+    public static final RegistryObject<Block> CARVED_CLAY_PUMPKIN = registerBlock("carved_clay_pumpkin", ()-> new CarvedPumpkinBlock(BlockBehaviour.Properties.copy(Blocks.PUMPKIN)));
+    public static final RegistryObject<Block> CLAY_JACK_O_LANTERN = registerBlock("clay_jack_o_lantern", ()-> new CarvedPumpkinBlock(BlockBehaviour.Properties.copy(Blocks.PUMPKIN).lightLevel((p_50755_) -> 12)));
 
 
 

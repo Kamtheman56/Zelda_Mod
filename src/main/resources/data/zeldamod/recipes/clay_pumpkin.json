@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "XXX",
+    "XBX",
+    "XXX"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:pumpkin"
+    },
+    "X": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "result": {
+    "item": "zeldamod:clay_pumpkin"
+  }
+}

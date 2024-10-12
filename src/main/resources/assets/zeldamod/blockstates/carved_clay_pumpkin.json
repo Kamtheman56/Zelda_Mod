@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "zeldamod:block/carved_clay_pumpkin" },
+    "facing=east": { "model":  "zeldamod:block/carved_clay_pumpkin", "y": 90 },
+    "facing=south": { "model":  "zeldamod:block/carved_clay_pumpkin", "y": 180 },
+    "facing=west": { "model":  "zeldamod:block/carved_clay_pumpkin", "y": 270 }
+  }
+}
