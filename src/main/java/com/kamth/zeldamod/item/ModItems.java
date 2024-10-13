@@ -175,7 +175,7 @@ public class ModItems {
             () -> new GloomWeaponItem(ModTiers.GLOOM, 8, -3.4f,
                     new Item.Properties().defaultDurability(120).rarity(Rarity.RARE)));
 
-
+// this is where items go
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
             () -> new SlingshotItem(new Item.Properties().defaultDurability(284).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SCATTERSHOT = ITEMS.register("scattershot",
@@ -269,6 +269,8 @@ public class ModItems {
     public static final RegistryObject<Item> FLUTE = ITEMS.register("flute",
             () -> new FluteItem(new Item.Properties().rarity(Rarity.RARE).defaultDurability(5)));
 
+
+    //shields go here
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new WoodShieldItem(new Item.Properties().durability(168)));
     public static final RegistryObject<Item> HYLIAN_SHIELD = ITEMS.register("hylian_shield",

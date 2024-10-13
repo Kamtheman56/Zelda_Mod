@@ -6,6 +6,7 @@ import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -45,9 +46,11 @@ public class OcarinaItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
-
             world.playSound(pPlayer, pPlayer.getOnPos(), ModSounds.OCARINA.get(), SoundSource.PLAYERS, .5f, 1.2f / (world.getRandom().nextFloat() * 0.4F + 0.8F));
-
+            double particleX = pPlayer.getX() + (pPlayer.getRandom().nextBoolean() ? 0.1D : 0);
+            double particleY = pPlayer.getY() + pPlayer.getRandom().nextFloat() * 0 + 1.2D;
+            double particleZ = pPlayer.getZ() + (pPlayer.getRandom().nextBoolean() ? +0.8D : 0);
+            pPlayer.level().addParticle(ParticleTypes.NOTE, particleX, particleY, particleZ, 0, 0, 0);
         return InteractionResultHolder.consume(itemstack);
     }
     @SubscribeEvent
