@@ -322,10 +322,10 @@
   "filled_map.jungle_map": "Jungle Temple Map",
   "filled_map.desert_map": "Desert Pyramid Map",
   "filled_map.pillager_map": "Pillager Outpost Map",
-  "filled_map.sky_ruins_map": "Sky Ruins Map",
-  "filled_map.song_ruins_map": "Song Ruins Map",
+  "filled_map.sky_ruins": "Sky Ruins Map",
+  "filled_map.song_ruins": "Song Ruins Map",
   "filled_map.monster_map": "Dungeon Map",
-  "filled_map.arctic_ruins_map": "Arctic Ruins Map",
+  "filled_map.arctic_ruins": "Arctic Ruins Map",
 
   "Ocarina": "Your notes ring hollow...",
 
