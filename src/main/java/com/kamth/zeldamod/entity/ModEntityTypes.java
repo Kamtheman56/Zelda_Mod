@@ -54,6 +54,14 @@ public class ModEntityTypes {
             .sized(.8f,1.8f).build("dark_knight"));
     public static final RegistryObject<EntityType<KeeseEntity>> KEESE = ENTITY_TYPES.register("keese", () -> EntityType.Builder.of(KeeseEntity::new, MobCategory.MONSTER)
             .sized(.6f,.6f).build("keese"));
+    public static final RegistryObject<EntityType<ChuchuEntity>> CHUCHU = ENTITY_TYPES.register("chuchu", () -> EntityType.Builder.of(ChuchuEntity::new, MobCategory.MONSTER)
+            .sized(2.04F, 2.04F).build("chuchu"));
+    public static final RegistryObject<EntityType<FireChuchuEntity>> CHUCHU_FIRE = ENTITY_TYPES.register("chuchu_fire", () -> Builder.of(FireChuchuEntity::new, MobCategory.MONSTER)
+            .sized(2.04F, 2.04F).build("chuchu_fire"));
+    public static final RegistryObject<EntityType<IceChuchuEntity>> CHUCHU_ICE = ENTITY_TYPES.register("chuchu_ice", () -> Builder.of(IceChuchuEntity::new, MobCategory.MONSTER)
+            .sized(2.04F, 2.04F).build("chuchu_ice"));
+    public static final RegistryObject<EntityType<ElectricChuchuEntity>> CHUCHU_ELECTRIC = ENTITY_TYPES.register("chuchu_electric", () -> Builder.of(ElectricChuchuEntity::new, MobCategory.MONSTER)
+            .sized(2.04F, 2.04F).build("chuchu_electric"));
 
 
     public static void register(IEventBus modEventBus) {

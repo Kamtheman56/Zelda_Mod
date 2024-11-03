@@ -19,4 +19,15 @@ public class MobModelLayers {
     public static final ModelLayerLocation KEESE_LAYER = new ModelLayerLocation(
             new ResourceLocation(ZeldaMod.MOD_ID, "keese_layer"), "main");
 
+    public static final ModelLayerLocation CHUCHU_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "chuchu_layer"), "main");
+    public static final ModelLayerLocation FIRE_CHUCHU_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "fire_chuchu_layer"), "main");
+    public static final ModelLayerLocation ICE_CHUCHU_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "ice_chuchu_layer"), "main");
+    public static final ModelLayerLocation ELECTRIC_CHUCHU_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "electric_chuchu_layer"), "main");
+    public static final ModelLayerLocation CHUCHU_OUTER_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "chuchu_outer_layer"), "main");
+
 }

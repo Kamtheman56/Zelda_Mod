@@ -205,6 +205,10 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.DARK_NUT_SPAWN_EGG);
         event.accept(ModItems.DARK_KNIGHT_SPAWN_EGG);
         event.accept(ModItems.KEESE_SPAWN_EGG);
+        event.accept(ModItems.CHUCHU_SPAWN_EGG);
+        event.accept(ModItems.FIRE_CHUCHU_SPAWN_EGG);
+        event.accept(ModItems.ICE_CHUCHU_SPAWN_EGG);
+        event.accept(ModItems.ELECTRIC_CHUCHU_SPAWN_EGG);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MASK.get()){
         event.accept(ModItems.DEKU_MASK);
@@ -344,6 +348,11 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             EntityRenderers.register(ModEntityTypes.DARK_NUT.get(), DarknutRenderer::new);
             EntityRenderers.register(ModEntityTypes.DARK_KNIGHT.get(), DarkKnightRenderer::new);
             EntityRenderers.register(ModEntityTypes.KEESE.get(), KeeseRenderer::new);
+            EntityRenderers.register(ModEntityTypes.CHUCHU.get(), ChuchuRenderer::new);
+            EntityRenderers.register(ModEntityTypes.CHUCHU_FIRE.get(), FireChuchuRenderer::new);
+            EntityRenderers.register(ModEntityTypes.CHUCHU_ICE.get(), IceChuchuRenderer::new);
+            EntityRenderers.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), ElectricChuchuRenderer::new);
+
         }
 
     }

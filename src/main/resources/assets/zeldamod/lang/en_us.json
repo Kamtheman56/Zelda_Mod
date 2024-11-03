@@ -184,6 +184,11 @@
   "item.zeldamod.dark_nut_spawn_egg": "Dark Nut Spawn Egg",
   "item.zeldamod.dark_knight_spawn_egg": "Dark Knight Spawn Egg",
   "item.zeldamod.keese_spawn_egg": "Keese Spawn Egg",
+  "item.zeldamod.chuchu_spawn_egg": "Blue Chuchu Spawn Egg",
+  "item.zeldamod.fire_chuchu_spawn_egg": "Fire Chuchu Spawn Egg",
+  "item.zeldamod.ice_chuchu_spawn_egg": "Ice Chuchu Spawn Egg",
+  "item.zeldamod.electric_chuchu_spawn_egg": "Electric Chuchu Spawn Egg",
+  "item.zeldamod.korok_spawn_egg": "Korok Spawn Egg",
 
   "effect.zeldamod.deku": "Water Hopping",
   "effect.zeldamod.goron": "Goron",
@@ -476,5 +481,11 @@
   "entity.zeldamod.deku_mad": "Mad Scrub",
   "entity.zeldamod.dark_nut": "Dark Nut",
   "entity.zeldamod.dark_knight": "Dark Knight",
-  "entity.zeldamod.keese": "Keese"
+  "entity.zeldamod.keese": "Keese",
+  "entity.zeldamod.chuchu": "Blue Chuchu",
+  "entity.zeldamod.chuchu_fire": "Fire Chuchu",
+  "entity.zeldamod.chuchu_ice": "Ice Chuchu",
+  "entity.zeldamod.chuchu_electric": "Electric Chuchu",
+  "entity.zeldamod.korok": "Korok"
+
 }

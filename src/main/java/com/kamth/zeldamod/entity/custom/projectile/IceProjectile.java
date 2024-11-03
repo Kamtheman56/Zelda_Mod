@@ -41,7 +41,7 @@ public class IceProjectile extends ThrowableProjectile {
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
-        entity.setTicksFrozen(40);
+        entity.setTicksFrozen(entity.getTicksFrozen()+60);
         entity.hurt(damageSources().magic(),4);
         this.playSound(SoundEvents.PLAYER_HURT_FREEZE);
     }

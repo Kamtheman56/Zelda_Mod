@@ -52,7 +52,7 @@ public class IceArrow extends AbstractArrow {
     protected void doPostHurtEffects(LivingEntity entity)
     {
         super.doPostHurtEffects(entity);
- entity.setTicksFrozen(40);
+ entity.setTicksFrozen(entity.getTicksFrozen()+40);
     }
 
     @Override

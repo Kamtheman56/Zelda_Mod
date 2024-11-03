@@ -472,6 +472,18 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<Item> KEESE_SPAWN_EGG = ITEMS.register("keese_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.KEESE, 6176839, 16252718,
                     new Item.Properties()));
+    public static final RegistryObject<Item> CHUCHU_SPAWN_EGG = ITEMS.register("chuchu_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.CHUCHU, 56566, 64243,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> FIRE_CHUCHU_SPAWN_EGG = ITEMS.register("fire_chuchu_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.CHUCHU_FIRE, 16727603, 14883891,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> ICE_CHUCHU_SPAWN_EGG = ITEMS.register("ice_chuchu_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.CHUCHU_ICE, 13106943, 16777215,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> ELECTRIC_CHUCHU_SPAWN_EGG = ITEMS.register("electric_chuchu_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.CHUCHU_ELECTRIC, 13631258, 6354196,
+                    new Item.Properties()));
 
         public static void register (IEventBus eventbus) {
             ITEMS.register(eventbus);

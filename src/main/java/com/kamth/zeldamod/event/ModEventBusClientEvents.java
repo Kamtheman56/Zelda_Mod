@@ -3,10 +3,7 @@ package com.kamth.zeldamod.event;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.entity.ModBlockEntities;
 import com.kamth.zeldamod.block.entity.renderer.*;
-import com.kamth.zeldamod.entity.client.DarknutModel;
-import com.kamth.zeldamod.entity.client.DekuModel;
-import com.kamth.zeldamod.entity.client.KeeseModel;
-import com.kamth.zeldamod.entity.client.MobModelLayers;
+import com.kamth.zeldamod.entity.client.*;
 import com.kamth.zeldamod.item.armors.render.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -35,6 +32,11 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(MobModelLayers.DARK_NUT_LAYER, DarknutModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.DARK_KNIGHT_LAYER, DarknutModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.KEESE_LAYER, KeeseModel::createBodyLayer);
+        event.registerLayerDefinition(MobModelLayers.CHUCHU_LAYER, ChuchuModel::createBodyLayer);
+        event.registerLayerDefinition(MobModelLayers.ICE_CHUCHU_LAYER, ChuchuModel::createBodyLayer);
+        event.registerLayerDefinition(MobModelLayers.FIRE_CHUCHU_LAYER, ChuchuModel::createBodyLayer);
+        event.registerLayerDefinition(MobModelLayers.ELECTRIC_CHUCHU_LAYER, ChuchuModel::createBodyLayer);
+        event.registerLayerDefinition(MobModelLayers.CHUCHU_OUTER_LAYER, ChuchuModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.CAP, CapModel2::createBodyLayer);
     }
 

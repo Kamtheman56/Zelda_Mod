@@ -18,5 +18,11 @@ public static void registerAttributes(EntityAttributeCreationEvent event){
     event.put(ModEntityTypes.DARK_NUT.get(), DarknutEntity.createAttributes().build());
         event.put(ModEntityTypes.DARK_KNIGHT.get(), DarkKnightEntity.createAttributes().build());
         event.put(ModEntityTypes.KEESE.get(), KeeseEntity.createAttributes().build());
-}
+        event.put(ModEntityTypes.CHUCHU.get(), ChuchuEntity.createAttributes().build());
+        event.put(ModEntityTypes.CHUCHU_ICE.get(), IceChuchuEntity.createAttributes().build());
+        event.put(ModEntityTypes.CHUCHU_FIRE.get(), FireChuchuEntity.createAttributes().build());
+        event.put(ModEntityTypes.CHUCHU_ELECTRIC.get(), ElectricChuchuEntity.createAttributes().build());
+
+
+    }
 }
