@@ -38,6 +38,11 @@
   "item.zeldamod.gold_heart_container": "Primo Heart Container",
   "item.zeldamod.gloom_clump": "Gloom Clump",
   "item.zeldamod.gloom_resist_potion": "Gloom Resistance Potion",
+  "item.zeldamod.korok_seed": "Korok Seed",
+  "item.zeldamod.chu_jelly": "Chu Jelly",
+  "item.zeldamod.fire_chu_jelly": "Fire Chu Jelly",
+  "item.zeldamod.ice_chu_jelly": "Ice Chu Jelly",
+  "item.zeldamod.electric_chu_jelly": "Electric Chu Jelly",
 
 
   "itemGroup.zeldatab": "Zelda Items",
@@ -155,6 +160,7 @@
   "item.zeldamod.spookymask": "Spooky Mask",
   "item.zeldamod.skullmask": "Skull Mask",
   "item.zeldamod.gerudomask": "Gerudo Mask",
+  "item.zeldamod.korok_mask": "Korok Mask",
   "item.zeldamod.kokiritunic": "Kokiri Tunic",
   "item.zeldamod.zoratunic": "Zora Tunic",
   "item.zeldamod.gorontunic": "Goron Tunic",
@@ -309,6 +315,10 @@
   "block.zeldamod.clay_pumpkin": "Clay Pumpkin",
   "block.zeldamod.carved_clay_pumpkin": "Carved Clay Pumpkin",
   "block.zeldamod.clay_jack_o_lantern": "Clay Jack O' Lantern",
+  "block.zeldamod.chu_block": "Chu Block",
+  "block.zeldamod.fire_chu_block": "Fire Chu Block",
+  "block.zeldamod.ice_chu_block": "Ice Chu Block",
+  "block.zeldamod.electric_chu_block": "Electric Chu Block",
 
   "Nightmask": "You don't think you should do this",
   "Courage": "The Pedestal radiates with Courage",

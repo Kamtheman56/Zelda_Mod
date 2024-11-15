@@ -35,7 +35,7 @@ public class MasterSwordItem extends SwordItem {
     }
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
-        if (pState.is(ModTags.Blocks.DEMON)) {   return 18.0F;
+        if (pState.is(ModTags.Blocks.DEMON) ) {   return 18.0F;
         }
       else return 1;
     }

@@ -41,7 +41,7 @@ public class ChuchuModel<T extends Entity> extends HierarchicalModel<T> {
     @Override
     public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.root().getAllParts().forEach(ModelPart::resetPose);
-
+     //   this.animate(((ChuchuEntity) entity).idleAnimationState, ModAnimationDefinitions.chu_undgulate, ageInTicks, 1f);
 
     }
 
@@ -49,6 +49,7 @@ public class ChuchuModel<T extends Entity> extends HierarchicalModel<T> {
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         base.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
     }
+
 
     @Override
     public ModelPart root() {

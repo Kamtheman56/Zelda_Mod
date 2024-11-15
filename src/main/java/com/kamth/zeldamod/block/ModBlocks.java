@@ -110,6 +110,10 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> CLAY_PUMPKIN = registerBlock("clay_pumpkin", ()-> new ClayPumpkinBlock(BlockBehaviour.Properties.copy(Blocks.PUMPKIN)));
     public static final RegistryObject<Block> CARVED_CLAY_PUMPKIN = registerBlock("carved_clay_pumpkin", ()-> new CarvedPumpkinBlock(BlockBehaviour.Properties.copy(Blocks.PUMPKIN)));
     public static final RegistryObject<Block> CLAY_JACK_O_LANTERN = registerBlock("clay_jack_o_lantern", ()-> new CarvedPumpkinBlock(BlockBehaviour.Properties.copy(Blocks.PUMPKIN).lightLevel((p_50755_) -> 12)));
+    public static final RegistryObject<Block> CHU_BLOCK_BLUE = registerBlock("chu_block", ()-> new ChuBlock(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> CHU_BLOCK_FIRE = registerBlock("fire_chu_block", ()-> new ChuBlock(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> CHU_BLOCK_ICE = registerBlock("ice_chu_block", ()-> new ChuBlock(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> CHU_BLOCK_ELECTRIC = registerBlock("electric_chu_block", ()-> new ChuBlock(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK).noOcclusion()));
 
 
 

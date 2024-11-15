@@ -3,14 +3,14 @@
   "category": "redstone",
   "ingredients": [
     {
-      "item": "zeldamod:pressure_switch"
+      "item": "zeldamod:rusted_pressure_switch"
     },
     {
       "item": "minecraft:clock"
     }
   ],
   "result": {
-    "item": "zeldamod:pressure_switch_rusted_timed",
+    "item": "zeldamod:rusted_timed_pressure_switch",
     "count": 1
   }
 }

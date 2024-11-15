@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "down": "zeldamod:block/chu_block_side",
+    "particle": "zeldamod:block/chu_block_side",
+    "up": "zeldamod:block/chu_block_side",
+    "north": "zeldamod:block/chu_block_blue",
+    "east": "zeldamod:block/chu_block_side",
+    "south": "zeldamod:block/chu_block_side",
+    "west":"zeldamod:block/chu_block_side"
+  }
+}

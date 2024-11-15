@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "zeldamod:block/electric_chu_block" },
+    "facing=east": { "model": "zeldamod:block/electric_chu_block", "y": 90 },
+    "facing=south": { "model": "zeldamod:block/electric_chu_block", "y": 180 },
+    "facing=west": { "model": "zeldamod:block/electric_chu_block", "y": 270 }
+  }
+}

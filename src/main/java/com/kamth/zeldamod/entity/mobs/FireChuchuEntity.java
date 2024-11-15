@@ -123,7 +123,7 @@ public class FireChuchuEntity extends Monster {
         return   this.isEffectiveAi();
     }
     protected ParticleOptions getParticleType() {
-        return ParticleTypes.LANDING_LAVA;
+        return ParticleTypes.FLAME;
     }
     protected SoundEvent getSquishSound() {
         return this.isTiny() ? SoundEvents.SLIME_SQUISH_SMALL : SoundEvents.SLIME_SQUISH;
@@ -132,6 +132,13 @@ public class FireChuchuEntity extends Monster {
         this.squish += (this.targetSquish - this.squish) * 0.5F;
         this.oSquish = this.squish;
         super.tick();
+
+
+        if (this.level().isClientSide) {
+            for(int i = 0; i < 2; ++i) {
+                this.level().addParticle(ParticleTypes.FLAME, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.0D, 0.0D, 0.0D);
+            }
+        }
         if (this.onGround() && !this.wasOnGround) {
             int i = this.getSize();
 

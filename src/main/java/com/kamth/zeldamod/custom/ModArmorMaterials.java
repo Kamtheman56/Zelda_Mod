@@ -101,6 +101,9 @@ public enum ModArmorMaterials implements ArmorMaterial {
     GERUDO("gerudo", 0, new int[]{0, 2, 5, 0}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.SAND); }),
+    KOROK("korok", 0, new int[]{0, 2, 5, 0}, 0, SoundEvents.AZALEA_LEAVES_PLACE,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.OAK_LEAVES); }),
     ZELDAH("heavy", 0, new int[]{0, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_IRON,
             0.0F, 4.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
@@ -143,7 +146,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     Dark("dark", 0, new int[]{2, 5, 2, 2}, 6, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(ModItems.GLOOM_CLUMP.get()); }),
-    Hylian("hylian", 0, new int[]{2, 4, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Hylian("hylian", 0, new int[]{3, 4, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.BLACK_WOOL); });
 

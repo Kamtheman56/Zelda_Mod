@@ -39,6 +39,10 @@ public class ChuchuEntity extends Monster {
     public float squish;
     public float oSquish;
     private boolean wasOnGround;
+    public final AnimationState idleAnimationState = new AnimationState();
+    public final AnimationState attackAnimationState = new AnimationState();
+
+    private int idleAnimationTimeout = 0;
     public ChuchuEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.fixupDimensions();
@@ -79,12 +83,12 @@ public class ChuchuEntity extends Monster {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 4)
+                .add(Attributes.MAX_HEALTH, 6)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0f)
                 .add(Attributes.MOVEMENT_SPEED, .5f)
                 .add(Attributes.ATTACK_DAMAGE, 2)
                 .add(Attributes.FOLLOW_RANGE, 20.0D)
-                .add(Attributes.ATTACK_KNOCKBACK, 0.8f)
+                .add(Attributes.ATTACK_KNOCKBACK, 1.8f)
                 .add(Attributes.ATTACK_SPEED, 1);
     }
 
@@ -109,6 +113,9 @@ public class ChuchuEntity extends Monster {
 
     }
 
+
+
+
     /**
      * Called by a player entity when they collide with an entity
      */
@@ -132,6 +139,18 @@ public class ChuchuEntity extends Monster {
         this.squish += (this.targetSquish - this.squish) * 0.5F;
         this.oSquish = this.squish;
         super.tick();
+        if (this.level().isClientSide) {
+            setupAnimationStates();
+        }
+    }
+
+    private void setupAnimationStates() {
+        if (this.idleAnimationTimeout <= 0 ) {
+            this.idleAnimationTimeout = this.random.nextInt(400) + 80;
+            this.idleAnimationState.start(this.tickCount);
+        } else {
+            --this.idleAnimationTimeout;
+        }
         if (this.onGround() && !this.wasOnGround) {
             int i = this.getSize();
 

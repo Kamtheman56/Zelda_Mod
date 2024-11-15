@@ -71,6 +71,16 @@ public class ModItems {
             () -> new GoldHeartContainerItem(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> HEART_PIECE = ITEMS.register("heart_piece",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> KOROK_SEED = ITEMS.register("korok_seed",
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> CHU_JELLY = ITEMS.register("chu_jelly",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FIRE_CHU_JELLY = ITEMS.register("fire_chu_jelly",
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> ICE_CHU_JELLY = ITEMS.register("ice_chu_jelly",
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> ELECTRIC_CHU_JELLY = ITEMS.register("electric_chu_jelly",
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
     //These are potions or consumables
     public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
@@ -157,7 +167,7 @@ public class ModItems {
                     new Item.Properties().defaultDurability(1850).rarity(Rarity.RARE)));
 
     public static final RegistryObject<Item> FIERCE_SWORD = ITEMS.register("fierce_sword",
-            () -> new FierceSwordItem(ModTiers.DEITY, 7, -1.4f,
+            () -> new FierceSwordItem(ModTiers.DEITY, 10, -1.4f,
                     new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> HERO_SWORD = ITEMS.register("hero_sword",
             () -> new MagicSwordItem(Tiers.WOOD, 3, -2.4f,
@@ -392,6 +402,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<ArmorItem> GERUDO_MASK = ITEMS.register("gerudomask",
             ()-> new RomaniMask(ModArmorMaterials.GERUDO, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> KOROK_MASK = ITEMS.register("korok_mask",
+            ()-> new RomaniMask(ModArmorMaterials.KOROK, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(382)));
 
 
    //Tunics
@@ -483,6 +496,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties()));
     public static final RegistryObject<Item> ELECTRIC_CHUCHU_SPAWN_EGG = ITEMS.register("electric_chuchu_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.CHUCHU_ELECTRIC, 13631258, 6354196,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> KOROK_SPAWN_EGG = ITEMS.register("korok_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.KOROK, 14129730, 4507427,
                     new Item.Properties()));
 
         public static void register (IEventBus eventbus) {

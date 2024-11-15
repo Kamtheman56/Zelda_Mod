@@ -6,6 +6,27 @@
   "minecraft:sculk_catalyst",
   "minecraft:sculk_shrieker",
   "minecraft:sculk_sensor",
-  "zeldamod:gloom_block"
+  "zeldamod:gloom_block",
+  "zeldamod:malice_block",
+  "minecraft:oak_leaves",
+  "minecraft:birch_leaves",
+  "minecraft:spruce_leaves",
+  "minecraft:acacia_leaves",
+  "minecraft:dark_oak_leaves",
+  "minecraft:cherry_leaves",
+  "minecraft:azalea_leaves",
+  "minecraft:flowering_azalea_leaves",
+  "minecraft:melon",
+  "minecraft:jack_o_lantern",
+  "minecraft:moss_carpet",
+  "minecraft:pumpkin",
+  "minecraft:carved_pumpkin",
+  "minecraft:cobweb",
+  "minecraft:vine",
+  "minecraft:bamboo",
+  "minecraft:big_dripleaf",
+  "minecraft:big_dripleaf_stem",
+  "minecraft:chorus_flower",
+  "minecraft:chorus_plant"
 ]
 }

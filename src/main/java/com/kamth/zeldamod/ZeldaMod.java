@@ -183,7 +183,12 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.CLAW);
         event.accept(ModItems.DEITY_SHARD);
         event.accept(ModItems.GLOOM_CLUMP);
+        event.accept(ModItems.KOROK_SEED);
         event.accept(ModItems.BOMB_SEEDS);
+        event.accept(ModItems.CHU_JELLY);
+        event.accept(ModItems.FIRE_CHU_JELLY);
+        event.accept(ModItems.ICE_CHU_JELLY);
+        event.accept(ModItems.ELECTRIC_CHU_JELLY);
         event.accept(ModItems.FARORE_PEARL);
         event.accept(ModItems.DIN_PEARL);
         event.accept(ModItems.NAYRU_PEARL);
@@ -209,6 +214,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.FIRE_CHUCHU_SPAWN_EGG);
         event.accept(ModItems.ICE_CHUCHU_SPAWN_EGG);
         event.accept(ModItems.ELECTRIC_CHUCHU_SPAWN_EGG);
+        event.accept(ModItems.KOROK_SPAWN_EGG);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MASK.get()){
         event.accept(ModItems.DEKU_MASK);
@@ -320,6 +326,10 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.ZORA_GRAVE);
             event.accept(ModBlocks.SKY_STONE_CHISELED);
             event.accept(ModBlocks.SKY_STONE_MURAL);
+            event.accept(ModBlocks.CHU_BLOCK_BLUE);
+            event.accept(ModBlocks.CHU_BLOCK_FIRE);
+            event.accept(ModBlocks.CHU_BLOCK_ICE);
+            event.accept(ModBlocks.CHU_BLOCK_ELECTRIC);
             event.accept(ModBlocks.NIGHTSHADE);
             event.accept(ModBlocks.SUNDELION);
             event.accept(ModBlocks.DEKU_BLOCK);
@@ -352,6 +362,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             EntityRenderers.register(ModEntityTypes.CHUCHU_FIRE.get(), FireChuchuRenderer::new);
             EntityRenderers.register(ModEntityTypes.CHUCHU_ICE.get(), IceChuchuRenderer::new);
             EntityRenderers.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), ElectricChuchuRenderer::new);
+            EntityRenderers.register(ModEntityTypes.KOROK.get(), KorokRenderer::new);
 
         }
 

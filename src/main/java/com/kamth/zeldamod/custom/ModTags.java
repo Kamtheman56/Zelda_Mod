@@ -22,6 +22,7 @@ public class ModTags {
     }
 
 
+
     public static class Blocks{
 
 public static final TagKey<Block> BOMB
@@ -56,6 +57,8 @@ public static final TagKey<Block> BOMB
                 = tag("sacred_flame_blocks");
         public static final TagKey<Block> STAMINA_FRUIT
                 = tag("stamina_fruit_blocks");
+        public static final TagKey<Block> SWORD_BLOCKS
+                = tag("sword_blocks");
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }
