@@ -1,27 +1,31 @@
 package com.kamth.zeldamod.entity.mobs;
 
 import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.entity.mobs.variants.KorokVariants;
 import com.kamth.zeldamod.item.ModItems;
-import net.minecraft.core.BlockPos;
+import net.minecraft.Util;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
-import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.level.ServerLevelAccessor;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
@@ -32,7 +36,7 @@ public class KorokEntity extends Monster {
     public KorokEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
-
+    private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT = SynchedEntityData.defineId(KorokEntity.class, EntityDataSerializers.INT);
     protected static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Monster.class, EntityDataSerializers.BYTE);
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState sitAnimationState = new AnimationState();
@@ -41,9 +45,19 @@ public class KorokEntity extends Monster {
 
 
     protected void defineSynchedData() {
+        this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
         super.defineSynchedData();
     }
-
+    @Override
+    public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putInt("Variant", this.getTypeVariant());
+    }
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        this.entityData.set(DATA_ID_TYPE_VARIANT, tag.getInt("Variant"));
+    }
     @Override
     public void tick() {
         super.tick();
@@ -76,56 +90,25 @@ public class KorokEntity extends Monster {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-
-
-
+        this.goalSelector.addGoal(0, new KorokMaskFollow(this));
+        
         this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.1D));
         this.goalSelector.addGoal(3, new SitOnFlower(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
 
-       this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Wolf.class, 3, 1.5, 1));
+       this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, DekuScrubEntity.class, 3, 1.5, 1));
 
 
     }
 
 
-    static class DekutoFlowerGoal extends MoveToBlockGoal {
-        private final KorokEntity deku;
 
-        DekutoFlowerGoal(KorokEntity deku, double pSpeedModifier) {
-            super(deku, pSpeedModifier, 8, 2);
-            this.deku = deku;
-        }
-
-        public BlockPos getMoveToTarget() {
-            return this.blockPos;
-        }
-
-        public boolean canContinueToUse() {
-            return !this.deku.isInLava() && this.isValidTarget(this.deku.level(), this.blockPos);
-        }
-
-        public boolean canUse() {
-            return !this.deku.isInLava() && super.canUse();
-        }
-
-
-        public boolean shouldRecalculatePath() {
-            return this.tryTicks % 20 == 0;
-        }
-
-        protected boolean isValidTarget(LevelReader pLevel, BlockPos pPos) {
-            return pLevel.getBlockState(pPos).is(ModBlocks.DEKU_BLOCK.get()) && pLevel.getBlockState(pPos.above()).isPathfindable(pLevel, pPos, PathComputationType.LAND);
-        }
-    }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 6)
+                .add(Attributes.MAX_HEALTH, 10)
                 .add(Attributes.KNOCKBACK_RESISTANCE, .8f)
-                .add(Attributes.MOVEMENT_SPEED, .2f)
-                .add(Attributes.ATTACK_DAMAGE, 8)
-                .add(Attributes.ATTACK_SPEED, 3);
+                .add(Attributes.MOVEMENT_SPEED, .2f);
     }
 
     public MobType getMobType() {
@@ -144,12 +127,12 @@ public class KorokEntity extends Monster {
         return SoundEvents.GENERIC_HURT;
     }
 
-    public static class DekuMaskFollow extends Goal {
+    public static class KorokMaskFollow extends Goal {
         protected final KorokEntity mob;
 
         protected Player player;
 
-        public DekuMaskFollow(KorokEntity mob) {
+        public KorokMaskFollow(KorokEntity mob) {
             this.mob = mob;
             this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
         }
@@ -167,7 +150,7 @@ public class KorokEntity extends Monster {
             ItemStack stack0 = player.getItemBySlot(EquipmentSlot.HEAD);
             boolean l = (this.mob.distanceTo(this.player) < 10.25);
             if ((!stack0.isEmpty() && l))
-                return stack0.getItem() == ModItems.DEKU_MASK.get();
+                return stack0.getItem() == ModItems.KOROK_MASK.get();
             return false;
         }
 
@@ -200,6 +183,27 @@ public class KorokEntity extends Monster {
         }
     }
 
+    //VARIANTS
+
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_146746_, DifficultyInstance p_146747_,
+                                        MobSpawnType p_146748_, @Nullable SpawnGroupData p_146749_,
+                                        @Nullable CompoundTag p_146750_) {
+       KorokVariants variant = Util.getRandom(KorokVariants.values(), this.random);
+        setVariant(variant);
+        return super.finalizeSpawn(p_146746_, p_146747_, p_146748_, p_146749_, p_146750_);
+    }
+
+    public KorokVariants getVariant() {
+        return KorokVariants.byId(this.getTypeVariant() & 255);
+    }
+
+    private int getTypeVariant() {
+        return this.entityData.get(DATA_ID_TYPE_VARIANT);
+    }
+
+    private void setVariant(KorokVariants variant) {
+        this.entityData.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
+    }
 
 
 }

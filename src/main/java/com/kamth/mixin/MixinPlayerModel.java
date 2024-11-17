@@ -2,8 +2,8 @@ package com.kamth.mixin;
 
 
 import com.kamth.zeldamod.item.items.AscendItem;
+import com.kamth.zeldamod.item.items.DekuLeafItem;
 import com.kamth.zeldamod.item.items.GliderItem;
-import com.kamth.zeldamod.item.items.LeafItem;
 import com.kamth.zeldamod.item.masks.ZoraMask;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.PlayerModel;
@@ -56,7 +56,7 @@ public abstract class MixinPlayerModel extends HumanoidModel<LivingEntity> {
         }
 
 
-        if(stack2.getItem() instanceof LeafItem && entity.isUsingItem() || stack3.getItem() instanceof LeafItem && entity.isUsingItem() ){
+        if(stack2.getItem() instanceof DekuLeafItem && entity.isUsingItem() || stack3.getItem() instanceof DekuLeafItem && entity.isUsingItem() ){
             leftArm.xRot = ARM_ROTATION;
             leftArm.zRot = 0f;
             rightArm.xRot = ARM_ROTATION ;

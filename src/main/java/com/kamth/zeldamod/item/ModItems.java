@@ -219,9 +219,9 @@ public class ModItems {
     public static final RegistryObject<Item> DEKU_NUT = ITEMS.register("deku_nut",
             () -> new DekuNutItem(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> DEKU_LEAF = ITEMS.register("deku_leaf",
-            () -> new LeafItem(new Item.Properties().durability(10).rarity(Rarity.UNCOMMON)));
+            () -> new DekuLeafItem(new Item.Properties().durability(10).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> FIRE_ROD = ITEMS.register("fire_rod",
-            () -> new FireRodItem(new Item.Properties().durability(218).rarity(Rarity.RARE)));
+            () -> new InfernoRodItem(new Item.Properties().durability(218).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> ICE_ROD = ITEMS.register("ice_rod",
             () -> new IceRodItem(new Item.Properties().durability(218).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> TORNADO_ROD = ITEMS.register("tornado_rod",
@@ -238,12 +238,12 @@ public class ModItems {
     public static final RegistryObject<Item> MEGATON = ITEMS.register("megaton_hammer",
             () -> new MegatonItem(ModTiers.ZELDA, 8, -3f,
                     new Item.Properties().defaultDurability(520).rarity(Rarity.RARE)));
+
     public static final RegistryObject<Item> DEKU_STICK = ITEMS.register("deku_stick",
             () -> new StickItem(new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> DEKU_STICK_LIT = ITEMS.register("deku_stick_lit",
             () -> new StickItem(new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> DEKU_STICK_LIT2 = ITEMS.register("deku_stick_lit2",
-            () -> new StickItem(new Item.Properties().stacksTo(64)));
+
     public static final RegistryObject<Item> MITTS = ITEMS.register("digging_mitts",
             () -> new MittsItem(1,-2f,Tiers.STONE, BlockTags.MINEABLE_WITH_PICKAXE,
                     new Item.Properties().defaultDurability(390).rarity(Rarity.UNCOMMON)));

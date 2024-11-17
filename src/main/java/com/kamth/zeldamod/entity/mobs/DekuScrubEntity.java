@@ -86,13 +86,11 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-
         this.goalSelector.addGoal(0, new DekuMaskFollow(this));
         this.goalSelector.addGoal(2, new DekutoFlowerGoal(this, 1.3f));
         this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 12));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.1D));
-        this.goalSelector.addGoal(3, new SitOnFlower(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
          this.goalSelector.addGoal(1, new RangedAttackGoal(this,1,40,90,10));
@@ -225,25 +223,5 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
             this.mob.setTarget(null);
         }
     }
-
-    public class SitOnFlower extends Goal {
-        protected final DekuScrubEntity mob;
-
-        public SitOnFlower(DekuScrubEntity mob) {
-            this.mob = mob;
-            this.setFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.MOVE));
-        }
-
-        @Override
-        public boolean canUse() {
-            return !this.mob.isInLava() && this.mob.getBlockStateOn().is(ModBlocks.DEKU_BLOCK.get());
-        }
-        public void start() {
-            this.mob.getNavigation().stop();
-            this.mob.sitAnimationState.start(200);
-        }
-    }
-
-
 
 }

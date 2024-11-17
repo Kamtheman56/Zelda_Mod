@@ -22,8 +22,8 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class LeafItem extends Item {
-    public LeafItem(Properties pProperties) {
+public class DekuLeafItem extends Item {
+    public DekuLeafItem(Properties pProperties) {
         super(pProperties);
     }
 
