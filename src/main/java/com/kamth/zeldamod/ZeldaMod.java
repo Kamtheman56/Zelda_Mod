@@ -123,6 +123,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.SLINGSHOT);
         event.accept(ModItems.SCATTERSHOT);
         event.accept(ModItems.HERO_BOW);
+        event.accept(ModItems.REINFORCED_BOW);
         event.accept(ModItems.FIRE_ARROW);
         event.accept(ModItems.ICE_ARROW);
         event.accept(ModItems.LIGHT_ARROW);
@@ -133,6 +134,10 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.ICE_ROD);
         event.accept(ModItems.TORNADO_ROD);
         event.accept(ModItems.SAND_ROD);
+        event.accept(ModItems.INFERNO_ROD);
+        event.accept(ModItems.BLIZZARD_ROD);
+        event.accept(ModItems.HURRICANE_ROD);
+        event.accept(ModItems.SANDSTORM_ROD);
         event.accept(ModItems.ROC_FEATHER);
         event.accept(ModItems.ROC_FEATHER_2);
         event.accept(ModItems.ROC_CAPE);
@@ -245,6 +250,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.SKULL_MASK);
         event.accept(ModItems.SPOOKY_MASK);
         event.accept(ModItems.GERUDO_MASK);
+        event.accept(ModItems.KOROK_MASK);
         event.accept(ModItems.MAJORA_MASK);
         event.accept(ModItems.MASK_ODOLWA);
         event.accept(ModItems.MASK_GOHT);

@@ -15,10 +15,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.Monster;
@@ -91,13 +88,13 @@ public class KorokEntity extends Monster {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(0, new KorokMaskFollow(this));
-        
+        this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
         this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.1D));
         this.goalSelector.addGoal(3, new SitOnFlower(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
        this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, DekuScrubEntity.class, 3, 1.5, 1));
-
+        this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, DekuMadScrubEntity.class, 3, 1.5, 1));
 
     }
 
@@ -106,7 +103,7 @@ public class KorokEntity extends Monster {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 10)
+                .add(Attributes.MAX_HEALTH, 6)
                 .add(Attributes.KNOCKBACK_RESISTANCE, .8f)
                 .add(Attributes.MOVEMENT_SPEED, .2f);
     }
@@ -137,33 +134,31 @@ public class KorokEntity extends Monster {
             this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
         }
 
-        public boolean canUse() {
-            this.player = this.mob.level().getNearestPlayer(TargetingConditions.forCombat(), 2D, 2D, 1);
-            if (this.player == null) {
-                return false;
-            } else {
-                return Follow(player);
-            }
+        public boolean canUse()
+        {
+                this.player = this.mob.level().getNearestPlayer(TargetingConditions.DEFAULT,2D,2D, 1);
+                if (this.player == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return shouldFollow(player);
+                }
         }
-
-        private <L> boolean Follow(Player player) {
+        private <L> boolean shouldFollow(Player player)
+        {
             ItemStack stack0 = player.getItemBySlot(EquipmentSlot.HEAD);
-            boolean l = (this.mob.distanceTo(this.player) < 10.25);
+            boolean l =  (this.mob.distanceTo(this.player) < 12D);
             if ((!stack0.isEmpty() && l))
                 return stack0.getItem() == ModItems.KOROK_MASK.get();
             return false;
         }
-
-        public int getMaxHeadXRot() {
-            return 40;
-        }
-
-        public void tick() {
-            this.mob.getLookControl().setLookAt(this.player.getX(), this.player.getEyeY(), this.player.getZ(), 10.0F, (float) this.getMaxHeadXRot());
-            this.mob.setAggressive(false);
-            this.mob.setTarget(null);
-        }
-    }
+        public void tick()
+        {
+            this.mob.getLookControl().setLookAt(this.player, (float) (this.mob.getMaxHeadYRot() + 20), (float) this.mob.getMaxHeadXRot());
+            this.mob.getNavigation().moveTo(this.player,1.2f);
+        }}
 
     public class SitOnFlower extends Goal {
         protected final KorokEntity mob;
@@ -182,6 +177,12 @@ public class KorokEntity extends Monster {
             this.mob.sitAnimationState.start(200);
         }
     }
+
+
+
+
+
+
 
     //VARIANTS
 

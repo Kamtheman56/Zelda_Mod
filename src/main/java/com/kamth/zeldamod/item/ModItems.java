@@ -202,7 +202,11 @@ public class ModItems {
             () -> new WaterBombItem(new Item.Properties().stacksTo(16).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> BOMB_FLOWER = ITEMS.register("bomb_flower",
             () -> new BombFlowerItem(new Item.Properties().stacksTo(16).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> BOMBCHU = ITEMS.register("bombchu",
+            () -> new BombchuItem(new Item.Properties().stacksTo(32).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> HERO_BOW = ITEMS.register("hero_bow",
+            () -> new HeroBowItem(new Item.Properties().defaultDurability(550).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> REINFORCED_BOW = ITEMS.register("reinforced_bow",
             () -> new HeroBowItem(new Item.Properties().defaultDurability(550).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> FIRE_ARROW = ITEMS.register("fire_arrow",
             () -> new FireArrowItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
@@ -238,6 +242,16 @@ public class ModItems {
     public static final RegistryObject<Item> MEGATON = ITEMS.register("megaton_hammer",
             () -> new MegatonItem(ModTiers.ZELDA, 8, -3f,
                     new Item.Properties().defaultDurability(520).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> INFERNO_ROD = ITEMS.register("inferno_rod",
+            () -> new InfernoRodItem(new Item.Properties().durability(480).rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> BLIZZARD_ROD = ITEMS.register("blizzard_rod",
+            () -> new BlizzardRodItem(new Item.Properties().durability(480).rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> SANDSTORM_ROD = ITEMS.register("sandstorm_rod",
+            () -> new SandStormRodItem(new Item.Properties().durability(480).rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> HURRICANE_ROD = ITEMS.register("hurricane_rod",
+            () -> new HurricaneRodItem(new Item.Properties().durability(480).rarity(Rarity.EPIC)));
+
+
 
     public static final RegistryObject<Item> DEKU_STICK = ITEMS.register("deku_stick",
             () -> new StickItem(new Item.Properties().stacksTo(64)));

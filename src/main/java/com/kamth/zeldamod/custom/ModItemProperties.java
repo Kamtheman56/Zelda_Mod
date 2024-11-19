@@ -14,6 +14,7 @@ public class ModItemProperties {
         makeBow(ModItems.SLINGSHOT.get());
         makeBow(ModItems.SCATTERSHOT.get());
         makeBow(ModItems.HERO_BOW.get());
+        makeBow(ModItems.REINFORCED_BOW.get());
         makeShield(ModItems.DEKU_LEAF.get());
         makeShield(ModItems.GLIDER.get());
         makeShield(ModItems.LENS_OF_TRUTH.get());

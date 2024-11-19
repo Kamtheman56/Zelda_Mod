@@ -19,21 +19,22 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 
-public class BombProjectile extends ThrowableProjectile {
+public class BombchuProjectile extends ThrowableProjectile {
 
 
     private float ticksToExplode =100f;
     private int explosionPower = 3;
-
-    public BombProjectile(EntityType<BombProjectile> bombProjectileEntityType, Level level) {
+    private Object prevLookDirection;
+    private static final double CHAIN_REACTION_RADIUS = 8.0;
+    public boolean explodedByChainReaction = false;
+    public BombchuProjectile(EntityType<BombchuProjectile> bombProjectileEntityType, Level level) {
         super(bombProjectileEntityType,level);
 
     }
 
-    public BombProjectile(Level world, LivingEntity owner) {
+    public BombchuProjectile(Level world, LivingEntity owner) {
         super(ModEntityTypes.BOMB.get(), owner, world);
     }
-
 
 
 
@@ -63,17 +64,17 @@ public class BombProjectile extends ThrowableProjectile {
         this.setDeltaMovement(vector3d);
         Vec3 vector3d1 = vector3d.normalize().scale(getGravity());
         this.setPosRaw(this.getX() - vector3d1.x, this.getY() - vector3d1.y, this.getZ() - vector3d1.z);
-       this.setOnGround(true);
-          }
+        this.setOnGround(true);
+    }
 
 
 
 
 
-@Override
-protected float getGravity() {
-    return 0.2F;
-}
+    @Override
+    protected float getGravity() {
+        return 0.2F;
+    }
 
     @Override
     protected void defineSynchedData() {
@@ -82,46 +83,43 @@ protected float getGravity() {
 
     @Override
     public void tick() {
-    super.tick();
+        super.tick();
         this.move(MoverType.SELF, this.getDeltaMovement().normalize());
 
-        if (this.onGround() == true){
-    this.setDeltaMovement(0,-.45f,0);
 
-}
 
-    if (this.isOnFire())
-    {explode();}
-    if (this.isInWater())
-    {this.playSound(SoundEvents.FIRE_EXTINGUISH, 1, 1);
-        this.discard();
-    }
-    else if (this.tickCount % 8 == 0) {
-    int particlesDensity = 1;
-    float particlesSpeed = .2F;
-    float particlesSpread = .2F;
+        if (this.isOnFire())
+        {explode();}
+        if (this.isInWater())
+        {this.playSound(SoundEvents.FIRE_EXTINGUISH, 1, 1);
+            this.discard();
+        }
+        else if (this.tickCount % 8 == 0) {
+            int particlesDensity = 1;
+            float particlesSpeed = .2F;
+            float particlesSpread = .2F;
 
-    for (int i = 0; i < particlesDensity; i++)
-    {
-        double particleX = getX() + (random.nextFloat() * 2 - 1) * particlesSpread;
-        double particleY = getY() + (random.nextFloat() * 3 - 1) * particlesSpread;
-        double particleZ = getZ() + (random.nextFloat() * 2 - 1) * particlesSpread;
-        double particleMotionX = (random.nextFloat() * 0 - 0) * particlesSpeed;
-        double particleMotionY = (random.nextFloat() * 1.4f - 0) * particlesSpeed;
-        double particleMotionZ = (random.nextFloat() * 0 - 0) * particlesSpeed;
-        this.level().addParticle(ParticleTypes.SMOKE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
-    }}
-    //explosion and sound
-    if (!this.level().isClientSide) {
+            for (int i = 0; i < particlesDensity; i++)
+            {
+                double particleX = getX() + (random.nextFloat() * 2 - 1) * particlesSpread;
+                double particleY = getY() + (random.nextFloat() * 3 - 1) * particlesSpread;
+                double particleZ = getZ() + (random.nextFloat() * 2 - 1) * particlesSpread;
+                double particleMotionX = (random.nextFloat() * 0 - 0) * particlesSpeed;
+                double particleMotionY = (random.nextFloat() * 1.4f - 0) * particlesSpeed;
+                double particleMotionZ = (random.nextFloat() * 0 - 0) * particlesSpeed;
+                this.level().addParticle(ParticleTypes.SMOKE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
+            }}
+        //explosion and sound
+        if (!this.level().isClientSide) {
             if (this.ticksToExplode <= this.tickCount) {
                 explode();}
-        else if (this.tickCount % 25 == 0) {
+            else if (this.tickCount % 25 == 0) {
                 this.playSound(SoundEvents.TNT_PRIMED, 1, 1/ (this.level().getRandom().nextFloat() * 0.4F + 0.8F));
             }}}
 
     private void explode() {
-            this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
-            this.discard();
+        this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
+        this.discard();
         //credit to SupersLegends for the destroying specific block code
         BlockPos explosionPos = this.blockPosition();
         int radius = (int) Math.ceil(explosionPower);
@@ -132,7 +130,7 @@ protected float getGravity() {
             BlockState blockState = this.level().getBlockState(pos).getBlock().defaultBlockState();
             if (blockState.is(ModTags.Blocks.BOMB)){
                 this.level().destroyBlock(pos, false);
-        }
+            }
 
         }}
 
@@ -145,9 +143,5 @@ protected float getGravity() {
     }
 
 }
-
-
-
-
 
 

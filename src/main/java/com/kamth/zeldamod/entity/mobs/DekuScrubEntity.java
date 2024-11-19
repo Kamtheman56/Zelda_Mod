@@ -96,6 +96,7 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
          this.goalSelector.addGoal(1, new RangedAttackGoal(this,1,40,90,10));
        this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Wolf.class, 3, 1.5, 1));
         this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(this, Parrot.class, false));
+        this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(this, KorokEntity.class, false));
 
     }
 
