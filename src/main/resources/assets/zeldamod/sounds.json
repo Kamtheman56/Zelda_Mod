@@ -130,5 +130,11 @@
     "sounds": [
       "zeldamod:oof"
     ]
+  },
+  "boomerang_toss": {
+    "subtitle": "sounds.zeldamod.boomerang_toss",
+    "sounds": [
+      "zeldamod:boomerang_toss"
+    ]
   }
 }

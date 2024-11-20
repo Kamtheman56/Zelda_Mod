@@ -344,7 +344,20 @@ public class ModEvents {
         if (event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.GORON_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
             event.setNewFovModifier(event.getFovModifier() * (0.9f - player.getSpeed() * 1.1f));
         }
+        if(event.getPlayer().isUsingItem() && event.getPlayer().getUseItem().is(ModTags.Items.BOW_WEAPONS) ){
+            float fovModifier = 1f;
+            int ticksUsingItem = event.getPlayer().getTicksUsingItem();
+            float deltaTicks = (float)ticksUsingItem / 20f;
+            if(deltaTicks > 1f) {
+                deltaTicks = 1f;
+            } else {
+                deltaTicks *= deltaTicks;
+            }
+            fovModifier *= 1f - deltaTicks * 0.15f;
+            event.setNewFovModifier(fovModifier);
         }
+    }
+
 
 
     public class PlayerHealthEvents {

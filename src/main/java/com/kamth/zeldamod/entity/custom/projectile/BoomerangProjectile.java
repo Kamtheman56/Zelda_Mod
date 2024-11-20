@@ -35,8 +35,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
@@ -225,15 +223,7 @@ super.onHit(result);
     public boolean hasDrag() {
         return true;
     }
-    @Override
-    @OnlyIn(Dist.CLIENT)
-    public boolean shouldRenderAtSqrDistance(double distance) {
-        double d0 = this.getBoundingBox().getSize() * 4.0D;
-        if (Double.isNaN(d0)) d0 = 4.0D;
 
-        d0 = d0 * 64.0D;
-        return distance < d0 * d0;
-    }
     @Override
     public void tick() {
 
@@ -305,7 +295,7 @@ super.onHit(result);
             noPhysics = true;
             List<ItemEntity> items = level().getEntitiesOfClass(ItemEntity.class, getBoundingBox().inflate(2));
             List<ExperienceOrb> xp = level().getEntitiesOfClass(ExperienceOrb.class, getBoundingBox().inflate(2));
-            List<BombProjectile> bomb = level().getEntitiesOfClass(BombProjectile.class, getBoundingBox().inflate(2));
+
 
             Vec3 ourPos = position();
             for(ItemEntity item : items) {
@@ -321,11 +311,7 @@ super.onHit(result);
                     continue;
                 xpOrb.startRiding(this);
             }
-            for(BombProjectile bombProjectile : bomb) {
-                if (bombProjectile.isPassenger())
-                    continue;
-                bombProjectile.startRiding(this);
-            }
+
 
             Vec3 ownerPos = owner.position().add(0, 1, 0);
             Vec3 motion = ownerPos.subtract(ourPos);

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:bow",
+    "zeldamod:slingshot",
+    "zeldamod:scattershot",
+    "zeldamod:hero_bow",
+    "zeldamod:reinforced_bow"
+
+  ]
+}

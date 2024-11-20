@@ -309,7 +309,7 @@ public class GaleBoomerangProjectile extends Projectile {
             List<ItemEntity> items = level().getEntitiesOfClass(ItemEntity.class, getBoundingBox().inflate(2));
             List<ExperienceOrb> xp = level().getEntitiesOfClass(ExperienceOrb.class, getBoundingBox().inflate(2));
             List<Mob> mob = level().getEntitiesOfClass(Mob.class, getBoundingBox().inflate(2));
-
+            List<BombProjectile> bomb = level().getEntitiesOfClass(BombProjectile.class, getBoundingBox().inflate(2));
             Vec3 ourPos = position();
             for(ItemEntity item : items) {
                 if (item.isPassenger())
@@ -328,6 +328,11 @@ public class GaleBoomerangProjectile extends Projectile {
                 if (mob2.isPassenger())
                     continue;
                 mob2.startRiding(this);
+            }
+            for(BombProjectile bombProjectile : bomb) {
+                if (bombProjectile.isPassenger())
+                    continue;
+                bombProjectile.startRiding(this);
             }
 
             Vec3 ownerPos = owner.position().add(0, 1, 0);

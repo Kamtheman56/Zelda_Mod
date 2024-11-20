@@ -64,9 +64,12 @@ public class InfernoRodItem extends Item {
     public void onUseTick(Level world, LivingEntity livingEntity, ItemStack stack, int pRemainingUseDuration) {
         Player player = (Player) livingEntity;
 
-        stack.hurtAndBreak(3, livingEntity, (p_43296_) -> {
-            p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-        });
+        if (!player.getAbilities().instabuild){
+    stack.hurtAndBreak(3, livingEntity, (p_43296_) -> {
+        p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+    });
+
+}
 
         FireProjectile projectile = new FireProjectile(world, player);
 

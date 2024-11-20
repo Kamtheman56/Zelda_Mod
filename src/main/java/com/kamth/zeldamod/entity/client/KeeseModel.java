@@ -34,9 +34,11 @@ public class KeeseModel<T extends Entity> extends HierarchicalModel<T> {
                 .texOffs(4, 30).addBox(-1.0F, 0.0F, 1.0F, 2.0F, 2.0F, 0.0F, new CubeDeformation(0.0F))
                 .texOffs(0, 30).addBox(1.0F, 0.0F, -1.0F, 2.0F, 2.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 5.0F, 0.0F));
 
-        PartDefinition rightEar = head.addOrReplaceChild("rightEar", CubeListBuilder.create().texOffs(1, 15).addBox(-2.5F, -2.0F, 1.0F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.5F, -2.0F, 0.0F));
+        PartDefinition rightEar = head.addOrReplaceChild("rightEar", CubeListBuilder.create().texOffs(1, 15).addBox(-2.5F, -2.0F, 1.0F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F))
+                .texOffs(1, 10).addBox(-2.5F, -2.0F, 1.01F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.5F, -2.0F, 0.0F));
 
-        PartDefinition leftEar = head.addOrReplaceChild("leftEar", CubeListBuilder.create().texOffs(8, 15).addBox(-0.1F, -1.0F, 1.0F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(1.1F, -3.0F, 0.0F));
+        PartDefinition leftEar = head.addOrReplaceChild("leftEar", CubeListBuilder.create().texOffs(8, 15).addBox(-0.1F, -1.0F, 1.0F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F))
+                .texOffs(19, 25).addBox(-0.1F, -1.0F, 1.01F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(1.1F, -3.0F, 0.0F));
 
         PartDefinition body = keese.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.offset(0.0F, -7.0F, 0.0F));
 

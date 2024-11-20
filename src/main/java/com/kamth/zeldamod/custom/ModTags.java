@@ -57,6 +57,7 @@ public static final TagKey<Block> BOMB
                 = tag("sacred_flame_blocks");
         public static final TagKey<Block> STAMINA_FRUIT
                 = tag("stamina_fruit_blocks");
+
         public static final TagKey<Block> SWORD_BLOCKS
                 = tag("sword_blocks");
         private static TagKey<Block> tag(String name){
@@ -92,6 +93,8 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("broken_master_swords");
         public static final TagKey<Item> JARS
                 = tag("jars");
+        public static final TagKey<Item> BOW_WEAPONS
+                = tag("bow_weapons");
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }

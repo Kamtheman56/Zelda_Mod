@@ -39,6 +39,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(MobModelLayers.CHUCHU_OUTER_LAYER, ChuchuModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.KOROK_LAYER, KorokModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.CAP, CapModel2::createBodyLayer);
+
     }
 
 }

@@ -34,6 +34,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> SLINGSHOT_PULL = registerSoundEvents ("slingshot_pull");
     public static final RegistryObject<SoundEvent> SLINGSHOT_RELEASE = registerSoundEvents ("slingshot_release");
     public static final RegistryObject<SoundEvent> OLD_HURT = registerSoundEvents ("old_hurt");
+    public static final RegistryObject<SoundEvent> BOOMERANG_TOSS = registerSoundEvents ("boomerang_toss");
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(ZeldaMod.MOD_ID, name)));

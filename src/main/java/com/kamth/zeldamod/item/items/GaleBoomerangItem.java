@@ -2,10 +2,10 @@ package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.custom.projectile.GaleBoomerangProjectile;
+import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -27,7 +27,7 @@ public class GaleBoomerangItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
-        pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.PLAYERS, 1F, 0.2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
+        pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.BOOMERANG_TOSS.get(), SoundSource.PLAYERS, 1F, 0.2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
             player.getCooldowns().addCooldown(this, 35);
             GaleBoomerangProjectile boomerang = new GaleBoomerangProjectile(ModEntityTypes.GALE_BOOMERANG.get(), pLevel, player);
