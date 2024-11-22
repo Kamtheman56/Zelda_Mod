@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "zeldamod:purple_emerald"
+      }
+    ]},
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "zeldamod:purple_emerald_block"
+  },
+  "show_notification": true
+}

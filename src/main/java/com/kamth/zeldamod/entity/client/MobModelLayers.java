@@ -31,6 +31,8 @@ public class MobModelLayers {
             new ResourceLocation(ZeldaMod.MOD_ID, "chuchu_outer_layer"), "main");
     public static final ModelLayerLocation KOROK_LAYER = new ModelLayerLocation(
             new ResourceLocation(ZeldaMod.MOD_ID, "korok_layer"), "main");
+    public static final ModelLayerLocation SKULLTULA_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "skulltula_layer"), "main");
 
 
 }

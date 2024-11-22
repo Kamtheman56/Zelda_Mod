@@ -43,6 +43,9 @@
   "item.zeldamod.fire_chu_jelly": "Fire Chu Jelly",
   "item.zeldamod.ice_chu_jelly": "Ice Chu Jelly",
   "item.zeldamod.electric_chu_jelly": "Electric Chu Jelly",
+  "item.zeldamod.purple_emerald": "Purple Emerald",
+  "item.zeldamod.gold_emerald": "Gold Emerald",
+  "item.zeldamod.silver_emerald": "Silver Emerald",
 
 
   "itemGroup.zeldatab": "Zelda Items",
@@ -199,6 +202,8 @@
   "item.zeldamod.ice_chuchu_spawn_egg": "Ice Chuchu Spawn Egg",
   "item.zeldamod.electric_chuchu_spawn_egg": "Electric Chuchu Spawn Egg",
   "item.zeldamod.korok_spawn_egg": "Korok Spawn Egg",
+  "item.zeldamod.skulltula_spawn_egg": "Skulltula Spawn Egg",
+
 
   "effect.zeldamod.deku": "Water Hopping",
   "effect.zeldamod.goron": "Goron",
@@ -324,6 +329,10 @@
   "block.zeldamod.fire_chu_block": "Fire Chu Block",
   "block.zeldamod.ice_chu_block": "Ice Chu Block",
   "block.zeldamod.electric_chu_block": "Electric Chu Block",
+  "block.zeldamod.purple_emerald_block": "Block of Purple Emerald",
+  "block.zeldamod.silver_emerald_block": "Block of Silver Emerald",
+  "block.zeldamod.gold_emerald_block": "Block of Gold Emerald",
+
 
   "Nightmask": "You don't think you should do this",
   "Courage": "The Pedestal radiates with Courage",
@@ -410,6 +419,7 @@
   "item.deku_shield.description": "A humble wooden shield",
   "item.mitts.description_basic1": "Digs dirt and stone",
   "item.mitts.description_basic2": "with ease!",
+  "item.net.description_basic": "Used to catch all kinds of small creatures",
   "item.ocarina.description": "A context sensitive item capable of many feats",
   "item.purple_ring.description_basic_1": "Offers protection",
   "item.purple_ring.description_basic2": "from all attacks",
@@ -506,6 +516,8 @@
   "entity.zeldamod.chuchu_fire": "Fire Chuchu",
   "entity.zeldamod.chuchu_ice": "Ice Chuchu",
   "entity.zeldamod.chuchu_electric": "Electric Chuchu",
-  "entity.zeldamod.korok": "Korok"
+  "entity.zeldamod.korok": "Korok",
+  "entity.zeldamod.skulltula": "Skulltula"
+
 
 }

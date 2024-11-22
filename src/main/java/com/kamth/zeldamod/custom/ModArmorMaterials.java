@@ -122,7 +122,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     ZoraTunic("zoratunic", 0, new int[]{1, 4, 2, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.NAUTILUS_SHELL); }),
-    Classic("classic", 0, new int[]{2, 5, 2, 2}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Classic("classic", 0, new int[]{5, 6, 2, 2}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GREEN_WOOL); }),
     Roc("roc", 0, new int[]{1, 2, 2, 1}, 0, SoundEvents.PARROT_FLY,

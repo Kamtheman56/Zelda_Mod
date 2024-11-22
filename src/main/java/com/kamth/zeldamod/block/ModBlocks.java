@@ -114,6 +114,9 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
     public static final RegistryObject<Block> CHU_BLOCK_FIRE = registerBlock("fire_chu_block", ()-> new ChuBlock(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK).noOcclusion()));
     public static final RegistryObject<Block> CHU_BLOCK_ICE = registerBlock("ice_chu_block", ()-> new ChuBlock(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK).noOcclusion()));
     public static final RegistryObject<Block> CHU_BLOCK_ELECTRIC = registerBlock("electric_chu_block", ()-> new ChuBlock(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> PURPLE_EMERALD_BLOCK = registerBlock("purple_emerald_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.EMERALD_BLOCK)));
+    public static final RegistryObject<Block> SILVER_EMERALD_BLOCK = registerBlock("silver_emerald_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.EMERALD_BLOCK)));
+    public static final RegistryObject<Block> GOLD_EMERALD_BLOCK = registerBlock("gold_emerald_block", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.EMERALD_BLOCK)));
 
 
 

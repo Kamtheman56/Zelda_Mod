@@ -118,6 +118,8 @@ public class ModEvents {
             }}
 
 
+
+
         //Methods for obtaining Masks
         if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.GOLDEN_APPLE) {
             if (event.getTarget() instanceof Cow) {
@@ -333,6 +335,7 @@ public class ModEvents {
         livingEntity.setInvisible(false);
         LOOKING.add(livingEntity);
     }
+    //Controls Zoom in for Hawkeye and bows
     @SubscribeEvent
     public static void onFovUpdate(ComputeFovModifierEvent event) {
         LivingEntity player = event.getPlayer();

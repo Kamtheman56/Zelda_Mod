@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "zeldamod:fire_chu_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "zeldamod:fire_chu_jelly"
+  }
+}

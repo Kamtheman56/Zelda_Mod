@@ -49,6 +49,9 @@
     "zeldamod:sun_stone",
     "zeldamod:note_stone",
     "zeldamod:ancient_sword_pedestal",
-    "zeldamod:goron_grave_block"
+    "zeldamod:goron_grave_block",
+    "zeldamod:purple_emerald_block",
+    "zeldamod:silver_emerald_block",
+    "zeldamod:gold_emerald_block"
   ]
 }

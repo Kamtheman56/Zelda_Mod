@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "zeldamod:fire_chu_jelly"
+      }
+    ]},
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "zeldamod:fire_chu_block"
+  },
+  "show_notification": true
+}

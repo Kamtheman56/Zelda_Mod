@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "zeldamod:silver_emerald"
+      }
+    ]},
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "zeldamod:silver_emerald_block"
+  },
+  "show_notification": true
+}

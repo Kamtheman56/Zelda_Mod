@@ -38,7 +38,6 @@ public class ModItems {
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> GLOOM_CLUMP = ITEMS.register("gloom_clump",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
-
     public static final RegistryObject<Item> DIN_PEARL = ITEMS.register("pearl_power",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> FARORE_PEARL = ITEMS.register("pearl_courage",
@@ -81,6 +80,13 @@ public class ModItems {
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ELECTRIC_CHU_JELLY = ITEMS.register("electric_chu_jelly",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> PURPLE_EMERALD = ITEMS.register("purple_emerald",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SILVER_EMERALD = ITEMS.register("silver_emerald",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> GOLD_EMERALD = ITEMS.register("gold_emerald",
+            () -> new Item(new Item.Properties()));
+
 
     //These are potions or consumables
     public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
@@ -513,6 +519,9 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
                     new Item.Properties()));
     public static final RegistryObject<Item> KOROK_SPAWN_EGG = ITEMS.register("korok_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.KOROK, 14129730, 4507427,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> SKULLTULA_SPAWN_EGG = ITEMS.register("skulltula_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.SKULLTULA, 5062189, 16252708,
                     new Item.Properties()));
 
         public static void register (IEventBus eventbus) {

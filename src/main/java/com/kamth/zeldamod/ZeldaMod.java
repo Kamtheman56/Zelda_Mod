@@ -171,8 +171,11 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.FIRE_SHIELD);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MATERIAL.get()){
-        event.accept(ModItems.RED_EMERALD);
         event.accept(ModItems.BLUE_EMERALD);
+        event.accept(ModItems.RED_EMERALD);
+        event.accept(ModItems.PURPLE_EMERALD);
+        event.accept(ModItems.SILVER_EMERALD);
+        event.accept(ModItems.GOLD_EMERALD);
         event.accept(ModItems.MASTER_SHARD);
         event.accept(ModItems.MASTER_ORE);
         event.accept(ModItems.MASTER_ORE2);
@@ -220,6 +223,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.ICE_CHUCHU_SPAWN_EGG);
         event.accept(ModItems.ELECTRIC_CHUCHU_SPAWN_EGG);
         event.accept(ModItems.KOROK_SPAWN_EGG);
+        event.accept(ModItems.SKULLTULA_SPAWN_EGG);
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MASK.get()){
         event.accept(ModItems.DEKU_MASK);
@@ -266,8 +270,11 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.COURAGE_BLOCK);
             event.accept(ModBlocks.WISDOM_BLOCK);
             event.accept(ModBlocks.POWER_BLOCK);
-            event.accept(ModBlocks.RED_EMERALD_BLOCK);
             event.accept(ModBlocks.BLUE_EMERALD_BLOCK);
+            event.accept(ModBlocks.RED_EMERALD_BLOCK);
+            event.accept(ModBlocks.PURPLE_EMERALD_BLOCK);
+            event.accept(ModBlocks.SILVER_EMERALD_BLOCK);
+            event.accept(ModBlocks.GOLD_EMERALD_BLOCK);
             event.accept(ModBlocks.SWORD_PEDESTAL);
             event.accept(ModBlocks.ANCIENT_SWORD_PEDESTAL);
             event.accept(ModBlocks.MASTER_SWORD_PEDESTAL);
@@ -369,6 +376,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             EntityRenderers.register(ModEntityTypes.CHUCHU_ICE.get(), IceChuchuRenderer::new);
             EntityRenderers.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), ElectricChuchuRenderer::new);
             EntityRenderers.register(ModEntityTypes.KOROK.get(), KorokRenderer::new);
+            EntityRenderers.register(ModEntityTypes.SKULLTULA.get(), SkulltulaRenderer::new);
+
 
         }
 

@@ -5,6 +5,7 @@
     "minecraft:spider",
     "minecraft:cave_spider",
     "minecraft:bee",
-    "minecraft:endermite"
+    "minecraft:endermite",
+    "zeldamod:skulltula"
   ]
 }

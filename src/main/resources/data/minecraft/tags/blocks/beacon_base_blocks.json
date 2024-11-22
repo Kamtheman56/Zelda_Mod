@@ -5,6 +5,9 @@
     "zeldamod:wisdom_block",
     "zeldamod:power_block",
     "zeldamod:red_emerald_block",
-    "zeldamod:blue_emerald_block"
+    "zeldamod:blue_emerald_block",
+    "zeldamod:purple_emerald_block",
+    "zeldamod:silver_emerald_block",
+    "zeldamod:gold_emerald_block"
   ]
 }

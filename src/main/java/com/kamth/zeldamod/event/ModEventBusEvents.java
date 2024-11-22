@@ -23,6 +23,6 @@ public static void registerAttributes(EntityAttributeCreationEvent event){
         event.put(ModEntityTypes.CHUCHU_FIRE.get(), FireChuchuEntity.createAttributes().build());
         event.put(ModEntityTypes.CHUCHU_ELECTRIC.get(), ElectricChuchuEntity.createAttributes().build());
         event.put(ModEntityTypes.KOROK.get(), KorokEntity.createAttributes().build());
-
+        event.put(ModEntityTypes.SKULLTULA.get(), SkulltulaEntity.createAttributes().build());
     }
 }

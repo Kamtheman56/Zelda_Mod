@@ -225,4 +225,10 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
         }
     }
 
+
+
+
+
+
+
 }
