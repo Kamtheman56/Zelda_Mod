@@ -8,6 +8,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 
@@ -95,6 +96,8 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("jars");
         public static final TagKey<Item> BOW_WEAPONS
                 = tag("bow_weapons");
+        public static final TagKey<Item> KOROK_LIKES
+                = tag("korok_likes");
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }
@@ -113,6 +116,15 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("bugs");
         public static final TagKey<EntityType<?>>SEED_PROJECTILE
                 = tag("wood_reflect");
+        public static final TagKey<EntityType<?>>CHUCHU
+                = tag("chuchu");
+        public static final TagKey<EntityType<?>>CHUCHU_FIRE
+                = tag("chuchu_fire");
+        public static final TagKey<EntityType<?>>CHUCHU_ICE
+                = tag("chuchu_ice");
+        public static final TagKey<EntityType<?>>CHUCHU_ELECTRIC
+                = tag("chuchu_electric");
+
 
         private static TagKey<EntityType<?>> tag(String name){
             return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(ZeldaMod.MOD_ID, name));
@@ -120,6 +132,25 @@ return BlockTags.create(new ResourceLocation("forge", name));
         private static TagKey<EntityType<?>> forgetag(String name){
             return TagKey.create(Registries.ENTITY_TYPE,(new ResourceLocation("forge", name)));
         }
-    }}
+    }
+
+    public static class Biomes {
+        public static final TagKey<Biome> SPAWNS_BIRCH_KOROK = registerBiomeTag("korok_birch");
+        public static final TagKey<Biome> SPAWNS_ACACIA_KOROK = registerBiomeTag("korok_acacia");
+        public static final TagKey<Biome> SPAWNS_DARK_OAK_KOROK = registerBiomeTag("korok_dark_oak");
+        public static final TagKey<Biome> SPAWNS_JUNGLE_KOROK = registerBiomeTag("korok_jungle");
+        public static final TagKey<Biome> SPAWNS_CHERRY_KOROK = registerBiomeTag("korok_cherry");
+        public static final TagKey<Biome> SPAWNS_MUSHROOM_KOROK = registerBiomeTag("korok_mushroom");
+
+
+        private static TagKey<Biome> registerBiomeTag(String name) {
+            return TagKey.create(Registries.BIOME, new ResourceLocation(ZeldaMod.MOD_ID, name));
+        }
+
+        private static TagKey<Biome> forgetag(String name) {
+            return TagKey.create(Registries.BIOME, (new ResourceLocation("forge", name)));
+        }
+    }
+}
 
 

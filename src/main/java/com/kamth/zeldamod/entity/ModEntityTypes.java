@@ -63,7 +63,7 @@ public class ModEntityTypes {
             .sized(2.04F, 2.04F).build("chuchu_ice"));
     public static final RegistryObject<EntityType<ElectricChuchuEntity>> CHUCHU_ELECTRIC = ENTITY_TYPES.register("chuchu_electric", () -> Builder.of(ElectricChuchuEntity::new, MobCategory.MONSTER)
             .sized(2.04F, 2.04F).build("chuchu_electric"));
-    public static final RegistryObject<EntityType<KorokEntity>> KOROK = ENTITY_TYPES.register("korok", () -> Builder.of(KorokEntity::new, MobCategory.CREATURE)
+    public static final RegistryObject<EntityType<KorokEntity>> KOROK = ENTITY_TYPES.register("korok", () -> Builder.of(KorokEntity::new, MobCategory.MONSTER)
             .sized(.6F, .8F).build("korok"));
     public static final RegistryObject<EntityType<SkulltulaEntity>> SKULLTULA = ENTITY_TYPES.register("skulltula", () -> Builder.of(SkulltulaEntity::new, MobCategory.MONSTER)
             .sized(1.7F, .75F).build("skulltula"));

@@ -7,7 +7,10 @@ public enum KorokVariants {
     DEFAULT(0),
     BIRCH(1),
     DARK(2),
-    CHERRY(3);
+    CHERRY(3),
+    JUNGLE(4),
+    ACACIA(5),
+    MUSHROOM(6);
 
     private static final KorokVariants[] BY_ID = Arrays.stream(values()).sorted(Comparator.
             comparingInt(KorokVariants::getId)).toArray(KorokVariants[]::new);

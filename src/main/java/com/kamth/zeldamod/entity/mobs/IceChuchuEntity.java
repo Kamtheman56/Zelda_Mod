@@ -276,7 +276,7 @@ public class IceChuchuEntity extends Monster {
 
             MoveControl movecontrol = this.slime.getMoveControl();
             if (movecontrol instanceof IceChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
-                slime$slimemovecontrol.setWantedMovement(1.2D);
+                slime$slimemovecontrol.setWantedMovement(1.25D);
             }
 
         }

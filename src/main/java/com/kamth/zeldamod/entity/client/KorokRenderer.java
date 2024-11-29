@@ -27,6 +27,13 @@ public class KorokRenderer extends MobRenderer<KorokEntity, KorokModel<KorokEnti
                         new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/korok_dark_oak.png"));
                 p_114874_.put(KorokVariants.CHERRY,
                         new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/korok_cherry.png"));
+                p_114874_.put(KorokVariants.JUNGLE,
+                        new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/korok_jungle.png"));
+                p_114874_.put(KorokVariants.ACACIA,
+                        new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/korok_acacia.png"));
+                p_114874_.put(KorokVariants.MUSHROOM,
+                        new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/korok_mushroom.png"));
+
             });
     @Override
     public ResourceLocation getTextureLocation(KorokEntity pEntity) {

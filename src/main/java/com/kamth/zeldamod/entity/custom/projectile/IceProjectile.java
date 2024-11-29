@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -44,6 +45,13 @@ public class IceProjectile extends ThrowableProjectile {
         entity.setTicksFrozen(entity.getTicksFrozen()+60);
         entity.hurt(damageSources().magic(),4);
         this.playSound(SoundEvents.PLAYER_HURT_FREEZE);
+
+
+        if (pResult.getEntity().getType().is(ModTags.Entities.CHUCHU_FIRE)){
+            entity.remove(RemovalReason.DISCARDED);
+        }
+
+
     }
 
     /**

@@ -1,16 +1,22 @@
 package com.kamth.zeldamod.entity.mobs;
 
 import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.mobs.variants.KorokVariants;
 import com.kamth.zeldamod.item.ModItems;
-import net.minecraft.Util;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -21,8 +27,11 @@ import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.biome.Biome;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
@@ -38,8 +47,8 @@ public class KorokEntity extends Monster {
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState sitAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
- 
-
+    public static final String VARIANT_KEY = "variant";
+    private static final EntityDataAccessor<Integer> DATA_VARIANT_ID = SynchedEntityData.defineId(KorokEntity.class, EntityDataSerializers.INT);
 
     protected void defineSynchedData() {
         this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
@@ -178,21 +187,59 @@ public class KorokEntity extends Monster {
         }
     }
 
+    public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
+        ItemStack itemstack = pPlayer.getItemInHand(pHand);
+        if (itemstack.is(ModTags.Items.KOROK_LIKES) && !this.isBaby()) {
+            itemstack.shrink(1);
+            pPlayer.playSound(SoundEvents.CHICKEN_EGG, 1.0F, 1.0F);
+            ItemStack itemstack1 = ModItems.KOROK_SEED.get().getDefaultInstance();
+            pPlayer.spawnAtLocation(itemstack1);
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
+        } else {
+            return super.mobInteract(pPlayer, pHand);
+        }
+    }
 
+    public static boolean checkKorokSpawnRules(EntityType<? extends Monster> pAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        return pLevel.getBlockState(pPos.below()).is(BlockTags.FROGS_SPAWNABLE_ON) && isBrightEnoughToSpawn(pLevel, pPos);
+    }
 
-
-
+    protected static boolean isBrightEnoughToSpawn(BlockAndTintGetter pLevel, BlockPos pPos) {
+        return pLevel.getRawBrightness(pPos, 0) > 8;
+    }
 
 
     //VARIANTS
 
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_146746_, DifficultyInstance p_146747_,
-                                        MobSpawnType p_146748_, @Nullable SpawnGroupData p_146749_,
-                                        @Nullable CompoundTag p_146750_) {
-       KorokVariants variant = Util.getRandom(KorokVariants.values(), this.random);
-        setVariant(variant);
-        return super.finalizeSpawn(p_146746_, p_146747_, p_146748_, p_146749_, p_146750_);
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
+        Holder<Biome> holder = pLevel.getBiome(this.blockPosition());
+        if (holder.is(ModTags.Biomes.SPAWNS_BIRCH_KOROK)) {
+            this.setVariant(KorokVariants.BIRCH);
+        }
+       else if (holder.is(ModTags.Biomes.SPAWNS_ACACIA_KOROK)) {
+            this.setVariant(KorokVariants.ACACIA);
+        }
+        else if (holder.is(ModTags.Biomes.SPAWNS_JUNGLE_KOROK)) {
+            this.setVariant(KorokVariants.JUNGLE);
+        }
+       else  if (holder.is(ModTags.Biomes.SPAWNS_DARK_OAK_KOROK)) {
+            this.setVariant(KorokVariants.DARK);
+        }
+       else  if (holder.is(ModTags.Biomes.SPAWNS_MUSHROOM_KOROK)) {
+            this.setVariant(KorokVariants.MUSHROOM);
+        }
+       else  if (holder.is(ModTags.Biomes.SPAWNS_CHERRY_KOROK)) {
+            this.setVariant(KorokVariants.CHERRY);
+        }
+      else {
+            this.setVariant(KorokVariants.DEFAULT);
+        }
+        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
+
+
+
+
 
     public KorokVariants getVariant() {
         return KorokVariants.byId(this.getTypeVariant() & 255);

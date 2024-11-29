@@ -47,6 +47,10 @@ public class Deku_Nut extends AbstractArrow {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
         entity.hurt(damageSources().generic(), (float)2);
+        double d0 = this.random.nextGaussian() * 0.02D;
+        double d1 = this.random.nextGaussian() * 0.02D;
+        double d2 = this.random.nextGaussian() * 0.02D;
+        this.level().addParticle(ParticleTypes.HEART, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), d0, d1, d2);
         if (pResult.getEntity() instanceof LivingEntity) {
             LivingEntity target = (LivingEntity) pResult.getEntity();
             target.setArrowCount(target.getArrowCount() - 1);

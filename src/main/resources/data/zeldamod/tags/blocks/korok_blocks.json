@@ -1,0 +1,8 @@
+{
+  "replace": false,
+"values": [
+  "minecraft:poppy",
+  "zeldamod:deku_block",
+  "zeldamod:deku_block_blue"
+]
+}

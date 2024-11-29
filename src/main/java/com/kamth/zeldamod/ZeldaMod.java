@@ -16,8 +16,11 @@ import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -67,7 +70,12 @@ private void clientSetup(final FMLClientSetupEvent event){
 
     private void commonSetup(final FMLCommonSetupEvent event){
 
+
+
 event.enqueueWork(() -> {
+    SpawnPlacements.register(ModEntityTypes.KOROK.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,   Monster::checkMonsterSpawnRules);
+
+
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.NIGHTSHADE.getId(), ModBlocks.POTTED_NIGHTSHADE);
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.SUNDELION.getId(), ModBlocks.POTTED_SUNDELION);
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.HEART_FLOWER.getId(), ModBlocks.POTTED_HEART_FLOWER);
