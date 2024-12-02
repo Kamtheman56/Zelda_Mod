@@ -22,6 +22,7 @@ public class ModItemProperties {
         makeShield(ModItems.CLAWSHOT_GODDESS.get());
         makeShield(ModItems.FLUTE.get());
         makeShield(ModItems.OCARINA.get());
+
     }
 
     private static void makeShield(Item item) {
@@ -32,6 +33,7 @@ public class ModItemProperties {
 
 
     }
+
 
     private static void makeBow(Item item) {
         ItemProperties.register(item, new ResourceLocation("pull"), (p_174635_, p_174636_, p_174637_, p_174638_) -> {

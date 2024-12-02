@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.entity.mobs;
 
-import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.custom.ModTags;
+import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.mobs.variants.KorokVariants;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.core.BlockPos;
@@ -10,10 +10,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -24,31 +23,38 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
-public class KorokEntity extends Monster {
+public class KorokEntity extends Animal {
 
 
-    public KorokEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+    public KorokEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT = SynchedEntityData.defineId(KorokEntity.class, EntityDataSerializers.INT);
     protected static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Monster.class, EntityDataSerializers.BYTE);
     public final AnimationState idleAnimationState = new AnimationState();
+    public final AnimationState danceAnimationState = new AnimationState();
     public final AnimationState sitAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
+    private int danceAnimationTimeout = 0;
+    private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.APPLE, ModItems.BAKED_APPLE.get());
     public static final String VARIANT_KEY = "variant";
     private static final EntityDataAccessor<Integer> DATA_VARIANT_ID = SynchedEntityData.defineId(KorokEntity.class, EntityDataSerializers.INT);
+    private boolean partyParrot;
+    private BlockPos jukebox;
 
     protected void defineSynchedData() {
         this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
@@ -74,13 +80,19 @@ public class KorokEntity extends Monster {
     }
 
     private void setupAnimationStates() {
-        if (this.idleAnimationTimeout <= 0) {
+        if (this.idleAnimationTimeout <= 0 && !this.isPartyParrot()) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.tickCount);
         } else {
             --this.idleAnimationTimeout;
         }
-    }
+
+        if (this.danceAnimationTimeout <= 0 && this.isPartyParrot()) {
+            this.danceAnimationTimeout = this.random.nextInt(40) + 80;
+            this.danceAnimationState.start(this.tickCount);
+        } else {
+            --this.danceAnimationTimeout;
+        }}
 
     @Override
     protected void updateWalkAnimation(float pPartialTick) {
@@ -99,12 +111,13 @@ public class KorokEntity extends Monster {
         this.goalSelector.addGoal(0, new KorokMaskFollow(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
         this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.1D));
+        this.goalSelector.addGoal(3, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new SitOnFlower(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
        this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, DekuScrubEntity.class, 3, 1.5, 1));
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, DekuMadScrubEntity.class, 3, 1.5, 1));
-
+        this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, FOOD_ITEMS, false));
     }
 
 
@@ -121,10 +134,29 @@ public class KorokEntity extends Monster {
         return MobType.ARTHROPOD;
     }
 
+@Override
+    public void aiStep() {
+        if (this.jukebox == null || !this.jukebox.closerToCenterThan(this.position(), 3.46D) || !this.level().getBlockState(this.jukebox).is(Blocks.JUKEBOX)) {
+            this.partyParrot = false;
+            this.jukebox = null;
+        }
 
+        super.aiStep();
 
+    }
+    public void setRecordPlayingNearby(BlockPos pPos, boolean pIsPartying) {
+        this.jukebox = pPos;
+        this.partyParrot = pIsPartying;
+    }
 
+    public boolean isPartyParrot() {
+        return this.partyParrot;
+    }
 
+    @Override
+    public boolean isFood(ItemStack pStack) {
+        return pStack.is(Items.APPLE);
+    }
 
 
     @Nullable
@@ -145,7 +177,7 @@ public class KorokEntity extends Monster {
 
         public boolean canUse()
         {
-                this.player = this.mob.level().getNearestPlayer(TargetingConditions.DEFAULT,2D,2D, 1);
+                this.player = this.mob.level().getNearestPlayer(TargetingConditions.DEFAULT,3D,3D, 1);
                 if (this.player == null)
                 {
                     return false;
@@ -179,7 +211,7 @@ public class KorokEntity extends Monster {
 
         @Override
         public boolean canUse() {
-            return !this.mob.isInLava() && this.mob.getBlockStateOn().is(ModBlocks.DEKU_BLOCK.get());
+            return !this.mob.isInLava() && this.mob.getBlockStateOn().is(ModTags.Blocks.KOROK);
         }
         public void start() {
             this.mob.getNavigation().stop();
@@ -200,13 +232,9 @@ public class KorokEntity extends Monster {
         }
     }
 
-    public static boolean checkKorokSpawnRules(EntityType<? extends Monster> pAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        return pLevel.getBlockState(pPos.below()).is(BlockTags.FROGS_SPAWNABLE_ON) && isBrightEnoughToSpawn(pLevel, pPos);
-    }
 
-    protected static boolean isBrightEnoughToSpawn(BlockAndTintGetter pLevel, BlockPos pPos) {
-        return pLevel.getRawBrightness(pPos, 0) > 8;
-    }
+
+
 
 
     //VARIANTS
@@ -237,8 +265,11 @@ public class KorokEntity extends Monster {
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
 
-
-
+    @org.jetbrains.annotations.Nullable
+    @Override
+    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
+        return ModEntityTypes.KOROK.get().create(pLevel);
+    }
 
 
     public KorokVariants getVariant() {

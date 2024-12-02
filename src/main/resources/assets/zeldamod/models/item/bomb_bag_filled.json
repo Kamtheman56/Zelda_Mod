@@ -1,0 +1,6 @@
+{
+  "parent": "zeldamod:item/bomb_bag",
+  "textures": {
+    "layer0": "item/bundle_filled"
+  }
+}

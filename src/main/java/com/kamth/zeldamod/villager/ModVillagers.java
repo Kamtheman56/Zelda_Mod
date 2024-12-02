@@ -23,6 +23,7 @@ public static final RegistryObject<PoiType> MASK_BLOCK_POI = POI_TYPES.register(
     public static final RegistryObject<PoiType> MORSHU_BLOCK_POI = POI_TYPES.register("morshu_block_poi",
             () -> new PoiType(ImmutableSet.copyOf(ModBlocks.BLUE_EMERALD_BLOCK.get().getStateDefinition().getPossibleStates()),
                     1,2));
+
 public static final RegistryObject<VillagerProfession> MASK_TRADER = VILLAGER_PROFESSIONS.register("mask_trader",
         () -> new VillagerProfession("mask_trader", x -> x.get() == MASK_BLOCK_POI.get(),
                 x -> x.get() == MASK_BLOCK_POI.get(), ImmutableSet.of(), ImmutableSet.of(),
@@ -31,6 +32,7 @@ public static final RegistryObject<VillagerProfession> MASK_TRADER = VILLAGER_PR
             () -> new VillagerProfession("morshu", x -> x.get() == MORSHU_BLOCK_POI.get(),
                     x -> x.get() == MORSHU_BLOCK_POI.get(), ImmutableSet.of(), ImmutableSet.of(),
                     SoundEvents.VILLAGER_WORK_MASON));
+
 
 
     public static void register (IEventBus eventBus){

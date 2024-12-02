@@ -4,6 +4,7 @@ import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.custom.ModArmorMaterials;
 import com.kamth.zeldamod.custom.ModFoods;
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.armors.*;
 import com.kamth.zeldamod.item.items.*;
@@ -16,6 +17,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.Collections;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -86,6 +89,7 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> GOLD_EMERALD = ITEMS.register("gold_emerald",
             () -> new Item(new Item.Properties()));
+
 
 
     //These are potions or consumables
@@ -299,6 +303,11 @@ public class ModItems {
     public static final RegistryObject<Item> FLUTE = ITEMS.register("flute",
             () -> new FluteItem(new Item.Properties().rarity(Rarity.RARE).defaultDurability(5)));
 
+    // bag items go here
+    public static final RegistryObject<Item> BOMB_BAG = ITEMS.register("bomb_bag",
+            () -> new BombBagItem(new Item.Properties(), 128, Collections.singletonList(ModTags.Items.BOMBS)));
+    public static final RegistryObject<Item> BOMB_BAG_BIG = ITEMS.register("bomb_bag_big",
+            () -> new BombBagItem(new Item.Properties(), 256, Collections.singletonList(ModTags.Items.BOMBS)));
 
     //shields go here
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",

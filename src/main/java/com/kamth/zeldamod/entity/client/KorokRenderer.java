@@ -44,7 +44,9 @@ public class KorokRenderer extends MobRenderer<KorokEntity, KorokModel<KorokEnti
     public void render(KorokEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
                        MultiBufferSource pBuffer, int pPackedLight) {
 
-
+if (pEntity.isBaby()){
+    pMatrixStack.scale(.5f,.5f,.5f);
+}
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
     }
 

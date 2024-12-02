@@ -63,7 +63,13 @@ public class KorokModel<T extends Entity> extends HierarchicalModel<T> {
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.animateWalk(ModAnimationDefinitions.korok_walk, limbSwing, limbSwingAmount, 2f, 1f);
         this.animate(((KorokEntity) entity).idleAnimationState, ModAnimationDefinitions.korok_idle, ageInTicks, 1f);
-    }
+        if (entity instanceof KorokEntity korok) {
+            if (korok.isPartyParrot()){
+                this.animate(((KorokEntity) entity).danceAnimationState, ModAnimationDefinitions.korok_dance, ageInTicks, 1f);
+            }
+
+
+        } }
 
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {

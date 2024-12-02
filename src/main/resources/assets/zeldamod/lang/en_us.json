@@ -235,8 +235,8 @@
   "sounds.zeldamod.slingshot_release": "Slingshot fires",
   "sounds.zeldamod.old_hurt": "Oof",
   "sounds.zeldamod.boomerang_toss": "Boomerang flies",
-
-
+  "sounds.zeldamod.korok_likes": "Korok takes item",
+  "sounds.zeldamod.gus": "Bombs?",
 
   "block.zeldamod.gloom_block": "Gloom Block",
   "block.zeldamod.gloom_vein": "Gloom Vein",

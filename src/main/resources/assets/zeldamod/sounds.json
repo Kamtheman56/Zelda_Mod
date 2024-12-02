@@ -142,5 +142,11 @@
     "sounds": [
       "zeldamod:gus"
     ]
+  },
+  "korok_likes": {
+    "subtitle": "sounds.zeldamod.korok_likes",
+    "sounds": [
+      "zeldamod:korok_likes"
+    ]
   }
 }

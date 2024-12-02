@@ -36,6 +36,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> OLD_HURT = registerSoundEvents ("old_hurt");
     public static final RegistryObject<SoundEvent> BOOMERANG_TOSS = registerSoundEvents ("boomerang_toss");
     public static final RegistryObject<SoundEvent> MORSHU = registerSoundEvents ("gus");
+    public static final RegistryObject<SoundEvent> KOROK_LIKES = registerSoundEvents ("korok_likes");
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(ZeldaMod.MOD_ID, name)));
