@@ -9,21 +9,18 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 import java.util.Optional;
-//Credits to DeadlyDiamond98 for this code!
 
-
-public class BombBagItem extends CustomBundleItem {
-    public BombBagItem(Properties pProperties, int maxStorage, List<TagKey> itemtags) {
+public class SeedBagItem extends CustomBundleItem {
+    public SeedBagItem(Properties pProperties, int maxStorage, List<TagKey> itemtags) {
         super(pProperties,maxStorage,itemtags);
     }
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
-    if (!player.isCrouching()){
+    if (player.isCrouching()){
         Optional<ItemStack> bombstack = this.getFirstItem(player.getItemInHand(pHand));
         if (bombstack.isPresent()){
             Optional<ItemStack> bomb = this.removeOneItem(player.getItemInHand(pHand), bombstack.get().getItem());
             if (bomb.isPresent()){
-                player.getCooldowns().addCooldown(this,40);
                 return bomb.get().use(pLevel,player,pHand);
             }
             return InteractionResultHolder.fail(player.getItemInHand(pHand));

@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
+import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -24,10 +25,11 @@ public class BombItem extends Item {
             bombEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.25F, 0.9F);
             pLevel.addFreshEntity(bombEntity);
         }
-
         player.awardStat(Stats.ITEM_USED.get(this));
         if (!player.getAbilities().instabuild) {
-            itemstack.shrink(1);
+            if (player.getItemInHand(pHand).is(ModItems.BOMB.get())) {
+                itemstack.shrink(1);
+            }
         }
 
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());

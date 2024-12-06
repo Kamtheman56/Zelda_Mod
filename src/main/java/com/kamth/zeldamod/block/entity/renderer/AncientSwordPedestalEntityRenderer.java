@@ -40,8 +40,7 @@ public class AncientSwordPedestalEntityRenderer implements BlockEntityRenderer<A
         ItemRenderer renderer = Minecraft.getInstance().getItemRenderer();
         pPoseStack.pushPose();
         pPoseStack.translate(0.5D, 0.6D, 0.5D);
-//this.rotateItem(matrixStack, 180f, 90f, -45f);
-       // pPoseStack.translate(0.0D, -0.3D, 0.0D);
+
 
         switch (te.getBlockState().getValue(SwordPedestalBlock.FACING))
         {

@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.custom.projectile.WaterBombProjectile;
+import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -9,7 +10,6 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -17,7 +17,7 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class WaterBombItem extends Item {
+public class WaterBombItem extends BombItem{
     public WaterBombItem(Properties pProperties) {
         super(pProperties);
     }
@@ -32,7 +32,9 @@ public class WaterBombItem extends Item {
         }
         player.awardStat(Stats.ITEM_USED.get(this));
         if (!player.getAbilities().instabuild) {
-            itemstack.shrink(1);
+            if (player.getItemInHand(pHand).is(ModItems.BOMB.get())) {
+                itemstack.shrink(1);
+            }
         }
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }

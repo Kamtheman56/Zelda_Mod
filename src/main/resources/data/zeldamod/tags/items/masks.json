@@ -26,6 +26,10 @@
     "zeldamod:captainmask",
     "zeldamod:kamaromask",
     "zeldamod:garomask",
-    "zeldamod:postmanmask"
+    "zeldamod:postmanmask",
+    "zeldamod:gerudomask",
+    "zeldamod:spookymask",
+    "zeldamod:skullmask",
+    "zeldamod:korok_mask"
   ]
 }

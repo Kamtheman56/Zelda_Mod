@@ -9,7 +9,10 @@
     "MixinFoxEntity",
     "MixinLivingEntity",
     "MixinMouse",
+    "MixinPlayer",
+    "MixinPlayerInventory",
     "MixinPlayerModel",
+    "MixinProjectileWeaponItem",
     "MixinVillager"
   ],
   "minVersion": "0.8"

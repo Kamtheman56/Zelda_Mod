@@ -120,6 +120,8 @@ public class SlingshotItem extends BowItem {
     }
 
 
+
+
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {

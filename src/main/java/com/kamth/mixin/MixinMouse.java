@@ -2,7 +2,6 @@ package com.kamth.mixin;
 
 
 import com.kamth.zeldamod.item.ModItems;
-import com.mojang.blaze3d.Blaze3D;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.MouseHandler;
 import net.minecraft.util.Mth;

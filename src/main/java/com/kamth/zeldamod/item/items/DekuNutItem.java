@@ -1,7 +1,6 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.custom.projectile.Deku_Nut;
-import com.kamth.zeldamod.entity.custom.projectile.SwordBeam;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;

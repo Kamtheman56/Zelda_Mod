@@ -207,13 +207,11 @@ public class ModItems {
     public static final RegistryObject<Item> SAND_ROD = ITEMS.register("sand_rod",
             () -> new SandWandItem(new Item.Properties().durability(96).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> BOMB = ITEMS.register("bomb",
-            () -> new BombItem(new Item.Properties().stacksTo(32).rarity(Rarity.UNCOMMON)));
+            () -> new BombItem(new Item.Properties().stacksTo(16).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> WATER_BOMB = ITEMS.register("water_bomb",
-            () -> new WaterBombItem(new Item.Properties().stacksTo(16).rarity(Rarity.RARE)));
+            () -> new WaterBombItem(new Item.Properties().stacksTo(12).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> BOMB_FLOWER = ITEMS.register("bomb_flower",
-            () -> new BombFlowerItem(new Item.Properties().stacksTo(16).rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> BOMBCHU = ITEMS.register("bombchu",
-            () -> new BombchuItem(new Item.Properties().stacksTo(32).rarity(Rarity.UNCOMMON)));
+            () -> new BombFlowerItem(new Item.Properties().stacksTo(8).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> HERO_BOW = ITEMS.register("hero_bow",
             () -> new HeroBowItem(new Item.Properties().defaultDurability(550).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> REINFORCED_BOW = ITEMS.register("reinforced_bow",
@@ -305,11 +303,31 @@ public class ModItems {
 
     // bag items go here
     public static final RegistryObject<Item> BOMB_BAG = ITEMS.register("bomb_bag",
-            () -> new BombBagItem(new Item.Properties(), 128, Collections.singletonList(ModTags.Items.BOMBS)));
-    public static final RegistryObject<Item> BOMB_BAG_BIG = ITEMS.register("bomb_bag_big",
-            () -> new BombBagItem(new Item.Properties(), 256, Collections.singletonList(ModTags.Items.BOMBS)));
+            () -> new BombBagItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), 64, Collections.singletonList(ModTags.Items.BOMBS)));
+    public static final RegistryObject<Item> BOMB_BAG_MEDIUM = ITEMS.register("bomb_bag_medium",
+            () -> new BombBagItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 128, Collections.singletonList(ModTags.Items.BOMBS)));
+    public static final RegistryObject<Item> BOMB_BAG_LARGE = ITEMS.register("bomb_bag_large",
+            () -> new BombBagItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 256, Collections.singletonList(ModTags.Items.BOMBS)));
+    public static final RegistryObject<Item> QUIVER = ITEMS.register("quiver",
+            () -> new QuiverItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), 256, Collections.singletonList(ModTags.Items.BOW_AMMO)));
+    public static final RegistryObject<Item> QUIVER_MEDIUM = ITEMS.register("quiver_medium",
+            () -> new QuiverItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 512, Collections.singletonList(ModTags.Items.BOW_AMMO)));
+    public static final RegistryObject<Item> QUIVER_BIG = ITEMS.register("quiver_large",
+            () -> new QuiverItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 1024, Collections.singletonList(ModTags.Items.BOW_AMMO)));
+    public static final RegistryObject<Item> WALLET = ITEMS.register("wallet",
+            () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), 576, Collections.singletonList(ModTags.Items.GEMS)));
+    public static final RegistryObject<Item> WALLET_GIANT = ITEMS.register("wallet_medium",
+            () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 1152, Collections.singletonList(ModTags.Items.GEMS)));
+    public static final RegistryObject<Item> WALLET_TYCOON = ITEMS.register("wallet_large",
+            () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 9999, Collections.singletonList(ModTags.Items.GEMS)));
+    public static final RegistryObject<Item> ADVENTURE_POUCH = ITEMS.register("item_pouch",
+            () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 8, Collections.singletonList(ModTags.Items.POUCH_ITEMS)));
+    public static final RegistryObject<Item> ADVENTURE_POUCH_LARGE = ITEMS.register("item_pouch_large",
+            () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 16, Collections.singletonList(ModTags.Items.POUCH_ITEMS)));
+    public static final RegistryObject<Item> MASK_POUCH = ITEMS.register("mask_pouch",
+            () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 29, Collections.singletonList(ModTags.Items.MASKS)));
 
-    //shields go here
+    // shields go here
 public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shield",
     () -> new WoodShieldItem(new Item.Properties().durability(168)));
     public static final RegistryObject<Item> HYLIAN_SHIELD = ITEMS.register("hylian_shield",
@@ -319,8 +337,8 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
     public static final RegistryObject<Item> BALANCED_MIRROR_SHIELD = ITEMS.register("balanced_mirror_shield",
             () -> new BalancedMirrorShieldItem(new Item.Properties().rarity(Rarity.EPIC).durability(1200)));
 
-    //This is where armors are located keep them together
-    //Boots tier
+    // This is where armors are located keep them together
+    // Boots tier
     public static final RegistryObject<HeavyBoots> HEAVY_BOOTS = ITEMS.register("heavyboots",
             ()-> new HeavyBoots(ModArmorMaterials.ZELDAH, ArmorItem.Type.BOOTS,
                     new Item.Properties().defaultDurability(250).rarity(Rarity.UNCOMMON)));

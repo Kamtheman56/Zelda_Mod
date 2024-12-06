@@ -1,18 +1,17 @@
 package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.entity.custom.projectile.BombFlower;
-import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
+import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class BombFlowerItem extends Item {
+public class BombFlowerItem extends BombItem {
     public BombFlowerItem(Properties pProperties) {
         super(pProperties);
     }
@@ -28,7 +27,9 @@ public class BombFlowerItem extends Item {
 
         player.awardStat(Stats.ITEM_USED.get(this));
         if (!player.getAbilities().instabuild) {
-            itemstack.shrink(1);
+            if (player.getItemInHand(pHand).is(ModItems.BOMB.get())) {
+                itemstack.shrink(1);
+            }
         }
 
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());

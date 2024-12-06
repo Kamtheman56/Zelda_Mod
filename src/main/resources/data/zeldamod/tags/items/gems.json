@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+   "minecraft:emerald",
+    "minecraft:emerald_block",
+    "zeldamod:blue_emerald",
+    "zeldamod:red_emerald",
+    "zeldamod:gold_emerald",
+    "zeldamod:silver_emerald",
+    "zeldamod:purple_emerald",
+    "zeldamod:blue_emerald_block",
+    "zeldamod:red_emerald_block",
+    "zeldamod:gold_emerald_block",
+    "zeldamod:silver_emerald_block",
+    "zeldamod:purple_emerald_block",
+    "zeldamod:korok_seed"
+  ]
+}

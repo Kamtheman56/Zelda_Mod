@@ -49,9 +49,41 @@
     "zeldamod:gorontunic",
     "zeldamod:roc_cape",
     "zeldamod:dark_tunic",
+    "zeldamod:key_small",
+    "zeldamod:key_big",
     "zeldamod:inferno_rod",
     "zeldamod:blizzard_rod",
     "zeldamod:sandstorm_rod",
-    "zeldamod:hurricane_rod"
+    "zeldamod:hurricane_rod",
+    "zeldamod:heart_potion",
+    "zeldamod:stamina_potion",
+    "zeldamod:blue_potion",
+    "minecraft:wooden_pickaxe",
+    "minecraft:stone_pickaxe",
+    "minecraft:iron_pickaxe",
+    "minecraft:golden_pickaxe",
+    "minecraft:diamond_pickaxe",
+    "minecraft:netherite_pickaxe",
+    "minecraft:wooden_shovel",
+    "minecraft:stone_shovel",
+    "minecraft:iron_shovel",
+    "minecraft:diamond_shovel",
+    "minecraft:golden_shovel",
+    "minecraft:netherite_shovel",
+    "minecraft:wooden_axe",
+    "minecraft:stone_axe",
+    "minecraft:iron_axe",
+    "minecraft:golden_axe",
+    "minecraft:diamond_axe",
+    "minecraft:netherite_axe",
+    "minecraft:wooden_hoe",
+    "minecraft:stone_hoe",
+    "minecraft:iron_hoe",
+    "minecraft:golden_hoe",
+    "minecraft:diamond_hoe",
+    "minecraft:netherite_hoe"
+
+
+
   ]
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "zeldamod:item/bomb_bag_alt"
+    "layer0": "zeldamod:item/seed_bag_small"
   }
 }

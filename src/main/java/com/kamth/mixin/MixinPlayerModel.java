@@ -45,14 +45,12 @@ public abstract class MixinPlayerModel extends HumanoidModel<LivingEntity> {
             leftArm.zRot = 34.5f;
             rightArm.xRot = ARM_ROTATION ;
             rightArm.zRot = -34.5f;
-         //   leftLeg.xRot = 0f;
-         //   rightLeg.xRot = ;
+
         }
         if(stack2.getItem() instanceof AscendItem && entity.isUsingItem()){
             rightArm.xRot = ARM_ROTATION ;
             rightArm.zRot = 0f;
-            //   leftLeg.xRot = 0f;
-            //   rightLeg.xRot = ;
+
         }
 
 

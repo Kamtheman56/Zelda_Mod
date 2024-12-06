@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "minecraft:arrow",
+    "#minecraft:arrows",
     "zeldamod:fire_arrow",
     "zeldamod:ice_arrow",
     "zeldamod:light_arrow",

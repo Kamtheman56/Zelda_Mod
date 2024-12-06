@@ -18,6 +18,7 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -158,6 +159,18 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.GLIDER);
         event.accept(ModItems.MITTS);
         event.accept(ModItems.MOGMA_MITTS);
+        event.accept(ModItems.ADVENTURE_POUCH);
+        event.accept(ModItems.ADVENTURE_POUCH_LARGE);
+        event.accept(ModItems.MASK_POUCH);
+        event.accept(ModItems.BOMB_BAG);
+        event.accept(ModItems.BOMB_BAG_MEDIUM);
+        event.accept(ModItems.BOMB_BAG_LARGE);
+        event.accept(ModItems.QUIVER);
+        event.accept(ModItems.QUIVER_MEDIUM);
+        event.accept(ModItems.QUIVER_BIG);
+        event.accept(ModItems.WALLET);
+        event.accept(ModItems.WALLET_GIANT);
+        event.accept(ModItems.WALLET_TYCOON);
         event.accept(ModItems.BOMB_FLOWER);
         event.accept(ModItems.BOMB);
         event.accept(ModItems.WATER_BOMB);
@@ -221,17 +234,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.MINI_MUSHROOM);
         event.accept(ModItems.SUPER_LEAF);
         event.accept(ModItems.BAKED_APPLE);
-        event.accept(ModItems.DEKU_SPAWN_EGG);
-        event.accept(ModItems.DEKU_MAD_SPAWN_EGG);
-        event.accept(ModItems.DARK_NUT_SPAWN_EGG);
-        event.accept(ModItems.DARK_KNIGHT_SPAWN_EGG);
-        event.accept(ModItems.KEESE_SPAWN_EGG);
-        event.accept(ModItems.CHUCHU_SPAWN_EGG);
-        event.accept(ModItems.FIRE_CHUCHU_SPAWN_EGG);
-        event.accept(ModItems.ICE_CHUCHU_SPAWN_EGG);
-        event.accept(ModItems.ELECTRIC_CHUCHU_SPAWN_EGG);
-        event.accept(ModItems.KOROK_SPAWN_EGG);
-        event.accept(ModItems.SKULLTULA_SPAWN_EGG);
+
     }
     if (event.getTab() == ModCreativeModeTab.ZELDA_MASK.get()){
         event.accept(ModItems.DEKU_MASK);
@@ -365,9 +368,23 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.CLAY_JACK_O_LANTERN);
         }
 
+if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS){
+    event.accept(ModItems.DEKU_SPAWN_EGG);
+    event.accept(ModItems.DEKU_MAD_SPAWN_EGG);
+    event.accept(ModItems.DARK_NUT_SPAWN_EGG);
+    event.accept(ModItems.DARK_KNIGHT_SPAWN_EGG);
+    event.accept(ModItems.KEESE_SPAWN_EGG);
+    event.accept(ModItems.CHUCHU_SPAWN_EGG);
+    event.accept(ModItems.FIRE_CHUCHU_SPAWN_EGG);
+    event.accept(ModItems.ICE_CHUCHU_SPAWN_EGG);
+    event.accept(ModItems.ELECTRIC_CHUCHU_SPAWN_EGG);
+    event.accept(ModItems.KOROK_SPAWN_EGG);
+    event.accept(ModItems.SKULLTULA_SPAWN_EGG);
+}
 
 
 }
+
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)

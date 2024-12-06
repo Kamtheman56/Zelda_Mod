@@ -1,7 +1,6 @@
 package com.kamth.zeldamod.item.items;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -27,10 +26,12 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
+
+
+//Credits to DeadlyDiamond98 for this code!
 
 public class CustomBundleItem extends Item {
     public CustomBundleItem(Properties pProperties, int maxStorage, List<TagKey> itemTags) {
@@ -84,9 +85,9 @@ public class CustomBundleItem extends Item {
                 return nbt;
             }
 
-            public String getItemId() {
-                return itemId;
-            }
+        public String getItemId() {
+            return itemId;
+        }
 
             public int getCount() {
                 return count;
@@ -156,7 +157,7 @@ public class CustomBundleItem extends Item {
     }
 
     public int getBarWidth(ItemStack pStack) {
-        return Math.min(1 + 12 * getBundleOccupancy(pStack) / 64, 13);
+        return Math.min(1 + 12 * getBundleOccupancy(pStack) / maxStorage, 13);
     }
 
     public int getBarColor(ItemStack pStack) {
@@ -307,15 +308,21 @@ public class CustomBundleItem extends Item {
                 }
 
                 ItemStack result = new ItemStack(item, 1);
-                if (nbt.contains("tag")) {
-                    result.setTag(nbt.getCompound("tag"));
-                }
+                   if (nbt.contains("tag")) {
+                   result.setTag(nbt.getCompound("tag"));
+               }
                 return Optional.of(result);
             }
         }
 
         return Optional.empty();
     }
+
+
+
+
+
+
 
     public Optional<ItemStack> getFirstItem(ItemStack stack) {
         CompoundTag nbtCompound = stack.getOrCreateTag();
@@ -366,11 +373,8 @@ public class CustomBundleItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable net.minecraft.world.level.Level level, List<Component> components, TooltipFlag flag) {
-        if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.flute.description").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
-        }
-        super.appendHoverText(stack, level, components, flag);
+    public void appendHoverText(ItemStack pStack, Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        pTooltipComponents.add(Component.translatable("item.minecraft.bundle.fullness", getBundleOccupancy(pStack), maxStorage).withStyle(ChatFormatting.GRAY));
     }
 
     @Override
@@ -392,14 +396,21 @@ public class CustomBundleItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
-        if (user.isCrouching()) {
-            this.cycleStack(user.getItemInHand(hand));
-            playInsertSound(user);
-            return InteractionResultHolder.success(user.getItemInHand(hand));
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
+        if (player.isCrouching()) {
+            this.cycleStack(player.getItemInHand(hand));
+            playInsertSound(player);
+            return InteractionResultHolder.success(itemstack);
+
         }
-        return super.use(world, user, hand);
+        return super.use(world, player, hand);
     }
+
+
+
+
+
 }
 
 

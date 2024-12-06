@@ -102,6 +102,11 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("korok_likes");
         public static final TagKey<Item> BOMBS
                 = tag("bombs");
+        public static final TagKey<Item> GEMS
+                = tag("gems");
+        public static final TagKey<Item> POUCH_ITEMS
+                = tag("adventurer_items");
+      ;
 
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
