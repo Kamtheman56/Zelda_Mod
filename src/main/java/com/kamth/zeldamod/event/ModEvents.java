@@ -6,6 +6,7 @@ import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ai.*;
+import com.kamth.zeldamod.entity.mobs.KorokEntity;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
@@ -121,6 +122,7 @@ public class ModEvents {
 
 
         //Methods for obtaining Masks
+        // Romani's Mask
         if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.GOLDEN_APPLE) {
             if (event.getTarget() instanceof Cow) {
                 ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
@@ -130,6 +132,7 @@ public class ModEvents {
                 event.getTarget().playSound(SoundEvents.HORSE_EAT, 1, 1.9f);
                 ((Cow) event.getTarget()).addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 80));
             }}
+        // Fairy Mask
         if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.GOLDEN_APPLE) {
             if (event.getTarget() instanceof Allay && event.getEntity().isCrouching()) {
                 ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
@@ -139,6 +142,7 @@ public class ModEvents {
                 event.getTarget().playSound(SoundEvents.HORSE_EAT, 1, 1.9f);
                 event.getTarget().discard();
             }}
+        // Bunny Hood
         if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.GOLDEN_CARROT) {
             if (event.getTarget() instanceof Rabbit && ((Rabbit) event.getTarget()).hasEffect(MobEffects.MOVEMENT_SPEED)) {
                 ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
@@ -148,9 +152,9 @@ public class ModEvents {
                 event.getTarget().playSound(SoundEvents.HORSE_EAT, 1, 1.2f);
                 event.getTarget().discard();
             }}
+        // Gibdo Mask
             if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.OCARINA.get()) {
                 if (event.getTarget() instanceof Husk && ((Husk) event.getTarget()).hasEffect(MobEffects.WEAKNESS)) {
-                    ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
                     event.getTarget().spawnAtLocation(ModItems.GIBDO_MASK.get());
                     event.getTarget().playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1, 1.4f);
                     event.getTarget().playSound(ModSounds.SONG_HEALING.get(), 1, 1f);
@@ -174,6 +178,7 @@ public class ModEvents {
                 event.getTarget().playSound(SoundEvents.GOAT_HORN_PLAY, 1, 1.2f);
                 event.getTarget().discard();
             }}
+        // Captain's Mask
         if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.WITHER_SKELETON_SKULL) {
             if (event.getTarget() instanceof WitherSkeleton) {
                 ItemStack itemstack = event.getEntity().getItemInHand(InteractionHand.MAIN_HAND);
@@ -182,6 +187,14 @@ public class ModEvents {
                 event.getTarget().playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1, 1.4f);
                 event.getTarget().playSound(SoundEvents.WITHER_SKELETON_DEATH, 1, 1.2f);
                 event.getTarget().discard();
+            }}
+        // Korok Mask
+        if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.OCARINA.get()) {
+            if (event.getTarget() instanceof KorokEntity && ((KorokEntity) event.getTarget()).hasEffect(MobEffects.REGENERATION)) {
+                event.getTarget().spawnAtLocation(ModItems.KOROK_MASK.get());
+                event.getTarget().playSound(ModSounds.KOROK_LIKES.get(), 1, 1.4f);
+                event.getTarget().playSound(ModSounds.SONG_SARIA.get(), 1, 1f);
+
             }}
         if (!event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GERO_MASK.get()) {
             if (event.getTarget() instanceof MagmaCube) {
@@ -745,6 +758,118 @@ public class ModEvents {
                     stack,1,250,0.07F));
         }
 //make more trades dude
+
+        // Morshu Villager Trades
+        if(event.getType() == ModVillagers.MORSHU.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.BLUE_EMERALD.get(), 1);
+            int villagerLevel = 1;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(ModItems.KOROK_SEED.get(), 8),
+                    stack,10,6,0.02F));
+        }
+        if(event.getType() == ModVillagers.MORSHU.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.BOMB.get(), 4);
+            int villagerLevel = 1;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(ModItems.BLUE_EMERALD.get(), 2),
+                    stack,5,6,0.02F));
+        }
+        if(event.getType() == ModVillagers.MORSHU.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.WALLET.get(), 1);
+            int villagerLevel = 2;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(ModItems.BLUE_EMERALD.get(), 2),
+                    stack,5,6,0.02F));
+        }
+        if(event.getType() == ModVillagers.MORSHU.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.BOMB_BAG.get(), 1);
+            int villagerLevel = 2;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(ModItems.RED_EMERALD.get(), 2),
+                    stack,2,6,0.03F));
+        }
+        if(event.getType() == ModVillagers.MORSHU.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.QUIVER.get(), 1);
+            int villagerLevel = 2;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(ModItems.RED_EMERALD.get(), 2),
+                    stack,2,6,0.03F));
+        }
+        if(event.getType() == ModVillagers.MORSHU.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.QUIVER_MEDIUM.get(), 1);
+            int villagerLevel = 3;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(ModItems.PURPLE_EMERALD.get(), 4),
+                    stack,2,6,0.03F));
+        }
+        if(event.getType() == ModVillagers.MORSHU.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.BOMB_BAG_MEDIUM.get(), 1);
+            int villagerLevel = 3;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(ModItems.PURPLE_EMERALD.get(), 3),
+                    stack,2,6,0.03F));
+        }
+        if(event.getType() == ModVillagers.MORSHU.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.WALLET_GIANT.get(), 1);
+            int villagerLevel = 3;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(ModItems.SILVER_EMERALD.get(), 1),
+                    stack,2,6,0.03F));
+        }
+        if(event.getType() == ModVillagers.MORSHU.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.WALLET_TYCOON.get(), 1);
+            int villagerLevel = 4;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(ModItems.GOLD_EMERALD.get(), 1),
+                    stack,2,6,0.03F));
+        }
+        if(event.getType() == ModVillagers.MORSHU.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.BOMB_BAG_LARGE.get(), 1);
+            int villagerLevel = 4;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(ModItems.GOLD_EMERALD.get(), 1),
+                    stack,2,8,0.03F));
+        }
+        if(event.getType() == ModVillagers.MORSHU.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.QUIVER_BIG.get(), 1);
+            int villagerLevel = 4;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(ModItems.GOLD_EMERALD.get(), 1),
+                    stack,2,10,0.03F));
+        }
+
+        if(event.getType() == ModVillagers.MORSHU.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            ItemStack stack = new ItemStack(ModItems.KOROK_SEED_GIFT.get(), 1);
+            int villagerLevel = 5;
+
+            trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(ModItems.GOLD_EMERALD.get(), 4),
+                    stack,1,40,0.03F));
+        }
+
 
     }
     @SubscribeEvent

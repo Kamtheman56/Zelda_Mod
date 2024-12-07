@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:tornado_rod"
+  },
+  "addition": {
+    "item": "zeldamod:refined_master_ore"
+  },
+  "result": {
+    "item": "zeldamod:hurricane_rod"
+  }
+}

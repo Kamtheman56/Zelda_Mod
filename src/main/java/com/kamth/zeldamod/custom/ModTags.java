@@ -100,6 +100,8 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("bow_weapons");
         public static final TagKey<Item> KOROK_LIKES
                 = tag("korok_likes");
+        public static final TagKey<Item> KOROK_LIKES_BIG
+                = tag("korok_likes_big");
         public static final TagKey<Item> BOMBS
                 = tag("bombs");
         public static final TagKey<Item> GEMS
@@ -151,7 +153,7 @@ return BlockTags.create(new ResourceLocation("forge", name));
         public static final TagKey<Biome> SPAWNS_JUNGLE_KOROK = registerBiomeTag("korok_jungle");
         public static final TagKey<Biome> SPAWNS_CHERRY_KOROK = registerBiomeTag("korok_cherry");
         public static final TagKey<Biome> SPAWNS_MUSHROOM_KOROK = registerBiomeTag("korok_mushroom");
-
+        public static final TagKey<Biome> SPAWNS_CHUCHU = registerBiomeTag("spawns_chuchu");
 
         private static TagKey<Biome> registerBiomeTag(String name) {
             return TagKey.create(Registries.BIOME, new ResourceLocation(ZeldaMod.MOD_ID, name));

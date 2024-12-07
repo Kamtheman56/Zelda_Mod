@@ -29,6 +29,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> SONG_ZELDA = registerSoundEvents ("song_zelda");
     public static final RegistryObject<SoundEvent> SONG_SUN = registerSoundEvents ("song_sun");
     public static final RegistryObject<SoundEvent> SONG_EPONA = registerSoundEvents ("song_epona");
+    public static final RegistryObject<SoundEvent> SONG_SARIA = registerSoundEvents ("song_saria");
     public static final RegistryObject<SoundEvent> OCARINA = registerSoundEvents ("ocarina_sound");
     public static final RegistryObject<SoundEvent> BROWN_BRICKS = registerSoundEvents ("brown_bricks");
     public static final RegistryObject<SoundEvent> SLINGSHOT_PULL = registerSoundEvents ("slingshot_pull");

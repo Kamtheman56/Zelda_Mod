@@ -2,6 +2,7 @@ package com.kamth.zeldamod.item.items;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.custom.projectile.BombSeedProjectile;
+import com.kamth.zeldamod.entity.custom.projectile.KorokSeedProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.sound.ModSounds;
@@ -88,6 +89,8 @@ public class SlingshotItem extends BowItem {
         Item bullet = itemStack.getItem();
         if (bullet == ModItems.BOMB_SEEDS.get()) {
             return new BombSeedProjectile(level);}
+        if (bullet == ModItems.KOROK_SEED.get()) {
+            return new KorokSeedProjectile(level);}
         else  return new SeedProjectile(level);
     }
 

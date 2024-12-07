@@ -2,11 +2,11 @@ package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
@@ -64,7 +64,7 @@ public class BombSeedProjectile extends SeedProjectile {
 
     @Override
     protected SoundEvent getDefaultHitGroundSoundEvent() {
-        return SoundEvents.CHICKEN_EGG;
+        return ModSounds.SEED_BREAKS.get();
     }
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {

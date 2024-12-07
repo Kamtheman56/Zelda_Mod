@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "zeldamod:gold_emerald"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:silver_emerald",
+    "count": 3
+  }
+}

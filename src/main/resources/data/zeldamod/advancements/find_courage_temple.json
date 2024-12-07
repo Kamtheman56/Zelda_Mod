@@ -14,7 +14,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:find_song_ruins",
+  "parent": "zeldamod:find_forest_haven",
   "criteria": {
     "in_stronghold": {
       "trigger": "minecraft:location",

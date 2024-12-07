@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "zeldamod:korok_seed"
+  },
+  "result": "zeldamod:korok_seed_cooked",
+  "experience": 0.2,
+  "cookingtime": 200
+}

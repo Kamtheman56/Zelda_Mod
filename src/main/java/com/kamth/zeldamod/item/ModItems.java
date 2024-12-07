@@ -26,9 +26,9 @@ public class ModItems {
 
     //These are generic items
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new Item(new Item.Properties()));
+            () -> new EmeraldItem(new Item.Properties()));
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
-            () -> new Item(new Item.Properties()));
+            () -> new EmeraldItem(new Item.Properties()));
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
@@ -75,6 +75,8 @@ public class ModItems {
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> KOROK_SEED = ITEMS.register("korok_seed",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> KOROK_SEED_GIFT = ITEMS.register("korok_seed_gift",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> CHU_JELLY = ITEMS.register("chu_jelly",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> FIRE_CHU_JELLY = ITEMS.register("fire_chu_jelly",
@@ -84,11 +86,11 @@ public class ModItems {
     public static final RegistryObject<Item> ELECTRIC_CHU_JELLY = ITEMS.register("electric_chu_jelly",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> PURPLE_EMERALD = ITEMS.register("purple_emerald",
-            () -> new Item(new Item.Properties()));
+            () -> new EmeraldItem(new Item.Properties()));
     public static final RegistryObject<Item> SILVER_EMERALD = ITEMS.register("silver_emerald",
-            () -> new Item(new Item.Properties()));
+            () -> new EmeraldItem(new Item.Properties()));
     public static final RegistryObject<Item> GOLD_EMERALD = ITEMS.register("gold_emerald",
-            () -> new Item(new Item.Properties()));
+            () -> new EmeraldItem(new Item.Properties()));
 
 
 
@@ -123,6 +125,8 @@ public class ModItems {
             () -> new SuperLeafItem(new Item.Properties().stacksTo(1).defaultDurability(3)));
     public static final RegistryObject<Item> BOMB_SEEDS = ITEMS.register("bomb_seeds",
             () -> new ItemNameBlockItem(ModBlocks.BOMBFLOWER.get(),new  Item.Properties()));
+    public static final RegistryObject<Item> COOKED_KOROK_SEED = ITEMS.register("korok_seed_cooked",
+            () -> new Item(new Item.Properties().food(ModFoods.KOROK)));
 
 
 
