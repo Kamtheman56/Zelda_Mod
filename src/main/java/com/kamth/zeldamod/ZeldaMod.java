@@ -17,7 +17,7 @@ import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -74,7 +74,16 @@ private void clientSetup(final FMLClientSetupEvent event){
 
 
 event.enqueueWork(() -> {
-    SpawnPlacements.register(ModEntityTypes.KOROK.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,   Animal::checkAnimalSpawnRules);
+//    SpawnPlacements.register(ModEntityTypes.KOROK.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,   Animal::checkAnimalSpawnRules);
+    SpawnPlacements.register(ModEntityTypes.CHUCHU.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
+    SpawnPlacements.register(ModEntityTypes.CHUCHU_FIRE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
+    SpawnPlacements.register(ModEntityTypes.CHUCHU_ICE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
+    SpawnPlacements.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
+    SpawnPlacements.register(ModEntityTypes.SKULLTULA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
+    SpawnPlacements.register(ModEntityTypes.DEKU.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
+    SpawnPlacements.register(ModEntityTypes.DEKU_MAD.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
+
+
 
 
     (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.NIGHTSHADE.getId(), ModBlocks.POTTED_NIGHTSHADE);
@@ -213,6 +222,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.DEITY_SHARD);
         event.accept(ModItems.GLOOM_CLUMP);
         event.accept(ModItems.KOROK_SEED);
+        event.accept(ModItems.COOKED_KOROK_SEED);
+        event.accept(ModItems.KOROK_SEED_GIFT);
         event.accept(ModItems.BOMB_SEEDS);
         event.accept(ModItems.CHU_JELLY);
         event.accept(ModItems.FIRE_CHU_JELLY);

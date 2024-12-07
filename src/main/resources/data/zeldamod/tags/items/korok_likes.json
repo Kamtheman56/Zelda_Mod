@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-"minecraft:golden_apple"
+    "minecraft:sugar",
+    "minecraft:honeycomb",
+    "minecraft:honey_bottle",
+    "minecraft:cookie"
   ]
 }

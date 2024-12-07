@@ -72,8 +72,8 @@ public class SkulltulaEntity extends Monster {
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 28)
-                .add(Attributes.KNOCKBACK_RESISTANCE, .7f)
-                .add(Attributes.MOVEMENT_SPEED, .3f)
+                .add(Attributes.KNOCKBACK_RESISTANCE, .8f)
+                .add(Attributes.MOVEMENT_SPEED, .18f)
                 .add(Attributes.ATTACK_DAMAGE, 5)
                 .add(Attributes.ATTACK_SPEED, 2);
     }

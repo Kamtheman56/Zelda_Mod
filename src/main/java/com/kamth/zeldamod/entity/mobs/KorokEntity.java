@@ -4,6 +4,7 @@ import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.mobs.variants.KorokVariants;
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
@@ -40,11 +41,14 @@ import java.util.EnumSet;
 public class KorokEntity extends Animal {
 
 
+    private static final EntityDataAccessor<Boolean> DATA_CAN_DUPLICATE = SynchedEntityData.defineId(KorokEntity.class, EntityDataSerializers.BOOLEAN);
+    private long duplicationCooldown;
+
     public KorokEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT = SynchedEntityData.defineId(KorokEntity.class, EntityDataSerializers.INT);
-    protected static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Monster.class, EntityDataSerializers.BYTE);
+
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState danceAnimationState = new AnimationState();
     public final AnimationState sitAnimationState = new AnimationState();
@@ -52,23 +56,28 @@ public class KorokEntity extends Animal {
     private int danceAnimationTimeout = 0;
     private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.APPLE, ModItems.BAKED_APPLE.get());
     public static final String VARIANT_KEY = "variant";
-    private static final EntityDataAccessor<Integer> DATA_VARIANT_ID = SynchedEntityData.defineId(KorokEntity.class, EntityDataSerializers.INT);
+ ;
     private boolean partyParrot;
     private BlockPos jukebox;
 
     protected void defineSynchedData() {
         this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
         super.defineSynchedData();
+        this.entityData.define(DATA_CAN_DUPLICATE, true);
     }
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("Variant", this.getTypeVariant());
+        tag.putLong("DuplicationCooldown", this.duplicationCooldown);
+        tag.putBoolean("CanDuplicate", this.canDuplicate());
     }
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         this.entityData.set(DATA_ID_TYPE_VARIANT, tag.getInt("Variant"));
+        this.duplicationCooldown = (long)tag.getInt("DuplicationCooldown");
+        this.entityData.set(DATA_CAN_DUPLICATE, tag.getBoolean("CanDuplicate"));
     }
     @Override
     public void tick() {
@@ -140,7 +149,7 @@ public class KorokEntity extends Animal {
             this.partyParrot = false;
             this.jukebox = null;
         }
-
+    this.updateDuplicationCooldown();
         super.aiStep();
 
     }
@@ -221,17 +230,54 @@ public class KorokEntity extends Animal {
 
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
-        if (itemstack.is(ModTags.Items.KOROK_LIKES) && !this.isBaby()) {
+        if (itemstack.is(ModTags.Items.KOROK_LIKES_BIG) && !this.isBaby() && this.canDuplicate()) {
             itemstack.shrink(1);
-            pPlayer.playSound(SoundEvents.CHICKEN_EGG, 1.0F, 1.0F);
+            pPlayer.playSound(SoundEvents.HORSE_EAT, 1.0F, 1.0F);
+            pPlayer.playSound(ModSounds.KOROK_LIKES.get(), 1.0F, 1.0F);
             ItemStack itemstack1 = ModItems.KOROK_SEED.get().getDefaultInstance();
-            pPlayer.spawnAtLocation(itemstack1);
+            ItemStack itemstack2 = ModItems.KOROK_SEED.get().getDefaultInstance();
+            ItemStack itemstack3 = ModItems.KOROK_SEED.get().getDefaultInstance();
+            this.spawnAtLocation(itemstack1);
+            this.spawnAtLocation(itemstack2);
+            this.spawnAtLocation(itemstack3);
+            this.resetDuplicationCooldown();
             return InteractionResult.sidedSuccess(this.level().isClientSide);
-        } else {
+        }
+        if (itemstack.is(ModTags.Items.KOROK_LIKES) && !this.isBaby() && this.canDuplicate()) {
+            itemstack.shrink(1);
+            pPlayer.playSound(SoundEvents.HORSE_EAT, 1.0F, 1.0F);
+            pPlayer.playSound(ModSounds.KOROK_LIKES.get(), 1.0F, 1.0F);
+            ItemStack itemstack1 = ModItems.KOROK_SEED.get().getDefaultInstance();
+            this.spawnAtLocation(itemstack1);
+            this.resetDuplicationCooldown();
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
+        }
+
+        else {
             return super.mobInteract(pPlayer, pHand);
         }
     }
 
+
+
+    private void updateDuplicationCooldown() {
+        if (this.duplicationCooldown > 0L) {
+            --this.duplicationCooldown;
+        }
+
+        if (!this.level().isClientSide() && this.duplicationCooldown == 0L && !this.canDuplicate()) {
+            this.entityData.set(DATA_CAN_DUPLICATE, true);
+        }
+
+    }
+    private void resetDuplicationCooldown() {
+        this.duplicationCooldown = 6000L;
+        this.entityData.set(DATA_CAN_DUPLICATE, false);
+    }
+
+    private boolean canDuplicate() {
+        return this.entityData.get(DATA_CAN_DUPLICATE);
+    }
 
 
 

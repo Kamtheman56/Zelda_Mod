@@ -36,6 +36,7 @@ public class ClientModEventSubscriber {
         event.registerEntityRenderer(ModEntityTypes.GALE_BOOMERANG.get(), GaleBoomerangRender::new);
         event.registerEntityRenderer(ModEntityTypes.BOMB_SEED.get(), BombSeedRender::new);
         event.registerEntityRenderer(ModEntityTypes.BOMBCHU.get(), BombchuRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.KOROK_SEED.get(), KorokSeedRender::new);
 
     }
 }

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:hero_bow"
+  },
+  "addition": {
+    "item": "zeldamod:refined_master_ore"
+  },
+  "result": {
+    "item": "zeldamod:reinforced_bow"
+  }
+}

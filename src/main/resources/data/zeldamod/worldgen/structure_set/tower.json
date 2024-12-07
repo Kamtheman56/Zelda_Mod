@@ -4,7 +4,7 @@
   "structures": [
     {
       "structure": "zeldamod:tower",
-      "weight": 1
+      "weight": 5
     }
   ],
   "placement": {
@@ -12,7 +12,7 @@
     "salt": 1637840257,
 
     // The average distance apart in chunks for spawn attempts
-    "spacing": 110,
+    "spacing": 140,
 
     // Minimum distance apart in chunks for spawn attempts
     // MUST ALWAYS BE SMALLER THAN spacing ABOVE

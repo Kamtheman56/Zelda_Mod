@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "zeldamod:purple_emerald"
+    }
+  ],
+  "result": {
+    "item": "zeldamod:blue_emerald",
+    "count": 10
+  }
+}

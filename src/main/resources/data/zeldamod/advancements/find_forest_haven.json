@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:korok_mask"
+    },
+    "title": {
+      "text": "A whole forest's worth"
+    },
+    "description": {
+      "text": "Locate the Forest Haven"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:find_song_ruins",
+  "criteria": {
+    "in_stronghold": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "zeldamod:forest_haven"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_stronghold"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
