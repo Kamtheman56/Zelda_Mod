@@ -27,6 +27,7 @@ import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
@@ -72,10 +73,27 @@ public class FireChuchuEntity extends Monster {
 
         this.xpReward = i;
     }
+    private void jumpInLiquidInternal(java.util.function.BooleanSupplier isLava, Runnable onSuper) {
+        if (isLava.getAsBoolean()) {
+            Vec3 vec3 = this.getDeltaMovement();
+            this.setDeltaMovement(vec3.x, (double)(0.22F + (float)this.getSize() * 0.05F), vec3.z);
+            this.hasImpulse = true;
+        } else {
+            onSuper.run();
+        }
 
+    }
+    public float getLightLevelDependentMagicValue() {
+        return 1.0F;
+    }
+    @Override
+    public void jumpInFluid(net.minecraftforge.fluids.FluidType type) {
+        this.jumpInLiquidInternal(() -> type == net.minecraftforge.common.ForgeMod.LAVA_TYPE.get(), () -> super.jumpInFluid(type));
+    }
 
-
-
+    public boolean isOnFire() {
+        return false;
+    }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()

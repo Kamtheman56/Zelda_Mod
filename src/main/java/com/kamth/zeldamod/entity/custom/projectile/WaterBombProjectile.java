@@ -14,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
@@ -33,12 +34,19 @@ public class WaterBombProjectile extends ThrowableProjectile {
     protected void onHit(HitResult result) {
         HitResult.Type lvt_2_1_ = result.getType();
         if (lvt_2_1_ == HitResult.Type.ENTITY) {
-           explode();
+            this.onHitEntity((EntityHitResult) result);
         } else if (lvt_2_1_ == HitResult.Type.BLOCK) {
             this.onHitBlock((BlockHitResult) result);
         }
     }
-    protected boolean inGround;
+    protected void onHitEntity(EntityHitResult hit) {
+        Vec3 vector3d = hit.getLocation().subtract(this.getX(), this.getY(), this.getZ());
+        this.setDeltaMovement(vector3d);
+        Vec3 vector3d1 = vector3d.normalize().scale(getGravity());
+        this.setPosRaw(this.getX() - vector3d1.x, this.getY() - vector3d1.y, this.getZ() - vector3d1.z);
+        this.setOnGround(true);
+    }
+
 
     @Override
     protected void onHitBlock(BlockHitResult hit) {
@@ -48,7 +56,6 @@ public class WaterBombProjectile extends ThrowableProjectile {
         Vec3 vector3d1 = vector3d.normalize().scale(getGravity());
         this.setPosRaw(this.getX() - vector3d1.x, this.getY() - vector3d1.y, this.getZ() - vector3d1.z);
         this.setOnGround(true);
-
     }
 
 

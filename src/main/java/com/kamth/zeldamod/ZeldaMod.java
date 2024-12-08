@@ -168,9 +168,6 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.GLIDER);
         event.accept(ModItems.MITTS);
         event.accept(ModItems.MOGMA_MITTS);
-        event.accept(ModItems.ADVENTURE_POUCH);
-        event.accept(ModItems.ADVENTURE_POUCH_LARGE);
-        event.accept(ModItems.MASK_POUCH);
         event.accept(ModItems.BOMB_BAG);
         event.accept(ModItems.BOMB_BAG_MEDIUM);
         event.accept(ModItems.BOMB_BAG_LARGE);

@@ -78,13 +78,13 @@ public class ModItems {
     public static final RegistryObject<Item> KOROK_SEED_GIFT = ITEMS.register("korok_seed_gift",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> CHU_JELLY = ITEMS.register("chu_jelly",
-            () -> new Item(new Item.Properties()));
+            () -> new JellyItem(new Item.Properties()));
     public static final RegistryObject<Item> FIRE_CHU_JELLY = ITEMS.register("fire_chu_jelly",
-            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+            () -> new FireJellyItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ICE_CHU_JELLY = ITEMS.register("ice_chu_jelly",
-            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+            () -> new JellyItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ELECTRIC_CHU_JELLY = ITEMS.register("electric_chu_jelly",
-            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+            () -> new Item(new Item.Properties().food(Foods.HONEY_BOTTLE).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> PURPLE_EMERALD = ITEMS.register("purple_emerald",
             () -> new EmeraldItem(new Item.Properties()));
     public static final RegistryObject<Item> SILVER_EMERALD = ITEMS.register("silver_emerald",

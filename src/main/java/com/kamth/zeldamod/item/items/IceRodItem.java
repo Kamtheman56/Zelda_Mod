@@ -37,7 +37,6 @@ public class IceRodItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
 
     player.getCooldowns().addCooldown(this, 38);
-
         ItemStack stack = player.getItemInHand(hand);
         stack.setDamageValue(stack.getDamageValue() + 3);
         if (stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);

@@ -18,4 +18,7 @@ public class ModFoods {
     public static final FoodProperties LIFE_MUSHROOM = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.6F).fast().alwaysEat().effect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0), 1.0F).effect(new MobEffectInstance(MobEffects.ABSORPTION, 2400, 0), 1.0F).build();
     public static final FoodProperties MINI_MUSHROOM = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.3F).fast().alwaysEat().effect(new MobEffectInstance(ModEffects.MINI.get(), 200, 0), 1.0F).build();
     public static final FoodProperties KOROK = (new FoodProperties.Builder()).nutrition(2).saturationMod(.4F).alwaysEat().fast().effect(new MobEffectInstance(MobEffects.WEAKNESS, 80, 0), .6F).build();
+
+    public static final FoodProperties CHU_ELECTRIC = (new FoodProperties.Builder().nutrition(2).saturationMod(0.1F).fast().effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 120, 0), .6F).build());
+
 }

@@ -314,7 +314,11 @@ public class KorokEntity extends Animal {
     @org.jetbrains.annotations.Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        return ModEntityTypes.KOROK.get().create(pLevel);
+        KorokEntity korok = ModEntityTypes.KOROK.get().create(pLevel);
+       korok.setVariant(this.getVariant());
+
+        return korok;
+
     }
 
 

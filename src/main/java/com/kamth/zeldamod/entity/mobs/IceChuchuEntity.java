@@ -108,7 +108,9 @@ public class IceChuchuEntity extends Monster {
         }
 
     }
-
+    public float getLightLevelDependentMagicValue() {
+        return 1.0F;
+    }
     /**
      * Called by a player entity when they collide with an entity
      */
