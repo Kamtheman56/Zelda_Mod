@@ -8,6 +8,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -26,9 +27,12 @@ import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
@@ -226,7 +230,25 @@ public class SkulltulaEntity extends Monster {
             return 5.1F + pAttackTarget.getBbWidth();
         }
     }
-
+    public static boolean isDarkEnoughToSpawn(ServerLevelAccessor pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (pLevel.getBrightness(LightLayer.SKY, pPos) > pRandom.nextInt(32)) {
+            return false;
+        } else {
+            DimensionType dimensiontype = pLevel.dimensionType();
+            int i = dimensiontype.monsterSpawnBlockLightLimit();
+            if (i < 15 && pLevel.getBrightness(LightLayer.BLOCK, pPos) > i) {
+                return false;
+            } else {
+                int j = pLevel.getLevel().isThundering() ? pLevel.getMaxLocalRawBrightness(pPos, 10) : pLevel.getMaxLocalRawBrightness(pPos);
+                return j <= dimensiontype.monsterSpawnLightTest().sample(pRandom);
+            }
+        }
+    }
+    public static boolean checkSkulltulaSpawnRules(EntityType<SkulltulaEntity> pBat, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        if (pPos.getY() >= pLevel.getSeaLevel()) {
+            return false;}
+        else return pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn((ServerLevelAccessor) pLevel, pPos, pRandom) && checkMobSpawnRules(pBat, pLevel, pSpawnType, pPos, pRandom);
+    }
 
 
 

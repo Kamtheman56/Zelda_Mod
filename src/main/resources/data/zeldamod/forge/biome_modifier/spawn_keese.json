@@ -10,7 +10,7 @@
     "minecraft:plains"
   ],
   "spawners": {
-    "type": "zeldamod:skulltula",
+    "type": "zeldamod:chuchu",
     "weight": 8,
     "minCount": 1,
     "maxCount": 3
