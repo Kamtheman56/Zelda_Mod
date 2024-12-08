@@ -34,7 +34,7 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.Nullable;
 
 public class SkulltulaEntity extends Monster {
-    private static final float SPIDER_SPECIAL_EFFECT_CHANCE = 0.1F;
+
 
     public SkulltulaEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super((EntityType<? extends Spider>) pEntityType, pLevel);
@@ -42,7 +42,6 @@ public class SkulltulaEntity extends Monster {
 
     protected static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Monster.class, EntityDataSerializers.BYTE);
     public final AnimationState idleAnimationState = new AnimationState();
-    public final AnimationState sitAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
  
 
@@ -97,6 +96,7 @@ public class SkulltulaEntity extends Monster {
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, KorokEntity.class, false));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 

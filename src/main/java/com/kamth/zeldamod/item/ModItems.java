@@ -84,7 +84,7 @@ public class ModItems {
     public static final RegistryObject<Item> ICE_CHU_JELLY = ITEMS.register("ice_chu_jelly",
             () -> new JellyItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ELECTRIC_CHU_JELLY = ITEMS.register("electric_chu_jelly",
-            () -> new Item(new Item.Properties().food(Foods.HONEY_BOTTLE).rarity(Rarity.UNCOMMON)));
+            () -> new Item(new Item.Properties().food(ModFoods.CHU_ELECTRIC).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> PURPLE_EMERALD = ITEMS.register("purple_emerald",
             () -> new EmeraldItem(new Item.Properties()));
     public static final RegistryObject<Item> SILVER_EMERALD = ITEMS.register("silver_emerald",

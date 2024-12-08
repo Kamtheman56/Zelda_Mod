@@ -154,5 +154,11 @@
     "sounds": [
       "zeldamod:song_saria"
     ]
+  },
+  "korok_crunch": {
+    "subtitle": "sounds.zeldamod.korok_crunch",
+    "sounds": [
+      "zeldamod:korok_crunch"
+    ]
   }
 }

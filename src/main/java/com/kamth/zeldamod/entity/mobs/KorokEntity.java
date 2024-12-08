@@ -1,7 +1,6 @@
 package com.kamth.zeldamod.entity.mobs;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.mobs.variants.KorokVariants;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.sound.ModSounds;
@@ -41,7 +40,7 @@ import java.util.EnumSet;
 public class KorokEntity extends Animal {
 
 
-    private static final EntityDataAccessor<Boolean> DATA_CAN_DUPLICATE = SynchedEntityData.defineId(KorokEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> DATA_CAN_SEED = SynchedEntityData.defineId(KorokEntity.class, EntityDataSerializers.BOOLEAN);
     private long duplicationCooldown;
 
     public KorokEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
@@ -54,30 +53,30 @@ public class KorokEntity extends Animal {
     public final AnimationState sitAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
     private int danceAnimationTimeout = 0;
-    private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.APPLE, ModItems.BAKED_APPLE.get());
+    private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.APPLE, ModItems.BAKED_APPLE.get(), Items.COOKIE);
     public static final String VARIANT_KEY = "variant";
  ;
-    private boolean partyParrot;
+    private boolean partyKorok;
     private BlockPos jukebox;
 
     protected void defineSynchedData() {
         this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
         super.defineSynchedData();
-        this.entityData.define(DATA_CAN_DUPLICATE, true);
+        this.entityData.define(DATA_CAN_SEED, true);
     }
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("Variant", this.getTypeVariant());
         tag.putLong("DuplicationCooldown", this.duplicationCooldown);
-        tag.putBoolean("CanDuplicate", this.canDuplicate());
+        tag.putBoolean("CanSeed", this.canSeed());
     }
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         this.entityData.set(DATA_ID_TYPE_VARIANT, tag.getInt("Variant"));
         this.duplicationCooldown = (long)tag.getInt("DuplicationCooldown");
-        this.entityData.set(DATA_CAN_DUPLICATE, tag.getBoolean("CanDuplicate"));
+        this.entityData.set(DATA_CAN_SEED, tag.getBoolean("CanSeed"));
     }
     @Override
     public void tick() {
@@ -89,14 +88,14 @@ public class KorokEntity extends Animal {
     }
 
     private void setupAnimationStates() {
-        if (this.idleAnimationTimeout <= 0 && !this.isPartyParrot()) {
+        if (this.idleAnimationTimeout <= 0 && !this.isPartyKorok()) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.tickCount);
         } else {
             --this.idleAnimationTimeout;
         }
 
-        if (this.danceAnimationTimeout <= 0 && this.isPartyParrot()) {
+        if (this.danceAnimationTimeout <= 0 && this.isPartyKorok()) {
             this.danceAnimationTimeout = this.random.nextInt(40) + 80;
             this.danceAnimationState.start(this.tickCount);
         } else {
@@ -128,62 +127,46 @@ public class KorokEntity extends Animal {
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, DekuMadScrubEntity.class, 3, 1.5, 1));
         this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, FOOD_ITEMS, false));
     }
-
-
-
-
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 6)
                 .add(Attributes.KNOCKBACK_RESISTANCE, .8f)
-                .add(Attributes.MOVEMENT_SPEED, .2f);
-    }
-
+                .add(Attributes.MOVEMENT_SPEED, .2f);}
     public MobType getMobType() {
         return MobType.ARTHROPOD;
     }
-
 @Override
     public void aiStep() {
         if (this.jukebox == null || !this.jukebox.closerToCenterThan(this.position(), 3.46D) || !this.level().getBlockState(this.jukebox).is(Blocks.JUKEBOX)) {
-            this.partyParrot = false;
+            this.partyKorok = false;
             this.jukebox = null;
         }
     this.updateDuplicationCooldown();
         super.aiStep();
-
     }
     public void setRecordPlayingNearby(BlockPos pPos, boolean pIsPartying) {
         this.jukebox = pPos;
-        this.partyParrot = pIsPartying;
+        this.partyKorok = pIsPartying;
     }
-
-    public boolean isPartyParrot() {
-        return this.partyParrot;
+    public boolean isPartyKorok() {
+        return this.partyKorok;
     }
-
     @Override
     public boolean isFood(ItemStack pStack) {
         return pStack.is(Items.APPLE);
     }
-
-
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
         return SoundEvents.GENERIC_HURT;
     }
-
     public static class KorokMaskFollow extends Goal {
         protected final KorokEntity mob;
-
         protected Player player;
-
         public KorokMaskFollow(KorokEntity mob) {
             this.mob = mob;
             this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
         }
-
         public boolean canUse()
         {
                 this.player = this.mob.level().getNearestPlayer(TargetingConditions.DEFAULT,3D,3D, 1);
@@ -230,9 +213,9 @@ public class KorokEntity extends Animal {
 
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
-        if (itemstack.is(ModTags.Items.KOROK_LIKES_BIG) && !this.isBaby() && this.canDuplicate()) {
+        if (itemstack.is(ModTags.Items.KOROK_LIKES_BIG) && !this.isBaby() && this.canSeed()) {
             itemstack.shrink(1);
-            pPlayer.playSound(SoundEvents.HORSE_EAT, 1.0F, 1.0F);
+            pPlayer.playSound(ModSounds.KOROK_CRUNCH.get(), 1.0F, .8F);
             pPlayer.playSound(ModSounds.KOROK_LIKES.get(), 1.0F, 1.0F);
             ItemStack itemstack1 = ModItems.KOROK_SEED.get().getDefaultInstance();
             ItemStack itemstack2 = ModItems.KOROK_SEED.get().getDefaultInstance();
@@ -243,9 +226,9 @@ public class KorokEntity extends Animal {
             this.resetDuplicationCooldown();
             return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
-        if (itemstack.is(ModTags.Items.KOROK_LIKES) && !this.isBaby() && this.canDuplicate()) {
+        if (itemstack.is(ModTags.Items.KOROK_LIKES) && !this.isBaby() && this.canSeed()) {
             itemstack.shrink(1);
-            pPlayer.playSound(SoundEvents.HORSE_EAT, 1.0F, 1.0F);
+            pPlayer.playSound(ModSounds.KOROK_CRUNCH.get(), 1.0F, 1.0F);
             pPlayer.playSound(ModSounds.KOROK_LIKES.get(), 1.0F, 1.0F);
             ItemStack itemstack1 = ModItems.KOROK_SEED.get().getDefaultInstance();
             this.spawnAtLocation(itemstack1);
@@ -257,34 +240,25 @@ public class KorokEntity extends Animal {
             return super.mobInteract(pPlayer, pHand);
         }
     }
-
-
-
     private void updateDuplicationCooldown() {
         if (this.duplicationCooldown > 0L) {
             --this.duplicationCooldown;
         }
 
-        if (!this.level().isClientSide() && this.duplicationCooldown == 0L && !this.canDuplicate()) {
-            this.entityData.set(DATA_CAN_DUPLICATE, true);
+        if (!this.level().isClientSide() && this.duplicationCooldown == 0L && !this.canSeed()) {
+            this.entityData.set(DATA_CAN_SEED, true);
         }
 
     }
     private void resetDuplicationCooldown() {
         this.duplicationCooldown = 6000L;
-        this.entityData.set(DATA_CAN_DUPLICATE, false);
+        this.entityData.set(DATA_CAN_SEED, false);
     }
 
-    private boolean canDuplicate() {
-        return this.entityData.get(DATA_CAN_DUPLICATE);
+    private boolean canSeed() {
+        return this.entityData.get(DATA_CAN_SEED);
     }
-
-
-
-
-
     //VARIANTS
-
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
         Holder<Biome> holder = pLevel.getBiome(this.blockPosition());
         if (holder.is(ModTags.Biomes.SPAWNS_BIRCH_KOROK)) {
@@ -311,14 +285,13 @@ public class KorokEntity extends Animal {
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
 
-    @org.jetbrains.annotations.Nullable
-    @Override
+    public boolean canMate(Animal pOtherAnimal) {
+        return false;
+    }
+
+    @Nullable
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        KorokEntity korok = ModEntityTypes.KOROK.get().create(pLevel);
-       korok.setVariant(this.getVariant());
-
-        return korok;
-
+        return null;
     }
 
 
@@ -330,7 +303,7 @@ public class KorokEntity extends Animal {
         return this.entityData.get(DATA_ID_TYPE_VARIANT);
     }
 
-    private void setVariant(KorokVariants variant) {
+    public void setVariant(KorokVariants variant) {
         this.entityData.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
     }
 

@@ -5,8 +5,10 @@ import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.effect.ModEffects;
+import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.ai.*;
 import com.kamth.zeldamod.entity.mobs.KorokEntity;
+import com.kamth.zeldamod.entity.mobs.variants.KorokVariants;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
@@ -16,12 +18,14 @@ import net.minecraft.client.model.EntityModel;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -43,6 +47,7 @@ import net.minecraftforge.client.event.ComputeFovModifierEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -305,7 +310,24 @@ public class ModEvents {
     }
 
 
-
+    @SubscribeEvent
+    public static void onStruckByLightning(EntityStruckByLightningEvent event) {
+        if (event.getEntity().getType() == ModEntityTypes.KOROK.get() && !event.getEntity().level().isClientSide) {
+            ServerLevel level = (ServerLevel) event.getEntity().level();
+            event.setCanceled(true);
+            KorokEntity korok = ModEntityTypes.KOROK.get().create(event.getEntity().level());
+            korok.moveTo(event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), event.getEntity().getYRot(), event.getEntity().getXRot());
+            korok.finalizeSpawn(level, level.getCurrentDifficultyAt(korok.blockPosition()), MobSpawnType.CONVERSION, null, null);
+            if (event.getEntity().hasCustomName()) {
+                korok.setCustomName(event.getEntity().getCustomName());
+                korok.setCustomNameVisible(event.getEntity().isCustomNameVisible());
+            }
+            korok.setVariant(KorokVariants.MUSHROOM);
+            korok.setPersistenceRequired();
+            level.addFreshEntityWithPassengers(korok);
+            event.getEntity().discard();
+        }
+    }
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onLivingPreRender(RenderLivingEvent.Pre<LivingEntity, EntityModel<LivingEntity>> event) {
@@ -771,7 +793,7 @@ public class ModEvents {
         }
         if(event.getType() == ModVillagers.MORSHU.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            ItemStack stack = new ItemStack(ModItems.BOMB.get(), 4);
+            ItemStack stack = new ItemStack(ModItems.BOMB.get(), 8);
             int villagerLevel = 1;
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
@@ -794,7 +816,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(ModItems.RED_EMERALD.get(), 2),
-                    stack,2,6,0.03F));
+                    stack,2,8,0.03F));
         }
         if(event.getType() == ModVillagers.MORSHU.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -803,7 +825,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(ModItems.RED_EMERALD.get(), 2),
-                    stack,2,6,0.03F));
+                    stack,2,8,0.03F));
         }
         if(event.getType() == ModVillagers.MORSHU.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -812,7 +834,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(ModItems.PURPLE_EMERALD.get(), 4),
-                    stack,2,6,0.03F));
+                    stack,2,8,0.03F));
         }
         if(event.getType() == ModVillagers.MORSHU.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -821,7 +843,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(ModItems.PURPLE_EMERALD.get(), 3),
-                    stack,2,6,0.03F));
+                    stack,2,8,0.03F));
         }
         if(event.getType() == ModVillagers.MORSHU.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -830,7 +852,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(ModItems.SILVER_EMERALD.get(), 1),
-                    stack,2,6,0.03F));
+                    stack,2,10,0.03F));
         }
         if(event.getType() == ModVillagers.MORSHU.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -839,7 +861,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(ModItems.GOLD_EMERALD.get(), 1),
-                    stack,2,6,0.03F));
+                    stack,2,10,0.03F));
         }
         if(event.getType() == ModVillagers.MORSHU.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -848,7 +870,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(ModItems.GOLD_EMERALD.get(), 1),
-                    stack,2,8,0.03F));
+                    stack,2,12,0.03F));
         }
         if(event.getType() == ModVillagers.MORSHU.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
@@ -857,7 +879,7 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(ModItems.GOLD_EMERALD.get(), 1),
-                    stack,2,10,0.03F));
+                    stack,2,16,0.03F));
         }
 
         if(event.getType() == ModVillagers.MORSHU.get()) {

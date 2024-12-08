@@ -5,60 +5,6 @@
     {
       "weight": 3,
       "element": {
-        "location": "zeldamod:forest_haven_korok",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "zeldamod:forest_haven_korok_acacia",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "zeldamod:forest_haven_korok_birch",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "zeldamod:forest_haven_korok_cherry",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "zeldamod:forest_haven_korok_dark",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
-        "location": "zeldamod:forest_haven_korok_jungle",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
         "location": "zeldamod:forest_haven_log",
         "processors": "minecraft:empty",
         "projection": "rigid",
@@ -75,7 +21,7 @@
       }
     },
     {
-      "weight": 3,
+      "weight": 1,
       "element": {
         "location": "zeldamod:forest_haven_grass_top",
         "processors": "minecraft:empty",
@@ -93,7 +39,7 @@
       }
     },
     {
-      "weight": 3,
+      "weight": 4,
       "element": {
         "location": "zeldamod:forest_haven_stump",
         "processors": "minecraft:empty",

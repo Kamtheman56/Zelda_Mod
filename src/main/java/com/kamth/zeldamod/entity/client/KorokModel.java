@@ -64,7 +64,7 @@ public class KorokModel<T extends Entity> extends HierarchicalModel<T> {
         this.animateWalk(ModAnimationDefinitions.korok_walk, limbSwing, limbSwingAmount, 2f, 1f);
         this.animate(((KorokEntity) entity).idleAnimationState, ModAnimationDefinitions.korok_idle, ageInTicks, 1f);
         if (entity instanceof KorokEntity korok) {
-            if (korok.isPartyParrot()){
+            if (korok.isPartyKorok()){
                 this.animate(((KorokEntity) entity).danceAnimationState, ModAnimationDefinitions.korok_dance, ageInTicks, 1f);
             }
 

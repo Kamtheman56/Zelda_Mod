@@ -386,19 +386,13 @@ public class KeeseEntity extends FlyingMob implements Enemy {
             }
         }
     }
+    public static boolean checkKeeseSpawnRules(EntityType<KeeseEntity> pBat, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        if (pPos.getY() >= pLevel.getSeaLevel()) {
+            return false;}
+        else return pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn((ServerLevelAccessor) pLevel, pPos, pRandom) && checkMobSpawnRules(pBat, pLevel, pSpawnType, pPos, pRandom);
+        }
 
-    /**
-     * Static predicate for determining whether a monster can spawn at the provided location, incorporating a check of
-     * the current light level at the location.
-     */
-    public static boolean checkMonsterSpawnRules(EntityType<? extends Monster> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        return pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn(pLevel, pPos, pRandom) && checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom);
-    }
 
-    /**
-     * Static predicate for determining whether a monster can spawn at the provided location.
-     */
-    public static boolean checkAnyLightMonsterSpawnRules(EntityType<? extends Monster> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        return pLevel.getDifficulty() != Difficulty.PEACEFUL && checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom);
-    }
+
+
 }

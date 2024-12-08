@@ -7,6 +7,7 @@ import com.kamth.zeldamod.custom.ModItemProperties;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.client.*;
+import com.kamth.zeldamod.entity.mobs.KeeseEntity;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.loot.ModLootModifiers;
@@ -17,6 +18,7 @@ import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
@@ -74,7 +76,7 @@ private void clientSetup(final FMLClientSetupEvent event){
 
 
 event.enqueueWork(() -> {
-//    SpawnPlacements.register(ModEntityTypes.KOROK.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,   Animal::checkAnimalSpawnRules);
+    SpawnPlacements.register(ModEntityTypes.KOROK.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,   Animal::checkAnimalSpawnRules);
     SpawnPlacements.register(ModEntityTypes.CHUCHU.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
     SpawnPlacements.register(ModEntityTypes.CHUCHU_FIRE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
     SpawnPlacements.register(ModEntityTypes.CHUCHU_ICE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
@@ -82,7 +84,7 @@ event.enqueueWork(() -> {
     SpawnPlacements.register(ModEntityTypes.SKULLTULA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
     SpawnPlacements.register(ModEntityTypes.DEKU.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
     SpawnPlacements.register(ModEntityTypes.DEKU_MAD.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
-
+    SpawnPlacements.register(ModEntityTypes.KEESE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, KeeseEntity::checkKeeseSpawnRules);
 
 
 

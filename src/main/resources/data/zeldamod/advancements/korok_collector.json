@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "zeldamod:korok_seed"
+    },
+    "title": "Korok Collector",
+    "description": "Obtain a Korok Seed by feeding a Korok a sweet treat or more sinister means...",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "zeldamod:base_equipment",
+  "criteria": {
+    "mask_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "zeldamod:korok_seed"
+
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "mask_block"
+    ]
+  ],
+  "rewards": {
+    "experience": 35
+  },
+  "sends_telemetry_event": true
+}

@@ -111,7 +111,7 @@ player.resetFallDistance();
                 pContext.getItemInHand().enchant(Enchantments.MENDING,1);
                 pContext.getLevel().playSound(pContext.getPlayer(),blockpos,SoundEvents.AMETHYST_BLOCK_RESONATE,SoundSource.BLOCKS, 1,1);
             }  return InteractionResult.SUCCESS;}
-        else return InteractionResult.FAIL;
+        else return InteractionResult.PASS;
     }
 
     @Override

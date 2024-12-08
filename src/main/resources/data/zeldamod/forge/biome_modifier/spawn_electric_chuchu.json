@@ -6,7 +6,7 @@
   ],
   "spawners": {
     "type": "zeldamod:electric_chuchu",
-    "weight": 30,
+    "weight": 10,
     "minCount": 1,
     "maxCount": 3
   }

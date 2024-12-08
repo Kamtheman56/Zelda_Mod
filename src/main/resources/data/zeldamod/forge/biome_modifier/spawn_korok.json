@@ -1,12 +1,28 @@
 {
   "type": "forge:add_spawns",
   "biomes": [
-    "minecraft:desert"
+    "minecraft:savanna",
+    "minecraft:windswept_savanna",
+    "minecraft:desert",
+    "minecraft:windswept_hills",
+    "minecraft:savanna_plateau",
+    "minecraft:birch_forest",
+    "minecraft:old_growth_birch_forest",
+    "minecraft:snowy_slopes",
+    "minecraft:cherry_grove",
+    "minecraft:jungle",
+    "minecraft:sparse_jungle",
+    "minecraft:bamboo_jungle",
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp",
+    "minecraft:mushroom_fields",
+    "minecraft:plains",
+    "minecraft:forest"
   ],
   "spawners": {
     "type": "zeldamod:korok",
-    "weight": 150,
+    "weight": 8,
     "minCount": 1,
-    "maxCount": 3
+    "maxCount": 1
   }
 }

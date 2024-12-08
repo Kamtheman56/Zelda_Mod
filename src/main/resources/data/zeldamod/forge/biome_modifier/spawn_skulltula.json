@@ -11,7 +11,7 @@
   ],
   "spawners": {
     "type": "zeldamod:chuchu",
-    "weight": 40,
+    "weight": 8,
     "minCount": 1,
     "maxCount": 3
   }

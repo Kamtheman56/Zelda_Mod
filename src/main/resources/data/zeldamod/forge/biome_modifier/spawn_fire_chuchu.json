@@ -9,7 +9,7 @@
   ],
   "spawners": {
     "type": "zeldamod:fire_chuchu",
-    "weight": 80,
+    "weight": 30,
     "minCount": 1,
     "maxCount": 5
   }
