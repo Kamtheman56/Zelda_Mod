@@ -10,7 +10,6 @@
     "MixinLivingEntity",
     "MixinMouse",
     "MixinPlayer",
-    "MixinPlayerInventory",
     "MixinPlayerModel",
     "MixinProjectileWeaponItem",
     "MixinVillager"

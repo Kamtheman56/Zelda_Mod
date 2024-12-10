@@ -173,7 +173,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.BOMB_BAG);
         event.accept(ModItems.BOMB_BAG_MEDIUM);
         event.accept(ModItems.BOMB_BAG_LARGE);
-        event.accept(ModItems.QUIVER);
+        event.accept(ModItems.QUIVER_SMALL);
         event.accept(ModItems.QUIVER_MEDIUM);
         event.accept(ModItems.QUIVER_BIG);
         event.accept(ModItems.WALLET);

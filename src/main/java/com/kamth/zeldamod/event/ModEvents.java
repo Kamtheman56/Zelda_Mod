@@ -820,7 +820,7 @@ public class ModEvents {
         }
         if(event.getType() == ModVillagers.MORSHU.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            ItemStack stack = new ItemStack(ModItems.QUIVER.get(), 1);
+            ItemStack stack = new ItemStack(ModItems.QUIVER_SMALL.get(), 1);
             int villagerLevel = 2;
 
             trades.get(villagerLevel).add((trader, rand) -> new MerchantOffer(

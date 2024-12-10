@@ -309,21 +309,21 @@ public class ModItems {
     public static final RegistryObject<Item> BOMB_BAG = ITEMS.register("bomb_bag",
             () -> new BombBagItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), 64, Collections.singletonList(ModTags.Items.BOMBS)));
     public static final RegistryObject<Item> BOMB_BAG_MEDIUM = ITEMS.register("bomb_bag_medium",
-            () -> new BombBagItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 128, Collections.singletonList(ModTags.Items.BOMBS)));
+            () -> new BombBagItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 96, Collections.singletonList(ModTags.Items.BOMBS)));
     public static final RegistryObject<Item> BOMB_BAG_LARGE = ITEMS.register("bomb_bag_large",
-            () -> new BombBagItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 256, Collections.singletonList(ModTags.Items.BOMBS)));
-    public static final RegistryObject<Item> QUIVER = ITEMS.register("quiver",
-            () -> new QuiverItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), 256, Collections.singletonList(ModTags.Items.BOW_AMMO)));
+            () -> new BombBagItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 128, Collections.singletonList(ModTags.Items.BOMBS)));
+    public static final RegistryObject<Item> QUIVER_SMALL = ITEMS.register("quiver",
+            () -> new QuiverItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), 144, Collections.singletonList(ModTags.Items.BOW_AMMO)));
     public static final RegistryObject<Item> QUIVER_MEDIUM = ITEMS.register("quiver_medium",
-            () -> new QuiverItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 512, Collections.singletonList(ModTags.Items.BOW_AMMO)));
+            () -> new QuiverItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 208, Collections.singletonList(ModTags.Items.BOW_AMMO)));
     public static final RegistryObject<Item> QUIVER_BIG = ITEMS.register("quiver_large",
-            () -> new QuiverItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 1024, Collections.singletonList(ModTags.Items.BOW_AMMO)));
+            () -> new QuiverItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 448, Collections.singletonList(ModTags.Items.BOW_AMMO)));
     public static final RegistryObject<Item> WALLET = ITEMS.register("wallet",
-            () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), 576, Collections.singletonList(ModTags.Items.GEMS)));
+            () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), 144, Collections.singletonList(ModTags.Items.GEMS)));
     public static final RegistryObject<Item> WALLET_GIANT = ITEMS.register("wallet_medium",
-            () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 1152, Collections.singletonList(ModTags.Items.GEMS)));
+            () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 272, Collections.singletonList(ModTags.Items.GEMS)));
     public static final RegistryObject<Item> WALLET_TYCOON = ITEMS.register("wallet_large",
-            () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 9999, Collections.singletonList(ModTags.Items.GEMS)));
+            () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 512, Collections.singletonList(ModTags.Items.GEMS)));
     public static final RegistryObject<Item> ADVENTURE_POUCH = ITEMS.register("item_pouch",
             () -> new CustomBundleItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 8, Collections.singletonList(ModTags.Items.POUCH_ITEMS)));
     public static final RegistryObject<Item> ADVENTURE_POUCH_LARGE = ITEMS.register("item_pouch_large",
