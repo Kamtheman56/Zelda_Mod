@@ -179,6 +179,7 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
         event.accept(ModItems.WALLET);
         event.accept(ModItems.WALLET_GIANT);
         event.accept(ModItems.WALLET_TYCOON);
+        event.accept(ModItems.SEEDBAG_SMALL);
         event.accept(ModItems.BOMB_FLOWER);
         event.accept(ModItems.BOMB);
         event.accept(ModItems.WATER_BOMB);
