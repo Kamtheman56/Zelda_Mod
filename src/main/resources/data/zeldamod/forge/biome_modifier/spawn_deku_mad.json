@@ -2,7 +2,6 @@
   "type": "forge:add_spawns",
   "biomes": [
     "minecraft:dark_forest",
-    "minecraft:grove",
     "minecraft:swamp",
     "minecraft:mangrove_swamp"
   ],

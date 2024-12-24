@@ -1,7 +1,6 @@
 package com.kamth.zeldamod.item.armors;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -20,8 +19,6 @@ public class RocCape extends ArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
         player.addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 1, true, false));
-        if (player.isFallFlying()){
-            player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 10, 0, true, false));}
 player.resetFallDistance();
     }
 
@@ -39,18 +36,12 @@ player.resetFallDistance();
                 }
                 entity.gameEvent(net.minecraft.world.level.gameevent.GameEvent.ELYTRA_GLIDE);
             }
-            if (nextFlightTick == 70){
-                return false;
-            }
         }
         return true;
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if(Screen.hasShiftDown()) {
             components.add(Component.translatable("armor.roc_cape.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
-        }
-
         super.appendHoverText(stack, level, components, flag);
     }
 

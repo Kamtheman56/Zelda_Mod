@@ -24,7 +24,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class MixinLivingEntity extends Entity {
-
+//credit to DeadlyDiamond98
 
     @Shadow public abstract ItemStack getItemBySlot(EquipmentSlot pSlot);
 
@@ -53,12 +53,12 @@ public abstract class MixinLivingEntity extends Entity {
         return state.getFriction(level, pos, entity);}
     @ModifyVariable(method = "travel", at = @At("LOAD"), name = "d0", ordinal = 0, index = 2)//return
     public double inject3(double value) {
-        if (this.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.ROC_FEATHER_2.get())) {
+        if (this.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.ROC_FEATHER_2.get()) || this.getItemBySlot(EquipmentSlot.OFFHAND).is(ModItems.ROC_FEATHER_2.get() )) {
                 return 0.04;
         }
-            if (this.getItemBySlot(EquipmentSlot.OFFHAND).is(ModItems.ROC_FEATHER_2.get())) {
-                return 0.04;
-            }
+        if (this.getItemBySlot(EquipmentSlot.CHEST).is(ModItems.ROC_CAPE.get())) {
+            return 0.05;
+        }
     if (this.hasEffect(ModEffects.MINI.get())) {
                 return 0.02;
         }

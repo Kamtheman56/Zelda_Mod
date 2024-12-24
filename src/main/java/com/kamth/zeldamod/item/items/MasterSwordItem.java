@@ -44,7 +44,6 @@ public class MasterSwordItem extends SwordItem {
         if(pStack.getDamageValue() < pStack.getMaxDamage() - 1) {
             super.hurtEnemy(pStack, pTarget, pAttacker);
         }
-
         else {
             ItemStack	newItemStack = new ItemStack(ModItems.MASTER_SWORD_INJURED.get());
             pAttacker.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
@@ -86,6 +85,7 @@ public class MasterSwordItem extends SwordItem {
         else {
             return InteractionResultHolder.pass(itemstack);
         }
+
 
         player.awardStat(Stats.ITEM_USED.get(this));
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());

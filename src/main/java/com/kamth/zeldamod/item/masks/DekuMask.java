@@ -10,6 +10,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
@@ -29,14 +30,9 @@ import java.util.List;
 public class DekuMask extends ArmorItem {
     public DekuMask(ArmorMaterial p_40386_, Type type, Properties p_40388_) {
         super(p_40386_, type, p_40388_);
-
         MinecraftForge.EVENT_BUS.addListener(this::onLivingFluidCollisionEvent);
         MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
-
-
     }
-//Mask that gives better platforming abilities
-
 
     public int timer = 0;
 
@@ -50,7 +46,6 @@ public class DekuMask extends ArmorItem {
 
 
     public void onLivingHurtEvent(LivingHurtEvent event) {
-
             if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
                 if (event.getSource().is(DamageTypes.ON_FIRE)) {
                     event.setAmount(event.getAmount() * 2);}
@@ -63,23 +58,23 @@ public class DekuMask extends ArmorItem {
                 if (event.getSource().is(DamageTypes.CACTUS)) {
                     event.setResult(Event.Result.DENY);}
             }}
+ 
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-        player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.SLOW_FALLING, 10, 1, true, false, false));
+        player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 10, 1, true, false, false));
         if (player.isCrouching()) {
-            player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.JUMP, 10, 2, true, false));
+            player.addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 2, true, false));
         }
         {
-
             Level level = world;
             if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.DEKU)) {
                 if (player.isCrouching()) {
-                    player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.JUMP, 10, 6, true, false));
+                    player.addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 6, true, false));
                 }
             }
             if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.DEKU_GOLD)) {
                 if (player.isCrouching()) {
-                    player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.JUMP, 10, 9, true, false));
+                    player.addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 9, true, false));
                 }
             }
             if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.LILY_PAD) {
@@ -102,7 +97,7 @@ public class DekuMask extends ArmorItem {
         if (Screen.hasShiftDown()) {
             components.add(Component.translatable("item.deku_mask.description_advanced").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.translatable("item.deku_mask.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.deku_mask.description_basic").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
 
         }
     }}

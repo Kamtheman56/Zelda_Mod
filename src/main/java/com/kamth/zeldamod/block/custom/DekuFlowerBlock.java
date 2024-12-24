@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -43,20 +42,10 @@ public class DekuFlowerBlock extends Block implements net.minecraftforge.common.
     public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
             pEntity.causeFallDamage(pFallDistance, 0.0F, pLevel.damageSources().fall());
         }
-
-
-  @Override
+@Override
     public void updateEntityAfterFallOn(BlockGetter pLevel, Entity pEntity) {
-            this.bounceUp(pEntity);
-    }
-
-    private void bounceUp(Entity pEntity) {
-        Vec3 vec3 = pEntity.getDeltaMovement();
-        if (vec3.y < 0.0D) {
-            double d0 = pEntity instanceof LivingEntity ? 1.0D : 0.8D;
-            pEntity.setDeltaMovement(vec3.x, -vec3.y * d0, vec3.z);
-        }
-
+        pEntity.setDeltaMovement(pEntity.getDeltaMovement().multiply(20.0D, 0.0D, 1.0D));
+        pEntity.setDeltaMovement(pEntity.getDeltaMovement().multiply(20.0D, 0.0D, 1.0D));
     }
     @Override
     public PlantType getPlantType(BlockGetter level, BlockPos pos) {

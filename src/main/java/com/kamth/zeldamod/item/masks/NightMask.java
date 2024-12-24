@@ -3,6 +3,7 @@ package com.kamth.zeldamod.item.masks;
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
@@ -25,6 +26,7 @@ public class NightMask extends ArmorItem {
 if (player.isSleeping()){
     player.displayClientMessage(Component.translatable("Nightmask").withStyle(ChatFormatting.DARK_RED).withStyle(ChatFormatting.BOLD), true);
     player.stopSleeping();
+
     if (player.getCooldowns().isOnCooldown(ModItems.NIGHT_MASK.get()))
     {
         return;
@@ -35,7 +37,7 @@ player.getCooldowns().addCooldown(ModItems.NIGHT_MASK.get(),250);
 player.hurt(player.damageSources().magic(), 9);
 
 }
-
+        player.resetStat(Stats.CUSTOM.get(Stats.TIME_SINCE_REST));
 if (world.isNight()){
     player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600, 0, true, false));}
         if (world.getMoonPhase() == 5 && world.isNight()){
@@ -45,7 +47,7 @@ if (world.isNight()){
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.translatable("item.night_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.night_mask.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
 
     }
 

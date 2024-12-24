@@ -25,7 +25,7 @@ public class FairyMask extends ArmorItem {
             components.add(Component.translatable("item.fairy_mask.description_advanced_2").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
        else {
-            components.add(Component.translatable("item.fairy_mask.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.fairy_mask.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
     }
 }
