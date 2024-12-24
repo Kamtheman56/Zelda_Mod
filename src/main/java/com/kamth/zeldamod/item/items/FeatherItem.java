@@ -29,22 +29,15 @@ public class FeatherItem extends Item {
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int pSlotId, boolean pIsSelected) {
         if (!world.isClientSide) {
-                if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() instanceof  FeatherItem) {
-                    ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 1, true, false));
-                    entity.resetFallDistance();
-                }
-                if  (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() instanceof  FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PEGASUS_BOOTS.get()) {
-                    ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 3, true, false));
-                    entity.resetFallDistance();
+            if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() instanceof FeatherItem || entity instanceof Player && ((Player) entity).getMainHandItem().getItem() instanceof FeatherItem) {
+                ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 1, true, false));
+                entity.resetFallDistance();
             }
-                if (entity instanceof Player && ((Player) entity).getMainHandItem().getItem() instanceof  FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PEGASUS_BOOTS.get()) {
-                    ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 3, true, false));
-                    entity.resetFallDistance();
+            if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() instanceof FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PEGASUS_BOOTS.get() ||entity instanceof Player && ((Player) entity).getMainHandItem().getItem() instanceof FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PEGASUS_BOOTS.get() ) {
+                ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 3, true, false));
+                entity.resetFallDistance();
             }
-                if (entity instanceof Player && ((Player) entity).getMainHandItem().getItem() instanceof  FeatherItem ) {
-                    ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 1, true, false));
-                    entity.resetFallDistance();}
-            }
+        }
         }
 
     @Override

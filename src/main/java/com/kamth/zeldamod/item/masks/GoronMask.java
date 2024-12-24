@@ -83,5 +83,5 @@ public void onLivingHurtEvent(LivingHurtEvent event){
     if (Screen.hasShiftDown()) {
         components.add(Component.translatable("item.goron_mask.description_advanced").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
     } else {
-        components.add(Component.translatable("item.goron_mask.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.goron_mask.description_basic").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
 }}}

@@ -52,11 +52,11 @@ public class JarBlock extends BaseEntityBlock {
                                   Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         ItemStack stackInHand = pPlayer.getItemInHand(pHand);
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
+        JarEntity pedestal = (JarEntity) pLevel.getBlockEntity(pPos);
         BlockEntity te = pLevel.getBlockEntity(pPos);
-
         if (te instanceof JarEntity)
         {
-            JarEntity pedestal = (JarEntity) pLevel.getBlockEntity(pPos);
+       if (pedestal.getSword().isEmpty())
             if (pedestal.getSword().isEmpty())
             {
                 pedestal.setSword(stackInHand);
@@ -78,6 +78,12 @@ public class JarBlock extends BaseEntityBlock {
         }
         return InteractionResult.FAIL;
     }
+
+
+
+
+
+
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
@@ -102,5 +108,8 @@ public class JarBlock extends BaseEntityBlock {
             serverplayer.awardStat(Stats.TARGET_HIT);
            pLevel.destroyBlock(pHit.getBlockPos(),false);
         }}
+    protected boolean hasComparatorOutput(BlockState state) {
+        return true;
+    }
 
 }

@@ -114,7 +114,7 @@ player.setTicksFrozen(200);}
         if (Screen.hasShiftDown()) {
             components.add(Component.translatable("item.zora_mask.description_advanced").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.translatable("item.zora_mask.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zora_mask.description_basic").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         }}}
 
 

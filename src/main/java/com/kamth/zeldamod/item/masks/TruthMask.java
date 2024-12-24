@@ -48,7 +48,7 @@ public class TruthMask extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (stack.is(ModItems.TRUTH_MASK.get())) {
-            components.add(Component.translatable("item.truth_mask.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.truth_mask.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
     }
 

@@ -3,7 +3,7 @@
     "icon": {
       "item": "zeldamod:clawshot_goddess"
     },
-    "title": "Claw Game",
+    "title": "Claw Master",
     "description": "Forge a Clawshot and a Chain Extender Upgrade together in a Smithing Table",
     "frame": "task",
     "show_toast": true,

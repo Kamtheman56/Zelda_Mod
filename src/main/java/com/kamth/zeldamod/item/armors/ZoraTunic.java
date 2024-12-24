@@ -26,6 +26,7 @@ public class ZoraTunic extends ArmorItem {
 
         player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 10, 0, true, false));
     }
+
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {

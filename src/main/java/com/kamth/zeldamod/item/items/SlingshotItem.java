@@ -49,9 +49,6 @@ public class SlingshotItem extends BowItem {
             ItemStack itemStack = player.getProjectile(stack);
             int i = getUseDuration(stack) - timeLeft;
             i = ForgeEventFactory.onArrowLoose(stack, world, player, i, !itemStack.isEmpty() || infiniteAmmo);
-
-
-
             if (i < 0) {
                 return;
             }
@@ -69,7 +66,6 @@ public class SlingshotItem extends BowItem {
                     }
                     itemStack.hurtAndBreak(1, player, (p_40665_) -> p_40665_.broadcastBreakEvent(player.getUsedItemHand()));
                     world.playSound((Player) entityLiving, player.getX(), player.getY(), player.getZ(), ModSounds.SLINGSHOT_RELEASE.get(), SoundSource.PLAYERS, .5F, 1.0F / (world.getRandom().nextFloat() * 0.4F + 1.2F)  * 0.5F);
-
                     if (!infiniteAmmo && !player.getAbilities().instabuild) {
                         itemStack.shrink(1);
 
@@ -80,10 +76,9 @@ public class SlingshotItem extends BowItem {
                     stack.hurtAndBreak(1, player, (p_40665_) -> {
                         p_40665_.broadcastBreakEvent(player.getUsedItemHand());
                     });
-
                     player.awardStat(Stats.ITEM_USED.get(this));
-
                 }}}}
+
     @Nonnull
     private SeedProjectile createAmmoEntity(Level level, ItemStack itemStack) {
         Item bullet = itemStack.getItem();

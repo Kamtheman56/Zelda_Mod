@@ -5,7 +5,6 @@ import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -34,11 +33,7 @@ public class ClawshotItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
-
-pPlayer.playSound(ModSounds.CLAWSHOT.get());
-        boolean flag = false;
-        InteractionResultHolder<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(itemstack, pLevel, pPlayer, pHand, flag);
-        if (ret != null) return ret;
+        pPlayer.playSound(ModSounds.CLAWSHOT.get());
             pPlayer.startUsingItem(pHand);
             return InteractionResultHolder.consume(itemstack);
         }
@@ -47,27 +42,25 @@ pPlayer.playSound(ModSounds.CLAWSHOT.get());
     public void releaseUsing(ItemStack stack, Level world, LivingEntity entity, int timeLeft) {
         Player player = (Player) entity;
         ItemStack itemstack = entity.getItemInHand(entity.getUsedItemHand());
-        BlockPos currentPos = entity.blockPosition();
         world.playSound(null, player.getX(),player.getY(), player.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1F, -4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!world.isClientSide) {
                 Clawshot projectile = new Clawshot(world, (Player) entity);
                 projectile.setOwner(player);
                 projectile.setBaseDamage(4);
                 projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f, 0f);
+            if (itemstack.is(ModItems.CLAWSHOT.get())){
                 projectile.Properties(itemstack, 25, 12, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
+                player.getCooldowns().addCooldown(this, 40);
+            }
+            if (itemstack.is(ModItems.CLAWSHOT_GODDESS.get())){
+                projectile.Properties(itemstack, 40, 12, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
+                player.getCooldowns().addCooldown(this, 40);
+            }
                 world.addFreshEntity(projectile);
             itemstack.hurtAndBreak(3, player, (p_43296_) -> {
                 p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
             });
             }
-
-        if (itemstack.is(ModItems.CLAWSHOT.get())) {
-            player.getCooldowns().addCooldown(this, 40);
-
-        }
-        if (itemstack.is(ModItems.CLAWSHOT_GODDESS.get())) {
-            player.getCooldowns().addCooldown(this, 40);
-        }
             }
 
 

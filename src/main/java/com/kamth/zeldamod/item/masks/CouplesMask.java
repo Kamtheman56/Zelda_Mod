@@ -39,7 +39,7 @@ public class CouplesMask extends ArmorItem {
             components.add(Component.translatable("item.couples_mask.description_advanced").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
        else {
-            components.add(Component.translatable("item.couples_mask.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.couples_mask.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
     }
 }

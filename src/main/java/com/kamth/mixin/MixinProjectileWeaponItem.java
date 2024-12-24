@@ -1,7 +1,6 @@
 package com.kamth.mixin;
 
 
-import com.kamth.zeldamod.api.LegendaryArmoryPlayerData;
 import com.kamth.zeldamod.item.items.QuiverItem;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -24,38 +23,27 @@ public class MixinProjectileWeaponItem {
     private static void getArrowFromQuiver(LivingEntity entity, Predicate<ItemStack> predicate, CallbackInfoReturnable<ItemStack> cir) {
         if (entity instanceof Player) {
             Player player = (Player) entity;
-            LegendaryArmoryPlayerData accessor = (LegendaryArmoryPlayerData) player;
 
 
             for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
-
                 ItemStack stack = player.getInventory().getItem(i);
                 if (stack.getItem() instanceof QuiverItem) {
-                    handleQuiver(stack, accessor, cir);
+                    handleQuiver(stack, cir);
                     if (cir.getReturnValue() != null) {
                         return;
                     }
                 }
             }
         }
-
     }
 
     @Unique
-    private static void handleQuiver(ItemStack stack, LegendaryArmoryPlayerData accessor, CallbackInfoReturnable<ItemStack> cir) {
+    private static void handleQuiver(ItemStack stack, CallbackInfoReturnable<ItemStack> cir) {
         QuiverItem customBundle = (QuiverItem) stack.getItem();
         Optional<ItemStack> arrowStack = customBundle.getFirstItem(stack);
         if (arrowStack.isPresent()) {
-            if (accessor.hasArrowBeenRemoved()) {
                 ItemStack arrowToRemove = arrowStack.get();
                 cir.setReturnValue(arrowToRemove);
-                customBundle.removeOneItem(stack, arrowToRemove.getItem());
-                accessor.setArrowRemoved(false);
-            } else {
-                ItemStack arrowToRemove = arrowStack.get();
-                cir.setReturnValue(arrowToRemove);
-                accessor.setArrowRemoved(true);
-            }
         }
     }
 }

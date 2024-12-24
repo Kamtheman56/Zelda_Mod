@@ -93,6 +93,8 @@ public class MasterSwordGoldItem extends SwordItem {
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
 
+
+
         if (blockstate.is(ModBlocks.COURAGE_FLAME.get())) {
             if (!(pContext.getItemInHand().getAllEnchantments().containsKey(Enchantments.SWEEPING_EDGE))){
          pContext.getItemInHand().enchant(Enchantments.SWEEPING_EDGE,1);
