@@ -199,6 +199,7 @@ public class ModEvents {
                 event.getTarget().spawnAtLocation(ModItems.KOROK_MASK.get());
                 event.getTarget().playSound(ModSounds.KOROK_LIKES.get(), 1, 1.4f);
                 event.getTarget().playSound(ModSounds.SONG_SARIA.get(), 1, 1f);
+                event.getTarget().discard();
 
             }}
         if (!event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GERO_MASK.get()) {

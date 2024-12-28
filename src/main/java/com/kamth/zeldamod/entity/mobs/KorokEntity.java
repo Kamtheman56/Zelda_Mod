@@ -226,6 +226,7 @@ public class KorokEntity extends Animal {
             this.resetDuplicationCooldown();
             return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
+
         if (itemstack.is(ModTags.Items.KOROK_LIKES) && !this.isBaby() && this.canSeed()) {
             itemstack.shrink(1);
             pPlayer.playSound(ModSounds.KOROK_CRUNCH.get(), 1.0F, 1.0F);
