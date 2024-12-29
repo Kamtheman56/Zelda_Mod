@@ -3,7 +3,6 @@ package com.kamth.zeldamod.entity.custom.projectile;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.sounds.SoundEvents;
@@ -83,7 +82,6 @@ public class BombchuProjectile extends ThrowableProjectile {
 
     @Override
     public void tick() {
-        super.tick();
         this.move(MoverType.SELF, this.getDeltaMovement().normalize());
 
 
@@ -94,21 +92,7 @@ public class BombchuProjectile extends ThrowableProjectile {
         {this.playSound(SoundEvents.FIRE_EXTINGUISH, 1, 1);
             this.discard();
         }
-        else if (this.tickCount % 8 == 0) {
-            int particlesDensity = 1;
-            float particlesSpeed = .2F;
-            float particlesSpread = .2F;
 
-            for (int i = 0; i < particlesDensity; i++)
-            {
-                double particleX = getX() + (random.nextFloat() * 2 - 1) * particlesSpread;
-                double particleY = getY() + (random.nextFloat() * 3 - 1) * particlesSpread;
-                double particleZ = getZ() + (random.nextFloat() * 2 - 1) * particlesSpread;
-                double particleMotionX = (random.nextFloat() * 0 - 0) * particlesSpeed;
-                double particleMotionY = (random.nextFloat() * 1.4f - 0) * particlesSpeed;
-                double particleMotionZ = (random.nextFloat() * 0 - 0) * particlesSpeed;
-                this.level().addParticle(ParticleTypes.SMOKE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
-            }}
         //explosion and sound
         if (!this.level().isClientSide) {
             if (this.ticksToExplode <= this.tickCount) {

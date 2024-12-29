@@ -1,8 +1,10 @@
 package com.kamth.zeldamod.block.custom;
 
+import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.custom.ModTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.stats.Stats;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -15,30 +17,24 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.AttachFace;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
 
-public class WildBombFlowerBlock extends BushBlock  {
+public class WildBombFlowerBlock extends FaceAttachedHorizontalDirectionalBlock  {
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public WildBombFlowerBlock(Properties pProperties) {
         super(pProperties);
-    }
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(FACE, AttachFace.FLOOR));
 
-
-
-@Override
-    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        BlockPos blockpos = pPos.below();
-        BlockState blockstate = pLevel.getBlockState(blockpos);
-        if (blockstate.is(BlockTags.MUSHROOM_GROW_BLOCK) || blockstate.is(BlockTags.BASE_STONE_OVERWORLD)) {
-            return true;
-        } else {
-            return pLevel.getRawBrightness(pPos, 0) < 13 && blockstate.canSustainPlant(pLevel, blockpos, net.minecraft.core.Direction.UP, this);
-        }
     }
     @Override
     public void onCaughtFire(BlockState state, Level world, BlockPos pos, @Nullable net.minecraft.core.Direction face, @Nullable LivingEntity igniter) {
@@ -47,13 +43,21 @@ public class WildBombFlowerBlock extends BushBlock  {
     public static void explode(Level pLevel, BlockPos pPos) {
         explode(pLevel, pPos, (LivingEntity)null);
     }
-
-
     @Deprecated //Forge: Prefer using IForgeBlock#catchFire
     private static void explode(Level pLevel, BlockPos pPos, @Nullable LivingEntity pEntity) {
         if (!pLevel.isClientSide) {
-            pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 2f, Level.ExplosionInteraction.TNT);
-
+            pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(),  2f, Level.ExplosionInteraction.MOB);
+            int radius = (int) Math.ceil(2);
+            for (BlockPos pos : BlockPos.betweenClosed(pPos.offset(-radius, -radius, -radius), pPos.offset(radius, radius, radius))) {
+                BlockState blockState = pLevel.getBlockState(pos).getBlock().defaultBlockState();
+                if (blockState.is(ModTags.Blocks.BOMB)){
+                    pLevel.destroyBlock(pos, false);
+                }
+                if (blockState.is(ModBlocks.BombFlower2.get())){
+                    pLevel.explode(null, pos.getX(), pos.getY(), pos.getZ(),  2f, Level.ExplosionInteraction.MOB);
+                    pLevel.destroyBlock(pos, false);
+                }
+            }
         }
     }
     @Override
@@ -87,13 +91,18 @@ public class WildBombFlowerBlock extends BushBlock  {
         }}
     public void wasExploded(Level pLevel, BlockPos pPos, Explosion pExplosion) {
         if (!pLevel.isClientSide) {
-            pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 2f, Level.ExplosionInteraction.TNT);
-            pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), 11);}}
-
-
+            pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 2f, Level.ExplosionInteraction.MOB);
+            pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), 11);
+        }
+    }
     public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
        return 1.0F;
     }
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(FACING, FACE );
+    }
+
 }
 
 

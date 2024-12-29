@@ -34,10 +34,6 @@ public class BombProjectile extends ThrowableProjectile {
         super(ModEntityTypes.BOMB.get(), owner, world);
     }
 
-
-
-
-
     @Override
     protected void onHit(HitResult result) {
         HitResult.Type lvt_2_1_ = result.getType();
@@ -54,8 +50,6 @@ public class BombProjectile extends ThrowableProjectile {
         this.setPosRaw(this.getX() - vector3d1.x, this.getY() - vector3d1.y, this.getZ() - vector3d1.z);
         this.setOnGround(true);
     }
-
-
     @Override
     protected void onHitBlock(BlockHitResult hit) {
         super.onHitBlock(hit);
@@ -65,11 +59,6 @@ public class BombProjectile extends ThrowableProjectile {
         this.setPosRaw(this.getX() - vector3d1.x, this.getY() - vector3d1.y, this.getZ() - vector3d1.z);
        this.setOnGround(true);
           }
-
-
-
-
-
 @Override
 protected float getGravity() {
     return 0.2F;
@@ -82,68 +71,55 @@ protected float getGravity() {
 
     @Override
     public void tick() {
-    super.tick();
         this.move(MoverType.SELF, this.getDeltaMovement().normalize());
 
-        if (this.onGround() == true){
-    this.setDeltaMovement(0,-.45f,0);
-
+        if (!this.isNoGravity()) {
+            this.setDeltaMovement(this.getDeltaMovement().add(0.0D, -0.2D, 0.0D));
+        }
+        if (this.onGround()){
+    this.setDeltaMovement(0,-.75f,0);
 }
-
-    if (this.isOnFire())
-    {explode();}
-    if (this.isInWater())
-    {this.playSound(SoundEvents.FIRE_EXTINGUISH, 1, 1);
+    if (this.isOnFire()) {
+        explode();
+    }
+    if (this.isInWater()) {
+        this.playSound(SoundEvents.FIRE_EXTINGUISH, 1, 1);
         this.discard();
     }
     else if (this.tickCount % 8 == 0) {
-    int particlesDensity = 1;
-    float particlesSpeed = .2F;
-    float particlesSpread = .2F;
-
-    for (int i = 0; i < particlesDensity; i++)
-    {
-        double particleX = getX() + (random.nextFloat() * 2 - 1) * particlesSpread;
-        double particleY = getY() + (random.nextFloat() * 3 - 1) * particlesSpread;
-        double particleZ = getZ() + (random.nextFloat() * 2 - 1) * particlesSpread;
-        double particleMotionX = (random.nextFloat() * 0 - 0) * particlesSpeed;
-        double particleMotionY = (random.nextFloat() * 1.4f - 0) * particlesSpeed;
-        double particleMotionZ = (random.nextFloat() * 0 - 0) * particlesSpeed;
-        this.level().addParticle(ParticleTypes.SMOKE, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
-    }}
+        this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.55D, this.getZ(), 0.0D, 0.0D, 0.0D);
+    }
     //explosion and sound
     if (!this.level().isClientSide) {
             if (this.ticksToExplode <= this.tickCount) {
                 explode();}
         else if (this.tickCount % 25 == 0) {
                 this.playSound(SoundEvents.TNT_PRIMED, 1, 1/ (this.level().getRandom().nextFloat() * 0.4F + 0.8F));
-            }}}
-
+            }
+    }
+    }
+    //credit to SupersLegends for the destroying specific block code
     private void explode() {
             this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
             this.discard();
-        //credit to SupersLegends for the destroying specific block code
         BlockPos explosionPos = this.blockPosition();
         int radius = (int) Math.ceil(explosionPower);
-
-
-
         for (BlockPos pos : BlockPos.betweenClosed(explosionPos.offset(-radius, -radius, -radius), explosionPos.offset(radius, radius, radius))) {
             BlockState blockState = this.level().getBlockState(pos).getBlock().defaultBlockState();
             if (blockState.is(ModTags.Blocks.BOMB)){
                 this.level().destroyBlock(pos, false);
         }
-
-        }}
-
-
-
+            if (blockState.is(ModTags.Blocks.BOMB_FLOWER_BLOCKS)){
+                this.level().destroyBlock(pos, false);
+                this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.MOB);
+            }
+        }
+    }
 
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
-
 }
 
 

@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items;
 
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.custom.projectile.BombFlower;
-import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -27,7 +27,7 @@ public class BombFlowerItem extends BombItem {
 
         player.awardStat(Stats.ITEM_USED.get(this));
         if (!player.getAbilities().instabuild) {
-            if (player.getItemInHand(pHand).is(ModItems.BOMB.get())) {
+            if (player.getItemInHand(pHand).is(ModTags.Items.BOMBS)) {
                 itemstack.shrink(1);
             }
         }

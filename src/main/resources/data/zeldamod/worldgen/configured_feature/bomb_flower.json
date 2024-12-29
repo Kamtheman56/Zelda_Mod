@@ -3,7 +3,7 @@
   "config": {
     "tries": 5,
     "xz_spread": 4,
-    "y_spread": 0,
+    "y_spread": 1,
     "feature": {
       "feature": {
         "type": "minecraft:simple_block",

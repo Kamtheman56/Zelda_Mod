@@ -26,8 +26,8 @@ public class ModTags {
 
     public static class Blocks{
 
-public static final TagKey<Block> BOMB
-        = tag("bomb_blocks");
+        public static final TagKey<Block> BOMB
+                 = tag("bomb_blocks");
         public static final TagKey<Block> HAMMER
                 = tag("hammer_blocks");
         public static final TagKey<Block> MITTS
@@ -60,6 +60,8 @@ public static final TagKey<Block> BOMB
                 = tag("stamina_fruit_blocks");
         public static final TagKey<Block> KOROK
                 = tag("korok_blocks");
+        public static final TagKey<Block> BOMB_FLOWER_BLOCKS
+                = tag("bomb_flower_blocks");
 
         public static final TagKey<Block> SWORD_BLOCKS
                 = tag("sword_blocks");

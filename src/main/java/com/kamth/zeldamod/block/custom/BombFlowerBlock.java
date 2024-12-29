@@ -1,21 +1,16 @@
 package com.kamth.zeldamod.block.custom;
 
+import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.item.ModItems;
-import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -29,7 +24,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
@@ -71,8 +65,18 @@ public class BombFlowerBlock extends CropBlock {
     @Deprecated //Forge: Prefer using IForgeBlock#catchFire
     private static void explode(Level pLevel, BlockPos pPos, @Nullable LivingEntity pEntity) {
         if (!pLevel.isClientSide) {
-            pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 2f, Level.ExplosionInteraction.TNT);
-
+            pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(),  2f, Level.ExplosionInteraction.MOB);
+            int radius = (int) Math.ceil(2);
+            for (BlockPos pos : BlockPos.betweenClosed(pPos.offset(-radius, -radius, -radius), pPos.offset(radius, radius, radius))) {
+                BlockState blockState = pLevel.getBlockState(pos).getBlock().defaultBlockState();
+                if (blockState.is(ModTags.Blocks.BOMB)){
+                    pLevel.destroyBlock(pos, false);
+                }
+                if (blockState.is(ModBlocks.BOMBFLOWER.get())){
+                    pLevel.explode(null, pos.getX(), pos.getY(), pos.getZ(),  2f, Level.ExplosionInteraction.MOB);
+                    pLevel.destroyBlock(pos, false);
+                }
+            }
         }
     }
     @Override
@@ -97,6 +101,11 @@ public class BombFlowerBlock extends CropBlock {
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
         }
     }
+
+
+
+
+
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
         if (pEntity instanceof AbstractArrow) {
@@ -106,6 +115,6 @@ public class BombFlowerBlock extends CropBlock {
         }}
     public void wasExploded(Level pLevel, BlockPos pPos, Explosion pExplosion) {
         if (!pLevel.isClientSide) {
-            pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 2f, Level.ExplosionInteraction.TNT);
+            pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 2f, Level.ExplosionInteraction.MOB);
             pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), 11);}}
 }

@@ -121,11 +121,8 @@ public class ModEvents {
                 event.getEntity().getCooldowns().addCooldown(ModItems.OCARINA.get(), 500);
                 event.getTarget().playSound(ModSounds.SONG_EPONA.get(), 1, 1f);
                 ((Horse) event.getTarget()).addEffect(new MobEffectInstance(MobEffects.REGENERATION, 80, 0));
-            }}
-
-
-
-
+            }
+        }
         //Methods for obtaining Masks
         // Romani's Mask
         if (!event.getLevel().isClientSide() && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.GOLDEN_APPLE) {
@@ -251,15 +248,12 @@ public class ModEvents {
 
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
-
             if(event.getSource().getEntity() instanceof Player player) {
                 if(player.getMainHandItem().is(ModTags.Items.GLOOM_WEAPONS)) {
                player.hurt(player.damageSources().wither(),2);
                 }
-                }
             }
-
-
+        }
     @SubscribeEvent
     public static void HealMode(LivingHealEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).is(ModItems.FAIRY_MASK.get()) && !event.getEntity().hasEffect(MobEffects.REGENERATION)){
@@ -269,12 +263,12 @@ public class ModEvents {
  event.setCanceled(true);
         }
     }
-    private static final EquipmentSlot head = EquipmentSlot.HEAD;
 
 
     private static boolean equipped(LivingEntity player, EquipmentSlot slot, Item item) {
         return item == player.getItemBySlot(slot).getItem();
     }
+    private static final EquipmentSlot head = EquipmentSlot.HEAD;
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void TickEvents(TickEvent.PlayerTickEvent event){
         Item mask = ModItems.MAJORA_MASK.get();
@@ -309,8 +303,6 @@ public class ModEvents {
             tag.putInt("activeflight", 0);
         }
     }
-
-
     @SubscribeEvent
     public static void onStruckByLightning(EntityStruckByLightningEvent event) {
         if (event.getEntity().getType() == ModEntityTypes.KOROK.get() && !event.getEntity().level().isClientSide) {
@@ -339,7 +331,6 @@ public class ModEvents {
             if (LensMode) {
                 removeEntityInvisibility(event.getEntity());}}
     }
-
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onLivingPostRender(RenderLivingEvent.Post<LivingEntity, EntityModel<LivingEntity>> event) {
@@ -441,8 +432,6 @@ public class ModEvents {
                 event.getEntity().setHealth(event.getEntity().getMaxHealth());
             }
         }
-
-
         public static double getBaseHealth(Player player) {
             AttributeInstance maxHealth = getMaxHealthAttribute(player);
             double baseHealth = maxHealth.getBaseValue();
@@ -452,8 +441,6 @@ public class ModEvents {
             if (baseModifier != null) baseHealth += baseModifier.getAmount();
             return baseHealth;
         }
-
-
         public static void addBaseHealthModifier(Player player, float amount) {
             AttributeInstance maxHealth = getMaxHealthAttribute(player);
             AttributeModifier modifier = maxHealth.getModifier(HEARTS_MODIFIER);
@@ -470,7 +457,6 @@ public class ModEvents {
                 player.setHealth(player.getMaxHealth());
             }
         }
-
         public static boolean canIncreaseGoldHealth(Player player) {
             return getBaseHealth(player) < 60;
         }
@@ -517,9 +503,6 @@ public class ModEvents {
             allay.goalSelector.addGoal(1, new KamaroMask(allay));
         }
     }
-
-
-
     @SubscribeEvent
     public static void addCustomTrades(VillagerTradesEvent event) {
 

@@ -263,7 +263,7 @@ super.onHit(result);
         } else drag = 0.99F;
 
         if(hasDrag())
-            this.setDeltaMovement(ourMotion.scale(drag));
+            this.setDeltaMovement(ourMotion.scale(drag).normalize());
 
         pos = position();
         this.setPos(pos.x, pos.y, pos.z);
@@ -354,7 +354,7 @@ super.onHit(result);
                     discard();
                 }
             } else
-                setDeltaMovement(motion.normalize().scale(0.7 + 1 * 0.325F));
+                setDeltaMovement(motion.normalize().scale(0.7 + 1 * 0.325F).normalize());
         }
     }
 

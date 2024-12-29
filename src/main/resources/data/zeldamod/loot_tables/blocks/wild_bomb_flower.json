@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:bomb_flower",
+          "name": "zeldamod:wild_bomb_flower",
           "conditions": [
             {
               "condition": "minecraft:match_tool",
