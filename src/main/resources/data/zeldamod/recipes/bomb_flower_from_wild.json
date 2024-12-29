@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "zeldamod:wild_bomb_flower"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "zeldamod:bomb_flower"
+  }
+}
