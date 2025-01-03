@@ -9,9 +9,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -19,6 +16,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
@@ -31,10 +29,11 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3d;
 
+import javax.annotation.Nullable;
+
 public class Clawshot extends AbstractArrow {
     private static final double BASE_DAMAGE = 5.0D;
     private final ItemStack hookshot = new ItemStack(ModItems.CLAWSHOT.get());
-    private static final EntityDataAccessor<Integer>  HOOKED_ENTITY_ID = SynchedEntityData.defineId(Clawshot.class, EntityDataSerializers.INT);
     boolean isPulling = false;
     private Entity hookedEntity;
     private double maxRange = 0D;
@@ -84,19 +83,16 @@ public class Clawshot extends AbstractArrow {
             this.level().addParticle(ParticleTypes.CRIT, particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
         }
 
-if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)){
-    isPulling = true;
-    this.setDeltaMovement(0,0,0);
-}
+
+
         if (getOwner() instanceof Player) {
             owner = (Player) getOwner();
 
             if (isPulling && tickCount % 4 == 0) {
                 BlockPos currentPos = this.owner.blockPosition();
                 this.level().playSound(null, currentPos.getX(), currentPos.getY(), currentPos.getZ(), SoundEvents.CHAIN_HIT, SoundSource.PLAYERS, .5f, 1.0f);
+
             }
-
-
             if (!level().isClientSide) {
                 if (this.hookedEntity != null) {
                     if (isAlive()) {
@@ -108,12 +104,13 @@ if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)
                 }
 
                 if (owner != null) {
-                    if (owner.isDeadOrDying() || this.tickCount == 35 ||
-                           owner.distanceTo(this) > maxRange ||
+                    if (owner.isDeadOrDying() || this.tickCount == 50 ||
                             !(owner.getMainHandItem().getItem() instanceof ClawshotItem ||
-                                    owner.getOffhandItem().getItem() instanceof ClawshotItem )){
-                       kill2();
-
+                                    owner.getOffhandItem().getItem() instanceof ClawshotItem)){
+                        kill();
+                    }
+                    if    (owner.distanceTo(this) > maxRange){
+                        this.discard();
                     }
                 }
 
@@ -126,11 +123,9 @@ if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)
                             target = hookedEntity;
                             origin = owner;
                             owner.setNoGravity(true);
-                            owner.setPose(Pose.SWIMMING);
-                            owner.setSwimming(true);
                         }
 
-                      double brakeZone = ((6D * (maxSpeed)) / 10); //5
+                        double brakeZone = ((6D * (maxSpeed)) / 10); //5
                         double pullSpeed = (maxSpeed) / 9D;
                         Vec3 distance = origin.position().subtract(target.position().add(0, target.getBbHeight() / 2, 0));
                         double reduction = (pullSpeed); //Get motion reduction.
@@ -142,7 +137,7 @@ if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)
                         //In case the movement is only upwards.
                         else if (new Vector3d(distance.x, 0, distance.z).length() < new Vector3d(target.getBbWidth() / 2, 0, target.getBbWidth() / 2).length() / 1.4) {
                             motion = new Vec3(0, motion.y, 0);
-                            motionUp = true;
+                            boolean motionUp = true;
                         }
 
                         target.fallDistance = 0; //Cancel Fall Damage
@@ -155,27 +150,28 @@ if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)
                             motion = owner.getDeltaMovement();
                             if (distance.length() > prevDistance && prevDistance < 1){
                                 kill();
-                            }
-                            //Timer if the entity if too BIG.
-                            if(tickCount > 50){
-                               kill();
+
 
                             }
-                        }
+                            //Timer if the entity is too BIG.
+                            if(tickCount > 50){
+                                this.discard();
+                                // kill();
+                            }}
                         //Makes you off the hook early if block.
                         if(hookedEntity == null) {
                             motion = owner.getDeltaMovement();
                             if (distance.length() > prevDistance && prevDistance < 1){
                                 kill();
-
-                            } else if (new Vector3d(distance.x, 0, distance.z).length() < 0.2D) {
-                               kill();
-
-
-                            }
+                            } else if (new Vector3d(distance.x, 0, distance.z).length() < 0.3D) {
+                                kill();}
                         }
                         prevDistance = distance.length();
-                    }}}}}
+                        //Take the entity if it is an item and check that it is in your inventory to kill the hook.
+                        if(hookedEntity instanceof ItemEntity){
+                            if(owner.getInventory().add(((ItemEntity) hookedEntity).getItem())) {
+                                kill();
+                            }}}}}}}
 
     @Override
     protected void onHitBlock(@NotNull BlockHitResult blockHitResult) {
@@ -184,12 +180,13 @@ if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)
         if (blockHit.is(ModTags.Blocks.CLAWSHOT)) {
             isPulling = true;
             if (!level().isClientSide && owner != null && hookedEntity == null) {
-                owner.setNoGravity(false);}}
-        else this.discard();
+                owner.setNoGravity(false);}
         }
+        else this.discard();
+    }
     @Override
-    protected void onHitEntity(EntityHitResult pResult) {
-        super.onHitEntity(pResult);
+    protected void onHitEntity(EntityHitResult entityHitResult) {
+  super.onHitEntity(entityHitResult);
     }
 
     public void Properties(ItemStack stack, double maxRange, double maxVelocity, float pitch, float yaw, float roll, float modifierZ) {
@@ -198,7 +195,6 @@ if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)
         float y = (float) -Math.sin((pitch + roll) * f);
         float z = (float) (Math.cos(yaw * f) * Math.cos(pitch * f));
         this.shoot(x, y, z, modifierZ, 0);
-
         this.stack = stack;
         this.maxRange = maxRange;
         this.maxSpeed = maxVelocity;
@@ -207,21 +203,10 @@ if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)
     @Override
     public void kill() {
         if (!level().isClientSide && owner != null) {
-isPulling=false;
-            owner.setNoGravity(false);
-            owner.setPose(Pose.STANDING);
-            owner.setDeltaMovement(0, 0, 0);
-            this.owner.setDeltaMovement(0,0,0);
-        }
-        owner.hurtMarked = true;
-        super.kill();
-    }
-
-    public void kill2() {
-        if (!level().isClientSide && owner != null) {
             isPulling=false;
             owner.setNoGravity(false);
             owner.setPose(Pose.STANDING);
+            owner.setDeltaMovement(0, 0, 0);
         }
         owner.hurtMarked = true;
         super.kill();
@@ -232,17 +217,23 @@ isPulling=false;
     {
         return true;
     }
+    public void setOwner(@Nullable Entity pOwner) {
+        super.setOwner(pOwner);
+    }
+    @Nullable
+    public Player getPlayerOwner() {
+        Entity entity = this.getOwner();
+        return entity instanceof Player ? (Player)entity : null;
+    }
 
-@Override
-protected SoundEvent getDefaultHitGroundSoundEvent() {
-    return SoundEvents.METAL_HIT;
-}
+    @Override
+    protected SoundEvent getDefaultHitGroundSoundEvent() {
+        return SoundEvents.METAL_HIT;
+    }
     @Override
     public void onAddedToWorld() {
         super.onAddedToWorld();
-        setBaseDamage(BASE_DAMAGE);
-
-    }
+        setBaseDamage(BASE_DAMAGE);}
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
@@ -267,10 +258,11 @@ protected SoundEvent getDefaultHitGroundSoundEvent() {
     protected ItemStack getPickupItem() {
         return  ItemStack.EMPTY;}
     protected float getWaterInertia() {
-        return .9F;
+        return 1F;
     }
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 }
+

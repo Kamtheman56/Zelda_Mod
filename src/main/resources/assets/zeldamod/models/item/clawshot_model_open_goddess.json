@@ -101,11 +101,11 @@
 			"translation": [0, -2.5, -2]
 		},
 		"firstperson_righthand": {
-			"rotation": [-82.72, 31.05, -3.77],
+			"rotation": [-83.75, 0, 0],
 			"translation": [1.25, 1.75, 0]
 		},
 		"firstperson_lefthand": {
-			"rotation": [-82.52, 33.08, -4.09],
+			"rotation": [-83.75, 0, 0],
 			"translation": [1.25, 1.75, 0]
 		}
 	},

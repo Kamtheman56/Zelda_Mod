@@ -334,8 +334,8 @@ private void addCreative(BuildCreativeModeTabContentsEvent event){
             event.accept(ModBlocks.JAR_LIME);
             event.accept(ModBlocks.JAR_GREEN);
             event.accept(ModBlocks.JAR_TEAL);
-            event.accept(ModBlocks.JAR_BLUE);
             event.accept(ModBlocks.JAR_LIGHT_BLUE);
+            event.accept(ModBlocks.JAR_BLUE);
             event.accept(ModBlocks.JAR_PURPLE);
             event.accept(ModBlocks.JAR_MAGENTA);
             event.accept(ModBlocks.JAR_PINK);

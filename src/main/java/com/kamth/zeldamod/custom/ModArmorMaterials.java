@@ -144,11 +144,9 @@ public enum ModArmorMaterials implements ArmorMaterial {
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GREEN_WOOL); }),
     Dark("dark", 0, new int[]{2, 5, 2, 2}, 6, SoundEvents.ARMOR_EQUIP_LEATHER,
-            0.0F, 0.0F, () -> {
-        return Ingredient.of(ModItems.GLOOM_CLUMP.get()); }),
+            0.0F, 0.0F, () -> Ingredient.of(ModItems.GLOOM_CLUMP.get())),
     Hylian("hylian", 0, new int[]{3, 4, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
-            0.0F, 0.0F, () -> {
-        return Ingredient.of(Items.BLACK_WOOL); });
+            0.0F, 0.0F, () -> Ingredient.of(Items.BLACK_WOOL));
 
 
 

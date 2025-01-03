@@ -216,6 +216,8 @@ public class ModItems {
             () -> new WaterBombItem(new Item.Properties().stacksTo(12).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> BOMB_FLOWER = ITEMS.register("bomb_flower",
             () -> new BombFlowerItem(new Item.Properties().stacksTo(8).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> BOMBCHU = ITEMS.register("bombchu",
+            () -> new BombchuItem(new Item.Properties().stacksTo(8).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> HERO_BOW = ITEMS.register("hero_bow",
             () -> new HeroBowItem(new Item.Properties().defaultDurability(550).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> REINFORCED_BOW = ITEMS.register("reinforced_bow",
