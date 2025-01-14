@@ -23,22 +23,24 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 
-public class BombProjectile extends ThrowableProjectile {
+public class AbstractBomb extends ThrowableProjectile {
 
 
-    private static final EntityDataAccessor<Byte> ID_FLAGS = SynchedEntityData.defineId(BombProjectile.class, EntityDataSerializers.BYTE);
+    private static final EntityDataAccessor<Byte> ID_FLAGS = SynchedEntityData.defineId(AbstractBomb.class, EntityDataSerializers.BYTE);
+    private boolean WaterProof;
+    private boolean Bowled;
+    private int ticksToExplode;
+    private int explosionPower;
 
-private boolean Bowled;
-    private float ticksToExplode =100f;
-    private int explosionPower = 3;
-
-    public BombProjectile(EntityType<BombProjectile> bombProjectileEntityType, Level level) {
+    public AbstractBomb(EntityType<AbstractBomb> bombProjectileEntityType, Level level, boolean waterProof, int explosionPower) {
         super(bombProjectileEntityType,level);
 
+        WaterProof = waterProof;
     }
 
-    public BombProjectile(Level world, LivingEntity owner) {
+    public AbstractBomb(Level world, LivingEntity owner, boolean waterProof, int explosionPower) {
         super(ModEntityTypes.BOMB.get(), owner, world);
+        WaterProof = waterProof;
     }
 
     @Override
@@ -71,10 +73,7 @@ protected float getGravity() {
     return 0.2F;
 }
 
-    @Override
-    protected void defineSynchedData() {
-        this.entityData.define(ID_FLAGS, (byte)0);
-    }
+
 
     @Override
     public void tick() {
@@ -146,14 +145,21 @@ protected float getGravity() {
 
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
-        pCompound.putBoolean("bowling", this.Bowled);}
+        pCompound.putBoolean("bowling", this.isBowled());
+        pCompound.putInt("ticks_to_explode", this.ticksToExplode);
+        pCompound.putBoolean("water_proof", this.WaterProof);}
 
 
     public void readAdditionalSaveData(CompoundTag pCompound) {
-
+        this.ticksToExplode = pCompound.getInt("ticks_to_explode");
         this.setBowling(pCompound.getBoolean("bowling"));
+        this.WaterProof = pCompound.getBoolean("water_proof");
     }
+    @Override
+    protected void defineSynchedData() {
+        this.entityData.define(ID_FLAGS, (byte)0);
 
+    }
 
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {

@@ -20,11 +20,18 @@ public class BombItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 1F, -0.5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
-        if (!pLevel.isClientSide) {
+        if (!pLevel.isClientSide && player.isCrouching()) {
+            BombProjectile bombEntity = new BombProjectile(pLevel,player);
+            bombEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.25F, 0.9F);
+            pLevel.addFreshEntity(bombEntity);
+            bombEntity.setBowling(true);
+        }
+        if (!pLevel.isClientSide && !player.isCrouching()) {
             BombProjectile bombEntity = new BombProjectile(pLevel,player);
             bombEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.25F, 0.9F);
             pLevel.addFreshEntity(bombEntity);
         }
+
         player.awardStat(Stats.ITEM_USED.get(this));
         if (!player.getAbilities().instabuild) {
             if (player.getItemInHand(pHand).is(ModTags.Items.BOMBS)) {

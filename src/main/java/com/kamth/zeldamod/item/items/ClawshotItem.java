@@ -68,7 +68,7 @@ public class ClawshotItem extends Item {
         return 72000;
     }
     public UseAnim getUseAnimation(ItemStack stack) {
-        return UseAnim.BOW;
+        return UseAnim.BLOCK;
     }
 
     @Override

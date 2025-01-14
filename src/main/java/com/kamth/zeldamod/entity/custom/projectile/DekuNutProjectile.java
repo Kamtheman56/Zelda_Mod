@@ -1,13 +1,11 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.item.ModItems;
 import com.kamth.zeldamod.sound.ModSounds;
-import net.minecraft.core.particles.ItemParticleOption;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -21,19 +19,15 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.NetworkHooks;
 
-public class Deku_Nut extends AbstractArrow {
+public class DekuNutProjectile extends AbstractArrow {
 
 
-    public Deku_Nut(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
+    public DekuNutProjectile(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
-    public Deku_Nut(Level world, LivingEntity owner) {
+    public DekuNutProjectile(Level world, LivingEntity owner) {
         super(ModEntityTypes.DEKU_NUT.get(), owner, world);
     }
-
-
-
-
 
     @Override
     protected void doPostHurtEffects(LivingEntity entity)
@@ -50,10 +44,12 @@ public class Deku_Nut extends AbstractArrow {
         double d0 = this.random.nextGaussian() * 0.02D;
         double d1 = this.random.nextGaussian() * 0.02D;
         double d2 = this.random.nextGaussian() * 0.02D;
-        this.level().addParticle(ParticleTypes.HEART, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), d0, d1, d2);
         if (pResult.getEntity() instanceof LivingEntity) {
             LivingEntity target = (LivingEntity) pResult.getEntity();
             target.setArrowCount(target.getArrowCount() - 1);
+        }
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.EXPLOSION, this.getX() , this.getY(0.5D), this.getZ() , 4, 1, 0.0D, 1, 0.0D);
         }
     }
 
@@ -62,23 +58,10 @@ public class Deku_Nut extends AbstractArrow {
     protected void onHitBlock(BlockHitResult ray) {
         super.onHitBlock(ray);
         this.discard();
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.EXPLOSION, this.getX() , this.getY(0.5D), this.getZ() , 4, 1, 0.0D, 1, 0.0D);
         }
-
-    private ParticleOptions getParticle() {
-        ItemStack itemstack = ModItems.DEKU_NUT.get().getDefaultInstance();
-        return (ParticleOptions)(itemstack.isEmpty() ? ParticleTypes.HEART : new ItemParticleOption(ParticleTypes.ITEM, itemstack));
     }
-    @Override
-    public void handleEntityEvent(byte pId) {
-        if (pId == 3) {
-            ParticleOptions particleoptions = this.getParticle();
-
-            for(int i = 0; i < 8; ++i) {
-                this.level().addParticle(particleoptions, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
-            }}}
-    /**
-     * @return
-     */
     @Override
     protected ItemStack getPickupItem() {
         return null;
@@ -87,7 +70,6 @@ public class Deku_Nut extends AbstractArrow {
     protected SoundEvent getDefaultHitGroundSoundEvent() {
         return ModSounds.SEED_BREAKS.get();
     }
-
     @Override
     public void tick() {
         super.tick();}

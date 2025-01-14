@@ -1,4 +1,4 @@
-package com.kamth.mixin;
+package com.kamth.zeldamod.mixin;
 
 import com.kamth.zeldamod.item.ModItems;
 import net.minecraft.core.BlockPos;

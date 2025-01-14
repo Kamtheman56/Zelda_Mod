@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 public class ClientModEventSubscriber {
     @SubscribeEvent
     public static void onClientSetup(EntityRenderersEvent.RegisterRenderers event){
-        event.registerEntityRenderer(ModEntityTypes.WHEAT_SEED.get(), SeedRender::new);
+        event.registerEntityRenderer(ModEntityTypes.SEED_PROJECTILE.get(), SeedRender::new);
         event.registerEntityRenderer(ModEntityTypes.WATER_BOMB.get(), WaterBombRender::new);
         event.registerEntityRenderer(ModEntityTypes.BOMB.get(), BombRender::new);
         event.registerEntityRenderer(ModEntityTypes.FIRE_ARROW.get(), FireArrowRender::new);

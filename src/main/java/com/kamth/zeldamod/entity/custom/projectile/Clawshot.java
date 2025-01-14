@@ -16,7 +16,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Pose;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
@@ -113,6 +112,10 @@ public class Clawshot extends AbstractArrow {
                         this.discard();
                     }
                 }
+                if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)){
+                        isPulling = true;
+                        this.setDeltaMovement(0,0,0);
+                }
 
                 if (owner.getMainHandItem() == stack || owner.getOffhandItem() == stack) {
                     if (isPulling) { //Movement start
@@ -150,8 +153,6 @@ public class Clawshot extends AbstractArrow {
                             motion = owner.getDeltaMovement();
                             if (distance.length() > prevDistance && prevDistance < 1){
                                 kill();
-
-
                             }
                             //Timer if the entity is too BIG.
                             if(tickCount > 50){
@@ -167,11 +168,11 @@ public class Clawshot extends AbstractArrow {
                                 kill();}
                         }
                         prevDistance = distance.length();
-                        //Take the entity if it is an item and check that it is in your inventory to kill the hook.
-                        if(hookedEntity instanceof ItemEntity){
-                            if(owner.getInventory().add(((ItemEntity) hookedEntity).getItem())) {
-                                kill();
-                            }}}}}}}
+                    }
+                }
+            }
+        }
+    }
 
     @Override
     protected void onHitBlock(@NotNull BlockHitResult blockHitResult) {

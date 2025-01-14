@@ -47,14 +47,14 @@ public class WildBombFlowerBlock extends FaceAttachedHorizontalDirectionalBlock 
     private static void explode(Level pLevel, BlockPos pPos, @Nullable LivingEntity pEntity) {
         if (!pLevel.isClientSide) {
             pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(),  2f, Level.ExplosionInteraction.MOB);
-            int radius = (int) Math.ceil(2);
+            int radius = (int) Math.ceil(3);
             for (BlockPos pos : BlockPos.betweenClosed(pPos.offset(-radius, -radius, -radius), pPos.offset(radius, radius, radius))) {
                 BlockState blockState = pLevel.getBlockState(pos).getBlock().defaultBlockState();
                 if (blockState.is(ModTags.Blocks.BOMB)){
                     pLevel.destroyBlock(pos, false);
                 }
                 if (blockState.is(ModBlocks.BombFlower2.get())){
-                    pLevel.explode(null, pos.getX(), pos.getY(), pos.getZ(),  2f, Level.ExplosionInteraction.MOB);
+                    pLevel.explode(null, pos.getX(), pos.getY(), pos.getZ(),  3.7f, Level.ExplosionInteraction.MOB);
                     pLevel.destroyBlock(pos, false);
                 }
             }
@@ -91,7 +91,7 @@ public class WildBombFlowerBlock extends FaceAttachedHorizontalDirectionalBlock 
         }}
     public void wasExploded(Level pLevel, BlockPos pPos, Explosion pExplosion) {
         if (!pLevel.isClientSide) {
-            pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 2f, Level.ExplosionInteraction.MOB);
+            pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 4f, Level.ExplosionInteraction.MOB);
             pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), 11);
         }
     }

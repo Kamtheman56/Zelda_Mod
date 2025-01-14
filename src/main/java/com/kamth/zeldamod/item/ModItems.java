@@ -459,6 +459,10 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             ()-> new KorokMask(ModArmorMaterials.KOROK, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(382)));
 
+    public static final RegistryObject<ArmorItem> STEVE_MASK = ITEMS.register("steve_mask",
+            ()-> new ArmorItem(ModArmorMaterials.STEVE, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(2007)));
+
 
    //Tunics
     public static final RegistryObject<ArmorItem> KOKIRI_TUNIC = ITEMS.register("kokiritunic",

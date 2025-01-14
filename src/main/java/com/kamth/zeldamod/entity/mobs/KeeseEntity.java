@@ -25,7 +25,10 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
@@ -78,7 +81,6 @@ public class KeeseEntity extends FlyingMob implements Enemy {
     @Override
     public void tick() {
         super.tick();
-   //    this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
         if (this.level().isClientSide) {
             setupAnimationStates();
         }
@@ -94,15 +96,6 @@ public class KeeseEntity extends FlyingMob implements Enemy {
     private void setupAnimationStates() {
             this.idleAnimationState.start(this.tickCount);
 
-        if (this.isAttacking() && attackAnimationTimeout<= 0){
-            attackAnimationTimeout = 0;
-            attackAnimationState.start(tickCount);
-        } else {
-            --this.attackAnimationTimeout;
-        }
-        if (!this.isAttacking()){
-            this.attackAnimationState.stop();
-        }
     }
 
     @Override
@@ -249,9 +242,6 @@ public class KeeseEntity extends FlyingMob implements Enemy {
                 Vec3 vec3 = livingentity.getEyePosition();
                 KeeseEntity.this.moveControl.setWantedPosition(vec3.x, vec3.y, vec3.z, 3.0D);
             }
-
-
-          //  KeeseEntity.this.playSound(SoundEvents.VEX_CHARGE, 1.0F, 1.0F);
         }
 
         /**
@@ -359,19 +349,9 @@ public class KeeseEntity extends FlyingMob implements Enemy {
                     return false;
                 }
             }
-
             return true;
         }
     }
-
-    public float getWalkTargetValue(BlockPos pPos, LevelReader pLevel) {
-        return -pLevel.getPathfindingCostFromLightLevels(pPos);
-    }
-
-    /**
-     * Static predicate for determining if the current light level and environmental conditions allow for a monster to
-     * spawn.
-     */
     public static boolean isDarkEnoughToSpawn(ServerLevelAccessor pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pLevel.getBrightness(LightLayer.SKY, pPos) > pRandom.nextInt(32)) {
             return false;
@@ -388,11 +368,8 @@ public class KeeseEntity extends FlyingMob implements Enemy {
     }
     public static boolean checkKeeseSpawnRules(EntityType<KeeseEntity> pBat, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         if (pPos.getY() >= pLevel.getSeaLevel()) {
-            return false;}
-        else return pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn((ServerLevelAccessor) pLevel, pPos, pRandom) && checkMobSpawnRules(pBat, pLevel, pSpawnType, pPos, pRandom);
-        }
-
-
-
-
+            return false;
+        } else
+            return pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn((ServerLevelAccessor) pLevel, pPos, pRandom) && checkMobSpawnRules(pBat, pLevel, pSpawnType, pPos, pRandom);
+    }
 }

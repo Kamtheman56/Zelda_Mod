@@ -25,8 +25,6 @@ public class DekuMadScrubEntity extends DekuScrubEntity {
 
     protected static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Monster.class, EntityDataSerializers.BYTE);
     public final AnimationState idleAnimationState = new AnimationState();
-    public final AnimationState sitAnimationState = new AnimationState();
-    private int idleAnimationTimeout = 0;
  
 
 @Override

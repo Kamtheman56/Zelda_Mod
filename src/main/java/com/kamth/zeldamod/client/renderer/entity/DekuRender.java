@@ -1,11 +1,10 @@
 package com.kamth.zeldamod.client.renderer.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.entity.custom.projectile.Deku_Nut;
+import com.kamth.zeldamod.entity.custom.projectile.DekuNutProjectile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -16,7 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
-public class DekuRender extends EntityRenderer<Deku_Nut> {
+public class DekuRender extends EntityRenderer<DekuNutProjectile> {
     private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/item/deku_nut.png");
     private static final RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
 
@@ -24,11 +23,11 @@ public class DekuRender extends EntityRenderer<Deku_Nut> {
         super(pContext);
     }
 
-    protected int getBlockLightLevel(Deku_Nut pEntity, BlockPos pPos) {
+    protected int getBlockLightLevel(DekuNutProjectile pEntity, BlockPos pPos) {
         return 15;
     }
 
-    public void render(Deku_Nut pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(DekuNutProjectile pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
         pMatrixStack.pushPose();
         pMatrixStack.scale(0.5F, 0.5F, 0.5F);
         pMatrixStack.mulPose(this.entityRenderDispatcher.cameraOrientation());
@@ -51,7 +50,7 @@ public class DekuRender extends EntityRenderer<Deku_Nut> {
 
 
     @Override
-    public ResourceLocation getTextureLocation(Deku_Nut pEntity) {
+    public ResourceLocation getTextureLocation(DekuNutProjectile pEntity) {
         return TEXTURE_LOCATION;
     }
 

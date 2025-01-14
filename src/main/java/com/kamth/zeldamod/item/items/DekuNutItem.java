@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.items;
 
-import com.kamth.zeldamod.entity.custom.projectile.Deku_Nut;
+import com.kamth.zeldamod.entity.custom.projectile.DekuNutProjectile;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -20,9 +20,9 @@ public class DekuNutItem extends Item {
         ItemStack itemstack = player.getItemInHand(pHand);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 1F, 0.2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
-            Deku_Nut nut = new Deku_Nut(pLevel,player);
+            DekuNutProjectile nut = new DekuNutProjectile(pLevel,player);
             nut.setOwner(player);
-            nut.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.25F, 0.9F);
+            nut.shootFromRotation(player, player.getXRot(), player.getYRot(), 1.2f, 1.25F, 0.9F);
             pLevel.addFreshEntity(nut);
         }
 

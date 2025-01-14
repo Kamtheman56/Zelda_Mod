@@ -2,8 +2,10 @@ package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
@@ -62,15 +64,15 @@ public class SwordBeam extends AbstractArrow {
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
         this.discard();
-
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.CLOUD, this.getX() , this.getY(0.5D), this.getZ() , 3, 1, 0.0D, 1, 0.0D);
+        }
 }
 
     @Override
     public boolean canChangeDimensions() {
         return false;
     }
-
-
 
     @Override
     public void tick()
@@ -86,7 +88,8 @@ public class SwordBeam extends AbstractArrow {
         }
         if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.SWORD_BEAM)){
             this.level().destroyBlock(this.blockPosition(), true);
-    }}
+        }
+    }
 @Override
     protected SoundEvent getDefaultHitGroundSoundEvent() {
         return SoundEvents.EMPTY;

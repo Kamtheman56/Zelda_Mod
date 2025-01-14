@@ -3,8 +3,10 @@ package com.kamth.zeldamod.entity.custom.projectile;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.sound.ModSounds;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -27,10 +29,10 @@ public class SeedProjectile extends AbstractArrow {
         this.referenceItem = Items.WHEAT_SEEDS;
     }
     public SeedProjectile(Level worldIn) {
-        super(ModEntityTypes.WHEAT_SEED.get(), worldIn);
+        super(ModEntityTypes.SEED_PROJECTILE.get(), worldIn);
     }
     public  SeedProjectile(Level pLevel, LivingEntity pShooter) {
-        super(ModEntityTypes.WHEAT_SEED.get(), pShooter, pLevel);
+        super(ModEntityTypes.SEED_PROJECTILE.get(), pShooter, pLevel);
 
     }
 
@@ -61,15 +63,14 @@ public class SeedProjectile extends AbstractArrow {
         }
     }
 
-
     @Override
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
         this.discard();
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.CLOUD, this.getX() , this.getY(), this.getZ() , 2, 0, 0.0D, 0, 0.0D);
+        }
     }
-
-
-
 
     @Override
     protected SoundEvent getDefaultHitGroundSoundEvent() {

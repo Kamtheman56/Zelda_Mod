@@ -1,4 +1,4 @@
-package com.kamth.mixin;
+package com.kamth.zeldamod.mixin;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.item.items.BombBagItem;

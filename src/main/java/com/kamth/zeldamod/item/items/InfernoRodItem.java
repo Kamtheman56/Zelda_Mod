@@ -63,19 +63,17 @@ public class InfernoRodItem extends Item {
     @Override
     public void onUseTick(Level world, LivingEntity livingEntity, ItemStack stack, int pRemainingUseDuration) {
         Player player = (Player) livingEntity;
+        if (!world.isClientSide) {
+            if (!player.getAbilities().instabuild) {
+                stack.hurtAndBreak(3, livingEntity, (p_43296_) -> {
+                    p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+                });
 
-        if (!player.getAbilities().instabuild){
-    stack.hurtAndBreak(3, livingEntity, (p_43296_) -> {
-        p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-    });
-
-}
-
-        FireProjectile projectile = new FireProjectile(world, player);
-
-        projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.4f, .9f);
-        world.addFreshEntity(projectile);
-
+            }
+            FireProjectile projectile = new FireProjectile(world, player);
+            projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.4f, .9f);
+            world.addFreshEntity(projectile);
+        }
     }
     @Override
     public int getUseDuration(ItemStack itemStack)

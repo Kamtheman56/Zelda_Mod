@@ -1,8 +1,10 @@
-package com.kamth.mixin;
+package com.kamth.zeldamod.mixin;
 
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -20,6 +22,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
@@ -37,6 +40,8 @@ public abstract class MixinLivingEntity extends Entity {
     @Shadow public abstract boolean removeAllEffects();
 
     @Shadow public abstract void setHealth(float pHealth);
+
+    @Shadow protected abstract void playHurtSound(DamageSource pSource);
 
     public MixinLivingEntity(EntityType<?> pEntityType, Level pLevel) {
         super(null, null);
@@ -69,11 +74,19 @@ public abstract class MixinLivingEntity extends Entity {
     @SuppressWarnings("InvalidInjectorMethodSignature")
     @Inject(method = "getBlockSpeedFactor", at = @At("HEAD"), cancellable = true)
     private void onGetBlockSpeedFactor(CallbackInfoReturnable<Float> cir) {
+
         if (((Object)this) instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HOVER_BOOTS.get()) {
             cir.setReturnValue(.96F);}
- if (((Object)this) instanceof LivingEntity living  && living.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
-        cir.setReturnValue(.97F);}}
 
+ if (((Object)this) instanceof LivingEntity living  && living.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
+        cir.setReturnValue(.97F);}
+    }
+
+    @Inject(method = "playHurtSound", at = @At("HEAD"))
+    private void onServerPlayHurtSound(CallbackInfo info) {
+        //noinspection ConstantConditions
+        playSound(ModSounds.OLD_HURT.get());
+    }
 }
 
 

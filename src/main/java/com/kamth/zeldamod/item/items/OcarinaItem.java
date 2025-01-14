@@ -46,11 +46,11 @@ public class OcarinaItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
+
+        if (pPlayer.level() instanceof ServerLevel) {
+            ((ServerLevel)world).sendParticles(ParticleTypes.NOTE, pPlayer.getX() , pPlayer.getY(0.5D), pPlayer.getZ() , 1, .3, 0.0D, .2, 0.0D);
+        }
             world.playSound(pPlayer, pPlayer.getOnPos(), ModSounds.OCARINA.get(), SoundSource.PLAYERS, .5f, 1.2f / (world.getRandom().nextFloat() * 0.4F + 0.8F));
-            double particleX = pPlayer.getX() + (pPlayer.getRandom().nextBoolean() ? 0.1D : 0);
-            double particleY = pPlayer.getY() + pPlayer.getRandom().nextFloat() * 0 + 1.2D;
-            double particleZ = pPlayer.getZ() + (pPlayer.getRandom().nextBoolean() ? +0.8D : 0);
-            pPlayer.level().addParticle(ParticleTypes.NOTE, particleX, particleY, particleZ, 0, 0, 0);
         return InteractionResultHolder.consume(itemstack);
     }
     @SubscribeEvent

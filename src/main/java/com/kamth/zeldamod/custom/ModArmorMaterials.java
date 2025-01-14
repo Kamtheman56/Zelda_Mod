@@ -14,6 +14,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
+
+    //Mask Materials
     ZORA("zora", 0, new int[]{0, 4, 5, 2}, 0, SoundEvents.AXOLOTL_SWIM,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.NAUTILUS_SHELL); }),
@@ -104,6 +106,14 @@ public enum ModArmorMaterials implements ArmorMaterial {
     KOROK("korok", 0, new int[]{0, 2, 5, 0}, 0, SoundEvents.AZALEA_LEAVES_PLACE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.OAK_LEAVES); }),
+
+    STEVE("steve", 0, new int[]{0, 2, 5, 0}, 0, ModSounds.OLD_HURT.get(),
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.GRASS_BLOCK); }),
+
+
+
+    //Regular Armors
     ZELDAH("heavy", 0, new int[]{0, 4, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_IRON,
             0.0F, 4.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
