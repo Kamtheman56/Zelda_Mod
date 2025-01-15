@@ -4,7 +4,7 @@ import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.custom.projectile.BombSeedProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.KorokSeedProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -82,9 +82,9 @@ public class SlingshotItem extends BowItem {
     @Nonnull
     private SeedProjectile createAmmoEntity(Level level, ItemStack itemStack) {
         Item bullet = itemStack.getItem();
-        if (bullet == ModItems.BOMB_SEEDS.get()) {
+        if (bullet == ZeldaItems.BOMB_SEEDS.get()) {
             return new BombSeedProjectile(level);}
-        if (bullet == ModItems.KOROK_SEED.get()) {
+        if (bullet == ZeldaItems.KOROK_SEED.get()) {
             return new KorokSeedProjectile(level);}
         else  return new SeedProjectile(level);
     }

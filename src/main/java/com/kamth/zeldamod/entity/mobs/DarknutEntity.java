@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.entity.mobs;
 
 import com.kamth.zeldamod.entity.ai.DarknutAttackGoal;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -103,7 +103,7 @@ public class DarknutEntity extends Monster {
 
     protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
         super.populateDefaultEquipmentSlots(pRandom, pDifficulty);
-                this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.MAGIC_SWORD.get()));
+                this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ZeldaItems.MAGIC_SWORD.get()));
                  this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
         }
 

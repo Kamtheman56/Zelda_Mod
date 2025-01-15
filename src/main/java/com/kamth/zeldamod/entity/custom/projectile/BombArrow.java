@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -38,7 +38,7 @@ public class BombArrow extends AbstractArrow {
      */
     @Override
     protected ItemStack getPickupItem() {
-        return  ModItems.BOMB_ARROW.get().getDefaultInstance();}
+        return  ZeldaItems.BOMB_ARROW.get().getDefaultInstance();}
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);

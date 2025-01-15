@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.mixin;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -28,7 +28,7 @@ public abstract class MixinDekuLeafBlock extends Block {
         Entity entity = Player;
 
         if (entity instanceof LivingEntity) {
-            if (((LivingEntity) entity).getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
+            if (((LivingEntity) entity).getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.DEKU_MASK.get()) {
                 ci.cancel();
             }
 

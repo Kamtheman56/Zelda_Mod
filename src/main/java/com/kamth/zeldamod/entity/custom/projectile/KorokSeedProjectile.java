@@ -2,7 +2,7 @@ package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -23,7 +23,7 @@ public class KorokSeedProjectile extends SeedProjectile {
     private Item referenceItem;
     public KorokSeedProjectile(EntityType<? extends SeedProjectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.referenceItem = ModItems.KOROK_SEED.get();
+        this.referenceItem = ZeldaItems.KOROK_SEED.get();
     }
     public KorokSeedProjectile(Level worldIn) {
         super(ModEntityTypes.KOROK_SEED.get(), worldIn);

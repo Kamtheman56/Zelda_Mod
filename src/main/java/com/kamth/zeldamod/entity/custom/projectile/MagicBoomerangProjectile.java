@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -51,7 +51,7 @@ import java.util.UUID;
         private static final double BASE_DAMAGE = 5.0D;
         private static final EntityDataAccessor<ItemStack> STACK = SynchedEntityData.defineId(com.kamth.zeldamod.entity.custom.projectile.BoomerangProjectile.class, EntityDataSerializers.ITEM_STACK);
         private static final EntityDataAccessor<Boolean> RETURNING = SynchedEntityData.defineId(com.kamth.zeldamod.entity.custom.projectile.BoomerangProjectile.class, EntityDataSerializers.BOOLEAN);
-        private final ItemStack boomerangItem = new ItemStack(ModItems.BOOMERANG.get());
+        private final ItemStack boomerangItem = new ItemStack(ZeldaItems.BOOMERANG.get());
 
 
 
@@ -118,7 +118,7 @@ import java.util.UUID;
 
         @Override
         protected void defineSynchedData() {
-            entityData.define(STACK, new ItemStack(ModItems.BOOMERANG.get()));
+            entityData.define(STACK, new ItemStack(ZeldaItems.BOOMERANG.get()));
             entityData.define(RETURNING, false);
         }
         protected void checkImpact() {
@@ -398,7 +398,7 @@ import java.util.UUID;
             if (compound.contains(TAG_ITEM_STACK))
                 setStack(ItemStack.of(compound.getCompound(TAG_ITEM_STACK)));
             else
-                setStack(new ItemStack(ModItems.BOOMERANG.get()));
+                setStack(new ItemStack(ZeldaItems.BOOMERANG.get()));
 
             if (compound.contains("owner", 10)) {
                 Tag owner = compound.get("owner");

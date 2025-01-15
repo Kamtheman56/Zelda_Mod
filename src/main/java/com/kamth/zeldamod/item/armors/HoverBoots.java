@@ -2,7 +2,7 @@ package com.kamth.zeldamod.item.armors;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.effect.ModEffects;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.armors.render.ModModelLayers;
 import com.kamth.zeldamod.item.armors.render.PegasusBootsModel;
 import net.minecraft.ChatFormatting;
@@ -60,18 +60,18 @@ public class HoverBoots extends ArmorItem {
             player.resetFallDistance();
         }
 
-        if (!player.onGround() && !player.isSprinting() && player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HOVER_BOOTS.get()) {
+        if (!player.onGround() && !player.isSprinting() && player.getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HOVER_BOOTS.get()) {
             player.setNoGravity(false);
             player.fallDistance = -3;
         }
-        if (player.onGround() && player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HOVER_BOOTS.get()) {
+        if (player.onGround() && player.getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HOVER_BOOTS.get()) {
             player.addEffect(((new MobEffectInstance(ModEffects.HOVER.get(), 90, 0, true, false))));
         }
     }
    @Override
    public boolean canWalkOnPowderedSnow(ItemStack stack, LivingEntity wearer)
     {
-        return stack.getItem() == ModItems.HOVER_BOOTS.get();
+        return stack.getItem() == ZeldaItems.HOVER_BOOTS.get();
     }
 
 

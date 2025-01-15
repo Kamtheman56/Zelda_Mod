@@ -2,7 +2,7 @@ package com.kamth.zeldamod.item.armors;
 
 import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -32,11 +32,11 @@ public class HeavyBoots extends ArmorItem {
         MinecraftForge.EVENT_BUS.addListener(this::LivingFallEvent);
     }
         public void onPlayerSwim (PlayerSwimEvent event){
-        if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HEAVY_BOOTS.get()) {
+        if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HEAVY_BOOTS.get()) {
             event.setResult(Event.Result.DENY);}}
 
         public void LivingFallEvent (LivingFallEvent event){
-        if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HEAVY_BOOTS.get()) {
+        if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HEAVY_BOOTS.get()) {
             if (event.getEntity().isEyeInFluidType(ForgeMod.WATER_TYPE.get())) {
                 event.setCanceled(true);}}}
     @Override

@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.block.custom;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -57,7 +57,7 @@ public class RustedTimedPressureSwitchBlock extends Block {
             this.pull(pState, pLevel, pPos);
             pLevel.playSound((Player)null, pPos, SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.BLOCKS, 1F, 1);
         }
-        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ModItems.MEGATON.get()) && pState.getValue(POWERED) == false){
+        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ZeldaItems.MEGATON.get()) && pState.getValue(POWERED) == false){
             this.press(pState, pLevel, pPos);
             pLevel.playSound((Player)null, pPos, SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 1F, 1);
         }
@@ -67,7 +67,7 @@ public class RustedTimedPressureSwitchBlock extends Block {
         LivingEntity livingentity = (LivingEntity) pEntity;
 
         if (!pLevel.isClientSide && pState.getValue(POWERED).equals(false))  {
-            if ( livingentity.getItemBySlot(EquipmentSlot.FEET).is(ModItems.HEAVY_BOOTS.get()) || livingentity.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.GORON_MASK.get()) ){
+            if ( livingentity.getItemBySlot(EquipmentSlot.FEET).is(ZeldaItems.HEAVY_BOOTS.get()) || livingentity.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.GORON_MASK.get()) ){
                 this.press(pState,pLevel,pPos);
                 pLevel.playSound((Player)null, pPos, SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 1F, 1);
             }

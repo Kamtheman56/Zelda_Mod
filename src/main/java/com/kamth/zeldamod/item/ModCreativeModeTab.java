@@ -18,13 +18,13 @@ public class ModCreativeModeTab {
         CREATIVE_MODE_TABS.register(eventBus);
     }
     public static RegistryObject<CreativeModeTab> ZELDA_BLOCKS = CREATIVE_MODE_TABS.register("zelda_blocks", () ->
-            CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.MASTER_SWORD_INJURED.get())).title(Component.translatable("zelda_blocks")).build());
+            CreativeModeTab.builder().icon(() -> new ItemStack(ZeldaItems.MASTER_SWORD_INJURED.get())).title(Component.translatable("zelda_blocks")).build());
 
     public static RegistryObject<CreativeModeTab> ZELDA_MATERIAL = CREATIVE_MODE_TABS.register("zelda_material", () ->
-            CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.MASTER_ORE.get())).title(Component.translatable("zelda_misc")).build());
+            CreativeModeTab.builder().icon(() -> new ItemStack(ZeldaItems.MASTER_ORE.get())).title(Component.translatable("zelda_misc")).build());
 
     public static RegistryObject<CreativeModeTab> ZELDA_MASK = CREATIVE_MODE_TABS.register("zelda_mask", () ->
-            CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.DEKU_MASK.get())).title(Component.translatable("zelda_masks")).build());
+            CreativeModeTab.builder().icon(() -> new ItemStack(ZeldaItems.DEKU_MASK.get())).title(Component.translatable("zelda_masks")).build());
     public static RegistryObject<CreativeModeTab> ZELDA_TAB = CREATIVE_MODE_TABS.register("zelda_tab", () ->
             CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.COURAGE_BLOCK.get())).title(Component.translatable("zelda_tab")).build());
 

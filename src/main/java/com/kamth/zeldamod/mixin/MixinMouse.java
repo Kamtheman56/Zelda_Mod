@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.mixin;
 
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.MouseHandler;
 import net.minecraft.util.Mth;
@@ -32,7 +32,7 @@ public class MixinMouse {
 
     @Inject(method = "turnPlayer",at = @At("HEAD"),cancellable = true)
     public void onMouseUpdate(CallbackInfo ci){
-        if (null != minecraft.player && minecraft.options.getCameraType().isFirstPerson() && minecraft.player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.HAWK_MASK.get())  && minecraft.player.getUseItem().getItem() instanceof BowItem){
+        if (null != minecraft.player && minecraft.options.getCameraType().isFirstPerson() && minecraft.player.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWK_MASK.get())  && minecraft.player.getUseItem().getItem() instanceof BowItem){
             double displacementX,displacementY;
             double sensitivity = this.minecraft.options.sensitivity().get() * .6 + .2;
             double baseSensitivity = (sensitivity * sensitivity * sensitivity) * 2.2f;

@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.masks;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
@@ -27,13 +27,13 @@ if (player.isSleeping()){
     player.displayClientMessage(Component.translatable("Nightmask").withStyle(ChatFormatting.DARK_RED).withStyle(ChatFormatting.BOLD), true);
     player.stopSleeping();
 
-    if (player.getCooldowns().isOnCooldown(ModItems.NIGHT_MASK.get()))
+    if (player.getCooldowns().isOnCooldown(ZeldaItems.NIGHT_MASK.get()))
     {
         return;
     }
     Vec3 explosionPos = player.getEyePosition(1.0F).add(player.getLookAngle().multiply(0.5D, 0.5D, 0.5D));
     player.level().explode(player, explosionPos.x, explosionPos.y, explosionPos.z, .9F, Level.ExplosionInteraction.NONE);
-player.getCooldowns().addCooldown(ModItems.NIGHT_MASK.get(),250);
+player.getCooldowns().addCooldown(ZeldaItems.NIGHT_MASK.get(),250);
 player.hurt(player.damageSources().magic(), 9);
 
 }

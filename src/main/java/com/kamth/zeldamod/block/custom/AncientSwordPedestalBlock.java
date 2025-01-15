@@ -2,7 +2,7 @@ package com.kamth.zeldamod.block.custom;
 
 import com.kamth.zeldamod.block.entity.AncientSwordPedestalEntity;
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -46,25 +46,25 @@ public class AncientSwordPedestalBlock extends SwordPedestalBlock {
                 pLevel.playSound(pPlayer,pPos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
                 pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
                 pLevel.updateNeighborsAt(pPos,this);
-                pedestal.setSword(ModItems.HERO_SWORD.get().getDefaultInstance());
+                pedestal.setSword(ZeldaItems.HERO_SWORD.get().getDefaultInstance());
                 return InteractionResult.SUCCESS;
             }
-            if (stackInHand.is(ModItems.HERO_SWORD.get()) && pPlayer.getMaxHealth() >= 30 && pedestal.getSword().isEmpty())
+            if (stackInHand.is(ZeldaItems.HERO_SWORD.get()) && pPlayer.getMaxHealth() >= 30 && pedestal.getSword().isEmpty())
             {
                 pedestal.setSword(stackInHand);
                 pLevel.playSound(pPlayer,pPos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
                 pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
                 pLevel.updateNeighborsAt(pPos,this);
-                pedestal.setSword(ModItems.WHITE_SWORD.get().getDefaultInstance());
+                pedestal.setSword(ZeldaItems.WHITE_SWORD.get().getDefaultInstance());
                 return InteractionResult.SUCCESS;
             }
-            if (stackInHand.is(ModItems.WHITE_SWORD.get()) && pPlayer.getMaxHealth() <= 6 && pedestal.getSword().isEmpty())
+            if (stackInHand.is(ZeldaItems.WHITE_SWORD.get()) && pPlayer.getMaxHealth() <= 6 && pedestal.getSword().isEmpty())
             {
                 pedestal.setSword(stackInHand);
                 pLevel.playSound(pPlayer,pPos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS);
                 pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
                 pLevel.updateNeighborsAt(pPos,this);
-                pedestal.setSword(ModItems.MAGIC_SWORD.get().getDefaultInstance());
+                pedestal.setSword(ZeldaItems.MAGIC_SWORD.get().getDefaultInstance());
                 return InteractionResult.SUCCESS;
             }
             if (stackInHand.is(ModTags.Items.GLOOM_WEAPONS) && pPlayer.getMaxHealth() <= 6 && pedestal.getSword().isEmpty())

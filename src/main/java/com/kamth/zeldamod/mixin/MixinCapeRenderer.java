@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.mixin;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -20,7 +20,7 @@ public abstract class MixinCapeRenderer  {
         @Inject(at = @At("HEAD"), method = "isCapeLoaded()Z", cancellable = true)
         private void isCapeLoaded(CallbackInfoReturnable<Boolean> cir) {
             AbstractClientPlayer player = (AbstractClientPlayer) (Object) this;
-            if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.HYLIAN_HOOD.get())) {
+            if (player.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HYLIAN_HOOD.get())) {
                 cir.setReturnValue(true);
             }
         }
@@ -29,7 +29,7 @@ public abstract class MixinCapeRenderer  {
         @Inject(at = @At("HEAD"), method = "getCloakTextureLocation()Lnet/minecraft/resources/ResourceLocation;", cancellable = true)
         private void getCloakTextureLocation(CallbackInfoReturnable<ResourceLocation> cir) {
             AbstractClientPlayer player = (AbstractClientPlayer) (Object) this;
-            if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.HYLIAN_HOOD.get())) {
+            if (player.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HYLIAN_HOOD.get())) {
                 ResourceLocation texture = TEXTURE;
                 cir.setReturnValue(texture);
 

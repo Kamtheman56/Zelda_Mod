@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.items.shields;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
@@ -48,7 +48,7 @@ public class BalancedMirrorShieldItem extends ShieldItem {
     private static <T extends Projectile> boolean tryReflect(T projectile, LivingEntity entityBlocking, boolean takeOwnership) {
         if (entityBlocking.isBlocking()) {
             ItemStack itemUsed = entityBlocking.getUseItem();
-            if (itemUsed.is(ModItems.BALANCED_MIRROR_SHIELD.get())){
+            if (itemUsed.is(ZeldaItems.BALANCED_MIRROR_SHIELD.get())){
                 return ReflectProjectile(projectile, entityBlocking, takeOwnership);
             }
         }

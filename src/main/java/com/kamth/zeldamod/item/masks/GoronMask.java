@@ -2,7 +2,7 @@ package com.kamth.zeldamod.item.masks;
 
 import be.florens.expandability.api.forge.PlayerSwimEvent;
 import com.kamth.zeldamod.effect.ModEffects;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -35,7 +35,7 @@ public class GoronMask extends ArmorItem {
     }
 //Mask that gives combat prowess and nether exploration
 public void onLivingHurtEvent(LivingHurtEvent event){
-    if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
+    if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.GORON_MASK.get()) {
         if (!event.getSource().is(DamageTypeTags.BYPASSES_ARMOR)) {
             event.setAmount(event.getAmount() / 2);
         }
@@ -75,7 +75,7 @@ public void onLivingHurtEvent(LivingHurtEvent event){
 
     public void onPlayerSwim(PlayerSwimEvent event) {
 
-        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
+        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.GORON_MASK.get()) {
             event.setResult(Event.Result.DENY);}
     }
 @Override

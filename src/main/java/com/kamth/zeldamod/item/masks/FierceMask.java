@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.masks;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -36,7 +36,7 @@ public class FierceMask extends ArmorItem {
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10, 5, true, false));
-        if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.FIERCE_SWORD.get())){
+        if (player.getItemBySlot(EquipmentSlot.MAINHAND).is(ZeldaItems.FIERCE_SWORD.get())){
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10, 10, true, false));
         }
         player.removeEffect(MobEffects.DARKNESS);
@@ -48,7 +48,7 @@ public class FierceMask extends ArmorItem {
 
     }
     public void onLivingHurtEvent(LivingHurtEvent event){
-        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.FIERCE_MASK.get()) {
+        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.FIERCE_MASK.get()) {
             if (event.getSource().is(DamageTypes.MAGIC)) {
                 event.setAmount(event.getAmount() - 2);
             }
@@ -61,7 +61,7 @@ public class FierceMask extends ArmorItem {
         }
         AttributeInstance stepHeight;
         stepHeight = event.player.getAttribute(ForgeMod.ENTITY_REACH.get());
-        if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.FIERCE_MASK.get()) {
+        if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.FIERCE_MASK.get()) {
             stepHeight.addTransientModifier(STEP_HEIGHT_BONUS);
         }
         else {

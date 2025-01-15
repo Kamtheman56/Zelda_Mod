@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.armors;
 
 import com.kamth.zeldamod.effect.ModEffects;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -29,8 +29,8 @@ public class DarkArmor extends ArmorItem {
 
         player.addEffect(new MobEffectInstance(ModEffects.GLOOM_RESIST.get(), 10, 0, true, false, true));
 
-        if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.DARK_HAT.get()) && player.getItemBySlot(EquipmentSlot.LEGS).is(ModItems.DARK_PANTS.get())
-         && player.getItemBySlot(EquipmentSlot.FEET).is(ModItems.DARK_BOOTS.get()) && world.isNight()
+        if (player.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.DARK_HAT.get()) && player.getItemBySlot(EquipmentSlot.LEGS).is(ZeldaItems.DARK_PANTS.get())
+         && player.getItemBySlot(EquipmentSlot.FEET).is(ZeldaItems.DARK_BOOTS.get()) && world.isNight()
         ){
 
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 2, true, false, false));

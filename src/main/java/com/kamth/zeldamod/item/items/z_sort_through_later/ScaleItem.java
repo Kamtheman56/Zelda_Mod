@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.items.z_sort_through_later;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -30,7 +30,7 @@ public class ScaleItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
-        if ( player.isInWater() && itemstack.is(ModItems.SILVER_SCALE.get())) {
+        if ( player.isInWater() && itemstack.is(ZeldaItems.SILVER_SCALE.get())) {
             Vec3 vec3 = player.getDeltaMovement();
            // player.startUsingItem(pHand);
             itemstack.hurtAndBreak(3, player, (p_43296_) -> {
@@ -52,7 +52,7 @@ public class ScaleItem extends Item {
             player.getCooldowns().addCooldown(itemstack.getItem(), 40);
             return InteractionResultHolder.success(itemstack);
         }
-        if ( player.isInWater() && itemstack.is(ModItems.GOLDEN_SCALE.get())) {
+        if ( player.isInWater() && itemstack.is(ZeldaItems.GOLDEN_SCALE.get())) {
             Vec3 vec3 = player.getDeltaMovement();
             itemstack.hurtAndBreak(5, player, (p_43296_) -> {
                 p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
@@ -80,16 +80,16 @@ public class ScaleItem extends Item {
     @Override
     public void inventoryTick(ItemStack stack, Level world, Entity entity, int pSlotId, boolean pIsSelected) {
         if (!world.isClientSide) {
-            if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() == ModItems.SILVER_SCALE.get() && !entity.isEyeInFluidType(ForgeMod.WATER_TYPE.get()) ) {
+            if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() == ZeldaItems.SILVER_SCALE.get() && !entity.isEyeInFluidType(ForgeMod.WATER_TYPE.get()) ) {
                 ((Player) entity).addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 90, 0, true, false));
             }
-            if (entity instanceof Player && ((Player) entity).getMainHandItem().getItem() == ModItems.SILVER_SCALE.get() &&  !entity.isEyeInFluidType(ForgeMod.WATER_TYPE.get()) ) {
+            if (entity instanceof Player && ((Player) entity).getMainHandItem().getItem() == ZeldaItems.SILVER_SCALE.get() &&  !entity.isEyeInFluidType(ForgeMod.WATER_TYPE.get()) ) {
                 ((Player) entity).addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 90, 0, true, false));
             }
-            if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() == ModItems.GOLDEN_SCALE.get() && !entity.isEyeInFluidType(ForgeMod.WATER_TYPE.get()) ) {
+            if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() == ZeldaItems.GOLDEN_SCALE.get() && !entity.isEyeInFluidType(ForgeMod.WATER_TYPE.get()) ) {
                 ((Player) entity).addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 185, 0, true, false));
             }
-            if (entity instanceof Player && ((Player) entity).getMainHandItem().getItem() == ModItems.GOLDEN_SCALE.get() &&  !entity.isEyeInFluidType(ForgeMod.WATER_TYPE.get()) ) {
+            if (entity instanceof Player && ((Player) entity).getMainHandItem().getItem() == ZeldaItems.GOLDEN_SCALE.get() &&  !entity.isEyeInFluidType(ForgeMod.WATER_TYPE.get()) ) {
                 ((Player) entity).addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 185, 0, true, false));
             }
 

@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.z_sort_through_later;
 
 import com.kamth.zeldamod.block.ModBlocks;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -137,21 +137,21 @@ public class OcarinaItem extends Item {
             pContext.getPlayer().getCooldowns().addCooldown(this, 210);
             level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_HEALING.get(),SoundSource.PLAYERS, .5f, 1);
             level.removeBlock(blockpos,false);
-            addItem(pContext.getPlayer(), ModItems.DEKU_MASK.get().asItem());
+            addItem(pContext.getPlayer(), ZeldaItems.DEKU_MASK.get().asItem());
             return InteractionResult.SUCCESS;
         }
         if (blockstate.is(ModBlocks.GORON_GRAVE.get())) {
             pContext.getPlayer().getCooldowns().addCooldown(this, 210);
             level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_HEALING.get(),SoundSource.PLAYERS, .5f, 1);
             level.removeBlock(blockpos,false);
-            addItem(pContext.getPlayer(), ModItems.GORON_MASK.get().asItem());
+            addItem(pContext.getPlayer(), ZeldaItems.GORON_MASK.get().asItem());
             return InteractionResult.SUCCESS;
         }
         if (blockstate.is(ModBlocks.ZORA_GRAVE.get())) {
             pContext.getPlayer().getCooldowns().addCooldown(this, 210);
             level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_HEALING.get(),SoundSource.PLAYERS, .5f, 1);
             level.removeBlock(blockpos,false);
-       addItem(pContext.getPlayer(), ModItems.ZORA_MASK.get().asItem());
+       addItem(pContext.getPlayer(), ZeldaItems.ZORA_MASK.get().asItem());
             return InteractionResult.SUCCESS;
 
         }

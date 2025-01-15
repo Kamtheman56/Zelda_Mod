@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.grapples;
 
 import com.kamth.zeldamod.entity.custom.projectile.Hookshot;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -36,10 +36,10 @@ public class HookshotItem extends Item {
             p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
         });
             projectile.shootFromRotation(player, player.xRotO, player.yRotO, 1F, 1.6f,0f);
-            if (itemstack.is(ModItems.HOOKSHOT.get())){
+            if (itemstack.is(ZeldaItems.HOOKSHOT.get())){
                 projectile.Properties(itemstack, 15, 10, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
             }
-        if (itemstack.is(ModItems.LONGSHOT.get())){
+        if (itemstack.is(ZeldaItems.LONGSHOT.get())){
             projectile.Properties(itemstack, 30, 10, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
         }
             pLevel.addFreshEntity(projectile);

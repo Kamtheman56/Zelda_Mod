@@ -2,7 +2,7 @@ package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.items.grapples.ClawshotItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
 
 public class Clawshot extends AbstractArrow {
     private static final double BASE_DAMAGE = 5.0D;
-    private final ItemStack hookshot = new ItemStack(ModItems.CLAWSHOT.get());
+    private final ItemStack hookshot = new ItemStack(ZeldaItems.CLAWSHOT.get());
     boolean isPulling = false;
     private Entity hookedEntity;
     private double maxRange = 0D;

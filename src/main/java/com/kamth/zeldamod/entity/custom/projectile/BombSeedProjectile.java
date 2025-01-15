@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
@@ -24,7 +24,7 @@ public class BombSeedProjectile extends SeedProjectile {
     private Item referenceItem;
     public BombSeedProjectile(EntityType<? extends SeedProjectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.referenceItem = ModItems.BOMB_SEEDS.get();
+        this.referenceItem = ZeldaItems.BOMB_SEEDS.get();
     }
     public BombSeedProjectile(Level worldIn) {
         super(ModEntityTypes.BOMB_SEED.get(), worldIn);

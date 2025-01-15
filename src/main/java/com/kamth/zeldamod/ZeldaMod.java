@@ -10,7 +10,7 @@ import com.kamth.zeldamod.entity.client.*;
 import com.kamth.zeldamod.entity.mobs.KeeseEntity;
 import com.kamth.zeldamod.item.ZeldaCreativeTab;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.loot.ModLootModifiers;
 import com.kamth.zeldamod.painting.ModPaintings;
 import com.kamth.zeldamod.particle.ModParticles;
@@ -18,6 +18,9 @@ import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
@@ -42,7 +45,7 @@ public class ZeldaMod {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModCreativeModeTab.register(modEventBus);
-        ModItems.register(modEventBus);
+        ZeldaItems.register(modEventBus);
         ModEntityTypes.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModSounds.register(modEventBus);
@@ -100,6 +103,18 @@ public class ZeldaMod {
             EntityRenderers.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), ElectricChuchuRenderer::new);
             EntityRenderers.register(ModEntityTypes.KOROK.get(), KorokRenderer::new);
             EntityRenderers.register(ModEntityTypes.SKULLTULA.get(), SkulltulaRenderer::new);
+
+            ItemProperties.register(ZeldaItems.MILK_BOTTLE.get(), new ResourceLocation("used"), (stack, world, entity, seed) -> {
+
+                CompoundTag nbt = stack.getOrCreateTag();
+                if (!nbt.contains("used")) {
+                    return 0.0f;
+                }
+
+                boolean used = nbt.getBoolean("used");
+
+                return used ? 1.0f : 0.0f;
+            });
         }
     }
 }

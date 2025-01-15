@@ -3,7 +3,7 @@ package com.kamth.zeldamod.item.items.weapons;
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.custom.projectile.SwordBeam;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.ModTiers;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -58,7 +58,7 @@ public class MasterSwordGoldItem extends SwordItem {
             if(pStack.getDamageValue() < pStack.getMaxDamage() - 2) {
             }
             else {
-                ItemStack	newItemStack = new ItemStack(ModItems.MASTER_SWORD_INJURED.get());
+                ItemStack	newItemStack = new ItemStack(ZeldaItems.MASTER_SWORD_INJURED.get());
 
                 pEntityLiving.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
                 pEntityLiving.broadcastBreakEvent(EquipmentSlot.MAINHAND);

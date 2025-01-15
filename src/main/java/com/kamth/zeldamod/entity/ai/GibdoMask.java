@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.entity.ai;
 
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -49,7 +49,7 @@ public class GibdoMask extends Goal
             ItemStack stack0 = player.getItemBySlot(EquipmentSlot.HEAD);
             boolean l =  (this.mob.distanceTo(this.player) < 5.25D);
             if ((!stack0.isEmpty() && l))
-                return stack0.getItem() == ModItems.GIBDO_MASK.get();
+                return stack0.getItem() == ZeldaItems.GIBDO_MASK.get();
             return false;
         }
 

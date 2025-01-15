@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.masks;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -33,7 +33,7 @@ public class KamaroMask extends ArmorItem {
             player.addEffect(new MobEffectInstance(MobEffects.LUCK, 10, 0, true, true));
         }
 
-        if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.KAMARO_MASK.get() && player.isCrouching()) {
+        if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.KAMARO_MASK.get() && player.isCrouching()) {
             if(new Random().nextFloat() > .9f) {
                 double particleX = player.getX() + (player.getRandom().nextBoolean() ? 0.1D : 0);
                 double particleY = player.getY() + player.getRandom().nextFloat() * 0 + 1.2D;

@@ -2,7 +2,7 @@ package com.kamth.zeldamod.block.custom;
 
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -37,7 +37,7 @@ public class BombFlowerBlock extends CropBlock {
     }
     @Override
     protected ItemLike getBaseSeedId() {
-        return ModItems.BOMB_SEEDS.get();
+        return ZeldaItems.BOMB_SEEDS.get();
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.items.rings;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -26,7 +26,7 @@ public class PurpleRingItem extends Item {
         if (event.getEntity() instanceof Player) { // Check if the entity taking damage is a Player
             Player player = (Player) event.getEntity();
             ItemStack itemstack = player.getItemInHand(InteractionHand.OFF_HAND);
-            if (event.getEntity().getItemBySlot(EquipmentSlot.OFFHAND).getItem() == ModItems.PURPLE_RING.get()) {
+            if (event.getEntity().getItemBySlot(EquipmentSlot.OFFHAND).getItem() == ZeldaItems.PURPLE_RING.get()) {
                 event.setAmount(event.getAmount() / 2f);
                 itemstack.hurtAndBreak(7, player, (p_43296_) ->
                     p_43296_.broadcastBreakEvent(EquipmentSlot.OFFHAND));

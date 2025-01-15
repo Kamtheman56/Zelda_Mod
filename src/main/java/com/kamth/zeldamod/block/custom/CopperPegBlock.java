@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.block.custom;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -26,7 +26,7 @@ public class CopperPegBlock extends HammerPegBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ModItems.MEGATON.get())){
+        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ZeldaItems.MEGATON.get())){
             this.slam(pState, pLevel, pPos);
             float f = pState.getValue(POWERED) ? 0.6F : 0.5F;
             pLevel.playSound((Player)null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, f);

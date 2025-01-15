@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.masks;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -37,7 +37,7 @@ public class GiantMask extends ArmorItem {
         punchmode = event.player.getAttribute(Attributes.ATTACK_DAMAGE);
         AttributeInstance giantknockback;
         giantknockback = event.player.getAttribute(Attributes.ATTACK_KNOCKBACK);
-        if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GIANT_MASK.get()) {
+        if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.GIANT_MASK.get()) {
             stepHeight.addTransientModifier(STEP_HEIGHT_BONUS);
         }
         else {
@@ -45,7 +45,7 @@ public class GiantMask extends ArmorItem {
                 stepHeight.removeModifier(STEP_HEIGHT_BONUS);
             }
         }
-        if (!giantknockback.hasModifier(KNOCKBACK) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.AIR  && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GIANT_MASK.get()) {
+        if (!giantknockback.hasModifier(KNOCKBACK) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.AIR  && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.GIANT_MASK.get()) {
             giantknockback.addTransientModifier(KNOCKBACK);
         }
         else {
@@ -53,7 +53,7 @@ public class GiantMask extends ArmorItem {
                 giantknockback.removeModifier(KNOCKBACK);
             }
         }
-        if (!punchmode.hasModifier(BIG_PUNCH) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.AIR && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GIANT_MASK.get()) {
+        if (!punchmode.hasModifier(BIG_PUNCH) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == Items.AIR && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.GIANT_MASK.get()) {
             punchmode.addTransientModifier(BIG_PUNCH);
         }
         else {

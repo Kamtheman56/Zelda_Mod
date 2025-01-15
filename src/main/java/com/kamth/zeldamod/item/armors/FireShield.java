@@ -2,7 +2,7 @@ package com.kamth.zeldamod.item.armors;
 
 import be.florens.expandability.api.forge.LivingFluidCollisionEvent;
 import com.kamth.zeldamod.effect.ModEffects;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -29,7 +29,7 @@ public class FireShield extends ArmorItem {
     }
     public void onLivingFluidCollisionEvent(LivingFluidCollisionEvent event) {
 
-        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.FIRE_SHIELD.get()) {
+        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.FIRE_SHIELD.get()) {
             if (event.getEntity().isSprinting()) {
                 if (event.getEntity().hasEffect(ModEffects.FIRE.get()))
                     event.setResult(Event.Result.ALLOW);
@@ -42,7 +42,7 @@ public class FireShield extends ArmorItem {
         if (player.onGround() && world.getBlockState(player.getOnPos().below(0)).getBlock() != Blocks.LAVA) {
             player.addEffect(((new MobEffectInstance(ModEffects.FIRE.get(), 85, 0, true, true))));
         }
-        if (player.getCooldowns().isOnCooldown(ModItems.FIRE_SHIELD.get()))
+        if (player.getCooldowns().isOnCooldown(ZeldaItems.FIRE_SHIELD.get()))
         {
             return;
         }

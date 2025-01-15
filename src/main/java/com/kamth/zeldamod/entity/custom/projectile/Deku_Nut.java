@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
@@ -65,7 +65,7 @@ public class Deku_Nut extends AbstractArrow {
         }
 
     private ParticleOptions getParticle() {
-        ItemStack itemstack = ModItems.DEKU_NUT.get().getDefaultInstance();
+        ItemStack itemstack = ZeldaItems.DEKU_NUT.get().getDefaultInstance();
         return (ParticleOptions)(itemstack.isEmpty() ? ParticleTypes.HEART : new ItemParticleOption(ParticleTypes.ITEM, itemstack));
     }
     @Override

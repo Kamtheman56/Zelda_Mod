@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.masks;
 
 import be.florens.expandability.api.forge.PlayerSwimEvent;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -60,7 +60,7 @@ public class ZoraMask extends ArmorItem {
         if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ItemStack.EMPTY.getItem() ){
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10, 0, true, false));}
 //disadvantage state
-      if (player.isOnFire() && player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get() ){
+      if (player.isOnFire() && player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.ZORA_MASK.get() ){
           player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 10, 2, true, false));
           player.removeEffect(MobEffects.DAMAGE_BOOST);
           player.setTicksFrozen(0);}
@@ -79,11 +79,11 @@ player.setTicksFrozen(200);}
         if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.PACKED_ICE) {
             player.setTicksFrozen(310);}}
     public void LivingFallEvent(LivingFallEvent event) {
-        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
+        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.ZORA_MASK.get()) {
             if (event.getEntity().isEyeInFluidType(ForgeMod.WATER_TYPE.get())) {
                 event.setCanceled(true);}}}
     public void onLivingHurtEvent(LivingHurtEvent event){
-        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
+        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.ZORA_MASK.get()) {
             if (event.getSource().is(DamageTypes.FREEZE)) {
                 event.setAmount(event.getAmount() * 3);}
             if (event.getSource().is(DamageTypes.LIGHTNING_BOLT)) {
@@ -93,15 +93,15 @@ player.setTicksFrozen(200);}
         }
     }
     public void onPlayerSwim (PlayerSwimEvent event){
-        if (event.getEntity().isUnderWater() && event.getEntity().isCrouching() && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
+        if (event.getEntity().isUnderWater() && event.getEntity().isCrouching() && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.ZORA_MASK.get()) {
             event.setResult(Event.Result.DENY);}}
 
     private void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.START) {
             return;}
         AttributeInstance zoraswim = event.player.getAttribute(ForgeMod.SWIM_SPEED.get());
-        if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {}
-            if (!zoraswim.hasModifier(ZORA_SWIMSPEED) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.ZORA_MASK.get()) {
+        if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.ZORA_MASK.get()) {}
+            if (!zoraswim.hasModifier(ZORA_SWIMSPEED) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.ZORA_MASK.get()) {
                 zoraswim.addTransientModifier(ZORA_SWIMSPEED);}
          else {
 

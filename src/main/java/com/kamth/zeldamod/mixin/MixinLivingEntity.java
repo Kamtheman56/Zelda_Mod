@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.mixin;
 
 import com.kamth.zeldamod.effect.ModEffects;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -24,7 +24,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class MixinLivingEntity extends Entity {
-//credit to DeadlyDiamond98
+
+    // TODO: CHANGE MIXIN
 
     @Shadow public abstract ItemStack getItemBySlot(EquipmentSlot pSlot);
 
@@ -44,19 +45,19 @@ public abstract class MixinLivingEntity extends Entity {
     @SuppressWarnings("InvalidInjectorMethodSignature")
     @Redirect(method = "travel", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;getFriction(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/Entity;)F"))
     private float onTravel(BlockState state, LevelReader level, BlockPos pos, Entity entity) {
-        if (entity instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HOVER_BOOTS.get()) {
+        if (entity instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HOVER_BOOTS.get()) {
                 return 1.05F;
         }
-        if (entity instanceof LivingEntity living  && living.hasEffect(MobEffects.MOVEMENT_SPEED) && living.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
+        if (entity instanceof LivingEntity living  && living.hasEffect(MobEffects.MOVEMENT_SPEED) && living.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.GORON_MASK.get()) {
             return 1.08F;
         }
         return state.getFriction(level, pos, entity);}
     @ModifyVariable(method = "travel", at = @At("LOAD"), name = "d0", ordinal = 0, index = 2)//return
     public double inject3(double value) {
-        if (this.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.ROC_FEATHER_2.get()) || this.getItemBySlot(EquipmentSlot.OFFHAND).is(ModItems.ROC_FEATHER_2.get() )) {
+        if (this.getItemBySlot(EquipmentSlot.MAINHAND).is(ZeldaItems.ROC_FEATHER_2.get()) || this.getItemBySlot(EquipmentSlot.OFFHAND).is(ZeldaItems.ROC_FEATHER_2.get() )) {
                 return 0.04;
         }
-        if (this.getItemBySlot(EquipmentSlot.CHEST).is(ModItems.ROC_CAPE.get())) {
+        if (this.getItemBySlot(EquipmentSlot.CHEST).is(ZeldaItems.ROC_CAPE.get())) {
             return 0.05;
         }
     if (this.hasEffect(ModEffects.MINI.get())) {
@@ -69,9 +70,9 @@ public abstract class MixinLivingEntity extends Entity {
     @SuppressWarnings("InvalidInjectorMethodSignature")
     @Inject(method = "getBlockSpeedFactor", at = @At("HEAD"), cancellable = true)
     private void onGetBlockSpeedFactor(CallbackInfoReturnable<Float> cir) {
-        if (((Object)this) instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.HOVER_BOOTS.get()) {
+        if (((Object)this) instanceof LivingEntity living && living.getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HOVER_BOOTS.get()) {
             cir.setReturnValue(.96F);}
- if (((Object)this) instanceof LivingEntity living  && living.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.GORON_MASK.get()) {
+ if (((Object)this) instanceof LivingEntity living  && living.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.GORON_MASK.get()) {
         cir.setReturnValue(.97F);}}
 
 }

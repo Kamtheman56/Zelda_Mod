@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.mixin;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Fox;
@@ -30,7 +30,7 @@ public abstract class MixinFoxEntity extends Animal
     {
         Player player = level().getPlayerByUUID(uuid);
 
-        if (player != null && player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.KEATON_MASK.get())
+        if (player != null && player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.KEATON_MASK.get())
         {
             ci.setReturnValue(true);
         }

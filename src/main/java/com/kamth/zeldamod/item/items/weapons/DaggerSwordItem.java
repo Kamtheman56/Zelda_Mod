@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.weapons;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -64,7 +64,7 @@ public class DaggerSwordItem extends SwordItem {
 
         if (blockstate.is(ModTags.Blocks.SACRED_FLAMES)) {
             pContext.getItemInHand().shrink(1);
-            pContext.getPlayer().setItemInHand(pContext.getHand(), ModItems.MASTER_SWORD.get().getDefaultInstance());
+            pContext.getPlayer().setItemInHand(pContext.getHand(), ZeldaItems.MASTER_SWORD.get().getDefaultInstance());
             pContext.getLevel().playSound(pContext.getPlayer(),blockpos,SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS,1,1f);
               return InteractionResult.SUCCESS;}
 

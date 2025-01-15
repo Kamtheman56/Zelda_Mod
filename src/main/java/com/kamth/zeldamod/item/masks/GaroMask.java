@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.masks;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -23,7 +23,7 @@ public class GaroMask extends ArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 
-    if (player.getCooldowns().isOnCooldown(ModItems.GARO_MASK.get()))
+    if (player.getCooldowns().isOnCooldown(ZeldaItems.GARO_MASK.get()))
     {
         return;
     }
@@ -33,7 +33,7 @@ public class GaroMask extends ArmorItem {
            player.level().addFreshEntity(pillager);
            pillager.setItemInHand(InteractionHand.MAIN_HAND, Items.CROSSBOW.getDefaultInstance());
      pillager.moveTo(player.getX()+2, player.getY() , player.getZ() +1, player.getYRot(), player.getXRot());
-           player.getCooldowns().addCooldown(ModItems.GARO_MASK.get(),500);
+           player.getCooldowns().addCooldown(ZeldaItems.GARO_MASK.get(),500);
        }}}
 
 

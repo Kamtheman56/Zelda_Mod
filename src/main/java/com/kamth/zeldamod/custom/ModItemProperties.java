@@ -1,27 +1,27 @@
 package com.kamth.zeldamod.custom;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
 public class ModItemProperties {
     public static void addCustomItemProperties() {
-        makeShield(ModItems.DEKU_SHIELD.get());
-        makeShield(ModItems.HYLIAN_SHIELD.get());
-        makeShield(ModItems.MIRROR_SHIELD.get());
-        makeShield(ModItems.BALANCED_MIRROR_SHIELD.get());
-        makeBow(ModItems.SLINGSHOT.get());
-        makeBow(ModItems.SCATTERSHOT.get());
-        makeBow(ModItems.HERO_BOW.get());
-        makeBow(ModItems.REINFORCED_BOW.get());
-        makeShield(ModItems.DEKU_LEAF.get());
-        makeShield(ModItems.GLIDER.get());
-        makeShield(ModItems.LENS_OF_TRUTH.get());
-        makeShield(ModItems.CLAWSHOT.get());
-        makeShield(ModItems.CLAWSHOT_GODDESS.get());
-        makeShield(ModItems.FLUTE.get());
-        makeShield(ModItems.OCARINA.get());
+        makeShield(ZeldaItems.DEKU_SHIELD.get());
+        makeShield(ZeldaItems.HYLIAN_SHIELD.get());
+        makeShield(ZeldaItems.MIRROR_SHIELD.get());
+        makeShield(ZeldaItems.BALANCED_MIRROR_SHIELD.get());
+        makeBow(ZeldaItems.SLINGSHOT.get());
+        makeBow(ZeldaItems.SCATTERSHOT.get());
+        makeBow(ZeldaItems.HERO_BOW.get());
+        makeBow(ZeldaItems.REINFORCED_BOW.get());
+        makeShield(ZeldaItems.DEKU_LEAF.get());
+        makeShield(ZeldaItems.GLIDER.get());
+        makeShield(ZeldaItems.LENS_OF_TRUTH.get());
+        makeShield(ZeldaItems.CLAWSHOT.get());
+        makeShield(ZeldaItems.CLAWSHOT_GODDESS.get());
+        makeShield(ZeldaItems.FLUTE.get());
+        makeShield(ZeldaItems.OCARINA.get());
 
     }
 

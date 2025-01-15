@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.armors;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -23,7 +23,7 @@ public class DragonScale extends ArmorItem {
     }
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-        if (player.getCooldowns().isOnCooldown(ModItems.DRAGON_SCALE.get()))
+        if (player.getCooldowns().isOnCooldown(ZeldaItems.DRAGON_SCALE.get()))
         {
             return;
         }
@@ -41,7 +41,7 @@ public class DragonScale extends ArmorItem {
                 f3 *= f5 / f4;
                 player.push((double) f1, (double) f2, (double) f3);
                 player.startAutoSpinAttack(30);
-                player.getCooldowns().addCooldown(ModItems.DRAGON_SCALE.get(),15);
+                player.getCooldowns().addCooldown(ZeldaItems.DRAGON_SCALE.get(),15);
                 float f6 = 4F;
                 if (!player.hasEffect(MobEffects.WATER_BREATHING)){
                     player.setAirSupply(player.getAirSupply()-20);

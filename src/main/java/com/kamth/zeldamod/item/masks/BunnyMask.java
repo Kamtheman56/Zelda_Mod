@@ -2,7 +2,7 @@ package com.kamth.zeldamod.item.masks;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.custom.ModArmorMaterials;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.armors.render.BunnyHoodModel;
 import com.kamth.zeldamod.item.armors.render.ModModelLayers;
 import net.minecraft.ChatFormatting;
@@ -51,9 +51,9 @@ public class BunnyMask extends ArmorItem {
         AttributeInstance stepHeight;
         stepHeight = event.player.getAttribute(ForgeMod.STEP_HEIGHT_ADDITION.get());
 
-        if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.BUNNY_MASK.get()) {
+        if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.BUNNY_MASK.get()) {
         }
-        if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.BUNNY_MASK.get()) {
+        if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.BUNNY_MASK.get()) {
             stepHeight.addTransientModifier(STEP_HEIGHT_BONUS);
         }
         else {
