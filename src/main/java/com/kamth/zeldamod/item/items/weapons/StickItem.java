@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.weapons;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.gui.screens.Screen;
@@ -43,7 +43,7 @@ public class StickItem extends Item {
         return !pPlayer.isCreative();
     }
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-        if (pAttacker.getItemBySlot(EquipmentSlot.MAINHAND).is(ModItems.DEKU_STICK_LIT.get())){
+        if (pAttacker.getItemBySlot(EquipmentSlot.MAINHAND).is(ZeldaItems.DEKU_STICK_LIT.get())){
             pTarget.hurt(pTarget.damageSources().magic(), 5);
             pTarget.setRemainingFireTicks(40);
             pAttacker.level().playSound( pAttacker, pTarget.getOnPos(), SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 1.0F, pAttacker.level().getRandom().nextFloat() * 0.4F + 0.8F);
@@ -64,16 +64,16 @@ public class StickItem extends Item {
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
         ItemStack itemstack = pContext.getItemInHand();
-        if (blockstate.is(ModTags.Blocks.FLAME)  && pContext.getPlayer().getMainHandItem().is(ModItems.DEKU_STICK.get())) {
+        if (blockstate.is(ModTags.Blocks.FLAME)  && pContext.getPlayer().getMainHandItem().is(ZeldaItems.DEKU_STICK.get())) {
             level.playSound( pContext.getPlayer(), blockpos, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
             itemstack.shrink(1);
-           pContext.getPlayer().addItem(ModItems.DEKU_STICK_LIT.get().getDefaultInstance());
+           pContext.getPlayer().addItem(ZeldaItems.DEKU_STICK_LIT.get().getDefaultInstance());
             level.addParticle(ParticleTypes.FLAME, blockpos.getX() , blockpos.getY() + .5f, blockpos.getZ(), 0, 0, 0);
             level.addParticle(ParticleTypes.FLAME, blockpos.getX(), blockpos.getY() , blockpos.getZ() , 0, 0, 0);
             return InteractionResult.SUCCESS;
         }
 
-        if (blockstate.is(ModTags.Blocks.BURN) && pContext.getPlayer().getMainHandItem().is(ModItems.DEKU_STICK_LIT.get())) {
+        if (blockstate.is(ModTags.Blocks.BURN) && pContext.getPlayer().getMainHandItem().is(ZeldaItems.DEKU_STICK_LIT.get())) {
           level.destroyBlock(blockpos,false, pContext.getPlayer());
             level.addParticle(ParticleTypes.FLAME, blockpos.getX() , blockpos.getY() + .5f, blockpos.getZ(), 0, 0, 0);
             level.addParticle(ParticleTypes.FLAME, blockpos.getX(), blockpos.getY() , blockpos.getZ() , 0, 0, 0);
@@ -81,7 +81,7 @@ public class StickItem extends Item {
             return InteractionResult.SUCCESS;
         }
 
-        if (!CampfireBlock.canLight(blockstate) && !CandleBlock.canLight(blockstate) && !CandleCakeBlock.canLight(blockstate) && pContext.getPlayer().getMainHandItem().is(ModItems.DEKU_STICK_LIT.get())) {
+        if (!CampfireBlock.canLight(blockstate) && !CandleBlock.canLight(blockstate) && !CandleCakeBlock.canLight(blockstate) && pContext.getPlayer().getMainHandItem().is(ZeldaItems.DEKU_STICK_LIT.get())) {
             BlockPos blockpos1 = blockpos.relative(pContext.getClickedFace());
             if (BaseFireBlock.canBePlacedAt(level, blockpos1, pContext.getHorizontalDirection())) {
                 level.playSound( pContext.getPlayer(), blockpos1, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);

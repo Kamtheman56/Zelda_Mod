@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.armors;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -35,8 +35,8 @@ public class Flippers extends ArmorItem {
         if (event.phase != TickEvent.Phase.START) {
             return;}
         AttributeInstance flipper = event.player.getAttribute(ForgeMod.SWIM_SPEED.get());
-        if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.FLIPPERS.get()) {}
-        if (!flipper.hasModifier(FLIPPERS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.FLIPPERS.get()) {
+        if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.FLIPPERS.get()) {}
+        if (!flipper.hasModifier(FLIPPERS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.FLIPPERS.get()) {
             flipper.addTransientModifier(FLIPPERS);}
         else {
             if (flipper.hasModifier(FLIPPERS)) {

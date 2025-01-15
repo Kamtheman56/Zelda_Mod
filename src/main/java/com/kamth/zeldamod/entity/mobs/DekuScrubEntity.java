@@ -2,7 +2,7 @@ package com.kamth.zeldamod.entity.mobs;
 
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.items.z_sort_through_later.SlingshotItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -154,7 +154,7 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
 
     protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
         super.populateDefaultEquipmentSlots(pRandom, pDifficulty);
-        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.SLINGSHOT.get()));
+        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ZeldaItems.SLINGSHOT.get()));
     }
 
     @Override
@@ -210,7 +210,7 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
             ItemStack stack0 = player.getItemBySlot(EquipmentSlot.HEAD);
             boolean l = (this.mob.distanceTo(this.player) < 10.25);
             if ((!stack0.isEmpty() && l))
-                return stack0.getItem() == ModItems.DEKU_MASK.get();
+                return stack0.getItem() == ZeldaItems.DEKU_MASK.get();
             return false;
         }
 

@@ -6,7 +6,7 @@
   "overrides": [
     {
       "predicate": {
-        "used": true
+        "used": 1
       },
       "model": "zeldamod:item/milk_bottle_half"
     }

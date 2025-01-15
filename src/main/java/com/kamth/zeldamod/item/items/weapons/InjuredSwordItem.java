@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.weapons;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -45,7 +45,7 @@ public class InjuredSwordItem extends SwordItem {
             pStack.hurtAndBreak(3, pAttacker, (p_43276_) -> p_43276_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         }
         else {
-            ItemStack	newItemStack = new ItemStack(ModItems.MASTER_SWORD_DAGGER.get());
+            ItemStack	newItemStack = new ItemStack(ZeldaItems.MASTER_SWORD_DAGGER.get());
             pAttacker.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
             pAttacker.broadcastBreakEvent(EquipmentSlot.MAINHAND);
         }
@@ -61,7 +61,7 @@ public class InjuredSwordItem extends SwordItem {
                 pStack.hurtAndBreak(1, pEntityLiving, (p_43276_) -> p_43276_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
             }
             else {
-                ItemStack	newItemStack = new ItemStack(ModItems.MASTER_SWORD_DAGGER.get());
+                ItemStack	newItemStack = new ItemStack(ZeldaItems.MASTER_SWORD_DAGGER.get());
                 pEntityLiving.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
                 pEntityLiving.broadcastBreakEvent(EquipmentSlot.MAINHAND);
             }
@@ -95,7 +95,7 @@ public class InjuredSwordItem extends SwordItem {
 
         if (blockstate.is(ModTags.Blocks.SACRED_FLAMES)) {
             pContext.getItemInHand().shrink(1);
-            pContext.getPlayer().setItemInHand(pContext.getHand(), ModItems.MASTER_SWORD.get().getDefaultInstance());
+            pContext.getPlayer().setItemInHand(pContext.getHand(), ZeldaItems.MASTER_SWORD.get().getDefaultInstance());
             pContext.getLevel().playSound(pContext.getPlayer(),blockpos,SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS,1,1f);
             return InteractionResult.SUCCESS;}
 

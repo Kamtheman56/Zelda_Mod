@@ -4,7 +4,7 @@ package com.kamth.zeldamod.item.masks;
 import be.florens.expandability.api.forge.LivingFluidCollisionEvent;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.effect.ModEffects;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -34,63 +34,64 @@ public class DekuMask extends ArmorItem {
         MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
     }
 
-    public int timer = 0;
-
     public void onLivingFluidCollisionEvent(LivingFluidCollisionEvent event) {
-        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
+        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.DEKU_MASK.get()) {
             if (event.getEntity().isSprinting()) {
-    if (event.getEntity().hasEffect(ModEffects.DEKU.get()))
+                if (event.getEntity().hasEffect(ModEffects.DEKU.get()))
                     event.setResult(Event.Result.ALLOW);
-    event.getEntity().shouldDiscardFriction();
-                }}}
+                event.getEntity().shouldDiscardFriction();
+            }
+        }
+    }
 
 
     public void onLivingHurtEvent(LivingHurtEvent event) {
-            if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.DEKU_MASK.get()) {
-                if (event.getSource().is(DamageTypes.ON_FIRE)) {
-                    event.setAmount(event.getAmount() * 2);}
-                if (event.getSource().is(DamageTypes.IN_FIRE)) {
-                    event.setAmount(event.getAmount() * 2);}
-                if (event.getSource().is(DamageTypes.LAVA)) {
-                    event.setAmount(event.getAmount() * 3);}
-                if (event.getSource().is(DamageTypes.DROWN)) {
-                    event.setAmount(event.getAmount() * 4);}
-                if (event.getSource().is(DamageTypes.CACTUS)) {
-                    event.setResult(Event.Result.DENY);}
-            }}
- 
+        if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.DEKU_MASK.get()) {
+            if (event.getSource().is(DamageTypes.ON_FIRE)) {
+                event.setAmount(event.getAmount() * 2);}
+            if (event.getSource().is(DamageTypes.IN_FIRE)) {
+                event.setAmount(event.getAmount() * 2);}
+            if (event.getSource().is(DamageTypes.LAVA)) {
+                event.setAmount(event.getAmount() * 3);}
+            if (event.getSource().is(DamageTypes.DROWN)) {
+                event.setAmount(event.getAmount() * 4);}
+            if (event.getSource().is(DamageTypes.CACTUS)) {
+                event.setResult(Event.Result.DENY);}
+        }
+    }
+
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
         player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 10, 1, true, false, false));
         if (player.isCrouching()) {
             player.addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 2, true, false));
         }
-        {
-            Level level = world;
-            if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.DEKU)) {
-                if (player.isCrouching()) {
-                    player.addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 6, true, false));
-                }
-            }
-            if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.DEKU_GOLD)) {
-                if (player.isCrouching()) {
-                    player.addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 9, true, false));
-                }
-            }
-            if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.LILY_PAD) {
-                player.addEffect((new MobEffectInstance(ModEffects.DEKU.get(), 80, 0, true, false)));
-            }
-            //if not standing on water or in water, get effect. Else get nothing
-            if (player.onGround() && level.getBlockState(player.getOnPos().below(1)).getBlock() != Blocks.WATER) {
-                player.addEffect(((new MobEffectInstance(ModEffects.DEKU.get(), 80, 0, true, false))));
-            }
-            if (level.getBlockState(player.getOnPos().below(0)).getBlock() == Blocks.LAVA) {
-                player.removeEffect(ModEffects.DEKU.get());
-            }
-            else if (player.isSwimming()){
-                player.removeEffect(ModEffects.DEKU.get());
+
+        Level level = world;
+        if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.DEKU)) {
+            if (player.isCrouching()) {
+                player.addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 6, true, false));
             }
         }
+        if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.DEKU_GOLD)) {
+            if (player.isCrouching()) {
+                player.addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 9, true, false));
+            }
+        }
+        if (level.getBlockState(player.getOnPos()).getBlock() == Blocks.LILY_PAD) {
+            player.addEffect((new MobEffectInstance(ModEffects.DEKU.get(), 80, 0, true, false)));
+        }
+        //if not standing on water or in water, get effect. Else get nothing
+        if (player.onGround() && level.getBlockState(player.getOnPos().below(1)).getBlock() != Blocks.WATER) {
+            player.addEffect(((new MobEffectInstance(ModEffects.DEKU.get(), 80, 0, true, false))));
+        }
+        if (level.getBlockState(player.getOnPos().below(0)).getBlock() == Blocks.LAVA) {
+            player.removeEffect(ModEffects.DEKU.get());
+        }
+        else if (player.isSwimming()){
+            player.removeEffect(ModEffects.DEKU.get());
+        }
+
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
@@ -100,7 +101,8 @@ public class DekuMask extends ArmorItem {
             components.add(Component.translatable("item.deku_mask.description_basic").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
 
         }
-    }}
+    }
+}
 
 
 

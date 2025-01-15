@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.z_sort_through_later;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -66,7 +66,7 @@ public class ReinforcedBowItem extends BowItem {
                         if (f == 1.0F) {
                             abstractarrow.setCritArrow(true);
                         }
-                        if (!pLevel.isClientSide && player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.HAWK_MASK.get())) {
+                        if (!pLevel.isClientSide && player.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWK_MASK.get())) {
                             abstractarrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, f * 5.0F, 0.0F);
                                 abstractarrow.setCritArrow(true);
                             }

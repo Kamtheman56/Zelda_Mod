@@ -1,8 +1,9 @@
 package com.kamth.zeldamod.entity.mobs;
 
 import com.kamth.zeldamod.custom.ModTags;
+import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.mobs.variants.KorokVariants;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -33,6 +34,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
@@ -53,9 +55,9 @@ public class KorokEntity extends Animal {
     public final AnimationState sitAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
     private int danceAnimationTimeout = 0;
-    private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.APPLE, ModItems.BAKED_APPLE.get(), Items.COOKIE);
+    private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.APPLE, ZeldaItems.BAKED_APPLE.get(), Items.COOKIE);
     public static final String VARIANT_KEY = "variant";
- ;
+    ;
     private boolean partyKorok;
     private BlockPos jukebox;
 
@@ -123,7 +125,7 @@ public class KorokEntity extends Animal {
         this.goalSelector.addGoal(3, new SitOnFlower(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
-       this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, DekuScrubEntity.class, 3, 1.5, 1));
+        this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, DekuScrubEntity.class, 3, 1.5, 1));
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, DekuMadScrubEntity.class, 3, 1.5, 1));
         this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, FOOD_ITEMS, false));
     }
@@ -135,13 +137,13 @@ public class KorokEntity extends Animal {
     public MobType getMobType() {
         return MobType.ARTHROPOD;
     }
-@Override
+    @Override
     public void aiStep() {
         if (this.jukebox == null || !this.jukebox.closerToCenterThan(this.position(), 3.46D) || !this.level().getBlockState(this.jukebox).is(Blocks.JUKEBOX)) {
             this.partyKorok = false;
             this.jukebox = null;
         }
-    this.updateDuplicationCooldown();
+        this.updateDuplicationCooldown();
         super.aiStep();
     }
     public void setRecordPlayingNearby(BlockPos pPos, boolean pIsPartying) {
@@ -169,22 +171,22 @@ public class KorokEntity extends Animal {
         }
         public boolean canUse()
         {
-                this.player = this.mob.level().getNearestPlayer(TargetingConditions.DEFAULT,3D,3D, 1);
-                if (this.player == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    return shouldFollow(player);
-                }
+            this.player = this.mob.level().getNearestPlayer(TargetingConditions.DEFAULT,3D,3D, 1);
+            if (this.player == null)
+            {
+                return false;
+            }
+            else
+            {
+                return shouldFollow(player);
+            }
         }
         private <L> boolean shouldFollow(Player player)
         {
             ItemStack stack0 = player.getItemBySlot(EquipmentSlot.HEAD);
             boolean l =  (this.mob.distanceTo(this.player) < 12D);
             if ((!stack0.isEmpty() && l))
-                return stack0.getItem() == ModItems.KOROK_MASK.get();
+                return stack0.getItem() == ZeldaItems.KOROK_MASK.get();
             return false;
         }
         public void tick()
@@ -217,9 +219,9 @@ public class KorokEntity extends Animal {
             itemstack.shrink(1);
             pPlayer.playSound(ModSounds.KOROK_CRUNCH.get(), 1.0F, .8F);
             pPlayer.playSound(ModSounds.KOROK_LIKES.get(), 1.0F, 1.0F);
-            ItemStack itemstack1 = ModItems.KOROK_SEED.get().getDefaultInstance();
-            ItemStack itemstack2 = ModItems.KOROK_SEED.get().getDefaultInstance();
-            ItemStack itemstack3 = ModItems.KOROK_SEED.get().getDefaultInstance();
+            ItemStack itemstack1 = ZeldaItems.KOROK_SEED.get().getDefaultInstance();
+            ItemStack itemstack2 = ZeldaItems.KOROK_SEED.get().getDefaultInstance();
+            ItemStack itemstack3 = ZeldaItems.KOROK_SEED.get().getDefaultInstance();
             this.spawnAtLocation(itemstack1);
             this.spawnAtLocation(itemstack2);
             this.spawnAtLocation(itemstack3);
@@ -231,7 +233,7 @@ public class KorokEntity extends Animal {
             itemstack.shrink(1);
             pPlayer.playSound(ModSounds.KOROK_CRUNCH.get(), 1.0F, 1.0F);
             pPlayer.playSound(ModSounds.KOROK_LIKES.get(), 1.0F, 1.0F);
-            ItemStack itemstack1 = ModItems.KOROK_SEED.get().getDefaultInstance();
+            ItemStack itemstack1 = ZeldaItems.KOROK_SEED.get().getDefaultInstance();
             this.spawnAtLocation(itemstack1);
             this.resetDuplicationCooldown();
             return InteractionResult.sidedSuccess(this.level().isClientSide);
@@ -265,22 +267,22 @@ public class KorokEntity extends Animal {
         if (holder.is(ModTags.Biomes.SPAWNS_BIRCH_KOROK)) {
             this.setVariant(KorokVariants.BIRCH);
         }
-       else if (holder.is(ModTags.Biomes.SPAWNS_ACACIA_KOROK)) {
+        else if (holder.is(ModTags.Biomes.SPAWNS_ACACIA_KOROK)) {
             this.setVariant(KorokVariants.ACACIA);
         }
         else if (holder.is(ModTags.Biomes.SPAWNS_JUNGLE_KOROK)) {
             this.setVariant(KorokVariants.JUNGLE);
         }
-       else  if (holder.is(ModTags.Biomes.SPAWNS_DARK_OAK_KOROK)) {
+        else  if (holder.is(ModTags.Biomes.SPAWNS_DARK_OAK_KOROK)) {
             this.setVariant(KorokVariants.DARK);
         }
-       else  if (holder.is(ModTags.Biomes.SPAWNS_MUSHROOM_KOROK)) {
+        else  if (holder.is(ModTags.Biomes.SPAWNS_MUSHROOM_KOROK)) {
             this.setVariant(KorokVariants.MUSHROOM);
         }
-       else  if (holder.is(ModTags.Biomes.SPAWNS_CHERRY_KOROK)) {
+        else  if (holder.is(ModTags.Biomes.SPAWNS_CHERRY_KOROK)) {
             this.setVariant(KorokVariants.CHERRY);
         }
-      else {
+        else {
             this.setVariant(KorokVariants.DEFAULT);
         }
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
@@ -308,5 +310,21 @@ public class KorokEntity extends Animal {
         this.entityData.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
     }
 
-
+    public static void convertFromLightning(EntityStruckByLightningEvent event) {
+        if (event.getEntity().getType() == ModEntityTypes.KOROK.get() && !event.getEntity().level().isClientSide) {
+            ServerLevel level = (ServerLevel) event.getEntity().level();
+            event.setCanceled(true);
+            KorokEntity korok = ModEntityTypes.KOROK.get().create(event.getEntity().level());
+            korok.moveTo(event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), event.getEntity().getYRot(), event.getEntity().getXRot());
+            korok.finalizeSpawn(level, level.getCurrentDifficultyAt(korok.blockPosition()), MobSpawnType.CONVERSION, null, null);
+            if (event.getEntity().hasCustomName()) {
+                korok.setCustomName(event.getEntity().getCustomName());
+                korok.setCustomNameVisible(event.getEntity().isCustomNameVisible());
+            }
+            korok.setVariant(KorokVariants.MUSHROOM);
+            korok.setPersistenceRequired();
+            level.addFreshEntityWithPassengers(korok);
+            event.getEntity().discard();
+        }
+    }
 }

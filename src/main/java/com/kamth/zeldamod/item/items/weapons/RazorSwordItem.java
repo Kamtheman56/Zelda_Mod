@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.items.weapons;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -33,7 +33,7 @@ public class RazorSwordItem extends SwordItem {
         if(pStack.getDamageValue() < pStack.getMaxDamage() - 2) {
         }
         else {
-            ItemStack	newItemStack = new ItemStack(ModItems.KOKIRI_SWORD2.get());
+            ItemStack	newItemStack = new ItemStack(ZeldaItems.KOKIRI_SWORD2.get());
 
             pAttacker.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
             pAttacker.broadcastBreakEvent(EquipmentSlot.MAINHAND);
@@ -50,7 +50,7 @@ public class RazorSwordItem extends SwordItem {
             if(pStack.getDamageValue() < pStack.getMaxDamage() - 3) {
             }
             else {
-                ItemStack	newItemStack = new ItemStack(ModItems.KOKIRI_SWORD2.get());
+                ItemStack	newItemStack = new ItemStack(ZeldaItems.KOKIRI_SWORD2.get());
 
                 pEntityLiving.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);
                 pEntityLiving.broadcastBreakEvent(EquipmentSlot.MAINHAND);

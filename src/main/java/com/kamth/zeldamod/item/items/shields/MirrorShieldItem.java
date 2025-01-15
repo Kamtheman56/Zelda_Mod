@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.shields;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.DamageTypeTags;
@@ -35,7 +35,7 @@ public class MirrorShieldItem extends ShieldItem {
 
 
     public void ShieldBlockEvent(ShieldBlockEvent event){
-        if (event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ModItems.MIRROR_SHIELD.get()  && !event.getDamageSource().is(DamageTypeTags.IS_PROJECTILE)) {
+        if (event.getEntity().getItemBySlot(EquipmentSlot.MAINHAND).getItem() == ZeldaItems.MIRROR_SHIELD.get()  && !event.getDamageSource().is(DamageTypeTags.IS_PROJECTILE)) {
       event.getEntity().getUseItem().hurtAndBreak(12, event.getEntity(), (p_43276_) -> p_43276_.broadcastBreakEvent(InteractionHand.MAIN_HAND));
         }
     }
@@ -61,7 +61,7 @@ public class MirrorShieldItem extends ShieldItem {
     private static <T extends Projectile> boolean tryReflect(T projectile, LivingEntity entityBlocking, boolean takeOwnership) {
         if (!projectile.getType().is(ModTags.Entities.MIRROR) && entityBlocking.isBlocking()) {
             ItemStack itemUsed = entityBlocking.getUseItem();
-            if (itemUsed.is(ModItems.MIRROR_SHIELD.get())){
+            if (itemUsed.is(ZeldaItems.MIRROR_SHIELD.get())){
                 return ReflectProjectile(projectile, entityBlocking, takeOwnership);
             }
         }

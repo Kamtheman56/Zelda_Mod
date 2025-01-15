@@ -12,7 +12,7 @@ import net.minecraftforge.event.village.WandererTradesEvent;
 
 import java.util.List;
 
-import static com.kamth.zeldamod.item.ModItems.*;
+import static com.kamth.zeldamod.item.ZeldaItems.*;
 import static net.minecraft.world.item.Items.*;
 
 public class ZeldaTrades {
@@ -27,7 +27,7 @@ public class ZeldaTrades {
             // 1
             addTrade(trades, 1,
                     new ItemStack(EMERALD, 4), // Cost
-                    new ItemStack(KOKIRI_SWORD.get(), 1), 3, 6, 0.02f
+                    new ItemStack(KOKIRI_SWORD.get()), 3, 6, 0.02f
             );
 
             // 2

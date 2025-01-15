@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.masks;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -34,20 +34,20 @@ public class TruthMask extends ArmorItem {
 
     public void onPlayerEntityInteract(PlayerInteractEvent.EntityInteract event)
     {
-        if( event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.TRUTH_MASK.get()) {
+        if( event.getLevel().isClientSide && event.getHand() == InteractionHand.MAIN_HAND && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.TRUTH_MASK.get()) {
             if (event.getTarget() instanceof Wolf)
             {
                 event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Thank you for downloading the mod!"));}}}
     private void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.START) {return;}
         AttributeInstance truth = event.player.getAttribute(Attributes.LUCK);
-        if (!truth.hasModifier(TRUTH) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.TRUTH_MASK.get()) {
+        if (!truth.hasModifier(TRUTH) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.TRUTH_MASK.get()) {
             truth.addTransientModifier(TRUTH);}
         else {if (truth.hasModifier(TRUTH)) {
                 truth.removeModifier(TRUTH);}}}
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if (stack.is(ModItems.TRUTH_MASK.get())) {
+        if (stack.is(ZeldaItems.TRUTH_MASK.get())) {
             components.add(Component.translatable("item.truth_mask.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
     }

@@ -45,7 +45,6 @@ import com.kamth.zeldamod.item.items.z_sort_through_later.*;
 import com.kamth.zeldamod.item.masks.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Style;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
@@ -56,9 +55,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Collections;
-import java.util.function.Supplier;
 
-public class ModItems {
+public class ZeldaItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ZeldaMod.MOD_ID);
 

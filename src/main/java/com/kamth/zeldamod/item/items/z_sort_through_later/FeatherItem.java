@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.items.z_sort_through_later;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -28,7 +28,7 @@ public class FeatherItem extends Item {
                 ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 1, true, false));
 
             }
-            if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() instanceof FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PEGASUS_BOOTS.get() ||entity instanceof Player && ((Player) entity).getMainHandItem().getItem() instanceof FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PEGASUS_BOOTS.get() ) {
+            if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() instanceof FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.PEGASUS_BOOTS.get() ||entity instanceof Player && ((Player) entity).getMainHandItem().getItem() instanceof FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.PEGASUS_BOOTS.get() ) {
                 ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 3, true, false));
 
             }

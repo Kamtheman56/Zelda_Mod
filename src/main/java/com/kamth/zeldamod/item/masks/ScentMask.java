@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.masks;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -26,11 +26,11 @@ public class ScentMask extends ArmorItem {
     }
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {
-        if (player.getCooldowns().isOnCooldown(ModItems.SCENT_MASK.get()))
+        if (player.getCooldowns().isOnCooldown(ZeldaItems.SCENT_MASK.get()))
         {
             return;
         }
-        if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.SCENT_MASK.get() && !player.isCrouching() && level.getBlockState(player.getOnPos()).is(ModTags.Blocks.SCENT) ) {
+        if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.SCENT_MASK.get() && !player.isCrouching() && level.getBlockState(player.getOnPos()).is(ModTags.Blocks.SCENT) ) {
 
             if (!level.isRaining()){
                 player.hasPose(Pose.SWIMMING);
@@ -43,29 +43,29 @@ public class ScentMask extends ArmorItem {
                     player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
 player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(6, player, (p_43296_) -> {
     p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
-                    player.spawnAtLocation(ModItems.LIFE_MUSHROOM.get());
-                   player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),70);
+                    player.spawnAtLocation(ZeldaItems.LIFE_MUSHROOM.get());
+                   player.getCooldowns().addCooldown(ZeldaItems.SCENT_MASK.get(),70);
                 }
                 if(new Random().nextFloat() > .7f) {
                     player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
-                    player.spawnAtLocation(ModItems.MINI_MUSHROOM.get());
+                    player.spawnAtLocation(ZeldaItems.MINI_MUSHROOM.get());
                     player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(3, player, (p_43296_) -> {
                         p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
-                   player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),65);
+                   player.getCooldowns().addCooldown(ZeldaItems.SCENT_MASK.get(),65);
                 }
                 if(new Random().nextFloat() > .6f) {
                     player.playSound(SoundEvents.PIGLIN_ADMIRING_ITEM);
-                    player.spawnAtLocation(ModItems.SUPER_MUSHROOM.get());
+                    player.spawnAtLocation(ZeldaItems.SUPER_MUSHROOM.get());
                     player.getItemBySlot(EquipmentSlot.HEAD).hurtAndBreak(2, player, (p_43296_) -> {
                         p_43296_.broadcastBreakEvent(EquipmentSlot.HEAD);});
-                    player.getCooldowns().addCooldown(ModItems.SCENT_MASK.get(),55);
+                    player.getCooldowns().addCooldown(ZeldaItems.SCENT_MASK.get(),55);
                 }
             }
         }
      }
     @Override
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer){
-        return stack.getItem() == ModItems.SCENT_MASK.get();
+        return stack.getItem() == ZeldaItems.SCENT_MASK.get();
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {

@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.entity.mobs;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -111,7 +111,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
 
     protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
         super.populateDefaultEquipmentSlots(pRandom, pDifficulty);
-                this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ModItems.MAGIC_SWORD.get()));
+                this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ZeldaItems.MAGIC_SWORD.get()));
                  this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
         }
 

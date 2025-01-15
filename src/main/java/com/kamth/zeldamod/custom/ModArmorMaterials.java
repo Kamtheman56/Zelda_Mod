@@ -2,7 +2,7 @@ package com.kamth.zeldamod.custom;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.ModBlocks;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -33,16 +33,16 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.RABBIT_FOOT); }),
     FIERCE("fierce", 0, new int[]{0, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
             0.0F, 6.0F, () -> {
-        return Ingredient.of(ModItems.DEITY_SHARD.get()); }),
+        return Ingredient.of(ZeldaItems.DEITY_SHARD.get()); }),
     NIGHT("night", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.AMBIENT_CAVE.get(),
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.IRON_INGOT); }),
     BLAST("blast", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.CREEPER_PRIMED,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(ModItems.BOMB.get()); }),
+        return Ingredient.of(ZeldaItems.BOMB.get()); }),
     MAJORA("majora", 0, new int[]{0, 4, 5, 6}, 0, ModSounds.MAJORA.get(),
             0.0F, 6.0F, () -> {
-        return Ingredient.of(ModItems.DEITY_SHARD.get()); }),
+        return Ingredient.of(ZeldaItems.DEITY_SHARD.get()); }),
     SCENT("scent", 0, new int[]{0, 4, 5, 0}, 0, SoundEvents.PIGLIN_AMBIENT,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.PORKCHOP); }),
@@ -137,7 +137,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(Items.GREEN_WOOL); }),
     Roc("roc", 0, new int[]{1, 2, 2, 1}, 0, SoundEvents.PARROT_FLY,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(ModItems.ROC_FEATHER.get()); }),
+        return Ingredient.of(ZeldaItems.ROC_FEATHER.get()); }),
     Champions("champions", 0, new int[]{1, 7, 7, 1}, 16, SoundEvents.ARMOR_EQUIP_CHAIN,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.CHAIN); }),
@@ -146,15 +146,15 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(ModBlocks.NIGHTSHADE.get()); }),
     Fire("fire", 0, new int[]{2, 2, 5, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(ModItems.DIN_PEARL.get()); }),
+        return Ingredient.of(ZeldaItems.DIN_PEARL.get()); }),
     Dragon("dragon", 0, new int[]{2, 2, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
-        return Ingredient.of(ModItems.NAYRU_PEARL.get()); }),
+        return Ingredient.of(ZeldaItems.NAYRU_PEARL.get()); }),
     Archaic("archaic", 0, new int[]{2, 4, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GREEN_WOOL); }),
     Dark("dark", 0, new int[]{2, 5, 2, 2}, 6, SoundEvents.ARMOR_EQUIP_LEATHER,
-            0.0F, 0.0F, () -> Ingredient.of(ModItems.GLOOM_CLUMP.get())),
+            0.0F, 0.0F, () -> Ingredient.of(ZeldaItems.GLOOM_CLUMP.get())),
     Hylian("hylian", 0, new int[]{3, 4, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> Ingredient.of(Items.BLACK_WOOL));
 

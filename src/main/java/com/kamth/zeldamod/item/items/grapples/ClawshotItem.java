@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.grapples;
 
 import com.kamth.zeldamod.entity.custom.projectile.Clawshot;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -48,11 +48,11 @@ public class ClawshotItem extends Item {
                 projectile.setOwner(player);
                 projectile.setBaseDamage(4);
                 projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f, 0f);
-            if (itemstack.is(ModItems.CLAWSHOT.get())){
+            if (itemstack.is(ZeldaItems.CLAWSHOT.get())){
                 projectile.Properties(itemstack, 25, 12, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
                 player.getCooldowns().addCooldown(this, 40);
             }
-            if (itemstack.is(ModItems.CLAWSHOT_GODDESS.get())){
+            if (itemstack.is(ZeldaItems.CLAWSHOT_GODDESS.get())){
                 projectile.Properties(itemstack, 40, 12, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
                 player.getCooldowns().addCooldown(this, 40);
             }

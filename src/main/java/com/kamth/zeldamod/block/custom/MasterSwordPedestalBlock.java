@@ -2,21 +2,15 @@ package com.kamth.zeldamod.block.custom;
 
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.block.entity.MasterSwordPedestalEntity;
-import com.kamth.zeldamod.block.entity.SwordPedestalEntity;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.HolderSet;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.Container;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
@@ -94,21 +88,21 @@ public class MasterSwordPedestalBlock extends BaseEntityBlock {
                 pLevel.updateNeighborsAt(pPos,this);
                 return InteractionResult.SUCCESS;
             }
-            if( stackInHand.is(ModItems.NAYRU_PEARL.get()) && !pState.getValue(wisdom)) {
+            if( stackInHand.is(ZeldaItems.NAYRU_PEARL.get()) && !pState.getValue(wisdom)) {
                 stackInHand.shrink(1);
                 pLevel.playSound(pPlayer,pPos, SoundEvents.CHISELED_BOOKSHELF_INSERT_ENCHANTED,SoundSource.BLOCKS);
                 pPlayer.displayClientMessage(Component.translatable("Wisdom").withStyle(ChatFormatting.BLUE).withStyle(ChatFormatting.BOLD), true);
                 pLevel.setBlock(pPos, pState.cycle(wisdom),3);
                 return InteractionResult.SUCCESS;
             }
-            if( stackInHand.is(ModItems.FARORE_PEARL.get()) && !pState.getValue(courage)) {
+            if( stackInHand.is(ZeldaItems.FARORE_PEARL.get()) && !pState.getValue(courage)) {
                 stackInHand.shrink(1);
                 pLevel.playSound(pPlayer,pPos, SoundEvents.CHISELED_BOOKSHELF_INSERT_ENCHANTED,SoundSource.BLOCKS);
                 pPlayer.displayClientMessage(Component.translatable("Courage").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.BOLD), true);
                 pLevel.setBlock(pPos, pState.cycle(courage),3);
                 return InteractionResult.SUCCESS;
             }
-            if( stackInHand.is(ModItems.DIN_PEARL.get()) && !pState.getValue(power)) {
+            if( stackInHand.is(ZeldaItems.DIN_PEARL.get()) && !pState.getValue(power)) {
                 stackInHand.shrink(1);
                 pLevel.playSound(pPlayer,pPos, SoundEvents.CHISELED_BOOKSHELF_INSERT_ENCHANTED,SoundSource.BLOCKS);
                 pPlayer.displayClientMessage(Component.translatable("Power").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD), true);

@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.block.custom;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -22,7 +22,7 @@ public class BrownBricks extends Block {
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos,
                                  Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (pPlayer.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.TRUTH_MASK.get())){
+        if (pPlayer.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.TRUTH_MASK.get())){
             pLevel.playSound(pPlayer, pPos, ModSounds.BROWN_BRICKS.get(), SoundSource.BLOCKS,
                     1f, 1F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
             pLevel.addParticle(ParticleTypes.NOTE, (double)pPos.getX() + 0.5D, (double)pPos.getY() + 1.2D, (double)pPos.getZ() + 0.5D, (double)1 / 24.0D, 0.0D, 0.0D);

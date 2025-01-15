@@ -3,7 +3,7 @@ package com.kamth.zeldamod.block;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.custom.*;
 import com.kamth.zeldamod.effect.ModEffects;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
@@ -159,7 +159,7 @@ public static final RegistryObject<Block> SECRET_STONE = registerBlock("secret_s
         return toReturn;
     }
 private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block){
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        return ZeldaItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
 }
     public static void register(IEventBus eventBus){
         BLOCKS.register(eventBus);

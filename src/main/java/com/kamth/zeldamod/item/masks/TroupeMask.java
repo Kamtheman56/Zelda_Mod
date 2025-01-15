@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.masks;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -21,7 +21,7 @@ public class TroupeMask extends ArmorItem {
     }
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {
-        if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ModItems.TROUPE_MASK.get() && player.isCrouching()) {
+        if (player.getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.TROUPE_MASK.get() && player.isCrouching()) {
             double particleX = player.getX() + (player.getRandom().nextBoolean() ? -0.1D : 0);
             double particleY = player.getY() + player.getRandom().nextFloat() * 0 - -1.2D;
             double particleZ = player.getZ() + (player.getRandom().nextBoolean() ? -0.1D : 0);

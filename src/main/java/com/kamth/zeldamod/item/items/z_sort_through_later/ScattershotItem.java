@@ -3,7 +3,7 @@ package com.kamth.zeldamod.item.items.z_sort_through_later;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.custom.projectile.BombSeedProjectile;
 import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -90,7 +90,7 @@ public class ScattershotItem extends SlingshotItem {
     @Nonnull
     private SeedProjectile createAmmoEntity(Level level, ItemStack itemStack) {
         Item bullet = itemStack.getItem();
-        if (bullet == ModItems.BOMB_SEEDS.get()) {
+        if (bullet == ZeldaItems.BOMB_SEEDS.get()) {
             return new BombSeedProjectile(level);}
         else  return new SeedProjectile(level);
     }

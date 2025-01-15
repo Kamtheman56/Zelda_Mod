@@ -2,7 +2,7 @@ package com.kamth.zeldamod.block.custom;
 
 import com.kamth.zeldamod.block.entity.LockedChestEntity;
 import com.kamth.zeldamod.block.entity.ModBlockEntities;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -81,7 +81,7 @@ public class LockedChestBlock extends AbstractChestBlock<LockedChestEntity> {
         if (!pLevel.isClientSide() && pState.getValue(LOCKED) && !pPlayer.getAbilities().instabuild) {
             return InteractionResult.FAIL;
         }
-        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ModItems.SMALL_KEY.get())){
+        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ZeldaItems.SMALL_KEY.get())){
             this.press(pState, pLevel, pPos);
             pLevel.playSound((Player)null, pPos, ModSounds.DOOR_UNLOCK.get(), SoundSource.BLOCKS, .4F, 1f);
             pPlayer.getUseItem().shrink(1);

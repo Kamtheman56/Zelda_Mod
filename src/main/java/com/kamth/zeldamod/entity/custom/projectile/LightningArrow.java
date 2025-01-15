@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.entity.custom.projectile;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -40,7 +40,7 @@ public class LightningArrow extends AbstractArrow {
      */
     @Override
     protected ItemStack getPickupItem() {
-        return  ModItems.LIGHTNING_ARROW.get().getDefaultInstance();}
+        return  ZeldaItems.LIGHTNING_ARROW.get().getDefaultInstance();}
 
     @Override
     protected void onHitEntity(EntityHitResult pResult) {

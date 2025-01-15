@@ -3,7 +3,7 @@ package com.kamth.zeldamod.block.custom;
 import com.kamth.zeldamod.block.entity.SwordPedestalEntity;
 import com.kamth.zeldamod.block.entity.UnlockedSwordPedestalEntity;
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -69,17 +69,17 @@ public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
     public InteractionResult  use(BlockState pState, Level pLevel, BlockPos pPos,
                                   Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         ItemStack stackInHand = pPlayer.getItemInHand(pHand);
-        ItemStack three = ModItems.MASTER_SWORD3.get().getDefaultInstance();
+        ItemStack three = ZeldaItems.MASTER_SWORD3.get().getDefaultInstance();
         BlockEntity te = pLevel.getBlockEntity(pPos);
         UnlockedSwordPedestalEntity pedestal = (UnlockedSwordPedestalEntity) pLevel.getBlockEntity(pPos);
         if (te instanceof UnlockedSwordPedestalEntity)
         {
-            if (stackInHand.is(ModItems.MASTER_SWORD3.get()) && pedestal.getSword().isEmpty())
+            if (stackInHand.is(ZeldaItems.MASTER_SWORD3.get()) && pedestal.getSword().isEmpty())
             {
                 if (stackInHand.getAllEnchantments().containsKey(Enchantments.SMITE) &&
                         stackInHand.getAllEnchantments().containsKey(Enchantments.SWEEPING_EDGE) &&
                         stackInHand.getAllEnchantments().containsKey(Enchantments.UNBREAKING)){
-                pedestal.setSword(ModItems.MASTER_SWORD_TRUE.get().getDefaultInstance());
+                pedestal.setSword(ZeldaItems.MASTER_SWORD_TRUE.get().getDefaultInstance());
                 pedestal.getSword().enchant(Enchantments.SMITE,3);
                 pedestal.getSword().enchant(Enchantments.SWEEPING_EDGE,3);
                 pedestal.getSword().enchant(Enchantments.MOB_LOOTING,3);
@@ -90,7 +90,7 @@ public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
             }
             if (stackInHand.is(ModTags.Items.BROKEN_SWORDS) && pPlayer.getMaxHealth() >= 26 && pedestal.getSword().isEmpty())
             {
-                    pedestal.setSword(ModItems.MASTER_SWORD.get().getDefaultInstance());
+                    pedestal.setSword(ZeldaItems.MASTER_SWORD.get().getDefaultInstance());
                     pLevel.playSound(pPlayer,pPos, SoundEvents.BEACON_ACTIVATE, SoundSource.BLOCKS);
                     pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
                     pLevel.updateNeighborsAt(pPos,this);

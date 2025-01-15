@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.masks;
 
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -29,15 +29,15 @@ public class StoneMask extends ArmorItem {
     }
     @Override
     public boolean isEnderMask(ItemStack stack, Player player, EnderMan endermanEntity) {
-        return stack.getItem() == ModItems.STONE_MASK.get();
+        return stack.getItem() == ZeldaItems.STONE_MASK.get();
     }
     @Override
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer){
-        return stack.getItem() == ModItems.STONE_MASK.get();
+        return stack.getItem() == ZeldaItems.STONE_MASK.get();
     }
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.STONE_MASK.get())) {
+if (player.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.STONE_MASK.get())) {
     player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 10, 0, true, false));}
     }
     @Override

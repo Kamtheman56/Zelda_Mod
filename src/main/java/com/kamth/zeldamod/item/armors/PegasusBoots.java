@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.armors;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.item.ModItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.armors.render.ModModelLayers;
 import com.kamth.zeldamod.item.armors.render.PegasusBootsModel;
 import net.minecraft.ChatFormatting;
@@ -53,9 +53,9 @@ public class PegasusBoots extends ArmorItem {
         AttributeInstance stepHeight;
         stepHeight = event.player.getAttribute(ForgeMod.STEP_HEIGHT_ADDITION.get());
 
-        if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PEGASUS_BOOTS.get()) {
+        if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.PEGASUS_BOOTS.get()) {
         }
-        if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.FEET).getItem() == ModItems.PEGASUS_BOOTS.get()) {
+        if (!stepHeight.hasModifier(STEP_HEIGHT_BONUS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.PEGASUS_BOOTS.get()) {
             stepHeight.addTransientModifier(STEP_HEIGHT_BONUS);
         }
         else {
