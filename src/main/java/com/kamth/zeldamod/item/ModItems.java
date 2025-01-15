@@ -7,8 +7,45 @@ import com.kamth.zeldamod.custom.ModFoods;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.armors.*;
-import com.kamth.zeldamod.item.items.*;
+import com.kamth.zeldamod.item.items.TooltipItem;
+import com.kamth.zeldamod.item.items.arrows.*;
+import com.kamth.zeldamod.item.items.bags.BombBagItem;
+import com.kamth.zeldamod.item.items.bags.CustomBundleItem;
+import com.kamth.zeldamod.item.items.bags.QuiverItem;
+import com.kamth.zeldamod.item.items.bags.WalletItem;
+import com.kamth.zeldamod.item.items.bombs.BombItem;
+import com.kamth.zeldamod.item.items.bombs.BombchuItem;
+import com.kamth.zeldamod.item.items.bombs.WaterBombItem;
+import com.kamth.zeldamod.item.items.boomerangs.BoomerangItem;
+import com.kamth.zeldamod.item.items.boomerangs.GaleBoomerangItem;
+import com.kamth.zeldamod.item.items.boomerangs.MagicBoomerangItem;
+import com.kamth.zeldamod.item.items.consumables.*;
+import com.kamth.zeldamod.item.items.consumables.drink.BluePotionItem;
+import com.kamth.zeldamod.item.items.consumables.drink.DrinkItem;
+import com.kamth.zeldamod.item.items.consumables.drink.GloomResistPotionItem;
+import com.kamth.zeldamod.item.items.consumables.hearts.GloomContainer;
+import com.kamth.zeldamod.item.items.consumables.hearts.GoldHeartContainerItem;
+import com.kamth.zeldamod.item.items.consumables.hearts.HeartContainerItem;
+import com.kamth.zeldamod.item.items.consumables.jelly.ElectricJelly;
+import com.kamth.zeldamod.item.items.consumables.jelly.FireJellyItem;
+import com.kamth.zeldamod.item.items.consumables.jelly.IceJellyItem;
+import com.kamth.zeldamod.item.items.consumables.jelly.JellyItem;
+import com.kamth.zeldamod.item.items.grapples.ClawshotItem;
+import com.kamth.zeldamod.item.items.grapples.HookshotItem;
+import com.kamth.zeldamod.item.items.rings.BlueRingItem;
+import com.kamth.zeldamod.item.items.rings.PurpleRingItem;
+import com.kamth.zeldamod.item.items.rings.RedRingItem;
+import com.kamth.zeldamod.item.items.rods.*;
+import com.kamth.zeldamod.item.items.shields.BalancedMirrorShieldItem;
+import com.kamth.zeldamod.item.items.shields.MirrorShieldItem;
+import com.kamth.zeldamod.item.items.shields.WoodShieldItem;
+import com.kamth.zeldamod.item.items.weapons.*;
+import com.kamth.zeldamod.item.items.z_sort_through_later.BombFlowerItem;
+import com.kamth.zeldamod.item.items.z_sort_through_later.*;
 import com.kamth.zeldamod.item.masks.*;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Style;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
@@ -19,36 +56,97 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Collections;
+import java.util.function.Supplier;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ZeldaMod.MOD_ID);
 
-    //These are generic items
-    public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new EmeraldItem(new Item.Properties()));
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // REGULAR ITEMS
+
+    // EMERALDS
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
-            () -> new EmeraldItem(new Item.Properties()));
+            () -> new TooltipItem(new Item.Properties(), Style.EMPTY.withItalic(true).withColor(ChatFormatting.AQUA)));
+
+    public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
+            () -> new TooltipItem(new Item.Properties(), Style.EMPTY.withItalic(true).withColor(ChatFormatting.RED)));
+
+    public static final RegistryObject<Item> PURPLE_EMERALD = ITEMS.register("purple_emerald",
+            () -> new TooltipItem(new Item.Properties(), Style.EMPTY.withItalic(true).withColor(ChatFormatting.LIGHT_PURPLE)));
+
+    public static final RegistryObject<Item> SILVER_EMERALD = ITEMS.register("silver_emerald",
+            () -> new TooltipItem(new Item.Properties(), Style.EMPTY.withItalic(true).withBold(true).withColor(ChatFormatting.WHITE)));
+
+    public static final RegistryObject<Item> GOLD_EMERALD = ITEMS.register("gold_emerald",
+            () -> new TooltipItem(new Item.Properties(), Style.EMPTY.withItalic(true).withBold(true).withColor(ChatFormatting.GOLD)));
+
+    // KOROK SEED
+    public static final RegistryObject<Item> KOROK_SEED = ITEMS.register("korok_seed",
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> KOROK_SEED_GIFT = ITEMS.register("korok_seed_gift",
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+
+    // MASTER ORE
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE).stacksTo(1)));
     public static final RegistryObject<Item> MASTER_SHARD = ITEMS.register("master_shard",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> MASTER_ORE2 = ITEMS.register("refined_master_ore",
+    public static final RegistryObject<Item> REFINED_MASTER_ORE = ITEMS.register("refined_master_ore",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> MASTER_UPGRADE = ITEMS.register("master_upgrade",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> GLOOM_CLUMP = ITEMS.register("gloom_clump",
-            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+
+    // PEARLS
     public static final RegistryObject<Item> DIN_PEARL = ITEMS.register("pearl_power",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> FARORE_PEARL = ITEMS.register("pearl_courage",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> NAYRU_PEARL = ITEMS.register("pearl_wisdom",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+
+    // CHU JELLY
+    public static final RegistryObject<Item> CHU_JELLY = ITEMS.register("chu_jelly",
+            () -> new JellyItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> FIRE_CHU_JELLY = ITEMS.register("fire_chu_jelly",
+            () -> new FireJellyItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
+
+    public static final RegistryObject<Item> ICE_CHU_JELLY = ITEMS.register("ice_chu_jelly",
+            () -> new IceJellyItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
+
+    public static final RegistryObject<Item> ELECTRIC_CHU_JELLY = ITEMS.register("electric_chu_jelly",
+            () -> new ElectricJelly(new Item.Properties().rarity(Rarity.UNCOMMON)));
+
+    // KEY
+    public static final RegistryObject<Item> SMALL_KEY = ITEMS.register("key_small",
+            () -> new KeyItem(new Item.Properties(), ModBlocks.LOCKED_DOOR.get()));
+
+    public static final RegistryObject<Item> BIG_KEY = ITEMS.register("key_big",
+            () -> new KeyItem(new Item.Properties(), ModBlocks.LOCKED_BOSS_DOOR.get()));
+
+    // HEARTS
+    public static final RegistryObject<Item> HEART_CONTAINER = ITEMS.register("heart_container",
+            () -> new HeartContainerItem(new Item.Properties().rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> GLOOM_CONTAINER = ITEMS.register("gloom_container",
+            () -> new GloomContainer(new Item.Properties().rarity(Rarity.UNCOMMON)));
+
+    public static final RegistryObject<Item> GOLD_CONTAINER = ITEMS.register("gold_heart_container",
+            () -> new GoldHeartContainerItem(new Item.Properties().rarity(Rarity.EPIC)));
+
+    public static final RegistryObject<Item> HEART_PIECE = ITEMS.register("heart_piece",
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+
+    // OTHER
+    public static final RegistryObject<Item> GLOOM_CLUMP = ITEMS.register("gloom_clump",
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> XTENDER = ITEMS.register("extender",
             () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> CLAW= ITEMS.register("claw",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> DEITY_SHARD = ITEMS.register("sword_fragment",
@@ -61,73 +159,62 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> MASK_ODOLWA = ITEMS.register("mask_odolwa",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SMALL_KEY = ITEMS.register("key_small",
-            () -> new KeyItem(new Item.Properties()));
-    public static final RegistryObject<Item> BIG_KEY = ITEMS.register("key_big",
-            () -> new BigKeyItem(new Item.Properties()));
-    public static final RegistryObject<Item> HEART_CONTAINER = ITEMS.register("heart_container",
-            () -> new HeartContainerItem(new Item.Properties().rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> GLOOM_CONTAINER = ITEMS.register("gloom_container",
-            () -> new GloomContainer(new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> GOLD_CONTAINER = ITEMS.register("gold_heart_container",
-            () -> new GoldHeartContainerItem(new Item.Properties().rarity(Rarity.EPIC)));
-    public static final RegistryObject<Item> HEART_PIECE = ITEMS.register("heart_piece",
-            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> KOROK_SEED = ITEMS.register("korok_seed",
-            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> KOROK_SEED_GIFT = ITEMS.register("korok_seed_gift",
-            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> CHU_JELLY = ITEMS.register("chu_jelly",
-            () -> new JellyItem(new Item.Properties()));
-    public static final RegistryObject<Item> FIRE_CHU_JELLY = ITEMS.register("fire_chu_jelly",
-            () -> new FireJellyItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> ICE_CHU_JELLY = ITEMS.register("ice_chu_jelly",
-            () -> new JellyItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> ELECTRIC_CHU_JELLY = ITEMS.register("electric_chu_jelly",
-            () -> new Item(new Item.Properties().food(ModFoods.CHU_ELECTRIC).rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> PURPLE_EMERALD = ITEMS.register("purple_emerald",
-            () -> new EmeraldItem(new Item.Properties()));
-    public static final RegistryObject<Item> SILVER_EMERALD = ITEMS.register("silver_emerald",
-            () -> new EmeraldItem(new Item.Properties()));
-    public static final RegistryObject<Item> GOLD_EMERALD = ITEMS.register("gold_emerald",
-            () -> new EmeraldItem(new Item.Properties()));
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    // CONSUMABLE ITEMS
 
-    //These are potions or consumables
-    public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
-            () -> new DrinkItem(new Item.Properties().stacksTo(16).food(ModFoods.PUMPKIN_SOUP)));
-    public static final RegistryObject<Item> STAMINA = ITEMS.register("stamina_potion",
-            () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.STAMINA).rarity(Rarity.UNCOMMON)));
+    // POTIONS
+    public static final RegistryObject<Item> STAMINA_POTION = ITEMS.register("stamina_potion",
+            () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.STAMINA).rarity(Rarity.UNCOMMON),
+                    Style.EMPTY.withItalic(true).withColor(ChatFormatting.GREEN)));
+
     public static final RegistryObject<Item> HEART_POTION = ITEMS.register("heart_potion",
-            () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.HEART).rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> MILK_BOTTLE1 = ITEMS.register("milk_bottle1",
-            () -> new MilkBottleItem(new Item.Properties().stacksTo(1).food(ModFoods.MILK_BOTTLE)));
-    public static final RegistryObject<Item> MILK_BOTTLE2 = ITEMS.register("milk_bottle2",
-            () -> new MilkHalfItem(new Item.Properties().stacksTo(1).food(ModFoods.MILK_BOTTLE)));
+            () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.HEART).rarity(Rarity.UNCOMMON),
+                    Style.EMPTY.withItalic(true).withColor(ChatFormatting.RED)));
+
     public static final RegistryObject<Item> SHIELD_POTION = ITEMS.register("shield_potion",
-            () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.SHIELD)));
+            () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.SHIELD),
+                    Style.EMPTY.withItalic(true).withColor(ChatFormatting.LIGHT_PURPLE)));
+
     public static final RegistryObject<Item> BLUE_POTION = ITEMS.register("blue_potion",
             () -> new BluePotionItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.BLUE).rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> MILK_MAGIC = ITEMS.register("magic_milk",
-            () -> new DrinkItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.MILK_MAGIC)));
+
     public static final RegistryObject<Item> GLOOM_RESIST_POTION = ITEMS.register("gloom_resist_potion",
-            () -> new GloomResistPotionItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1)));
+            () -> new GloomResistPotionItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.GLOOM_RESIST)));
+
+    // FOODS
+    public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
+            () -> new DrinkItem(new Item.Properties().stacksTo(16).food(ModFoods.PUMPKIN_SOUP),
+                    Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW)));
+
+    public static final RegistryObject<Item> BAKED_APPLE = ITEMS.register("baked_apple",
+            () -> new Item(new Item.Properties().food(Foods.BAKED_POTATO)));
+
+    public static final RegistryObject<Item> MILK_BOTTLE = ITEMS.register("milk_bottle",
+            () -> new MilkBottleItem(new Item.Properties().stacksTo(1).food(ModFoods.MILK_BOTTLE)));
+
+    public static final RegistryObject<Item> MILK_MAGIC = ITEMS.register("magic_milk",
+            () -> new DrinkItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.MILK_MAGIC),
+                    Style.EMPTY.withItalic(true).withColor(ChatFormatting.LIGHT_PURPLE)));
+
+    // SEEDS
+    public static final RegistryObject<Item> BOMB_SEEDS = ITEMS.register("bomb_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.BOMBFLOWER.get(),new  Item.Properties()));
+    public static final RegistryObject<Item> COOKED_KOROK_SEED = ITEMS.register("korok_seed_cooked",
+            () -> new Item(new Item.Properties().food(ModFoods.KOROK)));
+
+    // MARIO CONSUMABLES
     public static final RegistryObject<Item> SUPER_MUSHROOM = ITEMS.register("mushroom_super",
             () -> new Item(new Item.Properties().food(ModFoods.SUPER_MUSHROOM)));
     public static final RegistryObject<Item> LIFE_MUSHROOM = ITEMS.register("mushroom_life",
             () -> new Item(new Item.Properties().food(ModFoods.LIFE_MUSHROOM)));
     public static final RegistryObject<Item> MINI_MUSHROOM = ITEMS.register("mushroom_mini",
             () -> new Item(new Item.Properties().food(ModFoods.MINI_MUSHROOM)));
-    public static final RegistryObject<Item> BAKED_APPLE = ITEMS.register("baked_apple",
-            () -> new Item(new Item.Properties().food(Foods.BAKED_POTATO)));
     public static final RegistryObject<Item> SUPER_LEAF = ITEMS.register("super_leaf",
             () -> new SuperLeafItem(new Item.Properties().stacksTo(1).defaultDurability(3)));
-    public static final RegistryObject<Item> BOMB_SEEDS = ITEMS.register("bomb_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.BOMBFLOWER.get(),new  Item.Properties()));
-    public static final RegistryObject<Item> COOKED_KOROK_SEED = ITEMS.register("korok_seed_cooked",
-            () -> new Item(new Item.Properties().food(ModFoods.KOROK)));
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     //This is where Tools start
@@ -561,9 +648,7 @@ public static final RegistryObject<Item> DEKU_SHIELD = ITEMS.register("deku_shie
             () -> new ForgeSpawnEggItem(ModEntityTypes.SKULLTULA, 5062189, 16252708,
                     new Item.Properties()));
 
-        public static void register (IEventBus eventbus) {
-            ITEMS.register(eventbus);
-
-        }
-
+    public static void register (IEventBus eventbus) {
+        ITEMS.register(eventbus);
+    }
 }

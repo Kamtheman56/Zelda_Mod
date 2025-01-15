@@ -1,10 +1,10 @@
 package com.kamth.zeldamod.mixin;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.item.items.BombBagItem;
-import com.kamth.zeldamod.item.items.CustomBundleItem;
-import com.kamth.zeldamod.item.items.QuiverItem;
-import com.kamth.zeldamod.item.items.WalletItem;
+import com.kamth.zeldamod.item.items.bags.BombBagItem;
+import com.kamth.zeldamod.item.items.bags.CustomBundleItem;
+import com.kamth.zeldamod.item.items.bags.QuiverItem;
+import com.kamth.zeldamod.item.items.bags.WalletItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.player.Inventory;
