@@ -3,7 +3,7 @@ package com.kamth.zeldamod.entity.mobs;
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
 import com.kamth.zeldamod.item.ModItems;
-import com.kamth.zeldamod.item.items.SlingshotItem;
+import com.kamth.zeldamod.item.items.z_sort_through_later.SlingshotItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;

@@ -80,7 +80,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.12f).build()}, ModItems.DEKU_MASK.get()));
         add("green_potion_from_jungle_temples", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/jungle_temple")).build(),
-                LootItemRandomChanceCondition.randomChance(0.65f).build()}, ModItems.STAMINA.get()));
+                LootItemRandomChanceCondition.randomChance(0.65f).build()}, ModItems.STAMINA_POTION.get()));
         add("deku_leaf_from_jungle_temples", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/jungle_temple")).build(),
                 LootItemRandomChanceCondition.randomChance(0.25f).build()}, ModItems.DEKU_LEAF.get()));
@@ -173,7 +173,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.35f).build()}, ModItems.HEART_POTION.get()));
         add("green_potion_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
-                LootItemRandomChanceCondition.randomChance(0.35f).build()}, ModItems.STAMINA.get()));
+                LootItemRandomChanceCondition.randomChance(0.35f).build()}, ModItems.STAMINA_POTION.get()));
         add("ocarina_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
                 LootItemRandomChanceCondition.randomChance(0.07f).build()}, ModItems.OCARINA.get()));
@@ -256,7 +256,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.35f).build()}, ModItems.HEART_POTION.get()));
         add("green_potion_from_dungeons", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/simple_dungeon")).build(),
-                LootItemRandomChanceCondition.randomChance(0.30f).build()}, ModItems.STAMINA.get()));
+                LootItemRandomChanceCondition.randomChance(0.30f).build()}, ModItems.STAMINA_POTION.get()));
         add("blue_potion_from_dungeons", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/simple_dungeon")).build(),
                 LootItemRandomChanceCondition.randomChance(0.12f).build()}, ModItems.BLUE_POTION.get()));
@@ -318,7 +318,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.25f).build()}, ModItems.HEART_POTION.get()));
         add("green_potion_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
-                LootItemRandomChanceCondition.randomChance(0.25f).build()}, ModItems.STAMINA.get()));
+                LootItemRandomChanceCondition.randomChance(0.25f).build()}, ModItems.STAMINA_POTION.get()));
         add("blue_potion_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
                 LootItemRandomChanceCondition.randomChance(0.05f).build()}, ModItems.BLUE_POTION.get()));
@@ -517,7 +517,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
 
         add("stamina_potion_from_cleric", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/cleric_gift")).build(),
-                LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.STAMINA.get()));
+                LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.STAMINA_POTION.get()));
         add("heart_potion_from_cleric", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/cleric_gift")).build(),
                 LootItemRandomChanceCondition.randomChance(0.08f).build()}, ModItems.HEART_POTION.get()));
