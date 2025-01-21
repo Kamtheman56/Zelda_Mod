@@ -199,68 +199,97 @@ public class ZeldaItems {
     // SEEDS
     public static final RegistryObject<Item> BOMB_SEEDS = ITEMS.register("bomb_seeds",
             () -> new ItemNameBlockItem(ModBlocks.BOMBFLOWER.get(),new  Item.Properties()));
+
     public static final RegistryObject<Item> COOKED_KOROK_SEED = ITEMS.register("korok_seed_cooked",
             () -> new Item(new Item.Properties().food(ModFoods.KOROK)));
 
     // MARIO CONSUMABLES
     public static final RegistryObject<Item> SUPER_MUSHROOM = ITEMS.register("mushroom_super",
             () -> new Item(new Item.Properties().food(ModFoods.SUPER_MUSHROOM)));
+
     public static final RegistryObject<Item> LIFE_MUSHROOM = ITEMS.register("mushroom_life",
             () -> new Item(new Item.Properties().food(ModFoods.LIFE_MUSHROOM)));
+
     public static final RegistryObject<Item> MINI_MUSHROOM = ITEMS.register("mushroom_mini",
             () -> new Item(new Item.Properties().food(ModFoods.MINI_MUSHROOM)));
+
     public static final RegistryObject<Item> SUPER_LEAF = ITEMS.register("super_leaf",
             () -> new SuperLeafItem(new Item.Properties().stacksTo(1).defaultDurability(3)));
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    // SWORDS
 
-    //This is where Tools start
-    public static final RegistryObject<Item> KOKIRI_SWORD = ITEMS.register("kokiri_sword",
+
+
+    // REGULAR
+
+    public static final RegistryObject<Item> KOKIRI_SWORD_OOT = ITEMS.register("kokiri_sword_oot",
             () -> new SwordItem(ModTiers.ZELDA, 1, -2.4f,
                     new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> KOKIRI_SWORD2 = ITEMS.register("sword_kokiri",
+
+    public static final RegistryObject<Item> KOKIRI_SWORD_MM = ITEMS.register("kokiri_sword_mm",
             () -> new SwordItem(ModTiers.ZELDA, 1, -2.4f,
                     new Item.Properties().defaultDurability(118).rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> RAZOR_SWORD = ITEMS.register("razor_sword",
-            () -> new RazorSwordItem(ModTiers.RAZOR, 2, -1.4f,
-                    new Item.Properties().defaultDurability(260).rarity(Rarity.UNCOMMON)));
+
     public static final RegistryObject<Item> GILDED_SWORD = ITEMS.register("gilded_sword",
             () -> new SwordItem(ModTiers.GILDED, 3, -2.4f,
                     new Item.Properties().defaultDurability(2000).rarity(Rarity.RARE)));
-    public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
-            () -> new MasterSwordItem(ModTiers.ZELDAU, 4, -2.4f,
-                    new Item.Properties().defaultDurability(1800).rarity(Rarity.RARE).fireResistant()));
+
     public static final RegistryObject<Item> BIGGORON_SWORD = ITEMS.register("biggoron_sword",
             () -> new SwordItem(ModTiers.GORON, 7, -3.3f,
                     new Item.Properties().fireResistant().defaultDurability(3500).rarity(Rarity.RARE)));
+
     public static final RegistryObject<Item> BIGGORON_KNIFE = ITEMS.register("biggoron_knife",
             () -> new SwordItem(ModTiers.GORON, 7, -3.3f,
                     new Item.Properties().defaultDurability(10).rarity(Rarity.UNCOMMON)));
+
+
+    // BREAK INTO NEW SWORD
+
+    public static final RegistryObject<Item> RAZOR_SWORD = ITEMS.register("razor_sword",
+            () -> new RazorSwordItem(ModTiers.RAZOR, 2, -1.4f,
+                    new Item.Properties().defaultDurability(260).rarity(Rarity.UNCOMMON),
+                    KOKIRI_SWORD_MM.get()));
+
+
+
+    public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
+            () -> new MasterSwordItem(ModTiers.ZELDAU, 4, -2.4f,
+                    new Item.Properties().defaultDurability(1800).rarity(Rarity.RARE).fireResistant()));
+
     public static final RegistryObject<Item> MASTER_SWORD2 = ITEMS.register("master_sword2",
             () -> new MasterSwordItem(ModTiers.MASTER, 5, -2.4f,
                     new Item.Properties().defaultDurability(2700).rarity(Rarity.RARE).fireResistant()));
+
     public static final RegistryObject<Item> MASTER_SWORD3 = ITEMS.register("master_sword3",
             () -> new MasterSwordGoldItem(ModTiers.MASTER, 6, -2.4f,
                     new Item.Properties().defaultDurability(3600).rarity(Rarity.RARE).fireResistant()));
+
     public static final RegistryObject<Item> MASTER_SWORD_TRUE = ITEMS.register("master_sword_true",
             () -> new TrueMasterSwordItem(ModTiers.MASTER_TRUE, 9, -2.2f,
                     new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
+
     public static final RegistryObject<Item> MASTER_SWORD_REFORGED = ITEMS.register("master_sword_reforged",
             () -> new ReforgedSword(ModTiers.MASTER_TRUE, 11, -2f,
                     new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
+
     public static final RegistryObject<Item> MASTER_SWORD_INJURED = ITEMS.register("master_sword_injured",
             () -> new InjuredSwordItem(ModTiers.MASTER, 1, -2.5f,
                     new Item.Properties().defaultDurability(131).fireResistant().rarity(Rarity.UNCOMMON)));
+
     public static final RegistryObject<Item> MASTER_SWORD_DAGGER = ITEMS.register("master_sword_dagger",
             () -> new DaggerSwordItem(ModTiers.MASTER, -1, -2.5f,
                     new Item.Properties().rarity(Rarity.UNCOMMON)));
+
     public static final RegistryObject<Item> REFORGED_MASTER = ITEMS.register("reforged_sword",
             () -> new InjuredSwordItem(ModTiers.MASTER, 3, -2.4f,
                     new Item.Properties().defaultDurability(680).rarity(Rarity.RARE)));
+
     public static final RegistryObject<Item> REFORGED_MASTER1 = ITEMS.register("reforged_sword_1",
             () -> new InjuredSwordItem(ModTiers.MASTER, 6, -2.3f,
                     new Item.Properties().defaultDurability(1260).rarity(Rarity.RARE)));
+
     public static final RegistryObject<Item> REFORGED_MASTER2 = ITEMS.register("reforged_sword_2",
             () -> new InjuredSwordItem(ModTiers.MASTER, 8, -2.2f,
                     new Item.Properties().defaultDurability(1850).rarity(Rarity.RARE)));
@@ -268,23 +297,32 @@ public class ZeldaItems {
     public static final RegistryObject<Item> FIERCE_SWORD = ITEMS.register("fierce_sword",
             () -> new FierceSwordItem(ModTiers.DEITY, 10, -1.4f,
                     new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
+
     public static final RegistryObject<Item> HERO_SWORD = ITEMS.register("hero_sword",
             () -> new MagicSwordItem(Tiers.WOOD, 3, -2.4f,
                     new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(600)));
+
     public static final RegistryObject<Item> WHITE_SWORD = ITEMS.register("white_sword",
             () -> new MagicSwordItem(Tiers.STONE, 3, -2.4f,
                     new Item.Properties().rarity(Rarity.RARE).defaultDurability(1800)));
+
     public static final RegistryObject<Item> MAGIC_SWORD = ITEMS.register("magic_sword",
             () -> new MagicSwordItem(Tiers.NETHERITE, 5, -2.2f,
                     new Item.Properties().rarity(Rarity.EPIC).defaultDurability(0)));
+
     public static final RegistryObject<Item> GLOOM_SWORD = ITEMS.register("gloom_sword",
             () -> new GloomWeaponItem(ModTiers.GLOOM, 4, -2.4f,
                     new Item.Properties().defaultDurability(60).rarity(Rarity.RARE)));
+
     public static final RegistryObject<Item> GLOOM_CLUB = ITEMS.register("gloom_club",
             () -> new GloomWeaponItem(ModTiers.GLOOM, 8, -3.4f,
                     new Item.Properties().defaultDurability(120).rarity(Rarity.RARE)));
 
-// this is where items go
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    // this is where items go
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot",
             () -> new SlingshotItem(new Item.Properties().defaultDurability(284).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SCATTERSHOT = ITEMS.register("scattershot",
@@ -354,6 +392,8 @@ public class ZeldaItems {
 
     public static final RegistryObject<Item> DEKU_STICK = ITEMS.register("deku_stick",
             () -> new StickItem(new Item.Properties().stacksTo(64)));
+
+    // TODO: DELETE THIS ONE
     public static final RegistryObject<Item> DEKU_STICK_LIT = ITEMS.register("deku_stick_lit",
             () -> new StickItem(new Item.Properties().stacksTo(1)));
 
