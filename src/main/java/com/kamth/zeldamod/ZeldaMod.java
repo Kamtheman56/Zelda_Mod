@@ -12,11 +12,13 @@ import com.kamth.zeldamod.item.ZeldaCreativeTab;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.loot.ModLootModifiers;
+import com.kamth.zeldamod.networking.ZeldaNetworking;
 import com.kamth.zeldamod.painting.ModPaintings;
 import com.kamth.zeldamod.particle.ModParticles;
 import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.nbt.CompoundTag;
@@ -27,7 +29,9 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -80,14 +84,16 @@ public class ZeldaMod {
 
 
 
-            (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.NIGHTSHADE.getId(), ModBlocks.POTTED_NIGHTSHADE);
-            (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.SUNDELION.getId(), ModBlocks.POTTED_SUNDELION);
-            (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.HEART_FLOWER.getId(), ModBlocks.POTTED_HEART_FLOWER);
-            (( FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.PRIMO_FLOWER.getId(), ModBlocks.POTTED_PRIMO_FLOWER);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.NIGHTSHADE.getId(), ModBlocks.POTTED_NIGHTSHADE);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.SUNDELION.getId(), ModBlocks.POTTED_SUNDELION);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.HEART_FLOWER.getId(), ModBlocks.POTTED_HEART_FLOWER);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.PRIMO_FLOWER.getId(), ModBlocks.POTTED_PRIMO_FLOWER);
         });
+
+        ZeldaNetworking.registerPackets();
     }
 
-
+    // TODO: MOVE THIS
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientModEvents {
         @SubscribeEvent
@@ -115,6 +121,31 @@ public class ZeldaMod {
 
                 return used ? 1.0f : 0.0f;
             });
+        }
+    }
+
+    @Mod.EventBusSubscriber(modid = ZeldaMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
+    public static class tickEventShit {
+        public static boolean attackKeyWasPressed = false;
+
+
+        // AND THISz
+        @SubscribeEvent
+        public static void onClientTick(TickEvent.ClientTickEvent event) {
+            Minecraft client = Minecraft.getInstance();
+
+            if (event.phase == TickEvent.Phase.END) {
+                if (client.options.keyAttack.isDown()) {
+                    if (!attackKeyWasPressed) {
+                        ZeldaNetworking.sendSwordSwingPacket();
+                        attackKeyWasPressed = true;
+
+                    }
+                }
+            }
+            else if (attackKeyWasPressed && !client.options.keyAttack.isDown()) {
+                attackKeyWasPressed = false;
+            }
         }
     }
 }

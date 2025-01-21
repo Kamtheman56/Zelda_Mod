@@ -60,8 +60,8 @@
   "zelda_blocks": "Zelda Items",
 
 
-  "item.zeldamod.kokiri_sword": "Kokiri Sword",
-  "item.zeldamod.sword_kokiri": "Kokiri Sword",
+  "item.zeldamod.kokiri_sword_oot": "Kokiri Sword",
+  "item.zeldamod.kokiri_sword_mm": "Kokiri Sword",
   "item.zeldamod.razor_sword": "Razor Sword",
   "item.zeldamod.gilded_sword": "Gilded Sword",
   "item.zeldamod.biggoron_sword": "Biggoron Sword",

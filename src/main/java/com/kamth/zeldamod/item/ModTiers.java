@@ -12,7 +12,7 @@ public class ModTiers {
             () -> Ingredient.of(Items.IRON_INGOT));
     public static final ForgeTier RAZOR = new ForgeTier(3, 200, 2.5f, 2f,
             3, BlockTags.NEEDS_IRON_TOOL,
-            () -> Ingredient.of(ZeldaItems.KOKIRI_SWORD.get()));
+            () -> Ingredient.of(ZeldaItems.KOKIRI_SWORD_OOT.get()));
 
     public static final ForgeTier GILDED = new ForgeTier(4, 2001, 1.5f, 2f,
             2, BlockTags.NEEDS_IRON_TOOL,

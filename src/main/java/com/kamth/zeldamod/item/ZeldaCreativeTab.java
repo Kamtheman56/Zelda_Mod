@@ -30,8 +30,8 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.FLIPPERS);
             event.accept(ZeldaItems.PEGASUS_BOOTS);
             event.accept(ZeldaItems.DARK_BOOTS);
-            event.accept(ZeldaItems.KOKIRI_SWORD);
-            event.accept(ZeldaItems.KOKIRI_SWORD2);
+            event.accept(ZeldaItems.KOKIRI_SWORD_OOT);
+            event.accept(ZeldaItems.KOKIRI_SWORD_MM);
             event.accept(ZeldaItems.RAZOR_SWORD);
             event.accept(ZeldaItems.GILDED_SWORD);
             event.accept(ZeldaItems.BIGGORON_KNIFE);

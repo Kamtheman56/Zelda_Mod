@@ -27,12 +27,12 @@ public class ZeldaTrades {
             // 1
             addTrade(trades, 1,
                     new ItemStack(EMERALD, 4), // Cost
-                    new ItemStack(KOKIRI_SWORD.get()), 3, 6, 0.02f
+                    new ItemStack(KOKIRI_SWORD_OOT.get()), 3, 6, 0.02f
             );
 
             // 2
             addTrade(trades, 2,
-                    new ItemStack(EMERALD, 15), new ItemStack(KOKIRI_SWORD.get()), // Cost
+                    new ItemStack(EMERALD, 15), new ItemStack(KOKIRI_SWORD_OOT.get()), // Cost
                     new ItemStack(RAZOR_SWORD.get()), 2, 30, 0.02f
             );
 

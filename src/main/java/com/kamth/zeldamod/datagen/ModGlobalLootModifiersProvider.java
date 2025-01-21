@@ -294,7 +294,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.18f).build()}, ZeldaItems.HYLIAN_SHIELD.get()));
         add("kokiri_sword_from_pillager", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/pillager_outpost")).build(),
-                LootItemRandomChanceCondition.randomChance(0.26f).build()}, ZeldaItems.KOKIRI_SWORD2.get()));
+                LootItemRandomChanceCondition.randomChance(0.26f).build()}, ZeldaItems.KOKIRI_SWORD_MM.get()));
         add("tornado_rod_from_pillager", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/pillager_outpost")).build(),
                 LootItemRandomChanceCondition.randomChance(0.35f).build()}, ZeldaItems.TORNADO_ROD.get()));
@@ -324,7 +324,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.05f).build()}, ZeldaItems.BLUE_POTION.get()));
         add("kokiri_sword_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
-                LootItemRandomChanceCondition.randomChance(0.12f).build()}, ZeldaItems.KOKIRI_SWORD.get()));
+                LootItemRandomChanceCondition.randomChance(0.12f).build()}, ZeldaItems.KOKIRI_SWORD_OOT.get()));
         add("red_ring_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
                 LootItemRandomChanceCondition.randomChance(0.15f).build()}, ZeldaItems.RED_RING.get()));
@@ -527,7 +527,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.1f).build()}, ZeldaItems.DEKU_SHIELD.get()));
         add("kokiri_sword_from_weaponsmith", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/weaponsmith_gift")).build(),
-                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ZeldaItems.KOKIRI_SWORD.get()));
+                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ZeldaItems.KOKIRI_SWORD_OOT.get()));
         add("upgrade_from_weaponsmith", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/weaponsmith_gift")).build(),
                 LootItemRandomChanceCondition.randomChance(0.09f).build()}, ZeldaItems.MASTER_UPGRADE.get()));
