@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.arrows;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.entity.custom.projectile.AncientArrow;
+import com.kamth.zeldamod.entity.projectile.arrows.AncientArrow;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;

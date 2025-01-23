@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.items.rods;
 
-import com.kamth.zeldamod.entity.custom.projectile.GustProjectile;
+import com.kamth.zeldamod.entity.projectile.magic.GustProjectile;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.particles.ParticleTypes;

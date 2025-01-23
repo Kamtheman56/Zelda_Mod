@@ -2,7 +2,7 @@ package com.kamth.zeldamod.item.items.weapons;
 
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.entity.custom.projectile.SwordBeam;
+import com.kamth.zeldamod.entity.projectile.magic.SwordBeam;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.ModTiers;
 import net.minecraft.ChatFormatting;

@@ -34,7 +34,7 @@ public class JarEntity extends BlockEntity {
 
     private ItemStack sword;
     public JarEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.JAR_BE.get(), pPos, pBlockState);
+        super(ZeldaBlockEntities.JAR_ENTITY.get(), pPos, pBlockState);
         this.sword = this.getSword();
         this.requestModelDataUpdate();
     }

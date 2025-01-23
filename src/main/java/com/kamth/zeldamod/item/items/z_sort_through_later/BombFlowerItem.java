@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.z_sort_through_later;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.entity.custom.projectile.BombFlower;
+import com.kamth.zeldamod.entity.projectile.bombs.BombFlowerEntity;
 import com.kamth.zeldamod.item.items.bombs.BombItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -21,7 +21,7 @@ public class BombFlowerItem extends BombItem {
         ItemStack itemstack = player.getItemInHand(pHand);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 1F, 0.7F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
-            BombFlower bombEntity = new BombFlower(pLevel,player);
+            BombFlowerEntity bombEntity = new BombFlowerEntity(player, pLevel, false);
             bombEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.25F, 0.86F);
             pLevel.addFreshEntity(bombEntity);
         }

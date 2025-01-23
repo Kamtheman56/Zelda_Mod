@@ -1,8 +1,7 @@
 package com.kamth.zeldamod.client.renderer.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.entity.custom.projectile.BombFlower;
-import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
+import com.kamth.zeldamod.entity.projectile.bombs.BombFlowerEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -15,9 +14,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
-import org.joml.Vector3f;
 
-public class BombFlowerRender extends EntityRenderer<BombFlower> {
+public class BombFlowerRender extends EntityRenderer<BombFlowerEntity> {
     private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/item/bomb_flower.png");
     private static final RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
 
@@ -31,15 +29,15 @@ public class BombFlowerRender extends EntityRenderer<BombFlower> {
      * @param pEntity
      */
     @Override
-    public ResourceLocation getTextureLocation(BombFlower pEntity) {
+    public ResourceLocation getTextureLocation(BombFlowerEntity pEntity) {
         return TEXTURE_LOCATION;
     }
 
-    protected int getBlockLightLevel(BombFlower pEntity, BlockPos pPos) {
+    protected int getBlockLightLevel(BombFlowerEntity pEntity, BlockPos pPos) {
         return 15;
     }
 
-    public void render(BombFlower pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(BombFlowerEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
         pMatrixStack.pushPose();
         pMatrixStack.scale(0.8F, 0.8F, 0.8F);
         pMatrixStack.mulPose(this.entityRenderDispatcher.cameraOrientation());

@@ -21,83 +21,87 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 
 public class SwordPedestalEntity extends BlockEntity {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(1){
+
+    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+
+    private final ItemStackHandler itemHandler = new ItemStackHandler(1) {
         @Override
         protected void onContentsChanged(int slot) {
+
             setChanged();
-            if(!level.isClientSide()) {
+
+            if (!level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }
         }
     };
 
+    public SwordPedestalEntity(BlockPos pPos, BlockState pBlockState) {
+        super(ZeldaBlockEntities.SWORD_PEDESTAL_ENTITY.get(), pPos, pBlockState);
 
-    private ItemStack sword;
-    public SwordPedestalEntity( BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.SWORD_PEDESTAL_BE.get(), pPos, pBlockState);
-        this.sword = this.getSword();
         this.requestModelDataUpdate();
     }
+
+    public void drops() {
+        SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
+
+        for(int i = 0; i < this.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, this.itemHandler.getStackInSlot(i));
+        }
+
+        Containers.dropItemStack(this.level, getBlockPos().getX(),
+                getBlockPos().getY(), getBlockPos().getZ(), getSword());
+    }
+
     public ItemStack getSword() {
-        return itemHandler.getStackInSlot(0);
+        return this.itemHandler.getStackInSlot(0);
     }
 
     public void setSword(ItemStack stack) {
-        itemHandler.setStackInSlot(0, stack);
+        this.itemHandler.setStackInSlot(0, stack);
         setChanged();
         this.getUpdateTag();
     }
-    public ItemStack getRenderStack() {
-   return getSword();
+
+
+
+    @Override
+    public @NotNull CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
     }
-
-
 
     @Override
     protected void saveAdditional(CompoundTag pTag) {
-        pTag.put("inventory", itemHandler.serializeNBT());
+        pTag.put("inventory", this.itemHandler.serializeNBT());
         super.saveAdditional(pTag);
     }
-    @Nullable
+
     @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
-        return ClientboundBlockEntityDataPacket.create(this);
+    public void load(CompoundTag pTag) {
+        super.load(pTag);
+        this.itemHandler.deserializeNBT(pTag.getCompound("inventory"));
     }
 
     @Override
     public void onLoad() {
         super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemHandler);
+        this.lazyItemHandler = LazyOptional.of(() -> this.itemHandler);
     }
-    @Override
-    public void load(CompoundTag pTag) {
-        super.load(pTag);
-        itemHandler.deserializeNBT(pTag.getCompound("inventory"));}
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if(cap == ForgeCapabilities.ITEM_HANDLER) {
-            return lazyItemHandler.cast();
-        }
-
-        return super.getCapability(cap, side);
+        return cap == ForgeCapabilities.ITEM_HANDLER ? this.lazyItemHandler.cast() : super.getCapability(cap, side);
     }
+
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
-        lazyItemHandler.invalidate();
-    }
-    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
-    public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for(int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
-        }
-        Containers.dropItemStack(this.level, this.getBlockPos().getX(), this.getBlockPos().getY(),this.getBlockPos().getZ(), this.getSword());
-    }
-    @Override
-    public CompoundTag getUpdateTag() {
-        return saveWithoutMetadata();
+        this.lazyItemHandler.invalidate();
     }
 
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
 }

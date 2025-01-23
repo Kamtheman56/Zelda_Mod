@@ -2,7 +2,7 @@ package com.kamth.zeldamod.item.items.weapons;
 
 import com.kamth.zeldamod.block.ModBlocks;
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.entity.custom.projectile.SwordBeam2;
+import com.kamth.zeldamod.entity.projectile.magic.SwordBeam2;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;

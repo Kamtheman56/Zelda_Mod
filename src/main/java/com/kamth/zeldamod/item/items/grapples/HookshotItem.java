@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.items.grapples;
 
-import com.kamth.zeldamod.entity.custom.projectile.Hookshot;
+import com.kamth.zeldamod.entity.projectile.grapples.Hookshot;
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;

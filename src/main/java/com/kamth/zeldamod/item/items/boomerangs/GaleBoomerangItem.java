@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.boomerangs;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.entity.custom.projectile.GaleBoomerangProjectile;
+import com.kamth.zeldamod.entity.projectile.boomerangs.GaleBoomerangProjectile;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
