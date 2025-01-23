@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.arrows;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.entity.projectile.arrows.LightningArrow;
+import com.kamth.zeldamod.entity.projectile.arrows.ShockArrow;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -15,18 +15,18 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class LightningArrowItem extends ArrowItem {
-    public LightningArrowItem(Properties pProperties) {
+public class ShockArrowItem extends ArrowItem {
+    public ShockArrowItem(Properties pProperties) {
         super(pProperties);
     }
     @Override
     public AbstractArrow createArrow(Level world, ItemStack ammoStack, LivingEntity shooter) {
-        return new LightningArrow(ModEntityTypes.LIGHTNING_ARROW.get(), shooter, world);
+        return new ShockArrow(ModEntityTypes.SHOCK_ARROW.get(), shooter, world);
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()){
-            components.add(Component.translatable("item.lightning_arrow.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.translatable("item.lightning_arrow.description_2").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.shock_arrow.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.shock_arrow.description_2").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }}
 }

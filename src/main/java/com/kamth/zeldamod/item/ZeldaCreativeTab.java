@@ -37,8 +37,8 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.BIGGORON_KNIFE);
             event.accept(ZeldaItems.BIGGORON_SWORD);
             event.accept(ZeldaItems.MASTER_SWORD);
-            event.accept(ZeldaItems.MASTER_SWORD2);
-            event.accept(ZeldaItems.MASTER_SWORD3);
+            event.accept(ZeldaItems.MASTER_SWORD_TEMPERED);
+            event.accept(ZeldaItems.MASTER_SWORD_GOLDEN);
             event.accept(ZeldaItems.MASTER_SWORD_TRUE);
             event.accept(ZeldaItems.FIERCE_SWORD);
             event.accept(ZeldaItems.HERO_SWORD);
@@ -58,7 +58,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.ICE_ARROW);
             event.accept(ZeldaItems.LIGHT_ARROW);
             event.accept(ZeldaItems.BOMB_ARROW);
-            event.accept(ZeldaItems.LIGHTNING_ARROW);
+            event.accept(ZeldaItems.SHOCK_ARROW);
             event.accept(ZeldaItems.ANCIENT_ARROW);
             event.accept(ZeldaItems.FIRE_ROD);
             event.accept(ZeldaItems.ICE_ROD);

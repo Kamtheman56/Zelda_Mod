@@ -1,12 +1,12 @@
 package com.kamth.zeldamod.client.renderer.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.entity.projectile.arrows.LightningArrow;
+import com.kamth.zeldamod.entity.projectile.arrows.ShockArrow;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
-public class LightningArrowRender extends ArrowRenderer<LightningArrow> {
+public class LightningArrowRender extends ArrowRenderer<ShockArrow> {
 
         public static final ResourceLocation TEXTURE = new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/projectiles/light_arrow.png");
 
@@ -22,7 +22,7 @@ public class LightningArrowRender extends ArrowRenderer<LightningArrow> {
      * @param pEntity
      */
     @Override
-    public ResourceLocation getTextureLocation(LightningArrow pEntity) {
+    public ResourceLocation getTextureLocation(ShockArrow pEntity) {
         return TEXTURE;
     }
 }

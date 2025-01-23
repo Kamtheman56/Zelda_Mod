@@ -21,17 +21,17 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
-public class LightningArrow extends AbstractArrow {
+public class ShockArrow extends AbstractArrow {
     private static final double BASE_DAMAGE = 3.0D;
-    public LightningArrow(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
+    public ShockArrow(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
-    public LightningArrow(EntityType<? extends AbstractArrow> pEntityType, double pX, double pY, double pZ, Level pLevel) {
+    public ShockArrow(EntityType<? extends AbstractArrow> pEntityType, double pX, double pY, double pZ, Level pLevel) {
         super(pEntityType, pX, pY, pZ, pLevel);
     }
 
-    public LightningArrow(EntityType<? extends AbstractArrow> pEntityType, LivingEntity pShooter, Level pLevel) {
+    public ShockArrow(EntityType<? extends AbstractArrow> pEntityType, LivingEntity pShooter, Level pLevel) {
         super(pEntityType, pShooter, pLevel);
     }
 
@@ -40,7 +40,7 @@ public class LightningArrow extends AbstractArrow {
      */
     @Override
     protected ItemStack getPickupItem() {
-        return  ZeldaItems.LIGHTNING_ARROW.get().getDefaultInstance();}
+        return  ZeldaItems.SHOCK_ARROW.get().getDefaultInstance();}
 
     @Override
     protected void onHitEntity(EntityHitResult pResult) {

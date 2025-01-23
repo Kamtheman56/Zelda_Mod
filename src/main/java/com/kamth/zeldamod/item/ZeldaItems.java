@@ -258,11 +258,11 @@ public class ZeldaItems {
             () -> new MasterSwordItem(ModTiers.ZELDAU, 4, -2.4f,
                     new Item.Properties().defaultDurability(1800).rarity(Rarity.RARE).fireResistant()));
 
-    public static final RegistryObject<Item> MASTER_SWORD2 = ITEMS.register("master_sword2",
+    public static final RegistryObject<Item> MASTER_SWORD_TEMPERED = ITEMS.register("master_sword_tempered",
             () -> new MasterSwordItem(ModTiers.MASTER, 5, -2.4f,
                     new Item.Properties().defaultDurability(2700).rarity(Rarity.RARE).fireResistant()));
 
-    public static final RegistryObject<Item> MASTER_SWORD3 = ITEMS.register("master_sword3",
+    public static final RegistryObject<Item> MASTER_SWORD_GOLDEN = ITEMS.register("master_sword_golden",
             () -> new MasterSwordGoldItem(ModTiers.MASTER, 6, -2.4f,
                     new Item.Properties().defaultDurability(3600).rarity(Rarity.RARE).fireResistant()));
 
@@ -353,8 +353,8 @@ public class ZeldaItems {
             () -> new LightArrowItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> BOMB_ARROW = ITEMS.register("bomb_arrow",
             () -> new BombArrowItem(new Item.Properties()));
-    public static final RegistryObject<Item> LIGHTNING_ARROW = ITEMS.register("lightning_arrow",
-            () -> new LightningArrowItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> SHOCK_ARROW = ITEMS.register("shock_arrow",
+            () -> new ShockArrowItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ANCIENT_ARROW = ITEMS.register("ancient_arrow",
             () -> new AncientArrowItem(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> DEKU_NUT = ITEMS.register("deku_nut",

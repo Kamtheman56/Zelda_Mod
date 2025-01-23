@@ -43,7 +43,7 @@ public class ModEventBusClientEvents {
         event.registerEntityRenderer(ModEntityTypes.LIGHT_ARROW.get(), LightArrowRender::new);
         event.registerEntityRenderer(ModEntityTypes.BOMB_ARROW.get(), BombArrowRender::new);
         event.registerEntityRenderer(ModEntityTypes.ANCIENT_ARROW.get(), AncientArrowRender::new);
-        event.registerEntityRenderer(ModEntityTypes.LIGHTNING_ARROW.get(), LightningArrowRender::new);
+        event.registerEntityRenderer(ModEntityTypes.SHOCK_ARROW.get(), LightningArrowRender::new);
 
         event.registerEntityRenderer(ModEntityTypes.SWORD_BEAM.get(), SwordBeamRender::new);
         event.registerEntityRenderer(ModEntityTypes.GUST_PROJECTILE.get(), GustRender::new);

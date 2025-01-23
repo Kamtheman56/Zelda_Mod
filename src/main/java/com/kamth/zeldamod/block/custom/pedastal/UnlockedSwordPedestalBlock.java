@@ -68,12 +68,12 @@ public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
     public InteractionResult  use(BlockState pState, Level pLevel, BlockPos pPos,
                                   Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         ItemStack stackInHand = pPlayer.getItemInHand(pHand);
-        ItemStack three = ZeldaItems.MASTER_SWORD3.get().getDefaultInstance();
+        ItemStack three = ZeldaItems.MASTER_SWORD_GOLDEN.get().getDefaultInstance();
         BlockEntity te = pLevel.getBlockEntity(pPos);
         SwordPedestalEntity pedestal = (SwordPedestalEntity) pLevel.getBlockEntity(pPos);
         if (te instanceof SwordPedestalEntity)
         {
-            if (stackInHand.is(ZeldaItems.MASTER_SWORD3.get()) && pedestal.getSword().isEmpty())
+            if (stackInHand.is(ZeldaItems.MASTER_SWORD_GOLDEN.get()) && pedestal.getSword().isEmpty())
             {
                 if (stackInHand.getAllEnchantments().containsKey(Enchantments.SMITE) &&
                         stackInHand.getAllEnchantments().containsKey(Enchantments.SWEEPING_EDGE) &&

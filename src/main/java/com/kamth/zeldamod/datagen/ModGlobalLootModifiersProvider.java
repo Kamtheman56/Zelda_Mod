@@ -161,7 +161,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.ICE_ARROW.get()));
         add("lightning_arrow_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
-                LootItemRandomChanceCondition.randomChance(0.65f).build()}, ZeldaItems.LIGHTNING_ARROW.get()));
+                LootItemRandomChanceCondition.randomChance(0.65f).build()}, ZeldaItems.SHOCK_ARROW.get()));
         add("light_arrow_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
                 LootItemRandomChanceCondition.randomChance(0.25f).build()}, ZeldaItems.LIGHT_ARROW.get()));
@@ -238,7 +238,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.ICE_ARROW.get()));
         add("lightning_arrow_from_dungeon", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/simple_dungeon")).build(),
-                LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.LIGHTNING_ARROW.get()));
+                LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.SHOCK_ARROW.get()));
         add("light_arrow_from_dungeon", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/simple_dungeon")).build(),
                 LootItemRandomChanceCondition.randomChance(0.08f).build()}, ZeldaItems.LIGHT_ARROW.get()));
@@ -339,10 +339,10 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.ICE_ARROW.get()));
         add("lightning_arrow_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
-                LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.LIGHTNING_ARROW.get()));
+                LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.SHOCK_ARROW.get()));
         add("lightning_arrow_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
-                LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.LIGHTNING_ARROW.get()));
+                LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.SHOCK_ARROW.get()));
         add("light_arrow_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
                 LootItemRandomChanceCondition.randomChance(0.08f).build()}, ZeldaItems.LIGHT_ARROW.get()));
@@ -513,7 +513,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.18f).build()}, ZeldaItems.ICE_ARROW.get()));
         add("lightning_arrow_from_fletcher", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/fletcher_gift")).build(),
-                LootItemRandomChanceCondition.randomChance(0.18f).build()}, ZeldaItems.LIGHTNING_ARROW.get()));
+                LootItemRandomChanceCondition.randomChance(0.18f).build()}, ZeldaItems.SHOCK_ARROW.get()));
 
         add("stamina_potion_from_cleric", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/cleric_gift")).build(),
