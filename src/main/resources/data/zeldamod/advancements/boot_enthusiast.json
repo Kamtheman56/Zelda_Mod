@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:pegasusboots"
+      "item": "zeldamod:pegasus_boots"
     },
     "title": {
       "text": "Boot Enthusiast",
@@ -19,22 +19,22 @@
         "items": [
           {
             "items": [
-              "zeldamod:kokiriboots"
+              "zeldamod:kokiri_boots"
             ]
           },
           {
             "items": [
-              "zeldamod:heavyboots"
+              "zeldamod:heavy_boots"
             ]
           },
           {
             "items": [
-              "zeldamod:hoverboots"
+              "zeldamod:hover_boots"
             ]
           },
           {
             "items": [
-              "zeldamod:pegasusboots"
+              "zeldamod:pegasus_boots"
             ]
           },
           {
@@ -57,7 +57,7 @@
     ]
   ],
   "rewards": {
-    "experience": 10
+    "experience": 50
   },
   "sends_telemetry_event": true
 }

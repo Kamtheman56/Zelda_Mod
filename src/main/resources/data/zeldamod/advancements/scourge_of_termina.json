@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:majoramask"
+      "item": "zeldamod:majoras_mask"
     },
     "title": {
       "text": "Scourge of Termina",
@@ -22,7 +22,7 @@
         "items": [
           {
             "items": [
-              "zeldamod:majoramask"
+              "zeldamod:majoras_mask"
 
             ]
           }

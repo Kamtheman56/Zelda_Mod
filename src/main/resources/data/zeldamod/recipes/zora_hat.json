@@ -3,14 +3,14 @@
   "category": "equipment",
   "ingredients": [
     {
-      "item": "zeldamod:kokirihat"
+      "item": "zeldamod:kokiri_hat"
     },
     {
       "item": "minecraft:blue_dye"
     }
   ],
   "result": {
-    "item": "zeldamod:zorahat",
+    "item": "zeldamod:zora_hat",
     "count": 1
   }
 }

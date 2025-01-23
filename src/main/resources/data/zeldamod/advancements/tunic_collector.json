@@ -18,17 +18,17 @@
         "items": [
           {
             "items": [
-              "zeldamod:kokiritunic"
+              "zeldamod:kokiri_tunic"
             ]
           },
           {
             "items": [
-              "zeldamod:gorontunic"
+              "zeldamod:goron_tunic"
             ]
           },
           {
             "items": [
-              "zeldamod:zoratunic"
+              "zeldamod:zora_tunic"
             ]
           },
           {
@@ -56,7 +56,7 @@
     ]
   ],
   "rewards": {
-    "experience": 10
+    "experience": 50
   },
   "sends_telemetry_event": true
 }

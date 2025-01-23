@@ -75,7 +75,7 @@ public class ZeldaTrades {
             );
             addTrade(trades, 5,
                     new ItemStack(Items.EMERALD, 24), // Cost
-                    new ItemStack(HAWK_MASK.get()), 1, 18, 30.0f
+                    new ItemStack(HAWKEYE.get()), 1, 18, 30.0f
             );
 
         }
@@ -145,7 +145,7 @@ public class ZeldaTrades {
             );
             addTrade(trades, 3,
                     new ItemStack(EMERALD, 20), // Cost
-                    new ItemStack(BUNNY_MASK.get()), 2, 75, 0.04f
+                    new ItemStack(BUNNY_HOOD.get()), 2, 75, 0.04f
             );
 
             // 4

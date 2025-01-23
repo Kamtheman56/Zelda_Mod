@@ -249,9 +249,6 @@ public class KeeseEntity extends FlyingMob implements Enemy {
                 Vec3 vec3 = livingentity.getEyePosition();
                 KeeseEntity.this.moveControl.setWantedPosition(vec3.x, vec3.y, vec3.z, 3.0D);
             }
-
-
-          //  KeeseEntity.this.playSound(SoundEvents.VEX_CHARGE, 1.0F, 1.0F);
         }
 
         /**
@@ -364,9 +361,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
         }
     }
 
-    public float getWalkTargetValue(BlockPos pPos, LevelReader pLevel) {
-        return -pLevel.getPathfindingCostFromLightLevels(pPos);
-    }
+
 
     /**
      * Static predicate for determining if the current light level and environmental conditions allow for a monster to

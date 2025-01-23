@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:fiercemask"
+      "item": "zeldamod:fierce_deity_mask"
     },
     "title": "Hero of Termina",
     "bold": true,
@@ -19,7 +19,7 @@
         "items": [
           {
             "items": [
-              "zeldamod:fiercemask"
+              "zeldamod:fierce_deity_mask"
 
             ]
           }

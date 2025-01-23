@@ -18,7 +18,7 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
 public class SwordBeam extends AbstractArrow {
-    private static final double BASE_DAMAGE = 3.0D;
+    private static final float BASE_DAMAGE = 3;
     public SwordBeam(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }

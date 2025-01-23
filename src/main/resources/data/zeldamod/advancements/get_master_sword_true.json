@@ -13,7 +13,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "zeldamod:get_master_sword3",
+  "parent": "zeldamod:get_master_sword_golden",
   "criteria": {
     "mask_block": {
       "trigger": "minecraft:inventory_changed",
@@ -35,7 +35,7 @@
     ]
   ],
   "rewards": {
-    "experience": 100
+    "experience": 200
   },
   "sends_telemetry_event": true
 }

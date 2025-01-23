@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:hawkmask"
+      "item": "zeldamod:hawkeye_mask"
     },
     "title": "Practically Cheating",
     "description": "Slay a Skeleton with an arrow from at least 50 meters away. Do this while wearing the Hawkeye Mask",
@@ -19,7 +19,7 @@
           "equipment": {
             "head": {
               "items": [
-                "zeldamod:hawkmask"
+                "zeldamod:hawkeye_mask"
               ]
             }
           }

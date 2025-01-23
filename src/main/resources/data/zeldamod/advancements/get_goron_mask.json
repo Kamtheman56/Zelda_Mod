@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:goronmask"
+      "item": "zeldamod:goron_mask"
     },
     "title": "Hero of Snowhead",
     "description": "Obtain the Goron Mask",
@@ -18,7 +18,7 @@
         "items": [
           {
             "items": [
-              "zeldamod:goronmask"
+              "zeldamod:goron_mask"
 
             ]
           }

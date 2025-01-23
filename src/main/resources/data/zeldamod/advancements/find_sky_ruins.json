@@ -7,7 +7,7 @@
       "text": "Ruin of Tears"
     },
     "description": {
-      "text": "Locate the Sky Ruins"
+      "text": "Locate a Chasm"
     },
     "frame": "task",
     "show_toast": true,
@@ -25,7 +25,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "zeldamod:sky_ruins"
+                "structure": "zeldamod:chasm"
               }
             }
           }

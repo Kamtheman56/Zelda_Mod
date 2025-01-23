@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.block.custom;
 
-import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.block.ZeldaBlocks;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
@@ -72,7 +72,7 @@ public class BombFlowerBlock extends CropBlock {
                 if (blockState.is(ModTags.Blocks.BOMB)){
                     pLevel.destroyBlock(pos, false);
                 }
-                if (blockState.is(ModBlocks.BOMBFLOWER.get())){
+                if (blockState.is(ZeldaBlocks.BOMBFLOWER.get())){
                     pLevel.explode(null, pos.getX(), pos.getY(), pos.getZ(),  2f, Level.ExplosionInteraction.MOB);
                     pLevel.destroyBlock(pos, false);
                 }

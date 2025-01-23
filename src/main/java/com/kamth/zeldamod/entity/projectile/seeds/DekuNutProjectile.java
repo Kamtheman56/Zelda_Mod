@@ -22,6 +22,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.NetworkHooks;
+import org.jetbrains.annotations.NotNull;
 
 public class DekuNutProjectile extends AbstractSeedProjectile {
 
@@ -56,6 +57,16 @@ public class DekuNutProjectile extends AbstractSeedProjectile {
     }
 
     @Override
+    protected void onHitBlock(@NotNull BlockHitResult ray) {
+        super.onHitBlock(ray);
+        this.discard();
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.EXPLOSION, this.getX() , this.getY(0.5D), this.getZ(),
+                    4, 1, 0.0D, 1, 0.0D);
+        }
+    }
+
+    @Override
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
 
@@ -66,9 +77,9 @@ public class DekuNutProjectile extends AbstractSeedProjectile {
             target.setArrowCount(target.getArrowCount() - 1);
         }
 
-        if (this.level() instanceof ServerLevel serverLevel) {
-            serverLevel.sendParticles(ParticleTypes.EXPLOSION, getX(), getY(), getZ(), 4,
-                    1, 0, 1, 0);
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.EXPLOSION, this.getX() , this.getY(0.5D), this.getZ(),
+                    4, 1, 0.0D, 1, 0.0D);
         }
     }
 }

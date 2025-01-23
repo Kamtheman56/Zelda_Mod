@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:kokiri_sword"
+      "item": "zeldamod:kokiri_sword_oot"
     },
     "title": {
       "text": "Better write your name on it!"
@@ -22,7 +22,7 @@
         "items": [
           {
             "items": [
-              "zeldamod:kokiri_sword"
+              "zeldamod:kokiri_sword_oot"
             ]
           }
         ]

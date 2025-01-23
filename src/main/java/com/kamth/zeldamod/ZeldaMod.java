@@ -1,7 +1,7 @@
 package com.kamth.zeldamod;
 
 
-import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.block.ZeldaBlocks;
 import com.kamth.zeldamod.block.entity.ZeldaBlockEntities;
 import com.kamth.zeldamod.custom.ModItemProperties;
 import com.kamth.zeldamod.effect.ModEffects;
@@ -47,7 +47,7 @@ public class ZeldaMod {
         ModCreativeModeTab.register(modEventBus);
         ZeldaItems.register(modEventBus);
         ModEntityTypes.register(modEventBus);
-        ModBlocks.register(modEventBus);
+        ZeldaBlocks.register(modEventBus);
         ModSounds.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
@@ -80,10 +80,10 @@ public class ZeldaMod {
 
 
 
-            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.NIGHTSHADE.getId(), ModBlocks.POTTED_NIGHTSHADE);
-            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.SUNDELION.getId(), ModBlocks.POTTED_SUNDELION);
-            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.HEART_FLOWER.getId(), ModBlocks.POTTED_HEART_FLOWER);
-            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.PRIMO_FLOWER.getId(), ModBlocks.POTTED_PRIMO_FLOWER);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ZeldaBlocks.NIGHTSHADE.getId(), ZeldaBlocks.POTTED_NIGHTSHADE);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ZeldaBlocks.SUNDELION.getId(), ZeldaBlocks.POTTED_SUNDELION);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ZeldaBlocks.HEART_FLOWER.getId(), ZeldaBlocks.POTTED_HEART_FLOWER);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ZeldaBlocks.PRIMO_FLOWER.getId(), ZeldaBlocks.POTTED_PRIMO_FLOWER);
         });
 
         ZeldaNetworking.registerPackets();

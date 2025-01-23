@@ -35,6 +35,14 @@ public abstract class MixinCapeRenderer  {
 
             }
         }
+//    @Inject(at = @At("HEAD"), method = "getSkinTextureLocation", cancellable = true)
+//    private void getSkinLocation(CallbackInfoReturnable<ResourceLocation> cir){
+//        AbstractClientPlayer player = (AbstractClientPlayer) (Object) this;
+//        if (player.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.STEVE_MASK.get())) {
+//            ResourceLocation texture = STEVE;
+//            cir.setReturnValue(texture);
+//        }
+//    }
     }
 
 

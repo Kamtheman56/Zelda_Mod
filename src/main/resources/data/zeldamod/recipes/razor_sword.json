@@ -4,7 +4,7 @@
     "item": "zeldamod:master_upgrade"
   },
   "base": {
-    "item": "zeldamod:sword_kokiri"
+    "item": "zeldamod:kokiri_sword_mm"
   },
   "addition": {
     "item": "minecraft:iron_block"

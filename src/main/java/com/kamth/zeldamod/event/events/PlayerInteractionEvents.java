@@ -4,7 +4,7 @@ import com.kamth.zeldamod.entity.mobs.KorokEntity;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.masks.CouplesMask;
 import com.kamth.zeldamod.item.masks.GeroMask;
-import com.kamth.zeldamod.item.masks.MajoraMask;
+import com.kamth.zeldamod.item.masks.MajorasMask;
 import com.kamth.zeldamod.item.masks.RomaniMask;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.sounds.SoundEvent;
@@ -39,7 +39,7 @@ public class PlayerInteractionEvents {
         }
 
         if (PlayerInteractionEvents.useMask(event, ZeldaItems.MAJORA_MASK.get())) {
-            MajoraMask.onInteract(user, target);
+            MajorasMask.onInteract(user, target);
         }
 
         if (PlayerInteractionEvents.useMaskNotCreative(event, ZeldaItems.COUPLES_MASK.get())) {
@@ -65,7 +65,7 @@ public class PlayerInteractionEvents {
 
             // Bunny Mask
             if (target instanceof Rabbit rabbit && rabbit.hasEffect(MobEffects.MOVEMENT_SPEED)) {
-                PlayerInteractionEvents.eatGapple(user, (LivingEntity) target, ZeldaItems.BUNNY_MASK.get());
+                PlayerInteractionEvents.eatGapple(user, (LivingEntity) target, ZeldaItems.BUNNY_HOOD.get());
                 target.playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1.0f, 1.4f);
                 target.discard();
             }

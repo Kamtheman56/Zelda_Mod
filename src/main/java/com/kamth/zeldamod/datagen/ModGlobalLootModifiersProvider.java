@@ -28,7 +28,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 LootItemRandomChanceCondition.randomChance(0.01f).build()}, ZeldaItems.ROC_FEATHER.get()));
         add("bunny_hood_from_rabbit", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/rabbit")).build(),
-                LootItemRandomChanceCondition.randomChance(0.01f).build()}, ZeldaItems.BUNNY_MASK.get()));
+                LootItemRandomChanceCondition.randomChance(0.01f).build()}, ZeldaItems.BUNNY_HOOD.get()));
         add("garo_from_pillager", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/pillager")).build(),
                 LootItemRandomChanceCondition.randomChance(0.08f).build()}, ZeldaItems.GARO_MASK.get()));

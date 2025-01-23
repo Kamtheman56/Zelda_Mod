@@ -21,7 +21,7 @@ public class ChampionLeathers extends ArmorItem {
 
     private static final String LOC = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/armor/champion_leathers.png").toString();
     public ChampionLeathers(ModArmorMaterials pMaterial, Type pType, Properties pProperties) {
-        super(ModArmorMaterials.Champions, pType, pProperties);
+        super(ModArmorMaterials.LEATHERS, pType, pProperties);
     }
 
     @Override

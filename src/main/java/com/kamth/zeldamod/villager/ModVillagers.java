@@ -2,7 +2,7 @@ package com.kamth.zeldamod.villager;
 
 import com.google.common.collect.ImmutableSet;
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.block.ZeldaBlocks;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -19,7 +19,7 @@ public class ModVillagers {
             DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, ZeldaMod.MOD_ID);
 
 public static final RegistryObject<PoiType> MASK_BLOCK_POI = POI_TYPES.register("mask_block_poi",
-        () -> new PoiType(ImmutableSet.copyOf(ModBlocks.MASK_BLOCK.get().getStateDefinition().getPossibleStates()),
+        () -> new PoiType(ImmutableSet.copyOf(ZeldaBlocks.MASK_BLOCK.get().getStateDefinition().getPossibleStates()),
                 1,3));
     public static final RegistryObject<PoiType> MORSHU_BLOCK_POI = POI_TYPES.register("morshu_block_poi",
             () -> new PoiType(ImmutableSet.copyOf(Blocks.EMERALD_BLOCK.getStateDefinition().getPossibleStates()),

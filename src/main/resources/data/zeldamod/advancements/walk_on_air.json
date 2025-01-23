@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:hoverboots"
+      "item": "zeldamod:hover_boots"
     },
     "title": "1kg of Feathers",
     "description": "Walk on air whilst wearing the Hover Boots",
@@ -30,7 +30,7 @@
                   "equipment": {
                     "feet": {
                       "items": [
-                        "zeldamod:hoverboots"
+                        "zeldamod:hover_boots"
                       ]
                     }
                   }

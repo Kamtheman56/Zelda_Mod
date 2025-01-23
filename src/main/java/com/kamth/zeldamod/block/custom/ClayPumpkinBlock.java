@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.block.custom;
 
-import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.block.ZeldaBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -32,7 +32,7 @@ public class ClayPumpkinBlock extends Block {
                 Direction direction = pHit.getDirection();
                 Direction direction1 = direction.getAxis() == Direction.Axis.Y ? pPlayer.getDirection().getOpposite() : direction;
                 pLevel.playSound((Player)null, pPos, SoundEvents.PUMPKIN_CARVE, SoundSource.BLOCKS, 1.0F, 1.0F);
-                pLevel.setBlock(pPos, ModBlocks.CARVED_CLAY_PUMPKIN.get().defaultBlockState().setValue(CarvedPumpkinBlock.FACING, direction1), 11);
+                pLevel.setBlock(pPos, ZeldaBlocks.CARVED_CLAY_PUMPKIN.get().defaultBlockState().setValue(CarvedPumpkinBlock.FACING, direction1), 11);
                 ItemEntity itementity = new ItemEntity(pLevel, (double)pPos.getX() + 0.5D + (double)direction1.getStepX() * 0.65D, (double)pPos.getY() + 0.1D, (double)pPos.getZ() + 0.5D + (double)direction1.getStepZ() * 0.65D, new ItemStack(Items.PUMPKIN_SEEDS, 4));
                 itementity.setDeltaMovement(0.05D * (double)direction1.getStepX() + pLevel.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction1.getStepZ() + pLevel.random.nextDouble() * 0.02D);
                 pLevel.addFreshEntity(itementity);

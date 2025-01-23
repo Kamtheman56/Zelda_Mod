@@ -16,7 +16,7 @@ public class ModItemProperties {
         makeBow(ZeldaItems.HERO_BOW.get());
         makeBow(ZeldaItems.REINFORCED_BOW.get());
         makeShield(ZeldaItems.DEKU_LEAF.get());
-        makeShield(ZeldaItems.GLIDER.get());
+        makeShield(ZeldaItems.PARAGLIDER.get());
         makeShield(ZeldaItems.LENS_OF_TRUTH.get());
         makeShield(ZeldaItems.CLAWSHOT.get());
         makeShield(ZeldaItems.CLAWSHOT_GODDESS.get());

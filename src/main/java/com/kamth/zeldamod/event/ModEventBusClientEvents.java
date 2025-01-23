@@ -81,6 +81,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(MobModelLayers.KOROK_LAYER, KorokModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.CAP, CapModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.SKULLTULA_LAYER, SkulltulaModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.TEST, DarknutHelmet::createBodyLayer);
     }
 
     @SubscribeEvent

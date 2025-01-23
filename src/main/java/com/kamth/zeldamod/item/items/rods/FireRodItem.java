@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.items.rods;
 
-import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.block.ZeldaBlocks;
 import com.kamth.zeldamod.entity.projectile.magic.FireProjectile;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -57,7 +57,7 @@ public class FireRodItem extends Item {
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
 
-        if (blockstate.is(ModBlocks.POWER_FLAME.get())) {
+        if (blockstate.is(ZeldaBlocks.POWER_FLAME.get())) {
             if (!(pContext.getItemInHand().getAllEnchantments().containsKey(Enchantments.UNBREAKING))){
                 pContext.getItemInHand().enchant(Enchantments.MENDING,1);
                 pContext.getLevel().playSound(pContext.getPlayer(),blockpos,SoundEvents.AMETHYST_BLOCK_RESONATE,SoundSource.BLOCKS, 1,1);

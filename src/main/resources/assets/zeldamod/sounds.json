@@ -160,5 +160,23 @@
     "sounds": [
       "zeldamod:korok_crunch"
     ]
+  },
+  "sword_beam": {
+    "subtitle": "sounds.zeldamod.sword_beam",
+    "sounds": [
+      "zeldamod:sword_beam"
+    ]
+  },
+  "sword_beam_shatter": {
+    "subtitle": "sounds.zeldamod.sword_beam_shatter",
+    "sounds": [
+      "zeldamod:sword_beam_shatter"
+    ]
+  },
+  "sword_enchant": {
+    "subtitle": "sounds.zeldamod.sword_enchant",
+    "sounds": [
+      "zeldamod:sword_enchant"
+    ]
   }
 }

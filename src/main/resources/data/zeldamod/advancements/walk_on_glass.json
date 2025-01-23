@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:heavyboots"
+      "item": "zeldamod:heavy_boots"
     },
     "title": "1kg of Steel",
     "description": "Carefully walk on a fragile block whilst wearing the Heavy Boots",
@@ -28,7 +28,7 @@
                   "equipment": {
                     "feet": {
                       "items": [
-                        "zeldamod:heavyboots"
+                        "zeldamod:heavy_boots"
                       ]
                     }
                   }

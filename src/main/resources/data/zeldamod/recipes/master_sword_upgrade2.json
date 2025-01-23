@@ -4,12 +4,12 @@
     "item": "zeldamod:master_upgrade"
   },
   "base": {
-    "item": "zeldamod:master_sword2"
+    "item": "zeldamod:master_sword_tempered"
   },
   "addition": {
     "item": "zeldamod:refined_master_ore"
   },
   "result": {
-    "item": "zeldamod:master_sword3"
+    "item": "zeldamod:master_sword_golden"
   }
 }

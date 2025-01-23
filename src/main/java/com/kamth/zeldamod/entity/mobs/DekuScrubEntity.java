@@ -1,9 +1,9 @@
 package com.kamth.zeldamod.entity.mobs;
 
-import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.block.ZeldaBlocks;
 import com.kamth.zeldamod.entity.projectile.seeds.SeedProjectile;
 import com.kamth.zeldamod.item.ZeldaItems;
-import com.kamth.zeldamod.item.items.z_sort_through_later.SlingshotItem;
+import com.kamth.zeldamod.item.items.weapons.projectiles.SlingshotItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -127,7 +127,7 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
         }
 
         protected boolean isValidTarget(LevelReader pLevel, BlockPos pPos) {
-            return pLevel.getBlockState(pPos).is(ModBlocks.DEKU_BLOCK.get()) && pLevel.getBlockState(pPos.above()).isPathfindable(pLevel, pPos, PathComputationType.LAND);
+            return pLevel.getBlockState(pPos).is(ZeldaBlocks.DEKU_BLOCK.get()) && pLevel.getBlockState(pPos.above()).isPathfindable(pLevel, pPos, PathComputationType.LAND);
         }
     }
 

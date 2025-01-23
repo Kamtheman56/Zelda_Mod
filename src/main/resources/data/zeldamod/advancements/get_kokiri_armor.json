@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:kokiritunic"
+      "item": "zeldamod:kokiri_tunic"
     },
     "title": {
       "text": "Adventuring in Style"
@@ -22,7 +22,7 @@
         "items": [
           {
             "items": [
-              "zeldamod:kokirihat"
+              "zeldamod:kokiri_hat"
             ]
           }
         ]
@@ -34,7 +34,7 @@
         "items": [
           {
             "items": [
-              "zeldamod:kokiritunic"
+              "zeldamod:kokiri_tunic"
             ]
           }
         ]
@@ -46,7 +46,7 @@
         "items": [
           {
             "items": [
-              "zeldamod:kokiripants"
+              "zeldamod:kokiri_pants"
             ]
           }
         ]
@@ -58,7 +58,7 @@
         "items": [
           {
             "items": [
-              "zeldamod:kokiriboots"
+              "zeldamod:kokiri_boots"
             ]
           }
         ]

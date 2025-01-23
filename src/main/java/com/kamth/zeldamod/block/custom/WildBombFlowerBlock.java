@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.block.custom;
 
-import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.block.ZeldaBlocks;
 import com.kamth.zeldamod.custom.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -53,7 +53,7 @@ public class WildBombFlowerBlock extends FaceAttachedHorizontalDirectionalBlock 
                 if (blockState.is(ModTags.Blocks.BOMB)){
                     pLevel.destroyBlock(pos, false);
                 }
-                if (blockState.is(ModBlocks.BombFlower2.get())){
+                if (blockState.is(ZeldaBlocks.WILD_BOMB_FLOWER.get())){
                     pLevel.explode(null, pos.getX(), pos.getY(), pos.getZ(),  2f, Level.ExplosionInteraction.MOB);
                     pLevel.destroyBlock(pos, false);
                 }

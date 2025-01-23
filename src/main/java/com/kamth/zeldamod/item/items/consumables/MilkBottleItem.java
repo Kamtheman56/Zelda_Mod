@@ -49,9 +49,6 @@ public class MilkBottleItem extends DrinkItem {
         return !nbt.getBoolean("used") ? super.getName(pStack) : Component.translatable(pStack.getDescriptionId() + "_half");
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
 
-    }
 }
 

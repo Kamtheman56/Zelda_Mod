@@ -108,45 +108,5 @@
 			"rotation": [-83.75, 0, 0],
 			"translation": [1.25, 1.75, 0]
 		}
-	},
-	"groups": [
-		{
-			"name": "base",
-			"origin": [0, 0, 0],
-			"color": 0,
-			"nbt": "{}",
-			"children": [
-				0,
-				1,
-				{
-					"name": "hook 1",
-					"origin": [8, -0.5, 8.5],
-					"color": 0,
-					"nbt": "{}",
-					"children": [2]
-				},
-				{
-					"name": "hook 2",
-					"origin": [8, 8, 8],
-					"color": 0,
-					"nbt": "{}",
-					"children": [3]
-				},
-				{
-					"name": "hook 3",
-					"origin": [8, 8, 8],
-					"color": 0,
-					"nbt": "{}",
-					"children": [4]
-				},
-				{
-					"name": "hook 4",
-					"origin": [8, 8, 8],
-					"color": 0,
-					"nbt": "{}",
-					"children": [5]
-				}
-			]
-		}
-	]
+	}
 }

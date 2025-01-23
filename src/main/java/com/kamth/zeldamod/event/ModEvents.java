@@ -32,7 +32,7 @@ import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import static com.kamth.zeldamod.item.items.z_sort_through_later.LensItem.LOOKING;
+import static com.kamth.zeldamod.item.items.tools.LensItem.LOOKING;
 
 
 @Mod.EventBusSubscriber(modid = ZeldaMod.MOD_ID)
@@ -128,14 +128,14 @@ public class ModEvents {
     public static void onFovUpdate(ComputeFovModifierEvent event) {
         LivingEntity player = event.getPlayer();
         Item item = player.getUseItem().getItem();
-        if (event.getPlayer().getUseItem().getItem() instanceof BowItem && event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWK_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
+        if (event.getPlayer().getUseItem().getItem() instanceof BowItem && event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWKEYE.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
             float FOVModifier = player.getTicksUsingItem() / (float) BowItem.MAX_DRAW_DURATION;
             event.setNewFovModifier(event.getFovModifier() * (1.0f - FOVModifier * 1.3f));
         }
         if (event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.GORON_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
             event.setNewFovModifier(event.getFovModifier() * (0.9f - player.getSpeed() * 1.1f));
         }
-        if (event.getPlayer().isUsingItem() && event.getPlayer().getUseItem().is(ModTags.Items.BOW_WEAPONS) && !event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWK_MASK.get()) ){
+        if (event.getPlayer().isUsingItem() && event.getPlayer().getUseItem().is(ModTags.Items.BOW_WEAPONS) && !event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWKEYE.get()) ){
             float fovModifier = 1f;
             int ticksUsingItem = event.getPlayer().getTicksUsingItem();
             float deltaTicks = (float)ticksUsingItem / 20f;

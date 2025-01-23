@@ -102,6 +102,10 @@ public class Clawshot extends AbstractArrow {
                         this.absMoveTo(this.hookedEntity.getX(), this.hookedEntity.getY(0.8D), this.hookedEntity.getZ());
                     }
                 }
+                if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.CLAWSHOT)){
+                    isPulling = true;
+                    this.setDeltaMovement(0,0,0);
+                }
 
                 if (owner != null) {
                     if (owner.isDeadOrDying() || this.tickCount == 50 ||
@@ -171,7 +175,13 @@ public class Clawshot extends AbstractArrow {
                         if(hookedEntity instanceof ItemEntity){
                             if(owner.getInventory().add(((ItemEntity) hookedEntity).getItem())) {
                                 kill();
-                            }}}}}}}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     @Override
     protected void onHitBlock(@NotNull BlockHitResult blockHitResult) {

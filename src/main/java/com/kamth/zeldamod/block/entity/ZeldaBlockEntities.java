@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.block.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.block.ModBlocks;
+import com.kamth.zeldamod.block.ZeldaBlocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -22,10 +22,10 @@ public class ZeldaBlockEntities {
 
     public static final RegistryObject<BlockEntityType<SwordPedestalEntity>> SWORD_PEDESTAL_ENTITY =
             register("sword_pedestal_be", SwordPedestalEntity::new,
-                    ModBlocks.SWORD_PEDESTAL,
-                    ModBlocks.ANCIENT_SWORD_PEDESTAL,
-                    ModBlocks.UNLOCKED_SWORD_PEDESTAL,
-                    ModBlocks.MASTER_SWORD_PEDESTAL
+                    ZeldaBlocks.SWORD_PEDESTAL,
+                    ZeldaBlocks.ANCIENT_SWORD_PEDESTAL,
+                    ZeldaBlocks.UNLOCKED_SWORD_PEDESTAL,
+                    ZeldaBlocks.MASTER_SWORD_PEDESTAL
             );
 
 
@@ -34,10 +34,10 @@ public class ZeldaBlockEntities {
     // Containers
 
     public static final RegistryObject<BlockEntityType<LockedChestEntity>> LOCKED_CHEST_ENTITY =
-            register("locked_chest_be", LockedChestEntity::new, ModBlocks.LOCKED_CHEST);
+            register("locked_chest_be", LockedChestEntity::new, ZeldaBlocks.LOCKED_CHEST);
 
     public static final RegistryObject<BlockEntityType<JarEntity>> JAR_ENTITY =
-            register("jar_be", JarEntity::new, ModBlocks.JAR_BLUE);
+            register("jar_be", JarEntity::new, ZeldaBlocks.JAR_BLUE);
 
 
 
