@@ -1,9 +1,8 @@
 package com.kamth.zeldamod.item.items.z_sort_through_later;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.entity.custom.projectile.BombSeedProjectile;
-import com.kamth.zeldamod.entity.custom.projectile.KorokSeedProjectile;
-import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
+import com.kamth.zeldamod.entity.projectile.seeds.BombSeedProjectile;
+import com.kamth.zeldamod.entity.projectile.seeds.SeedProjectile;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
@@ -84,9 +83,10 @@ public class SlingshotItem extends BowItem {
         Item bullet = itemStack.getItem();
         if (bullet == ZeldaItems.BOMB_SEEDS.get()) {
             return new BombSeedProjectile(level);}
-        if (bullet == ZeldaItems.KOROK_SEED.get()) {
-            return new KorokSeedProjectile(level);}
-        else  return new SeedProjectile(level);
+//        if (bullet == ZeldaItems.KOROK_SEED.get()) {
+//            return new KorokSeedProjectile(level);}
+//        else  return new SeedProjectile(level);
+        return new BombSeedProjectile(level);
     }
 
     public static float getPowerForTime(int timeInUse) {

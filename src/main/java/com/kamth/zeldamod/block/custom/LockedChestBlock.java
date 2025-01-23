@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.block.custom;
 
 import com.kamth.zeldamod.block.entity.LockedChestEntity;
-import com.kamth.zeldamod.block.entity.ModBlockEntities;
+import com.kamth.zeldamod.block.entity.ZeldaBlockEntities;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
@@ -39,7 +39,7 @@ public class LockedChestBlock extends AbstractChestBlock<LockedChestEntity> {
     public static final BooleanProperty LOCKED = BlockStateProperties.LOCKED;
     protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
     public LockedChestBlock(Properties properties) {
-        super(Properties.of().noOcclusion().mapColor(MapColor.METAL).strength(3.5f).requiresCorrectToolForDrops(), ModBlockEntities.LOCKED_CHEST_BE::get);
+        super(Properties.of().noOcclusion().mapColor(MapColor.METAL).strength(3.5f).requiresCorrectToolForDrops(), ZeldaBlockEntities.LOCKED_CHEST_ENTITY::get);
         registerDefaultState(getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(TYPE, ChestType.SINGLE));
 
     }
@@ -126,7 +126,7 @@ public class LockedChestBlock extends AbstractChestBlock<LockedChestEntity> {
         pBuilder.add(FACING, TYPE, LOCKED);
     }
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return pLevel.isClientSide() ? createTickerHelper(pBlockEntityType, ModBlockEntities.LOCKED_CHEST_BE.get(), LockedChestEntity::lidAnimateTick) : null;
+        return pLevel.isClientSide() ? createTickerHelper(pBlockEntityType, ZeldaBlockEntities.LOCKED_CHEST_ENTITY.get(), LockedChestEntity::lidAnimateTick) : null;
     }
     @Override
     public DoubleBlockCombiner.NeighborCombineResult<? extends ChestBlockEntity> combine(BlockState pState, Level pLevel, BlockPos pPos, boolean pOverride) {

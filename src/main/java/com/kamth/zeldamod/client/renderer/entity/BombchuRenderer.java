@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.client.renderer.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.entity.custom.projectile.BombchuProjectile;
+import com.kamth.zeldamod.entity.projectile.bombs.BombchuEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -15,7 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
-public class BombchuRenderer extends EntityRenderer<BombchuProjectile> {
+public class BombchuRenderer extends EntityRenderer<BombchuEntity> {
     private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/item/bomb.png");
     private static final RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
 
@@ -29,7 +29,7 @@ public class BombchuRenderer extends EntityRenderer<BombchuProjectile> {
      * @param pEntity
      */
     @Override
-    public ResourceLocation getTextureLocation(BombchuProjectile pEntity) {
+    public ResourceLocation getTextureLocation(BombchuEntity pEntity) {
         return TEXTURE_LOCATION;
     }
 
@@ -37,7 +37,7 @@ public class BombchuRenderer extends EntityRenderer<BombchuProjectile> {
         return 15;
     }
 
-    public void render(BombchuProjectile pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(BombchuEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
         pMatrixStack.pushPose();
         pMatrixStack.scale(0.8F, 0.8F, 0.8F);
         pMatrixStack.mulPose(this.entityRenderDispatcher.cameraOrientation());

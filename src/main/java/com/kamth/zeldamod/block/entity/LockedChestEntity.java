@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class LockedChestEntity  extends ChestBlockEntity {
     public LockedChestEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.LOCKED_CHEST_BE.get(),pPos, pBlockState);
+        super(ZeldaBlockEntities.LOCKED_CHEST_ENTITY.get(),pPos, pBlockState);
     }
     @Override
     protected Component getDefaultName() {

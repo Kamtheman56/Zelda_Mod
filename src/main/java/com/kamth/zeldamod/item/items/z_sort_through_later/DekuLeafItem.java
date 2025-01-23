@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.items.z_sort_through_later;
 
-import com.kamth.zeldamod.entity.custom.projectile.GustProjectile;
+import com.kamth.zeldamod.entity.projectile.magic.GustProjectile;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;

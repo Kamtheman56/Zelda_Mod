@@ -1,8 +1,22 @@
 package com.kamth.zeldamod.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.entity.custom.projectile.*;
 import com.kamth.zeldamod.entity.mobs.*;
+import com.kamth.zeldamod.entity.projectile.seeds.BombSeedProjectile;
+import com.kamth.zeldamod.entity.projectile.seeds.DekuNutProjectile;
+import com.kamth.zeldamod.entity.projectile.seeds.KorokSeedProjectile;
+import com.kamth.zeldamod.entity.projectile.seeds.SeedProjectile;
+import com.kamth.zeldamod.entity.projectile.arrows.*;
+import com.kamth.zeldamod.entity.projectile.bombs.BombFlowerEntity;
+import com.kamth.zeldamod.entity.projectile.bombs.BombEntity;
+import com.kamth.zeldamod.entity.projectile.bombs.BombchuEntity;
+import com.kamth.zeldamod.entity.projectile.bombs.WaterBombEntity;
+import com.kamth.zeldamod.entity.projectile.boomerangs.BoomerangProjectile;
+import com.kamth.zeldamod.entity.projectile.boomerangs.GaleBoomerangProjectile;
+import com.kamth.zeldamod.entity.projectile.boomerangs.MagicBoomerangProjectile;
+import com.kamth.zeldamod.entity.projectile.grapples.Clawshot;
+import com.kamth.zeldamod.entity.projectile.grapples.Hookshot;
+import com.kamth.zeldamod.entity.projectile.magic.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityType.Builder;
@@ -18,10 +32,9 @@ public class ModEntityTypes {
 
 
 
-//public static final EntityType<Arrow> ARROW = register("arrow", EntityType.Builder.<Arrow>of(Arrow::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20));
-    public static final RegistryObject<EntityType<SeedProjectile>> WHEAT_SEED = ENTITY_TYPES.register("seed", () -> EntityType.Builder.<SeedProjectile>of(SeedProjectile::new, MobCategory.MISC).sized(0.7f,0.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "seed").toString()));
-    public static final RegistryObject<EntityType<BombProjectile>> BOMB = ENTITY_TYPES.register("bomb", () -> Builder.<BombProjectile>of(BombProjectile::new, MobCategory.MISC).sized(0.5f,0.6f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bomb").toString()));
-    public static final RegistryObject<EntityType<WaterBombProjectile>> WATER_BOMB = ENTITY_TYPES.register("water_bomb", () -> Builder.<WaterBombProjectile>of(WaterBombProjectile::new, MobCategory.MISC).noSummon().sized(0.5f,0.5f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "water_bomb").toString()));
+    public static final RegistryObject<EntityType<SeedProjectile>> SEED_PROJECTILE = ENTITY_TYPES.register("seed", () -> EntityType.Builder.<SeedProjectile>of(SeedProjectile::new, MobCategory.MISC).sized(0.7f,0.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "seed").toString()));
+    public static final RegistryObject<EntityType<BombEntity>> BOMB = ENTITY_TYPES.register("bomb", () -> Builder.<BombEntity>of(BombEntity::new, MobCategory.MISC).sized(0.5f,0.6f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bomb").toString()));
+    public static final RegistryObject<EntityType<WaterBombEntity>> WATER_BOMB = ENTITY_TYPES.register("water_bomb", () -> Builder.<WaterBombEntity>of(WaterBombEntity::new, MobCategory.MISC).noSummon().sized(0.5f,0.5f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "water_bomb").toString()));
     public static final RegistryObject<EntityType<FireArrow>> FIRE_ARROW = ENTITY_TYPES.register("fire_arrow", () -> EntityType.Builder.<FireArrow>of(FireArrow::new, MobCategory.MISC).sized(0.5f,0.5f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "fire_arrow").toString()));
     public static final RegistryObject<EntityType<IceArrow>> ICE_ARROW = ENTITY_TYPES.register("ice_arrow", () -> Builder.<IceArrow>of(IceArrow::new, MobCategory.MISC).sized(0.5f,0.5f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "ice_arrow").toString()));
     public static final RegistryObject<EntityType<LightArrow>> LIGHT_ARROW = ENTITY_TYPES.register("light_arrow", () -> Builder.<LightArrow>of(LightArrow::new, MobCategory.MISC).sized(0.5f,0.5f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "light_arrow").toString()));
@@ -30,7 +43,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<LightningArrow>> LIGHTNING_ARROW = ENTITY_TYPES.register("lightning_arrow", () -> Builder.<LightningArrow>of(LightningArrow::new, MobCategory.MISC).sized(0.5f,0.5f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "lightning_arrow").toString()));
     public static final RegistryObject<EntityType<AncientArrow>> ANCIENT_ARROW = ENTITY_TYPES.register("ancient_arrow", () -> Builder.<AncientArrow>of(AncientArrow::new, MobCategory.MISC).sized(0.5f,0.5f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "ancient_arrow").toString()));
     public static final RegistryObject<EntityType<GustProjectile>> GUST_PROJECTILE = ENTITY_TYPES.register("gust_projectile", () -> Builder.<GustProjectile>of(GustProjectile::new, MobCategory.MISC).sized(1.4f,1.7f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "gust_projectile").toString()));
-    public static final RegistryObject<EntityType<Deku_Nut>> DEKU_NUT = ENTITY_TYPES.register("deku_nut", () -> Builder.<Deku_Nut>of(Deku_Nut::new, MobCategory.MISC).sized(0.7f,0.7f).clientTrackingRange(4).noSummon().updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "deku_nut").toString()));
+    public static final RegistryObject<EntityType<DekuNutProjectile>> DEKU_NUT = ENTITY_TYPES.register("deku_nut", () -> Builder.<DekuNutProjectile>of(DekuNutProjectile::new, MobCategory.MISC).sized(0.7f,0.7f).clientTrackingRange(4).noSummon().updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "deku_nut").toString()));
     public static final RegistryObject<EntityType<FireProjectile>> FIRE_PROJECTILE = ENTITY_TYPES.register("fire_projectile", () -> Builder.<FireProjectile>of(FireProjectile::new, MobCategory.MISC).sized(1.7f,.8f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "fire_projectile").toString()));
     public static final RegistryObject<EntityType<IceProjectile>> ICE_PROJECTILE = ENTITY_TYPES.register("ice_projectile", () -> Builder.<IceProjectile>of(IceProjectile::new, MobCategory.MISC).sized(.6f,.7f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "ice_projectile").toString()));
     public static final RegistryObject<EntityType<BoomerangProjectile>> BOOMERANG = ENTITY_TYPES.register("boomerang_projectile", () -> Builder.<BoomerangProjectile>of(BoomerangProjectile::new, MobCategory.MISC).noSummon().sized(.6f,.7f).clientTrackingRange(6).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "boomerang").toString()));
@@ -38,11 +51,11 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<SandProjectile>> SAND_PROJECTILE = ENTITY_TYPES.register("sand_projectile", () -> Builder.<SandProjectile>of(SandProjectile::new, MobCategory.MISC).sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "sand_projectile").toString()));
     public static final RegistryObject<EntityType<Hookshot>> HOOKSHOT = ENTITY_TYPES.register("hookshot_projectile", () -> Builder.<Hookshot>of(Hookshot::new, MobCategory.MISC).sized(.6f,.7f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "hookshot_projectile").toString()));
     public static final RegistryObject<EntityType<Clawshot>> CLAWSHOT = ENTITY_TYPES.register("clawshot_projectile", () -> Builder.<Clawshot>of(Clawshot::new, MobCategory.MISC).sized(.6f,.7f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "clawshot_projectile").toString()));
-    public static final RegistryObject<EntityType<BombFlower>> BOMB_FLOWER = ENTITY_TYPES.register("bomb_flower", () -> Builder.<BombFlower>of(BombFlower::new, MobCategory.MISC).sized(.6f,.7f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bomb_flower").toString()));
+    public static final RegistryObject<EntityType<BombFlowerEntity>> BOMB_FLOWER = ENTITY_TYPES.register("bomb_flower", () -> Builder.<BombFlowerEntity>of(BombFlowerEntity::new, MobCategory.MISC).sized(.6f,.7f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bomb_flower").toString()));
     public static final RegistryObject<EntityType<SwordBeam2>> SWORD_BEAM2 = ENTITY_TYPES.register("sword_beam2", () -> Builder.<SwordBeam2>of(SwordBeam2::new, MobCategory.MISC).sized(1.5f,0.6f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "sword_beam2").toString()));
     public static final RegistryObject<EntityType<GaleBoomerangProjectile>> GALE_BOOMERANG = ENTITY_TYPES.register("gale_boomerang_projectile", () -> Builder.<GaleBoomerangProjectile>of(GaleBoomerangProjectile::new, MobCategory.MISC).noSummon().sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "gale_boomerang").toString()));
     public static final RegistryObject<EntityType<BombSeedProjectile>> BOMB_SEED = ENTITY_TYPES.register("bomb_seed_projectile", () -> Builder.<BombSeedProjectile>of(BombSeedProjectile::new, MobCategory.MISC).noSummon().sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bomb_seed").toString()));
-    public static final RegistryObject<EntityType<BombchuProjectile>> BOMBCHU = ENTITY_TYPES.register("bombchu", () -> Builder.<BombchuProjectile>of(BombchuProjectile::new, MobCategory.MISC).noSummon().sized(0.5f,0.6f).clientTrackingRange(6).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bombchu").toString()));
+    public static final RegistryObject<EntityType<BombchuEntity>> BOMBCHU = ENTITY_TYPES.register("bombchu", () -> Builder.<BombchuEntity>of(BombchuEntity::new, MobCategory.MISC).noSummon().sized(0.5f,0.6f).clientTrackingRange(6).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bombchu").toString()));
     public static final RegistryObject<EntityType<KorokSeedProjectile>> KOROK_SEED = ENTITY_TYPES.register("korok_seed", () -> EntityType.Builder.<KorokSeedProjectile>of(KorokSeedProjectile::new, MobCategory.MISC).sized(0.7f,0.7f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "korok_seed").toString()));
 
 

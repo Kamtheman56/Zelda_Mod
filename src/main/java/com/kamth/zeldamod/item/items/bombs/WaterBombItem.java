@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.bombs;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.entity.custom.projectile.WaterBombProjectile;
+import com.kamth.zeldamod.entity.projectile.bombs.WaterBombEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -26,7 +26,7 @@ public class WaterBombItem extends BombItem {
         ItemStack itemstack = player.getItemInHand(pHand);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 1F, 0.2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
-            WaterBombProjectile bombEntity = new WaterBombProjectile(pLevel,player);
+            WaterBombEntity bombEntity = new WaterBombEntity(player, pLevel, false);
             bombEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.25F, 0.9F);
             pLevel.addFreshEntity(bombEntity);
         }

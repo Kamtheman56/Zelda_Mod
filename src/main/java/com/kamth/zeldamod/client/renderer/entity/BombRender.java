@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.client.renderer.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.entity.custom.projectile.BombProjectile;
+import com.kamth.zeldamod.entity.projectile.bombs.BombEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -18,7 +18,7 @@ import org.joml.Matrix4f;
 import java.time.Duration;
 import java.time.Instant;
 
-public class BombRender extends EntityRenderer<BombProjectile> {
+public class BombRender extends EntityRenderer<BombEntity> {
     private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/item/bomb.png");
     private static final RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
 
@@ -35,15 +35,15 @@ public class BombRender extends EntityRenderer<BombProjectile> {
      * @param pEntity
      */
     @Override
-    public ResourceLocation getTextureLocation(BombProjectile pEntity) {
+    public ResourceLocation getTextureLocation(BombEntity pEntity) {
         return TEXTURE_LOCATION;
     }
 
-    protected int getBlockLightLevel(BombProjectile pEntity, BlockPos pPos) {
+    protected int getBlockLightLevel(BombEntity pEntity, BlockPos pPos) {
         return 15;
     }
 
-    public void render(BombProjectile pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(BombEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
         pMatrixStack.pushPose();
         pMatrixStack.scale(0.8F, 0.8F, 0.8F);
         pMatrixStack.mulPose(this.entityRenderDispatcher.cameraOrientation());

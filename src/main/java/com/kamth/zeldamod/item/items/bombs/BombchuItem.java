@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.items.bombs;
 
-import com.kamth.zeldamod.entity.custom.projectile.BombchuProjectile;
+import com.kamth.zeldamod.entity.projectile.bombs.BombchuEntity;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -20,7 +20,7 @@ public class BombchuItem extends Item {
         ItemStack itemstack = player.getItemInHand(pHand);
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 1F, -0.5F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
-            BombchuProjectile bombEntity = new BombchuProjectile(pLevel,player);
+            BombchuEntity bombEntity = new BombchuEntity(pLevel,player);
             bombEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.25F, 0.9F);
             pLevel.addFreshEntity(bombEntity);
         }

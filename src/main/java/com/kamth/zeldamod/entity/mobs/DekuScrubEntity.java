@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.entity.mobs;
 
 import com.kamth.zeldamod.block.ModBlocks;
-import com.kamth.zeldamod.entity.custom.projectile.SeedProjectile;
+import com.kamth.zeldamod.entity.projectile.seeds.SeedProjectile;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.items.z_sort_through_later.SlingshotItem;
 import net.minecraft.core.BlockPos;
@@ -159,7 +159,7 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
 
     @Override
     public void performRangedAttack(LivingEntity pTarget, float pDistanceFactor) {
-        SeedProjectile seedprojectile = new SeedProjectile(this.level(), this);
+        SeedProjectile seedprojectile = new SeedProjectile(this, this.level());
         double d0 = pTarget.getX() - this.getX();
         double d1 = pTarget.getY(0.3333333333333333D) - seedprojectile.getY();
         double d2 = pTarget.getZ() - this.getZ();

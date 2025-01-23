@@ -2,6 +2,10 @@ package com.kamth.zeldamod.block;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.custom.*;
+import com.kamth.zeldamod.block.custom.pedastal.AncientSwordPedestalBlock;
+import com.kamth.zeldamod.block.custom.pedastal.MasterSwordPedestalBlock;
+import com.kamth.zeldamod.block.custom.pedastal.SwordPedestalBlock;
+import com.kamth.zeldamod.block.custom.pedastal.UnlockedSwordPedestalBlock;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.util.valueproviders.UniformInt;

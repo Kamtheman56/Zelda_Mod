@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.items.grapples;
 
-import com.kamth.zeldamod.entity.custom.projectile.Clawshot;
+import com.kamth.zeldamod.entity.projectile.grapples.Clawshot;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;

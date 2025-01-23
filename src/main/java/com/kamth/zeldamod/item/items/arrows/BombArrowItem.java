@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.arrows;
 
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.entity.custom.projectile.BombArrow;
+import com.kamth.zeldamod.entity.projectile.arrows.BombArrow;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ArrowItem;
