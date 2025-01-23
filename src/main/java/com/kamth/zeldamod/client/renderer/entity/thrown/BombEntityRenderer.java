@@ -30,7 +30,7 @@ public class BombEntityRenderer<T extends AbstractBombEntity & ItemSupplier> ext
         float time = pEntity.tickCount;
         float scale = (float) (0.75 + 0.05 * Math.sin(time * 0.2));
 
-        int min = 160;
+        int min = 80;
         int startRed = pEntity.getFuse() - 25;
         float speed = 0.5f;
 

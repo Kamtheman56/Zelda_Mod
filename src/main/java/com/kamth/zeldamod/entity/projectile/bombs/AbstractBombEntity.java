@@ -61,6 +61,10 @@ public abstract class AbstractBombEntity extends ThrowableProjectile implements 
             this.setDeltaMovement(this.getDeltaMovement().add(0, -getGravity(), 0));
         }
 
+        if (this.onGround()) {
+            this.setDeltaMovement(0, -0.75, 0);
+        }
+
         if (this.isOnFire()) {
             explode();
         }

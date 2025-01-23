@@ -93,8 +93,6 @@ public class ZeldaMod {
     public static class tickEventShit {
         public static boolean attackKeyWasPressed = false;
 
-
-        // AND THISz
         @SubscribeEvent
         public static void onClientTick(TickEvent.ClientTickEvent event) {
             Minecraft client = Minecraft.getInstance();

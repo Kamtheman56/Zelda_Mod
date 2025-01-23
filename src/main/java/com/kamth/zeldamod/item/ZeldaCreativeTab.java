@@ -5,8 +5,8 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 
 public class ZeldaCreativeTab {
-    public static void addCreativeTabItems(BuildCreativeModeTabContentsEvent event){
-        if (event.getTab() == ModCreativeModeTab.ZELDA_BLOCKS.get()){
+    public static void addCreativeTabItems(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTab() == ModCreativeModeTab.ZELDA_BLOCKS.get()) {
             event.accept(ZeldaItems.KOKIRI_HAT);
             event.accept(ZeldaItems.GORON_HAT);
             event.accept(ZeldaItems.ZORA_HAT);
