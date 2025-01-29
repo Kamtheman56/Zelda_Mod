@@ -1,8 +1,10 @@
 package com.kamth.zeldamod.item.items.rings;
 
 import com.kamth.zeldamod.item.ZeldaItems;
+import com.kamth.zeldamod.item.items.TooltipItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -17,9 +19,9 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class RedRingItem extends Item {
+public class RedRingItem extends TooltipItem {
     public RedRingItem(Properties pProperties) {
-        super(pProperties);
+        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.RED));
         MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
     }
 
@@ -30,13 +32,9 @@ public class RedRingItem extends Item {
             if (event.getEntity().getItemBySlot(EquipmentSlot.OFFHAND).getItem() == ZeldaItems.RED_RING.get() && event.getSource().is(DamageTypeTags.BYPASSES_SHIELD)) {
                 event.setAmount(event.getAmount() / 2f);
                 itemstack.hurtAndBreak(4, player, (p_43296_) ->
-                    p_43296_.broadcastBreakEvent(EquipmentSlot.OFFHAND));}}}
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-            components.add(Component.translatable("item.ring_description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.translatable("item.red_ring.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-
+                    p_43296_.broadcastBreakEvent(EquipmentSlot.OFFHAND));
+            }
+        }
     }
-
 }
 

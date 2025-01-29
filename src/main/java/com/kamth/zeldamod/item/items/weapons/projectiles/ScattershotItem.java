@@ -3,6 +3,7 @@ package com.kamth.zeldamod.item.items.weapons.projectiles;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.projectile.seeds.BombSeedProjectile;
 import com.kamth.zeldamod.entity.projectile.seeds.SeedProjectile;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -11,6 +12,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -87,13 +89,13 @@ public class ScattershotItem extends SlingshotItem {
                 }}}}
     @Nonnull
     private SeedProjectile createAmmoEntity(Level level, ItemStack itemStack) {
-//        Item bullet = itemStack.getItem();
-//        if (bullet == ZeldaItems.BOMB_SEEDS.get()) {
-//            return new BombSeedProjectile(level);}
-//        else  return new SeedProjectile(level);
-
-        return new BombSeedProjectile(level);
+        Item bullet = itemStack.getItem();
+        if (bullet == ZeldaItems.BOMB_SEEDS.get()) {
+            return new BombSeedProjectile(level);
+        }
+        else return new SeedProjectile(level);
     }
+
     public static float getPowerForTime(int timeInUse) {
         float power = (float) timeInUse / 20.0F;
         power = (power * power + power * 3.0F) / 4.0F;
@@ -107,9 +109,9 @@ public class ScattershotItem extends SlingshotItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.slingshot.description_advanced").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.slingshot.description_advanced").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
-        else components.add(Component.translatable("item.scattershot.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+        else components.add(Component.translatable("item.zeldamod.scattershot.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
     }
 
 }

@@ -25,9 +25,9 @@ public class MagicSwordItem extends SwordItem implements SwingActionItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.magic_sword.description_advanced").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.magic_sword.description_advanced").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.translatable("item.magic_sword.description_basic").withStyle(ChatFormatting.WHITE).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.magic_sword.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
     }
     @Override

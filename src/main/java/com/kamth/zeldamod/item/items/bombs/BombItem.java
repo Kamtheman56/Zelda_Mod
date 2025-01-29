@@ -2,6 +2,9 @@ package com.kamth.zeldamod.item.items.bombs;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.projectile.bombs.BombEntity;
+import com.kamth.zeldamod.item.items.TooltipItem;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -29,9 +32,8 @@ public class BombItem extends Item {
         if (!player.getAbilities().instabuild) {
             if (player.getItemInHand(pHand).is(ModTags.Items.BOMBS)) {
             itemstack.shrink(1);
+            }
         }
-        }
-
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }
 }

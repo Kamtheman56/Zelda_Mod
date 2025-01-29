@@ -2,10 +2,12 @@ package com.kamth.zeldamod.item.items.rods;
 
 import com.kamth.zeldamod.block.ZeldaBlocks;
 import com.kamth.zeldamod.entity.projectile.magic.IceProjectile;
+import com.kamth.zeldamod.item.items.TooltipItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -28,9 +30,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class IceRodItem extends Item {
+public class IceRodItem extends TooltipItem {
     public IceRodItem(Properties pProperties) {
-        super(pProperties);
+        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.AQUA), true);
     }
 
     @Override
@@ -69,20 +71,15 @@ public class IceRodItem extends Item {
             }  return InteractionResult.SUCCESS;}
         else return InteractionResult.PASS;
     }
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.ice_rod.description").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
-        }
-        super.appendHoverText(stack, level, components, flag);
-    }
+
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
         if (pState.is(BlockTags.SNOW)) {
             return 6;
         }
        else return 1;
-    }}
+    }
+}
 
 
 

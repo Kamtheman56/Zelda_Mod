@@ -38,9 +38,9 @@ public class FierceDeitySwordItem extends SwordItem implements SwingActionItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.fierce_sword.description_advanced").withStyle(ChatFormatting.DARK_RED).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.fierce_sword.description_advanced").withStyle(ChatFormatting.DARK_RED).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.translatable("item.fierce_sword.description_basic").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.fierce_sword.description_basic").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         }
     }
     @Override

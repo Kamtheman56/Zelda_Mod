@@ -20,13 +20,10 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
 public class AncientSwordPedestalBlock extends SwordPedestalBlock {
+
     public AncientSwordPedestalBlock(Properties pProperties) {
         super(pProperties);
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));
-    }
-    @Override @Nullable
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new SwordPedestalEntity(pPos, pState);
     }
 
     @Override

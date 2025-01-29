@@ -50,20 +50,15 @@ public class BlizzardRodItem extends IceRodItem {
     public boolean isFoil(ItemStack pStack) {
         return true;
     }
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.blizzard_rod.description").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
-        }
-        super.appendHoverText(stack, level, components, flag);
-    }
+
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
         if (pState.is(BlockTags.SNOW)) {
             return 8;
         }
         else return 1;
-    }}
+    }
+}
 
 
 

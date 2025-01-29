@@ -14,9 +14,16 @@ public class SeedProjectile extends AbstractSeedProjectile {
         super(pEntityType, level);
     }
 
+    public SeedProjectile(Level level) {
+        super(ModEntityTypes.SEED_PROJECTILE.get(), level);
+
+    }
+
     public SeedProjectile(LivingEntity pShooter, Level pLevel) {
         super(ModEntityTypes.SEED_PROJECTILE.get(), pShooter, pLevel);
     }
+
+
 
     @Override
     protected double getDamage() {

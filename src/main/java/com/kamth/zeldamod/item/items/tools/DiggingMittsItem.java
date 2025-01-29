@@ -112,8 +112,8 @@ public class DiggingMittsItem extends DiggerItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.mitts.description_basic1").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.translatable("item.mitts.description_basic2").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.mitts.description_basic1").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.mitts.description_basic2").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }}
 }
 

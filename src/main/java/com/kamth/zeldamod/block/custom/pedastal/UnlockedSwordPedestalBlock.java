@@ -3,6 +3,7 @@ package com.kamth.zeldamod.block.custom.pedastal;
 import com.kamth.zeldamod.block.entity.SwordPedestalEntity;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.item.ZeldaItems;
+import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -28,73 +29,53 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+public class UnlockedSwordPedestalBlock extends SwordPedestalBlock {
 
-    public static final VoxelShape SHAPE = Block.box(0,0,0, 16,2,16);
+
     public UnlockedSwordPedestalBlock(Properties pProperties) {
         super(pProperties);
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
-    @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE;
-    }
-    @Override
-    public @NotNull RenderShape getRenderShape(@NotNull BlockState pState) {
-        return RenderShape.MODEL;
-    }
-
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
-    }
-    @Override
-    public BlockState rotate(BlockState pState, Rotation pRotation) {
-        return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
-    }
-    @Override
-    public BlockState mirror(BlockState pState, Mirror pMirror) {
-        return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
-    }
-    @Override @Nullable
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new SwordPedestalEntity(pPos, pState);
-    }
-
-
 
     @Override
     public InteractionResult  use(BlockState pState, Level pLevel, BlockPos pPos,
                                   Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         ItemStack stackInHand = pPlayer.getItemInHand(pHand);
-        ItemStack three = ZeldaItems.MASTER_SWORD_GOLDEN.get().getDefaultInstance();
+
         BlockEntity te = pLevel.getBlockEntity(pPos);
         SwordPedestalEntity pedestal = (SwordPedestalEntity) pLevel.getBlockEntity(pPos);
-        if (te instanceof SwordPedestalEntity)
-        {
-            if (stackInHand.is(ZeldaItems.MASTER_SWORD_GOLDEN.get()) && pedestal.getSword().isEmpty())
-            {
-                if (stackInHand.getAllEnchantments().containsKey(Enchantments.SMITE) &&
-                        stackInHand.getAllEnchantments().containsKey(Enchantments.SWEEPING_EDGE) &&
-                        stackInHand.getAllEnchantments().containsKey(Enchantments.UNBREAKING)){
-                pedestal.setSword(ZeldaItems.MASTER_SWORD_TRUE.get().getDefaultInstance());
-                pedestal.getSword().enchant(Enchantments.SMITE,3);
-                pedestal.getSword().enchant(Enchantments.SWEEPING_EDGE,3);
-                pedestal.getSword().enchant(Enchantments.MOB_LOOTING,3);
-                pLevel.playSound(pPlayer,pPos, SoundEvents.BEACON_ACTIVATE, SoundSource.BLOCKS);
-                pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
-                pLevel.updateNeighborsAt(pPos,this);
-                return InteractionResult.SUCCESS;}
-            }
-            if (stackInHand.is(ModTags.Items.BROKEN_SWORDS) && pPlayer.getMaxHealth() >= 26 && pedestal.getSword().isEmpty())
-            {
-                    pedestal.setSword(ZeldaItems.MASTER_SWORD.get().getDefaultInstance());
-                    pLevel.playSound(pPlayer,pPos, SoundEvents.BEACON_ACTIVATE, SoundSource.BLOCKS);
+
+        if (te instanceof SwordPedestalEntity) {
+
+            // Checks if Master Sword_Golden is enchanted if so gives us the True Master Sword
+
+            if (stackInHand.is(ZeldaItems.MASTER_SWORD_GOLDEN.get()) && pedestal.getSword().isEmpty()) {
+                if (stackInHand.getAllEnchantments().containsKey(Enchantments.SMITE) && stackInHand.getAllEnchantments().containsKey(Enchantments.SWEEPING_EDGE) &&
+                stackInHand.getAllEnchantments().containsKey(Enchantments.UNBREAKING)) {
+
+                    pedestal.setSword(ZeldaItems.MASTER_SWORD_TRUE.get().getDefaultInstance());
+                    pedestal.getSword().enchant(Enchantments.SMITE,3);
+                    pedestal.getSword().enchant(Enchantments.SWEEPING_EDGE,3);
+                    pedestal.getSword().enchant(Enchantments.MOB_LOOTING,3);
+
+                    EnchantSound(pLevel,pPlayer,pPos);
+
                     pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
                     pLevel.updateNeighborsAt(pPos,this);
-                    return InteractionResult.SUCCESS;}
+                    return InteractionResult.SUCCESS;
+                }
             }
+
+            if (stackInHand.is(ModTags.Items.BROKEN_SWORDS) && pPlayer.getMaxHealth() >= 26 && pedestal.getSword().isEmpty()) {
+
+                pedestal.setSword(ZeldaItems.MASTER_SWORD.get().getDefaultInstance());
+                EnchantSound(pLevel,pPlayer,pPos);
+                pPlayer.setItemInHand(pHand, ItemStack.EMPTY);
+                pLevel.updateNeighborsAt(pPos,this);
+                return InteractionResult.SUCCESS;
+            }
+        }
+
             if (stackInHand.isEmpty() && !pedestal.getSword().isEmpty())
             {
                 pLevel.updateNeighborsAt(pPos,this);
@@ -113,19 +94,11 @@ public class UnlockedSwordPedestalBlock extends BaseEntityBlock {
         }
         return InteractionResult.FAIL;
     }
-    @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (pState.getBlock() != pNewState.getBlock()) {
-            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof SwordPedestalEntity) {
-                ((SwordPedestalEntity) blockEntity).drops();
-            }
-        }
-        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+
+
+    private void EnchantSound(Level pLevel, Player player, BlockPos pos) {
+        pLevel.playSound(player, pos, ModSounds.SWORD_ENCHANT.get(), SoundSource.BLOCKS);
     }
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING);
-    }
+
 
 }

@@ -59,7 +59,6 @@ public abstract class AbstractHeartItem extends TooltipItem {
         pLevel.playSound(pEntityLiving, pEntityLiving.getOnPos(), ModSounds.HEAL.get(), SoundSource.PLAYERS, 0.5f, this.pitch);
 
         if (pEntityLiving instanceof ServerPlayer serverplayer) {
-            serverplayer.getCooldowns().addCooldown(this,80);
             CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, pStack);
             ZeldaPlayerHealth.addBaseHealthModifier((Player) pEntityLiving, this.healAmount);
 

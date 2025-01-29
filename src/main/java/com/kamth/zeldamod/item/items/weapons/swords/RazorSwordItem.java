@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.item.items.weapons.swords;
 
+import com.kamth.zeldamod.item.items.weapons.TooltipSword;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.entity.EquipmentSlot;

@@ -5,16 +5,19 @@ import com.kamth.zeldamod.entity.projectile.magic.SwordBeam;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.ModTiers;
 import com.kamth.zeldamod.item.items.SwingActionItem;
+import com.kamth.zeldamod.item.items.weapons.TooltipSword;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -23,7 +26,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class MasterSwordItem extends TooltipSword implements SwingActionItem {
+public class MasterSwordItem extends SwordItem implements SwingActionItem {
     public MasterSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
@@ -72,9 +75,9 @@ public class MasterSwordItem extends TooltipSword implements SwingActionItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.master_sword.description_advanced").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.master_sword.description_advanced").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.translatable("item.master_sword.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.master_sword.description_basic").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         }
 
     }

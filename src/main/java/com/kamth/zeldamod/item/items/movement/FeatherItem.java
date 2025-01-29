@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.items.movement;
 
 import com.kamth.zeldamod.item.ZeldaItems;
+import com.kamth.zeldamod.item.items.TooltipItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -22,7 +23,7 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class FeatherItem extends Item {
+public class FeatherItem extends TooltipItem {
     public FeatherItem(Properties pProperties) {
         super(pProperties);
     }
@@ -61,9 +62,9 @@ world.playSound(null,player.getX(),player.getY(),player.getZ(), SoundEvents.WOOL
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.feather.description_advanced").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.feather.description_advanced").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
-        else  components.add(Component.translatable("item.feather.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+        else  components.add(Component.translatable("item.zeldamod.feather.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         super.appendHoverText(stack, level, components, flag);
     }
 

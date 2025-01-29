@@ -152,6 +152,7 @@ public class ZeldaItems {
     // OTHER
     public static final RegistryObject<Item> GLOOM_CLUMP = ITEMS.register("gloom_clump",
             () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    
     public static final RegistryObject<Item> XTENDER = ITEMS.register("extender",
             () -> new Item(new Item.Properties()));
 

@@ -1,9 +1,11 @@
 package com.kamth.zeldamod.item.items.rods;
 
 import com.kamth.zeldamod.entity.projectile.magic.SandProjectile;
+import com.kamth.zeldamod.item.items.TooltipItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -20,9 +22,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class SandWandItem extends Item {
+public class SandWandItem extends TooltipItem {
     public SandWandItem(Properties pProperties) {
-        super(pProperties);
+        super(pProperties,  Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), true);
     }
 
 
@@ -40,13 +42,6 @@ public class SandWandItem extends Item {
 
         return super.use(world, player, hand);
     }
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.sand_rod.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
-        }
-        super.appendHoverText(stack, level, components, flag);
-    }
 
     @Override
     public float getDestroySpeed(ItemStack pStack, BlockState pState) {
@@ -54,7 +49,8 @@ public class SandWandItem extends Item {
             return 12.0F;
         }
        else return  1f;
-    }}
+    }
+}
 
 
 

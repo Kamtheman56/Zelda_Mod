@@ -2,6 +2,7 @@ package com.kamth.zeldamod.item.items.weapons.projectiles;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.projectile.seeds.BombSeedProjectile;
+import com.kamth.zeldamod.entity.projectile.seeds.KorokSeedProjectile;
 import com.kamth.zeldamod.entity.projectile.seeds.SeedProjectile;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
@@ -82,11 +83,9 @@ public class SlingshotItem extends BowItem {
     private SeedProjectile createAmmoEntity(Level level, ItemStack itemStack) {
         Item bullet = itemStack.getItem();
         if (bullet == ZeldaItems.BOMB_SEEDS.get()) {
-            return new BombSeedProjectile(level);}
-//        if (bullet == ZeldaItems.KOROK_SEED.get()) {
-//            return new KorokSeedProjectile(level);}
-//        else  return new SeedProjectile(level);
-        return new BombSeedProjectile(level);
+            return new BombSeedProjectile(level);
+        }
+        else return new SeedProjectile(level);
     }
 
     public static float getPowerForTime(int timeInUse) {
@@ -123,9 +122,9 @@ public class SlingshotItem extends BowItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.slingshot.description_advanced").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.slingshot.description_advanced").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
-        else components.add(Component.translatable("item.slingshot.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+        else components.add(Component.translatable("item.zeldamod.slingshot.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
 
         super.appendHoverText(stack, level, components, flag);
     }

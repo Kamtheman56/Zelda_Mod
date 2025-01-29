@@ -1,11 +1,18 @@
 package com.kamth.zeldamod.block;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.block.custom.*;
+import com.kamth.zeldamod.block.custom.dungeon_blocks.*;
+import com.kamth.zeldamod.block.custom.ocarina_blocks.*;
 import com.kamth.zeldamod.block.custom.pedastal.AncientSwordPedestalBlock;
 import com.kamth.zeldamod.block.custom.pedastal.MasterSwordPedestalBlock;
 import com.kamth.zeldamod.block.custom.pedastal.SwordPedestalBlock;
 import com.kamth.zeldamod.block.custom.pedastal.UnlockedSwordPedestalBlock;
+import com.kamth.zeldamod.block.custom.plants.*;
+import com.kamth.zeldamod.block.custom.redstone_related.*;
+import com.kamth.zeldamod.block.custom.regular.ChuBlock;
+import com.kamth.zeldamod.block.custom.regular.ClayPumpkinBlock;
+import com.kamth.zeldamod.block.custom.regular.SacredFlameBlock;
+import com.kamth.zeldamod.block.custom.regular.SkyStoneBlock;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -64,9 +71,9 @@ public class ZeldaBlocks {
     public static final RegistryObject<Block> DEKU_BLOCK_BLUE = registerBlock("deku_block_blue", ()-> new BlueDekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
 
     // FLAME BLOCKS
-    public static final RegistryObject<Block> COURAGE_FLAME = registerBlock("courage_flame", ()-> new WisdomFlameBlock(BlockBehaviour.Properties.of().strength(8).sound(SoundType.EMPTY).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()) );
-    public static final RegistryObject<Block> POWER_FLAME = registerBlock("power_flame", ()-> new WisdomFlameBlock(BlockBehaviour.Properties.of().strength(8).sound(SoundType.EMPTY).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()));
-    public static final RegistryObject<Block> WISDOM_FLAME = registerBlock("wisdom_flame", ()-> new WisdomFlameBlock(BlockBehaviour.Properties.of().strength(8).sound(SoundType.EMPTY).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()));
+    public static final RegistryObject<Block> COURAGE_FLAME = registerBlock("courage_flame", ()-> new SacredFlameBlock(BlockBehaviour.Properties.of().strength(8).sound(SoundType.EMPTY).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()) );
+    public static final RegistryObject<Block> POWER_FLAME = registerBlock("power_flame", ()-> new SacredFlameBlock(BlockBehaviour.Properties.of().strength(8).sound(SoundType.EMPTY).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()));
+    public static final RegistryObject<Block> WISDOM_FLAME = registerBlock("wisdom_flame", ()-> new SacredFlameBlock(BlockBehaviour.Properties.of().strength(8).sound(SoundType.EMPTY).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()));
 
     // TIME BRICK BLOCKS
     public static final RegistryObject<Block> TIME_BRICKS = registerBlock("time_bricks", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
