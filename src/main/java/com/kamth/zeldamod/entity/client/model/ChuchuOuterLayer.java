@@ -1,5 +1,6 @@
-package com.kamth.zeldamod.entity.client;
+package com.kamth.zeldamod.entity.client.model;
 
+import com.kamth.zeldamod.entity.client.MobModelLayers;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;

@@ -40,7 +40,7 @@ public class WaterBombItem extends BombItem {
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-            components.add(Component.translatable("item.water_bomb.description").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.water_bomb.description").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
 
     }
 }

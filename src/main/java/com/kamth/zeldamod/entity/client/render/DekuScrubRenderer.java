@@ -1,6 +1,7 @@
-package com.kamth.zeldamod.entity.client;
+package com.kamth.zeldamod.entity.client.render;
 
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.entity.client.model.DekuModel;
 import com.kamth.zeldamod.entity.mobs.DekuScrubEntity;
 import com.kamth.zeldamod.item.armors.render.ModModelLayers;
 import com.mojang.blaze3d.vertex.PoseStack;

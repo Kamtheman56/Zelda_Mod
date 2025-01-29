@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.entity.client;
+package com.kamth.zeldamod.entity.client.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

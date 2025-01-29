@@ -1,6 +1,9 @@
-package com.kamth.zeldamod.entity.client;
+package com.kamth.zeldamod.entity.client.render;
 
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.entity.client.MobModelLayers;
+import com.kamth.zeldamod.entity.client.model.ChuchuModel;
+import com.kamth.zeldamod.entity.client.model.ChuchuOuterLayer;
 import com.kamth.zeldamod.entity.mobs.ChuchuEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;

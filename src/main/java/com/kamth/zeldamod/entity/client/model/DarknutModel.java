@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.entity.client;
+package com.kamth.zeldamod.entity.client.model;
 
 // Made with Blockbench 4.10.4
 // Exported for Minecraft version 1.17 or later with Mojang mappings

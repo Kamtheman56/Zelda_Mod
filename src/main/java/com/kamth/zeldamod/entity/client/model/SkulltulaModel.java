@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.entity.client;
+package com.kamth.zeldamod.entity.client.model;
 
 import com.kamth.zeldamod.entity.animations.ModAnimationDefinitions;
 import com.kamth.zeldamod.entity.mobs.SkulltulaEntity;

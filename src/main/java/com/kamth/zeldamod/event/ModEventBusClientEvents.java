@@ -7,6 +7,8 @@ import com.kamth.zeldamod.client.renderer.entity.*;
 import com.kamth.zeldamod.client.renderer.entity.thrown.BombEntityRenderer;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.client.*;
+import com.kamth.zeldamod.entity.client.model.*;
+import com.kamth.zeldamod.entity.client.render.*;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.armors.render.*;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -82,6 +84,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.CAP, CapModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.SKULLTULA_LAYER, SkulltulaModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.TEST, DarknutHelmet::createBodyLayer);
+        event.registerLayerDefinition(MobModelLayers.IRON_KNUCKLE_LAYER, IronKnuckleModel::createBodyLayer);
     }
 
     @SubscribeEvent
@@ -97,6 +100,7 @@ public class ModEventBusClientEvents {
         EntityRenderers.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), ElectricChuchuRenderer::new);
         EntityRenderers.register(ModEntityTypes.KOROK.get(), KorokRenderer::new);
         EntityRenderers.register(ModEntityTypes.SKULLTULA.get(), SkulltulaRenderer::new);
+        EntityRenderers.register(ModEntityTypes.IRON_KNUCKLE.get(), IronKnuckleRenderer::new);
 
         ItemProperties.register(ZeldaItems.MILK_BOTTLE.get(), new ResourceLocation("used"), (stack, world, entity, seed) -> {
 

@@ -27,7 +27,7 @@ public class WaterBombEntity extends AbstractBombEntity {
     }
 
     public WaterBombEntity(LivingEntity pShooter, Level pLevel, boolean bowled) {
-        super(ModEntityTypes.WATER_BOMB.get(), pShooter, pLevel, 80, 1, true, bowled);
+        super(ModEntityTypes.WATER_BOMB.get(), pShooter, pLevel, 65, 1, true, bowled);
     }
 
     @Override

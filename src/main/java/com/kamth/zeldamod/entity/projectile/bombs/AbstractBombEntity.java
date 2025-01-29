@@ -32,7 +32,7 @@ public abstract class AbstractBombEntity extends ThrowableProjectile implements 
 
     private static final EntityDataAccessor<Integer> TICKS_TO_EXPLODE = SynchedEntityData.defineId(AbstractBombEntity.class, EntityDataSerializers.INT);
 
-    private final int explosionPower;
+    private int explosionPower;
     private boolean waterProof;
     private boolean bowled;
 
@@ -53,8 +53,9 @@ public abstract class AbstractBombEntity extends ThrowableProjectile implements 
 
     @Override
     public void tick() {
-        this.move(MoverType.SELF, this.getDeltaMovement().normalize());
 
+        this.move(MoverType.SELF, this.getDeltaMovement().normalize());
+        this.updateInWaterStateAndDoFluidPushing();
         hitDetection();
 
         if (!this.isNoGravity()) {
@@ -69,9 +70,15 @@ public abstract class AbstractBombEntity extends ThrowableProjectile implements 
             explode();
         }
 
-        if (this.isInWater() && !this.waterProof) {
-            this.playSound(SoundEvents.FIRE_EXTINGUISH, 1, 1);
-            this.discard();
+        if (this.isInWater() && !this.level().isClientSide) {
+            if (this.waterProof) {
+                this.explosionPower = 5;
+            }
+
+            if (!this.waterProof){
+                this.discard();
+                this.playSound(SoundEvents.FIRE_EXTINGUISH, 1, 1);
+            }
         }
 
         if (this.tickCount % 8 == 0) {
@@ -85,6 +92,7 @@ public abstract class AbstractBombEntity extends ThrowableProjectile implements 
                 this.playSound(SoundEvents.TNT_PRIMED, 1, 1 / (this.level().getRandom().nextFloat() * 0.4f + 0.8f));
             }
         }
+
     }
 
     private void hitDetection() {

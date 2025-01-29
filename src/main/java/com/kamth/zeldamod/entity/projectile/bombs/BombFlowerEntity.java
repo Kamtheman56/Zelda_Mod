@@ -13,7 +13,7 @@ public class BombFlowerEntity extends AbstractBombEntity {
     }
 
     public BombFlowerEntity(LivingEntity pShooter, Level pLevel, boolean bowled) {
-        super(ModEntityTypes.BOMB_FLOWER.get(), pShooter, pLevel, 80, 2, false, bowled);
+        super(ModEntityTypes.BOMB_FLOWER.get(), pShooter, pLevel, 70, 2, false, bowled);
     }
 
     @Override

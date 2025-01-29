@@ -1,7 +1,9 @@
-package com.kamth.zeldamod.entity.client;
+package com.kamth.zeldamod.entity.client.render;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.entity.mobs.ElectricChuchuEntity;
+import com.kamth.zeldamod.entity.client.MobModelLayers;
+import com.kamth.zeldamod.entity.client.model.ChuchuModel;
+import com.kamth.zeldamod.entity.mobs.FireChuchuEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -9,24 +11,24 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
-public class ElectricChuchuRenderer extends MobRenderer<ElectricChuchuEntity, ChuchuModel<ElectricChuchuEntity>> {
-    public ElectricChuchuRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new ChuchuModel<>(pContext.bakeLayer(MobModelLayers.ELECTRIC_CHUCHU_LAYER)), .2f);
+public class FireChuchuRenderer extends MobRenderer<FireChuchuEntity, ChuchuModel<FireChuchuEntity>> {
+    public FireChuchuRenderer(EntityRendererProvider.Context pContext) {
+        super(pContext, new ChuchuModel<>(pContext.bakeLayer(MobModelLayers.FIRE_CHUCHU_LAYER)), .2f);
     }
 
     @Override
-    public ResourceLocation getTextureLocation(ElectricChuchuEntity pEntity) {
-        return new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/chuchu_yellow.png");
+    public ResourceLocation getTextureLocation(FireChuchuEntity pEntity) {
+        return new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/chuchu_red.png");
     }
 
     @Override
-    public void render(ElectricChuchuEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+    public void render(FireChuchuEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
                        MultiBufferSource pBuffer, int pPackedLight) {
 
 
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
     }
-    protected void scale(ElectricChuchuEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
+    protected void scale(FireChuchuEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
         float f = 0.999F;
         pMatrixStack.scale(0.999F, 0.999F, 0.999F);
         pMatrixStack.translate(0.0F, 0.001F, 0.0F);

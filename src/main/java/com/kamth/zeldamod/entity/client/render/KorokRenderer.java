@@ -1,7 +1,9 @@
-package com.kamth.zeldamod.entity.client;
+package com.kamth.zeldamod.entity.client.render;
 
 import com.google.common.collect.Maps;
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.entity.client.MobModelLayers;
+import com.kamth.zeldamod.entity.client.model.KorokModel;
 import com.kamth.zeldamod.entity.mobs.KorokEntity;
 import com.kamth.zeldamod.entity.mobs.variants.KorokVariants;
 import com.mojang.blaze3d.vertex.PoseStack;

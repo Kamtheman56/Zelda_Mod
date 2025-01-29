@@ -106,6 +106,9 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<SkulltulaEntity>> SKULLTULA = ENTITY_TYPES.register("skulltula", () -> Builder.of(SkulltulaEntity::new, MobCategory.MONSTER)
             .sized(1.7F, .75F).build("skulltula"));
 
+    public static final RegistryObject<EntityType<IronKnuckleEntity>> IRON_KNUCKLE = ENTITY_TYPES.register("iron_knuckle", () -> EntityType.Builder.of(IronKnuckleEntity::new, MobCategory.MONSTER)
+            .sized(.8f,1.8f).build("iron_knuckle"));
+
     // KEESE
     public static final RegistryObject<EntityType<KeeseEntity>> KEESE = ENTITY_TYPES.register("keese", () -> EntityType.Builder.of(KeeseEntity::new, MobCategory.MONSTER)
             .sized(.6f,.6f).build("keese"));

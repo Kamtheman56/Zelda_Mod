@@ -835,6 +835,9 @@ public class ZeldaItems {
     public static final RegistryObject<Item> SKULLTULA_SPAWN_EGG = ITEMS.register("skulltula_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.SKULLTULA, 5062189, 16252708, new Item.Properties()));
 
+    public static final RegistryObject<Item> IRON_KNUCKLE_SPAWN_EGG = ITEMS.register("iron_knuckle_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.IRON_KNUCKLE, 6176839, 2561279, new Item.Properties()));
+
     // KEESE
 
     public static final RegistryObject<Item> KEESE_SPAWN_EGG = ITEMS.register("keese_spawn_egg",

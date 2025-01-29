@@ -1,6 +1,7 @@
-package com.kamth.zeldamod.entity.client;
+package com.kamth.zeldamod.entity.client.model;
 
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.entity.client.MobModelLayers;
 import com.kamth.zeldamod.entity.mobs.DarkKnightEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
