@@ -83,7 +83,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(MobModelLayers.KOROK_LAYER, KorokModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.CAP, CapModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.SKULLTULA_LAYER, SkulltulaModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.TEST, DarknutHelmet::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.DARK_NUT_HELMET, DarknutHelmetModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.IRON_KNUCKLE_LAYER, IronKnuckleModel::createBodyLayer);
     }
 
@@ -113,5 +113,17 @@ public class ModEventBusClientEvents {
 
             return used ? 1.0f : 0.0f;
         });
+
+//        ItemProperties.register(ZeldaItems.DEKU_STICK.get(), new ResourceLocation("lit"), (stack, world, entity, seed) -> {
+//
+//            CompoundTag nbt = stack.getOrCreateTag();
+//            if (!nbt.contains("lit")) {
+//                return 0.0f;
+//            }
+//
+//            boolean used = nbt.getBoolean("lit");
+//
+//            return used ? 1.0f : 0.0f;
+//        });
     }
 }

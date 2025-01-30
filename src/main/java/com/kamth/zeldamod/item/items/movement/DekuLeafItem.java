@@ -1,10 +1,12 @@
 package com.kamth.zeldamod.item.items.movement;
 
 import com.kamth.zeldamod.entity.projectile.magic.GustProjectile;
+import com.kamth.zeldamod.item.items.TooltipItem;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -22,9 +24,9 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class DekuLeafItem extends Item {
+public class DekuLeafItem extends TooltipItem {
     public DekuLeafItem(Properties pProperties) {
-        super(pProperties);
+        super(pProperties, Style.EMPTY.withColor(ChatFormatting.GREEN).withItalic(true));
     }
 
     @Override
@@ -67,16 +69,10 @@ public class DekuLeafItem extends Item {
         });
         return true;
     }
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.deku_leaf.description").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
-        }
-        super.appendHoverText(stack, level, components, flag);
-    }
+
 }
 
-//   player.startUsingItem(InteractionHand.MAIN_HAND);
+
 
 
 

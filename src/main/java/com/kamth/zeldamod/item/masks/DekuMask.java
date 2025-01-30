@@ -96,9 +96,9 @@ public class DekuMask extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.deku_mask.description_advanced").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.deku_mask.description_advanced").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.translatable("item.deku_mask.description_basic").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.deku_mask.description_basic").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
 
         }
     }

@@ -187,10 +187,20 @@ public enum ModArmorMaterials implements ArmorMaterial {
     Archaic("archaic", 0, new int[]{2, 4, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GREEN_WOOL); }),
+
+    DARK_NUT("dark_nut", 0, new int[]{4, 4, 4, 4}, 5, SoundEvents.ARMOR_EQUIP_IRON,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(ZeldaItems.MASTER_ORE.get()); }),
+    DARK_KNIGHT("dark_knight", 0, new int[]{6, 6, 6, 6}, 5, SoundEvents.ARMOR_EQUIP_NETHERITE,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(ZeldaItems.MASTER_ORE.get()); }),
+
     Dark("dark", 0, new int[]{2, 5, 2, 2}, 6, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> Ingredient.of(ZeldaItems.GLOOM_CLUMP.get())),
     Hylian("hylian", 0, new int[]{3, 4, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> Ingredient.of(Items.BLACK_WOOL));
+
+
 
 
 

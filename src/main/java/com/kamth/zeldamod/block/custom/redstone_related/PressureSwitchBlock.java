@@ -54,10 +54,11 @@ public class PressureSwitchBlock extends Block {
         if (!pLevel.isClientSide && pState.getValue(POWERED).equals(false))  {
          this.slam(pState,pLevel,pPos);
             pLevel.playSound((Player)null, pPos, SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 1F, 1);
-        }}
+        }
+    }
 
 
-    private void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
+    public void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
         pLevel.updateNeighborsAt(pPos, this);
         pLevel.updateNeighborsAt(pPos.below(), this);
         pLevel.updateNeighborsAt(pPos.east(), this);

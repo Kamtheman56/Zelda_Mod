@@ -100,10 +100,10 @@ public class ScaleItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.scale.description_advanced_1").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.translatable("item.scale.description_advanced_2").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.scale.description_advanced_1").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.scale.description_advanced_2").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         }
-        else   components.add(Component.translatable("item.scale.description_basic").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+        else   components.add(Component.translatable("item.zeldamod.scale.description_basic").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
 
         super.appendHoverText(stack, level, components, flag);
     }

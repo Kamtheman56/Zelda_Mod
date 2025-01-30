@@ -25,6 +25,7 @@ public class ModItemProperties {
 
     }
 
+
     private static void makeShield(Item item) {
 
         ItemProperties.register(item, new ResourceLocation("blocking"), (p_174590_, p_174591_, p_174592_, p_174593_) -> {

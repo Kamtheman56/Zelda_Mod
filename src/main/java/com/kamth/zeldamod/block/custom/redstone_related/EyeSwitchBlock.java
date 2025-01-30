@@ -90,7 +90,8 @@ public class EyeSwitchBlock extends Block {
             pLevel.playSound((Player)null, pHit.getBlockPos(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.BLOCKS, 0.8F, f);
             pLevel.setBlock(pHit.getBlockPos(), pState.cycle(POWERED),3);
             this.press(pState, pLevel, pHit.getBlockPos());
-        }}
+        }
+    }
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (pHand == InteractionHand.MAIN_HAND && pPlayer.getUseItem().is(ItemStack.EMPTY.getItem()) && pPlayer.getAbilities().instabuild){
             this.press(pState, pLevel, pPos);
@@ -109,7 +110,7 @@ public class EyeSwitchBlock extends Block {
             super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
         }
     }
-    private void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
+    public void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
         pLevel.updateNeighborsAt(pPos, this);
         pLevel.updateNeighborsAt(pPos.relative(getConnectedDirection(pState).getOpposite()), this);
     }

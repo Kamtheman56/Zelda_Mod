@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "powered=true": { "model": "zeldamod:block/spike_block_retracted" },
+    "powered=false": {"model": "zeldamod:block/spike_block_extended"}
+  }
+}

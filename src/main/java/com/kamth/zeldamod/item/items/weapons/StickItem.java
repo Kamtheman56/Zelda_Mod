@@ -66,6 +66,7 @@ public class StickItem extends Item {
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
         ItemStack itemstack = pContext.getItemInHand();
+
         if (blockstate.is(ModTags.Blocks.FLAME)  && pContext.getPlayer().getMainHandItem().is(ZeldaItems.DEKU_STICK.get())) {
             level.playSound( pContext.getPlayer(), blockpos, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
             itemstack.shrink(1);
@@ -105,7 +106,7 @@ public class StickItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.deku_stick.description").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.deku_stick.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
     else {
             components.add(Component.literal("5 Attack Damage").withStyle(ChatFormatting.DARK_GREEN));

@@ -21,11 +21,11 @@ public class FairyMask extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.fairy_mask.description_advanced_1").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.translatable("item.fairy_mask.description_advanced_2").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.fairy_mask.description_advanced_1").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.fairy_mask.description_advanced_2").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         }
        else {
-            components.add(Component.translatable("item.fairy_mask.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.fairy_mask.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
     }
 }

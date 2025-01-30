@@ -112,9 +112,9 @@ player.setTicksFrozen(200);}
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.zora_mask.description_advanced").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.zora_mask.description_advanced").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.translatable("item.zora_mask.description_basic").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.zora_mask.description_basic").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         }}}
 
 

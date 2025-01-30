@@ -2,6 +2,7 @@ package com.kamth.zeldamod.item.masks;
 
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -72,7 +73,16 @@ public class FierceDeityMask extends ArmorItem {
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-            components.add(Component.translatable("item.zeldamod.fierce_deity_mask.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+
+        components.add(Component.translatable("item.zeldamod.fierce_deity_mask.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
+        if (Screen.hasShiftDown()) {
+            components.add(Component.translatable("item.zeldamod.fierce_deity_mask.description_advanced").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
+            components.add(Component.translatable("item.zeldamod.fierce_deity_mask.description_advanced2").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
+            components.add(Component.translatable("item.zeldamod.fierce_deity_mask.description_advanced3").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
+
+        }
+
+
     }
 
 }

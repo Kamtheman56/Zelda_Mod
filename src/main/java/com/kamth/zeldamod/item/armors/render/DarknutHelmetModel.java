@@ -7,8 +7,8 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public class DarknutHelmet extends HumanoidModel<LivingEntity> {
-    public DarknutHelmet(ModelPart root) {
+public class DarknutHelmetModel extends HumanoidModel<LivingEntity> {
+    public DarknutHelmetModel(ModelPart root) {
         super((root));
     }
     public static LayerDefinition createBodyLayer() {

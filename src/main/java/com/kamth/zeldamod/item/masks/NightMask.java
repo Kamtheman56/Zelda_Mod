@@ -24,7 +24,7 @@ public class NightMask extends ArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 if (player.isSleeping()){
-    player.displayClientMessage(Component.translatable("Nightmask").withStyle(ChatFormatting.DARK_RED).withStyle(ChatFormatting.BOLD), true);
+    player.displayClientMessage(Component.translatable("mask.zeldamod.nightmask").withStyle(ChatFormatting.DARK_RED).withStyle(ChatFormatting.BOLD), true);
     player.stopSleeping();
 
     if (player.getCooldowns().isOnCooldown(ZeldaItems.NIGHT_MASK.get()))
@@ -47,7 +47,7 @@ if (world.isNight()){
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.translatable("item.night_mask.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.zeldamod.night_mask.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
 
     }
 

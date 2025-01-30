@@ -133,6 +133,10 @@ public class ZeldaBlocks {
     public static final RegistryObject<Block> COPPER_PEG = registerBlock("copper_peg", ()-> new CopperPegBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).noOcclusion()));
     public static final RegistryObject<Block> ZELDA_STONE = registerBlock("zelda_stone", ()-> new ZeldaStone(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
 
+    //  DUNGEON BLOCKS
+    public static final RegistryObject<Block> SPIKE_BLOCK = registerBlock("spike_block", ()-> new SpikeBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
+
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // OCARINA BLOCKS

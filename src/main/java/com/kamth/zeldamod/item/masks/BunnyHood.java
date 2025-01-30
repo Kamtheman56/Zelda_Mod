@@ -9,6 +9,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -18,7 +19,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -32,13 +32,13 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-public class BunnyHood extends ArmorItem {
+public class BunnyHood extends TooltipMaskItem {
     private static final AttributeModifier STEP_HEIGHT_BONUS = new AttributeModifier(UUID.fromString("4a312f09-78e0-4f3a-95c2-07ed63212472"), "zeldamod:bunnymask", 0.5, AttributeModifier.Operation.ADDITION);
     public BunnyHood(ModArmorMaterials pMaterial, Type pType, Properties pProperties) {
-        super(ModArmorMaterials.BUNNY, pType, pProperties);
+        super(ModArmorMaterials.BUNNY, pType, pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW));
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerTick);
     }
-    private static final String LOC = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/armor/bunny_hood.png").toString();
+    private static final String BUNNY = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/armor/bunny_hood.png").toString();
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 1, true, false));
@@ -65,7 +65,7 @@ public class BunnyHood extends ArmorItem {
 
     @Override
     public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return LOC;
+        return BUNNY;
     }
 
     @Override
@@ -82,13 +82,5 @@ public class BunnyHood extends ArmorItem {
                 return model;
             }
         });
-    }
-
-
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.translatable("item.bunny_mask.description").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
-
     }
 }

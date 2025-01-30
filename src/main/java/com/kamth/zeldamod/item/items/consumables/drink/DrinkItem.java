@@ -70,8 +70,6 @@ public class DrinkItem extends TooltipItem {
         return SoundEvents.HONEY_DRINK;
     }
 
-    @Override
-    public SoundEvent getEatingSound() {return SoundEvents.HONEY_DRINK;}
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {

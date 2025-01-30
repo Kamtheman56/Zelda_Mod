@@ -24,6 +24,8 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.KOKIRI_PANTS);
             event.accept(ZeldaItems.HYLIAN_PANTS);
             event.accept(ZeldaItems.DARK_PANTS);
+            event.accept(ZeldaItems.DARK_NUT_HELMET);
+            event.accept(ZeldaItems.DARK_KNIGHT_HELMET);
             event.accept(ZeldaItems.KOKIRI_BOOTS);
             event.accept(ZeldaItems.HEAVY_BOOTS);
             event.accept(ZeldaItems.HOVER_BOOTS);
@@ -261,6 +263,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaBlocks.TIME_BRICKS_WALL);
             event.accept(ZeldaBlocks.CRACKED_TIME_BRICKS_WALL);
             event.accept(ZeldaBlocks.MOSSY_TIME_BRICKS_WALL);
+            event.accept(ZeldaBlocks.SPIKE_BLOCK);
             event.accept(ZeldaBlocks.ZELDA_STONE);
             event.accept(ZeldaBlocks.SUN_STONE);
             event.accept(ZeldaBlocks.NOTE_STONE);

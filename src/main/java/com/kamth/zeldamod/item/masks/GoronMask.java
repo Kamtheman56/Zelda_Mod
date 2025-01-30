@@ -81,7 +81,7 @@ public void onLivingHurtEvent(LivingHurtEvent event){
 @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
     if (Screen.hasShiftDown()) {
-        components.add(Component.translatable("item.goron_mask.description_advanced").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.zeldamod.goron_mask.description_advanced").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
     } else {
-        components.add(Component.translatable("item.goron_mask.description_basic").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.zeldamod.goron_mask.description_basic").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
 }}}

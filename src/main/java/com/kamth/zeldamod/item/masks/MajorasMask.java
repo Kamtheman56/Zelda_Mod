@@ -5,6 +5,7 @@ import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -71,10 +72,8 @@ if (player.isOnFire()){
                 event.player.causeFoodExhaustion(12);
             }
         }}
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-            components.add(Component.translatable("item.majora_mask.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
-    }
+
+
     public void onLivingHurtEvent(LivingHurtEvent event){
         if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.MAJORA_MASK.get()) {
             if (event.getSource().is(DamageTypes.MAGIC)) {
@@ -131,6 +130,16 @@ if (player.isOnFire()){
 
             target.setSecondsOnFire(400);
 
+        }
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        components.add(Component.translatable("item.zeldamod.majora_mask.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
+
+        if (Screen.hasShiftDown()) {
+            components.add(Component.translatable("item.zeldamod.majora_mask.description_advanced").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
+            components.add(Component.translatable("item.zeldamod.majora_mask.description_advanced2").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
         }
     }
 

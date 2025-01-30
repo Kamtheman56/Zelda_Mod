@@ -60,8 +60,9 @@ public class ShockSwitchBlock extends Block {
             pLevel.playSound((Player)null, pHit.getBlockPos(), SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS, .8F, f);
             pLevel.setBlock(pHit.getBlockPos(), pState.cycle(POWERED),3);
             this.press(pState, pLevel, pHit.getBlockPos());
-        }}
-    private void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
+        }
+    }
+    public void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
         pLevel.updateNeighborsAt(pPos, this);
         pLevel.updateNeighborsAt(pPos.below(), this);
         pLevel.updateNeighborsAt(pPos.east(), this);

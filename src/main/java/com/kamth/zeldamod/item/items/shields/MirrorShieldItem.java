@@ -42,8 +42,8 @@ public class MirrorShieldItem extends ShieldItem {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-            components.add(Component.translatable("item.mirror_shield.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
-        components.add(Component.translatable("item.mirror_shield.description_2").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.mirror_shield.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.zeldamod.mirror_shield.description_2").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         super.appendHoverText(stack, level, components, flag);
     }
 

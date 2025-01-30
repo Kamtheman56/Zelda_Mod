@@ -593,6 +593,13 @@ public class ZeldaItems {
             ()-> new ArmorItem(ModArmorMaterials.Dark, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(450)));
 
+    public static final RegistryObject<ArmorItem> DARK_NUT_HELMET = ITEMS.register("darknut_helmet",
+            ()-> new DarknutHelmet(ModArmorMaterials.DARK_NUT, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(450)));
+
+    public static final RegistryObject<ArmorItem> DARK_KNIGHT_HELMET = ITEMS.register("dark_knight_helmet",
+            ()-> new DarkKnightHelmet(ModArmorMaterials.DARK_KNIGHT, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(450)));
 
     // TUNICS
 
@@ -758,32 +765,32 @@ public class ZeldaItems {
                     new Item.Properties().defaultDurability(165)));
 
     public static final RegistryObject<ArmorItem> HAWKEYE = ITEMS.register("hawkeye_mask",
-            ()-> new HawkeyeMask(ModArmorMaterials.HAWK, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+            ()-> new TooltipMaskItem(ModArmorMaterials.HAWK, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
 
     public static final RegistryObject<ArmorItem> COUPLES_MASK = ITEMS.register("couples_mask",
             ()-> new CouplesMask(ModArmorMaterials.COUPLES, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
 
     public static final RegistryObject<ArmorItem> GIBDO_MASK = ITEMS.register("gibdo_mask",
-            ()-> new GibdoMask(ModArmorMaterials.GIBDO, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+            ()-> new TooltipMaskItem(ModArmorMaterials.GIBDO, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
 
     public static final RegistryObject<ArmorItem> FAIRY_MASK = ITEMS.register("fairy_mask",
             ()-> new FairyMask(ModArmorMaterials.FAIRY, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
 
     public static final RegistryObject<ArmorItem> KAFEI_MASK = ITEMS.register("kafei_mask",
-            ()-> new KafeiMask(ModArmorMaterials.KAFEI, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+            ()-> new TooltipMaskItem(ModArmorMaterials.KAFEI, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
 
     public static final RegistryObject<ArmorItem> BREMEN_MASK = ITEMS.register("bremen_mask",
             ()-> new BremenMask(ModArmorMaterials.BREMEN, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(165)));
 
     public static final RegistryObject<ArmorItem> CAPTAIN_MASK = ITEMS.register("captain_mask",
-            ()-> new CaptainMask(ModArmorMaterials.CAPTAIN, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+            ()-> new TooltipMaskItem(ModArmorMaterials.CAPTAIN, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW)));
 
     public static final RegistryObject<ArmorItem> KAMARO_MASK = ITEMS.register("kamaro_mask",
             ()-> new KamaroMask(ModArmorMaterials.KAMARO, ArmorItem.Type.HELMET,
@@ -794,24 +801,24 @@ public class ZeldaItems {
                     new Item.Properties().defaultDurability(165)));
 
     public static final RegistryObject<ArmorItem> POSTMAN_MASK = ITEMS.register("postman_mask",
-            ()-> new PostmanHat(ModArmorMaterials.POSTMAN, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+            ()-> new TooltipMaskItem(ModArmorMaterials.POSTMAN, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
 
     public static final RegistryObject<ArmorItem> SPOOKY_MASK = ITEMS.register("spooky_mask",
-            ()-> new SpookyMask(ModArmorMaterials.SPOOKY, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+            ()-> new TooltipMaskItem(ModArmorMaterials.SPOOKY, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
 
     public static final RegistryObject<ArmorItem> SKULL_MASK = ITEMS.register("skull_mask",
-            ()-> new SkullMask(ModArmorMaterials.SKULL, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+            ()-> new TooltipMaskItem(ModArmorMaterials.SKULL, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
 
     public static final RegistryObject<ArmorItem> GERUDO_MASK = ITEMS.register("gerudo_mask",
-            ()-> new GerudoMask(ModArmorMaterials.GERUDO, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+            ()-> new TooltipMaskItem(ModArmorMaterials.GERUDO, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
 
     public static final RegistryObject<ArmorItem> KOROK_MASK = ITEMS.register("korok_mask",
-            ()-> new KorokMask(ModArmorMaterials.KOROK, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(382)));
+            ()-> new TooltipMaskItem(ModArmorMaterials.KOROK, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(382), Style.EMPTY.withItalic(true).withColor(ChatFormatting.GREEN), false));
 
 
 

@@ -29,18 +29,18 @@ public class CopperPegBlock extends HammerPegBlock {
         if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ZeldaItems.MEGATON.get())){
             this.slam(pState, pLevel, pPos);
             float f = pState.getValue(POWERED) ? 0.6F : 0.5F;
-            pLevel.playSound((Player)null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, f);
+            pLevel.playSound(null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, f);
             pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
         }
         if (pPlayer.getAbilities().instabuild){
             this.press(pState, pLevel, pPos);
             float f = pState.getValue(POWERED) ? 0.6F : 0.5F;
-            pLevel.playSound((Player)null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, f);
+            pLevel.playSound(null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, f);
             pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
         }
         if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ModTags.Items.SHOVEL_ITEMS) && pState.getValue(POWERED) == true){
             this.pull(pState, pLevel, pPos);
-            pLevel.playSound((Player)null, pPos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 1F, 1);
+            pLevel.playSound(null, pPos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 1F, 1);
         }
         return InteractionResult.SUCCESS;
     }
@@ -69,6 +69,7 @@ public class CopperPegBlock extends HammerPegBlock {
         this.updateNeighbours(pState, pLevel, pPos);
     }
 
+
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return this.defaultBlockState().setValue(POWERED,false);
@@ -85,10 +86,7 @@ public class CopperPegBlock extends HammerPegBlock {
     public int getDirectSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
         return pBlockState.getValue(POWERED) ? 15 : 0;
     }
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(POWERED);
-    }
+
 
 
 

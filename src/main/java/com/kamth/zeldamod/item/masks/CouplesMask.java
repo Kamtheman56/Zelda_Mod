@@ -41,7 +41,7 @@ public class CouplesMask extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.zeldamod.couples_mask.description_advanced").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.couples_mask.description_advanced").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         } else {
             components.add(Component.translatable("item.zeldamod.couples_mask.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
