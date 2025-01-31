@@ -76,7 +76,7 @@ public HammerItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModif
 
                 level.getEntitiesOfClass(LivingEntity.class, box.expandTowards(1,2,1),
                                 livingEntity -> blockpos.closerThan(livingEntity.getOnPos(), 8) && livingEntity != player)
-                        .forEach(livingEntity -> livingEntity.hurt(pContext.getLevel().damageSources().indirectMagic(player, player),6));
+                        .forEach(livingEntity -> livingEntity.hurt(pContext.getLevel().damageSources().indirectMagic(player, player), 6.0F));
             }
             player.getCooldowns().addCooldown(this,80);
             return InteractionResult.SUCCESS;
