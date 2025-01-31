@@ -2,6 +2,7 @@ package com.kamth.zeldamod.entity.projectile.arrows;
 
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.server.level.ServerLevel;
@@ -47,16 +48,19 @@ public class ShockArrow extends AbstractArrow {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
             if (this.level() instanceof ServerLevel) {
+                ((ServerLevel)this.level()).sendParticles(ParticleTypes.ELECTRIC_SPARK, this.getX() , this.getY(0.5D), this.getZ() , 5, 1, 0.0D, 1, 0.0D);
                 BlockPos blockpos = entity.blockPosition();
                 if (this.level().canSeeSky(blockpos) && this.level().isRaining()) {
                     LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
                     lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
                     this.level().addFreshEntity(lightningbolt);
-    }}
+    }
+            }
         int i = entity instanceof IronGolem ? 10 : 0;
        entity.hurt(damageSources().magic(), (float)i);
     if (entity.isInWaterOrRain()){
         setBaseDamage(10);
+
     }
     }
     @Override
@@ -72,15 +76,18 @@ public class ShockArrow extends AbstractArrow {
 
         if (this.level() instanceof ServerLevel) {
             BlockPos blockpos = this.blockPosition();
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.ELECTRIC_SPARK, this.getX() , this.getY(0.5D), this.getZ() , 5, 1, 0.0D, 1, 0.0D);
+
             if (this.level().canSeeSky(blockpos) && this.level().isRaining()) {
                 LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
                 lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
                 this.level().addFreshEntity(lightningbolt);
-            }}
+            }
+        }
 
 }
-@Override
-protected SoundEvent getDefaultHitGroundSoundEvent() {
+    @Override
+    protected SoundEvent getDefaultHitGroundSoundEvent() {
     return SoundEvents.ARROW_HIT;
 }
     @Override

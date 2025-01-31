@@ -2,6 +2,7 @@ package com.kamth.zeldamod.block.custom.plants;
 
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
@@ -67,8 +69,28 @@ public class HeartFlowerBlock extends FlowerBlock implements BonemealableBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(POWERED);
+    }
+
+    public boolean isRandomlyTicking(BlockState pState) {
+        return !pState.getValue(POWERED);
+    }
+
+    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (!pLevel.isAreaLoaded(pPos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
+        if (pLevel.getRawBrightness(pPos, 0) >= 9) {
+
+            if (!pState.getValue(POWERED)) {
+                float f = 1f;
+                if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pRandom.nextInt((int)(25.0F / f) + 1) == 0)) {
+                    pLevel.setBlock(pPos, pState.setValue(POWERED,true), 2);
+                    net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
+                }
+            }
+        }
 
     }
+
+
 }
 
 

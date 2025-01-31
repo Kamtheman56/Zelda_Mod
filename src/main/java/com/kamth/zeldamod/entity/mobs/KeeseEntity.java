@@ -36,13 +36,10 @@ import javax.annotation.Nullable;
 import java.util.EnumSet;
 
 public class KeeseEntity extends FlyingMob implements Enemy {
-    private static final int FLAG_IS_CHARGING = 1;
+
     private static final EntityDataAccessor<Boolean> ATTACKING =
             SynchedEntityData.defineId(KeeseEntity.class, EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<Boolean> SITTING =
-            SynchedEntityData.defineId(KeeseEntity.class, EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<Boolean> CHARGING =
-            SynchedEntityData.defineId(KeeseEntity.class, EntityDataSerializers.BOOLEAN);
+
 
     public KeeseEntity(EntityType<? extends KeeseEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -57,10 +54,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
 
     protected static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Monster.class, EntityDataSerializers.BYTE);
     public final AnimationState idleAnimationState = new AnimationState();
-   public final AnimationState attackAnimationState = new AnimationState();
 
-    private int idleAnimationTimeout = 0;
-    public int attackAnimationTimeout = 0;
 
 
 
@@ -78,7 +72,6 @@ public class KeeseEntity extends FlyingMob implements Enemy {
     @Override
     public void tick() {
         super.tick();
-   //    this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
         if (this.level().isClientSide) {
             setupAnimationStates();
         }
@@ -92,17 +85,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
     }
 
     private void setupAnimationStates() {
-            this.idleAnimationState.start(this.tickCount);
-
-        if (this.isAttacking() && attackAnimationTimeout<= 0){
-            attackAnimationTimeout = 0;
-            attackAnimationState.start(tickCount);
-        } else {
-            --this.attackAnimationTimeout;
-        }
-        if (!this.isAttacking()){
-            this.attackAnimationState.stop();
-        }
+        this.idleAnimationState.start(this.tickCount);
     }
 
     @Override
@@ -116,11 +99,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
         this.walkAnimation.update(f, 0.2f);
     }
 
-    protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
-        super.populateDefaultEquipmentSlots(pRandom, pDifficulty);
-                this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ZeldaItems.MAGIC_SWORD.get()));
-                 this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
-        }
+
 
 
 
@@ -165,7 +144,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
         return  this.random.nextInt(4) != 0 ? null : SoundEvents.BAT_AMBIENT;
     }
 
-@Override
+    @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.BAT_DEATH;
     }
@@ -356,17 +335,9 @@ public class KeeseEntity extends FlyingMob implements Enemy {
                     return false;
                 }
             }
-
             return true;
         }
     }
-
-
-
-    /**
-     * Static predicate for determining if the current light level and environmental conditions allow for a monster to
-     * spawn.
-     */
     public static boolean isDarkEnoughToSpawn(ServerLevelAccessor pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pLevel.getBrightness(LightLayer.SKY, pPos) > pRandom.nextInt(32)) {
             return false;
@@ -383,11 +354,8 @@ public class KeeseEntity extends FlyingMob implements Enemy {
     }
     public static boolean checkKeeseSpawnRules(EntityType<KeeseEntity> pBat, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         if (pPos.getY() >= pLevel.getSeaLevel()) {
-            return false;}
-        else return pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn((ServerLevelAccessor) pLevel, pPos, pRandom) && checkMobSpawnRules(pBat, pLevel, pSpawnType, pPos, pRandom);
-        }
-
-
-
-
+            return false;
+        } else
+            return pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn((ServerLevelAccessor) pLevel, pPos, pRandom) && checkMobSpawnRules(pBat, pLevel, pSpawnType, pPos, pRandom);
+    }
 }

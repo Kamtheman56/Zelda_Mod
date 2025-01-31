@@ -5,11 +5,17 @@ import com.kamth.zeldamod.event.events.ZeldaPlayerHealth;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 
 public class GloomContainer extends AbstractHeartItem {
 
     public GloomContainer(Properties pProperties) {
         super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.RED), -3.5f, -2);
+    }
+
+    @Override
+    public int getUseDuration(ItemStack pStack) {
+        return 18;
     }
 
     @Override

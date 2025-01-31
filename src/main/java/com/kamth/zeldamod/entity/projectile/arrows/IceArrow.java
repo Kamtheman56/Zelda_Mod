@@ -2,8 +2,10 @@ package com.kamth.zeldamod.entity.projectile.arrows;
 
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -46,13 +48,16 @@ public class IceArrow extends AbstractArrow {
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.SNOWFLAKE, this.getX() , this.getY(0.5D), this.getZ() , 5, 1, 0.0D, 1, 0.0D);
+        }
     }
 
     @Override
     protected void doPostHurtEffects(LivingEntity entity)
     {
         super.doPostHurtEffects(entity);
- entity.setTicksFrozen(entity.getTicksFrozen()+40);
+        entity.setTicksFrozen(entity.getTicksFrozen()+40);
     }
 
     @Override
@@ -99,7 +104,9 @@ public class IceArrow extends AbstractArrow {
         if (blockHit == Blocks.FIRE.defaultBlockState()) {
             level().destroyBlock(ray.getBlockPos(), false);
         }
-
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.SNOWFLAKE, this.getX() , this.getY(0.5D), this.getZ() , 5, 1, 0.0D, 1, 0.0D);
+        }
         this.discard();
 
 }

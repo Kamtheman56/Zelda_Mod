@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.entity.ai;
+package com.kamth.zeldamod.entity.ai.darknut;
 
 import com.kamth.zeldamod.entity.mobs.DarknutEntity;
 import net.minecraft.world.InteractionHand;

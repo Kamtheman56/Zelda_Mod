@@ -12,9 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 
@@ -45,29 +43,7 @@ public class CopperPegBlock extends HammerPegBlock {
         return InteractionResult.SUCCESS;
     }
 
-    private void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
-        pLevel.updateNeighborsAt(pPos, this);
-        pLevel.updateNeighborsAt(pPos.below(), this);
-        pLevel.updateNeighborsAt(pPos.east(), this);
-        pLevel.updateNeighborsAt(pPos.west(), this);
-        pLevel.updateNeighborsAt(pPos.south(), this);
-        pLevel.updateNeighborsAt(pPos.north(), this);
-    }
-    public void press(BlockState pState, Level pLevel, BlockPos pPos) {
-        pState = pState.cycle(POWERED);
-        pLevel.setBlock(pPos, pState, 3);
-        this.updateNeighbours(pState, pLevel, pPos);
-    }
-    public void slam(BlockState pState, Level pLevel, BlockPos pPos) {
-        pState = pState.setValue(POWERED,true);
-        pLevel.setBlock(pPos, pState, 3);
-        this.updateNeighbours(pState, pLevel, pPos);
-    }
-    public void pull(BlockState pState, Level pLevel, BlockPos pPos) {
-        pState = pState.setValue(POWERED,false);
-        pLevel.setBlockAndUpdate(pPos, pState);
-        this.updateNeighbours(pState, pLevel, pPos);
-    }
+
 
 
     @Override

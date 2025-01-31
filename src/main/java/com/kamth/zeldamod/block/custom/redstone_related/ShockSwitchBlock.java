@@ -25,9 +25,8 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ShockSwitchBlock extends Block {
+public class ShockSwitchBlock extends ZeldaRedstoneBlock {
 
-    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     protected static final VoxelShape SHAPE = Block.box(3.75D, 0.0D, 3.75D, 12.25D, 25.0D, 12.25D);
     protected static final VoxelShape SHAPE2 = Block.box(5D, 0.0D, 5D, 11D, 16.0D, 11D);
 
@@ -62,42 +61,8 @@ public class ShockSwitchBlock extends Block {
             this.press(pState, pLevel, pHit.getBlockPos());
         }
     }
-    public void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
-        pLevel.updateNeighborsAt(pPos, this);
-        pLevel.updateNeighborsAt(pPos.below(), this);
-        pLevel.updateNeighborsAt(pPos.east(), this);
-        pLevel.updateNeighborsAt(pPos.west(), this);
-        pLevel.updateNeighborsAt(pPos.south(), this);
-        pLevel.updateNeighborsAt(pPos.north(), this);
-    }
-    public void press(BlockState pState, Level pLevel, BlockPos pPos) {
-        pState = pState.cycle(POWERED);
-        pLevel.setBlock(pPos, pState, 3);
-        float f = pState.getValue(POWERED) ? .9F : 0.7F;
-        pLevel.playSound((Player)null, pPos, SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS, .8F, f);
-        this.updateNeighbours(pState, pLevel, pPos);
-    }
 
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(POWERED,false);
-    }
-    @Override
-    public boolean isSignalSource(BlockState pState) {
-        return true;
-    }
-    @Override
-    public int getSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
-        return pBlockState.getValue(POWERED) ? 15 : 0;
-    }
-    @Override
-    public int getDirectSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
-        return pBlockState.getValue(POWERED) ? 15 : 0;
-    }
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(POWERED);
-    }
+
 
 
     @Override
@@ -116,18 +81,7 @@ public class ShockSwitchBlock extends Block {
         Vec3 vec3 = pState.getOffset(pLevel, pPos);
         return SHAPE.move(vec3.x, vec3.y, vec3.z);
     }
-    @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (!pIsMoving && !pState.is(pNewState.getBlock())) {
-            if (pState.getValue(POWERED)) {
-                this.updateNeighbours(pState, pLevel, pPos);
-            }
-            for(Direction direction : Direction.values()) {
-                pLevel.updateNeighborsAt(pPos.relative(direction), this);
-            }
-            super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-        }
-    }
+
 
 
 }

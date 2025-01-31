@@ -53,8 +53,13 @@ public class HammerPegBlock extends Block {
         return InteractionResult.SUCCESS;
     }
 
-    private void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
+    public void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
         pLevel.updateNeighborsAt(pPos, this);
+        pLevel.updateNeighborsAt(pPos.below(), this);
+        pLevel.updateNeighborsAt(pPos.east(), this);
+        pLevel.updateNeighborsAt(pPos.west(), this);
+        pLevel.updateNeighborsAt(pPos.south(), this);
+        pLevel.updateNeighborsAt(pPos.north(), this);
     }
     public void press(BlockState pState, Level pLevel, BlockPos pPos) {
         pState = pState.cycle(POWERED);

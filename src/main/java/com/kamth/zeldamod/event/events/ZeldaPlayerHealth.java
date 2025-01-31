@@ -19,7 +19,7 @@ public class ZeldaPlayerHealth {
         AttributeInstance maxHPAttrib = getMaxHealthAttribute(player);
 
         AttributeModifier baseHealthModifier =
-                new AttributeModifier(BASE_HEALTH_UUID, "Base", 2, AttributeModifier.Operation.ADDITION);
+                new AttributeModifier(BASE_HEALTH_UUID, "Base", 0, AttributeModifier.Operation.ADDITION);
 
         if (!maxHPAttrib.hasModifier(baseHealthModifier)) {
             maxHPAttrib.addPermanentModifier(baseHealthModifier);

@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.entity.mobs;
 
-import com.kamth.zeldamod.entity.ai.DarknutAttackGoal;
+import com.kamth.zeldamod.entity.ai.darknut.DarknutAttackGoal;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.NonNullList;
@@ -59,8 +59,8 @@ public class DarknutEntity extends Monster {
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.goalSelector.addGoal(1, new  DarknutAttackGoal(this, 1, true));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
-
     }
+
     @Override
     public void tick() {
         super.tick();
@@ -107,23 +107,7 @@ public class DarknutEntity extends Monster {
                  this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
         }
 
-    public void readAdditionalSaveData(CompoundTag pCompound) {
-        super.readAdditionalSaveData(pCompound);
-        if (pCompound.contains("ArmorItems", 9)) {
-            ListTag listtag = pCompound.getList("ArmorItems", 10);
 
-            for(int i = 0; i < this.armorItems.size(); ++i) {
-                this.armorItems.set(i, ItemStack.of(listtag.getCompound(i)));
-            }
-        }
-
-        if (pCompound.contains("HandItems", 9)) {
-            ListTag listtag1 = pCompound.getList("HandItems", 10);
-
-            for(int j = 0; j < this.handItems.size(); ++j) {
-                this.handItems.set(j, ItemStack.of(listtag1.getCompound(j)));
-            }
-        }}
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
@@ -148,7 +132,7 @@ public class DarknutEntity extends Monster {
     protected void defineSynchedData(){
         super.defineSynchedData();
         this.entityData.define(ATTACKING, false);
-        this.entityData.define(SITTING, false);
+
     }
 
     @Override

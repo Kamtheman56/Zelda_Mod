@@ -39,23 +39,23 @@ public class FierceDeitySwordItem extends SwordItem implements SwingActionItem {
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
             components.add(Component.translatable("item.zeldamod.fierce_sword.description_advanced").withStyle(ChatFormatting.DARK_RED).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.fierce_sword.description_advanced2").withStyle(ChatFormatting.DARK_RED).withStyle(ChatFormatting.ITALIC));
+
         } else {
             components.add(Component.translatable("item.zeldamod.fierce_sword.description_basic").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
         }
     }
     @Override
     public void swingSword(Level world, Player player) {
-        if (player.getFoodData().getFoodLevel() >2) {
             world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, .8F, 5F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
             SwordBeam projectile = new SwordBeam(world, player);
             projectile.setOwner(player);
             projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
             projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f,1.8f);
             projectile.setBaseDamage(7);
-            player.causeFoodExhaustion(5);
             world.addFreshEntity(projectile);
-        }
-    }
 
+    }
+// player.getFoodData().getFoodLevel() >2
 }
 

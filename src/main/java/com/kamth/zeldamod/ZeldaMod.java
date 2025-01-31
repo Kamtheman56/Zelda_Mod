@@ -7,6 +7,7 @@ import com.kamth.zeldamod.custom.ModItemProperties;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.mobs.KeeseEntity;
+import com.kamth.zeldamod.entity.mobs.SkulltulaEntity;
 import com.kamth.zeldamod.item.ZeldaCreativeTab;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
 import com.kamth.zeldamod.item.ZeldaItems;
@@ -73,7 +74,7 @@ public class ZeldaMod {
             SpawnPlacements.register(ModEntityTypes.CHUCHU_FIRE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
             SpawnPlacements.register(ModEntityTypes.CHUCHU_ICE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
             SpawnPlacements.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
-            SpawnPlacements.register(ModEntityTypes.SKULLTULA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
+            SpawnPlacements.register(ModEntityTypes.SKULLTULA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SkulltulaEntity::checkSkulltulaSpawnRules);
             SpawnPlacements.register(ModEntityTypes.DEKU.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
             SpawnPlacements.register(ModEntityTypes.DEKU_MAD.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
             SpawnPlacements.register(ModEntityTypes.KEESE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, KeeseEntity::checkKeeseSpawnRules);

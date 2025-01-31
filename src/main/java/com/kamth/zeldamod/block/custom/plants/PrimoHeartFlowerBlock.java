@@ -31,9 +31,9 @@ public class PrimoHeartFlowerBlock extends HeartFlowerBlock {
                 this.press(pState, pLevel, pPos);
                 pLevel.playSound(null,pPos, ModSounds.HEAL.get(), SoundSource.BLOCKS, 1,-.5f);
                 pLevel.addParticle(ParticleTypes.HEART, true, pPos.getX() +0, pPos.getY() +.2, pPos.getZ() +0, 0, 0, 0);
-            }}}
-
-
+            }
+        }
+    }
 }
 
 

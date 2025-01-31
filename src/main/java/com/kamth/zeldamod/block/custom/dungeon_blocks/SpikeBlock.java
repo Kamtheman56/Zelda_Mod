@@ -1,5 +1,7 @@
 package com.kamth.zeldamod.block.custom.dungeon_blocks;
 
+import com.kamth.zeldamod.custom.ModTags;
+import com.kamth.zeldamod.damage.ZeldaDamageTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -9,6 +11,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -18,7 +21,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DripstoneThickness;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -38,9 +40,14 @@ public class SpikeBlock extends Block {
     }
 @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-
+    if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ModTags.Items.HAMMERS)){
+        this.slam(pState, pLevel, pPos);
+        float f = pState.getValue(POWERED) ? 0.6F : 0.5F;
+        pLevel.playSound((Player)null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, f);
+        pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
+    }
     if (pPlayer.getAbilities().instabuild){
-        this.press(pState, pLevel, pPos);
+        this.cycle(pState, pLevel, pPos);
         float f = pState.getValue(POWERED) ? 0.6F : 0.5F;
         pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
     }
@@ -50,10 +57,15 @@ public class SpikeBlock extends Block {
     private void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
         pLevel.updateNeighborsAt(pPos, this);
     }
-    public void press(BlockState pState, Level pLevel, BlockPos pPos) {
+    public void cycle(BlockState pState, Level pLevel, BlockPos pPos) {
         pState = pState.cycle(POWERED);
         pLevel.setBlock(pPos, pState, 3);
-        pLevel.playSound((Player)null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, 1);
+        pLevel.playSound(null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, 1);
+        this.updateNeighbours(pState, pLevel, pPos);
+    }
+    public void slam(BlockState pState, Level pLevel, BlockPos pPos) {
+        pState = pState.setValue(POWERED,true);
+        pLevel.setBlock(pPos, pState, 3);
         this.updateNeighbours(pState, pLevel, pPos);
     }
 
@@ -104,7 +116,6 @@ public class SpikeBlock extends Block {
                     pLevel.setBlock(pPos, pState.cycle(POWERED), 2);
                 }
             }
-
         }
     }
 
@@ -112,12 +123,11 @@ public class SpikeBlock extends Block {
         if (pState.getValue(POWERED) && !pLevel.hasNeighborSignal(pPos)) {
             pLevel.setBlock(pPos, pState.cycle(POWERED), 2);
         }
-
     }
 
     public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
         if (!pState.getValue(POWERED)) {
-            pEntity.causeFallDamage(pFallDistance + 2.0F, 2.0F, pLevel.damageSources().stalagmite());
+            pEntity.causeFallDamage(pFallDistance + 2.0F, 2.0F, pLevel.damageSources().cactus());
         } else {
             super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
         }
@@ -142,8 +152,7 @@ public class SpikeBlock extends Block {
         if (pState.getValue(POWERED)){
             return FLAT.move(vec3.x, vec3.y, vec3.z);
         }
-        else
-        return SHAPE2.move(vec3.x, vec3.y, vec3.z);
+        else return SHAPE2.move(vec3.x, vec3.y, vec3.z);
     }
 
     private static VoxelShape Flat(){

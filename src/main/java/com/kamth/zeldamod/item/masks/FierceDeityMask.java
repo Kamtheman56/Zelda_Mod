@@ -76,9 +76,9 @@ public class FierceDeityMask extends ArmorItem {
 
         components.add(Component.translatable("item.zeldamod.fierce_deity_mask.description").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.ITALIC));
         if (Screen.hasShiftDown()) {
-            components.add(Component.translatable("item.zeldamod.fierce_deity_mask.description_advanced").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
-            components.add(Component.translatable("item.zeldamod.fierce_deity_mask.description_advanced2").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
-            components.add(Component.translatable("item.zeldamod.fierce_deity_mask.description_advanced3").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD).withStyle(ChatFormatting.UNDERLINE));
+            components.add(Component.translatable("item.zeldamod.fierce_deity_mask.description_advanced").withStyle(ChatFormatting.DARK_RED));
+            components.add(Component.translatable("item.zeldamod.fierce_deity_mask.description_advanced2").withStyle(ChatFormatting.DARK_RED));
+            components.add(Component.translatable("item.zeldamod.fierce_deity_mask.description_advanced3").withStyle(ChatFormatting.DARK_RED));
 
         }
 

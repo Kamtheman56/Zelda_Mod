@@ -102,7 +102,8 @@ public class KorokEntity extends Animal {
             this.danceAnimationState.start(this.tickCount);
         } else {
             --this.danceAnimationTimeout;
-        }}
+        }
+    }
 
     @Override
     protected void updateWalkAnimation(float pPartialTick) {

@@ -1,8 +1,7 @@
 package com.kamth.zeldamod.event.events;
 
-import com.kamth.zeldamod.entity.ai.*;
+import com.kamth.zeldamod.entity.ai.mask_goals.*;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.monster.Husk;

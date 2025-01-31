@@ -46,6 +46,7 @@ public class DekuLeafItem extends TooltipItem {
             player.startUsingItem(InteractionHand.OFF_HAND);
         world.playSound(null,player.getOnPos(),ModSounds.LEAF.get(), SoundSource.PLAYERS, 1F, 2.5F / (world.getRandom().nextFloat() * 0.3F + 0.8F));
         }
+
         return super.use(world, player, hand);}
     public UseAnim getUseAnimation(ItemStack pStack) {
         return UseAnim.BLOCK;

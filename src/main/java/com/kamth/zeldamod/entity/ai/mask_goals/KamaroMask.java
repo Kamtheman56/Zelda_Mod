@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.entity.ai;
+package com.kamth.zeldamod.entity.ai.mask_goals;
 
 
 import com.kamth.zeldamod.item.ZeldaItems;
@@ -6,26 +6,25 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
-import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.EnumSet;
 
-public class BremenMask  extends Goal
+public class KamaroMask extends Goal
     {
-        protected final Animal mob;
-        private final double speedModifier;
+        protected final Piglin mob;
+
         protected Player player;
         private int calmDown;
 
 
 
-        public BremenMask(Entity mob, double speed)
+        public KamaroMask(Entity mob)
         {
-            this.mob = (Animal) mob;
-            this.speedModifier = speed;
-            this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
+            this.mob = (Piglin) mob;
+            this.setFlags(EnumSet.of(Flag.TARGET, Flag.JUMP));
         }
 
 
@@ -38,23 +37,23 @@ public class BremenMask  extends Goal
             }
             else
             {
-                this.player = this.mob.level().getNearestPlayer(TargetingConditions.DEFAULT,2D,2D, 1D);
+                this.player = this.mob.level().getNearestPlayer(TargetingConditions.DEFAULT,2D,2D, 1);
                 if (this.player == null)
                 {
                     return false;
                 }
                 else
                 {
-                    return Follow(player);
+                    return shouldFollow(player);
                 }
             }
         }
-        private boolean Follow(Player player)
+
+        private <L> boolean shouldFollow(Player player)
         {
             ItemStack stack0 = player.getItemBySlot(EquipmentSlot.HEAD);
-            boolean l =  (this.mob.distanceTo(this.player) < 12.5D);
-            if ((!stack0.isEmpty() && l))
-                return stack0.getItem() == ZeldaItems.BREMEN_MASK.get();
+            if ((!stack0.isEmpty()))
+                return stack0.getItem() == ZeldaItems.KAMARO_MASK.get();
             return false;
         }
 
@@ -62,6 +61,10 @@ public class BremenMask  extends Goal
 
         public void tick()
         {
+
             this.mob.getLookControl().setLookAt(this.player, (float) (this.mob.getMaxHeadYRot() + 20), (float) this.mob.getMaxHeadXRot());
-                this.mob.getNavigation().moveTo(this.player, this.speedModifier);}
+            this.mob.setDancing(true);
+
+        }
+
     }

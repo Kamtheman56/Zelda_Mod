@@ -1,8 +1,10 @@
 package com.kamth.zeldamod.entity.projectile.arrows;
 
 import com.kamth.zeldamod.item.ZeldaItems;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
@@ -49,6 +51,9 @@ public class LightArrow extends AbstractArrow {
         entity.hurt(damageSources().generic(), (float)w);
         int s = entity instanceof Warden ? 50 : 0;
         entity.hurt(damageSources().generic(), (float)s);
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.ELECTRIC_SPARK, this.getX() , this.getY(0.5D), this.getZ() , 5, 1, 0.0D, 1, 0.0D);
+        }
     }
     @Override
     public void onAddedToWorld() {
@@ -60,6 +65,9 @@ public class LightArrow extends AbstractArrow {
     @Override
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.ELECTRIC_SPARK, this.getX() , this.getY(0.5D), this.getZ() , 5, 1, 0.0D, 1, 0.0D);
+        }
         this.discard();
 }
 @Override

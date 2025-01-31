@@ -30,13 +30,13 @@ public class StaminaFruitBlock extends HeartFlowerBlock {
         super(effectSupplier, pEffectDuration, pProperties);
 
     }
-
-    protected static final VoxelShape SHAPE2 = makeShape();
+    protected static final VoxelShape FULL = full();
     protected static final VoxelShape FLAT = flat();
 
     public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         return 1F;
     }
+
 
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
@@ -44,7 +44,7 @@ public class StaminaFruitBlock extends HeartFlowerBlock {
             LivingEntity livingentity = (LivingEntity) pEntity;
             if ((!pEntity.isCrouching() && pState.getValue(POWERED))) {
                 livingentity.addEffect(new MobEffectInstance(MobEffects.SATURATION, 5, 0));
-                this.pull(pState, pLevel, pPos);
+                this.press(pState, pLevel, pPos);
                 pLevel.playSound(null, pPos, ModSounds.HEAL.get(), SoundSource.BLOCKS, 1, 2.5f);
             }
         }
@@ -61,30 +61,22 @@ public class StaminaFruitBlock extends HeartFlowerBlock {
         }
     }
 
-    public void pull(BlockState pState, Level pLevel, BlockPos pPos) {
-        pState = pState.setValue(POWERED, false);
-        pLevel.setBlockAndUpdate(pPos, pState);
-    }
+
     @Override
     public VoxelShape getVisualShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         Vec3 vec3 = pState.getOffset(pLevel, pPos);
         if (pState.getValue(POWERED)){
-            return SHAPE2.move(vec3.x, vec3.y, vec3.z);
+            return FULL.move(vec3.x, vec3.y, vec3.z);
         }
         else
             return FLAT.move(vec3.x, vec3.y, vec3.z);
     }
-    public static VoxelShape makeShape() {
-        VoxelShape shape = Shapes.empty();
-        shape = Shapes.join(shape, Shapes.box(0.25, 0.001875, 0.25, 0.75, 0.314375, 0.75), BooleanOp.OR);
 
-        return shape;
-    }
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         Vec3 vec3 = pState.getOffset(pLevel, pPos);
         if (pState.getValue(POWERED)) {
-            return SHAPE2.move(vec3.x, vec3.y, vec3.z);
+            return FULL.move(vec3.x, vec3.y, vec3.z);
         }
         else return FLAT.move(vec3.x, vec3.y, vec3.z);
     }
@@ -92,6 +84,17 @@ public class StaminaFruitBlock extends HeartFlowerBlock {
     public static VoxelShape flat() {
         VoxelShape shape = Shapes.empty();
         shape = Shapes.join(shape, Shapes.box(0.25, 0.001875, 0.25, 0.75, 0.064375, 0.75), BooleanOp.OR);
+        return shape;
+    }
+
+    public static VoxelShape full() {
+        VoxelShape shape = Shapes.empty();
+        shape = Shapes.join(shape, Shapes.box(0.25, 0.001875, 0.25, 0.75, 0.314375, 0.75), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.75125, 0.125, 0.25, 0.75125, 0.5, 0.75), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.2499375, 0.125, 0.25, 0.2499375, 0.5, 0.75), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.25, 0.125, 0.2499375, 0.75, 0.5, 0.2499375), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.25, 0.125, 0.75125, 0.75, 0.5, 0.75125), BooleanOp.OR);
+
         return shape;
     }
 }
