@@ -33,7 +33,7 @@ public class HeroBowItem extends BowItem {
         return stack -> stack.is(ModTags.Items.BOW_AMMO);
     }
 
-   @Override
+    @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return true;
     }
@@ -71,8 +71,8 @@ public class HeroBowItem extends BowItem {
                         }
                         if (!pLevel.isClientSide && player.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWKEYE.get())) {
                             abstractarrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, f * 5.0F, 0.0F);
-                                abstractarrow.setCritArrow(true);
-                            }
+                            abstractarrow.setCritArrow(true);
+                        }
                         int j = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, pStack);
                         if (j > 0) {
                             abstractarrow.setBaseDamage(abstractarrow.getBaseDamage() + (double)j * 0.5 + 0.5);

@@ -20,6 +20,7 @@ public class LightArrowItem extends TooltipArrow {
     public LightArrowItem(Properties pProperties) {
         super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW));
     }
+
     @Override
     public AbstractArrow createArrow(Level world, ItemStack ammoStack, LivingEntity shooter) {
         return new LightArrow(ModEntityTypes.LIGHT_ARROW.get(), shooter, world);

@@ -1,9 +1,7 @@
-package com.kamth.zeldamod.item.items.weapons;
+package com.kamth.zeldamod.item.items.weapons.extra;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.entity.projectile.magic.SwordBeam;
 import com.kamth.zeldamod.item.ZeldaItems;
-import com.kamth.zeldamod.item.items.SwingActionItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.gui.screens.Screen;

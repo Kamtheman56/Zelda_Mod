@@ -47,7 +47,7 @@ public class ScaleItem extends Item {
             f1 *= f5 / f4;
             f2 *= f5 / f4;
             f3 *= f5 / f4;
-            player.push((double) f1, (double) f2, (double) f3);
+            player.push(f1, f2, f3);
             player.startAutoSpinAttack(20);
             player.getCooldowns().addCooldown(itemstack.getItem(), 40);
             return InteractionResultHolder.success(itemstack);

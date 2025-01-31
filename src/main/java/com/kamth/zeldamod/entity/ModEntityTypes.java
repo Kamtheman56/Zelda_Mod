@@ -66,7 +66,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<IceProjectile>> ICE_PROJECTILE = ENTITY_TYPES.register("ice_projectile", () -> Builder.<IceProjectile>of(IceProjectile::new, MobCategory.MISC).sized(.6f,.7f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "ice_projectile").toString()));
     public static final RegistryObject<EntityType<SandProjectile>> SAND_PROJECTILE = ENTITY_TYPES.register("sand_projectile", () -> Builder.<SandProjectile>of(SandProjectile::new, MobCategory.MISC).sized(.6f,.7f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "sand_projectile").toString()));
     public static final RegistryObject<EntityType<SwordBeam>> SWORD_BEAM = ENTITY_TYPES.register("sword_beam", () -> Builder.<SwordBeam>of(SwordBeam::new, MobCategory.MISC).sized(1.3f,0.5f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "sword_beam").toString()));
-    public static final RegistryObject<EntityType<SwordBeam2>> SWORD_BEAM2 = ENTITY_TYPES.register("sword_beam2", () -> Builder.<SwordBeam2>of(SwordBeam2::new, MobCategory.MISC).sized(1.5f,0.6f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "sword_beam2").toString()));
+    public static final RegistryObject<EntityType<SwordBeam_Evil>> SWORD_BEAM2 = ENTITY_TYPES.register("sword_beam2", () -> Builder.<SwordBeam_Evil>of(SwordBeam_Evil::new, MobCategory.MISC).sized(1.5f,0.6f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "sword_beam2").toString()));
 
 
     // HOOKS

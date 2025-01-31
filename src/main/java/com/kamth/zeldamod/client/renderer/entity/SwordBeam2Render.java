@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.client.renderer.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.entity.projectile.magic.SwordBeam2;
+import com.kamth.zeldamod.entity.projectile.magic.SwordBeam_Evil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -15,7 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
-public class SwordBeam2Render extends EntityRenderer<SwordBeam2> {
+public class SwordBeam2Render extends EntityRenderer<SwordBeam_Evil> {
     private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/projectiles/sword_beam2.png");
     private static final RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
 
@@ -23,11 +23,11 @@ public class SwordBeam2Render extends EntityRenderer<SwordBeam2> {
         super(pContext);
     }
 
-    protected int getBlockLightLevel(SwordBeam2 pEntity, BlockPos pPos) {
+    protected int getBlockLightLevel(SwordBeam_Evil pEntity, BlockPos pPos) {
         return 15;
     }
 
-    public void render(SwordBeam2 pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(SwordBeam_Evil pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
         pMatrixStack.pushPose();
         pMatrixStack.scale(1.3F, 1.3F, 1.3F);
         pMatrixStack.mulPose(this.entityRenderDispatcher.cameraOrientation());
@@ -50,7 +50,7 @@ public class SwordBeam2Render extends EntityRenderer<SwordBeam2> {
 
 
     @Override
-    public ResourceLocation getTextureLocation(SwordBeam2 pEntity) {
+    public ResourceLocation getTextureLocation(SwordBeam_Evil pEntity) {
         return TEXTURE_LOCATION;
     }
 

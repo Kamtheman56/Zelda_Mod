@@ -4,6 +4,7 @@ import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -33,8 +34,9 @@ public class IceProjectile extends ThrowableProjectile {
         @Override
         protected void onHitBlock(@NotNull BlockHitResult ray) {
             super.onHitBlock(ray);
-           // if (this.level().isEmptyBlock(this.blockPosition().above())){
-          //      this.level().setBlockAndUpdate(this.blockPosition(), Blocks.SNOW.defaultBlockState());}
+            if (this.level() instanceof ServerLevel) {
+                ((ServerLevel)this.level()).sendParticles(ParticleTypes.SNOWFLAKE, this.getX() , this.getY(0.5D), this.getZ() , 5, 1, 0.0D, 1, 0.0D);
+            }
             this.discard();
         }
 
@@ -46,9 +48,11 @@ public class IceProjectile extends ThrowableProjectile {
         entity.hurt(damageSources().magic(),4);
         this.playSound(SoundEvents.PLAYER_HURT_FREEZE);
 
-
         if (pResult.getEntity().getType().is(ModTags.Entities.CHUCHU_FIRE)){
-            entity.remove(RemovalReason.DISCARDED);
+            entity.remove(RemovalReason.KILLED);
+        }
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.SNOWFLAKE, this.getX() , this.getY(0.5D), this.getZ() , 5, 1, 0.0D, 1, 0.0D);
         }
 
 

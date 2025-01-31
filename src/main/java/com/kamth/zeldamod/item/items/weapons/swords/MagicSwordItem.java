@@ -27,7 +27,7 @@ public class MagicSwordItem extends SwordItem implements SwingActionItem {
         if(Screen.hasShiftDown()) {
             components.add(Component.translatable("item.zeldamod.magic_sword.description_advanced").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         } else {
-            components.add(Component.translatable("item.zeldamod.magic_sword.description_basic").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.magic_sword.description_basic").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         }
     }
     @Override

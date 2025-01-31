@@ -5,6 +5,7 @@
     "minecraft:pumpkin",
     "minecraft:scaffolding",
     "#minecraft:wooden_trapdoors",
+    "#minecraft:wooden_fences",
     "minecraft:mangrove_roots",
     "minecraft:hay_block",
     "minecraft:iron_bars",
@@ -19,7 +20,9 @@
     "minecraft:glow_lichen",
     "minecraft:lily_pad",
     "minecraft:vine",
+    "minecraft:mossy_cobblestone",
     "zeldamod:claw_target",
-    "zeldamod:hook_target"
+    "zeldamod:hook_target",
+    "zeldamod:spike_block"
   ]
 }

@@ -38,6 +38,10 @@ public class TruthMask extends ArmorItem {
             if (event.getTarget() instanceof Wolf)
             {
                 event.getEntity().sendSystemMessage(Component.literal(event.getEntity().getName().getString() + " Thank you for downloading the mod!"));}}}
+
+
+
+
     private void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.START) {return;}
         AttributeInstance truth = event.player.getAttribute(Attributes.LUCK);

@@ -30,7 +30,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 
 //A block that activates when hit with a projectile only
-public class EyeSwitchBlock extends Block {
+public class EyeSwitchBlock extends ZeldaRedstoneBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     public EyeSwitchBlock(Properties pProperties) {
@@ -101,32 +101,14 @@ public class EyeSwitchBlock extends Block {
         }
         return InteractionResult.SUCCESS;
     }
+
     @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (!pIsMoving && !pState.is(pNewState.getBlock())) {
-            if (pState.getValue(POWERED)) {
-                this.updateNeighbours(pState, pLevel, pPos);
-            }
-            super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-        }
-    }
     public void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
         pLevel.updateNeighborsAt(pPos, this);
         pLevel.updateNeighborsAt(pPos.relative(getConnectedDirection(pState).getOpposite()), this);
     }
-    public void press(BlockState pState, Level pLevel, BlockPos pPos) {
-        pState = pState.cycle(POWERED);
-        pLevel.setBlock(pPos, pState, 3);
-        this.updateNeighbours(pState, pLevel, pPos);
-    }
-    @Override
-    public boolean isSignalSource(BlockState pState) {
-        return true;
-    }
-    @Override
-    public int getSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
-        return pBlockState.getValue(POWERED) ? 15 : 0;
-    }
+
+
     @Override
     public int getDirectSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
         return pBlockState.getValue(POWERED) && getConnectedDirection(pBlockState) == pSide ? 15 : 0;
