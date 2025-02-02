@@ -2,6 +2,7 @@ package com.kamth.zeldamod.item.items.weapons.swords;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.projectile.magic.SwordBeam;
+import com.kamth.zeldamod.item.items.SwingActionItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -9,6 +10,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -17,7 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class TrueMasterSwordItem extends MasterSwordItem {
+public class TrueMasterSwordItem extends SwordItem implements SwingActionItem {
     public TrueMasterSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
@@ -44,6 +46,7 @@ public class TrueMasterSwordItem extends MasterSwordItem {
             components.add(Component.translatable("item.zeldamod.master_sword_true.description_basic_2").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         }
     }
+
     @Override
     public void swingSword(Level world, Player player) {
             if (!(player.getCooldowns().isOnCooldown(this))) {

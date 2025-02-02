@@ -31,8 +31,7 @@ public class DarknutEntity extends Monster {
 
     private static final EntityDataAccessor<Boolean> ATTACKING =
             SynchedEntityData.defineId(DarknutEntity.class, EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<Boolean> SITTING =
-            SynchedEntityData.defineId(DarknutEntity.class, EntityDataSerializers.BOOLEAN);
+
 
     public DarknutEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -44,8 +43,7 @@ public class DarknutEntity extends Monster {
 
     private int idleAnimationTimeout = 0;
     public int attackAnimationTimeout = 0;
-    private final NonNullList<ItemStack> handItems = NonNullList.withSize(2, ItemStack.EMPTY);
-    private final NonNullList<ItemStack> armorItems = NonNullList.withSize(4, ItemStack.EMPTY);
+
 
 
 
@@ -85,6 +83,7 @@ public class DarknutEntity extends Monster {
         }
         if (!this.isAttacking()){
             this.attackAnimationState.stop();
+            this.isBlocking();
         }
     }
 

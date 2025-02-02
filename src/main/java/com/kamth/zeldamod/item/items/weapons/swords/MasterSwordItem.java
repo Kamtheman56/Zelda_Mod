@@ -39,6 +39,7 @@ public class MasterSwordItem extends SwordItem implements SwingActionItem {
         }
       else return 1;
     }
+
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
         if(pStack.getDamageValue() < pStack.getMaxDamage() - 1) {

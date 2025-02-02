@@ -23,7 +23,7 @@ public class DragonScale extends ArmorItem {
     }
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-        if (player.getCooldowns().isOnCooldown(ZeldaItems.DRAGON_SCALE.get()))
+        if (player.getCooldowns().isOnCooldown(this))
         {
             return;
         }
@@ -39,10 +39,9 @@ public class DragonScale extends ArmorItem {
                 f1 *= f5 / f4;
                 f2 *= f5 / f4;
                 f3 *= f5 / f4;
-                player.push((double) f1, (double) f2, (double) f3);
+                player.push(f1, f2, f3);
                 player.startAutoSpinAttack(30);
                 player.getCooldowns().addCooldown(ZeldaItems.DRAGON_SCALE.get(),15);
-                float f6 = 4F;
                 if (!player.hasEffect(MobEffects.WATER_BREATHING)){
                     player.setAirSupply(player.getAirSupply()-20);
                 }

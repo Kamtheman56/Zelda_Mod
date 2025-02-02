@@ -22,8 +22,8 @@ public class IronKnuckleModel<T extends Entity> extends HierarchicalModel<T> {
 
     public IronKnuckleModel(ModelPart root) {
         this.darknut = root.getChild("darknut");
-        this.head = darknut.getChild("head");
         this.body = darknut.getChild("body");
+        this.head = body.getChild("head");
         this.rightArm = body.getChild("arm_l");
         this.leftArm = body.getChild("arm_r");
         this.rightLeg = darknut.getChild("leg_r");

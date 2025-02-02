@@ -32,13 +32,13 @@ import javax.annotation.Nullable;
 import java.util.EnumSet;
 
 public class ChuchuEntity extends Monster {
-    private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(Slime.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(Slime.class, EntityDataSerializers.INT);
     public static final int MIN_SIZE = 1;
     public static final int MAX_SIZE = 127;
     public float targetSquish;
     public float squish;
     public float oSquish;
-    private boolean wasOnGround;
+    public boolean wasOnGround;
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState attackAnimationState = new AnimationState();
 
@@ -116,9 +116,7 @@ public class ChuchuEntity extends Monster {
 
 
 
-    /**
-     * Called by a player entity when they collide with an entity
-     */
+
     public void playerTouch(Player pEntity) {
         if (this.isDealsDamage()) {
             this.dealDamage(pEntity);
@@ -145,12 +143,6 @@ public class ChuchuEntity extends Monster {
     }
 
     private void setupAnimationStates() {
-        if (this.idleAnimationTimeout <= 0 ) {
-            this.idleAnimationTimeout = this.random.nextInt(400) + 80;
-            this.idleAnimationState.start(this.tickCount);
-        } else {
-            --this.idleAnimationTimeout;
-        }
         if (this.onGround() && !this.wasOnGround) {
             int i = this.getSize();
 
@@ -174,7 +166,7 @@ public class ChuchuEntity extends Monster {
         this.decreaseSquish();
     }
 
-    protected void decreaseSquish() {
+    public void decreaseSquish() {
         this.targetSquish *= 0.6F;
     }
 
@@ -192,7 +184,7 @@ public class ChuchuEntity extends Monster {
         }
 
     }
-    protected float getAttackDamage() {
+    public float getAttackDamage() {
         return (float)this.getAttributeValue(Attributes.ATTACK_DAMAGE);
     }
     static class SlimeAttackGoal extends Goal {
