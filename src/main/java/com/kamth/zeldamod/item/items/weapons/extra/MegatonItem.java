@@ -81,9 +81,9 @@ public MegatonItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModi
 
                 level.getEntitiesOfClass(LivingEntity.class, box.expandTowards(1,2,1),
                                 livingEntity -> blockpos.closerThan(livingEntity.getOnPos(), 10) && livingEntity != player)
-                        .forEach(livingEntity -> livingEntity.hurt(pContext.getLevel().damageSources().indirectMagic(player, player), 6.0F));
+                        .forEach(livingEntity -> livingEntity.hurt(pContext.getLevel().damageSources().indirectMagic(player, player), 12.0F));
             }
-            player.getCooldowns().addCooldown(this,100);
+            player.getCooldowns().addCooldown(this,120);
             return InteractionResult.SUCCESS;
         }
         else return InteractionResult.PASS;

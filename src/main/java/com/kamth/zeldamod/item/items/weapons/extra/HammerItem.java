@@ -59,6 +59,7 @@ public HammerItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModif
         return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
     }
 
+    //handles the AoE attack
     public InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
@@ -74,9 +75,9 @@ public HammerItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModif
                 ((ServerLevel)level).sendParticles(ParticleTypes.CLOUD,  blockpos.getX(), blockpos.getY() + 2, blockpos.getZ(),
                         10, 3, 1, 3, 0);
 
-                level.getEntitiesOfClass(LivingEntity.class, box.expandTowards(1,2,1),
+                level.getEntitiesOfClass(LivingEntity.class, box.expandTowards(2,2,2),
                                 livingEntity -> blockpos.closerThan(livingEntity.getOnPos(), 8) && livingEntity != player)
-                        .forEach(livingEntity -> livingEntity.hurt(pContext.getLevel().damageSources().indirectMagic(player, player), 6.0F));
+                        .forEach(livingEntity -> livingEntity.hurt(pContext.getLevel().damageSources().indirectMagic(player, player), 8.0F));
             }
             player.getCooldowns().addCooldown(this,80);
             return InteractionResult.SUCCESS;

@@ -47,7 +47,7 @@ public class BlastMask extends TooltipMaskItem {
                 player.getCooldowns().addCooldown(this,120);
                 player.push(f1, f2, f3);
             }
-            if (!player.isBlocking() && player.onGround()){
+            if (!player.isBlocking()){
                 player.level().explode(player, player.getX(), player.getY(), player.getZ(), 4F, Level.ExplosionInteraction.NONE);
                 player.getCooldowns().addCooldown(this,400);
                 player.hurt(player.damageSources().magic(), 10);

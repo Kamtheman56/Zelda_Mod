@@ -79,6 +79,8 @@ public class SkulltulaModel<T extends Entity> extends HierarchicalModel<T> {
         this.root().getAllParts().forEach(ModelPart::resetPose);
 
         this.animate(((SkulltulaEntity) entity).idleAnimationState, ModAnimationDefinitions.skulltula_idle, ageInTicks, 1f);
+
+        // WALK ANIMATION ported from Spider
         this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
         this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
         float f = ((float)Math.PI / 4F);

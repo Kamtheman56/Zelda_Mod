@@ -84,6 +84,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.CAP, CapModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.SKULLTULA_LAYER, SkulltulaModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.DARK_NUT_HELMET, DarknutHelmetModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.CAP, HatModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.IRON_KNUCKLE_LAYER, IronKnuckleModel::createBodyLayer);
     }
 

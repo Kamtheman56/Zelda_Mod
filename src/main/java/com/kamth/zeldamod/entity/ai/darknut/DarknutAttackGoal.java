@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.entity.ai.darknut;
 
-import com.kamth.zeldamod.entity.mobs.DarknutEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarknutEntity;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
@@ -32,6 +32,7 @@ public class DarknutAttackGoal extends MeleeAttackGoal {
 
             if(isTimeToStartAttackAnimation()) {
                 entity.setAttacking(true);
+
             }
 
             if(isTimeToAttack()) {

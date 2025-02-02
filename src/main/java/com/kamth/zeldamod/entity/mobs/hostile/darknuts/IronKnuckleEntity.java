@@ -1,18 +1,14 @@
-package com.kamth.zeldamod.entity.mobs;
+package com.kamth.zeldamod.entity.mobs.hostile.darknuts;
 
-import com.kamth.zeldamod.sound.ModSounds;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
-public class DarkKnightEntity extends DarknutEntity {
+public class IronKnuckleEntity extends  Monster  {
 
-
-    public DarkKnightEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+    public IronKnuckleEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
@@ -26,11 +22,4 @@ public class DarkKnightEntity extends DarknutEntity {
                 .add(Attributes.ATTACK_SPEED, 8)
                 .add(Attributes.ARMOR,20);
     }
-
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return ModSounds.DARKNUT_INJURED.get();
-    }
-
 }

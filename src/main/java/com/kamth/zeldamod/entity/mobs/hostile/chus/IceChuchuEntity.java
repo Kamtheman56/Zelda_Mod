@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.entity.mobs;
+package com.kamth.zeldamod.entity.mobs.hostile.chus;
 
 import com.google.common.annotations.VisibleForTesting;
 import net.minecraft.core.particles.ParticleOptions;

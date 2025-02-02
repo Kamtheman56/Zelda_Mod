@@ -374,7 +374,7 @@ public class ZeldaItems {
     public static final RegistryObject<Item> BOOMERANG = ITEMS.register("boomerang",
             () -> new BoomerangItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
 
-    public static final RegistryObject<Item> MAGIC_BOOMERANG = ITEMS.register("magic_boomerang",
+    public static final RegistryObject<Item> MAGIC_BOOMERANG = ITEMS.register("boomerang_magic",
             () -> new MagicBoomerangItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
     public static final RegistryObject<Item> GALE_BOOMERANG = ITEMS.register("boomerang_gale",

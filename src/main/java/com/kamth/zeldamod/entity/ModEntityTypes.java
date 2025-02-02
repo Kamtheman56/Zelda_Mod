@@ -2,6 +2,15 @@ package com.kamth.zeldamod.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.mobs.*;
+import com.kamth.zeldamod.entity.mobs.hostile.chus.ChuchuEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.chus.ElectricChuchuEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.chus.FireChuchuEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.chus.IceChuchuEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarkKnightEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarknutEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.darknuts.IronKnuckleEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.deku.DekuMadScrubEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.deku.DekuScrubEntity;
 import com.kamth.zeldamod.entity.projectile.seeds.BombSeedProjectile;
 import com.kamth.zeldamod.entity.projectile.seeds.DekuNutProjectile;
 import com.kamth.zeldamod.entity.projectile.seeds.KorokSeedProjectile;

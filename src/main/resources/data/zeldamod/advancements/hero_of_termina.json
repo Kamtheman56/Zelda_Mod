@@ -33,7 +33,7 @@
     ]
   ],
   "rewards": {
-    "experience": 90
+    "experience": 150
   },
   "sends_telemetry_event": true
 }

@@ -4,7 +4,7 @@ package com.kamth.zeldamod.entity.client.model;// Made with Blockbench 4.10.4
 
 
 import com.kamth.zeldamod.entity.animations.ModAnimationDefinitions;
-import com.kamth.zeldamod.entity.mobs.DekuScrubEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.deku.DekuScrubEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HierarchicalModel;

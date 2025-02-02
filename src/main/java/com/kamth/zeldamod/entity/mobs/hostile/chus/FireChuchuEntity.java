@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.entity.mobs;
+package com.kamth.zeldamod.entity.mobs.hostile.chus;
 
 import com.google.common.annotations.VisibleForTesting;
 import net.minecraft.core.particles.ParticleOptions;
@@ -27,11 +27,12 @@ import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
-public class ChuchuEntity extends Monster {
+public class FireChuchuEntity extends Monster {
     private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(Slime.class, EntityDataSerializers.INT);
     public static final int MIN_SIZE = 1;
     public static final int MAX_SIZE = 127;
@@ -39,26 +40,22 @@ public class ChuchuEntity extends Monster {
     public float squish;
     public float oSquish;
     private boolean wasOnGround;
-    public final AnimationState idleAnimationState = new AnimationState();
-    public final AnimationState attackAnimationState = new AnimationState();
-
-    private int idleAnimationTimeout = 0;
-    public ChuchuEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+    public FireChuchuEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.fixupDimensions();
 
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new ChuchuEntity.SlimeFloatGoal(this));
-        this.goalSelector.addGoal(2, new ChuchuEntity.SlimeAttackGoal(this));
-        this.goalSelector.addGoal(3, new ChuchuEntity.SlimeRandomDirectionGoal(this));
-        this.goalSelector.addGoal(5, new ChuchuEntity.SlimeKeepOnJumpingGoal(this));
+        this.goalSelector.addGoal(1, new FireChuchuEntity.SlimeFloatGoal(this));
+        this.goalSelector.addGoal(2, new FireChuchuEntity.SlimeAttackGoal(this));
+        this.goalSelector.addGoal(3, new FireChuchuEntity.SlimeRandomDirectionGoal(this));
+        this.goalSelector.addGoal(5, new FireChuchuEntity.SlimeKeepOnJumpingGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (p_289461_) -> {
             return Math.abs(p_289461_.getY() - this.getY()) <= 4.0D;
         }));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
-        this.moveControl = new ChuchuEntity.SlimeMoveControl(this);
+        this.moveControl = new FireChuchuEntity.SlimeMoveControl(this);
     }
 
     @VisibleForTesting
@@ -76,19 +73,36 @@ public class ChuchuEntity extends Monster {
 
         this.xpReward = i;
     }
+    private void jumpInLiquidInternal(java.util.function.BooleanSupplier isLava, Runnable onSuper) {
+        if (isLava.getAsBoolean()) {
+            Vec3 vec3 = this.getDeltaMovement();
+            this.setDeltaMovement(vec3.x, (double)(0.22F + (float)this.getSize() * 0.05F), vec3.z);
+            this.hasImpulse = true;
+        } else {
+            onSuper.run();
+        }
 
+    }
+    public float getLightLevelDependentMagicValue() {
+        return 1.0F;
+    }
+    @Override
+    public void jumpInFluid(net.minecraftforge.fluids.FluidType type) {
+        this.jumpInLiquidInternal(() -> type == net.minecraftforge.common.ForgeMod.LAVA_TYPE.get(), () -> super.jumpInFluid(type));
+    }
 
-
-
+    public boolean isOnFire() {
+        return false;
+    }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 6)
+                .add(Attributes.MAX_HEALTH, 4)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0f)
                 .add(Attributes.MOVEMENT_SPEED, .5f)
                 .add(Attributes.ATTACK_DAMAGE, 2)
                 .add(Attributes.FOLLOW_RANGE, 20.0D)
-                .add(Attributes.ATTACK_KNOCKBACK, 1.8f)
+                .add(Attributes.ATTACK_KNOCKBACK, 0.8f)
                 .add(Attributes.ATTACK_SPEED, 1);
     }
 
@@ -113,9 +127,6 @@ public class ChuchuEntity extends Monster {
 
     }
 
-
-
-
     /**
      * Called by a player entity when they collide with an entity
      */
@@ -130,7 +141,7 @@ public class ChuchuEntity extends Monster {
         return   this.isEffectiveAi();
     }
     protected ParticleOptions getParticleType() {
-        return ParticleTypes.SPIT;
+        return ParticleTypes.FLAME;
     }
     protected SoundEvent getSquishSound() {
         return this.isTiny() ? SoundEvents.SLIME_SQUISH_SMALL : SoundEvents.SLIME_SQUISH;
@@ -139,17 +150,12 @@ public class ChuchuEntity extends Monster {
         this.squish += (this.targetSquish - this.squish) * 0.5F;
         this.oSquish = this.squish;
         super.tick();
-        if (this.level().isClientSide) {
-            setupAnimationStates();
-        }
-    }
 
-    private void setupAnimationStates() {
-        if (this.idleAnimationTimeout <= 0 ) {
-            this.idleAnimationTimeout = this.random.nextInt(400) + 80;
-            this.idleAnimationState.start(this.tickCount);
-        } else {
-            --this.idleAnimationTimeout;
+
+        if (this.level().isClientSide) {
+            for(int i = 0; i < 2; ++i) {
+                this.level().addParticle(ParticleTypes.FLAME, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.0D, 0.0D, 0.0D);
+            }
         }
         if (this.onGround() && !this.wasOnGround) {
             int i = this.getSize();
@@ -183,10 +189,12 @@ public class ChuchuEntity extends Monster {
             int i = this.getSize();
             if (this.distanceToSqr(pLivingEntity) < 0.6D * (double)i * 0.6D * (double)i && i != 1 && this.hasLineOfSight(pLivingEntity) && pLivingEntity.hurt(this.damageSources().mobAttack(this), this.getAttackDamage())) {
                 this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+               this.getTarget().setRemainingFireTicks(this.getRemainingFireTicks()+40);
                 this.doEnchantDamageEffects(this, pLivingEntity);
             }
             if (this.distanceToSqr(pLivingEntity) < 0.9D * (double)i * 0.9D * (double)i && i == 1 && this.hasLineOfSight(pLivingEntity) && pLivingEntity.hurt(this.damageSources().mobAttack(this), this.getAttackDamage())) {
                 this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+                this.getTarget().setRemainingFireTicks(this.getRemainingFireTicks()+40);
                 this.doEnchantDamageEffects(this, pLivingEntity);
             }
         }
@@ -196,12 +204,12 @@ public class ChuchuEntity extends Monster {
         return (float)this.getAttributeValue(Attributes.ATTACK_DAMAGE);
     }
     static class SlimeAttackGoal extends Goal {
-        private final ChuchuEntity slime;
+        private final FireChuchuEntity slime;
         private int growTiredTimer;
 
-        public SlimeAttackGoal(ChuchuEntity pSlime) {
+        public SlimeAttackGoal(FireChuchuEntity pSlime) {
             this.slime = pSlime;
-            this.setFlags(EnumSet.of(Goal.Flag.LOOK));
+            this.setFlags(EnumSet.of(Flag.LOOK));
         }
 
         /**
@@ -213,7 +221,7 @@ public class ChuchuEntity extends Monster {
             if (livingentity == null) {
                 return false;
             } else {
-                return !this.slime.canAttack(livingentity) ? false : this.slime.getMoveControl() instanceof ChuchuEntity.SlimeMoveControl;
+                return !this.slime.canAttack(livingentity) ? false : this.slime.getMoveControl() instanceof FireChuchuEntity.SlimeMoveControl;
             }
         }
 
@@ -253,7 +261,7 @@ public class ChuchuEntity extends Monster {
             }
 
             MoveControl movecontrol = this.slime.getMoveControl();
-            if (movecontrol instanceof ChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
+            if (movecontrol instanceof FireChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
                 slime$slimemovecontrol.setDirection(this.slime.getYRot(), this.slime.isDealsDamage());
             }
 
@@ -263,11 +271,11 @@ public class ChuchuEntity extends Monster {
         return this.random.nextInt(20) + 10;
     }
     static class SlimeFloatGoal extends Goal {
-        private final ChuchuEntity slime;
+        private final FireChuchuEntity slime;
 
-        public SlimeFloatGoal(ChuchuEntity pSlime) {
+        public SlimeFloatGoal(FireChuchuEntity pSlime) {
             this.slime = pSlime;
-            this.setFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.MOVE));
+            this.setFlags(EnumSet.of(Flag.JUMP, Flag.MOVE));
             pSlime.getNavigation().setCanFloat(true);
         }
 
@@ -276,7 +284,7 @@ public class ChuchuEntity extends Monster {
          * method as well.
          */
         public boolean canUse() {
-            return (this.slime.isInWater() || this.slime.isInLava()) && this.slime.getMoveControl() instanceof ChuchuEntity.SlimeMoveControl;
+            return (this.slime.isInWater() || this.slime.isInLava()) && this.slime.getMoveControl() instanceof FireChuchuEntity.SlimeMoveControl;
         }
 
         public boolean requiresUpdateEveryTick() {
@@ -292,7 +300,7 @@ public class ChuchuEntity extends Monster {
             }
 
             MoveControl movecontrol = this.slime.getMoveControl();
-            if (movecontrol instanceof ChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
+            if (movecontrol instanceof FireChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
                 slime$slimemovecontrol.setWantedMovement(1.2D);
             }
 
@@ -300,11 +308,11 @@ public class ChuchuEntity extends Monster {
     }
 
     static class SlimeKeepOnJumpingGoal extends Goal {
-        private final ChuchuEntity slime;
+        private final FireChuchuEntity slime;
 
-        public SlimeKeepOnJumpingGoal(ChuchuEntity pSlime) {
+        public SlimeKeepOnJumpingGoal(FireChuchuEntity pSlime) {
             this.slime = pSlime;
-            this.setFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.MOVE));
+            this.setFlags(EnumSet.of(Flag.JUMP, Flag.MOVE));
         }
 
         /**
@@ -320,7 +328,7 @@ public class ChuchuEntity extends Monster {
          */
         public void tick() {
             MoveControl movecontrol = this.slime.getMoveControl();
-            if (movecontrol instanceof ChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
+            if (movecontrol instanceof FireChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
                 slime$slimemovecontrol.setWantedMovement(1.0D);
             }
 
@@ -330,10 +338,10 @@ public class ChuchuEntity extends Monster {
     static class SlimeMoveControl extends MoveControl {
         private float yRot;
         private int jumpDelay;
-        private final ChuchuEntity slime;
+        private final FireChuchuEntity slime;
         private boolean isAggressive;
 
-        public SlimeMoveControl(ChuchuEntity pSlime) {
+        public SlimeMoveControl(FireChuchuEntity pSlime) {
             super(pSlime);
             this.slime = pSlime;
             this.yRot = 180.0F * pSlime.getYRot() / (float)Math.PI;
@@ -346,17 +354,17 @@ public class ChuchuEntity extends Monster {
 
         public void setWantedMovement(double pSpeed) {
             this.speedModifier = pSpeed;
-            this.operation = MoveControl.Operation.MOVE_TO;
+            this.operation = Operation.MOVE_TO;
         }
 
         public void tick() {
             this.mob.setYRot(this.rotlerp(this.mob.getYRot(), this.yRot, 90.0F));
             this.mob.yHeadRot = this.mob.getYRot();
             this.mob.yBodyRot = this.mob.getYRot();
-            if (this.operation != MoveControl.Operation.MOVE_TO) {
+            if (this.operation != Operation.MOVE_TO) {
                 this.mob.setZza(0.0F);
             } else {
-                this.operation = MoveControl.Operation.WAIT;
+                this.operation = Operation.WAIT;
                 if (this.mob.onGround()) {
                     this.mob.setSpeed((float)(this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
                     if (this.jumpDelay-- <= 0) {
@@ -414,13 +422,13 @@ public class ChuchuEntity extends Monster {
         return this.getSize() > 0;
     }
     static class SlimeRandomDirectionGoal extends Goal {
-        private final ChuchuEntity slime;
+        private final FireChuchuEntity slime;
         private float chosenDegrees;
         private int nextRandomizeTime;
 
-        public SlimeRandomDirectionGoal(ChuchuEntity pSlime) {
+        public SlimeRandomDirectionGoal(FireChuchuEntity pSlime) {
             this.slime = pSlime;
-            this.setFlags(EnumSet.of(Goal.Flag.LOOK));
+            this.setFlags(EnumSet.of(Flag.LOOK));
         }
 
 
@@ -429,7 +437,7 @@ public class ChuchuEntity extends Monster {
          * method as well.
          */
         public boolean canUse() {
-            return this.slime.getTarget() == null && (this.slime.onGround() || this.slime.isInWater() || this.slime.isInLava() || this.slime.hasEffect(MobEffects.LEVITATION)) && this.slime.getMoveControl() instanceof ChuchuEntity.SlimeMoveControl;
+            return this.slime.getTarget() == null && (this.slime.onGround() || this.slime.isInWater() || this.slime.isInLava() || this.slime.hasEffect(MobEffects.LEVITATION)) && this.slime.getMoveControl() instanceof FireChuchuEntity.SlimeMoveControl;
         }
 
         /**
@@ -442,7 +450,7 @@ public class ChuchuEntity extends Monster {
             }
 
             MoveControl movecontrol = this.slime.getMoveControl();
-            if (movecontrol instanceof ChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
+            if (movecontrol instanceof FireChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
                 slime$slimemovecontrol.setDirection(this.chosenDegrees, false);
             }
 
@@ -460,7 +468,7 @@ public class ChuchuEntity extends Monster {
 
         super.onSyncedDataUpdated(pKey);
     }
-    public void remove(Entity.RemovalReason pReason) {
+    public void remove(RemovalReason pReason) {
         int i = this.getSize();
         if (!this.level().isClientSide && i > 1 && this.isDeadOrDying()) {
             Component component = this.getCustomName();
@@ -472,7 +480,7 @@ public class ChuchuEntity extends Monster {
             for(int l = 0; l < k; ++l) {
                 float f1 = ((float)(l % 2) - 0.5F) * f;
                 float f2 = ((float)(l / 2) - 0.5F) * f;
-                ChuchuEntity chuchu = (ChuchuEntity) this.getType().create(this.level());
+                FireChuchuEntity chuchu = (FireChuchuEntity) this.getType().create(this.level());
                 if (chuchu!= null) {
                     if (this.isPersistenceRequired()) {
                         chuchu.setPersistenceRequired();

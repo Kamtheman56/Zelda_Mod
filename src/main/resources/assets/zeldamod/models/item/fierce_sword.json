@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "zeldamod:item/sword_fierce"
+    "layer0": "zeldamod:item/sword_fierce_deity"
   },
   "display": {
     "ground": {
@@ -9,6 +9,7 @@
       "translation": [ 0, 0, 0],
       "scale":[ 1, 1, 1 ]
     },
+
     "thirdperson_righthand": {
       "rotation": [ 0, 270, 40 ],
       "translation": [ 0, 8, 1],

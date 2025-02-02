@@ -2,6 +2,8 @@ package com.kamth.zeldamod.entity.mobs;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.entity.mobs.hostile.deku.DekuMadScrubEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.deku.DekuScrubEntity;
 import com.kamth.zeldamod.entity.mobs.variants.KorokVariants;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;

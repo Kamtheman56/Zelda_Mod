@@ -10,5 +10,5 @@
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "zeldamod:stonemask"
+  "item": "zeldamod:stone_mask"
 }

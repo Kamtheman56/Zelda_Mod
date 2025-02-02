@@ -1,7 +1,5 @@
 package com.kamth.zeldamod.entity.client.model;
 
-import com.kamth.zeldamod.entity.animations.ModAnimationDefinitions;
-import com.kamth.zeldamod.entity.mobs.DarknutEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HierarchicalModel;
@@ -15,11 +13,21 @@ public class IronKnuckleModel<T extends Entity> extends HierarchicalModel<T> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 
     private final ModelPart darknut;
-
+    private final ModelPart head;
+    private final ModelPart body;
+    private final ModelPart rightArm;
+    private final ModelPart leftArm;
+    private final ModelPart rightLeg;
+    private final ModelPart leftLeg;
 
     public IronKnuckleModel(ModelPart root) {
         this.darknut = root.getChild("darknut");
-      //  this.head = darknut.getChild("head");
+        this.head = darknut.getChild("head");
+        this.body = darknut.getChild("body");
+        this.rightArm = body.getChild("arm_l");
+        this.leftArm = body.getChild("arm_r");
+        this.rightLeg = darknut.getChild("leg_r");
+        this.leftLeg = darknut.getChild("leg_l");
     }
 
     public static LayerDefinition createBodyLayer() {
@@ -75,8 +83,8 @@ public class IronKnuckleModel<T extends Entity> extends HierarchicalModel<T> {
         pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
         pHeadPitch = Mth.clamp(pHeadPitch, -25.0F, 45.0F);
 
-//        this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
-//        this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
+        this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
+        this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
     }
 
     @Override
@@ -84,6 +92,27 @@ public class IronKnuckleModel<T extends Entity> extends HierarchicalModel<T> {
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
+        this.body.yRot = 0.0F;
+        this.rightArm.z = 0.0F;
+        this.rightArm.x = -5.0F;
+        this.leftArm.z = 0.0F;
+        this.leftArm.x = 5.0F;
+        float f = 1.0F;
 
+
+        if (f < 1.0F) {
+            f = 1.0F;
+        }
+
+        this.rightArm.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F / f;
+        this.leftArm.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F / f;
+        this.rightArm.zRot = 0.0F;
+        this.leftArm.zRot = 0.0F;
+        this.rightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount / f;
+        this.leftLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount / f;
+        this.rightLeg.yRot = 0.005F;
+        this.leftLeg.yRot = -0.005F;
+        this.rightLeg.zRot = 0.005F;
+        this.leftLeg.zRot = -0.005F;
     }
 }

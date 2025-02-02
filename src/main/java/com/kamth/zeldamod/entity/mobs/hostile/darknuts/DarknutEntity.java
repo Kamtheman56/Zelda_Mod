@@ -1,11 +1,9 @@
-package com.kamth.zeldamod.entity.mobs;
+package com.kamth.zeldamod.entity.mobs.hostile.darknuts;
 
 import com.kamth.zeldamod.entity.ai.darknut.DarknutAttackGoal;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;

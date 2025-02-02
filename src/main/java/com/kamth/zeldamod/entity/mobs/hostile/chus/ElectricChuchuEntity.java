@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.entity.mobs;
+package com.kamth.zeldamod.entity.mobs.hostile.chus;
 
 import com.google.common.annotations.VisibleForTesting;
 import net.minecraft.core.particles.ParticleOptions;
@@ -27,12 +27,11 @@ import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
-public class FireChuchuEntity extends Monster {
+public class ElectricChuchuEntity extends Monster {
     private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(Slime.class, EntityDataSerializers.INT);
     public static final int MIN_SIZE = 1;
     public static final int MAX_SIZE = 127;
@@ -40,22 +39,22 @@ public class FireChuchuEntity extends Monster {
     public float squish;
     public float oSquish;
     private boolean wasOnGround;
-    public FireChuchuEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
+    public ElectricChuchuEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.fixupDimensions();
 
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new FireChuchuEntity.SlimeFloatGoal(this));
-        this.goalSelector.addGoal(2, new FireChuchuEntity.SlimeAttackGoal(this));
-        this.goalSelector.addGoal(3, new FireChuchuEntity.SlimeRandomDirectionGoal(this));
-        this.goalSelector.addGoal(5, new FireChuchuEntity.SlimeKeepOnJumpingGoal(this));
+        this.goalSelector.addGoal(1, new ElectricChuchuEntity.SlimeFloatGoal(this));
+        this.goalSelector.addGoal(2, new ElectricChuchuEntity.SlimeAttackGoal(this));
+        this.goalSelector.addGoal(3, new ElectricChuchuEntity.SlimeRandomDirectionGoal(this));
+        this.goalSelector.addGoal(5, new ElectricChuchuEntity.SlimeKeepOnJumpingGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (p_289461_) -> {
             return Math.abs(p_289461_.getY() - this.getY()) <= 4.0D;
         }));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
-        this.moveControl = new FireChuchuEntity.SlimeMoveControl(this);
+        this.moveControl = new ElectricChuchuEntity.SlimeMoveControl(this);
     }
 
     @VisibleForTesting
@@ -73,27 +72,10 @@ public class FireChuchuEntity extends Monster {
 
         this.xpReward = i;
     }
-    private void jumpInLiquidInternal(java.util.function.BooleanSupplier isLava, Runnable onSuper) {
-        if (isLava.getAsBoolean()) {
-            Vec3 vec3 = this.getDeltaMovement();
-            this.setDeltaMovement(vec3.x, (double)(0.22F + (float)this.getSize() * 0.05F), vec3.z);
-            this.hasImpulse = true;
-        } else {
-            onSuper.run();
-        }
 
-    }
-    public float getLightLevelDependentMagicValue() {
-        return 1.0F;
-    }
-    @Override
-    public void jumpInFluid(net.minecraftforge.fluids.FluidType type) {
-        this.jumpInLiquidInternal(() -> type == net.minecraftforge.common.ForgeMod.LAVA_TYPE.get(), () -> super.jumpInFluid(type));
-    }
 
-    public boolean isOnFire() {
-        return false;
-    }
+
+
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
@@ -141,7 +123,7 @@ public class FireChuchuEntity extends Monster {
         return   this.isEffectiveAi();
     }
     protected ParticleOptions getParticleType() {
-        return ParticleTypes.FLAME;
+        return ParticleTypes.ELECTRIC_SPARK;
     }
     protected SoundEvent getSquishSound() {
         return this.isTiny() ? SoundEvents.SLIME_SQUISH_SMALL : SoundEvents.SLIME_SQUISH;
@@ -150,13 +132,6 @@ public class FireChuchuEntity extends Monster {
         this.squish += (this.targetSquish - this.squish) * 0.5F;
         this.oSquish = this.squish;
         super.tick();
-
-
-        if (this.level().isClientSide) {
-            for(int i = 0; i < 2; ++i) {
-                this.level().addParticle(ParticleTypes.FLAME, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), 0.0D, 0.0D, 0.0D);
-            }
-        }
         if (this.onGround() && !this.wasOnGround) {
             int i = this.getSize();
 
@@ -189,12 +164,10 @@ public class FireChuchuEntity extends Monster {
             int i = this.getSize();
             if (this.distanceToSqr(pLivingEntity) < 0.6D * (double)i * 0.6D * (double)i && i != 1 && this.hasLineOfSight(pLivingEntity) && pLivingEntity.hurt(this.damageSources().mobAttack(this), this.getAttackDamage())) {
                 this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-               this.getTarget().setRemainingFireTicks(this.getRemainingFireTicks()+40);
                 this.doEnchantDamageEffects(this, pLivingEntity);
             }
             if (this.distanceToSqr(pLivingEntity) < 0.9D * (double)i * 0.9D * (double)i && i == 1 && this.hasLineOfSight(pLivingEntity) && pLivingEntity.hurt(this.damageSources().mobAttack(this), this.getAttackDamage())) {
                 this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-                this.getTarget().setRemainingFireTicks(this.getRemainingFireTicks()+40);
                 this.doEnchantDamageEffects(this, pLivingEntity);
             }
         }
@@ -204,10 +177,10 @@ public class FireChuchuEntity extends Monster {
         return (float)this.getAttributeValue(Attributes.ATTACK_DAMAGE);
     }
     static class SlimeAttackGoal extends Goal {
-        private final FireChuchuEntity slime;
+        private final ElectricChuchuEntity slime;
         private int growTiredTimer;
 
-        public SlimeAttackGoal(FireChuchuEntity pSlime) {
+        public SlimeAttackGoal(ElectricChuchuEntity pSlime) {
             this.slime = pSlime;
             this.setFlags(EnumSet.of(Flag.LOOK));
         }
@@ -221,7 +194,7 @@ public class FireChuchuEntity extends Monster {
             if (livingentity == null) {
                 return false;
             } else {
-                return !this.slime.canAttack(livingentity) ? false : this.slime.getMoveControl() instanceof FireChuchuEntity.SlimeMoveControl;
+                return !this.slime.canAttack(livingentity) ? false : this.slime.getMoveControl() instanceof ElectricChuchuEntity.SlimeMoveControl;
             }
         }
 
@@ -261,7 +234,7 @@ public class FireChuchuEntity extends Monster {
             }
 
             MoveControl movecontrol = this.slime.getMoveControl();
-            if (movecontrol instanceof FireChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
+            if (movecontrol instanceof ElectricChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
                 slime$slimemovecontrol.setDirection(this.slime.getYRot(), this.slime.isDealsDamage());
             }
 
@@ -271,9 +244,9 @@ public class FireChuchuEntity extends Monster {
         return this.random.nextInt(20) + 10;
     }
     static class SlimeFloatGoal extends Goal {
-        private final FireChuchuEntity slime;
+        private final ElectricChuchuEntity slime;
 
-        public SlimeFloatGoal(FireChuchuEntity pSlime) {
+        public SlimeFloatGoal(ElectricChuchuEntity pSlime) {
             this.slime = pSlime;
             this.setFlags(EnumSet.of(Flag.JUMP, Flag.MOVE));
             pSlime.getNavigation().setCanFloat(true);
@@ -284,7 +257,7 @@ public class FireChuchuEntity extends Monster {
          * method as well.
          */
         public boolean canUse() {
-            return (this.slime.isInWater() || this.slime.isInLava()) && this.slime.getMoveControl() instanceof FireChuchuEntity.SlimeMoveControl;
+            return (this.slime.isInWater() || this.slime.isInLava()) && this.slime.getMoveControl() instanceof ElectricChuchuEntity.SlimeMoveControl;
         }
 
         public boolean requiresUpdateEveryTick() {
@@ -300,7 +273,7 @@ public class FireChuchuEntity extends Monster {
             }
 
             MoveControl movecontrol = this.slime.getMoveControl();
-            if (movecontrol instanceof FireChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
+            if (movecontrol instanceof ElectricChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
                 slime$slimemovecontrol.setWantedMovement(1.2D);
             }
 
@@ -308,9 +281,9 @@ public class FireChuchuEntity extends Monster {
     }
 
     static class SlimeKeepOnJumpingGoal extends Goal {
-        private final FireChuchuEntity slime;
+        private final ElectricChuchuEntity slime;
 
-        public SlimeKeepOnJumpingGoal(FireChuchuEntity pSlime) {
+        public SlimeKeepOnJumpingGoal(ElectricChuchuEntity pSlime) {
             this.slime = pSlime;
             this.setFlags(EnumSet.of(Flag.JUMP, Flag.MOVE));
         }
@@ -328,7 +301,7 @@ public class FireChuchuEntity extends Monster {
          */
         public void tick() {
             MoveControl movecontrol = this.slime.getMoveControl();
-            if (movecontrol instanceof FireChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
+            if (movecontrol instanceof ElectricChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
                 slime$slimemovecontrol.setWantedMovement(1.0D);
             }
 
@@ -338,10 +311,10 @@ public class FireChuchuEntity extends Monster {
     static class SlimeMoveControl extends MoveControl {
         private float yRot;
         private int jumpDelay;
-        private final FireChuchuEntity slime;
+        private final ElectricChuchuEntity slime;
         private boolean isAggressive;
 
-        public SlimeMoveControl(FireChuchuEntity pSlime) {
+        public SlimeMoveControl(ElectricChuchuEntity pSlime) {
             super(pSlime);
             this.slime = pSlime;
             this.yRot = 180.0F * pSlime.getYRot() / (float)Math.PI;
@@ -422,11 +395,11 @@ public class FireChuchuEntity extends Monster {
         return this.getSize() > 0;
     }
     static class SlimeRandomDirectionGoal extends Goal {
-        private final FireChuchuEntity slime;
+        private final ElectricChuchuEntity slime;
         private float chosenDegrees;
         private int nextRandomizeTime;
 
-        public SlimeRandomDirectionGoal(FireChuchuEntity pSlime) {
+        public SlimeRandomDirectionGoal(ElectricChuchuEntity pSlime) {
             this.slime = pSlime;
             this.setFlags(EnumSet.of(Flag.LOOK));
         }
@@ -437,7 +410,7 @@ public class FireChuchuEntity extends Monster {
          * method as well.
          */
         public boolean canUse() {
-            return this.slime.getTarget() == null && (this.slime.onGround() || this.slime.isInWater() || this.slime.isInLava() || this.slime.hasEffect(MobEffects.LEVITATION)) && this.slime.getMoveControl() instanceof FireChuchuEntity.SlimeMoveControl;
+            return this.slime.getTarget() == null && (this.slime.onGround() || this.slime.isInWater() || this.slime.isInLava() || this.slime.hasEffect(MobEffects.LEVITATION)) && this.slime.getMoveControl() instanceof ElectricChuchuEntity.SlimeMoveControl;
         }
 
         /**
@@ -450,7 +423,7 @@ public class FireChuchuEntity extends Monster {
             }
 
             MoveControl movecontrol = this.slime.getMoveControl();
-            if (movecontrol instanceof FireChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
+            if (movecontrol instanceof ElectricChuchuEntity.SlimeMoveControl slime$slimemovecontrol) {
                 slime$slimemovecontrol.setDirection(this.chosenDegrees, false);
             }
 
@@ -480,7 +453,7 @@ public class FireChuchuEntity extends Monster {
             for(int l = 0; l < k; ++l) {
                 float f1 = ((float)(l % 2) - 0.5F) * f;
                 float f2 = ((float)(l / 2) - 0.5F) * f;
-                FireChuchuEntity chuchu = (FireChuchuEntity) this.getType().create(this.level());
+                ElectricChuchuEntity chuchu = (ElectricChuchuEntity) this.getType().create(this.level());
                 if (chuchu!= null) {
                     if (this.isPersistenceRequired()) {
                         chuchu.setPersistenceRequired();
@@ -505,7 +478,6 @@ public class FireChuchuEntity extends Monster {
         if (i < 2 && randomsource.nextFloat() < 0.5F * pDifficulty.getSpecialMultiplier()) {
             ++i;
         }
-
         int j = 1 << i;
         this.setSize(j, true);
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);

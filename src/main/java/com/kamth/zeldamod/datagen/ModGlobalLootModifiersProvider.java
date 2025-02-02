@@ -47,7 +47,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("ice_arrow_from_skeleton", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/skeleton")).build(),
                 LootItemRandomChanceCondition.randomChance(0.08f).build()}, ZeldaItems.ICE_ARROW.get()));
-        add("lightning_arrow_from_skeleton", new AddItemModifier(new LootItemCondition[] {
+        add("shock_arrow_from_skeleton", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/skeleton")).build(),
                 LootItemRandomChanceCondition.randomChance(0.08f).build()}, ZeldaItems.FIRE_ARROW.get()));
         add("fire_arrow_from_wither_skeleton", new AddItemModifier(new LootItemCondition[] {
@@ -159,7 +159,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("ice_arrow_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.ICE_ARROW.get()));
-        add("lightning_arrow_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
+        add("shock_arrow_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/ancient_city")).build(),
                 LootItemRandomChanceCondition.randomChance(0.65f).build()}, ZeldaItems.SHOCK_ARROW.get()));
         add("light_arrow_from_ancient_city", new AddItemModifier(new LootItemCondition[] {
@@ -236,7 +236,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("ice_arrow_from_dungeon", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/simple_dungeon")).build(),
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.ICE_ARROW.get()));
-        add("lightning_arrow_from_dungeon", new AddItemModifier(new LootItemCondition[] {
+        add("shock_arrow_from_dungeon", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/simple_dungeon")).build(),
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.SHOCK_ARROW.get()));
         add("light_arrow_from_dungeon", new AddItemModifier(new LootItemCondition[] {
@@ -337,10 +337,10 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("ice_arrow_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.ICE_ARROW.get()));
-        add("lightning_arrow_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
+        add("shock_arrow_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.SHOCK_ARROW.get()));
-        add("lightning_arrow_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
+        add("shock_arrow_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
                 LootItemRandomChanceCondition.randomChance(0.55f).build()}, ZeldaItems.SHOCK_ARROW.get()));
         add("light_arrow_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
@@ -511,7 +511,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("ice_arrow_from_fletcher", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/fletcher_gift")).build(),
                 LootItemRandomChanceCondition.randomChance(0.18f).build()}, ZeldaItems.ICE_ARROW.get()));
-        add("lightning_arrow_from_fletcher", new AddItemModifier(new LootItemCondition[] {
+        add("shock_arrow_from_fletcher", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("gameplay/hero_of_the_village/fletcher_gift")).build(),
                 LootItemRandomChanceCondition.randomChance(0.18f).build()}, ZeldaItems.SHOCK_ARROW.get()));
 

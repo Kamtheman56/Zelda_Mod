@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "zeldamod:magic_boomerang"
+      "item": "zeldamod:boomerang_magic"
     },
     "title": "Going for an Upgrade",
     "description": "Gift your Boomerang to an Allay",
@@ -18,7 +18,7 @@
         "items": [
           {
             "items": [
-              "zeldamod:magic_boomerang"
+              "zeldamod:boomerang_magic"
 
             ]
           }

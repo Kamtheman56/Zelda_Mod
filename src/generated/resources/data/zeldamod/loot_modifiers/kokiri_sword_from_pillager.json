@@ -10,5 +10,5 @@
       "condition": "minecraft:random_chance"
     }
   ],
-  "item": "zeldamod:sword_kokiri"
+  "item": "zeldamod:kokiri_sword_mm"
 }
