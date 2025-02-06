@@ -30,9 +30,8 @@ public class GaleBoomerangItem extends Item {
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.BOOMERANG_TOSS.get(), SoundSource.PLAYERS, 1F, 0.2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
             player.getCooldowns().addCooldown(this, 35);
-            GaleBoomerangProjectile boomerang = new GaleBoomerangProjectile(ModEntityTypes.GALE_BOOMERANG.get(), pLevel, player);
+            GaleBoomerangProjectile boomerang = new GaleBoomerangProjectile(ModEntityTypes.GALE_BOOMERANG.get(), pLevel, player, pHand.ordinal());
             boomerang.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.6F, 0.9F);
-            boomerang.setThrowData(pHand.ordinal(), itemstack);
             pLevel.addFreshEntity(boomerang);
         }
         player.awardStat(Stats.ITEM_USED.get(this));

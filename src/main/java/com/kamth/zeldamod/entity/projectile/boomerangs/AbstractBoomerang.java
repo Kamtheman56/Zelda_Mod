@@ -52,6 +52,7 @@ public abstract class AbstractBoomerang extends Projectile implements ItemSuppli
     }
 
     protected abstract float getDamage();
+    protected abstract float getLifetimeLimit();
 
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
@@ -87,7 +88,7 @@ public abstract class AbstractBoomerang extends Projectile implements ItemSuppli
         if (isAlive() && !isReturning()) {
 
             EntityHitResult entityHitresult = raycastEntities(position, rayEnd);
-            if (entityHitresult != null) {
+            if (entityHitresult != null && !(entityHitresult.getEntity() instanceof Player)) {
                 onHit(entityHitresult);
             }
 
@@ -118,16 +119,16 @@ public abstract class AbstractBoomerang extends Projectile implements ItemSuppli
         setYRot((float) (Mth.atan2(motion.x, motion.z) * 180 / (float) Math.PI));
         setXRot((float) (Mth.atan2(motion.y, horizontalDistance) * 180 / (float) Math.PI));
 
-        float xRotDiff = getXRot() - xRotO;
+        float xRotDiff = getXRot() - this.xRotO;
         float normalizedXRotDiff = normalizeAngle(xRotDiff);
-        xRotO = getXRot() - normalizedXRotDiff;
+        this.xRotO = getXRot() - normalizedXRotDiff;
 
-        float yRotDiff = getYRot() - yRotO;
+        float yRotDiff = getYRot() - this.yRotO;
         float normalizedYRotDiff = normalizeAngle(yRotDiff);
-        yRotO = getYRot() - normalizedYRotDiff;
+        this.yRotO = getYRot() - normalizedYRotDiff;
 
-        setXRot(Mth.lerp(0.2f, xRotO, getXRot()));
-        setYRot(Mth.lerp(0.2f, yRotO, getYRot()));
+        setXRot(Mth.lerp(0.2f, this.xRotO, getXRot()));
+        setYRot(Mth.lerp(0.2f, this.yRotO, getYRot()));
 
         float drag = 0.99f;
         if (isInWater()) {
@@ -148,7 +149,7 @@ public abstract class AbstractBoomerang extends Projectile implements ItemSuppli
         if (!isAlive()) {
             return;
         }
-        liveTime++;
+        this.liveTime++;
 
         Entity owner = getOwner();
         if (owner == null || !owner.isAlive() || !(owner instanceof Player)) {
@@ -162,8 +163,10 @@ public abstract class AbstractBoomerang extends Projectile implements ItemSuppli
             return;
         }
 
-        if (!isReturning() && liveTime > 15) {
-            setReturning(true);
+        if (!isReturning()) {
+            if (this.liveTime > getLifetimeLimit()) {
+                setReturning(true);
+            }
         } else {
             List<ItemEntity> items = level().getEntitiesOfClass(ItemEntity.class, getBoundingBox().inflate(2));
             List<ExperienceOrb> xpOrbs = level().getEntitiesOfClass(ExperienceOrb.class, getBoundingBox().inflate(2));
@@ -182,8 +185,9 @@ public abstract class AbstractBoomerang extends Projectile implements ItemSuppli
 
             Vec3 ownerPos = owner.position().add(0, 1, 0);
             Vec3 toOwner = ownerPos.subtract(pos);
+            double motionMag = 3.25 + 1 * 0.25;
 
-            if (toOwner.lengthSqr() < Math.pow(3.25 + 0.25, 2)) {
+            if (toOwner.lengthSqr() < motionMag) {
                 Player player = (Player) owner;
                 Inventory inventory = player.getInventory();
                 ItemStack currentStack = inventory.getItem(slot);
@@ -223,59 +227,13 @@ public abstract class AbstractBoomerang extends Projectile implements ItemSuppli
                     discard();
                 }
             } else {
-                setDeltaMovement(toOwner.normalize().scale(1.025F).normalize());
+                setDeltaMovement(toOwner.normalize().scale(1.025f).normalize());
             }
         }
     }
 
     private float normalizeAngle(float angle) {
         return ((angle + 180.0f) % 360.0f + 360.0f) % 360.0f - 180.0f;
-    }
-
-    private void handleItemReturn(Player player, List<ItemEntity> items, List<ExperienceOrb> xpOrbs) {
-        Inventory inventory = player.getInventory();
-        ItemStack stackInSlot = inventory.getItem(slot);
-
-        if (!level().isClientSide) {
-            if (!getItem().isEmpty()) {
-                if (player.isAlive() && stackInSlot.isEmpty()) {
-                    inventory.setItem(slot, getItem());
-                }
-                else if (!player.isAlive() || !inventory.add(getItem())) {
-                    player.drop(getItem(), false);
-                }
-            }
-
-            if (player.isAlive()) {
-                items.forEach(item -> {
-                    if (item.isAlive()) {
-                        giveItemToPlayer(player, item);
-                    }
-                });
-                xpOrbs.forEach(xp -> {
-                    if (xp.isAlive()) {
-                        xp.playerTouch(player);
-                    }
-                });
-
-                for (Entity passenger : getPassengers()) {
-                    if (!passenger.isAlive()) {
-                        continue;
-                    }
-
-                    if (passenger instanceof ItemEntity) {
-                        giveItemToPlayer(player, (ItemEntity) passenger);
-                    }
-                    else if (passenger instanceof ExperienceOrb) {
-                        passenger.playerTouch(player);
-                    }
-
-                    if (passenger instanceof ItemEntity && !inventory.add(getItem())) {
-                        passenger.dismountTo(this.getX(), this.getY(), this.getZ());
-                    }
-                }
-            }
-        }
     }
 
     private void giveItemToPlayer(Player player, ItemEntity itemEntity) {

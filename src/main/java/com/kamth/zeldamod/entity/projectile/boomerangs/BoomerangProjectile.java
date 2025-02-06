@@ -23,6 +23,11 @@ public class BoomerangProjectile extends AbstractBoomerang {
     }
 
     @Override
+    protected float getLifetimeLimit() {
+        return 15;
+    }
+
+    @Override
     public ItemStack getItem() {
         return ZeldaItems.BOOMERANG.get().getDefaultInstance();
     }
