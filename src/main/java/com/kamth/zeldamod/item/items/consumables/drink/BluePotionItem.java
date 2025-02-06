@@ -11,7 +11,7 @@ public class BluePotionItem extends DrinkItem {
 
 
     public BluePotionItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.BLUE));
+        super(pProperties, "iblue");
     }
 
     @Override

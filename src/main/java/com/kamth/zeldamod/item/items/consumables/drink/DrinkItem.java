@@ -17,8 +17,12 @@ import net.minecraft.world.level.Level;
 public class DrinkItem extends TooltipItem {
 
 
-    public DrinkItem(Properties pProperties, Style style) {
+    public DrinkItem(Properties pProperties, String style) {
         super(pProperties, style);
+    }
+
+    public DrinkItem(Properties pProperties) {
+        super(pProperties);
     }
 
     @Override
@@ -38,8 +42,7 @@ public class DrinkItem extends TooltipItem {
 
                 if (pStack.isEmpty()) {
                     return bottle;
-                }
-                else if (pEntityLiving instanceof Player && !player.isCreative()) {
+                } else if (pEntityLiving instanceof Player && !player.isCreative()) {
                     if (!player.getInventory().add(bottle)) {
                         player.drop(bottle, false);
                     }

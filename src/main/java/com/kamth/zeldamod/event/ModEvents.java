@@ -9,17 +9,13 @@ import com.kamth.zeldamod.event.events.*;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ComputeFovModifierEvent;
-import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
@@ -96,14 +92,14 @@ public class ModEvents {
     public static void onFovUpdate(ComputeFovModifierEvent event) {
         LivingEntity player = event.getPlayer();
         Item item = player.getUseItem().getItem();
-        if (event.getPlayer().getUseItem().getItem() instanceof BowItem && event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWKEYE.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
+        if (event.getPlayer().getUseItem().getItem() instanceof BowItem && event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWKEYE_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
             float FOVModifier = player.getTicksUsingItem() / (float) BowItem.MAX_DRAW_DURATION;
             event.setNewFovModifier(event.getFovModifier() * (1.0f - FOVModifier * 1.3f));
         }
         if (event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.GORON_MASK.get()) && Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
             event.setNewFovModifier(event.getFovModifier() * (0.9f - player.getSpeed() * 1.1f));
         }
-        if (event.getPlayer().isUsingItem() && event.getPlayer().getUseItem().is(ModTags.Items.BOW_WEAPONS) && !event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWKEYE.get()) ){
+        if (event.getPlayer().isUsingItem() && event.getPlayer().getUseItem().is(ModTags.Items.BOW_WEAPONS) && !event.getPlayer().getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWKEYE_MASK.get()) ){
             float fovModifier = 1f;
             int ticksUsingItem = event.getPlayer().getTicksUsingItem();
             float deltaTicks = (float)ticksUsingItem / 20f;

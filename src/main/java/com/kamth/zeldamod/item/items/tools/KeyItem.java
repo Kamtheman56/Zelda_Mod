@@ -19,7 +19,7 @@ public class KeyItem extends TooltipItem {
     private final Block lock;
 
     public KeyItem(Properties pProperties, Block lock) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.GRAY));
+        super(pProperties, "igray");
         this.lock = lock;
     }
 

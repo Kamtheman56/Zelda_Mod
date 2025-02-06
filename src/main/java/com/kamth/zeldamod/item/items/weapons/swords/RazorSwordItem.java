@@ -33,7 +33,7 @@ public class RazorSwordItem extends TooltipSword {
     public void damageSword(ItemStack stack, LivingEntity user, int damage) {
         stack.hurtAndBreak(damage, user, (p_43296_) -> p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND));
 
-        if(!(stack.getDamageValue() < stack.getMaxDamage() - 3)) {
+        if (!(stack.getDamageValue() < stack.getMaxDamage() - 3)) {
             ItemStack newItemStack = new ItemStack(this.swordChild);
 
             user.setItemSlot(EquipmentSlot.MAINHAND, newItemStack);

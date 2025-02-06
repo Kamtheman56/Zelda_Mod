@@ -21,7 +21,7 @@ import java.util.List;
 
 public class BlueRingItem extends TooltipItem {
     public BlueRingItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.AQUA), false);
+        super(pProperties, "iaqua", false);
         MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
     }
 

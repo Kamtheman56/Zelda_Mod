@@ -21,7 +21,7 @@ import java.util.List;
 
 public class PurpleRingItem extends TooltipItem {
     public PurpleRingItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.LIGHT_PURPLE), true);
+        super(pProperties, "ipurple", true);
         MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
     }
 

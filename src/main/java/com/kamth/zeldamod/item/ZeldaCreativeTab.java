@@ -182,7 +182,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.KAMARO_MASK);
             event.accept(ZeldaItems.GARO_MASK);
             event.accept(ZeldaItems.POSTMAN_MASK);
-            event.accept(ZeldaItems.HAWKEYE);
+            event.accept(ZeldaItems.HAWKEYE_MASK);
             event.accept(ZeldaItems.SKULL_MASK);
             event.accept(ZeldaItems.SPOOKY_MASK);
             event.accept(ZeldaItems.GERUDO_MASK);
@@ -297,10 +297,10 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.DARK_KNIGHT_SPAWN_EGG);
             event.accept(ZeldaItems.IRON_KNUCKLE_SPAWN_EGG);
             event.accept(ZeldaItems.KEESE_SPAWN_EGG);
-            event.accept(ZeldaItems.CHUCHU_SPAWN_EGG);
-            event.accept(ZeldaItems.FIRE_CHUCHU_SPAWN_EGG);
-            event.accept(ZeldaItems.ICE_CHUCHU_SPAWN_EGG);
-            event.accept(ZeldaItems.ELECTRIC_CHUCHU_SPAWN_EGG);
+            event.accept(ZeldaItems.CHU_SPAWN_EGG);
+            event.accept(ZeldaItems.FIRE_CHU_SPAWN_EGG);
+            event.accept(ZeldaItems.ICE_CHU_SPAWN_EGG);
+            event.accept(ZeldaItems.ELECTRIC_CHU_SPAWN_EGG);
             event.accept(ZeldaItems.KOROK_SPAWN_EGG);
             event.accept(ZeldaItems.SKULLTULA_SPAWN_EGG);
         }

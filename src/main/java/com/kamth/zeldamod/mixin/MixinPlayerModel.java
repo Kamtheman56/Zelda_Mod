@@ -6,7 +6,7 @@ import com.kamth.zeldamod.item.items.grapples.ClawshotItem;
 import com.kamth.zeldamod.item.items.movement.AscendItem;
 import com.kamth.zeldamod.item.items.movement.DekuLeafItem;
 import com.kamth.zeldamod.item.items.movement.GliderItem;
-import com.kamth.zeldamod.item.masks.ZoraMask;
+import com.kamth.zeldamod.item.masks.transformation.ZoraMask;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelPart;

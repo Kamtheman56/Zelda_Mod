@@ -2,10 +2,10 @@ package com.kamth.zeldamod.event.events;
 
 import com.kamth.zeldamod.entity.mobs.KorokEntity;
 import com.kamth.zeldamod.item.ZeldaItems;
-import com.kamth.zeldamod.item.masks.CouplesMask;
-import com.kamth.zeldamod.item.masks.GeroMask;
-import com.kamth.zeldamod.item.masks.MajorasMask;
-import com.kamth.zeldamod.item.masks.RomaniMask;
+import com.kamth.zeldamod.item.masks.regular.CouplesMask;
+import com.kamth.zeldamod.item.masks.regular.GeroMask;
+import com.kamth.zeldamod.item.masks.transformation.MajorasMask;
+import com.kamth.zeldamod.item.masks.regular.RomaniMask;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

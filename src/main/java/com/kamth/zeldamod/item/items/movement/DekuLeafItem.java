@@ -26,7 +26,7 @@ import java.util.List;
 
 public class DekuLeafItem extends TooltipItem {
     public DekuLeafItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withColor(ChatFormatting.GREEN).withItalic(true));
+        super(pProperties, "igreen");
     }
 
     @Override

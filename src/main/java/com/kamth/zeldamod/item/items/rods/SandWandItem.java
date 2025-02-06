@@ -24,7 +24,7 @@ import java.util.List;
 
 public class SandWandItem extends TooltipItem {
     public SandWandItem(Properties pProperties) {
-        super(pProperties,  Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), true);
+        super(pProperties,  "iyellow", true);
     }
 
 

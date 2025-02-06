@@ -24,7 +24,7 @@ import java.util.List;
 
 public class SandStormRodItem extends TooltipItem {
     public SandStormRodItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), true);
+        super(pProperties, "iyellow", true);
     }
 
 

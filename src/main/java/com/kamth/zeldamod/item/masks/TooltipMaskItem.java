@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.item.masks;
 
-import net.minecraft.client.gui.screens.Screen;
+import com.kamth.zeldamod.util.ZeldaTooltipUtil;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.item.ArmorItem;
@@ -14,31 +14,15 @@ import java.util.List;
 
 public class TooltipMaskItem extends ArmorItem {
 
-    private final Style style;
-    private final boolean hidden;
+    private final String style;
 
-    public TooltipMaskItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, Style style, boolean hidden) {
+    public TooltipMaskItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, String style) {
         super(pMaterial, pType, pProperties);
         this.style = style;
-        this.hidden = hidden;
-    }
-
-    public TooltipMaskItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, Style style) {
-        this(pMaterial, pType, pProperties, style, false);
-    }
-
-    public TooltipMaskItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
-        this(pMaterial, pType, pProperties, Style.EMPTY, false);
     }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if (this.hidden) {
-            if (Screen.hasShiftDown()) {
-                components.add(Component.translatable(stack.getDescriptionId() + ".description").setStyle(this.style));
-            }
-            return;
-        }
-        components.add(Component.translatable(stack.getDescriptionId() + ".description").setStyle(this.style));
+        components.addAll(ZeldaTooltipUtil.createSingleTooltip(stack, false, this.style));
     }
 }

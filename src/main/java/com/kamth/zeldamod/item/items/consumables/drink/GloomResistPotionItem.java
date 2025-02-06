@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 public class GloomResistPotionItem extends DrinkItem {
 
     public GloomResistPotionItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.GOLD));
+        super(pProperties, "i-yellow");
     }
 
     @Override

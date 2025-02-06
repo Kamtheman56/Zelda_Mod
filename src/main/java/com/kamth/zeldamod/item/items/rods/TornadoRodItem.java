@@ -35,7 +35,7 @@ import java.util.List;
 
 public class TornadoRodItem extends TooltipItem {
     public TornadoRodItem(Properties pProperties) {
-        super(pProperties,  Style.EMPTY.withItalic(true).withColor(ChatFormatting.GREEN), true);
+        super(pProperties,  "igreen", true);
     }
 
 

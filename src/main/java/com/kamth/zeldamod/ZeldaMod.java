@@ -46,28 +46,38 @@ public class ZeldaMod {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModCreativeModeTab.register(modEventBus);
+
         ZeldaItems.register(modEventBus);
+
         ModEntityTypes.register(modEventBus);
+
         ZeldaBlocks.register(modEventBus);
+
         ModSounds.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
+
         ModVillagers.register(modEventBus);
+
         ModEffects.register(modEventBus);
+
         ModParticles.register(modEventBus);
+
         ModLootModifiers.register(modEventBus);
+
         ModPaintings.register(modEventBus);
+
         ZeldaBlockEntities.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(ZeldaCreativeTab::addCreativeTabItems);
-
     }
-    private void clientSetup(final FMLClientSetupEvent event){
+    private void clientSetup(final FMLClientSetupEvent event) {
         ModItemProperties.addCustomItemProperties();
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event){
+    private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             SpawnPlacements.register(ModEntityTypes.KOROK.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,   Animal::checkAnimalSpawnRules);
             SpawnPlacements.register(ModEntityTypes.CHUCHU.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);

@@ -32,7 +32,7 @@ import java.util.List;
 
 public class IceRodItem extends TooltipItem {
     public IceRodItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.AQUA), true);
+        super(pProperties, "iaqua", true);
     }
 
     @Override

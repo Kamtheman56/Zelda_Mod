@@ -17,7 +17,7 @@ import java.util.List;
 public class MilkBottleItem extends DrinkItem {
 
     public MilkBottleItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY);
+        super(pProperties);
     }
 
     public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {

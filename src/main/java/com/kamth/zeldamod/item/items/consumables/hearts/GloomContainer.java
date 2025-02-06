@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 public class GloomContainer extends AbstractHeartItem {
 
     public GloomContainer(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.RED), -3.5f, -2);
+        super(pProperties, "ired", -3.5f, -2);
     }
 
     @Override

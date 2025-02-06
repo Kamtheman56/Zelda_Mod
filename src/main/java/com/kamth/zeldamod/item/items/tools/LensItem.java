@@ -30,7 +30,7 @@ import java.util.List;
 public class LensItem extends TooltipItem {
     public static final List<LivingEntity> LOOKING = new ArrayList<>();
     public LensItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.LIGHT_PURPLE), true);
+        super(pProperties, "ipurple", true);
     }
 
 

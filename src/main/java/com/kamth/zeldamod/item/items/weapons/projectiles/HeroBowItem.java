@@ -69,7 +69,7 @@ public class HeroBowItem extends BowItem {
                         if (f == 1.0F) {
                             abstractarrow.setCritArrow(true);
                         }
-                        if (!pLevel.isClientSide && player.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWKEYE.get())) {
+                        if (!pLevel.isClientSide && player.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.HAWKEYE_MASK.get())) {
                             abstractarrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, f * 5.0F, 0.0F);
                             abstractarrow.setCritArrow(true);
                         }

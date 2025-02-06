@@ -27,7 +27,7 @@ public abstract class AbstractHeartItem extends TooltipItem {
     private final float pitch;
     private final float healAmount;
 
-    public AbstractHeartItem(Properties pProperties, Style style, float pitch, float healAmount) {
+    public AbstractHeartItem(Properties pProperties, String style, float pitch, float healAmount) {
         super(pProperties, style, false);
         this.pitch = pitch;
         this.healAmount = healAmount;

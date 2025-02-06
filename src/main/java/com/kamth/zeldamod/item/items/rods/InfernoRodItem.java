@@ -31,7 +31,7 @@ import java.util.List;
 
 public class InfernoRodItem extends TooltipItem {
     public InfernoRodItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.RED), true);
+        super(pProperties, "ired", true);
     }
 
     @Override

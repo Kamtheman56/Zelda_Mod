@@ -54,7 +54,10 @@ import com.kamth.zeldamod.item.items.bombs.BombFlowerItem;
 import com.kamth.zeldamod.item.items.weapons.projectiles.ScattershotItem;
 import com.kamth.zeldamod.item.items.weapons.projectiles.SlingshotItem;
 import com.kamth.zeldamod.item.items.weapons.swords.*;
-import com.kamth.zeldamod.item.masks.*;
+import com.kamth.zeldamod.item.items.weapons.swords.master.*;
+import com.kamth.zeldamod.item.masks.TooltipMaskItem;
+import com.kamth.zeldamod.item.masks.regular.*;
+import com.kamth.zeldamod.item.masks.transformation.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Style;
 import net.minecraft.tags.BlockTags;
@@ -68,6 +71,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Collections;
 
+import static com.kamth.zeldamod.item.ItemRegistrationHelper.*;
+
 public class ZeldaItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ZeldaMod.MOD_ID);
@@ -78,19 +83,19 @@ public class ZeldaItems {
 
     // EMERALDS
     public static final RegistryObject<Item> BLUE_EMERALD = ITEMS.register("blue_emerald",
-            () -> new TooltipItem(new Item.Properties(), Style.EMPTY.withItalic(true).withColor(ChatFormatting.AQUA)));
+            () -> new TooltipItem(new Item.Properties(), "iaqua"));
 
     public static final RegistryObject<Item> RED_EMERALD = ITEMS.register("red_emerald",
-            () -> new TooltipItem(new Item.Properties(), Style.EMPTY.withItalic(true).withColor(ChatFormatting.RED)));
+            () -> new TooltipItem(new Item.Properties(), "ired"));
 
     public static final RegistryObject<Item> PURPLE_EMERALD = ITEMS.register("purple_emerald",
-            () -> new TooltipItem(new Item.Properties(), Style.EMPTY.withItalic(true).withColor(ChatFormatting.LIGHT_PURPLE)));
+            () -> new TooltipItem(new Item.Properties(), "ipurple"));
 
     public static final RegistryObject<Item> SILVER_EMERALD = ITEMS.register("silver_emerald",
-            () -> new TooltipItem(new Item.Properties(), Style.EMPTY.withItalic(true).withBold(true).withColor(ChatFormatting.WHITE)));
+            () -> new TooltipItem(new Item.Properties(), "ibwhite"));
 
     public static final RegistryObject<Item> GOLD_EMERALD = ITEMS.register("gold_emerald",
-            () -> new TooltipItem(new Item.Properties(), Style.EMPTY.withItalic(true).withBold(true).withColor(ChatFormatting.GOLD)));
+            () -> new TooltipItem(new Item.Properties(), "ib-yellow"));
 
     // KOROK SEED
     public static final RegistryObject<Item> KOROK_SEED = ITEMS.register("korok_seed",
@@ -182,15 +187,15 @@ public class ZeldaItems {
     // POTIONS
     public static final RegistryObject<Item> STAMINA_POTION = ITEMS.register("stamina_potion",
             () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.STAMINA).rarity(Rarity.UNCOMMON),
-                    Style.EMPTY.withItalic(true).withColor(ChatFormatting.GREEN)));
+                    "igreen"));
 
     public static final RegistryObject<Item> HEART_POTION = ITEMS.register("heart_potion",
             () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.HEART).rarity(Rarity.UNCOMMON),
-                    Style.EMPTY.withItalic(true).withColor(ChatFormatting.RED)));
+                    "ired"));
 
     public static final RegistryObject<Item> SHIELD_POTION = ITEMS.register("shield_potion",
             () -> new DrinkItem(new Item.Properties().stacksTo(1).food(ModFoods.SHIELD),
-                    Style.EMPTY.withItalic(true).withColor(ChatFormatting.LIGHT_PURPLE)));
+                    "ipurple"));
 
     public static final RegistryObject<Item> BLUE_POTION = ITEMS.register("blue_potion",
             () -> new BluePotionItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.BLUE).rarity(Rarity.RARE)));
@@ -200,8 +205,7 @@ public class ZeldaItems {
 
     // FOODS
     public static final RegistryObject<Item> PUMPKIN_SOUP = ITEMS.register("pumpkin_soup",
-            () -> new DrinkItem(new Item.Properties().stacksTo(16).food(ModFoods.PUMPKIN_SOUP),
-                    Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW)));
+            () -> new DrinkItem(new Item.Properties().stacksTo(16).food(ModFoods.PUMPKIN_SOUP), "iyellow"));
 
     public static final RegistryObject<Item> BAKED_APPLE = ITEMS.register("baked_apple",
             () -> new Item(new Item.Properties().food(Foods.BAKED_POTATO)));
@@ -210,8 +214,7 @@ public class ZeldaItems {
             () -> new MilkBottleItem(new Item.Properties().stacksTo(1).food(ModFoods.MILK_BOTTLE)));
 
     public static final RegistryObject<Item> MILK_MAGIC = ITEMS.register("magic_milk",
-            () -> new DrinkItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.MILK_MAGIC),
-                    Style.EMPTY.withItalic(true).withColor(ChatFormatting.LIGHT_PURPLE)));
+            () -> new DrinkItem(new Item.Properties().rarity(Rarity.RARE).stacksTo(1).food(ModFoods.MILK_MAGIC), "ipurple"));
 
     // SEEDS
     public static final RegistryObject<Item> BOMB_SEEDS = ITEMS.register("bomb_seeds",
@@ -694,135 +697,77 @@ public class ZeldaItems {
                     new Item.Properties().defaultDurability(600).rarity(Rarity.RARE)));
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
     // MASKS
 
     // TRANSFORMATION MASKS
-
-    public static final RegistryObject<ArmorItem> DEKU_MASK = ITEMS.register("deku_mask",
-            ()-> new DekuMask(ModArmorMaterials.DEKU, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(250).rarity(Rarity.UNCOMMON)));
-
-    public static final RegistryObject<ArmorItem> GORON_MASK = ITEMS.register("goron_mask",
-            ()-> new GoronMask(ModArmorMaterials.GORON, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(250).rarity(Rarity.UNCOMMON).fireResistant()));
-
-    public static final RegistryObject<ArmorItem> ZORA_MASK = ITEMS.register("zora_mask",
-            ()-> new ZoraMask(ModArmorMaterials.ZORA, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(250).rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<ArmorItem> FIERCE_DEITY_MASK = ITEMS.register("fierce_deity_mask",
             ()-> new FierceDeityMask(ModArmorMaterials.FIERCE, ArmorItem.Type.HELMET,
                     new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
 
     public static final RegistryObject<ArmorItem> MAJORA_MASK = ITEMS.register("majoras_mask",
-            ()-> new MajorasMask(ModArmorMaterials.MAJORA, ArmorItem.Type.HELMET,
+            ()-> new MajorasMask(ModArmorMaterials.FIERCE, ArmorItem.Type.HELMET,
                     new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
 
-    public static final RegistryObject<ArmorItem> GIANT_MASK = ITEMS.register("giant_mask",
-            ()-> new GiantMask(ModArmorMaterials.GIANT, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> DEKU_MASK = regMask("deku", ModArmorMaterials.DEKU, DekuMask::new, 250, Rarity.UNCOMMON);
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public static final RegistryObject<ArmorItem> GORON_MASK = regMask("goron", ModArmorMaterials.GORON, GoronMask::new, 250, Rarity.UNCOMMON);
+
+    public static final RegistryObject<ArmorItem> ZORA_MASK = regMask("zora", ModArmorMaterials.ZORA, ZoraMask::new, 250, Rarity.UNCOMMON);
+
+    public static final RegistryObject<ArmorItem> GIANT_MASK = regMask("giant", ModArmorMaterials.GIANT, GiantMask::new);
 
     // REGULAR MASKS
 
-    public static final RegistryObject<ArmorItem> STONE_MASK = ITEMS.register("stone_mask",
-            ()-> new StoneMask(ModArmorMaterials.STONE, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> STONE_MASK = regMask("stone", ModArmorMaterials.STONE, StoneMask::new);
 
-    public static final RegistryObject<ArmorItem> BUNNY_HOOD = ITEMS.register("bunny_hood",
-            ()-> new BunnyHood(ModArmorMaterials.BUNNY, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> BUNNY_HOOD = regMask("bunny", ModArmorMaterials.BUNNY, BunnyHood::new);
 
-    public static final RegistryObject<ArmorItem> NIGHT_MASK = ITEMS.register("night_mask",
-            ()-> new NightMask(ModArmorMaterials.NIGHT, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> NIGHT_MASK = regMask("night", ModArmorMaterials.NIGHT, NightMask::new);
 
-    public static final RegistryObject<ArmorItem> BLAST_MASK = ITEMS.register("blast_mask",
-            ()-> new BlastMask(ModArmorMaterials.BLAST, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> BLAST_MASK = regMask("blast", ModArmorMaterials.BLAST, BlastMask::new);
 
-    public static final RegistryObject<ArmorItem> SCENT_MASK = ITEMS.register("scent_mask",
-            ()-> new ScentMask(ModArmorMaterials.SCENT, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(145)));
+    public static final RegistryObject<ArmorItem> SCENT_MASK = regMask("scent", ModArmorMaterials.SCENT, ScentMask::new, 145);
 
-    public static final RegistryObject<ArmorItem> TRUTH_MASK = ITEMS.register("truth_mask",
-            ()-> new TruthMask(ModArmorMaterials.TRUTH, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> TRUTH_MASK = regMask("truth", ModArmorMaterials.TRUTH, TruthMask::new);
 
-    public static final RegistryObject<ArmorItem> KEATON_MASK = ITEMS.register("keaton_mask",
-            ()-> new KeatonMask(ModArmorMaterials.KEATON, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> KEATON_MASK = regMask("keaton", ModArmorMaterials.KEATON, KeatonMask::new);
 
-    public static final RegistryObject<ArmorItem> TROUPE_MASK = ITEMS.register("troupe_mask",
-            ()-> new TroupeMask(ModArmorMaterials.TROUPE, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(455)));
+    public static final RegistryObject<ArmorItem> TROUPE_MASK = regMask("troupe", ModArmorMaterials.TROUPE, TroupeMask::new, 455);
 
-    public static final RegistryObject<ArmorItem> ROMANI_MASK = ITEMS.register("romani_mask",
-            ()-> new RomaniMask(ModArmorMaterials.ROMANI, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> ROMANI_MASK = regMask("romani", ModArmorMaterials.ROMANI, RomaniMask::new);
 
-    public static final RegistryObject<ArmorItem> GERO_MASK = ITEMS.register("gero_mask",
-            ()-> new GeroMask(ModArmorMaterials.GERO, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> GERO_MASK = regMask("gero", ModArmorMaterials.GERO, GeroMask::new);
 
-    public static final RegistryObject<ArmorItem> HAWKEYE = ITEMS.register("hawkeye_mask",
-            ()-> new TooltipMaskItem(ModArmorMaterials.HAWK, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
+    public static final RegistryObject<ArmorItem> HAWKEYE_MASK = regMask("hawkeye", ModArmorMaterials.HAWK);
 
-    public static final RegistryObject<ArmorItem> COUPLES_MASK = ITEMS.register("couples_mask",
-            ()-> new CouplesMask(ModArmorMaterials.COUPLES, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> COUPLES_MASK = regMask("couples", ModArmorMaterials.COUPLES, CouplesMask::new);
 
-    public static final RegistryObject<ArmorItem> GIBDO_MASK = ITEMS.register("gibdo_mask",
-            ()-> new TooltipMaskItem(ModArmorMaterials.GIBDO, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
+    public static final RegistryObject<ArmorItem> GIBDO_MASK = regMask("gibdo", ModArmorMaterials.GIBDO);
 
-    public static final RegistryObject<ArmorItem> FAIRY_MASK = ITEMS.register("fairy_mask",
-            ()-> new FairyMask(ModArmorMaterials.FAIRY, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> FAIRY_MASK = regMask("fairy", ModArmorMaterials.FAIRY, FairyMask::new);
 
-    public static final RegistryObject<ArmorItem> KAFEI_MASK = ITEMS.register("kafei_mask",
-            ()-> new TooltipMaskItem(ModArmorMaterials.KAFEI, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
+    public static final RegistryObject<ArmorItem> KAFEI_MASK = regMask("kafei", ModArmorMaterials.KAFEI);
 
-    public static final RegistryObject<ArmorItem> BREMEN_MASK = ITEMS.register("bremen_mask",
-            ()-> new BremenMask(ModArmorMaterials.BREMEN, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> BREMEN_MASK = regMask("bremen", ModArmorMaterials.BREMEN, BremenMask::new);
 
-    public static final RegistryObject<ArmorItem> CAPTAIN_MASK = ITEMS.register("captain_mask",
-            ()-> new TooltipMaskItem(ModArmorMaterials.CAPTAIN, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW)));
+    public static final RegistryObject<ArmorItem> CAPTAIN_MASK = regMask("captain", ModArmorMaterials.CAPTAIN);
 
-    public static final RegistryObject<ArmorItem> KAMARO_MASK = ITEMS.register("kamaro_mask",
-            ()-> new KamaroMask(ModArmorMaterials.KAMARO, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> KAMARO_MASK = regMask("kamaro", ModArmorMaterials.KAMARO, KamaroMask::new);
 
-    public static final RegistryObject<ArmorItem> GARO_MASK = ITEMS.register("garo_mask",
-            ()-> new GaroMask(ModArmorMaterials.GARO, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165)));
+    public static final RegistryObject<ArmorItem> GARO_MASK = regMask("garo", ModArmorMaterials.GARO, GaroMask::new);
 
-    public static final RegistryObject<ArmorItem> POSTMAN_MASK = ITEMS.register("postman_mask",
-            ()-> new TooltipMaskItem(ModArmorMaterials.POSTMAN, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
+    public static final RegistryObject<ArmorItem> POSTMAN_MASK = regMask("postman", ModArmorMaterials.POSTMAN);
 
-    public static final RegistryObject<ArmorItem> SPOOKY_MASK = ITEMS.register("spooky_mask",
-            ()-> new TooltipMaskItem(ModArmorMaterials.SPOOKY, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
+    public static final RegistryObject<ArmorItem> SPOOKY_MASK = regMask("spooky", ModArmorMaterials.SPOOKY);
 
-    public static final RegistryObject<ArmorItem> SKULL_MASK = ITEMS.register("skull_mask",
-            ()-> new TooltipMaskItem(ModArmorMaterials.SKULL, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
+    public static final RegistryObject<ArmorItem> SKULL_MASK = regMask("skull", ModArmorMaterials.SKULL);
 
-    public static final RegistryObject<ArmorItem> GERUDO_MASK = ITEMS.register("gerudo_mask",
-            ()-> new TooltipMaskItem(ModArmorMaterials.GERUDO, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(165), Style.EMPTY.withItalic(true).withColor(ChatFormatting.YELLOW), false));
+    public static final RegistryObject<ArmorItem> GERUDO_MASK = regMask("gerudo", ModArmorMaterials.GERUDO);
 
-    public static final RegistryObject<ArmorItem> KOROK_MASK = ITEMS.register("korok_mask",
-            ()-> new TooltipMaskItem(ModArmorMaterials.KOROK, ArmorItem.Type.HELMET,
-                    new Item.Properties().defaultDurability(382), Style.EMPTY.withItalic(true).withColor(ChatFormatting.GREEN), false));
-
-
+    public static final RegistryObject<ArmorItem> KOROK_MASK = regMask("korok", ModArmorMaterials.KOROK, 382, "igreen");
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -854,24 +799,17 @@ public class ZeldaItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.KEESE, 6176839, 16252718, new Item.Properties()));
 
     // CHUS
-    public static final RegistryObject<Item> CHUCHU_SPAWN_EGG = ITEMS.register("chuchu_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.CHUCHU, 56566, 64243, new Item.Properties()));
 
-    public static final RegistryObject<Item> FIRE_CHUCHU_SPAWN_EGG = ITEMS.register("fire_chuchu_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.CHUCHU_FIRE, 16727603, 14883891, new Item.Properties()));
-
-    public static final RegistryObject<Item> ICE_CHUCHU_SPAWN_EGG = ITEMS.register("ice_chuchu_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.CHUCHU_ICE, 13106943, 16777215, new Item.Properties()));
-
-    public static final RegistryObject<Item> ELECTRIC_CHUCHU_SPAWN_EGG = ITEMS.register("electric_chuchu_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.CHUCHU_ELECTRIC, 13631258, 6354196, new Item.Properties()));
+    public static final RegistryObject<Item> CHU_SPAWN_EGG =  regSpawnEgg("chuchu", ModEntityTypes.CHUCHU, 0x00dcf6, 0x00faf3);
+    public static final RegistryObject<Item> FIRE_CHU_SPAWN_EGG = regSpawnEgg("fire_chuchu", ModEntityTypes.CHUCHU_FIRE, 0xff3e33, 0xe31c33);
+    public static final RegistryObject<Item> ICE_CHU_SPAWN_EGG = regSpawnEgg("ice_chuchu", ModEntityTypes.CHUCHU_ICE, 0xC7feff, 0xffffff);
+    public static final RegistryObject<Item> ELECTRIC_CHU_SPAWN_EGG = regSpawnEgg("electric_chuchu", ModEntityTypes.CHUCHU_ELECTRIC, 0xcfff1a, 0x60f514);
 
     // FRIENDLY MOBS
 
-    public static final RegistryObject<Item> KOROK_SPAWN_EGG = ITEMS.register("korok_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.KOROK, 14129730, 4507427, new Item.Properties()));
+    public static final RegistryObject<Item> KOROK_SPAWN_EGG = regSpawnEgg("korok", ModEntityTypes.KOROK, 0xd79a42, 0x44c723);
 
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public static void register (IEventBus eventbus) {
         ITEMS.register(eventbus);

@@ -9,7 +9,7 @@ import net.minecraft.world.entity.player.Player;
 public class HeartContainerItem extends AbstractHeartItem {
 
     public HeartContainerItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.GOLD), 1, 2);
+        super(pProperties, "i-yellow", 1, 2);
     }
 
     @Override

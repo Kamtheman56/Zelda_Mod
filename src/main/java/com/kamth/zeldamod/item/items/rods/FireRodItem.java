@@ -30,7 +30,7 @@ import java.util.List;
 
 public class FireRodItem extends TooltipItem {
     public FireRodItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.RED), true);
+        super(pProperties, "ired", true);
     }
 
     @Override

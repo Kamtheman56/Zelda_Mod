@@ -23,32 +23,20 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class DaggerSwordItem extends SwordItem {
+public class DaggerSwordItem extends GloomBreakingSword {
+
     public DaggerSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
-        super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+        super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties, 10);
     }
-    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return false;
-    }
-    @Override
-    public float getDestroySpeed(ItemStack pStack, BlockState pState) {
-        if (pState.is(ModTags.Blocks.DEMON)) {   return 10.0F;
-        }
-      else return 1;
-    }
-
-
-
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
-        if (!pLevel.isClientSide && player.isCrouching() && player.getHealth() >= 20 ) {
-        player.getCooldowns().addCooldown(this, 60);
-        pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 1F, -2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
+        if (!pLevel.isClientSide && player.isCrouching() && player.getHealth() >= 20) {
+            player.getCooldowns().addCooldown(this, 60);
+            pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 1, -2 / (pLevel.getRandom().nextFloat() * 0.4f + 0.8f));
             player.displayClientMessage(Component.translatable("unable_sword_beam").withStyle(ChatFormatting.BLUE).withStyle(ChatFormatting.BOLD), true);
-        }
-        else {
+        } else {
             return InteractionResultHolder.pass(itemstack);
         }
 
@@ -65,21 +53,16 @@ public class DaggerSwordItem extends SwordItem {
         if (blockstate.is(ModTags.Blocks.SACRED_FLAMES)) {
             pContext.getItemInHand().shrink(1);
             pContext.getPlayer().setItemInHand(pContext.getHand(), ZeldaItems.MASTER_SWORD.get().getDefaultInstance());
-            pContext.getLevel().playSound(pContext.getPlayer(),blockpos,SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS,1,1f);
-              return InteractionResult.SUCCESS;}
-
-
-        else return InteractionResult.FAIL;
+            pContext.getLevel().playSound(pContext.getPlayer(), blockpos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 1, 1);
+            return InteractionResult.SUCCESS;
+        }
+        return InteractionResult.FAIL;
     }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        {
-            components.add(Component.translatable("item.zeldamod.dagger_sword.description_basic").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
-            components.add(Component.translatable("item.zeldamod.dagger_sword.description_advanced").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
-        }
-
+        components.add(Component.translatable("item.zeldamod.dagger_sword.description_basic").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+        components.add(Component.translatable("item.zeldamod.dagger_sword.description_advanced").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
     }
-
 }
 

@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.networking.packets;
 
-import com.kamth.zeldamod.item.items.SwingActionItem;
+import com.kamth.zeldamod.item.modifiers.swing.SwingActionItem;
 import com.kamth.zeldamod.networking.ZeldaNetworking;
 import com.kamth.zeldamod.networking.packets.base_packet.AbstractC2SPacket;
 import net.minecraft.network.FriendlyByteBuf;

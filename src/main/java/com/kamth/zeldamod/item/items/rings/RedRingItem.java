@@ -21,7 +21,7 @@ import java.util.List;
 
 public class RedRingItem extends TooltipItem {
     public RedRingItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.RED));
+        super(pProperties, "ired");
         MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
     }
 

@@ -24,21 +24,27 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 
-
 public class HeavyBoots extends ArmorItem {
     public HeavyBoots(ArmorMaterial material, Type type, Properties settings) {
         super(material, type, settings);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerSwim);
         MinecraftForge.EVENT_BUS.addListener(this::LivingFallEvent);
     }
-        public void onPlayerSwim (PlayerSwimEvent event){
-        if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HEAVY_BOOTS.get()) {
-            event.setResult(Event.Result.DENY);}}
 
-        public void LivingFallEvent (LivingFallEvent event){
+    public void onPlayerSwim(PlayerSwimEvent event) {
+        if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HEAVY_BOOTS.get()) {
+            event.setResult(Event.Result.DENY);
+        }
+    }
+
+    public void LivingFallEvent(LivingFallEvent event) {
         if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HEAVY_BOOTS.get()) {
             if (event.getEntity().isEyeInFluidType(ForgeMod.WATER_TYPE.get())) {
-                event.setCanceled(true);}}}
+                event.setCanceled(true);
+            }
+        }
+    }
+
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
 
@@ -48,29 +54,31 @@ public class HeavyBoots extends ArmorItem {
         player.removeEffect(MobEffects.JUMP);
         player.resetFallDistance();
 
-        if (player.isEyeInFluidType(ForgeMod.WATER_TYPE.get())){
+        if (player.isEyeInFluidType(ForgeMod.WATER_TYPE.get())) {
             player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
         }
-        {
+
+        if (!player.isSpectator()) {
             Level level = world;
-            if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.HEAVY2)  && !player.isCrouching()) {
-                level.destroyBlock(player.getOnPos(), false);}
+            if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.HEAVY2) && !player.isCrouching()) {
+                level.destroyBlock(player.getOnPos(), false);
+            }
             if (level.getBlockState(player.getOnPos()).is(ModTags.Blocks.HEAVY)) {
                 player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 1, true, false));
-            }}}
+            }
+        }
+    }
+
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        if(Screen.hasShiftDown()) {
+        if (Screen.hasShiftDown()) {
             components.add(Component.translatable("armor.heavy_boots.description_advanced").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         } else {
             components.add(Component.translatable("armor.heavy_boots.description_basic").withStyle(ChatFormatting.GRAY));
         }
-
         super.appendHoverText(stack, level, components, flag);
     }
-
-
 }
 
 

@@ -40,7 +40,7 @@ public class BoomerangRender extends EntityRenderer<BoomerangProjectile> {
             float time = pEntity.tickCount + (mc.isPaused() ? 0 : pPartialTicks);
             matrixStackIn.mulPose(Axis.ZP.rotationDegrees(time * 20F));
 
-            mc.getItemRenderer().renderStatic(pEntity.getStack(), ItemDisplayContext.FIXED, pPackedLight, OverlayTexture.NO_OVERLAY, matrixStackIn, pBuffer, pEntity.level(), 1);
+            mc.getItemRenderer().renderStatic(pEntity.getItem(), ItemDisplayContext.FIXED, pPackedLight, OverlayTexture.NO_OVERLAY, matrixStackIn, pBuffer, pEntity.level(), 1);
 
             matrixStackIn.popPose();
         }

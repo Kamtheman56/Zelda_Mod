@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 public class GoldHeartContainerItem extends AbstractHeartItem {
 
     public GoldHeartContainerItem(Properties pProperties) {
-        super(pProperties, Style.EMPTY.withItalic(true).withColor(ChatFormatting.GOLD), 1.2f, 2);
+        super(pProperties, "i-yellow", 1.2f, 2);
     }
 
     @Override

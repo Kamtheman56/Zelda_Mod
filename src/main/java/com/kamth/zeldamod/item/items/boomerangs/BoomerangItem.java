@@ -30,9 +30,9 @@ public class BoomerangItem extends Item {
         pLevel.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.BOOMERANG_TOSS.get(), SoundSource.PLAYERS, 1F, 0.2F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
             player.getCooldowns().addCooldown(this, 35);
-          BoomerangProjectile boomerang = new BoomerangProjectile(ModEntityTypes.BOOMERANG.get(), pLevel, player);
+          BoomerangProjectile boomerang = new BoomerangProjectile(ModEntityTypes.BOOMERANG.get(), pLevel, player, pHand.ordinal());
             boomerang.shootFromRotation(player, player.getXRot(), player.getYRot(), 1, 1.6F, 0.9F);
-            boomerang.setThrowData(pHand.ordinal(), itemstack);
+//            boomerang.setThrowData(pHand.ordinal(), itemstack);
             pLevel.addFreshEntity(boomerang);
 
         }
