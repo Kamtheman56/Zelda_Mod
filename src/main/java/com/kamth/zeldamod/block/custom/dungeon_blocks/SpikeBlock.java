@@ -100,10 +100,11 @@ public class SpikeBlock extends Block {
     }
 
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-        if (!pState.getValue(POWERED)){
+        if (pEntity instanceof Player player && player.isCreative()) return;
+        if (!pState.getValue(POWERED) && pEntity instanceof LivingEntity){
             pEntity.hurt(pLevel.damageSources().cactus(), 1.0F);
+            pEntity.makeStuckInBlock(pState, new Vec3(0.8F, 0.75D, 0.8F));
         }
-
     }
 
     public void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pBlock, BlockPos pFromPos, boolean pIsMoving) {

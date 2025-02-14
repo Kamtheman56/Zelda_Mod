@@ -39,9 +39,6 @@ public class ZeldaPlayerHealth {
     }
 
     public static void reapplyHealthModifiers(PlayerEvent.Clone event) {
-        if (!event.isWasDeath()) {
-            return;
-        }
 
         AttributeInstance maxHPAttrib = getMaxHealthAttribute(event.getOriginal());
         AttributeModifier modifier = maxHPAttrib.getModifier(HEALTH_UUID);

@@ -23,7 +23,10 @@ public class BlueDekuFlowerBlock extends DekuFlowerBlock implements IPlantable {
                 LivingEntity livingentity = (LivingEntity)pEntity;
                 {
                     livingentity.addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 3, true, false));
-                }}}}
+                }
+            }
+        }
+    }
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
 
@@ -31,7 +34,8 @@ public class BlueDekuFlowerBlock extends DekuFlowerBlock implements IPlantable {
         if (pEntity instanceof LivingEntity) {
             LivingEntity livingentity = (LivingEntity)pEntity;
             livingentity.addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 3, true, false));
-            }}
+            }
+    }
 }
 
 

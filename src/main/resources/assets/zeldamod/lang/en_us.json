@@ -550,6 +550,8 @@
   "death.attack.malice_3": "%s was disintegrated",
 
 
+  "painting.zeldamod.forest_secret.title": "The Forest's Secret",
+  "painting.zeldamod.forest_secret.author": "Kamtheman56",
   "unable_sword_beam": "You're unable to do that",
   "death.attack.gloom_damage": "%1$s was consumed by Gloom",
   "death.attack.gloom_damage.player": "%1$s was consumed by Gloom whilst trying to escape %2$s",

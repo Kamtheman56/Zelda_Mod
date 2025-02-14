@@ -52,6 +52,7 @@
     "zeldamod:goron_grave_block",
     "zeldamod:purple_emerald_block",
     "zeldamod:silver_emerald_block",
-    "zeldamod:gold_emerald_block"
+    "zeldamod:gold_emerald_block",
+    "zeldamod:spike_block"
   ]
 }

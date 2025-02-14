@@ -28,13 +28,13 @@
         ]
       }
     },
-    "kokiritunic": {
+    "kokiri_sword_mm": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "zeldamod:sword_kokiri"
+              "zeldamod:kokiri_sword_mm"
             ]
           }
         ]
@@ -44,7 +44,7 @@
   "requirements": [
     [
       "kokiri_sword",
-      "kokiritunic"
+      "kokiri_sword_mm"
     ]
   ],
   "rewards": {

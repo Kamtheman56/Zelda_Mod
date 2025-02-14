@@ -55,11 +55,8 @@ import com.kamth.zeldamod.item.items.weapons.projectiles.ScattershotItem;
 import com.kamth.zeldamod.item.items.weapons.projectiles.SlingshotItem;
 import com.kamth.zeldamod.item.items.weapons.swords.*;
 import com.kamth.zeldamod.item.items.weapons.swords.master.*;
-import com.kamth.zeldamod.item.masks.TooltipMaskItem;
 import com.kamth.zeldamod.item.masks.regular.*;
 import com.kamth.zeldamod.item.masks.transformation.*;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Style;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
@@ -708,7 +705,7 @@ public class ZeldaItems {
                     new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
 
     public static final RegistryObject<ArmorItem> MAJORA_MASK = ITEMS.register("majoras_mask",
-            ()-> new MajorasMask(ModArmorMaterials.FIERCE, ArmorItem.Type.HELMET,
+            ()-> new MajorasMask(ModArmorMaterials.MAJORA, ArmorItem.Type.HELMET,
                     new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
 
     public static final RegistryObject<ArmorItem> DEKU_MASK = regMask("deku", ModArmorMaterials.DEKU, DekuMask::new, 250, Rarity.UNCOMMON);

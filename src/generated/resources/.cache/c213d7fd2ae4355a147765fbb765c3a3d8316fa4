@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-31T08:23:17.1453967	Global Loot Modifiers : zeldamod
+// 1.20.1	2025-02-13T20:59:27.0082967	Global Loot Modifiers : zeldamod
 aebcf377aaf50b45c807863a522c7d5188d88b0c data/forge/loot_modifiers/global_loot_modifiers.json
 c64cecb55a2a19c897b6363ba20165b3740cd82d data/zeldamod/loot_modifiers/all_night_from_strongholds.json
 6704f3c41ff997c95364c0b508c28c1fdb37f7ff data/zeldamod/loot_modifiers/ancient_arrow_from_ancient_city.json
@@ -18,7 +18,7 @@ a09cd9aa62498ca003e51d0c1a16c22207e55ace data/zeldamod/loot_modifiers/bomb_seeds
 57262d0fcd7ab733c78498f83177b571f060ac96 data/zeldamod/loot_modifiers/boomerang_from_archaeology.json
 7080682861e543734adc0a99e66281338a940f79 data/zeldamod/loot_modifiers/boomerang_from_dungeons.json
 d0a113f1e77cdf70285f58e53eb375eadd8bcd24 data/zeldamod/loot_modifiers/boomerang_from_jungle_temples.json
-5a0dac879fb25ec16473b4017b0eb684db74ea93 data/zeldamod/loot_modifiers/bunny_hood_from_rabbit.json
+7b00be6fbc4c9f496e16057b068d0c2bbee4f587 data/zeldamod/loot_modifiers/bunny_hood_from_rabbit.json
 92d39e97c0fe4120349e934b4c7e6fe6f3c97ece data/zeldamod/loot_modifiers/champion_tunic_from_village_armorer.json
 48969ae9c8d25b48db4f85779397da175bb68f3d data/zeldamod/loot_modifiers/claw_from_archaeology_common.json
 e1b1a7d42ff174ed6051201809038c70e0290cbc data/zeldamod/loot_modifiers/claw_from_fishing.json

@@ -3,7 +3,6 @@ package com.kamth.zeldamod.custom;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.ZeldaBlocks;
 import com.kamth.zeldamod.item.ZeldaItems;
-import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
@@ -36,11 +35,15 @@ public enum ModArmorMaterials implements ArmorMaterial {
             0.0F, 6.0F, () -> {
         return Ingredient.of(ZeldaItems.DEITY_SHARD.get()); }),
 
-    // TODO: FIX MAJORA ARMOR MATERIAL, FOR SOME REASON IT HATES LOADING THIS NOW. I DIDN'T TOUCH IT ISTG
+    MAJORA("majora", 0, new int[]{0, 4, 5, 6}, 0, SoundEvents.WITHER_SPAWN,
+            0.0F, 6.0F, () -> {
+        return Ingredient.of(ZeldaItems.DEITY_SHARD.get()); }),
 
-//    MAJORA("majora", 0, new int[]{0, 4, 5, 6}, 0, ModSounds.MAJORA.get(),
-//            0.0F, 6.0F, () -> {
-//        return Ingredient.of(ZeldaItems.DEITY_SHARD.get()); }),
+
+
+
+
+
 
     // NORMAL MASKS
 

@@ -16,6 +16,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,60 +27,50 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 
 //A block that activates when hit with a projectile only
 public class EyeSwitchBlock extends ZeldaRedstoneBlock {
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final DirectionProperty FACING = DirectionalBlock.FACING;
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
+
     public EyeSwitchBlock(Properties pProperties) {
         super(pProperties);
 
     }
     protected static final VoxelShape SHAPE2 = Block.box(0D, 0.0D, 0D, 16D, 16.0D, 16D);
+    protected static final VoxelShape UP_AABB = Block.box(0D, 0.0D, 0D, 16D, 3.0D, 16D);
+    protected static final VoxelShape DOWN_AABB = Block.box(0.0D, 13.0D, 0.0D, 16.0D, 16.0D, 16.0D);
     protected static final VoxelShape EAST_AABB = Block.box(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 16.0D);
     protected static final VoxelShape WEST_AABB = Block.box(13.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
     protected static final VoxelShape SOUTH_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 3.0D);
     protected static final VoxelShape NORTH_AABB = Block.box(0.0D, 0.0D, 13.0D, 16.0D, 16.0D, 16.0D);
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        Direction direction = pState.getValue(FACING);
-                VoxelShape voxelshape;
-                switch (direction) {
-                    case EAST:
-                        voxelshape =  EAST_AABB;
-                        break;
-                    case WEST:
-                        voxelshape = WEST_AABB;
-                        break;
-                    case SOUTH:
-                        voxelshape =  SOUTH_AABB;
-                        break;
-                    case NORTH:
-                    case UP:
-                    case DOWN:
-                        voxelshape = NORTH_AABB;
-                        break;
-                    default:
-                        throw new IncompatibleClassChangeError();
-                }
-                return voxelshape;
-
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        return switch (state.getValue(FACING)) {
+            case DOWN -> DOWN_AABB;
+            case UP -> UP_AABB;
+            case EAST -> EAST_AABB;
+            case WEST -> WEST_AABB;
+            case NORTH -> NORTH_AABB;
+            case SOUTH -> SOUTH_AABB;
+        };
     }
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(POWERED,false).setValue(FACING, pContext.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(POWERED,false).setValue(FACING, pContext.getClickedFace());
     }
     @Override
-    public BlockState rotate(BlockState pState, Rotation pRotation) {
-        return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
+    public BlockState rotate(BlockState state, Rotation rot) {
+        return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
     }
 
     @Override
-    public BlockState mirror(BlockState pState, Mirror pMirror) {
-        return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
+    public BlockState mirror(BlockState state, Mirror mirrorIn) {
+        return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
     }
     @Override
     public void onProjectileHit(Level pLevel, BlockState pState, BlockHitResult pHit, Projectile pProjectile) {
@@ -117,7 +108,10 @@ public class EyeSwitchBlock extends ZeldaRedstoneBlock {
                 return pState.getValue(FACING);
         }
 
-
+    @Override
+    public VoxelShape getInteractionShape(BlockState state, BlockGetter worldIn, BlockPos pos) {
+        return Shapes.block();
+    }
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING, POWERED);

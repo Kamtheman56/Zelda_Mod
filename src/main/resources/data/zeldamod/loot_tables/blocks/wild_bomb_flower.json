@@ -2,44 +2,44 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "zeldamod:wild_bomb_flower",
-          "conditions": [
+          "type": "minecraft:alternatives",
+          "children": [
             {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": [
-                  "minecraft:shears"
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:bomb_flower",
-          "conditions": [
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "minecraft:wild_bomb_flower"
+            },
             {
-              "condition": "minecraft:random_chance",
-              "chance": 0.6
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:bomb_seeds",
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.3
+              "type": "minecraft:item",
+              "functions": [
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ],
+              "name": "zeldamod:bomb_seeds"
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
     }
   ],
-  "random_sequence": "zeldamod:wild_bomb_flower"
+  "random_sequence": "zeldamod:blocks/spike_block"
 }

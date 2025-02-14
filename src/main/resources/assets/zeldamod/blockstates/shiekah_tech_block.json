@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "power=0": {
+      "model": "zeldamod:block/shiekah_tech_block_off"
+    },
+    "power=1": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=2": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=3": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=4": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=5": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=6": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=7": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=8": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=9": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=10": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=11": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=12": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=13": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=14": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    },
+    "power=15": {
+      "model": "zeldamod:block/shiekah_tech_block_on"
+    }
+  }
+}

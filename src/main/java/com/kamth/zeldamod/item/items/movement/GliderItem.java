@@ -31,7 +31,7 @@ public class GliderItem extends Item {
         return super.use(world, player, hand);
     }
     public UseAnim getUseAnimation(ItemStack pStack) {
-        return UseAnim.BLOCK;
+        return UseAnim.SPEAR;
     }
     @Override
     public void onUseTick(Level pLevel, LivingEntity livingEntity, ItemStack pStack, int pRemainingUseDuration) {
