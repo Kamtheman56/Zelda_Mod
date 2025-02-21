@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:spike_block"
+          "name": "zeldamod:purple_emerald_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "zeldamod:blocks/spike_block"
+  "random_sequence": "zeldamod:blocks/purple_emerald_block"
 }

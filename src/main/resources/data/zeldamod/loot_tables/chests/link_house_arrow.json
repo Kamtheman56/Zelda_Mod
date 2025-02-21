@@ -96,7 +96,7 @@
         {
           "type": "minecraft:item",
           "weight": 2,
-          "name": "zeldamod:lightning_arrow",
+          "name": "zeldamod:shock_arrow",
           "functions": [
             {
               "function": "minecraft:set_count",

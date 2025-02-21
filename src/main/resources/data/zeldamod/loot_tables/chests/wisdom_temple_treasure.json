@@ -112,7 +112,7 @@
         {
           "type": "minecraft:item",
           "weight": 15,
-          "name": "zeldamod:zoratunic",
+          "name": "zeldamod:zora_tunic",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -145,12 +145,12 @@
         {
           "type": "minecraft:item",
           "weight": 10,
-          "name": "zeldamod:zorahat"
+          "name": "zeldamod:zora_hat"
         },
         {
           "type": "minecraft:item",
           "weight": 9,
-          "name": "zeldamod:kokiripants"
+          "name": "zeldamod:kokiri_pants"
         }
       ]
     }

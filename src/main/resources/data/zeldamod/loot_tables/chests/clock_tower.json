@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:sword_kokiri",
+          "name": "zeldamod:kokiri_sword_oot",
           "weight": 20,
           "functions": [
             {
@@ -27,7 +27,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokiritunic",
+          "name": "zeldamod:kokiri_tunic",
           "weight": 2,
           "quality": 2,
           "functions": [
@@ -292,32 +292,32 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:dekumask",
+          "name": "zeldamod:deku_mask",
           "weight": 7
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:keatonmask",
+          "name": "zeldamod:keaton_mask",
           "weight": 12
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:spookymask",
+          "name": "zeldamod:spooky_mask",
           "weight": 10
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:gerudomask",
+          "name": "zeldamod:gerudo_mask",
           "weight": 10
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:skullmask",
+          "name": "zeldamod:skull_mask",
           "weight": 8
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:troupemask",
+          "name": "zeldamod:troupe_mask",
           "weight": 8
         }
       ]

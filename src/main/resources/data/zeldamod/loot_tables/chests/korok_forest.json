@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokirihat",
+          "name": "zeldamod:kokiri_hat",
           "weight": 3,
           "functions": [
             {
@@ -27,19 +27,19 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokiritunic",
+          "name": "zeldamod:kokiri_tunic",
           "weight": 5,
           "quality": 2
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokiripants",
+          "name": "zeldamod:kokiri_pants",
           "weight": 5,
           "quality": 2
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokiriboots",
+          "name": "zeldamod:kokiri_boots",
           "weight": 5,
           "quality": 2
         },

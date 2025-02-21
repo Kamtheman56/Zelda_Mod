@@ -137,7 +137,6 @@ public class ZeldaBlocks {
     public static final RegistryObject<Block> SPIKE_BLOCK = registerBlock("spike_block", ()-> new SpikeBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
 
 
-
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // OCARINA BLOCKS
     public static final RegistryObject<Block> DEKU_GRAVE = registerBlock("deku_grave_block", ()-> new DekuSonBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));

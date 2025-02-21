@@ -215,7 +215,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokiri_sword"
+          "name": "zeldamod:kokiri_sword_oot"
         },
         {
           "type": "minecraft:item",
@@ -296,7 +296,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokiritunic",
+          "name": "zeldamod:kokiri_tunic",
           "weight": 2
         }
       ]

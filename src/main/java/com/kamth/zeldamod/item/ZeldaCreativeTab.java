@@ -295,7 +295,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.DEKU_MAD_SPAWN_EGG);
             event.accept(ZeldaItems.DARK_NUT_SPAWN_EGG);
             event.accept(ZeldaItems.DARK_KNIGHT_SPAWN_EGG);
-            event.accept(ZeldaItems.IRON_KNUCKLE_SPAWN_EGG);
+         //   event.accept(ZeldaItems.IRON_KNUCKLE_SPAWN_EGG);
             event.accept(ZeldaItems.KEESE_SPAWN_EGG);
             event.accept(ZeldaItems.CHU_SPAWN_EGG);
             event.accept(ZeldaItems.FIRE_CHU_SPAWN_EGG);

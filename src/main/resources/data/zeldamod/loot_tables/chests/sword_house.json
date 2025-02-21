@@ -6,12 +6,12 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokiriboots",
+          "name": "zeldamod:kokiri_boots",
           "weight": 4
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:pegasusboots",
+          "name": "zeldamod:pegasus_boots",
           "weight": 1
         }
       ]
@@ -21,7 +21,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokiripants",
+          "name": "zeldamod:kokiri_pants",
           "weight": 3
         },
         {
@@ -36,17 +36,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokirihat",
+          "name": "zeldamod:kokiri_hat",
           "weight": 6
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:goronhat",
+          "name": "zeldamod:goron_hat",
           "weight": 1
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:zorahat",
+          "name": "zeldamod:zora_hat",
           "weight": 1
         }
       ]
@@ -56,17 +56,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokiritunic",
+          "name": "zeldamod:kokiri_tunic",
           "weight": 6
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:zoratunic",
+          "name": "zeldamod:zora_tunic",
           "weight": 1
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:gorontunic",
+          "name": "zeldamod:goron_tunic",
           "weight": 1
         }
       ]
@@ -76,7 +76,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokiri_sword",
+          "name": "zeldamod:kokiri_sword_oot",
           "weight": 4
         },
         {
@@ -86,7 +86,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:sword_kokiri",
+          "name": "zeldamod:kokiri_sword_mm",
           "weight": 2
         },
         {

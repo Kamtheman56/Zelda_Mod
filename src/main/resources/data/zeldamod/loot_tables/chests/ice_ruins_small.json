@@ -177,7 +177,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:zorahat",
+          "name": "zeldamod:zora_hat",
           "weight": 10
         },
         {
@@ -246,7 +246,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:sword_kokiri",
+          "name": "zeldamod:kokiri_sword_mm",
           "weight": 3
         }
       ]
