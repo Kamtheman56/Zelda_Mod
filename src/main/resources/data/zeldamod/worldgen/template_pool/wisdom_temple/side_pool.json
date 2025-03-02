@@ -1,0 +1,74 @@
+{
+
+  "name": "zeldamod:wisdom_temple/side_pool",
+
+
+  "fallback": "minecraft:empty",
+
+
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:wisdom_temple_tunnel_guardian",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:wisdom_temple_tunnel_lava",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:wisdom_temple_tunnel_ruins",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:wisdom_temple_tunnel_sand",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:wisdom_temple_tunnel_spikes",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:wisdom_temple_tunnel_spikes_alt",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:wisdom_temple_tunnel_t",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

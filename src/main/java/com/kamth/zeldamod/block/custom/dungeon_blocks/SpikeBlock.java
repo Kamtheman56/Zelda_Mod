@@ -2,8 +2,10 @@ package com.kamth.zeldamod.block.custom.dungeon_blocks;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.damage.ZeldaDamageTypes;
+import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -17,11 +19,16 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.BooleanOp;
@@ -29,30 +36,20 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class SpikeBlock extends Block {
+import javax.annotation.Nullable;
+
+public class SpikeBlock extends Block implements SimpleWaterloggedBlock {
 
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     protected static final VoxelShape SHAPE2 = Extended();
     public static final VoxelShape FLAT = Flat();
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+
     public SpikeBlock(Properties pProperties) {
         super(pProperties);
+        this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.valueOf(false)).setValue(WATERLOGGED, Boolean.valueOf(false)));
+    }
 
-    }
-@Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-    if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ModTags.Items.HAMMERS)){
-        this.slam(pState, pLevel, pPos);
-        float f = pState.getValue(POWERED) ? 0.6F : 0.5F;
-        pLevel.playSound((Player)null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, f);
-        pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
-    }
-    if (pPlayer.getAbilities().instabuild){
-        this.cycle(pState, pLevel, pPos);
-        float f = pState.getValue(POWERED) ? 0.6F : 0.5F;
-        pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
-    }
-        return InteractionResult.SUCCESS;
-    }
 
     private void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
         pLevel.updateNeighborsAt(pPos, this);
@@ -60,23 +57,27 @@ public class SpikeBlock extends Block {
     public void cycle(BlockState pState, Level pLevel, BlockPos pPos) {
         pState = pState.cycle(POWERED);
         pLevel.setBlock(pPos, pState, 3);
-        pLevel.playSound(null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1F, 1);
-        this.updateNeighbours(pState, pLevel, pPos);
-    }
-    public void slam(BlockState pState, Level pLevel, BlockPos pPos) {
-        pState = pState.setValue(POWERED,true);
-        pLevel.setBlock(pPos, pState, 3);
+        pLevel.playSound(null, pPos, ModSounds.SPIKES_RETRACT.get(), SoundSource.BLOCKS, .5F, 1);
         this.updateNeighbours(pState, pLevel, pPos);
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(POWERED,false);
-    }
-    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(POWERED);
+        pBuilder.add(POWERED, WATERLOGGED);
     }
+
+
+    @Nullable
+    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+        BlockPos blockpos = pContext.getClickedPos();
+        FluidState fluidstate = pContext.getLevel().getFluidState(blockpos);
+        return this.defaultBlockState().setValue(POWERED,false).setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
+    }
+
+    public FluidState getFluidState(BlockState pState) {
+        return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+    }
+
 
     @Override
     public VoxelShape getVisualShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
@@ -103,7 +104,6 @@ public class SpikeBlock extends Block {
         if (pEntity instanceof Player player && player.isCreative()) return;
         if (!pState.getValue(POWERED) && pEntity instanceof LivingEntity){
             pEntity.hurt(pLevel.damageSources().cactus(), 1.0F);
-            pEntity.makeStuckInBlock(pState, new Vec3(0.8F, 0.75D, 0.8F));
         }
     }
 
@@ -114,7 +114,7 @@ public class SpikeBlock extends Block {
                 if (flag) {
                     pLevel.scheduleTick(pPos, this, 4);
                 } else {
-                    pLevel.setBlock(pPos, pState.cycle(POWERED), 2);
+                    cycle(pState,pLevel,pPos);
                 }
             }
         }
@@ -122,13 +122,13 @@ public class SpikeBlock extends Block {
 
     public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pState.getValue(POWERED) && !pLevel.hasNeighborSignal(pPos)) {
-            pLevel.setBlock(pPos, pState.cycle(POWERED), 2);
+            cycle(pState,pLevel,pPos);
         }
     }
 
     public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
         if (!pState.getValue(POWERED)) {
-            pEntity.causeFallDamage(pFallDistance + 2.0F, 2.0F, pLevel.damageSources().cactus());
+            pEntity.causeFallDamage(pFallDistance + 2.5F, 2.0F, pLevel.damageSources().cactus());
         } else {
             super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
         }
@@ -144,6 +144,10 @@ public class SpikeBlock extends Block {
                 }
                 super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
         }
+    }
+
+    public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
+        return false;
     }
 
 

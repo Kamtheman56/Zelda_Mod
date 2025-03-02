@@ -36,14 +36,18 @@ public class MixinMouse {
             double displacementX,displacementY;
             double sensitivity = this.minecraft.options.sensitivity().get() * .6 + .2;
             double baseSensitivity = (sensitivity * sensitivity * sensitivity) * 2.2f;
-            double spyglassSensitivity = baseSensitivity * .1;
             double smoothSensitivity= baseSensitivity * Mth.clamp(0 ,.3f,.5f);
 
-                displacementX = this.smoothTurnX.getNewDeltaValue(this.accumulatedDX * smoothSensitivity, smoothSensitivity);
-                displacementY = this.smoothTurnY.getNewDeltaValue(this.accumulatedDY * smoothSensitivity,  smoothSensitivity);
+            displacementX = this.smoothTurnX.getNewDeltaValue(this.accumulatedDX * smoothSensitivity, smoothSensitivity);
+
+            displacementY = this.smoothTurnY.getNewDeltaValue(this.accumulatedDY * smoothSensitivity,  smoothSensitivity);
+
             accumulatedDX = .0;
+
             accumulatedDY = .0;
+
             int mouseDirection = minecraft.options.invertYMouse().get()? -1:1;
+
             minecraft.getTutorial().onMouse(displacementX, displacementY);
 
             if (minecraft.player != null) {

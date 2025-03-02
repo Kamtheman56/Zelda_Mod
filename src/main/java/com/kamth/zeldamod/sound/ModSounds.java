@@ -40,6 +40,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> WOODEN_HAMMER = registerSoundEvents("wooden_hammer");
     public static final RegistryObject<SoundEvent> BOOMERANG_TOSS = registerSoundEvents("boomerang_toss");
     public static final RegistryObject<SoundEvent> SWORD_ENCHANT = registerSoundEvents("sword_enchant");
+    public static final RegistryObject<SoundEvent> SPIKES_RETRACT = registerSoundEvents("spikes_retract");
 
     // PROJECTILE SOUNDS
 

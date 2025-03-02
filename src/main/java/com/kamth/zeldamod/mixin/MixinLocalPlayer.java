@@ -32,7 +32,7 @@ public abstract class MixinLocalPlayer {
         if (getPlayer().isUsingItem() && !getPlayer().isPassenger()  && this.isControlledCamera()
                 && getPlayer().getUseItem().is(ZeldaItems.PARAGLIDER.get())) {
 
-            getPlayer().xxa /= 0.2f; // side
+            getPlayer().xxa /= 0.15f; // side
             getPlayer().zza /= 0.16f; // front/back
         }
     }

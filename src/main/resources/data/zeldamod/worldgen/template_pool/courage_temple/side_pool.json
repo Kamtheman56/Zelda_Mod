@@ -23,6 +23,124 @@
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
+    },
+    {
+          "weight": 3,
+          "element": {
+            "location": "zeldamod:courage_temple_tunnel_2",
+            "processors": "minecraft:empty",
+            "projection": "rigid",
+            "element_type": "minecraft:single_pool_element"
+          }
+        },
+        {
+          "weight": 3,
+          "element": {
+            "location": "zeldamod:courage_temple_tunnel_jump",
+            "processors": "minecraft:empty",
+            "projection": "rigid",
+            "element_type": "minecraft:single_pool_element"
+          }
+        },
+        {
+          "weight": 3,
+          "element": {
+            "location": "zeldamod:courage_temple_tunnel_l",
+            "processors": "minecraft:empty",
+            "projection": "rigid",
+            "element_type": "minecraft:single_pool_element"
+          }
+        },
+        {
+          "weight": 3,
+          "element": {
+            "location": "zeldamod:courage_temple_tunnel_stairs",
+            "processors": "minecraft:empty",
+            "projection": "rigid",
+            "element_type": "minecraft:single_pool_element"
+          }
+        },
+        {
+          "weight": 3,
+          "element": {
+            "location": "zeldamod:courage_temple_tunnel_t",
+            "processors": "minecraft:empty",
+            "projection": "rigid",
+            "element_type": "minecraft:single_pool_element"
+          }
+        },
+    {
+      "weight": 3,
+      "element": {
+        "location": "zeldamod:courage_temple_tunnel_keese",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "zeldamod:courage_temple_tunnel_stairs",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "zeldamod:courage_temple_tunnel_stairs_split",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "zeldamod:courage_temple_tunnel_arrow_trap",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "zeldamod:courage_temple_tunnel_zombie",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "zeldamod:courage_temple_tunnel_timed_jump",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "zeldamod:courage_temple_tunnel_timed_jump_alt",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "zeldamod:courage_temple_tunnel_timed_jump_split",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
     }
   ]
 }
+

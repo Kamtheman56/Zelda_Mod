@@ -23,10 +23,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TimedPressureSwitchBlock extends PressureSwitchBlock {
 
-    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
-    protected static final VoxelShape SHAPE2 = full();
-    protected static final VoxelShape FLAT = flat();
     public final int ticksToStayPressed;
     private final boolean arrowsCanPress;
     public TimedPressureSwitchBlock(Properties pProperties,  int ticksToStayPressed, boolean arrowsCanPress) {
@@ -90,8 +87,4 @@ public class TimedPressureSwitchBlock extends PressureSwitchBlock {
         }
     }
 
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(POWERED);
-    }
 }

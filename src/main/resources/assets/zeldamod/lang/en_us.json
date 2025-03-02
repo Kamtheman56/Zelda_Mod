@@ -256,6 +256,7 @@
   "sounds.zeldamod.korok_likes": "Korok jingles",
   "sounds.zeldamod.gus": "Bombs?",
   "sounds.zeldamod.korok_crunch": "Korok crunches food",
+  "sounds.zeldamod.spikes_retract": "Spikes Retract",
 
   "block.zeldamod.gloom_block": "Gloom Block",
   "block.zeldamod.gloom_vein": "Gloom Vein",
@@ -352,6 +353,7 @@
   "block.zeldamod.silver_emerald_block": "Block of Silver Emerald",
   "block.zeldamod.gold_emerald_block": "Block of Gold Emerald",
   "block.zeldamod.spike_block": "Spike Block",
+  "block.zeldamod.sheikah_tech_block": "Sheikah Tech Block",
 
 
   "mask.zeldamod.nightmask": "You don't think you should do this",

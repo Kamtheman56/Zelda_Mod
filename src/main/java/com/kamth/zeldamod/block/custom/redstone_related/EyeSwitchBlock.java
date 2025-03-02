@@ -40,7 +40,7 @@ public class EyeSwitchBlock extends ZeldaRedstoneBlock {
         super(pProperties);
 
     }
-    protected static final VoxelShape SHAPE2 = Block.box(0D, 0.0D, 0D, 16D, 16.0D, 16D);
+
     protected static final VoxelShape UP_AABB = Block.box(0D, 0.0D, 0D, 16D, 3.0D, 16D);
     protected static final VoxelShape DOWN_AABB = Block.box(0.0D, 13.0D, 0.0D, 16.0D, 16.0D, 16.0D);
     protected static final VoxelShape EAST_AABB = Block.box(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 16.0D);

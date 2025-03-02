@@ -404,7 +404,7 @@ public class ZeldaItems {
     // RODS
 
     public static final RegistryObject<Item> FIRE_ROD = ITEMS.register("fire_rod",
-            () -> new InfernoRodItem(new Item.Properties().durability(218).rarity(Rarity.RARE)));
+            () -> new FireRodItem(new Item.Properties().durability(218).rarity(Rarity.RARE)));
 
     public static final RegistryObject<Item> ICE_ROD = ITEMS.register("ice_rod",
             () -> new IceRodItem(new Item.Properties().durability(218).rarity(Rarity.RARE)));

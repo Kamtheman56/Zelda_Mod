@@ -1,6 +1,13 @@
 {
   "variants": {
-    "powered=false": { "model": "zeldamod:block/pressure_switch" },
-    "powered=true": {"model": "zeldamod:block/pressure_switch_flat"}
+    "facing=north,powered=false":{ "model": "zeldamod:block/pressure_switch" },
+    "facing=east,powered=false": { "model": "zeldamod:block/pressure_switch", "y": 90 },
+    "facing=south,powered=false":{ "model": "zeldamod:block/pressure_switch" },
+    "facing=west,powered=false": { "model": "zeldamod:block/pressure_switch", "y": 270 },
+
+    "facing=north,powered=true":{ "model": "zeldamod:block/pressure_switch_flat"},
+    "facing=east,powered=true": { "model": "zeldamod:block/pressure_switch_flat", "y": 90 },
+    "facing=south,powered=true":{ "model": "zeldamod:block/pressure_switch_flat" },
+    "facing=west,powered=true": { "model": "zeldamod:block/pressure_switch_flat", "y": 270 }
   }
 }

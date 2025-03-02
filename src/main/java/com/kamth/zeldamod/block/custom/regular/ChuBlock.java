@@ -48,6 +48,7 @@ public class ChuBlock extends SlimeBlock {
         }
 
     }
+
     private void bounceUp(Entity pEntity) {
         Vec3 vec3 = pEntity.getDeltaMovement();
         if (vec3.y < 0.0D) {

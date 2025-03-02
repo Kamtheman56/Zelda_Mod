@@ -8,7 +8,25 @@
     {
       "weight": 10,
       "element": {
-        "location": "zeldamod:wisdom_temple_lower",
+        "location": "zeldamod:wisdom_temple_lower_new",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "zeldamod:wisdom_temple_lower_second",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "zeldamod:wisdom_temple_lower_flame",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

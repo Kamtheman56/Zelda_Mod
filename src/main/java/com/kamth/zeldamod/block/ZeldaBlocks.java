@@ -135,6 +135,7 @@ public class ZeldaBlocks {
 
     //  DUNGEON BLOCKS
     public static final RegistryObject<Block> SPIKE_BLOCK = registerBlock("spike_block", ()-> new SpikeBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
+    public static final RegistryObject<Block> SHIEKAH_TECH_BLOCK = registerBlock("shiekah_tech_block", ()-> new ShiekahTechBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

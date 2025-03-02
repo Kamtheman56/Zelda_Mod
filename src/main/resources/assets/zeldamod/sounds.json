@@ -178,5 +178,11 @@
     "sounds": [
       "zeldamod:sword_enchant"
     ]
+  },
+  "spikes_retract": {
+    "subtitle": "sounds.zeldamod.spikes_retract",
+    "sounds": [
+      "zeldamod:spikes_retract"
+    ]
   }
 }

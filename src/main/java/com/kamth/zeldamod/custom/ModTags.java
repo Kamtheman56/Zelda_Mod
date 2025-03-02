@@ -108,8 +108,8 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("bombs");
         public static final TagKey<Item> GEMS
                 = tag("gems");
-        public static final TagKey<Item> POUCH_ITEMS
-                = tag("adventurer_items");
+        public static final TagKey<Item> GLIDERS
+                = tag("gliders");
       ;
 
         private static TagKey<Item> tag(String name){

@@ -15,11 +15,20 @@ public class KeeseModel<T extends Entity> extends HierarchicalModel<T> {
 
     private final ModelPart keese;
     private final ModelPart head;
-
+    private final ModelPart body;
+    private final ModelPart rightWing;
+    private final ModelPart leftWing;
+    private final ModelPart rightWingTip;
+    private final ModelPart leftWingTip;
 
     public KeeseModel(ModelPart root) {
         this.keese = root.getChild("keese");
-    this.head = keese.getChild("head");
+        this.head = keese.getChild("head");
+        this.body = keese.getChild("body");
+        this.rightWing = this.body.getChild("right_wing");
+        this.rightWingTip = this.rightWing.getChild("right_wing_tip");
+        this.leftWing = this.body.getChild("left_wing");
+        this.leftWingTip = this.leftWing.getChild("left_wing_tip");
     }
 
     public static LayerDefinition createBodyLayer() {
@@ -42,21 +51,32 @@ public class KeeseModel<T extends Entity> extends HierarchicalModel<T> {
 
         PartDefinition body = keese.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.offset(0.0F, -7.0F, 0.0F));
 
-        PartDefinition rightWing = body.addOrReplaceChild("rightWing", CubeListBuilder.create().texOffs(12, 0).addBox(-3.0F, -2.0F, 0.0F, 2.0F, 7.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.5F, 0.0F, 0.0F));
+        PartDefinition right_wing = body.addOrReplaceChild("right_wing", CubeListBuilder.create().texOffs(12, 0).addBox(-3.0F, -2.0F, 0.0F, 2.0F, 7.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.5F, 0.0F, 0.0F));
 
-        PartDefinition rightWingTip = rightWing.addOrReplaceChild("rightWingTip", CubeListBuilder.create().texOffs(16, 0).addBox(-7.0F, -2.0F, 0.0F, 6.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, 0.0F, 0.0F));
+        PartDefinition right_wing_tip = right_wing.addOrReplaceChild("right_wing_tip", CubeListBuilder.create().texOffs(16, 0).addBox(-7.0F, -2.0F, 0.0F, 6.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, 0.0F, 0.0F));
 
-        PartDefinition leftWing = body.addOrReplaceChild("leftWing", CubeListBuilder.create().texOffs(12, 7).addBox(1.0F, -2.0F, 0.0F, 2.0F, 7.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(1.5F, 0.0F, 0.0F));
+        PartDefinition left_wing = body.addOrReplaceChild("left_wing", CubeListBuilder.create().texOffs(12, 7).addBox(1.0F, -2.0F, 0.0F, 2.0F, 7.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(1.5F, 0.0F, 0.0F));
 
-        PartDefinition leftWingTip = leftWing.addOrReplaceChild("leftWingTip", CubeListBuilder.create().texOffs(16, 8).addBox(1.0F, -2.0F, 0.0F, 6.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, 0.0F, 0.0F));
+        PartDefinition left_wing_tip = left_wing.addOrReplaceChild("left_wing_tip", CubeListBuilder.create().texOffs(16, 8).addBox(1.0F, -2.0F, 0.0F, 6.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, 0.0F, 0.0F));
 
         return LayerDefinition.create(meshdefinition, 32, 32);
     }
+
+
+
     @Override
     public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
-        this.animateWalk(ModAnimationDefinitions.keese_walk, limbSwing, limbSwingAmount, 2f, 2.5f);
+
+        this.rightWing.setPos(0.0F, 0.0F, 0.0F);
+        this.leftWing.setPos(0.0F, 0.0F, 0.0F);
+        this.body.xRot = ((float)Math.PI / 4F) + Mth.cos(ageInTicks * 0.1F) * 0.15F;
+        this.body.yRot = 0.0F;
+        this.rightWing.yRot = Mth.cos(ageInTicks * 74.48451F * ((float)Math.PI / 180F)) * (float)Math.PI * 0.25F;
+        this.leftWing.yRot = -this.rightWing.yRot;
+        this.rightWingTip.yRot = this.rightWing.yRot * 0.5F;
+        this.leftWingTip.yRot = -this.rightWing.yRot * 0.5F;
 
     }
 
