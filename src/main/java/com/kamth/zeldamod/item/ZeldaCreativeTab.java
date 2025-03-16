@@ -124,7 +124,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.MASTER_UPGRADE);
             event.accept(ZeldaItems.HEART_PIECE);
             event.accept(ZeldaItems.HEART_CONTAINER);
-            event.accept(ZeldaItems.GOLD_CONTAINER);
+            event.accept(ZeldaItems.GOLD_HEART_CONTAINER);
             event.accept(ZeldaItems.GLOOM_CONTAINER);
             event.accept(ZeldaItems.SMALL_KEY);
             event.accept(ZeldaItems.BIG_KEY);

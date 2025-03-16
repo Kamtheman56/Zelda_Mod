@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "zeldamod:kokiri_sword",
-    "zeldamod:sword_kokiri",
+    "zeldamod:kokiri_sword_oot",
+    "zeldamod:kokiri_sword_mm",
     "minecraft:wooden_sword"
   ]
 }

@@ -9,6 +9,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -40,9 +41,9 @@ public class StaminaFruitBlock extends HeartFlowerBlock {
 
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-        if (pEntity instanceof LivingEntity) {
+        if (pEntity instanceof Player) {
             LivingEntity livingentity = (LivingEntity) pEntity;
-            if ((!pEntity.isCrouching() && pState.getValue(POWERED))) {
+            if ((!pEntity.isCrouching() && !((Player) pEntity).getAbilities().instabuild && pState.getValue(POWERED))) {
                 livingentity.addEffect(new MobEffectInstance(MobEffects.SATURATION, 5, 0));
                 this.press(pState, pLevel, pPos);
                 pLevel.playSound(null, pPos, ModSounds.HEAL.get(), SoundSource.BLOCKS, 1, 2.5f);

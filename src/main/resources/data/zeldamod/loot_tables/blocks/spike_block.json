@@ -2,10 +2,22 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
+      "bonus_rolls": 0,
       "conditions": [
         {
-          "condition": "minecraft:survives_explosion"
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "predicates": {
+              "minecraft:enchantments": [
+                {
+                  "enchantments": "minecraft:silk_touch",
+                  "levels": {
+                    "min": 1
+                  }
+                }
+              ]
+            }
+          }
         }
       ],
       "entries": [
@@ -14,8 +26,8 @@
           "name": "zeldamod:spike_block"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
-  "random_sequence": "zeldamod:blocks/spike_block"
+  "random_sequence": "minecraft:blocks/glass"
 }

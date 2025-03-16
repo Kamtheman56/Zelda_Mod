@@ -1,5 +1,5 @@
-// 1.20.1	2025-02-13T20:59:27.0082967	Global Loot Modifiers : zeldamod
-aebcf377aaf50b45c807863a522c7d5188d88b0c data/forge/loot_modifiers/global_loot_modifiers.json
+// 1.20.1	2025-03-16T11:15:04.1892929	Global Loot Modifiers : zeldamod
+7d5973faa20c52eed25f550e2e7f3161a57bc100 data/forge/loot_modifiers/global_loot_modifiers.json
 c64cecb55a2a19c897b6363ba20165b3740cd82d data/zeldamod/loot_modifiers/all_night_from_strongholds.json
 6704f3c41ff997c95364c0b508c28c1fdb37f7ff data/zeldamod/loot_modifiers/ancient_arrow_from_ancient_city.json
 d3f1147a683763192bf762c4604d4257e66a8c65 data/zeldamod/loot_modifiers/biggoron_from_bastion_treasure.json
@@ -146,6 +146,7 @@ e90bb4e2c6bf44972dc82b111b3c4bc9fa122889 data/zeldamod/loot_modifiers/shock_arro
 e9f0a2e87711035e50b47bcc6fe81de33967f679 data/zeldamod/loot_modifiers/shock_arrow_from_fletcher.json
 2231b3f6afc8b38405c0a99a321cef7186d5e9d2 data/zeldamod/loot_modifiers/shock_arrow_from_mineshaft.json
 2d3f8d8da333bab066a988652e102782e3679f09 data/zeldamod/loot_modifiers/shock_arrow_from_skeleton.json
+6d75f874ea011c3665e23da03417d12bde0fe999 data/zeldamod/loot_modifiers/silver_scale_from_fishing.json
 4bb73336a1cf4537be4fe4a7f3681b9a96c3bf55 data/zeldamod/loot_modifiers/slingshot_from_dungeons.json
 4f183786b625756b8804458fc7cf6db51ae01909 data/zeldamod/loot_modifiers/stamina_potion_from_cleric.json
 5622f610b380b22de7e16b01d60dc0940b819fbf data/zeldamod/loot_modifiers/stone_mask_from_mineshaft.json

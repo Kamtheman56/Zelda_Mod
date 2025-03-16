@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class BombArrowRender extends ArrowRenderer<BombArrow> {
 
-        public static final ResourceLocation TEXTURE = new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/projectiles/fire_arrow.png");
+        public static final ResourceLocation TEXTURE = new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/projectiles/bomb_arrow.png");
 
         public BombArrowRender(EntityRendererProvider.Context manager) {
             super(manager);

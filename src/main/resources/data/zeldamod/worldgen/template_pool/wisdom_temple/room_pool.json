@@ -28,6 +28,15 @@
     {
       "weight": 1,
       "element": {
+        "location": "zeldamod:wisdom_temple_room_guardian_alt",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
         "location": "zeldamod:wisdom_temple_room_maze",
         "processors": "minecraft:empty",
         "projection": "rigid",

@@ -135,7 +135,7 @@
     {
       "weight": 3,
       "element": {
-        "location": "zeldamod:courage_temple_tunnel_timed_jump_split",
+        "location": "zeldamod:courage_temple_tunnel_timed_jump_slow",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

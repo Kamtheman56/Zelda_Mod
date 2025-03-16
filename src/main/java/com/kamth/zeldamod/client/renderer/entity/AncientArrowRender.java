@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class AncientArrowRender extends ArrowRenderer<AncientArrow> {
 
-        public static final ResourceLocation TEXTURE = new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/projectiles/ice_arrow.png");
+        public static final ResourceLocation TEXTURE = new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/projectiles/ancient_arrow.png");
 
         public AncientArrowRender(EntityRendererProvider.Context manager) {
             super(manager);

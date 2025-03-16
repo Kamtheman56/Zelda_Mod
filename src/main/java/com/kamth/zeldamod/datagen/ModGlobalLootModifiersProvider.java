@@ -549,6 +549,9 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("upgrade_from_fishing", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("gameplay/fishing/treasure")).build(),
                 LootItemRandomChanceCondition.randomChance(0.15f).build()}, ZeldaItems.MASTER_UPGRADE.get()));
+        add("silver_scale_from_fishing", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("gameplay/fishing/treasure")).build(),
+                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ZeldaItems.SILVER_SCALE.get()));
 
         //items from piglins
         add("scent_mask_from_piglins", new AddItemModifier(new LootItemCondition[] {
@@ -576,4 +579,5 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 new LootTableIdCondition.Builder(new ResourceLocation("archaeology/ocean_ruins_cold")).build()}, ZeldaItems.WATER_BOMB.get()));
         add("upgrade_from_archaeology", new AddSusSandItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("archaeology/trail_ruins_common")).build()}, ZeldaItems.MASTER_UPGRADE.get()));
-    }}
+    }
+}

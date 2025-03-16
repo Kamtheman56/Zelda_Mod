@@ -147,7 +147,7 @@ public class ZeldaItems {
     public static final RegistryObject<Item> GLOOM_CONTAINER = ITEMS.register("gloom_container",
             () -> new GloomContainer(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
-    public static final RegistryObject<Item> GOLD_CONTAINER = ITEMS.register("gold_heart_container",
+    public static final RegistryObject<Item> GOLD_HEART_CONTAINER = ITEMS.register("gold_heart_container",
             () -> new GoldHeartContainerItem(new Item.Properties().rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> HEART_PIECE = ITEMS.register("heart_piece",
