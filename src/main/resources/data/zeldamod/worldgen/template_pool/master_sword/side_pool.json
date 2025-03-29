@@ -1,23 +1,23 @@
 {
-  "name": "zeldamod:master_sword/start_pool",
+  "name": "zeldamod:master_sword/side_pool",
 
   "fallback": "minecraft:empty",
   "terrain_adaptation": "beard_thin",
 
   "elements": [
     {
-      "weight": 5,
+      "weight": 2,
       "element": {
-        "location": "zeldamod:master_sword_new",
+        "location": "zeldamod:master_sword_big_log",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
     },
         {
-        "weight": 3,
+        "weight": 2,
   "element": {
-  "location": "zeldamod:master_sword_alt",
+  "location": "zeldamod:master_sword_campfire",
   "processors": "minecraft:empty",
   "projection": "rigid",
   "element_type": "minecraft:single_pool_element"
@@ -25,13 +25,23 @@
   },
     {
 
-      "weight": 1,
+      "weight": 3,
       "element": {
-        "location": "zeldamod:master_sword_injured",
+        "location": "zeldamod:master_sword_log",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
-    }
+    },
+  {
+
+  "weight": 4,
+  "element": {
+  "location": "zeldamod:master_sword_tree",
+  "processors": "minecraft:empty",
+  "projection": "rigid",
+  "element_type": "minecraft:single_pool_element"
+  }
+  }
   ]
 }

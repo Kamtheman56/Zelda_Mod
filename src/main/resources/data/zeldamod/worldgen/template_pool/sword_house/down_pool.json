@@ -6,7 +6,7 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 2,
+      "weight": 3,
       "element": {
         "location": "zeldamod:sword_house_basement",
         "processors": "minecraft:empty",
@@ -24,7 +24,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 2,
       "element": {
         "location": "zeldamod:sword_house_basement_sword",
         "processors": "minecraft:empty",
@@ -33,9 +33,36 @@
       }
     },
     {
-      "weight": 8,
+      "weight": 4,
       "element": {
         "location": "zeldamod:sword_house_basement_empty",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:sword_house_basement_gerudo",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:sword_house_basement_spooky",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:sword_house_basement_skull",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

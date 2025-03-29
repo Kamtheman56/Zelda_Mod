@@ -1,0 +1,54 @@
+{
+  "name": "zeldamod:temple_of_time/up_pool",
+
+  "fallback": "minecraft:empty",
+  "terrain_adaptation": "beard_thin",
+
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "location": "zeldamod:temple_of_time_upper",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:temple_of_time_upper_alt",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "zeldamod:temple_of_time_body",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "zeldamod:temple_of_time_body_hearts",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "zeldamod:temple_of_time_body_master_sword",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

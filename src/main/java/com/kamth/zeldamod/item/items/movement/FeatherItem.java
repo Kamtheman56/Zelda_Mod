@@ -23,7 +23,7 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class FeatherItem extends TooltipItem {
+public class FeatherItem extends Item {
     public FeatherItem(Properties pProperties) {
         super(pProperties);
     }
@@ -34,31 +34,13 @@ public class FeatherItem extends TooltipItem {
                 ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 1, true, false));
                 entity.resetFallDistance();
             }
-            if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() instanceof FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.PEGASUS_BOOTS.get() ||entity instanceof Player && ((Player) entity).getMainHandItem().getItem() instanceof FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.PEGASUS_BOOTS.get() ) {
+            if (entity instanceof Player && ((Player) entity).getOffhandItem().getItem() instanceof FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.PEGASUS_BOOTS.get() || entity instanceof Player && ((Player) entity).getMainHandItem().getItem() instanceof FeatherItem && ((Player) entity).getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.PEGASUS_BOOTS.get()) {
                 ((Player) entity).addEffect(new MobEffectInstance(MobEffects.JUMP, 10, 3, true, false));
                 entity.resetFallDistance();
             }
         }
-        }
+    }
 
-    @Override
-
-    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-        Vec3 vec3 = player.getDeltaMovement();
-
-world.playSound(null,player.getX(),player.getY(),player.getZ(), SoundEvents.WOOL_FALL, SoundSource.NEUTRAL, 1F, 0.2F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
-        player.setDeltaMovement(vec3.x, 0.6, vec3.z);
-        player.getCooldowns().addCooldown(this, 50);
-        if (player.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof FeatherItem){
-        player.getItemBySlot(EquipmentSlot.MAINHAND).hurtAndBreak(2, player, (p_43296_) -> {
-            p_43296_.broadcastBreakEvent(InteractionHand.MAIN_HAND);
-        });}
-        if (player.getItemBySlot(EquipmentSlot.OFFHAND).getItem() instanceof FeatherItem){
-            player.getItemBySlot(EquipmentSlot.OFFHAND).hurtAndBreak(2, player, (p_43296_) -> {
-                p_43296_.broadcastBreakEvent(InteractionHand.OFF_HAND);
-            });}
-        return super.use(world, player, hand);
-}
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {

@@ -3,17 +3,18 @@
   "type": "minecraft:jigsaw",
 
   // the path to the template pool json file to use
-  "start_pool": "zeldamod:master_sword/start_pool",
+  "start_pool": "zeldamod:temple_of_time/start_pool",
 
   // This is how many pieces away from the starting piece a piece of the structure can spawn
   // Think of it like the length of the branch of the structure
-  "size": 1,
+  "size": 5,
+  "terrain_adaptation": "beard_thin",
 
   // Maximum distance away from center that pieces can spawn. Cannot be greater than 128
-  "max_distance_from_center": 80,
+  "max_distance_from_center": 110,
 
   // The biome tag to use for what biomes that this structure can spawn in"
-  "biomes": "#zeldamod:has_structure/master_sword",
+  "biomes": "#zeldamod:has_structure/temple_of_time",
 
   // The generation step for when to generate the structure. there are 10 stages you can pick from!
   // This surface structure stage places the structure before plants and ores are generated
@@ -40,13 +41,13 @@
   // Make sure you add the mob to the right category (monster, creature, etc)
   "spawn_overrides": {
     "creature": {
-      "bounding_box": "full",
+      "bounding_box": "piece",
       "spawns": [
         {
-          "type": "zeldamod:korok",
+          "type": "minecraft:parrot",
           "weight": 1,
           "minCount": 1,
-          "maxCount": 3
+          "maxCount": 4
         }
       ]
     }
