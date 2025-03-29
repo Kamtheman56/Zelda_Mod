@@ -1,9 +1,9 @@
-package com.kamth.zeldamod.entity.client.render;
+package com.kamth.zeldamod.entity.client.render.keese;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.client.MobModelLayers;
 import com.kamth.zeldamod.entity.client.model.KeeseModel;
-import com.kamth.zeldamod.entity.mobs.KeeseEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.keese.KeeseEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

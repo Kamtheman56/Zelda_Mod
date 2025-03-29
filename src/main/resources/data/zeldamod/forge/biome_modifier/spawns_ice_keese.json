@@ -1,0 +1,22 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:snowy_plains",
+    "minecraft:ice_spikes",
+    "minecraft:frozen_peaks",
+    "minecraft:jagged_peaks",
+    "minecraft:snowy_slopes",
+    "minecraft:frozen_ocean",
+    "minecraft:deep_frozen_ocean",
+    "minecraft:grove",
+    "minecraft:frozen_river",
+    "minecraft:snowy_taiga",
+    "minecraft:snowy_beach"
+  ],
+  "spawners": {
+    "type": "zeldamod:ice_keese",
+    "weight": 8,
+    "minCount": 1,
+    "maxCount": 3
+  }
+}

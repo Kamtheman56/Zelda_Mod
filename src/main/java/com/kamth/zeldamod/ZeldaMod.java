@@ -6,7 +6,10 @@ import com.kamth.zeldamod.block.entity.ZeldaBlockEntities;
 import com.kamth.zeldamod.custom.ModItemProperties;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.entity.mobs.KeeseEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.keese.ElectricKeeseEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.keese.FireKeeseEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.keese.IceKeeseEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.keese.KeeseEntity;
 import com.kamth.zeldamod.entity.mobs.SkulltulaEntity;
 import com.kamth.zeldamod.item.ZeldaCreativeTab;
 import com.kamth.zeldamod.item.ModCreativeModeTab;
@@ -80,14 +83,21 @@ public class ZeldaMod {
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             SpawnPlacements.register(ModEntityTypes.KOROK.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,   Animal::checkAnimalSpawnRules);
+
             SpawnPlacements.register(ModEntityTypes.CHUCHU.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
             SpawnPlacements.register(ModEntityTypes.CHUCHU_FIRE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
             SpawnPlacements.register(ModEntityTypes.CHUCHU_ICE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
             SpawnPlacements.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
+
             SpawnPlacements.register(ModEntityTypes.SKULLTULA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SkulltulaEntity::checkSkulltulaSpawnRules);
+
             SpawnPlacements.register(ModEntityTypes.DEKU.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
             SpawnPlacements.register(ModEntityTypes.DEKU_MAD.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,  Monster::checkMonsterSpawnRules);
+
             SpawnPlacements.register(ModEntityTypes.KEESE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, KeeseEntity::checkKeeseSpawnRules);
+            SpawnPlacements.register(ModEntityTypes.FIRE_KEESE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, FireKeeseEntity::checkKeeseSpawnRules);
+            SpawnPlacements.register(ModEntityTypes.ICE_KEESE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, IceKeeseEntity::checkKeeseSpawnRules);
+            SpawnPlacements.register(ModEntityTypes.ELECTRIC_KEESE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ElectricKeeseEntity::checkKeeseSpawnRules);
 
 
 

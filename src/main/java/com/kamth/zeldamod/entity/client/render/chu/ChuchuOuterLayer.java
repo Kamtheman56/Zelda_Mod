@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.entity.client.render;
+package com.kamth.zeldamod.entity.client.render.chu;
 
 import com.kamth.zeldamod.entity.client.MobModelLayers;
 import com.kamth.zeldamod.entity.client.model.ChuchuModel;
