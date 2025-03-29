@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.entity.mobs;
+package com.kamth.zeldamod.entity.mobs.hostile.keese;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -36,7 +36,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
 
     private static final EntityDataAccessor<Boolean> ATTACKING =
             SynchedEntityData.defineId(KeeseEntity.class, EntityDataSerializers.BOOLEAN);
-    private int idleAnimationTimeout = 0;
+
 
     public KeeseEntity(EntityType<? extends KeeseEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -49,7 +49,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
     }
 
 
-    protected static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Monster.class, EntityDataSerializers.BYTE);
+
     public final AnimationState idleAnimationState = new AnimationState();
 
     @Override
@@ -275,7 +275,7 @@ public class KeeseEntity extends FlyingMob implements Enemy {
             }
         }
     }
-    public static boolean checkKeeseSpawnRules(EntityType<KeeseEntity> pBat, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+    public static boolean checkKeeseSpawnRules(EntityType<? extends KeeseEntity> pBat, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         if (pPos.getY() >= pLevel.getSeaLevel()) {
             return false;
         }

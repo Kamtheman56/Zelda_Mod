@@ -3,19 +3,19 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "zeldamod:romanimask"
+      "item": "zeldamod:romani_mask"
     },
     {
-      "item": "zeldamod:troupemask"
+      "item": "zeldamod:troupe_mask"
     },
     {
-      "item": "zeldamod:kafeimask"
+      "item": "zeldamod:kafei_mask"
     },
     {
-      "item": "zeldamod:couplesmask"
+      "item": "zeldamod:couples_mask"
     },
     {
-      "item": "zeldamod:truthmask"
+      "item": "zeldamod:truth_mask"
     }
   ],
   "result": {

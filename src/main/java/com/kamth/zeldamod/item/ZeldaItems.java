@@ -785,7 +785,7 @@ public class ZeldaItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.DARK_KNIGHT, 6176839, 2561279, new Item.Properties()));
 
     public static final RegistryObject<Item> SKULLTULA_SPAWN_EGG = ITEMS.register("skulltula_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.SKULLTULA, 5062189, 16252708, new Item.Properties()));
+            () -> new ForgeSpawnEggItem(ModEntityTypes.SKULLTULA, 16774707, 16777215, new Item.Properties()));
 
     public static final RegistryObject<Item> IRON_KNUCKLE_SPAWN_EGG = ITEMS.register("iron_knuckle_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.IRON_KNUCKLE, 6176839, 2561279, new Item.Properties()));
@@ -793,7 +793,16 @@ public class ZeldaItems {
     // KEESE
 
     public static final RegistryObject<Item> KEESE_SPAWN_EGG = ITEMS.register("keese_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.KEESE, 6176839, 16252718, new Item.Properties()));
+            () -> new ForgeSpawnEggItem(ModEntityTypes.KEESE, 7493436, 16252718, new Item.Properties()));
+
+    public static final RegistryObject<Item> FIRE_KEESE_SPAWN_EGG = ITEMS.register("fire_keese_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.FIRE_KEESE, 16081152, 16067072, new Item.Properties()));
+
+    public static final RegistryObject<Item> ICE_KEESE_SPAWN_EGG = ITEMS.register("ice_keese_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.ICE_KEESE, 1765631, 14364415, new Item.Properties()));
+
+    public static final RegistryObject<Item> ELECTRIC_KEESE_SPAWN_EGG = ITEMS.register("electric_keese_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.ELECTRIC_KEESE, 16769577, 4718565, new Item.Properties()));
 
     // CHUS
 

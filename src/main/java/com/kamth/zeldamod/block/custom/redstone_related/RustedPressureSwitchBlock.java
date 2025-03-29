@@ -28,12 +28,11 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class RustedPressureSwitchBlock extends Block {
+public class RustedPressureSwitchBlock extends PressureSwitchBlock {
 
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
-    protected static final VoxelShape SHAPE2 = full();
-    protected static final VoxelShape FLAT = flat();
+
 
     public RustedPressureSwitchBlock(Properties pProperties) {
         super(pProperties);
@@ -70,89 +69,5 @@ public class RustedPressureSwitchBlock extends Block {
         }
     }
 
-    private void updateNeighbours(BlockState pState, Level pLevel, BlockPos pPos) {
-        pLevel.updateNeighborsAt(pPos, this);
-        pLevel.updateNeighborsAt(pPos.below(), this);
-        pLevel.updateNeighborsAt(pPos.east(), this);
-        pLevel.updateNeighborsAt(pPos.west(), this);
-        pLevel.updateNeighborsAt(pPos.south(), this);
-        pLevel.updateNeighborsAt(pPos.north(), this);
-    }
-
-    public void press(BlockState pState, Level pLevel, BlockPos pPos) {
-        pState = pState.cycle(POWERED);
-        pLevel.setBlock(pPos, pState, 3);
-        this.updateNeighbours(pState, pLevel, pPos);
-    }
-
-    public void slam(BlockState pState, Level pLevel, BlockPos pPos) {
-        pState = pState.setValue(POWERED, true);
-        pLevel.setBlock(pPos, pState, 3);
-        this.updateNeighbours(pState, pLevel, pPos);
-    }
-
-    public void pull(BlockState pState, Level pLevel, BlockPos pPos) {
-        pState = pState.setValue(POWERED, false);
-        pLevel.setBlockAndUpdate(pPos, pState);
-        this.updateNeighbours(pState, pLevel, pPos);
-    }
-
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(POWERED, false);
-    }
-
-    @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        Vec3 vec3 = pState.getOffset(pLevel, pPos);
-        if (pState.getValue(POWERED)) {
-            return FLAT.move(vec3.x, vec3.y, vec3.z);
-        } else return SHAPE2.move(vec3.x, vec3.y, vec3.z);
-    }
-
-    @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (!pIsMoving && !pState.is(pNewState.getBlock())) {
-            if (pState.getValue(POWERED)) {
-                this.updateNeighbours(pState, pLevel, pPos);
-            }
-            for (Direction direction : Direction.values()) {
-                pLevel.updateNeighborsAt(pPos.relative(direction), this);
-            }
-            super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-        }
-    }
-
-    public static VoxelShape full() {
-        VoxelShape shape = Shapes.empty();
-        shape = Shapes.join(shape, Shapes.box(0.125, 0, 0.125, 0.875, 0.125, 0.875), BooleanOp.OR);
-        return shape;
-    }
-
-    public static VoxelShape flat() {
-        VoxelShape shape = Shapes.empty();
-        shape = Shapes.join(shape, Shapes.box(0.125, 0, 0.125, 0.875, 0.03125, 0.875), BooleanOp.OR);
-        return shape;
-    }
-
-    @Override
-    public boolean isSignalSource(BlockState pState) {
-        return true;
-    }
-
-    @Override
-    public int getSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
-        return pBlockState.getValue(POWERED) && Direction.UP != pSide ? 15 : 0;
-    }
-
-    @Override
-    public int getDirectSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
-        return pBlockState.getValue(POWERED) ? 15 : 0;
-    }
-
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(POWERED);
-    }
 
 }

@@ -26,6 +26,12 @@ public class MobModelLayers {
     // KEESE
     public static final ModelLayerLocation KEESE_LAYER = new ModelLayerLocation(
             new ResourceLocation(ZeldaMod.MOD_ID, "keese_layer"), "main");
+    public static final ModelLayerLocation FIRE_KEESE_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "fire_keese_layer"), "main");
+    public static final ModelLayerLocation ICE_KEESE_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "ice_keese_layer"), "main");
+    public static final ModelLayerLocation ELECTRIC_KEESE_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "electric_keese_layer"), "main");
 
 
     // CHUS

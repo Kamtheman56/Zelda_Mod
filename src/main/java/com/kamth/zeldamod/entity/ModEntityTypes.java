@@ -11,6 +11,10 @@ import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarknutEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.darknuts.IronKnuckleEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.deku.DekuMadScrubEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.deku.DekuScrubEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.keese.ElectricKeeseEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.keese.FireKeeseEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.keese.IceKeeseEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.keese.KeeseEntity;
 import com.kamth.zeldamod.entity.projectile.seeds.BombSeedProjectile;
 import com.kamth.zeldamod.entity.projectile.seeds.DekuNutProjectile;
 import com.kamth.zeldamod.entity.projectile.seeds.KorokSeedProjectile;
@@ -121,6 +125,15 @@ public class ModEntityTypes {
     // KEESE
     public static final RegistryObject<EntityType<KeeseEntity>> KEESE = ENTITY_TYPES.register("keese", () -> EntityType.Builder.of(KeeseEntity::new, MobCategory.MONSTER)
             .sized(.6f,.6f).build("keese"));
+
+    public static final RegistryObject<EntityType<FireKeeseEntity>> FIRE_KEESE = ENTITY_TYPES.register("fire_keese", () -> EntityType.Builder.of(FireKeeseEntity::new, MobCategory.MONSTER).fireImmune()
+            .sized(.6f,.6f).build("fire_keese"));
+
+    public static final RegistryObject<EntityType<IceKeeseEntity>> ICE_KEESE = ENTITY_TYPES.register("ice_keese", () -> EntityType.Builder.of(IceKeeseEntity::new, MobCategory.MONSTER)
+            .sized(.6f,.6f).build("ice_keese"));
+
+    public static final RegistryObject<EntityType<ElectricKeeseEntity>> ELECTRIC_KEESE = ENTITY_TYPES.register("electric_keese", () -> EntityType.Builder.of(ElectricKeeseEntity::new, MobCategory.MONSTER)
+            .sized(.6f,.6f).build("electric_keese"));
 
     // CHUS
     public static final RegistryObject<EntityType<ChuchuEntity>> CHUCHU = ENTITY_TYPES.register("chuchu", () -> EntityType.Builder.of(ChuchuEntity::new, MobCategory.MONSTER)
