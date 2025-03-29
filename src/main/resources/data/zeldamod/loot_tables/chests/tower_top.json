@@ -206,6 +206,25 @@
               }
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:map",
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "zeldamod:has_temple_of_time",
+              "decoration": "red_x",
+              "zoom": 1,
+              "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "filled_map.temple_of_time_map"
+              }
+            }
+          ]
         }
       ]
     },

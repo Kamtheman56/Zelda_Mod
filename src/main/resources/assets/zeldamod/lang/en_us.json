@@ -360,7 +360,7 @@
 
 
   "mask.zeldamod.nightmask": "You don't think you should do this",
-  "zeldamod_sword_pedestal_power": "The Pedestal radiates with Courage",
+  "zeldamod_sword_pedestal_courage": "The Pedestal radiates with Courage",
   "zeldamod_sword_pedestal_wisdom": "The Pedestal radiates with Wisdom",
   "zeldamod_sword_pedestal_power": "The Pedestal radiates with Power",
   "Sword_Drain": "The Pedestal drains your energy...",
@@ -382,6 +382,7 @@
   "filled_map.monster_map": "Dungeon Map",
   "filled_map.arctic_ruins": "Arctic Ruins Map",
   "filled_map.forest_haven": "Forest Haven Map",
+  "filled_map.temple_of_time_map": "Temple of Time Map",
 
   "Ocarina": "Your notes ring hollow...",
 

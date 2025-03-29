@@ -23,7 +23,7 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class FeatherItem extends TooltipItem {
+public class FeatherItem extends Item {
     public FeatherItem(Properties pProperties) {
         super(pProperties);
     }

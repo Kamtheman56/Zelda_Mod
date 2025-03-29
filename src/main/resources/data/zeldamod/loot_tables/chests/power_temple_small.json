@@ -36,15 +36,7 @@
           "type": "minecraft:item",
           "weight": 6,
           "name": "zeldamod:biggoron_knife",
-          "functions": [
-            {
-              "function": "minecraft:limit_count",
-              "limit": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "functions": []
         },
         {
           "type": "minecraft:item",
@@ -83,21 +75,6 @@
                 "max": 22
               },
               "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 9,
-          "name": "zeldamod:hylian_shield",
-          "functions": [
-            {
-              "function": "minecraft:set_damage",
-              "damage": {
-                "type": "minecraft:uniform",
-                "min": 3,
-                "max": 652
-              }
             }
           ]
         },
@@ -166,25 +143,6 @@
             },
             {
               "function": "minecraft:enchant_randomly"
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:goron_tunic",
-          "functions": [
-            {
-              "function": "minecraft:set_damage",
-              "damage": {
-                "type": "minecraft:uniform",
-                "min": 3,
-                "max": 240
-              }
-            },
-            {
-              "function": "minecraft:enchant_randomly",
-              "only_compatible": true,
-              "conditions": []
             }
           ]
         },
@@ -270,17 +228,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:goron_tunic",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
           "name": "zeldamod:goron_hat",
           "functions": [
             {
@@ -327,6 +274,22 @@
               "add": false
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_chestplate",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 55,
+                "max": 210
+              }
+            }
+          ],
+          "conditions": []
         }
       ]
     },
@@ -430,8 +393,9 @@
     },
     {
       "rolls": {
-        "type": "minecraft:constant",
-        "value": 1
+        "type": "minecraft:uniform",
+        "min": 0,
+        "max": 1
       },
       "entries": [
         {
@@ -496,14 +460,45 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:fire_rod",
+          "name": "minecraft:golden_apple",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_pickaxe",
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "only_compatible": true
+            }
+          ],
+          "conditions": []
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:goron_tunic",
           "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 1,
+                "min": 35,
                 "max": 240
               }
             }

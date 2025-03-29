@@ -54,12 +54,12 @@ public class SwordPedestalBlock extends BaseEntityBlock {
                 return InteractionResult.SUCCESS;
 
             }
-            else if (stackInHand.isEmpty() && !pedestal.getSword().isEmpty()) {
-
-                pLevel.updateNeighborsAt(pPos, this);
+            else if (stackInHand.isEmpty() && !pedestal.getSword().isEmpty())
+            {
+                pLevel.updateNeighborsAt(pPos,this);
+                pPlayer.setItemInHand(pHand, pedestal.getSword());
                 pedestal.setSword(stackInHand);
                 pLevel.playSound(pPlayer,pPos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS);
-                pPlayer.setItemInHand(pHand, pedestal.getSword());
                 return InteractionResult.SUCCESS;
             }
         }
