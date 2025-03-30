@@ -14,11 +14,15 @@
     "MixinMouse",
     "MixinPlayerModel",
     "MixinProjectileWeaponItem",
-    "MixinVillager"
+    "MixinVillager",
+    "swordspin.MixinItem",
+    "swordspin.MixinPlayer",
+    "swordspin.MixinSwordItem"
   ],
   "minVersion": "0.8",
   "client": [
     "MixinDoubleJump",
-    "MixinLocalPlayer"
+    "MixinLocalPlayer",
+    "swordspin.MixinItemRenderer"
   ]
 }

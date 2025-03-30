@@ -5,6 +5,7 @@ import com.kamth.zeldamod.block.ZeldaBlocks;
 import com.kamth.zeldamod.block.entity.ZeldaBlockEntities;
 import com.kamth.zeldamod.custom.ModItemProperties;
 import com.kamth.zeldamod.effect.ModEffects;
+import com.kamth.zeldamod.enchantments.ZeldaEnchantments;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.mobs.hostile.keese.ElectricKeeseEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.keese.FireKeeseEntity;
@@ -72,6 +73,8 @@ public class ZeldaMod {
         ModPaintings.register(modEventBus);
 
         ZeldaBlockEntities.register(modEventBus);
+
+        ZeldaEnchantments.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(ZeldaCreativeTab::addCreativeTabItems);
