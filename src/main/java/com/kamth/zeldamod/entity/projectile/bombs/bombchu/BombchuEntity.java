@@ -19,6 +19,9 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
+// Code contributed by Deadlydiamond98 (c) 2024 under the MIT License.
+// Added here with explicit permission by the original owner.
+
 public class BombchuEntity extends Entity implements ISurfaceSticker, TraceableEntity {
 
     protected static final EntityDataAccessor<Direction> ATTACHED_FACE_CLIENT = SynchedEntityData.defineId(BombchuEntity.class, EntityDataSerializers.DIRECTION);
