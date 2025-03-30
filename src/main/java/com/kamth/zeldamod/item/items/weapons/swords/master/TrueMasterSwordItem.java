@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.weapons.swords.master;
 
 import com.kamth.zeldamod.item.items.weapons.swords.GloomBreakingSword;
-import com.kamth.zeldamod.item.modifiers.swing.BeamShootAction;
+import com.kamth.zeldamod.util.interfaces.item.IBeamShootAction;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -13,7 +13,7 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class TrueMasterSwordItem extends GloomBreakingSword implements BeamShootAction {
+public class TrueMasterSwordItem extends GloomBreakingSword implements IBeamShootAction {
 
     public TrueMasterSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties, int gloomDestroySpeed) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties, gloomDestroySpeed);

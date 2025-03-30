@@ -22,7 +22,7 @@ import com.kamth.zeldamod.entity.projectile.seeds.SeedProjectile;
 import com.kamth.zeldamod.entity.projectile.arrows.*;
 import com.kamth.zeldamod.entity.projectile.bombs.BombFlowerEntity;
 import com.kamth.zeldamod.entity.projectile.bombs.BombEntity;
-import com.kamth.zeldamod.entity.projectile.bombs.BombchuEntity;
+import com.kamth.zeldamod.entity.projectile.bombs.bombchu.BombchuEntity;
 import com.kamth.zeldamod.entity.projectile.bombs.WaterBombEntity;
 import com.kamth.zeldamod.entity.projectile.boomerangs.BoomerangProjectile;
 import com.kamth.zeldamod.entity.projectile.boomerangs.GaleBoomerangProjectile;
@@ -62,7 +62,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<BombEntity>> BOMB = ENTITY_TYPES.register("bomb", () -> Builder.<BombEntity>of(BombEntity::new, MobCategory.MISC).sized(0.5f,0.6f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bomb").toString()));
     public static final RegistryObject<EntityType<WaterBombEntity>> WATER_BOMB = ENTITY_TYPES.register("water_bomb", () -> Builder.<WaterBombEntity>of(WaterBombEntity::new, MobCategory.MISC).noSummon().sized(0.5f,0.5f).clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "water_bomb").toString()));
     public static final RegistryObject<EntityType<BombFlowerEntity>> BOMB_FLOWER = ENTITY_TYPES.register("bomb_flower", () -> Builder.<BombFlowerEntity>of(BombFlowerEntity::new, MobCategory.MISC).sized(.6f,.7f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bomb_flower").toString()));
-    public static final RegistryObject<EntityType<BombchuEntity>> BOMBCHU = ENTITY_TYPES.register("bombchu", () -> Builder.<BombchuEntity>of(BombchuEntity::new, MobCategory.MISC).noSummon().sized(0.5f,0.6f).clientTrackingRange(6).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "bombchu").toString()));
+    public static final RegistryObject<EntityType<BombchuEntity>> BOMBCHU = ENTITY_TYPES.register("bombchu", () -> Builder.<BombchuEntity>of(BombchuEntity::new, MobCategory.MISC).noSummon().sized(0.4f,0.4f).clientTrackingRange(6).updateInterval(4).build(new ResourceLocation(ZeldaMod.MOD_ID, "bombchu").toString()));
 
 
     // BOOMERANGS

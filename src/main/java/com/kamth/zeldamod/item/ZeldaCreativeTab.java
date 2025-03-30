@@ -93,6 +93,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.WALLET_TYCOON);
             event.accept(ZeldaItems.BOMB_FLOWER);
             event.accept(ZeldaItems.BOMB);
+            event.accept(ZeldaItems.BOMBCHU);
             event.accept(ZeldaItems.WATER_BOMB);
             event.accept(ZeldaItems.DEKU_NUT);
             event.accept(ZeldaItems.DEKU_STICK);

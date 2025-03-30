@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.networking.packets;
 
-import com.kamth.zeldamod.item.modifiers.swing.SwingActionItem;
+import com.kamth.zeldamod.util.interfaces.item.ISwingActionItem;
 import com.kamth.zeldamod.networking.ZeldaNetworking;
 import com.kamth.zeldamod.networking.packets.base_packet.AbstractC2SPacket;
 import net.minecraft.network.FriendlyByteBuf;
@@ -28,7 +28,7 @@ public final class SwordSwingPacket extends AbstractC2SPacket<SwordSwingPacket> 
 
             Item item = player.getMainHandItem().getItem();
 
-            if (item instanceof SwingActionItem actionItem) {
+            if (item instanceof ISwingActionItem actionItem) {
                 actionItem.swingSword(level, player);
             }
         });

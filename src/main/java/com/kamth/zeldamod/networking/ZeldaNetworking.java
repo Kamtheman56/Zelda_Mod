@@ -15,6 +15,8 @@ import java.util.function.Supplier;
 
 public class ZeldaNetworking {
 
+    // TODO: Fix my bad registerPacket method
+
     private static int packetId = 0;
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.ChannelBuilder

@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.item.items.weapons.swords;
 
 import com.kamth.zeldamod.entity.projectile.magic.SwordBeam;
-import com.kamth.zeldamod.item.modifiers.swing.SwingActionItem;
+import com.kamth.zeldamod.util.interfaces.item.ISwingActionItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -18,7 +18,7 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class FierceDeitySwordItem extends SwordItem implements SwingActionItem {
+public class FierceDeitySwordItem extends SwordItem implements ISwingActionItem {
     public FierceDeitySwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }

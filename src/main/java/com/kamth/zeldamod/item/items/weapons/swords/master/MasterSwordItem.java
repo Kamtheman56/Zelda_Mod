@@ -4,7 +4,7 @@ import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.ModTiers;
 import com.kamth.zeldamod.item.items.weapons.swords.GloomBreakingSword;
-import com.kamth.zeldamod.item.modifiers.swing.BeamShootAction;
+import com.kamth.zeldamod.util.interfaces.item.IBeamShootAction;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class MasterSwordItem extends GloomBreakingSword implements BeamShootAction {
+public class MasterSwordItem extends GloomBreakingSword implements IBeamShootAction {
 
     public MasterSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties, 15);

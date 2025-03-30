@@ -2,9 +2,10 @@ package com.kamth.zeldamod.event;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.entity.ZeldaBlockEntities;
-import com.kamth.zeldamod.client.renderer.block_entity.*;
-import com.kamth.zeldamod.client.renderer.entity.*;
-import com.kamth.zeldamod.client.renderer.entity.thrown.BombEntityRenderer;
+import com.kamth.zeldamod.client.models.BombchuModel;
+import com.kamth.zeldamod.client.rendering.block_entity.*;
+import com.kamth.zeldamod.client.rendering.entity.*;
+import com.kamth.zeldamod.client.rendering.entity.thrown.BombEntityRenderer;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.client.*;
 import com.kamth.zeldamod.entity.client.model.*;
@@ -17,7 +18,6 @@ import com.kamth.zeldamod.entity.client.render.keese.ElectricKeeseRenderer;
 import com.kamth.zeldamod.entity.client.render.keese.FireKeeseRenderer;
 import com.kamth.zeldamod.entity.client.render.keese.IceKeeseRenderer;
 import com.kamth.zeldamod.entity.client.render.keese.KeeseRenderer;
-import com.kamth.zeldamod.entity.mobs.hostile.keese.ElectricKeeseEntity;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.armors.render.*;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -98,6 +98,8 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.DARK_NUT_HELMET, DarknutHelmetModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.CAP, HatModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.IRON_KNUCKLE_LAYER, IronKnuckleModel::createBodyLayer);
+
+        event.registerLayerDefinition(BombchuModel.LAYER_LOCATION, BombchuModel::createBodyLayer);
     }
 
     @SubscribeEvent
