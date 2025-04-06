@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "rsr",
+    "sbs",
+    "rsr"
+  ],
+  "key": {
+    "r": {
+      "item": "minecraft:slime_ball"
+    },
+    "b": {
+      "item": "zeldamod:bomb"
+    },
+    "s": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "zeldamod:bombchu",
+    "count": 1
+  }
+}

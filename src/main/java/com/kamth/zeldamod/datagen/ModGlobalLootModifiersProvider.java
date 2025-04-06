@@ -358,6 +358,9 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("hylian_shield_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
                 new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
                 LootItemRandomChanceCondition.randomChance(0.12f).build()}, ZeldaItems.HYLIAN_SHIELD.get()));
+        add("bombchu_from_mineshaft", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/abandoned_mineshaft")).build(),
+                LootItemRandomChanceCondition.randomChance(0.1f).build()}, ZeldaItems.BOMBCHU.get()));
 
         //from shipwrecks
         add("flippers_from_shipwreck", new AddItemModifier(new LootItemCondition[] {

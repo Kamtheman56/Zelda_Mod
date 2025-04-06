@@ -41,13 +41,6 @@ public class ElectricChuchuEntity extends ChuchuEntity {
     }
 
 
-
-
-
-
-
-
-
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 4)
@@ -58,8 +51,6 @@ public class ElectricChuchuEntity extends ChuchuEntity {
                 .add(Attributes.ATTACK_KNOCKBACK, 0.8f)
                 .add(Attributes.ATTACK_SPEED, 1);
     }
-
-
 
 
     protected ParticleOptions getParticleType() {
@@ -102,7 +93,7 @@ public class ElectricChuchuEntity extends ChuchuEntity {
             if (this.distanceToSqr(pLivingEntity) < 0.6D * (double)i * 0.6D * (double)i && i != 1 && this.hasLineOfSight(pLivingEntity) && pLivingEntity.hurt(this.damageSources().mobAttack(this), this.getAttackDamage())) {
                 this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
                 this.doEnchantDamageEffects(this, pLivingEntity);
-                this.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,80));
+                this.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,100));
             }
             if (this.distanceToSqr(pLivingEntity) < 0.9D * (double)i * 0.9D * (double)i && i == 1 && this.hasLineOfSight(pLivingEntity) && pLivingEntity.hurt(this.damageSources().mobAttack(this), this.getAttackDamage())) {
                 this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
@@ -142,18 +133,6 @@ public class ElectricChuchuEntity extends ChuchuEntity {
 
         super.remove(pReason);
     }
-    @Nullable
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        RandomSource randomsource = pLevel.getRandom();
-        int i = randomsource.nextInt(3);
-        if (i < 2 && randomsource.nextFloat() < 0.5F * pDifficulty.getSpecialMultiplier()) {
-            ++i;
-        }
-        int j = 1 << i;
-        this.setSize(j, true);
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
-    }
-    public EntityDimensions getDimensions(Pose pPose) {
-        return super.getDimensions(pPose).scale(0.255F * (float)this.getSize());
-    }
+
+
 }

@@ -137,16 +137,16 @@ public class ModEntityTypes {
 
     // CHUS
     public static final RegistryObject<EntityType<ChuchuEntity>> CHUCHU = ENTITY_TYPES.register("chuchu", () -> EntityType.Builder.of(ChuchuEntity::new, MobCategory.MONSTER)
-            .sized(2.04F, 2.04F).build("chuchu"));
+            .sized(3F, 3F).build("chuchu"));
 
     public static final RegistryObject<EntityType<FireChuchuEntity>> CHUCHU_FIRE = ENTITY_TYPES.register("chuchu_fire", () -> Builder.of(FireChuchuEntity::new, MobCategory.MONSTER).fireImmune()
-            .sized(2.04F, 2.04F).build("chuchu_fire"));
+            .sized(3F, 3F).build("chuchu_fire"));
 
     public static final RegistryObject<EntityType<IceChuchuEntity>> CHUCHU_ICE = ENTITY_TYPES.register("chuchu_ice", () -> Builder.of(IceChuchuEntity::new, MobCategory.MONSTER)
-            .sized(2.04F, 2.04F).build("chuchu_ice"));
+            .sized(3F, 3F).build("chuchu_ice"));
 
     public static final RegistryObject<EntityType<ElectricChuchuEntity>> CHUCHU_ELECTRIC = ENTITY_TYPES.register("chuchu_electric", () -> Builder.of(ElectricChuchuEntity::new, MobCategory.MONSTER)
-            .sized(2.04F, 2.04F).build("chuchu_electric"));
+            .sized(3F, 3F).build("chuchu_electric"));
 
     // FRIENDLY MOBS
 

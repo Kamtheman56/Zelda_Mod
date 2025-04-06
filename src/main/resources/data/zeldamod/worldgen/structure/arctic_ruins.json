@@ -40,14 +40,14 @@
   // What mobs can spawn over time in the structure.
   // Make sure you add the mob to the right category (monster, creature, etc)
   "spawn_overrides": {
-    "creature": {
-      "bounding_box": "piece",
+    "monster": {
+      "bounding_box": "full",
       "spawns": [
         {
-          "type": "minecraft:parrot",
-          "weight": 1,
+          "type": "zeldamod:ice_keese",
+          "weight": 3,
           "minCount": 1,
-          "maxCount": 4
+          "maxCount": 7
         }
       ]
     }

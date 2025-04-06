@@ -13,22 +13,31 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
+                    "items": [
+                      "minecraft:shears"
                     ]
                   }
                 }
               ],
-              "name": "minecraft:wild_bomb_flower"
+              "name": "zeldamod:wild_bomb_flower"
             },
             {
               "type": "minecraft:item",
+              "conditions": [
+                {
+                  "chance": 0.45,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
               "functions": [
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:uniform_bonus_count",
+                  "function": "minecraft:apply_bonus",
+                  "parameters": {
+                    "bonusMultiplier": 2
+                  }
+                },
                 {
                   "function": "minecraft:explosion_decay"
                 }
@@ -41,5 +50,5 @@
       "rolls": 1
     }
   ],
-  "random_sequence": "zeldamod:blocks/spike_block"
+  "random_sequence": "zeldamod:wild_bomb_flower"
 }

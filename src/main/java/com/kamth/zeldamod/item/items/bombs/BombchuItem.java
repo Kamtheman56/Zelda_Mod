@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.items.bombs;
 
 import com.kamth.zeldamod.entity.projectile.bombs.bombchu.BombchuEntity;
+import com.kamth.zeldamod.item.items.TooltipItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -12,10 +13,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
-public class BombchuItem extends Item {
+public class BombchuItem extends TooltipItem {
 
     public BombchuItem(Properties pProperties) {
-        super(pProperties);
+        super(pProperties, "iyellow", false);
     }
 
     @Override

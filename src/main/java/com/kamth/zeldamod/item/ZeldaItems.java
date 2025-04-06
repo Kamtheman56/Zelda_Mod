@@ -110,7 +110,7 @@ public class ZeldaItems {
     public static final RegistryObject<Item> REFINED_MASTER_ORE = ITEMS.register("refined_master_ore",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> MASTER_UPGRADE = ITEMS.register("master_upgrade",
-            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+            () -> new TooltipItem(new Item.Properties().rarity(Rarity.UNCOMMON), "iyellow", true));
 
     // PEARLS
     public static final RegistryObject<Item> DIN_PEARL = ITEMS.register("pearl_power",

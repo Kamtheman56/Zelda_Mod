@@ -38,7 +38,7 @@ import java.util.List;
 public abstract class AbstractBoomerang extends Projectile implements ItemSupplier {
     private static final EntityDataAccessor<Boolean> RETURNING = SynchedEntityData.defineId(AbstractBoomerang.class, EntityDataSerializers.BOOLEAN);
     protected int liveTime;
-    private int slot;
+    public int slot;
 
     public AbstractBoomerang(EntityType<? extends Projectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -71,7 +71,7 @@ public abstract class AbstractBoomerang extends Projectile implements ItemSuppli
         BlockState state = this.level().getBlockState(this.blockPosition());
 
         if (state.is(Blocks.LEVER)) {
-            this.level().setBlockAndUpdate(blockPosition(), state.cycle(LeverBlock.POWERED));
+            this.level().setBlockAndUpdate(this.blockPosition(),state.cycle(LeverBlock.POWERED));
         }
 
         setReturning(true);
@@ -232,11 +232,11 @@ public abstract class AbstractBoomerang extends Projectile implements ItemSuppli
         }
     }
 
-    private float normalizeAngle(float angle) {
+    public float normalizeAngle(float angle) {
         return ((angle + 180.0f) % 360.0f + 360.0f) % 360.0f - 180.0f;
     }
 
-    private void giveItemToPlayer(Player player, ItemEntity itemEntity) {
+    public void giveItemToPlayer(Player player, ItemEntity itemEntity) {
         itemEntity.setPickUpDelay(0);
         itemEntity.playerTouch(player);
 

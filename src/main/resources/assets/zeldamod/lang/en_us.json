@@ -481,6 +481,8 @@
   "item.zeldamod.water_bomb.description": "Effective in water!",
   "item.zeldamod.bomb.description": "3 Explosive Power",
   "item.zeldamod.bomb_flower.description": "2 Explosive Power",
+  "item.zeldamod.bombchu.description": "A moving bomb that climbs up terrain!",
+  "item.zeldamod.master_upgrade.description": "A master class upgrade for Legendary Gear",
 
   "item.zeldamod.blast_mask.description": "Crouch for a blast!",
   "item.zeldamod.bremen_mask.description_advanced": "All animals will begin to follow you",
@@ -577,5 +579,7 @@
   "entity.zeldamod.chuchu_ice": "Ice Chuchu",
   "entity.zeldamod.chuchu_electric": "Electric Chuchu",
   "entity.zeldamod.korok": "Korok",
-  "entity.zeldamod.skulltula": "Skulltula"
+  "entity.zeldamod.skulltula": "Skulltula",
+
+  "enchant.zeldamod.swordspin": "Sword Spinner"
 }

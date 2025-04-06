@@ -50,19 +50,19 @@ public abstract class MixinLivingEntity {
         return original.call(instance, levelReader, pos, entity);
     }
 
-//    @ModifyVariable(method = "travel", at = @At("LOAD"), name = "d0", ordinal = 0)
-//    public double inject3(double value) {
-//        if (this.getItemBySlot(EquipmentSlot.MAINHAND).is(ZeldaItems.ROC_FEATHER_2.get()) || this.getItemBySlot(EquipmentSlot.OFFHAND).is(ZeldaItems.ROC_FEATHER_2.get() )) {
-//            return 0.04;
-//        }
-//        if (this.getItemBySlot(EquipmentSlot.CHEST).is(ZeldaItems.ROC_CAPE.get())) {
-//            return 0.05;
-//        }
-//        if (this.hasEffect(ModEffects.MINI.get())) {
-//            return 0.02;
-//        }
-//        return value;
-//    }
+    @ModifyVariable(method = "travel", at = @At("LOAD"), name = "d0", ordinal = 0)
+    public double inject3(double value) {
+        if (this.getItemBySlot(EquipmentSlot.MAINHAND).is(ZeldaItems.ROC_FEATHER_2.get()) || this.getItemBySlot(EquipmentSlot.OFFHAND).is(ZeldaItems.ROC_FEATHER_2.get() )) {
+            return 0.04;
+        }
+        if (this.getItemBySlot(EquipmentSlot.CHEST).is(ZeldaItems.ROC_CAPE.get())) {
+            return 0.05;
+        }
+        if (this.hasEffect(ModEffects.MINI.get())) {
+            return 0.02;
+        }
+        return value;
+    }
 
     @Inject(method = "getBlockSpeedFactor", at = @At("HEAD"), cancellable = true)
     private void onGetBlockSpeedFactor(CallbackInfoReturnable<Float> cir) {

@@ -41,7 +41,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:super_mushroom",
+          "name": "zeldamod:mushroom_super",
           "weight": 2,
           "functions": [
             {

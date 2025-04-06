@@ -1,5 +1,5 @@
-// 1.20.1	2025-03-16T11:15:04.1892929	Global Loot Modifiers : zeldamod
-7d5973faa20c52eed25f550e2e7f3161a57bc100 data/forge/loot_modifiers/global_loot_modifiers.json
+// 1.20.1	2025-04-06T10:56:49.2354839	Global Loot Modifiers : zeldamod
+3fa5f1f5ace8268333f80afe8f5ea564367c30be data/forge/loot_modifiers/global_loot_modifiers.json
 c64cecb55a2a19c897b6363ba20165b3740cd82d data/zeldamod/loot_modifiers/all_night_from_strongholds.json
 6704f3c41ff997c95364c0b508c28c1fdb37f7ff data/zeldamod/loot_modifiers/ancient_arrow_from_ancient_city.json
 d3f1147a683763192bf762c4604d4257e66a8c65 data/zeldamod/loot_modifiers/biggoron_from_bastion_treasure.json
@@ -10,6 +10,7 @@ a3aa34c1fbc927cbd48153934bdf1aa2ee9916bc data/zeldamod/loot_modifiers/blast_mask
 6d9c8cda83de4cc3bf610f58bda94516f0e1c978 data/zeldamod/loot_modifiers/blue_potion_from_end_city.json
 f95649158f9bdaedbf07b90bf25292c1e69745ab data/zeldamod/loot_modifiers/blue_potion_from_mineshaft.json
 a0c858bef739e088a8d4a0de95c66aea23432a44 data/zeldamod/loot_modifiers/blue_ring_from_pillager.json
+103f01d7521c1e718bfd5dcf303600abb8f63826 data/zeldamod/loot_modifiers/bombchu_from_mineshaft.json
 65879b7bb7488c294c82567d1efc1abfc82b15b0 data/zeldamod/loot_modifiers/bomb_from_creeper.json
 3a59f0a047264d9bc28bf1e0a1bc318064507dcb data/zeldamod/loot_modifiers/bomb_from_dungeons.json
 9b42fe9dbb1525c37c55409a2a3949cc7ff3234f data/zeldamod/loot_modifiers/bomb_from_mineshaft.json
