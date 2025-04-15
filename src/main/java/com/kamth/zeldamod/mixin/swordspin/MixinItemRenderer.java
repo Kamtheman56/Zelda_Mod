@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.mixin.swordspin;
 
+import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.enchantments.ZeldaEnchantments;
 import com.kamth.zeldamod.util.interfaces.mixin.SwordSpinPlayerData;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -42,14 +43,23 @@ public class MixinItemRenderer {
         if (item instanceof SwordItem && hasSwordSpin) {
             pPoseStack.translate(0.5, 0.5, 0.5);
 
-            if (player != null && pDisplayContext.firstPerson()) {
+            if (player != null) {
 
-                float yRot = !player.isUsingItem() ? 90 : 0;
+                if (pDisplayContext.firstPerson()) {
+                    float yRot = !player.isUsingItem() ? 90 : 0;
 
-                if (player.isUsingItem() || playerData.legendaryArmory$isSwordSpinActive()) {
-                    pPoseStack.mulPose(Axis.ZP.rotationDegrees(90));
-                    pPoseStack.mulPose(Axis.YP.rotationDegrees(yRot));
-                    pPoseStack.mulPose(Axis.XP.rotationDegrees(45));
+                    if (player.isUsingItem() || playerData.legendaryArmory$isSwordSpinActive()) {
+                        pPoseStack.mulPose(Axis.ZP.rotationDegrees(90));
+                        pPoseStack.mulPose(Axis.YP.rotationDegrees(yRot));
+                        pPoseStack.mulPose(Axis.XP.rotationDegrees(45));
+                    }
+                } else if (pDisplayContext == ItemDisplayContext.THIRD_PERSON_RIGHT_HAND && playerData.legendaryArmory$isSwordSpinActive()) {
+
+                    pPoseStack.translate(-0.55, 0, 0);
+
+                    pPoseStack.mulPose(Axis.XP.rotationDegrees(90));
+                    pPoseStack.mulPose(Axis.YP.rotationDegrees(130));
+                    pPoseStack.mulPose(Axis.ZP.rotationDegrees(-45));
                 }
             }
 

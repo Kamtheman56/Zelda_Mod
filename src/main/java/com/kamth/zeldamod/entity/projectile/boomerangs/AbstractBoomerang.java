@@ -71,7 +71,7 @@ public abstract class AbstractBoomerang extends Projectile implements ItemSuppli
         BlockState state = this.level().getBlockState(this.blockPosition());
 
         if (state.is(Blocks.LEVER)) {
-            this.level().setBlockAndUpdate(blockPosition(), state.cycle(LeverBlock.POWERED));
+            this.level().setBlock(this.blockPosition(), state.cycle(LeverBlock.POWERED), 3);
         }
 
         setReturning(true);
