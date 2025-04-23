@@ -23,6 +23,7 @@
   "client": [
     "MixinDoubleJump",
     "MixinLocalPlayer",
-    "swordspin.MixinItemRenderer"
+    "swordspin.MixinItemRenderer",
+    "swordspin.MixinMouse"
   ]
 }

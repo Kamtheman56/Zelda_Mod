@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Consumer;
 
-//Todo set a timer for hover effect!
-
 
 public class HoverBoots extends ArmorItem {
     private static final String PEGASUS = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/armor/hover.png").toString();
@@ -68,6 +66,8 @@ public class HoverBoots extends ArmorItem {
             player.addEffect(((new MobEffectInstance(ModEffects.HOVER.get(), 90, 0, true, false))));
         }
     }
+
+
    @Override
    public boolean canWalkOnPowderedSnow(ItemStack stack, LivingEntity wearer)
     {
