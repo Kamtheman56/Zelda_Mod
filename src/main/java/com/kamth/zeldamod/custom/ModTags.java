@@ -110,6 +110,8 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("gems");
         public static final TagKey<Item> GLIDERS
                 = tag("gliders");
+        public static final TagKey<Item> SPIN_ATTACK_SWORDS
+                = tag("spin_attack_swords");
       ;
 
         private static TagKey<Item> tag(String name){

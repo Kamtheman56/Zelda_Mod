@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.enchantments;
 
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.util.interfaces.mixin.SwordSpinPlayerData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -34,7 +35,8 @@ public class SwordSpin extends Enchantment {
 
         boolean hasSwordSpin = EnchantmentHelper.getItemEnchantmentLevel(ZeldaEnchantments.SWORD_SPIN.get(), player.getMainHandItem()) > 0;
 
-        if (player.getUseItem().getItem() instanceof SwordItem && hasSwordSpin && player.isUsingItem()) {
+        if (player.getUseItem().getItem() instanceof SwordItem && hasSwordSpin && player.isUsingItem()
+        || player.getUseItem().is(ModTags.Items.SPIN_ATTACK_SWORDS) && player.isUsingItem() ) {
 
             if (swordspinTicks == 25) {
                 if (!level.isClientSide) {

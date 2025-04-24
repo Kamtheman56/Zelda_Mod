@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "zeldamod:master_sword",
+    "zeldamod:master_sword_tempered",
+    "zeldamod:master_sword_golden",
+    "zeldamod:master_sword_true",
+    "zeldamod:hero_sword",
+    "zeldamod:white_sword",
+    "zeldamod:magic_sword"
+  ]
+}

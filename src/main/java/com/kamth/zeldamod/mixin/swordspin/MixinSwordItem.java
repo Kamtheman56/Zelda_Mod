@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.mixin.swordspin;
 
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.enchantments.ZeldaEnchantments;
 import com.kamth.zeldamod.util.interfaces.mixin.SwordSpinPlayerData;
 import net.minecraft.sounds.SoundEvents;
@@ -26,12 +27,13 @@ public class MixinSwordItem extends MixinItem {
     @Override
     protected void useSword(Level pLevel, Player pPlayer, InteractionHand pUsedHand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
         boolean hasSwordSpin = EnchantmentHelper.getItemEnchantmentLevel(ZeldaEnchantments.SWORD_SPIN.get(), pPlayer.getItemInHand(pUsedHand)) > 0;
+        ItemStack itemstack = pPlayer.getItemInHand(pUsedHand);
+        pPlayer.startUsingItem(pUsedHand);
 
         if (hasSwordSpin && pUsedHand == InteractionHand.MAIN_HAND && !pPlayer.isCrouching()
-                && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive()) {
-
-            ItemStack itemstack = pPlayer.getItemInHand(pUsedHand);
-            pPlayer.startUsingItem(pUsedHand);
+                && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive() ||
+                pUsedHand == InteractionHand.MAIN_HAND && pPlayer.getUseItem().is(ModTags.Items.SPIN_ATTACK_SWORDS) && !pPlayer.isCrouching()
+                        && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive()) {
 
             if (!pLevel.isClientSide()) {
                 pPlayer.playNotifySound(SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1, 1);
@@ -45,7 +47,7 @@ public class MixinSwordItem extends MixinItem {
     protected void useDuration(ItemStack pStack, CallbackInfoReturnable<Integer> cir) {
         boolean hasSwordSpin = EnchantmentHelper.getItemEnchantmentLevel(ZeldaEnchantments.SWORD_SPIN.get(), pStack) > 0;
 
-        if (hasSwordSpin) {
+        if (hasSwordSpin || pStack.is(ModTags.Items.SPIN_ATTACK_SWORDS)) {
             cir.setReturnValue(72000);
         }
     }

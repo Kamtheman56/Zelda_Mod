@@ -89,6 +89,22 @@ public abstract class MixinPlayerModel extends HumanoidModel<LivingEntity> {
 
         if (entity instanceof Player player && hasSwordSpin) {
 
+
+            SwordSpinPlayerData playerData = (SwordSpinPlayerData) player;
+
+            if (entity.isUsingItem()) {
+                this.rightArm.xRot = this.rightArm.xRot * 0.5F - 0.9424779F;
+                this.rightArm.yRot = -0.5235988F;
+            }
+
+            if (playerData.legendaryArmory$isSwordSpinActive()) {
+                this.rightArm.yRot = (-(float) Math.PI / 2) + this.body.yRot + 90;
+                this.rightArm.xRot = (-(float) Math.PI / 2) + this.head.xRot;
+            }
+        }
+        if (entity instanceof Player player && player.getUseItem().is(ModTags.Items.SPIN_ATTACK_SWORDS)) {
+
+
             SwordSpinPlayerData playerData = (SwordSpinPlayerData) player;
 
             if (entity.isUsingItem()) {
