@@ -41,6 +41,7 @@ public class TrueMasterSwordItem extends GloomBreakingSword implements IBeamShoo
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
             components.add(Component.translatable("item.zeldamod.master_sword_true.description_advanced").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("item.zeldamod.master_sword.description_basic_2").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
         } else {
             components.add(Component.translatable("item.zeldamod.master_sword_true.description_basic_1").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
             components.add(Component.translatable("item.zeldamod.master_sword_true.description_basic_2").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));

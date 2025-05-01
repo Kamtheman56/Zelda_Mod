@@ -261,6 +261,7 @@
   "sounds.zeldamod.gus": "Bombs?",
   "sounds.zeldamod.korok_crunch": "Korok crunches food",
   "sounds.zeldamod.spikes_retract": "Spikes Retract",
+  "sounds.zeldamod.sword_enchant": "Sword enchants with power",
 
   "block.zeldamod.gloom_block": "Gloom Block",
   "block.zeldamod.gloom_vein": "Gloom Vein",
@@ -447,6 +448,7 @@
   "item.zeldamod.magic_sword.description_basic": "A forgotten sword",
   "item.zeldamod.master_sword.description_advanced": "Shoots Beams at full health!",
   "item.zeldamod.master_sword.description_basic": "Blade of Evil's Bane",
+  "item.zeldamod.master_sword.description_basic_2": "Hold Right Click to charge a spin attack",
   "item.zeldamod.megaton_hammer.description_basic": "Pound down rusty pegs",
   "item.zeldamod.megaton_hammer.description_advanced": "Slam down with an AoE attack!",
   "item.zeldamod.mirror_shield.description": "Reflects non-physical projectiles!",
@@ -581,5 +583,5 @@
   "entity.zeldamod.korok": "Korok",
   "entity.zeldamod.skulltula": "Skulltula",
 
-  "enchant.zeldamod.swordspin": "Sword Spinner"
+  "enchantment.zeldamod.swordspin": "Sword Spinner"
 }

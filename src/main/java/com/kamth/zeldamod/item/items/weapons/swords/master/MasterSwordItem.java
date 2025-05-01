@@ -61,7 +61,9 @@ public class MasterSwordItem extends GloomBreakingSword implements IBeamShootAct
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if (Screen.hasShiftDown()) {
             components.add(Component.translatable("item.zeldamod.master_sword.description_advanced").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
-        } else {
+            components.add(Component.translatable("item.zeldamod.master_sword.description_basic_2").withStyle(ChatFormatting.YELLOW).withStyle(ChatFormatting.ITALIC));
+        }
+        else {
             components.add(Component.translatable("item.zeldamod.master_sword.description_basic").withStyle(ChatFormatting.GOLD).withStyle(ChatFormatting.ITALIC));
         }
 

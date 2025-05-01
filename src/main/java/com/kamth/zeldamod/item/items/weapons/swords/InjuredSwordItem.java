@@ -2,6 +2,7 @@ package com.kamth.zeldamod.item.items.weapons.swords;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.item.ZeldaItems;
+import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -71,7 +72,7 @@ public class InjuredSwordItem extends GloomBreakingSword {
         if (blockstate.is(ModTags.Blocks.SACRED_FLAMES)) {
             pContext.getItemInHand().shrink(1);
             pContext.getPlayer().setItemInHand(pContext.getHand(), ZeldaItems.MASTER_SWORD.get().getDefaultInstance());
-            pContext.getLevel().playSound(pContext.getPlayer(), blockpos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 1, 1f);
+            pContext.getLevel().playSound(pContext.getPlayer(), blockpos, ModSounds.SWORD_ENCHANT.get(), SoundSource.BLOCKS, 1, 1f);
             return InteractionResult.SUCCESS;
         } else return InteractionResult.FAIL;
     }
