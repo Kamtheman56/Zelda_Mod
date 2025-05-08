@@ -20,7 +20,7 @@ public class ChuchuRenderer extends MobRenderer<ChuchuEntity, ChuchuModel<Chuchu
 
     @Override
     public ResourceLocation getTextureLocation(ChuchuEntity pEntity) {
-        return new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/chuchu_blue.png");
+        return new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/chuchu.png");
     }
 
     @Override

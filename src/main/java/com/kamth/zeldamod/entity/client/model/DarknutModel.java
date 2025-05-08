@@ -9,14 +9,26 @@ import com.kamth.zeldamod.entity.animations.ModAnimationDefinitions;
 import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarknutEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.animation.AnimationDefinition;
+import net.minecraft.client.model.AnimationUtils;
+import net.minecraft.client.model.ArmedModel;
 import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.HumanoidArm;
+import net.minecraft.world.entity.WalkAnimationState;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import org.joml.Vector3f;
 
-public class DarknutModel<T extends Entity> extends HierarchicalModel<T> {
+public class DarknutModel<T extends Entity> extends HierarchicalModel<T> implements ArmedModel {
         // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 
         private final ModelPart darknut;
@@ -54,8 +66,6 @@ public class DarknutModel<T extends Entity> extends HierarchicalModel<T> {
 
             PartDefinition arm_l = body.addOrReplaceChild("arm_l", CubeListBuilder.create().texOffs(0, 32).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-6.002F, -10.4F, 0.002F));
 
-            PartDefinition cube_r1 = arm_l.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(94, 0).addBox(0.0F, -16.0F, -1.0F, 0.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 11.0F, -4.0F, -0.6545F, 0.0F, 0.0F));
-
             PartDefinition pad_l = arm_l.addOrReplaceChild("pad_l", CubeListBuilder.create().texOffs(34, 16).addBox(-11.0F, -13.0F, -3.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(7.0F, 12.0F, 0.0F));
 
             PartDefinition head = darknut.addOrReplaceChild("head", CubeListBuilder.create().texOffs(16, 25).addBox(0.0F, -9.0F, -4.702F, 0.0F, 6.0F, 7.0F, new CubeDeformation(0.0F))
@@ -83,6 +93,7 @@ public class DarknutModel<T extends Entity> extends HierarchicalModel<T> {
             return darknut;
         }
 
+
         private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
             pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
             pHeadPitch = Mth.clamp(pHeadPitch, -25.0F, 45.0F);
@@ -95,33 +106,32 @@ public class DarknutModel<T extends Entity> extends HierarchicalModel<T> {
         public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
             this.root().getAllParts().forEach(ModelPart::resetPose);
             this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
-           // this.animateWalk(ModAnimationDefinitions.darknut_walk, limbSwing, limbSwingAmount, 2f, 2.5f);
-            this.animate(((DarknutEntity) entity).idleAnimationState, ModAnimationDefinitions.darknut_idle, ageInTicks, 1f);
-            this.animate(((DarknutEntity) entity).attackAnimationState, ModAnimationDefinitions.darknut_swing, ageInTicks, 1f);
 
-
-            this.body.yRot = 0.0F;
-            this.rightArm.z = 0.0F;
-            this.rightArm.x = -5.0F;
-            this.leftArm.z = 0.0F;
-            this.leftArm.x = 5.0F;
-            float f = 1.0F;
-
-
-            if (f < 1.0F) {
-                f = 1.0F;
-            }
-
-            this.rightArm.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F / f;
-            this.leftArm.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F / f;
+            this.rightArm.xRot = Mth.cos(limbSwing * 0.6662F + 3.1415927F) * 2.0F * limbSwingAmount * 0.5F;
+            this.rightArm.yRot = 0.0F;
             this.rightArm.zRot = 0.0F;
+            this.leftArm.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
+            this.leftArm.yRot = 0.0F;
             this.leftArm.zRot = 0.0F;
-            this.rightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount / f;
-            this.leftLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount / f;
-            this.rightLeg.yRot = 0.005F;
-            this.leftLeg.yRot = -0.005F;
-            this.rightLeg.zRot = 0.005F;
-            this.leftLeg.zRot = -0.005F;
-
+            this.rightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount * 0.5F;
+            this.rightLeg.yRot = 0.0F;
+            this.rightLeg.zRot = 0.0F;
+            this.leftLeg.xRot = Mth.cos(limbSwing * 0.6662F + 3.1415927F) * 1.4F * limbSwingAmount * 0.5F;
+            this.leftLeg.yRot = 0.0F;
+            this.leftLeg.zRot = 0.0F;
         }
+
+
+
+    public void translateToHand(HumanoidArm pSide, PoseStack pPoseStack) {
+        this.getArm(pSide).offsetPos(new Vector3f(0,10.5f,0));
+        this.getArm(pSide).translateAndRotate(pPoseStack);
+    }
+
+    private ModelPart getArm(HumanoidArm pArm) {
+        return pArm == HumanoidArm.LEFT ? this.leftArm : this.rightArm;
+    }
+
+
+
 }
