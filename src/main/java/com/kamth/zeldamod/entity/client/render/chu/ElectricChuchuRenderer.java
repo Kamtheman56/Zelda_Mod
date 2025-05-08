@@ -3,6 +3,7 @@ package com.kamth.zeldamod.entity.client.render.chu;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.client.MobModelLayers;
 import com.kamth.zeldamod.entity.client.model.ChuchuModel;
+import com.kamth.zeldamod.entity.client.model.ChuchuOuterLayer;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.ElectricChuchuEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -14,11 +15,13 @@ import net.minecraft.util.Mth;
 public class ElectricChuchuRenderer extends MobRenderer<ElectricChuchuEntity, ChuchuModel<ElectricChuchuEntity>> {
     public ElectricChuchuRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new ChuchuModel<>(pContext.bakeLayer(MobModelLayers.ELECTRIC_CHUCHU_LAYER)), .2f);
+
     }
 
     @Override
     public ResourceLocation getTextureLocation(ElectricChuchuEntity pEntity) {
         return new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/chuchu_yellow.png");
+
     }
 
     @Override

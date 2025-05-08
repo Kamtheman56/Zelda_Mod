@@ -3,6 +3,7 @@ package com.kamth.zeldamod.entity.client.render.chu;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.client.MobModelLayers;
 import com.kamth.zeldamod.entity.client.model.ChuchuModel;
+import com.kamth.zeldamod.entity.client.model.ChuchuOuterLayer;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.FireChuchuEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -14,6 +15,7 @@ import net.minecraft.util.Mth;
 public class FireChuchuRenderer extends MobRenderer<FireChuchuEntity, ChuchuModel<FireChuchuEntity>> {
     public FireChuchuRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new ChuchuModel<>(pContext.bakeLayer(MobModelLayers.FIRE_CHUCHU_LAYER)), .2f);
+
     }
 
     @Override

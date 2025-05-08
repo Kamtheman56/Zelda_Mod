@@ -11,9 +11,8 @@ import com.kamth.zeldamod.entity.client.*;
 import com.kamth.zeldamod.entity.client.model.*;
 import com.kamth.zeldamod.entity.client.render.*;
 import com.kamth.zeldamod.entity.client.render.chu.ChuchuRenderer;
-import com.kamth.zeldamod.entity.client.render.chu.ElectricChuchuRenderer;
-import com.kamth.zeldamod.entity.client.render.chu.FireChuchuRenderer;
-import com.kamth.zeldamod.entity.client.render.chu.IceChuchuRenderer;
+import com.kamth.zeldamod.entity.client.render.darknuts.DarknutRenderer;
+import com.kamth.zeldamod.entity.client.render.darknuts.IronKnuckleRenderer;
 import com.kamth.zeldamod.entity.client.render.keese.ElectricKeeseRenderer;
 import com.kamth.zeldamod.entity.client.render.keese.FireKeeseRenderer;
 import com.kamth.zeldamod.entity.client.render.keese.IceKeeseRenderer;
@@ -113,9 +112,9 @@ public class ModEventBusClientEvents {
         EntityRenderers.register(ModEntityTypes.ICE_KEESE.get(), IceKeeseRenderer::new);
         EntityRenderers.register(ModEntityTypes.ELECTRIC_KEESE.get(), ElectricKeeseRenderer::new);
         EntityRenderers.register(ModEntityTypes.CHUCHU.get(), ChuchuRenderer::new);
-        EntityRenderers.register(ModEntityTypes.CHUCHU_FIRE.get(), FireChuchuRenderer::new);
-        EntityRenderers.register(ModEntityTypes.CHUCHU_ICE.get(), IceChuchuRenderer::new);
-        EntityRenderers.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), ElectricChuchuRenderer::new);
+        EntityRenderers.register(ModEntityTypes.CHUCHU_FIRE.get(), ChuchuRenderer::new);
+        EntityRenderers.register(ModEntityTypes.CHUCHU_ICE.get(), ChuchuRenderer::new);
+        EntityRenderers.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), ChuchuRenderer::new);
         EntityRenderers.register(ModEntityTypes.KOROK.get(), KorokRenderer::new);
         EntityRenderers.register(ModEntityTypes.SKULLTULA.get(), SkulltulaRenderer::new);
         EntityRenderers.register(ModEntityTypes.IRON_KNUCKLE.get(), IronKnuckleRenderer::new);
@@ -131,6 +130,9 @@ public class ModEventBusClientEvents {
 
             return used ? 1.0f : 0.0f;
         });
+
+
+
 
 //        ItemProperties.register(ZeldaItems.DEKU_STICK.get(), new ResourceLocation("lit"), (stack, world, entity, seed) -> {
 //

@@ -184,5 +184,17 @@
     "sounds": [
       "zeldamod:spikes_retract"
     ]
+  },
+  "sword_charge_start": {
+    "subtitle": "sounds.zeldamod.sword_charge_start",
+    "sounds": [
+      "zeldamod:sword_charge_start"
+    ]
+  },
+  "sword_charge_finish": {
+    "subtitle": "sounds.zeldamod.sword_charge_finish",
+    "sounds": [
+      "zeldamod:sword_charge_finish"
+    ]
   }
 }

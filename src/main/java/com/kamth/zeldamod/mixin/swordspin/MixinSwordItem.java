@@ -30,6 +30,8 @@ public class MixinSwordItem extends MixinItem {
         ItemStack itemstack = pPlayer.getItemInHand(pUsedHand);
         pPlayer.startUsingItem(pUsedHand);
 
+
+
         if (hasSwordSpin && pUsedHand == InteractionHand.MAIN_HAND && !pPlayer.isCrouching()
                 && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive() ||
                 pUsedHand == InteractionHand.MAIN_HAND && pPlayer.getUseItem().is(ModTags.Items.SPIN_ATTACK_SWORDS) && !pPlayer.isCrouching()

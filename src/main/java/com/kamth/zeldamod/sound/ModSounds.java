@@ -31,6 +31,8 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> MAJORA = registerSoundEvents("majora");
     public static final RegistryObject<SoundEvent> SLINGSHOT_PULL = registerSoundEvents("slingshot_pull");
     public static final RegistryObject<SoundEvent> SLINGSHOT_RELEASE = registerSoundEvents("slingshot_release");
+    public static final RegistryObject<SoundEvent> SWORD_CHARGE_START = registerSoundEvents("sword_charge_start");
+    public static final RegistryObject<SoundEvent> SWORD_CHARGE_FINISH = registerSoundEvents("sword_charge_finish");
 
     // BLOCK SOUNDS
 

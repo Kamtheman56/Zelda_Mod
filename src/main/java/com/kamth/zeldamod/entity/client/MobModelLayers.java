@@ -44,7 +44,7 @@ public class MobModelLayers {
     public static final ModelLayerLocation ELECTRIC_CHUCHU_LAYER = new ModelLayerLocation(
             new ResourceLocation(ZeldaMod.MOD_ID, "electric_chuchu_layer"), "main");
     public static final ModelLayerLocation CHUCHU_OUTER_LAYER = new ModelLayerLocation(
-            new ResourceLocation(ZeldaMod.MOD_ID, "chuchu_outer_layer"), "main");
+            new ResourceLocation(ZeldaMod.MOD_ID, "chuchu_layer"), "outer");
 
 
     public static final ModelLayerLocation KOROK_LAYER = new ModelLayerLocation(

@@ -4,6 +4,7 @@ import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.util.interfaces.mixin.SwordSpinPlayerData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -24,7 +25,7 @@ import net.minecraft.world.phys.Vec3;
 public class SwordSpin extends Enchantment {
 
     public SwordSpin() {
-        super(Rarity.UNCOMMON, EnchantmentCategory.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Rarity.RARE, EnchantmentCategory.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     public static int doSwordSpin(Player player, int swordspinTicks, boolean swordspinActive) {
@@ -54,6 +55,7 @@ public class SwordSpin extends Enchantment {
                 if (!level.isClientSide) {
                     player.playNotifySound(SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 1, 1);
                 }
+                player.getCooldowns().addCooldown(player.getItemInHand(InteractionHand.MAIN_HAND).getItem(),30);
                 swordSpinPlayer.legendaryArmory$setSwordSpinActive(true);
             }
             else {
