@@ -357,6 +357,19 @@
               "only_compatible": true
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:book",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "enchantments": [
+                "zeldamod:swordspin"
+              ]
+            }
+          ]
         }
       ]
     },

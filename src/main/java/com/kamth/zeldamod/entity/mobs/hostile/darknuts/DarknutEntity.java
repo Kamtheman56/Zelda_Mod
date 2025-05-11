@@ -48,7 +48,7 @@ public class DarknutEntity extends Monster {
 
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState walkAnimationState = new AnimationState();
-//   public final AnimationState attackAnimationState = new AnimationState();
+   public final AnimationState attackAnimationState = new AnimationState();
 
     private int idleAnimationTimeout = 0;
     public int attackAnimationTimeout = 0;
@@ -64,47 +64,14 @@ public class DarknutEntity extends Monster {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.goalSelector.addGoal(1, new MeleeAttackGoal(this,1,true));
-        this.goalSelector.addGoal(1, new DarknutA(this, 1, true));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
     }
-
-//    @Override
-//    public void tick() {
-//        super.tick();
-//
-//        if (this.level().isClientSide) {
-//            setupAnimationStates();
-//        }
-//    }
-
-//    private void setupAnimationStates() {
-//        if (this.idleAnimationTimeout <= 0 && !this.isAttacking()) {
-//            this.idleAnimationTimeout = this.random.nextInt(40) + 80;
-//            this.idleAnimationState.start(this.tickCount);
-//        } else {
-//            --this.idleAnimationTimeout;
-//        }
-//
-//
-////        if (this.isAttacking() && attackAnimationTimeout<= 0){
-////            attackAnimationTimeout = 35;
-////            attackAnimationState.start(tickCount);
-////        } else {
-////            --this.attackAnimationTimeout;
-////        }
-////        if (!this.isAttacking()){
-////            this.attackAnimationState.stop();
-////            this.isBlocking();
-////        }
-//    }
-
-
 
 
 
     protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
         super.populateDefaultEquipmentSlots(pRandom, pDifficulty);
-    this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.CROSSBOW));
+    this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
         this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
     }
 
@@ -139,19 +106,7 @@ public class DarknutEntity extends Monster {
         return ModSounds.DARKNUT_INJURED.get();
     }
 
-    public DarknutEntity.DarknutArmPose getArmPose() {
-        return DarknutEntity.DarknutArmPose.CROSSED;
-    }
 
-    public static enum DarknutArmPose {
-
-        ATTACKING,
-        CROSSED,
-        BOW_AND_ARROW,
-        CROSSBOW_HOLD,
-        CROSSBOW_CHARGE,
-        NEUTRAL;
-    }
 
 
 
@@ -162,7 +117,6 @@ public class DarknutEntity extends Monster {
         this.populateDefaultEquipmentSlots(randomsource, pDifficulty);
         this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
         this.setCanPickUpLoot(randomsource.nextFloat() < 0.55F * pDifficulty.getSpecialMultiplier());
-
 
         return pSpawnData;
     }

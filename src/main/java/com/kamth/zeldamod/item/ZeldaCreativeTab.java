@@ -265,6 +265,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaBlocks.CRACKED_TIME_BRICKS_WALL);
             event.accept(ZeldaBlocks.MOSSY_TIME_BRICKS_WALL);
             event.accept(ZeldaBlocks.SPIKE_BLOCK);
+            event.accept(ZeldaBlocks.SHIEKAH_TECH_BLOCK);
             event.accept(ZeldaBlocks.ZELDA_STONE);
             event.accept(ZeldaBlocks.SUN_STONE);
             event.accept(ZeldaBlocks.NOTE_STONE);

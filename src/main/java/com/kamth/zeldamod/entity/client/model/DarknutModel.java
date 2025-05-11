@@ -6,6 +6,7 @@ package com.kamth.zeldamod.entity.client.model;
 
 
 import com.kamth.zeldamod.entity.animations.ModAnimationDefinitions;
+import com.kamth.zeldamod.entity.mobs.KorokEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarknutEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -122,6 +123,7 @@ public class DarknutModel<T extends Mob> extends HierarchicalModel<T> implements
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
+
         this.rightArm.xRot = Mth.cos(limbSwing * 0.6662F + 3.1415927F) * 2.0F * limbSwingAmount * 0.5F;
         this.rightArm.yRot = 0.0F;
         this.rightArm.zRot = 0.0F;
@@ -138,16 +140,12 @@ public class DarknutModel<T extends Mob> extends HierarchicalModel<T> implements
 
         ItemStack itemstack = entity.getMainHandItem();
         if (entity.isAggressive() && (itemstack.isEmpty() || !itemstack.is(Items.BOW))) {
+
             float f = Mth.sin(this.attackTime * (float)Math.PI);
             float f1 = Mth.sin((1.0F - (1.0F - this.attackTime) * (1.0F - this.attackTime)) * (float)Math.PI);
-            this.rightArm.zRot = 0.0F;
-            this.leftArm.zRot = 0.0F;
-            this.rightArm.yRot = -(0.1F - f * 0.6F);
-            this.leftArm.yRot = 0.1F - f * 0.6F;
-            this.rightArm.xRot = -((float)Math.PI / 2F);
-            this.leftArm.xRot = -((float)Math.PI / 2F);
+
             this.rightArm.xRot -= f * 1.2F - f1 * 0.4F;
-            this.leftArm.xRot -= f * 1.2F - f1 * 0.4F;
+
             AnimationUtils.bobArms(this.rightArm, this.leftArm, ageInTicks);
         }
     }
