@@ -144,7 +144,7 @@ public class DarknutModel<T extends Mob> extends HierarchicalModel<T> implements
             float f = Mth.sin(this.attackTime * (float)Math.PI);
             float f1 = Mth.sin((1.0F - (1.0F - this.attackTime) * (1.0F - this.attackTime)) * (float)Math.PI);
 
-            this.rightArm.xRot -= f * 1.2F - f1 * 0.4F;
+            this.leftArm.xRot -= f * 1.2F - f1 * 0.4F;
 
             AnimationUtils.bobArms(this.rightArm, this.leftArm, ageInTicks);
         }

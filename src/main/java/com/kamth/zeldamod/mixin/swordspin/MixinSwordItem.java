@@ -32,7 +32,7 @@ public class MixinSwordItem extends MixinItem {
 
 
 
-        if (hasSwordSpin && pUsedHand == InteractionHand.MAIN_HAND && !pPlayer.isCrouching()
+     if (hasSwordSpin && pUsedHand == InteractionHand.MAIN_HAND && !pPlayer.isCrouching()
                 && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive() ||
                 pUsedHand == InteractionHand.MAIN_HAND && pPlayer.getUseItem().is(ModTags.Items.SPIN_ATTACK_SWORDS) && !pPlayer.isCrouching()
                         && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive()) {
@@ -40,9 +40,9 @@ public class MixinSwordItem extends MixinItem {
             if (!pLevel.isClientSide()) {
                 pPlayer.playNotifySound(SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1, 1);
             }
-
             cir.setReturnValue(InteractionResultHolder.consume(itemstack));
         }
+        else cir.setReturnValue(InteractionResultHolder.pass(itemstack));
     }
 
     @Override

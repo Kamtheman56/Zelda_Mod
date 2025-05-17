@@ -20,6 +20,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Inventory;
@@ -161,7 +162,8 @@ public class GaleBoomerangProjectile extends AbstractBoomerang {
         } else {
             List<ItemEntity> items = level().getEntitiesOfClass(ItemEntity.class, getBoundingBox().inflate(2));
             List<ExperienceOrb> xpOrbs = level().getEntitiesOfClass(ExperienceOrb.class, getBoundingBox().inflate(2));
-            List<LivingEntity> livingEntities = level().getEntitiesOfClass(LivingEntity.class, getBoundingBox().inflate(4));
+            List<Monster> monsters = level().getEntitiesOfClass(Monster.class, getBoundingBox().inflate(4));
+            List<Animal> animals = level().getEntitiesOfClass(Animal.class, getBoundingBox().inflate(4));
 
             for (ItemEntity item : items) {
                 if (!item.isPassenger()) {
@@ -174,9 +176,14 @@ public class GaleBoomerangProjectile extends AbstractBoomerang {
                     xpOrb.startRiding(this);
                 }
             }
-            for (LivingEntity livingEntity : livingEntities) {
-                if (!livingEntity.isPassenger()) {
-                    livingEntity.startRiding(this);
+            for (Monster monster : monsters) {
+                if (!monster.isPassenger()) {
+                    monster.startRiding(this);
+                }
+            }
+            for (Animal animal : animals) {
+                if (!animal.isPassenger()) {
+                    animal.startRiding(this);
                 }
             }
 
@@ -231,6 +238,11 @@ public class GaleBoomerangProjectile extends AbstractBoomerang {
                 setDeltaMovement(toOwner.normalize().scale(1.025f).normalize());
             }
         }
+    }
+
+    @Override
+    protected boolean canAddPassenger(@Nonnull Entity passenger) {
+        return super.canAddPassenger(passenger) || passenger instanceof ItemEntity || passenger instanceof ExperienceOrb || passenger instanceof Monster || passenger instanceof BombEntity;
     }
 
 }
