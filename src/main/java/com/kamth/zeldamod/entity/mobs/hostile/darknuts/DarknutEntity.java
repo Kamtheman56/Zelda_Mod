@@ -72,12 +72,11 @@ public class DarknutEntity extends Monster {
     protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
         super.populateDefaultEquipmentSlots(pRandom, pDifficulty);
     this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
-        this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 35)
+                .add(Attributes.MAX_HEALTH, 30)
                 .add(Attributes.KNOCKBACK_RESISTANCE, .4f)
                 .add(Attributes.MOVEMENT_SPEED, .2f)
                 .add(Attributes.ATTACK_DAMAGE, 2)

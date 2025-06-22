@@ -3,13 +3,9 @@
   "category": "equipment",
   "pattern": [
     "XXX",
-    "XBX",
-    "XXX"
+    "X X"
   ],
   "key": {
-    "B": {
-      "item": "minecraft:leather_helmet"
-    },
     "X": {
       "item": "minecraft:green_wool"
     }

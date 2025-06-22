@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "blocks",
   "pattern": [
-    "rr"
+    "rrr"
   ],
   "key": {
     "r": {
-      "item": "minecraft:copper_block"
+      "item": "minecraft:copper_ingot"
     }
   },
   "result": {

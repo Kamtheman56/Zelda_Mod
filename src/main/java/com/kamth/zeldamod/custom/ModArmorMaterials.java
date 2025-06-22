@@ -162,16 +162,16 @@ public enum ModArmorMaterials implements ArmorMaterial {
     PEGASUS("pegasus", 0, new int[]{1, 4, 5, 1}, 0, SoundEvents.HORSE_GALLOP,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.SADDLE); }),
-    Kokiri("kokiri", 0, new int[]{1, 4, 2, 1}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Kokiri("kokiri", 0, new int[]{1, 3, 2, 1}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GREEN_WOOL); }),
-    GoronTunic("gorontunic", 0, new int[]{1, 4, 4, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+    GoronTunic("gorontunic", 0, new int[]{1, 3, 2, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.MAGMA_CREAM); }),
-    ZoraTunic("zoratunic", 0, new int[]{1, 4, 2, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+    ZoraTunic("zoratunic", 0, new int[]{1, 3, 2, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.NAUTILUS_SHELL); }),
-    Classic("classic", 0, new int[]{5, 6, 2, 2}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Classic("classic", 0, new int[]{5, 5, 2, 2}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GREEN_WOOL); }),
     Roc("roc", 0, new int[]{1, 2, 2, 1}, 0, SoundEvents.PARROT_FLY,

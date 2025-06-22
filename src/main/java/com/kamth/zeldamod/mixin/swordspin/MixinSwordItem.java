@@ -31,13 +31,12 @@ public class MixinSwordItem extends MixinItem {
         pPlayer.startUsingItem(pUsedHand);
 
 
-
-     if (hasSwordSpin && pUsedHand == InteractionHand.MAIN_HAND && !pPlayer.isCrouching()
+ if (hasSwordSpin && pUsedHand == InteractionHand.MAIN_HAND
                 && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive() ||
-                pUsedHand == InteractionHand.MAIN_HAND && pPlayer.getUseItem().is(ModTags.Items.SPIN_ATTACK_SWORDS) && !pPlayer.isCrouching()
+                pUsedHand == InteractionHand.MAIN_HAND && pPlayer.getUseItem().is(ModTags.Items.SPIN_ATTACK_SWORDS)
                         && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive()) {
 
-            if (!pLevel.isClientSide()) {
+            if (!pLevel.isClientSide() && pPlayer.isCrouching()) {
                 pPlayer.playNotifySound(SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1, 1);
             }
             cir.setReturnValue(InteractionResultHolder.consume(itemstack));

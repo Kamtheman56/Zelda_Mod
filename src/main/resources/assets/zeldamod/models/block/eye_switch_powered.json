@@ -1,56 +1,8 @@
 {
-	"credit": "Made with Blockbench",
+	"parent": "zeldamod:block/eye_switch",
 	"textures": {
 		"2": "zeldamod:block/eye_switch_closed",
 		"3": "minecraft:block/gold_block",
 		"particle": "zeldamod:block/eye_switch"
-	},
-	"elements": [
-		{
-			"from": [2.5, 2, 14],
-			"to": [13.5, 13, 16],
-			"rotation": {"angle": -45, "axis": "z", "origin": [8.41421, 7.70711, 15]},
-			"faces": {
-				"north": {"uv": [2, 2, 13, 13], "texture": "#2"},
-				"east": {"uv": [2, 2, 4, 13], "texture": "#2"},
-				"south": {"uv": [2, 2, 13, 13], "texture": "#3"},
-				"west": {"uv": [13, 2, 15, 13], "texture": "#2"},
-				"up": {"uv": [13, 14, 2, 12], "texture": "#2"},
-				"down": {"uv": [13, 1, 2, 3], "texture": "#2"}
-			}
-		}
-	],
-	"gui_light": "front",
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [80.28, 36.38, -7.35],
-			"translation": [-2.75, 4, 0],
-			"scale": [0.6, 0.6, 0.6]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [85.94, 38.12, -15.74],
-			"translation": [-2.75, 4, 0],
-			"scale": [0.6, 0.6, 0.6]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, 45, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 225, 0],
-			"translation": [8.25, 0, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"ground": {
-			"translation": [0, 3, 0],
-			"scale": [0.25, 0.25, 0.25]
-		},
-		"gui": {
-			"rotation": [178.78, 0, 180],
-			"translation": [0.25, 0.5, 0]
-		},
-		"fixed": {
-			"translation": [-0.5, -0.5, -7]
-		}
 	}
 }

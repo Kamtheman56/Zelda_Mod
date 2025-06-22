@@ -4,7 +4,7 @@
   "key": {
     "#": [
       {
-        "item": "minecraft:cornflower"
+        "item": "minecraft:blue_dye"
       }
     ],
     "L": [
@@ -13,9 +13,9 @@
       }
     ]},
   "pattern": [
-    " # ",
+    "###",
     "#L#",
-    " # "
+    "###"
   ],
   "result": {
     "item": "zeldamod:deku_block_blue"

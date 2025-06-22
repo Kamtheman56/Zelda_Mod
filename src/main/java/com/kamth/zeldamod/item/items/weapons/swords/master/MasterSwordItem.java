@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.items.weapons.swords.master;
 
 import com.kamth.zeldamod.custom.ModTags;
+import com.kamth.zeldamod.enchantments.ZeldaEnchantments;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.ModTiers;
 import com.kamth.zeldamod.item.items.weapons.swords.GloomBreakingSword;
@@ -11,6 +12,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
@@ -55,6 +57,7 @@ public class MasterSwordItem extends GloomBreakingSword implements IBeamShootAct
         }
         return true;
     }
+
 
 
     @Override

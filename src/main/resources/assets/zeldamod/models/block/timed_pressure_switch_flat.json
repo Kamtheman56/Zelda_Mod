@@ -1,5 +1,5 @@
 {
-	"credit": "Made with Blockbench",
+	"parent": "zeldamod:block/pressure_switch_flat",
 	"textures": {
 		"0": "zeldamod:block/pressure_switch_timed",
 		"1": "block/iron_block",
