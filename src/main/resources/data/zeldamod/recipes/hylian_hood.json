@@ -3,13 +3,9 @@
   "category": "equipment",
   "pattern": [
     "XXX",
-    "XBX",
-    "XXX"
+    "X X"
   ],
   "key": {
-    "B": {
-      "item": "zeldamod:kokiri_hat"
-    },
     "X": {
       "item": "minecraft:black_wool"
     }

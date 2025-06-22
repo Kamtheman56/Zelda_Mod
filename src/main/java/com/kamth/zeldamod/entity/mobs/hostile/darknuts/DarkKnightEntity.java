@@ -23,7 +23,7 @@ public class DarkKnightEntity extends DarknutEntity {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 54)
+                .add(Attributes.MAX_HEALTH, 45)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 3f)
                 .add(Attributes.MOVEMENT_SPEED, .18f)
                 .add(Attributes.ATTACK_DAMAGE, 4)
@@ -37,7 +37,6 @@ public class DarkKnightEntity extends DarknutEntity {
     protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
         super.populateDefaultEquipmentSlots(pRandom, pDifficulty);
         this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
-        this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
     }
 
     @Override

@@ -4,12 +4,12 @@
     "item": "zeldamod:master_upgrade"
   },
   "base": {
-    "item": "zeldamod:digging_mitts"
+    "item": "zeldamod:kokiri_tunic"
   },
   "addition": {
-    "item": "zeldamod:master_ore"
+    "item": "zeldamod:nightshade"
   },
   "result": {
-    "item": "zeldamod:mogma_mitts"
+    "item": "zeldamod:champion_tunic"
   }
 }

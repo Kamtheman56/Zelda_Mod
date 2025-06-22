@@ -47,8 +47,8 @@ public class DarknutModel<T extends Mob> extends HierarchicalModel<T> implements
             this.darknut = root.getChild("darknut");
             this.head = darknut.getChild("head");
             this.body = darknut.getChild("body");
-            this.rightArm = body.getChild("arm_l");
-            this.leftArm = body.getChild("arm_r");
+            this.rightArm = body.getChild("arm_r");
+            this.leftArm = body.getChild("arm_l");
             this.rightLeg = darknut.getChild("leg_r");
             this.leftLeg = darknut.getChild("leg_l");
 
@@ -62,13 +62,13 @@ public class DarknutModel<T extends Mob> extends HierarchicalModel<T> implements
 
             PartDefinition body = darknut.addOrReplaceChild("body", CubeListBuilder.create().texOffs(30, 28).addBox(-4.002F, -10.4F, -1.998F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.002F, -13.6F, 0.998F));
 
-            PartDefinition arm_r = body.addOrReplaceChild("arm_r", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(5.998F, -10.4F, -0.998F));
+            PartDefinition arm_l = body.addOrReplaceChild("arm_l", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(5.998F, -10.4F, -0.998F));
 
-            PartDefinition pad_r = arm_r.addOrReplaceChild("pad_r", CubeListBuilder.create().texOffs(42, 0).addBox(-3.0F, -0.5F, -3.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, -0.5F, 1.0F));
+            PartDefinition pad_l = arm_l.addOrReplaceChild("pad_l", CubeListBuilder.create().texOffs(42, 0).addBox(-3.0F, -0.5F, -3.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, -0.5F, 1.0F));
 
-            PartDefinition arm_l = body.addOrReplaceChild("arm_l", CubeListBuilder.create().texOffs(0, 32).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-6.002F, -10.4F, 0.002F));
+            PartDefinition arm_r = body.addOrReplaceChild("arm_r", CubeListBuilder.create().texOffs(0, 32).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-6.002F, -10.4F, 0.002F));
 
-            PartDefinition pad_l = arm_l.addOrReplaceChild("pad_l", CubeListBuilder.create().texOffs(34, 16).addBox(-11.0F, -13.0F, -3.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(7.0F, 12.0F, 0.0F));
+            PartDefinition pad_r = arm_r.addOrReplaceChild("pad_r", CubeListBuilder.create().texOffs(34, 16).addBox(-11.0F, -13.0F, -3.0F, 6.0F, 1.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(7.0F, 12.0F, 0.0F));
 
             PartDefinition head = darknut.addOrReplaceChild("head", CubeListBuilder.create().texOffs(16, 25).addBox(0.0F, -9.0F, -4.702F, 0.0F, 6.0F, 7.0F, new CubeDeformation(0.0F))
                     .texOffs(18, 0).addBox(-8.0F, -5.0F, -0.702F, 4.0F, 4.0F, 0.0F, new CubeDeformation(0.0F))
@@ -114,7 +114,7 @@ public class DarknutModel<T extends Mob> extends HierarchicalModel<T> implements
     }
 
     private ModelPart getArm(HumanoidArm pArm) {
-        return pArm == HumanoidArm.LEFT ? this.leftArm : this.rightArm;
+        return pArm == HumanoidArm.RIGHT ? this.leftArm : this.rightArm;
     }
 
 

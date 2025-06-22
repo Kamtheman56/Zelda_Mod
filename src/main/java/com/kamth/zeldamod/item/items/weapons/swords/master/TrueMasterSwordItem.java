@@ -25,7 +25,7 @@ public class TrueMasterSwordItem extends GloomBreakingSword implements IBeamShoo
 
     @Override
     public boolean healthRequirement() {
-        return false;
+        return true;
     }
 
     @Override

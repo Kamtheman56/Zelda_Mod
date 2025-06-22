@@ -1,24 +1,16 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "equipment",
-  "key": {
-    "#": [
-      {
-        "item": "minecraft:nautilus_shell"
-      }
-    ],
-    "L": [
-      {
-        "item": "zeldamod:bomb"
-      }
-    ]},
-  "pattern": [
-    " # ",
-    "#L#",
-    " # "
+  "ingredients": [
+    {
+      "item": "zeldamod:bomb"
+    },
+    {
+      "item": "zeldamod:nautilus_shell"
+    }
   ],
   "result": {
-    "item": "zeldamod:water_bomb"
-  },
-  "show_notification": true
+    "item": "zeldamod:water_bomb",
+    "count": 1
+  }
 }

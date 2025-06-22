@@ -1,10 +1,10 @@
-{
+  {
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
     "#": [
       {
-        "item": "minecraft:dandelion"
+        "item": "minecraft:yellow_dye"
       }
     ],
     "L": [
@@ -13,9 +13,9 @@
       }
     ]},
   "pattern": [
-    " # ",
+    "###",
     "#L#",
-    " # "
+    "###"
   ],
   "result": {
     "item": "zeldamod:deku_block_gold"

@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.CandleBlock;
 import net.minecraft.world.level.block.CandleCakeBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.gameevent.GameEvent;
 
 import javax.annotation.Nullable;
@@ -61,6 +62,7 @@ public class StickItem extends Item {
 
     public InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
+        Player player = pContext.getPlayer();
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
         ItemStack itemstack = pContext.getItemInHand();
@@ -95,8 +97,18 @@ public class StickItem extends Item {
                     pContext.getPlayer().playSound(SoundEvents.ITEM_BREAK);
                   itemstack.shrink(1);}
                 return InteractionResult.sidedSuccess(level.isClientSide());
-            }}
+            }
+        }
         else {
+            level.playSound(player, blockpos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
+            level.setBlock(blockpos, blockstate.setValue(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
+            level.gameEvent(player, GameEvent.BLOCK_CHANGE, blockpos);
+            if (player != null) {
+                pContext.getItemInHand().hurtAndBreak(1, player, (p_41303_) -> {
+                    p_41303_.broadcastBreakEvent(pContext.getHand());
+                });
+            }
+            return InteractionResult.sidedSuccess(level.isClientSide());
         }
         return InteractionResult.FAIL;}
 
