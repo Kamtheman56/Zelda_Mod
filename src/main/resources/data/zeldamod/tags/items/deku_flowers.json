@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "zeldamod:deku_flower",
+    "zeldamod:deku_flower_blue",
+    "zeldamod:deku_flower_light_blue",
+    "zeldamod:deku_flower_green",
+    "zeldamod:deku_flower_lime",
+    "zeldamod:deku_flower_brown",
+    "zeldamod:deku_flower_black",
+    "zeldamod:deku_flower_gray",
+    "zeldamod:deku_flower_light_gray",
+    "zeldamod:deku_flower_white",
+    "zeldamod:deku_flower_red",
+    "zeldamod:deku_flower_orange",
+    "zeldamod:deku_flower_magenta",
+    "zeldamod:deku_flower_purple",
+    "zeldamod:deku_flower_teal",
+    "zeldamod:deku_flower_gold"
+  ]
+}

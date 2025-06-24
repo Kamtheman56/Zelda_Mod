@@ -11,7 +11,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "zeldamod:deku_block"
+              "Name": "zeldamod:deku_flower"
             }
           }
         }

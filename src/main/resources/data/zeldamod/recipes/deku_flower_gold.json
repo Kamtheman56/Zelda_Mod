@@ -1,24 +1,16 @@
-  {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "#": [
-      {
-        "item": "minecraft:yellow_dye"
-      }
-    ],
-    "L": [
-      {
-        "item": "zeldamod:deku_block"
-      }
-    ]},
-  "pattern": [
-    "###",
-    "#L#",
-    "###"
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "blocks",
+  "ingredients": [
+    {
+      "tag": "zeldamod:deku_flowers"
+    },
+    {
+      "item": "minecraft:yellow_dye"
+    }
   ],
   "result": {
-    "item": "zeldamod:deku_block_gold"
-  },
-  "show_notification": true
+    "item": "zeldamod:deku_flower_gold",
+    "count": 1
+  }
 }

@@ -66,9 +66,23 @@ public class ZeldaBlocks {
     public static final RegistryObject<Block> ANCIENT_SWORD_PEDESTAL = registerBlock("ancient_sword_pedestal", ()-> new AncientSwordPedestalBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
     // DEKU FLOWER BLOCKS
-    public static final RegistryObject<Block> DEKU_BLOCK = registerBlock("deku_block", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0)));
-    public static final RegistryObject<Block> DEKU_BLOCK_GOLD = registerBlock("deku_block_gold", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
-    public static final RegistryObject<Block> DEKU_BLOCK_BLUE = registerBlock("deku_block_blue", ()-> new BlueDekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER = registerBlock("deku_flower", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0)));
+    public static final RegistryObject<Block> DEKU_FLOWER_GOLD = registerBlock("deku_flower_gold", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_BLUE = registerBlock("deku_flower_blue", ()-> new BlueDekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_LIGHT_BLUE = registerBlock("deku_flower_light_blue", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_TEAL = registerBlock("deku_flower_teal", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_RED = registerBlock("deku_flower_red", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_ORANGE = registerBlock("deku_flower_orange", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_BROWN = registerBlock("deku_flower_brown", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_GREEN = registerBlock("deku_flower_green", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_LIME = registerBlock("deku_flower_lime", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_BLACK = registerBlock("deku_flower_black", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_WHITE = registerBlock("deku_flower_white", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_GRAY = registerBlock("deku_flower_gray", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_LIGHT_GRAY = registerBlock("deku_flower_light_gray", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_PURPLE = registerBlock("deku_flower_purple", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+    public static final RegistryObject<Block> DEKU_FLOWER_MAGENTA = registerBlock("deku_flower_magenta", ()-> new DekuFlowerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noOcclusion().strength(0).noOcclusion()));
+
 
     // FLAME BLOCKS
     public static final RegistryObject<Block> COURAGE_FLAME = registerBlock("courage_flame", ()-> new SacredFlameBlock(BlockBehaviour.Properties.of().strength(8).sound(SoundType.EMPTY).noOcclusion().noCollission().lightLevel((p_50755_) -> 10).noLootTable()) );

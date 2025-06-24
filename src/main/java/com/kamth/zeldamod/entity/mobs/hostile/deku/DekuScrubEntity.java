@@ -128,7 +128,7 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
         }
 
         protected boolean isValidTarget(LevelReader pLevel, BlockPos pPos) {
-            return pLevel.getBlockState(pPos).is(ZeldaBlocks.DEKU_BLOCK.get()) && pLevel.getBlockState(pPos.above()).isPathfindable(pLevel, pPos, PathComputationType.LAND);
+            return pLevel.getBlockState(pPos).is(ZeldaBlocks.DEKU_FLOWER.get()) && pLevel.getBlockState(pPos.above()).isPathfindable(pLevel, pPos, PathComputationType.LAND);
         }
     }
 

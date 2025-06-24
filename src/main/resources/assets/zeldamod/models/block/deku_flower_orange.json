@@ -1,0 +1,9 @@
+{
+  "parent": "zeldamod:block/deku_flower",
+  "textures": {
+    "2": "zeldamod:block/deku_flower_bottom",
+    "particle": "zeldamod:block/deku_flower_orange",
+    "flower": "zeldamod:block/deku_flower_orange",
+    "base": "minecraft:block/spore_blossom_base"
+  }
+}

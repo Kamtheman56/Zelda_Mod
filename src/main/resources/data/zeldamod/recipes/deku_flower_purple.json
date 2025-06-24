@@ -6,11 +6,11 @@
       "tag": "zeldamod:deku_flowers"
     },
     {
-      "item": "minecraft:blue_dye"
+      "item": "minecraft:purple_dye"
     }
   ],
   "result": {
-    "item": "zeldamod:deku_flower_blue",
+    "item": "zeldamod:deku_flower_purple",
     "count": 1
   }
 }

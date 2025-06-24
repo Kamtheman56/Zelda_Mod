@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:deku_block_blue"
+          "name": "zeldamod:deku_flower_lime"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "zeldamod:blocks/deku_block_blue"
+  "random_sequence": "zeldamod:blocks/deku_flower_lime"
 }

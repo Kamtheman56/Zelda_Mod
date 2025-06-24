@@ -1,5 +1,5 @@
 {
-  "parent": "zeldamod:block/deku_block",
+  "parent": "zeldamod:block/deku_flower",
   "textures": {
     "2": "zeldamod:block/deku_flower_gold",
     "particle": "zeldamod:block/deku_flower_gold",
