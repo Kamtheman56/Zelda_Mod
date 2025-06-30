@@ -5,27 +5,49 @@ import com.kamth.zeldamod.entity.client.MobModelLayers;
 import com.kamth.zeldamod.entity.client.model.ChuchuModel;
 import com.kamth.zeldamod.entity.client.model.ChuchuOuterLayer;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.ChuchuEntity;
+
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+
 import net.minecraft.resources.ResourceLocation;
+
+import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.Mth;
+import net.minecraftforge.registries.ForgeRegistries;
+
+
 
 public class ChuchuRenderer extends MobRenderer<ChuchuEntity, ChuchuModel<ChuchuEntity>> {
     public ChuchuRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new ChuchuModel<>(pContext.bakeLayer(MobModelLayers.CHUCHU_LAYER)), .2f);
-        this.addLayer(new ChuchuOuterLayer<>(this, pContext.getModelSet()));
+      this.addLayer(new ChuchuOuterLayer<>(this, pContext.getModelSet()));
+
     }
+
 
     @Override
     public ResourceLocation getTextureLocation(ChuchuEntity pEntity) {
-        return new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/chuchu.png");
+        ResourceManager resourceManager = Minecraft.getInstance().getResourceManager();
+
+
+        ResourceLocation texture = new ResourceLocation
+                (ZeldaMod.MOD_ID, "textures/entity/mob/"  + ForgeRegistries.ENTITY_TYPES.getKey(pEntity.getType()).getPath() + ".png");
+
+
+            return texture;
+
     }
 
     @Override
     public void render(ChuchuEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
                        MultiBufferSource pBuffer, int pPackedLight) {
+
+        if (pEntity.getScale() >= 1){
+
+        };
 
 
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);

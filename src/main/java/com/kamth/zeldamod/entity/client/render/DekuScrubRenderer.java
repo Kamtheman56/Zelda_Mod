@@ -2,13 +2,17 @@ package com.kamth.zeldamod.entity.client.render;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.client.model.DekuModel;
+import com.kamth.zeldamod.entity.mobs.hostile.chus.ChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.deku.DekuScrubEntity;
 import com.kamth.zeldamod.item.armors.render.ModModelLayers;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class DekuScrubRenderer extends MobRenderer<DekuScrubEntity, DekuModel<DekuScrubEntity>> {
     public DekuScrubRenderer(EntityRendererProvider.Context pContext) {
@@ -17,7 +21,13 @@ public class DekuScrubRenderer extends MobRenderer<DekuScrubEntity, DekuModel<De
 
     @Override
     public ResourceLocation getTextureLocation(DekuScrubEntity pEntity) {
-        return new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/deku_scrub_leaves.png");
+
+        ResourceLocation texture = new ResourceLocation
+                (ZeldaMod.MOD_ID, "textures/entity/mob/"  + ForgeRegistries.ENTITY_TYPES.getKey(pEntity.getType()).getPath() + ".png");
+
+
+        return texture;
+
     }
     @Override
     public void render(DekuScrubEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,

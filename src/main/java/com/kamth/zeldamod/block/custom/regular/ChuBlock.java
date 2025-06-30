@@ -1,7 +1,9 @@
 package com.kamth.zeldamod.block.custom.regular;
 
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Equipable;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -14,7 +16,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.Vec3;
 
-public class ChuBlock extends SlimeBlock {
+public class ChuBlock extends SlimeBlock implements Equipable {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public ChuBlock(Properties pProperties) {
         super(pProperties);
@@ -56,5 +58,10 @@ public class ChuBlock extends SlimeBlock {
             pEntity.setDeltaMovement(vec3.x, -vec3.y * d0, vec3.z);
         }
 
+    }
+
+    @Override
+    public EquipmentSlot getEquipmentSlot() {
+        return EquipmentSlot.HEAD;
     }
 }
