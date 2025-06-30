@@ -14,6 +14,7 @@ public class ArchaicTunicModel extends HumanoidModel<LivingEntity> {
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = HumanoidModel.createMesh(LayerDefinitions.INNER_ARMOR_DEFORMATION, 0.0F);
         PartDefinition partdefinition = meshdefinition.getRoot();
+
         PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(16, 16).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, LayerDefinitions.INNER_ARMOR_DEFORMATION), PartPose.ZERO);
         PartDefinition leftArm = partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(32, 48).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, LayerDefinitions.INNER_ARMOR_DEFORMATION), PartPose.offset(5.0F, 2.0F, 0.0F));
 

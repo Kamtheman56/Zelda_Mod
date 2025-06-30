@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
         "textures": {
-          "layer0": "zeldamod:item/champion2_tunic"
+          "layer0": "zeldamod:item/champion_leathers"
         }
 }

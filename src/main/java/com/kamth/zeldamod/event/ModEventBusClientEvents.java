@@ -10,10 +10,9 @@ import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.client.*;
 import com.kamth.zeldamod.entity.client.model.*;
 import com.kamth.zeldamod.entity.client.render.*;
+
 import com.kamth.zeldamod.entity.client.render.chu.ChuchuRenderer;
-import com.kamth.zeldamod.entity.client.render.chu.ElectricChuchuRenderer;
-import com.kamth.zeldamod.entity.client.render.chu.FireChuchuRenderer;
-import com.kamth.zeldamod.entity.client.render.chu.IceChuchuRenderer;
+
 import com.kamth.zeldamod.entity.client.render.darknuts.DarkKnightRenderer;
 import com.kamth.zeldamod.entity.client.render.darknuts.DarknutRenderer;
 import com.kamth.zeldamod.entity.client.render.darknuts.IronKnuckleRenderer;
@@ -91,10 +90,11 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(MobModelLayers.ICE_KEESE_LAYER, KeeseModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.ELECTRIC_KEESE_LAYER, KeeseModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.CHUCHU_LAYER, ChuchuModel::createBodyLayer);
+        event.registerLayerDefinition(MobModelLayers.CHUCHU_SMALL_LAYER, ChuchuModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.ICE_CHUCHU_LAYER, ChuchuModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.FIRE_CHUCHU_LAYER, ChuchuModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.ELECTRIC_CHUCHU_LAYER, ChuchuModel::createBodyLayer);
-        event.registerLayerDefinition(MobModelLayers.CHUCHU_OUTER_LAYER, ChuchuModel::createBodyLayer);
+        event.registerLayerDefinition(MobModelLayers.CHUCHU_OUTER_LAYER, ChuchuModel::createOuterBodyLayer);
         event.registerLayerDefinition(MobModelLayers.KOROK_LAYER, KorokModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.CAP, CapModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.SKULLTULA_LAYER, SkulltulaModel::createBodyLayer);
@@ -112,13 +112,13 @@ public class ModEventBusClientEvents {
         EntityRenderers.register(ModEntityTypes.DARK_NUT.get(), DarknutRenderer::new);
         EntityRenderers.register(ModEntityTypes.DARK_KNIGHT.get(), DarkKnightRenderer::new);
         EntityRenderers.register(ModEntityTypes.KEESE.get(), KeeseRenderer::new);
-        EntityRenderers.register(ModEntityTypes.FIRE_KEESE.get(), FireKeeseRenderer::new);
-        EntityRenderers.register(ModEntityTypes.ICE_KEESE.get(), IceKeeseRenderer::new);
-        EntityRenderers.register(ModEntityTypes.ELECTRIC_KEESE.get(), ElectricKeeseRenderer::new);
+        EntityRenderers.register(ModEntityTypes.FIRE_KEESE.get(), KeeseRenderer::new);
+        EntityRenderers.register(ModEntityTypes.ICE_KEESE.get(), KeeseRenderer::new);
+        EntityRenderers.register(ModEntityTypes.ELECTRIC_KEESE.get(), KeeseRenderer::new);
         EntityRenderers.register(ModEntityTypes.CHUCHU.get(), ChuchuRenderer::new);
-        EntityRenderers.register(ModEntityTypes.CHUCHU_FIRE.get(), FireChuchuRenderer::new);
-        EntityRenderers.register(ModEntityTypes.CHUCHU_ICE.get(), IceChuchuRenderer::new);
-        EntityRenderers.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), ElectricChuchuRenderer::new);
+        EntityRenderers.register(ModEntityTypes.CHUCHU_FIRE.get(), ChuchuRenderer::new);
+        EntityRenderers.register(ModEntityTypes.CHUCHU_ICE.get(), ChuchuRenderer::new);
+        EntityRenderers.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), ChuchuRenderer::new);
         EntityRenderers.register(ModEntityTypes.KOROK.get(), KorokRenderer::new);
         EntityRenderers.register(ModEntityTypes.SKULLTULA.get(), SkulltulaRenderer::new);
         EntityRenderers.register(ModEntityTypes.IRON_KNUCKLE.get(), IronKnuckleRenderer::new);
