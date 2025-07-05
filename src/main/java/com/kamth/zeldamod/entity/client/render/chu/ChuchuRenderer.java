@@ -11,14 +11,14 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-
+import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.Mth;
 import net.minecraftforge.registries.ForgeRegistries;
 
-
+import java.util.Optional;
 
 public class ChuchuRenderer extends MobRenderer<ChuchuEntity, ChuchuModel<ChuchuEntity>> {
     public ChuchuRenderer(EntityRendererProvider.Context pContext) {
@@ -33,11 +33,11 @@ public class ChuchuRenderer extends MobRenderer<ChuchuEntity, ChuchuModel<Chuchu
         ResourceManager resourceManager = Minecraft.getInstance().getResourceManager();
 
 
-        ResourceLocation texture = new ResourceLocation
+        ResourceLocation ChuTex = new ResourceLocation
                 (ZeldaMod.MOD_ID, "textures/entity/mob/"  + ForgeRegistries.ENTITY_TYPES.getKey(pEntity.getType()).getPath() + ".png");
 
 
-            return texture;
+            return ChuTex;
 
     }
 
@@ -45,9 +45,7 @@ public class ChuchuRenderer extends MobRenderer<ChuchuEntity, ChuchuModel<Chuchu
     public void render(ChuchuEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
                        MultiBufferSource pBuffer, int pPackedLight) {
 
-        if (pEntity.getScale() >= 1){
 
-        };
 
 
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);

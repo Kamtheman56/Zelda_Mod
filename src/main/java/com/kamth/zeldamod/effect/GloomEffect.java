@@ -16,7 +16,7 @@ public class GloomEffect extends MobEffect {
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier){
         super.applyEffectTick(pLivingEntity, pAmplifier);
-        if (this == ModEffects.GLOOM.get() && !pLivingEntity.hasEffect(ModEffects.GLOOM_RESIST.get()) &&new Random().nextFloat() > .8f) {
+        if (this == ModEffects.GLOOM.get() && !pLivingEntity.hasEffect(ModEffects.GLOOM_RESIST.get()) && pLivingEntity.getHealth() > 2 && new Random().nextFloat() > .8f) {
                 pLivingEntity.hurt(pLivingEntity.damageSources().wither(), 1.0F);
 
          //   pLivingEntity.hurt(ModDamageTypes.causeMalice(pLivingEntity),1.0F);

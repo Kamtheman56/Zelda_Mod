@@ -90,12 +90,16 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(MobModelLayers.ICE_KEESE_LAYER, KeeseModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.ELECTRIC_KEESE_LAYER, KeeseModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.CHUCHU_LAYER, ChuchuModel::createBodyLayer);
-        event.registerLayerDefinition(MobModelLayers.CHUCHU_SMALL_LAYER, ChuchuModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.ICE_CHUCHU_LAYER, ChuchuModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.FIRE_CHUCHU_LAYER, ChuchuModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.ELECTRIC_CHUCHU_LAYER, ChuchuModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.CHUCHU_OUTER_LAYER, ChuchuModel::createOuterBodyLayer);
         event.registerLayerDefinition(MobModelLayers.KOROK_LAYER, KorokModel::createBodyLayer);
+        event.registerLayerDefinition(MobModelLayers.RED_BOKOBLIN_LAYER, BokoblinModel::createBodyLayer);
+
+
+
+
         event.registerLayerDefinition(ModModelLayers.CAP, CapModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.SKULLTULA_LAYER, SkulltulaModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.DARK_NUT_HELMET, DarknutHelmetModel::createBodyLayer);
@@ -119,6 +123,7 @@ public class ModEventBusClientEvents {
         EntityRenderers.register(ModEntityTypes.CHUCHU_FIRE.get(), ChuchuRenderer::new);
         EntityRenderers.register(ModEntityTypes.CHUCHU_ICE.get(), ChuchuRenderer::new);
         EntityRenderers.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), ChuchuRenderer::new);
+        EntityRenderers.register(ModEntityTypes.RED_BOKOBLIN.get(), BokoblinRenderer::new);
         EntityRenderers.register(ModEntityTypes.KOROK.get(), KorokRenderer::new);
         EntityRenderers.register(ModEntityTypes.SKULLTULA.get(), SkulltulaRenderer::new);
         EntityRenderers.register(ModEntityTypes.IRON_KNUCKLE.get(), IronKnuckleRenderer::new);

@@ -4,6 +4,7 @@ package com.kamth.zeldamod.event;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.mobs.*;
+import com.kamth.zeldamod.entity.mobs.hostile.bokoblin.BokoblinEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.ChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.ElectricChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.FireChuchuEntity;
@@ -38,6 +39,7 @@ public class ModEventBusEvents {
         event.put(ModEntityTypes.CHUCHU_ICE.get(), IceChuchuEntity.createAttributes().build());
         event.put(ModEntityTypes.CHUCHU_FIRE.get(), FireChuchuEntity.createAttributes().build());
         event.put(ModEntityTypes.CHUCHU_ELECTRIC.get(), ElectricChuchuEntity.createAttributes().build());
+        event.put(ModEntityTypes.RED_BOKOBLIN.get(), BokoblinEntity.createAttributes().build());
         event.put(ModEntityTypes.KOROK.get(), KorokEntity.createAttributes().build());
         event.put(ModEntityTypes.SKULLTULA.get(), SkulltulaEntity.createAttributes().build());
         event.put(ModEntityTypes.IRON_KNUCKLE.get(), IronKnuckleEntity.createAttributes().build());

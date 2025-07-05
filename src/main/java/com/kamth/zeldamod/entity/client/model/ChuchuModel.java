@@ -40,9 +40,15 @@ public class ChuchuModel<T extends Entity> extends HierarchicalModel<T> {
 
         PartDefinition bone = base.addOrReplaceChild("bone", CubeListBuilder.create().texOffs(3, 31).addBox(-4.0F, -4.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-        PartDefinition lefteye = base.addOrReplaceChild("lefteye", CubeListBuilder.create().texOffs(44, 27).addBox(-4.0F, -6.5F, 2.0F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, -1.5F, -6.5F));
+        PartDefinition lefteye = base.addOrReplaceChild("lefteye", CubeListBuilder.create(), PartPose.offset(-4.0F, -1.5F, -6.5F));
 
-        PartDefinition righteye = base.addOrReplaceChild("righteye", CubeListBuilder.create().texOffs(44, 27).mirror().addBox(-1.0F, -6.5F, 2.0F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, -1.5F, -6.5F));
+        PartDefinition lefteye_r1 = lefteye.addOrReplaceChild("lefteye_r1", CubeListBuilder.create().texOffs(44, 27).addBox(-0.5F, -2.5F, -2.5F, 3.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.0F, -4.0F, 0.5F, -0.2795F, -0.6485F, 0.4436F));
+
+        PartDefinition righteye = base.addOrReplaceChild("righteye", CubeListBuilder.create(), PartPose.offset(4.0F, -1.5F, -6.5F));
+
+        PartDefinition righteye_r1 = righteye.addOrReplaceChild("righteye_r1", CubeListBuilder.create().texOffs(44, 27).mirror().addBox(-2.5F, -2.5F, -2.5F, 3.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.0F, -4.0F, 0.5F, -0.2795F, 0.6485F, -0.4436F));
+
+
         return LayerDefinition.create(meshdefinition, 64, 64);
     }
 

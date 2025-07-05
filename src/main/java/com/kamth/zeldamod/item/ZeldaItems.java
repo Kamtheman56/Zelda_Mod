@@ -102,7 +102,7 @@ public class ZeldaItems {
 
     // MASTER ORE
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
-            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+            () -> new WarpItem(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE).stacksTo(1)));
     public static final RegistryObject<Item> MASTER_SHARD = ITEMS.register("master_shard",
@@ -810,6 +810,10 @@ public class ZeldaItems {
     public static final RegistryObject<Item> FIRE_CHU_SPAWN_EGG = regSpawnEgg("fire_chuchu", ModEntityTypes.CHUCHU_FIRE, 0xff3e33, 0xe31c33);
     public static final RegistryObject<Item> ICE_CHU_SPAWN_EGG = regSpawnEgg("ice_chuchu", ModEntityTypes.CHUCHU_ICE, 0xC7feff, 0xffffff);
     public static final RegistryObject<Item> ELECTRIC_CHU_SPAWN_EGG = regSpawnEgg("electric_chuchu", ModEntityTypes.CHUCHU_ELECTRIC, 0xcfff1a, 0x60f514);
+
+    // BOKOBLINS
+    public static final RegistryObject<Item> BOKOBLIN_SPAWN_EGG = ITEMS.register("red_bokoblin_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.RED_BOKOBLIN, 7493436, 16252718, new Item.Properties()));
 
     // FRIENDLY MOBS
 

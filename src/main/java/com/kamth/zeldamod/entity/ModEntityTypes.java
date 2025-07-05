@@ -2,6 +2,7 @@ package com.kamth.zeldamod.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.mobs.*;
+import com.kamth.zeldamod.entity.mobs.hostile.bokoblin.BokoblinEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.ChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.ElectricChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.FireChuchuEntity;
@@ -147,6 +148,12 @@ public class ModEntityTypes {
 
     public static final RegistryObject<EntityType<ElectricChuchuEntity>> CHUCHU_ELECTRIC = ENTITY_TYPES.register("chuchu_electric", () -> Builder.of(ElectricChuchuEntity::new, MobCategory.MONSTER)
             .sized(3F, 3F).build("chuchu_electric"));
+
+    // BOKOBLINS
+
+    public static final RegistryObject<EntityType<BokoblinEntity>> RED_BOKOBLIN = ENTITY_TYPES.register("red_bokoblin", () -> EntityType.Builder.of(BokoblinEntity::new, MobCategory.MONSTER)
+            .sized(.8f,1.8f).build("red_bokoblin"));
+
 
     // FRIENDLY MOBS
 

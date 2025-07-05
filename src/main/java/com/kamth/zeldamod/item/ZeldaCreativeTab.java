@@ -319,6 +319,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.FIRE_CHU_SPAWN_EGG);
             event.accept(ZeldaItems.ICE_CHU_SPAWN_EGG);
             event.accept(ZeldaItems.ELECTRIC_CHU_SPAWN_EGG);
+            event.accept(ZeldaItems.BOKOBLIN_SPAWN_EGG);
             event.accept(ZeldaItems.KOROK_SPAWN_EGG);
             event.accept(ZeldaItems.SKULLTULA_SPAWN_EGG);
         }
