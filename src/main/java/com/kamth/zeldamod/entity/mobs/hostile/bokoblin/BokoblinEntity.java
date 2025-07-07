@@ -3,7 +3,13 @@ package com.kamth.zeldamod.entity.mobs.hostile.bokoblin;
 import com.kamth.zeldamod.entity.client.model.BokoblinModel;
 import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarknutEntity;
 import com.kamth.zeldamod.sound.ModSounds;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtUtils;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
@@ -13,13 +19,18 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.control.LookControl;
+import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.animal.IronGolem;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.entity.monster.hoglin.Hoglin;
+import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -32,10 +43,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 
 import javax.annotation.Nullable;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.UUID;
+import java.util.function.Predicate;
 
 public class BokoblinEntity extends Monster  implements RangedAttackMob {
-    private final RangedBowAttackGoal<BokoblinEntity> bowGoal = new RangedBowAttackGoal<>(this, 1.0D, 20, 15.0F);
-    private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 1.2D, false) {
+
+    private final RangedBowAttackGoal<BokoblinEntity> bowGoal = new RangedBowAttackGoal<>(this, .8D, 28, 15.0F);
+    private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 1D, false) {
         /**
          * Reset the task's internal state. Called when this task is interrupted by another one
          */
@@ -44,9 +60,9 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
             BokoblinEntity.this.setAggressive(false);
         }
 
-        /**
-         * Execute a one shot task or start executing a continuous task
-         */
+        public boolean canUse() {
+            return  !BokoblinEntity.this.isSleeping()  && super.canUse();
+        }
         public void start() {
             super.start();
             BokoblinEntity.this.setAggressive(true);
@@ -56,14 +72,16 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
     public BokoblinEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.reassessWeaponGoal();
+
+
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 10)
+                .add(Attributes.MAX_HEALTH, 12)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0f)
-                .add(Attributes.MOVEMENT_SPEED, .45f)
-                .add(Attributes.ATTACK_DAMAGE, 1)
+                .add(Attributes.MOVEMENT_SPEED, .35f)
+                .add(Attributes.ATTACK_DAMAGE, 2f)
                 .add(Attributes.ATTACK_KNOCKBACK, 1f)
                 .add(Attributes.ATTACK_SPEED, 1)
                 .add(Attributes.ARMOR,0);
@@ -73,31 +91,34 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
 
+        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, BokoblinEntity.class)).setAlertOthers());
-//        this.goalSelector.addGoal(1, new MeleeAttackGoal(this,1,true));
+
+
+
+        this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Bee.class, 3, 1.5, 1));
 
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Piglin.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Hoglin.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Pig.class, true));
     }
 
-
-    protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
-        super.populateDefaultEquipmentSlots(pRandom, pDifficulty);
-        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
-    }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
         return SoundEvents.PIGLIN_HURT;
     }
 
-
     protected SoundEvent getAmbientSound() {
+        if (this.isSleeping()) {
+            return SoundEvents.FOX_SLEEP;
+        }
+
         return SoundEvents.PIGLIN_AMBIENT;
     }
 
@@ -107,13 +128,19 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
     }
 
 
-
-
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         this.reassessWeaponGoal();
 
     }
+    public void addAdditionalSaveData(CompoundTag pCompound) {
+        super.addAdditionalSaveData(pCompound);
+
+    }
+
+
+
+
 
     @Nullable
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
@@ -121,8 +148,8 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
         RandomSource randomsource = pLevel.getRandom();
         this.populateDefaultEquipmentSlots(randomsource, pDifficulty);
         this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
-        this.setCanPickUpLoot(randomsource.nextFloat() < 0.55F * pDifficulty.getSpecialMultiplier());
-
+        this.setCanPickUpLoot(randomsource.nextFloat() < 0.65F * pDifficulty.getSpecialMultiplier());
+        this.setItemSlot(EquipmentSlot.MAINHAND, this.createSpawnWeapon());
         return pSpawnData;
     }
 
@@ -179,4 +206,15 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
             this.reassessWeaponGoal();
         }
     }
+
+    private ItemStack createSpawnWeapon() {
+        return (double)this.random.nextFloat() < 0.5D ? new ItemStack(Items.BOW) : new ItemStack(Items.WOODEN_SWORD);
+    }
+
+
+
+
+
+
+
 }

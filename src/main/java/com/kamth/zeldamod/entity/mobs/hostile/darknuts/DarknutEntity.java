@@ -46,9 +46,6 @@ public class DarknutEntity extends Monster {
     }
 
 
-    public final AnimationState idleAnimationState = new AnimationState();
-    public final AnimationState walkAnimationState = new AnimationState();
-   public final AnimationState attackAnimationState = new AnimationState();
 
     private int idleAnimationTimeout = 0;
     public int attackAnimationTimeout = 0;

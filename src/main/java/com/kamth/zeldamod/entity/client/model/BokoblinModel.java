@@ -5,10 +5,12 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.AnimationUtils;
 import net.minecraft.client.model.ArmedModel;
 import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.Mob;
@@ -30,6 +32,8 @@ public class BokoblinModel<T extends Mob> extends HierarchicalModel<T> implement
     private final ModelPart LeftArm;
     private final ModelPart RightLeg;
     private final ModelPart LeftLeg;
+    public HumanoidModel.ArmPose leftArmPose = HumanoidModel.ArmPose.EMPTY;
+    public HumanoidModel.ArmPose rightArmPose = HumanoidModel.ArmPose.EMPTY;
 
     public BokoblinModel(ModelPart root) {
         this.Base = root.getChild("Base");
@@ -110,8 +114,10 @@ public class BokoblinModel<T extends Mob> extends HierarchicalModel<T> implement
 
     @Override
     public void translateToHand(HumanoidArm pSide, PoseStack pPoseStack) {
-        this.getArm(pSide).offsetPos(new Vector3f(0,10.5f,0));
+        this.getArm(pSide).offsetPos(new Vector3f(0,25.5f,0));
         this.getArm(pSide).translateAndRotate(pPoseStack);
+
+
     }
     private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
         pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
@@ -130,7 +136,6 @@ public class BokoblinModel<T extends Mob> extends HierarchicalModel<T> implement
         this.LeftArm.xRot = Mth.cos(limbSwing * 0.6662F + 3.1415927F) * 2.0F * limbSwingAmount * 0.5F;
         this.LeftArm.yRot = 0.0F;
         this.LeftArm.zRot = 0.0F;
-
         this.RightArm.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
         this.RightArm.yRot = 0.0F;
         this.RightArm.zRot = 0.0F;
@@ -141,7 +146,64 @@ public class BokoblinModel<T extends Mob> extends HierarchicalModel<T> implement
         this.LeftLeg.yRot = 0.0F;
         this.LeftLeg.zRot = 0.0F;
 
+        ItemStack itemstack = entity.getMainHandItem();
+
+        if (entity.isAggressive() && (itemstack.isEmpty()  || !itemstack.is(Items.BOW))) {
+            float f = Mth.sin(this.attackTime * (float)Math.PI);
+            float f1 = Mth.sin((1.0F - (1.0F - this.attackTime) * (1.0F - this.attackTime)) * (float)Math.PI);
+            this.setAttacking(entity.getMainHandItem(), entity.getOffhandItem(), f, f1);
+            AnimationUtils.bobArms(this.RightArm, this.LeftArm, ageInTicks);
+        }
+
+        if (entity.isAggressive() && itemstack.is(Items.BOW)) {
+            this.setBowAnimating(entity.getMainHandItem(), entity.getOffhandItem(), 1);
+            AnimationUtils.bobArms(this.RightArm, this.LeftArm, ageInTicks);
+        }
 
 
     }
-}
+
+
+
+
+    private void setAttacking(ItemStack pRightHandItem, ItemStack pLeftHandItem, float limbswing, float attacktime) {
+        if (pRightHandItem.isEmpty() && pLeftHandItem.isEmpty()) {
+            this.RightArm.xRot = -1.2217305F;
+            this.RightArm.yRot = 0.2617994F;
+            this.RightArm.zRot = -0.47123888F - limbswing;
+            this.LeftArm.xRot = -1.2217305F;
+            this.LeftArm.yRot = -0.2617994F;
+            this.LeftArm.zRot = 0.47123888F + limbswing;
+        } else {
+            if (!pRightHandItem.isEmpty()) {
+                this.RightArm.zRot = 0.0F;
+                this.RightArm.yRot = -(0.1F - limbswing * 0.6F);
+                this.RightArm.xRot = (-(float)Math.PI / 2F);
+                this.RightArm.xRot -= limbswing * 1.2F - attacktime * 0.4F;
+
+            }
+            if (!pLeftHandItem.isEmpty()) {
+
+                this.LeftArm.zRot = 0.0F;
+                this.LeftArm.yRot = 0.1F - limbswing * 0.6F;
+                this.LeftArm.xRot = (-(float)Math.PI / 2F);
+                this.LeftArm.xRot -= limbswing * 1.2F - attacktime * 0.4F;
+            }
+        }
+    }
+
+    private void setBowAnimating(ItemStack pRightHandItem, ItemStack pLeftHandItem, float p_265125_) {
+            if (!pRightHandItem.isEmpty()) {
+                this.RightArm.yRot = -0.1F + this.Head.yRot;
+                this.LeftArm.yRot = 0.1F + this.Head.yRot + 0.4F;
+                this.RightArm.xRot = (-(float)Math.PI / 2F) + this.Head.xRot;
+                this.LeftArm.xRot = (-(float)Math.PI / 2F) + this.Head.xRot;
+            }
+            if (!pLeftHandItem.isEmpty()) {
+                this.LeftArm.yRot = -0.1F + this.Head.yRot;
+                this.RightArm.yRot = 0.1F + this.Head.yRot + 0.4F;
+                this.LeftArm.xRot = (-(float)Math.PI / 2F) + this.Head.xRot;
+                this.RightArm.xRot = (-(float)Math.PI / 2F) + this.Head.xRot;
+            }
+        }
+    }
