@@ -4,6 +4,8 @@ import com.kamth.zeldamod.entity.client.model.BokoblinModel;
 import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarknutEntity;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtUtils;
@@ -26,6 +28,7 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.*;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.RangedAttackMob;
@@ -36,11 +39,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.entity.raid.Raider;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
@@ -49,7 +54,11 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 public class BokoblinEntity extends Monster  implements RangedAttackMob {
+    private int ticksSinceEaten;
 
+    static final Predicate<ItemEntity> ALLOWED_ITEMS = (p_289438_) -> {
+        return !p_289438_.hasPickUpDelay() && p_289438_.isAlive();
+    };
     private final RangedBowAttackGoal<BokoblinEntity> bowGoal = new RangedBowAttackGoal<>(this, .8D, 28, 15.0F);
     private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 1D, false) {
         /**
@@ -72,7 +81,7 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
     public BokoblinEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.reassessWeaponGoal();
-
+        this.setCanPickUpLoot(true);
 
     }
 
@@ -96,7 +105,7 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
 
-
+        this.goalSelector.addGoal(11,new BokoblinEntitySearchForItemsGoal());
 
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Bee.class, 3, 1.5, 1));
 
@@ -115,14 +124,14 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
     }
 
     protected SoundEvent getAmbientSound() {
-        if (this.isSleeping()) {
-            return SoundEvents.FOX_SLEEP;
-        }
+
 
         return SoundEvents.PIGLIN_AMBIENT;
     }
 
-
+    public SoundEvent getEatingSound(ItemStack pItemStack) {
+        return SoundEvents.GENERIC_EAT;
+    }
     protected SoundEvent getDeathSound() {
         return SoundEvents.PIGLIN_DEATH;
     }
@@ -148,7 +157,6 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
         RandomSource randomsource = pLevel.getRandom();
         this.populateDefaultEquipmentSlots(randomsource, pDifficulty);
         this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
-        this.setCanPickUpLoot(randomsource.nextFloat() < 0.65F * pDifficulty.getSpecialMultiplier());
         this.setItemSlot(EquipmentSlot.MAINHAND, this.createSpawnWeapon());
         return pSpawnData;
     }
@@ -213,8 +221,141 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
 
 
 
+    class BokoblinEntitySearchForItemsGoal extends Goal {
+        public BokoblinEntitySearchForItemsGoal() {
+            this.setFlags(EnumSet.of(Goal.Flag.MOVE));
+        }
 
+        /**
+         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
+         * method as well.
+         */
+        public boolean canUse() {
+            if (!BokoblinEntity.this.getItemBySlot(EquipmentSlot.OFFHAND).isEmpty()) {
+                return false;
+            } else if (BokoblinEntity.this.getTarget() == null && BokoblinEntity.this.getLastHurtByMob() == null) {
+                if (BokoblinEntity.this.getRandom().nextInt(reducedTickDelay(10)) != 0) {
+                    return false;
+                } else {
+                    List<ItemEntity> list = BokoblinEntity.this.level().getEntitiesOfClass(ItemEntity.class, BokoblinEntity.this.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), BokoblinEntity.ALLOWED_ITEMS);
+                    return !list.isEmpty() && BokoblinEntity.this.getItemBySlot(EquipmentSlot.OFFHAND).isEmpty();
+                }
+            } else {
+                return false;
+            }
+        }
 
+        /**
+         * Keep ticking a continuous task that has already been started
+         */
+        public void tick() {
+            List<ItemEntity> list = BokoblinEntity.this.level().getEntitiesOfClass(ItemEntity.class, BokoblinEntity.this.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), BokoblinEntity.ALLOWED_ITEMS);
+            ItemStack itemstack = BokoblinEntity.this.getItemBySlot(EquipmentSlot.OFFHAND);
+            if (itemstack.isEmpty() && !list.isEmpty()) {
+                BokoblinEntity.this.getNavigation().moveTo(list.get(0), (double)1F);
+            }
 
+        }
 
+        /**
+         * Execute a one shot task or start executing a continuous task
+         */
+        public void start() {
+            List<ItemEntity> list = BokoblinEntity.this.level().getEntitiesOfClass(ItemEntity.class, BokoblinEntity.this.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), BokoblinEntity.ALLOWED_ITEMS);
+            if (!list.isEmpty()) {
+                BokoblinEntity.this.getNavigation().moveTo(list.get(0), (double)1.2F);
+            }
+
+        }
+    }
+
+    public boolean canTakeItem(ItemStack pItemstack) {
+        EquipmentSlot equipmentslot = Mob.getEquipmentSlotForItem(pItemstack);
+        if (!this.getItemBySlot(equipmentslot).isEmpty()) {
+            return false;
+        } else {
+            return equipmentslot == EquipmentSlot.OFFHAND && super.canTakeItem(pItemstack);
+        }
+    }
+
+    public boolean canHoldItem(ItemStack pStack) {
+        Item item = pStack.getItem();
+        ItemStack itemstack = this.getItemBySlot(EquipmentSlot.OFFHAND);
+        return itemstack.isEmpty() || this.ticksSinceEaten > 0 && item.isEdible() && !itemstack.getItem().isEdible();
+    }
+
+    private void spitOutItem(ItemStack pStack) {
+        if (!pStack.isEmpty() && !this.level().isClientSide) {
+            ItemEntity itementity = new ItemEntity(this.level(), this.getX() + this.getLookAngle().x, this.getY() + 1.0D, this.getZ() + this.getLookAngle().z, pStack);
+            itementity.setPickUpDelay(40);
+            itementity.setThrower(this.getUUID());
+            this.playSound(SoundEvents.FOX_SPIT, 1.0F, 1.0F);
+            this.level().addFreshEntity(itementity);
+        }
+    }
+
+    private void dropItemStack(ItemStack pStack) {
+        ItemEntity itementity = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), pStack);
+        this.level().addFreshEntity(itementity);
+    }
+
+    /**
+     * Tests if this entity should pick up a weapon or an armor piece. Entity drops current weapon or armor if the new
+     * one is better.
+     */
+    protected void pickUpItem(ItemEntity pItemEntity) {
+        ItemStack itemstack = pItemEntity.getItem();
+        if (this.canHoldItem(itemstack)) {
+            int i = itemstack.getCount();
+            if (i > 1) {
+                this.dropItemStack(itemstack.split(i - 1));
+            }
+            this.spitOutItem(this.getItemBySlot(EquipmentSlot.OFFHAND));
+            this.onItemPickup(pItemEntity);
+            this.setItemSlot(EquipmentSlot.OFFHAND, itemstack.split(1));
+            this.setGuaranteedDrop(EquipmentSlot.OFFHAND);
+            this.take(pItemEntity, itemstack.getCount());
+            pItemEntity.discard();
+            this.ticksSinceEaten = 0;
+        }
+
+    }
+
+    private boolean canEat(ItemStack pStack) {
+        return pStack.getItem().isEdible() && this.getTarget() == null && this.onGround() ;
+    }
+
+    public void aiStep() {
+        if (!this.level().isClientSide && this.isAlive() && this.isEffectiveAi()) {
+            ++this.ticksSinceEaten;
+            ItemStack itemstack = this.getItemBySlot(EquipmentSlot.OFFHAND);
+            if (this.canEat(itemstack)) {
+                if (this.ticksSinceEaten > 600) {
+                    ItemStack itemstack1 = itemstack.finishUsingItem(this.level(), this);
+                    if (!itemstack1.isEmpty()) {
+                        this.setItemSlot(EquipmentSlot.OFFHAND, itemstack1);
+                    }
+
+                    this.ticksSinceEaten = 0;
+                } else if (this.ticksSinceEaten > 560 && this.random.nextFloat() < 0.1F) {
+                    this.playSound(this.getEatingSound(itemstack), 1.0F, 1.0F);
+                    this.level().broadcastEntityEvent(this, (byte)45);
+                }
+            }
+        }
+        super.aiStep();
+}
+    public void handleEntityEvent(byte pId) {
+        if (pId == 45) {
+            ItemStack itemstack = this.getItemBySlot(EquipmentSlot.OFFHAND);
+            if (!itemstack.isEmpty()) {
+                for(int i = 0; i < 8; ++i) {
+                    Vec3 vec3 = (new Vec3(((double)this.random.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D)).xRot(-this.getXRot() * ((float)Math.PI / 180F)).yRot(-this.getYRot() * ((float)Math.PI / 180F));
+                    this.level().addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemstack), this.getX() + this.getLookAngle().x / 2.0D, this.getY(), this.getZ() + this.getLookAngle().z / 2.0D, vec3.x, vec3.y + 0.05D, vec3.z);
+                }
+            }
+        } else {
+            super.handleEntityEvent(pId);
+        }
+    }
 }
