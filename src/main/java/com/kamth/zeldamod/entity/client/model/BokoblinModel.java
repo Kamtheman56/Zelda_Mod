@@ -1,5 +1,8 @@
 package com.kamth.zeldamod.entity.client.model;
 
+import com.kamth.zeldamod.entity.animations.ModAnimationDefinitions;
+import com.kamth.zeldamod.entity.mobs.hostile.bokoblin.BokoblinEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.skulltula.SkulltulaEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.AnimationUtils;
@@ -131,6 +134,8 @@ public class BokoblinModel<T extends Mob> extends HierarchicalModel<T> implement
     public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
+        this.animate(((BokoblinEntity) entity).idleAnimationState, ModAnimationDefinitions.bokoblin_idle, ageInTicks, 1f);
+
 
 
         this.LeftArm.xRot = Mth.cos(limbSwing * 0.6662F + 3.1415927F) * 2.0F * limbSwingAmount * 0.5F;
@@ -159,9 +164,6 @@ public class BokoblinModel<T extends Mob> extends HierarchicalModel<T> implement
             this.setBowAnimating(entity.getMainHandItem(), entity.getOffhandItem(), 1);
             AnimationUtils.bobArms(this.RightArm, this.LeftArm, ageInTicks);
         }
-
-
-
 
     }
 

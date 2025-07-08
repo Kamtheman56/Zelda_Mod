@@ -39,10 +39,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.entity.raid.Raider;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.ProjectileWeaponItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
@@ -55,6 +52,8 @@ import java.util.function.Predicate;
 
 public class BokoblinEntity extends Monster  implements RangedAttackMob {
     private int ticksSinceEaten;
+    public final AnimationState idleAnimationState = new AnimationState();
+    private int idleAnimationTimeout = 0;
 
     static final Predicate<ItemEntity> ALLOWED_ITEMS = (p_289438_) -> {
         return !p_289438_.hasPickUpDelay() && p_289438_.isAlive();
@@ -98,16 +97,13 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new FloatGoal(this));
-
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
-
         this.goalSelector.addGoal(11,new BokoblinEntitySearchForItemsGoal());
-
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Bee.class, 3, 1.5, 1));
+
 
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
@@ -165,7 +161,7 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
         if (this.level() != null && !this.level().isClientSide) {
             this.goalSelector.removeGoal(this.meleeGoal);
             this.goalSelector.removeGoal(this.bowGoal);
-            ItemStack itemstack = this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, item -> item instanceof net.minecraft.world.item.BowItem));
+            ItemStack itemstack = this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, item -> item instanceof BowItem));
             if (itemstack.is(Items.BOW)) {
                 int i = 20;
                 if (this.level().getDifficulty() != Difficulty.HARD) {
@@ -185,10 +181,10 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
      * Attack the specified entity using a ranged attack.
      */
     public void performRangedAttack(LivingEntity pTarget, float pDistanceFactor) {
-        ItemStack itemstack = this.getProjectile(this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, item -> item instanceof net.minecraft.world.item.BowItem)));
+        ItemStack itemstack = this.getProjectile(this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, item -> item instanceof BowItem)));
         AbstractArrow abstractarrow = this.getArrow(itemstack, pDistanceFactor);
-        if (this.getMainHandItem().getItem() instanceof net.minecraft.world.item.BowItem)
-            abstractarrow = ((net.minecraft.world.item.BowItem)this.getMainHandItem().getItem()).customArrow(abstractarrow);
+        if (this.getMainHandItem().getItem() instanceof BowItem)
+            abstractarrow = ((BowItem)this.getMainHandItem().getItem()).customArrow(abstractarrow);
         double d0 = pTarget.getX() - this.getX();
         double d1 = pTarget.getY(0.3333333333333333D) - abstractarrow.getY();
         double d2 = pTarget.getZ() - this.getZ();
@@ -223,7 +219,7 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
 
     class BokoblinEntitySearchForItemsGoal extends Goal {
         public BokoblinEntitySearchForItemsGoal() {
-            this.setFlags(EnumSet.of(Goal.Flag.MOVE));
+            this.setFlags(EnumSet.of(Flag.MOVE));
         }
 
         /**
@@ -358,4 +354,25 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
             super.handleEntityEvent(pId);
         }
     }
+
+
+    @Override
+    public void tick() {
+        super.tick();
+
+        if (this.level().isClientSide) {
+            setupAnimationStates();
+        }
+    }
+
+    private void setupAnimationStates() {
+        if (this.idleAnimationTimeout <= 0) {
+            this.idleAnimationTimeout = this.random.nextInt(40) + 200;
+            this.idleAnimationState.start(this.tickCount);
+        } else {
+            --this.idleAnimationTimeout;
+        }
+    }
+
+
 }

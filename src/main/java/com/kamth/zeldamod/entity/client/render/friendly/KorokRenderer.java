@@ -1,16 +1,17 @@
-package com.kamth.zeldamod.entity.client.render;
+package com.kamth.zeldamod.entity.client.render.friendly;
 
 import com.google.common.collect.Maps;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.client.MobModelLayers;
 import com.kamth.zeldamod.entity.client.model.KorokModel;
-import com.kamth.zeldamod.entity.mobs.KorokEntity;
+import com.kamth.zeldamod.entity.mobs.friendly.KorokEntity;
 import com.kamth.zeldamod.entity.mobs.variants.KorokVariants;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.Map;
@@ -18,6 +19,7 @@ import java.util.Map;
 public class KorokRenderer extends MobRenderer<KorokEntity, KorokModel<KorokEntity>> {
     public KorokRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new KorokModel<>(pContext.bakeLayer(MobModelLayers.KOROK_LAYER)), .2f);
+        this.addLayer(new ItemInHandLayer<>(this, pContext.getItemInHandRenderer()));
     }
     public static final Map<KorokVariants, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(KorokVariants.class), (p_114874_) -> {

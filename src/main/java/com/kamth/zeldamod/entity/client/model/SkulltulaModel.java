@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.entity.client.model;
 
 import com.kamth.zeldamod.entity.animations.ModAnimationDefinitions;
-import com.kamth.zeldamod.entity.mobs.SkulltulaEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.skulltula.SkulltulaEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HierarchicalModel;

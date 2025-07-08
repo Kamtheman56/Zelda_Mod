@@ -1,6 +1,6 @@
 package com.kamth.zeldamod.event.events;
 
-import com.kamth.zeldamod.entity.mobs.KorokEntity;
+import com.kamth.zeldamod.entity.mobs.friendly.KorokEntity;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.masks.regular.CouplesMask;
 import com.kamth.zeldamod.item.masks.regular.GeroMask;

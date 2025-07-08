@@ -4,7 +4,7 @@ package com.kamth.zeldamod.event;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.effect.ModEffects;
-import com.kamth.zeldamod.entity.mobs.KorokEntity;
+import com.kamth.zeldamod.entity.mobs.friendly.KorokEntity;
 import com.kamth.zeldamod.event.events.*;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;

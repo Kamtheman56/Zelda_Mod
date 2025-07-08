@@ -5,29 +5,19 @@ package com.kamth.zeldamod.entity.client.model;
 // Paste this class into your mod and generate all required imports
 
 
-import com.kamth.zeldamod.entity.animations.ModAnimationDefinitions;
-import com.kamth.zeldamod.entity.mobs.KorokEntity;
-import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarknutEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.model.AnimationUtils;
 import net.minecraft.client.model.ArmedModel;
 import net.minecraft.client.model.HierarchicalModel;
-import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.WalkAnimationState;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.joml.Vector3f;
 
 public class DarknutModel<T extends Mob> extends HierarchicalModel<T> implements ArmedModel {

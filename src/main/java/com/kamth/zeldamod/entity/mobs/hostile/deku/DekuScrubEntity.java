@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.entity.mobs.hostile.deku;
 
 import com.kamth.zeldamod.block.ZeldaBlocks;
-import com.kamth.zeldamod.entity.mobs.KorokEntity;
+import com.kamth.zeldamod.entity.mobs.friendly.KorokEntity;
 import com.kamth.zeldamod.entity.projectile.seeds.SeedProjectile;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.items.weapons.projectiles.SlingshotItem;

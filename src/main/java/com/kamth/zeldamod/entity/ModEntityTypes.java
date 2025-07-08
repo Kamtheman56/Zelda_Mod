@@ -1,7 +1,8 @@
 package com.kamth.zeldamod.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.entity.mobs.*;
+import com.kamth.zeldamod.entity.mobs.friendly.KorokEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.skulltula.SkulltulaEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.bokoblin.BokoblinEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.ChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.ElectricChuchuEntity;

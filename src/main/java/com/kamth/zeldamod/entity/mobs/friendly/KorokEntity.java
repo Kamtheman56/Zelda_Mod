@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.entity.mobs;
+package com.kamth.zeldamod.entity.mobs.friendly;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
@@ -16,6 +16,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -55,11 +56,11 @@ public class KorokEntity extends Animal {
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState danceAnimationState = new AnimationState();
     public final AnimationState sitAnimationState = new AnimationState();
+
     private int idleAnimationTimeout = 0;
     private int danceAnimationTimeout = 0;
     private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.APPLE, ZeldaItems.BAKED_APPLE.get(), Items.COOKIE);
-    public static final String VARIANT_KEY = "variant";
-    ;
+
     private boolean partyKorok;
     private BlockPos jukebox;
 
@@ -163,8 +164,9 @@ public class KorokEntity extends Animal {
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return SoundEvents.GENERIC_HURT;
+        return SoundEvents.ALLAY_HURT;
     }
+
     public static class KorokMaskFollow extends Goal {
         protected final KorokEntity mob;
         protected Player player;
@@ -288,6 +290,12 @@ public class KorokEntity extends Animal {
         else {
             this.setVariant(KorokVariants.DEFAULT);
         }
+        RandomSource randomsource = pLevel.getRandom();
+        this.populateDefaultEquipmentSlots(randomsource, pDifficulty);
+        this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
+        this.setItemSlot(EquipmentSlot.MAINHAND, Items.COOKIE.getDefaultInstance());
+
+
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
 

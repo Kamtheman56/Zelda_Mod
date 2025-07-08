@@ -224,6 +224,11 @@
   "item.zeldamod.electric_chuchu_spawn_egg": "Electric Chuchu Spawn Egg",
   "item.zeldamod.korok_spawn_egg": "Korok Spawn Egg",
   "item.zeldamod.skulltula_spawn_egg": "Skulltula Spawn Egg",
+  "item.zeldamod.red_bokoblin_spawn_egg": "Red Bokoblin Spawn Egg",
+  "item.zeldamod.blue_bokoblin_spawn_egg": "Blue Bokoblin Spawn Egg",
+  "item.zeldamod.black_bokoblin_spawn_egg": "Black Bokoblin Spawn Egg",
+  "item.zeldamod.silver_bokoblin_spawn_egg": "Silver Bokoblin Spawn Egg",
+  "item.zeldamod.gold_bokoblin_spawn_egg": "Gold Bokoblin Spawn Egg",
 
 
   "effect.zeldamod.deku": "Water Hopping",
@@ -595,6 +600,11 @@
   "entity.zeldamod.chuchu_electric": "Electric Chuchu",
   "entity.zeldamod.korok": "Korok",
   "entity.zeldamod.skulltula": "Skulltula",
+  "entity.zeldamod.red_bokoblin": "Red Bokoblin",
+  "entity.zeldamod.blue_bokoblin": "Blue Bokoblin",
+  "entity.zeldamod.black_bokoblin": "Black Bokoblin",
+  "entity.zeldamod.silver_bokoblin": "Silver Bokoblin",
+  "entity.zeldamod.gold_bokoblin": "Gold Bokoblin",
 
   "enchantment.zeldamod.swordspin": "Sword Spinner"
 }

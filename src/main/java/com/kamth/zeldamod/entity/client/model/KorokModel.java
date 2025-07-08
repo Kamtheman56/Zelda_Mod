@@ -1,16 +1,18 @@
 package com.kamth.zeldamod.entity.client.model;
 
 import com.kamth.zeldamod.entity.animations.ModAnimationDefinitions;
-import com.kamth.zeldamod.entity.mobs.KorokEntity;
+import com.kamth.zeldamod.entity.mobs.friendly.KorokEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.ArmedModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.HumanoidArm;
 
-public class KorokModel<T extends Entity> extends HierarchicalModel<T> {
+public class KorokModel<T extends Entity> extends HierarchicalModel<T> implements ArmedModel {
     private final ModelPart korok;
     private final ModelPart right_arm;
     private final ModelPart left_arm;
@@ -67,9 +69,8 @@ public class KorokModel<T extends Entity> extends HierarchicalModel<T> {
             if (korok.isPartyKorok()){
                 this.animate(((KorokEntity) entity).danceAnimationState, ModAnimationDefinitions.korok_dance, ageInTicks, 1f);
             }
-
-
-        } }
+        }
+    }
 
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
@@ -79,5 +80,25 @@ public class KorokModel<T extends Entity> extends HierarchicalModel<T> {
     @Override
     public ModelPart root() {
         return korok;
+    }
+
+    @Override
+    public void translateToHand(HumanoidArm pSide, PoseStack pPoseStack) {
+        boolean flag = pSide == HumanoidArm.RIGHT;
+        ModelPart modelpart = flag ? this.right_arm : this.left_arm;
+        this.root().translateAndRotate(pPoseStack);
+        this.body.translateAndRotate(pPoseStack);
+        modelpart.translateAndRotate(pPoseStack);
+        pPoseStack.scale(0.55F, 0.55F, 0.55F);
+        this.offsetStackPosition(pPoseStack, flag);
+    }
+
+    private void offsetStackPosition(PoseStack pPoseStack, boolean p_263414_) {
+        if (p_263414_) {
+            pPoseStack.translate(0.046875D, -0.15625D, 0.078125D);
+        } else {
+            pPoseStack.translate(-0.046875D, -0.15625D, 0.078125D);
+        }
+
     }
 }

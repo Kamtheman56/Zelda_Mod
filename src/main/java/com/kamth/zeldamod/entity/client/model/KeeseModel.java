@@ -89,6 +89,7 @@ public class KeeseModel<T extends Entity> extends HierarchicalModel<T> {
     public ModelPart root() {
         return keese;
     }
+
     private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
         pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
         pHeadPitch = Mth.clamp(pHeadPitch, -25.0F, 45.0F);
