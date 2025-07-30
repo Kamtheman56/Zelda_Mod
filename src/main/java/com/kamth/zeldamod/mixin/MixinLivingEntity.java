@@ -35,7 +35,7 @@ public abstract class MixinLivingEntity {
     @Shadow public abstract boolean addEffect(MobEffectInstance pEffectInstance);
 
     @Unique
-    private LivingEntity getLivingEntity() {
+    private LivingEntity zeldaMod_getLivingEntity() {
         return (LivingEntity) (Object) this;
     }
 
@@ -66,10 +66,10 @@ public abstract class MixinLivingEntity {
 
     @Inject(method = "getBlockSpeedFactor", at = @At("HEAD"), cancellable = true)
     private void onGetBlockSpeedFactor(CallbackInfoReturnable<Float> cir) {
-        if (getLivingEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HOVER_BOOTS.get()) {
+        if (zeldaMod_getLivingEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HOVER_BOOTS.get()) {
             cir.setReturnValue(.96F);
         }
-        if (getLivingEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.GORON_MASK.get()) {
+        if (zeldaMod_getLivingEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.GORON_MASK.get()) {
             cir.setReturnValue(.97F);
         }
     }
