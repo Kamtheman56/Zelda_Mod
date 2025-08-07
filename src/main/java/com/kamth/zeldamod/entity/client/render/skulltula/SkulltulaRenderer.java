@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.entity.client.render;
+package com.kamth.zeldamod.entity.client.render.skulltula;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.client.MobModelLayers;

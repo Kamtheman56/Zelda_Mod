@@ -2,8 +2,8 @@ package com.kamth.zeldamod.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.mobs.friendly.KorokEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.bokoblin.*;
 import com.kamth.zeldamod.entity.mobs.hostile.skulltula.SkulltulaEntity;
-import com.kamth.zeldamod.entity.mobs.hostile.bokoblin.BokoblinEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.ChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.ElectricChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.FireChuchuEntity;
@@ -154,6 +154,9 @@ public class ModEntityTypes {
 
     public static final RegistryObject<EntityType<BokoblinEntity>> RED_BOKOBLIN = ENTITY_TYPES.register("red_bokoblin", () -> EntityType.Builder.of(BokoblinEntity::new, MobCategory.MONSTER)
             .sized(.8f,1.8f).build("red_bokoblin"));
+
+    public static final RegistryObject<EntityType<WhiteBokoblinEntity>> WHITE_BOKOBLIN = ENTITY_TYPES.register("white_bokoblin", () -> EntityType.Builder.of(WhiteBokoblinEntity::new, MobCategory.MONSTER)
+            .sized(.8f,1.8f).build("white_bokoblin"));
 
 
     // FRIENDLY MOBS

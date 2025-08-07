@@ -20,7 +20,6 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
@@ -35,7 +34,7 @@ public abstract class MixinLivingEntity {
     @Shadow public abstract boolean addEffect(MobEffectInstance pEffectInstance);
 
     @Unique
-    private LivingEntity getLivingEntity() {
+    private LivingEntity zeldamod_getLivingEntity() {
         return (LivingEntity) (Object) this;
     }
 
@@ -66,13 +65,15 @@ public abstract class MixinLivingEntity {
 
     @Inject(method = "getBlockSpeedFactor", at = @At("HEAD"), cancellable = true)
     private void onGetBlockSpeedFactor(CallbackInfoReturnable<Float> cir) {
-        if (getLivingEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HOVER_BOOTS.get()) {
+        if (zeldamod_getLivingEntity().getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.HOVER_BOOTS.get()) {
             cir.setReturnValue(.96F);
         }
-        if (getLivingEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.GORON_MASK.get()) {
+        if (zeldamod_getLivingEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ZeldaItems.GORON_MASK.get()) {
             cir.setReturnValue(.97F);
         }
     }
+
+
 
 }
 

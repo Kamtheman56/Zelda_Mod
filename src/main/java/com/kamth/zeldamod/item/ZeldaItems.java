@@ -102,7 +102,7 @@ public class ZeldaItems {
 
     // MASTER ORE
     public static final RegistryObject<Item> MASTER_ORE = ITEMS.register("master_ore",
-            () -> new WarpItem(new Item.Properties().rarity(Rarity.RARE)));
+            () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
             () -> new Item(new Item.Properties().rarity(Rarity.RARE).stacksTo(1)));
     public static final RegistryObject<Item> MASTER_SHARD = ITEMS.register("master_shard",
@@ -603,6 +603,10 @@ public class ZeldaItems {
             ()-> new DarkKnightHelmet(ModArmorMaterials.DARK_KNIGHT, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(450)));
 
+    public static final RegistryObject<ArmorItem> BOKO_MASK = ITEMS.register("bokoblin_mask",
+            ()-> new BokoMask(ModArmorMaterials.MONSTER_MASK, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(340)));
+
     // TUNICS
 
     public static final RegistryObject<ArmorItem> KOKIRI_TUNIC = ITEMS.register("kokiri_tunic",
@@ -813,7 +817,11 @@ public class ZeldaItems {
 
     // BOKOBLINS
     public static final RegistryObject<Item> BOKOBLIN_SPAWN_EGG = ITEMS.register("red_bokoblin_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.RED_BOKOBLIN, 7493436, 16252718, new Item.Properties()));
+            () -> new ForgeSpawnEggItem(ModEntityTypes.RED_BOKOBLIN, 16398422, 16306582, new Item.Properties()));
+
+    public static final RegistryObject<Item> WHITE_BOKOBLIN_SPAWN_EGG = ITEMS.register("white_bokoblin_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.WHITE_BOKOBLIN, 15265011, 16306582, new Item.Properties()));
+
 
     // FRIENDLY MOBS
 

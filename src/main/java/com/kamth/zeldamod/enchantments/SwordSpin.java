@@ -36,7 +36,7 @@ public class SwordSpin extends Enchantment {
         boolean hasSwordSpin = EnchantmentHelper.getItemEnchantmentLevel(ZeldaEnchantments.SWORD_SPIN.get(), player.getMainHandItem()) > 0;
 
         if (player.getUseItem().getItem() instanceof SwordItem && hasSwordSpin && player.isUsingItem()
-        || player.getUseItem().is(ModTags.Items.SPIN_ATTACK_SWORDS) && player.isUsingItem()) {
+        ||  player.getUseItem().is(ModTags.Items.SPIN_ATTACK_SWORDS) && player.isUsingItem()) {
 
             if (swordspinTicks == 25) {
                 if (!level.isClientSide) {

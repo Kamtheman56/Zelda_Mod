@@ -9,15 +9,19 @@ import com.kamth.zeldamod.client.rendering.entity.thrown.BombEntityRenderer;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.client.*;
 import com.kamth.zeldamod.entity.client.model.*;
-import com.kamth.zeldamod.entity.client.render.*;
 
+import com.kamth.zeldamod.entity.client.render.bokoblin.BokoblinRenderer;
+import com.kamth.zeldamod.entity.client.render.bokoblin.WhiteBokoblinRenderer;
 import com.kamth.zeldamod.entity.client.render.chu.ChuchuRenderer;
 
 import com.kamth.zeldamod.entity.client.render.darknuts.DarkKnightRenderer;
 import com.kamth.zeldamod.entity.client.render.darknuts.DarknutRenderer;
 import com.kamth.zeldamod.entity.client.render.darknuts.IronKnuckleRenderer;
+import com.kamth.zeldamod.entity.client.render.deku.DekuMadScrubRenderer;
+import com.kamth.zeldamod.entity.client.render.deku.DekuScrubRenderer;
 import com.kamth.zeldamod.entity.client.render.friendly.KorokRenderer;
 import com.kamth.zeldamod.entity.client.render.keese.KeeseRenderer;
+import com.kamth.zeldamod.entity.client.render.skulltula.SkulltulaRenderer;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.armors.render.*;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -94,15 +98,16 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(MobModelLayers.CHUCHU_OUTER_LAYER, ChuchuModel::createOuterBodyLayer);
         event.registerLayerDefinition(MobModelLayers.KOROK_LAYER, KorokModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.RED_BOKOBLIN_LAYER, BokoblinModel::createBodyLayer);
-
-
+        event.registerLayerDefinition(MobModelLayers.SKULLTULA_LAYER, SkulltulaModel::createBodyLayer);
+        event.registerLayerDefinition(MobModelLayers.IRON_KNUCKLE_LAYER, IronKnuckleModel::createBodyLayer);
 
 
         event.registerLayerDefinition(ModModelLayers.CAP, CapModel::createBodyLayer);
-        event.registerLayerDefinition(MobModelLayers.SKULLTULA_LAYER, SkulltulaModel::createBodyLayer);
+
         event.registerLayerDefinition(ModModelLayers.DARK_NUT_HELMET, DarknutHelmetModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.BOKOBLIN_MASK, BokoblinMaskModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.CAP, HatModel::createBodyLayer);
-        event.registerLayerDefinition(MobModelLayers.IRON_KNUCKLE_LAYER, IronKnuckleModel::createBodyLayer);
+
 
         event.registerLayerDefinition(BombchuModel.LAYER_LOCATION, BombchuModel::createBodyLayer);
     }
@@ -122,6 +127,7 @@ public class ModEventBusClientEvents {
         EntityRenderers.register(ModEntityTypes.CHUCHU_ICE.get(), ChuchuRenderer::new);
         EntityRenderers.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), ChuchuRenderer::new);
         EntityRenderers.register(ModEntityTypes.RED_BOKOBLIN.get(), BokoblinRenderer::new);
+        EntityRenderers.register(ModEntityTypes.WHITE_BOKOBLIN.get(), WhiteBokoblinRenderer::new);
         EntityRenderers.register(ModEntityTypes.KOROK.get(), KorokRenderer::new);
         EntityRenderers.register(ModEntityTypes.SKULLTULA.get(), SkulltulaRenderer::new);
         EntityRenderers.register(ModEntityTypes.IRON_KNUCKLE.get(), IronKnuckleRenderer::new);

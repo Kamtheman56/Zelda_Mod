@@ -14,6 +14,7 @@ public class ChampionLeathersModel extends HumanoidModel<LivingEntity> {
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = HumanoidModel.createMesh(LayerDefinitions.OUTER_ARMOR_DEFORMATION, 0.0F);
         PartDefinition partdefinition = meshdefinition.getRoot();
+
         PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(16, 16).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, LayerDefinitions.OUTER_ARMOR_DEFORMATION), PartPose.ZERO);
         PartDefinition rightArm = partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(40, 16).addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, LayerDefinitions.OUTER_ARMOR_DEFORMATION), PartPose.offset(-5.0F, 2.0F, 0.0F));
         PartDefinition leftArm = partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(32, 48).addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, LayerDefinitions.OUTER_ARMOR_DEFORMATION), PartPose.offset(5.0F, 2.0F, 0.0F));

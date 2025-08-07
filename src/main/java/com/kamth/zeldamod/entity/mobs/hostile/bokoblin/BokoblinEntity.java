@@ -1,35 +1,30 @@
 package com.kamth.zeldamod.entity.mobs.hostile.bokoblin;
 
-import com.kamth.zeldamod.entity.client.model.BokoblinModel;
-import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarknutEntity;
-import com.kamth.zeldamod.sound.ModSounds;
-import net.minecraft.core.BlockPos;
+import com.kamth.zeldamod.entity.mobs.variants.BokoblinVariants;
+import com.kamth.zeldamod.entity.mobs.variants.KorokVariants;
+import com.mojang.serialization.Codec;
+import net.minecraft.Util;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.NbtUtils;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.ByIdMap;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.control.LookControl;
-import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.monster.hoglin.Hoglin;
@@ -38,7 +33,6 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
-import net.minecraft.world.entity.raid.Raider;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -47,13 +41,14 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 import java.util.List;
-import java.util.UUID;
+import java.util.function.IntFunction;
 import java.util.function.Predicate;
 
 public class BokoblinEntity extends Monster  implements RangedAttackMob {
     private int ticksSinceEaten;
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
+    public static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT = SynchedEntityData.defineId(BokoblinEntity.class, EntityDataSerializers.INT);
 
     static final Predicate<ItemEntity> ALLOWED_ITEMS = (p_289438_) -> {
         return !p_289438_.hasPickUpDelay() && p_289438_.isAlive();
@@ -86,7 +81,7 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 12)
+                .add(Attributes.MAX_HEALTH, 20)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0f)
                 .add(Attributes.MOVEMENT_SPEED, .35f)
                 .add(Attributes.ATTACK_DAMAGE, 2f)
@@ -132,19 +127,33 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
         return SoundEvents.PIGLIN_DEATH;
     }
 
+    protected void defineSynchedData() {
+        this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
+        super.defineSynchedData();
+    }
 
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         this.reassessWeaponGoal();
+        pCompound.putInt("Variant", this.getTypeVariant());
 
     }
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
-
+        pCompound.putInt("Variant", this.getTypeVariant());
     }
 
+    public BokoblinVariants getVariant() {
+        return BokoblinVariants.byId(this.getTypeVariant() & 255);
+    }
 
+    private int getTypeVariant() {
+        return this.entityData.get(DATA_ID_TYPE_VARIANT);
+    }
 
+    public void setVariant(BokoblinVariants variant) {
+        this.entityData.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
+    }
 
 
     @Nullable
@@ -154,7 +163,9 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
         this.populateDefaultEquipmentSlots(randomsource, pDifficulty);
         this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
         this.setItemSlot(EquipmentSlot.MAINHAND, this.createSpawnWeapon());
+        this.setVariant(Util.getRandom(BokoblinVariants.values(), pLevel.getRandom()));
         return pSpawnData;
+
     }
 
     public void reassessWeaponGoal() {
@@ -211,7 +222,7 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
         }
     }
 
-    private ItemStack createSpawnWeapon() {
+    public ItemStack createSpawnWeapon() {
         return (double)this.random.nextFloat() < 0.5D ? new ItemStack(Items.BOW) : new ItemStack(Items.WOODEN_SWORD);
     }
 
@@ -277,7 +288,7 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
     public boolean canHoldItem(ItemStack pStack) {
         Item item = pStack.getItem();
         ItemStack itemstack = this.getItemBySlot(EquipmentSlot.OFFHAND);
-        return itemstack.isEmpty() || this.ticksSinceEaten > 0 && item.isEdible() && !itemstack.getItem().isEdible();
+        return itemstack.isEmpty() || this.ticksSinceEaten > 0 && item.isEdible();
     }
 
     private void spitOutItem(ItemStack pStack) {
@@ -340,7 +351,7 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
             }
         }
         super.aiStep();
-}
+    }
     public void handleEntityEvent(byte pId) {
         if (pId == 45) {
             ItemStack itemstack = this.getItemBySlot(EquipmentSlot.OFFHAND);
@@ -374,5 +385,4 @@ public class BokoblinEntity extends Monster  implements RangedAttackMob {
         }
     }
 
-
-}
+    }

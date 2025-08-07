@@ -1,17 +1,14 @@
-package com.kamth.zeldamod.entity.client.render;
+package com.kamth.zeldamod.entity.client.render.deku;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.client.model.DekuModel;
-import com.kamth.zeldamod.entity.mobs.hostile.chus.ChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.deku.DekuScrubEntity;
 import com.kamth.zeldamod.item.armors.render.ModModelLayers;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class DekuScrubRenderer extends MobRenderer<DekuScrubEntity, DekuModel<DekuScrubEntity>> {

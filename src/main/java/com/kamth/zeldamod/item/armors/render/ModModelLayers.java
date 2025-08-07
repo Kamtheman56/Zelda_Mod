@@ -16,6 +16,7 @@ public class ModModelLayers {
             new ResourceLocation(ZeldaMod.MOD_ID, "deku_mad_layer"), "main");
 
     public static final ModelLayerLocation DARK_NUT_HELMET = create("darknut_helmet");
+    public static final ModelLayerLocation BOKOBLIN_MASK = create("bokoblin_mask");
 
 
     private static ModelLayerLocation create(String name) {

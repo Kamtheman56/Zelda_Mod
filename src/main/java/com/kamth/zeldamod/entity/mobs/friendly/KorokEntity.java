@@ -16,7 +16,6 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -290,10 +289,6 @@ public class KorokEntity extends Animal {
         else {
             this.setVariant(KorokVariants.DEFAULT);
         }
-        RandomSource randomsource = pLevel.getRandom();
-        this.populateDefaultEquipmentSlots(randomsource, pDifficulty);
-        this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
-        this.setItemSlot(EquipmentSlot.MAINHAND, Items.COOKIE.getDefaultInstance());
 
 
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);

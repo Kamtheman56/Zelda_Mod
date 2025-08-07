@@ -208,6 +208,7 @@
   "item.zeldamod.hylian_pants": "Hylian Trousers",
   "item.zeldamod.darknut_helmet": "Dark Nut Helmet",
   "item.zeldamod.dark_knight_helmet": "Dark Knight Helmet",
+  "item.zeldamod.bokoblin_mask": "Bokoblin Mask",
 
 
   "item.zeldamod.deku_spawn_egg": "Deku Spawn Egg",
@@ -227,7 +228,7 @@
   "item.zeldamod.red_bokoblin_spawn_egg": "Red Bokoblin Spawn Egg",
   "item.zeldamod.blue_bokoblin_spawn_egg": "Blue Bokoblin Spawn Egg",
   "item.zeldamod.black_bokoblin_spawn_egg": "Black Bokoblin Spawn Egg",
-  "item.zeldamod.silver_bokoblin_spawn_egg": "Silver Bokoblin Spawn Egg",
+  "item.zeldamod.white_bokoblin_spawn_egg": "White Bokoblin Spawn Egg",
   "item.zeldamod.gold_bokoblin_spawn_egg": "Gold Bokoblin Spawn Egg",
 
 
@@ -603,7 +604,7 @@
   "entity.zeldamod.red_bokoblin": "Red Bokoblin",
   "entity.zeldamod.blue_bokoblin": "Blue Bokoblin",
   "entity.zeldamod.black_bokoblin": "Black Bokoblin",
-  "entity.zeldamod.silver_bokoblin": "Silver Bokoblin",
+  "entity.zeldamod.white_bokoblin": "White Bokoblin",
   "entity.zeldamod.gold_bokoblin": "Gold Bokoblin",
 
   "enchantment.zeldamod.swordspin": "Sword Spinner"

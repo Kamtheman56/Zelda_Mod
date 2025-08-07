@@ -188,6 +188,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.SPOOKY_MASK);
             event.accept(ZeldaItems.GERUDO_MASK);
             event.accept(ZeldaItems.KOROK_MASK);
+            event.accept(ZeldaItems.BOKO_MASK);
             event.accept(ZeldaItems.MAJORA_MASK);
             event.accept(ZeldaItems.MASK_ODOLWA);
             event.accept(ZeldaItems.MASK_GOHT);
@@ -320,6 +321,9 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.ICE_CHU_SPAWN_EGG);
             event.accept(ZeldaItems.ELECTRIC_CHU_SPAWN_EGG);
             event.accept(ZeldaItems.BOKOBLIN_SPAWN_EGG);
+
+            event.accept(ZeldaItems.WHITE_BOKOBLIN_SPAWN_EGG);
+
             event.accept(ZeldaItems.KOROK_SPAWN_EGG);
             event.accept(ZeldaItems.SKULLTULA_SPAWN_EGG);
         }
