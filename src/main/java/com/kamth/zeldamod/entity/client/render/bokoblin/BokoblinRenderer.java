@@ -34,10 +34,7 @@ public class BokoblinRenderer extends MobRenderer<BokoblinEntity, BokoblinModel<
                         new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/blue_bokoblin.png"));
                 p_114874_.put(BokoblinVariants.BLACK,
                         new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/black_bokoblin.png"));
-//                p_114874_.put(BokoblinVariants.GOLD,
-//                        new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/gold_bokoblin.png"));
-//                p_114874_.put(BokoblinVariants.WHITE,
-//                        new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/white_bokoblin.png"));
+
 
 
             });

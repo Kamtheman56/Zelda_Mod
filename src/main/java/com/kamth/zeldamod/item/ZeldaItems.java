@@ -816,10 +816,10 @@ public class ZeldaItems {
     public static final RegistryObject<Item> ELECTRIC_CHU_SPAWN_EGG = regSpawnEgg("electric_chuchu", ModEntityTypes.CHUCHU_ELECTRIC, 0xcfff1a, 0x60f514);
 
     // BOKOBLINS
-    public static final RegistryObject<Item> BOKOBLIN_SPAWN_EGG = ITEMS.register("red_bokoblin_spawn_egg",
+    public static final RegistryObject<Item> BOKOBLIN_SPAWN_EGG = ITEMS.register("bokoblin_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.RED_BOKOBLIN, 16398422, 16306582, new Item.Properties()));
 
-    public static final RegistryObject<Item> WHITE_BOKOBLIN_SPAWN_EGG = ITEMS.register("white_bokoblin_spawn_egg",
+    public static final RegistryObject<Item> WHITE_BOKOBLIN_SPAWN_EGG = ITEMS.register("tough_bokoblin_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.WHITE_BOKOBLIN, 15265011, 16306582, new Item.Properties()));
 
 

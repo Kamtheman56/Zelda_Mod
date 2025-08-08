@@ -152,11 +152,11 @@ public class ModEntityTypes {
 
     // BOKOBLINS
 
-    public static final RegistryObject<EntityType<BokoblinEntity>> RED_BOKOBLIN = ENTITY_TYPES.register("red_bokoblin", () -> EntityType.Builder.of(BokoblinEntity::new, MobCategory.MONSTER)
-            .sized(.8f,1.8f).build("red_bokoblin"));
+    public static final RegistryObject<EntityType<BokoblinEntity>> RED_BOKOBLIN = ENTITY_TYPES.register("bokoblin", () -> EntityType.Builder.of(BokoblinEntity::new, MobCategory.MONSTER)
+            .sized(.8f,1.8f).build("bokoblin"));
 
-    public static final RegistryObject<EntityType<WhiteBokoblinEntity>> WHITE_BOKOBLIN = ENTITY_TYPES.register("white_bokoblin", () -> EntityType.Builder.of(WhiteBokoblinEntity::new, MobCategory.MONSTER)
-            .sized(.8f,1.8f).build("white_bokoblin"));
+    public static final RegistryObject<EntityType<WhiteBokoblinEntity>> WHITE_BOKOBLIN = ENTITY_TYPES.register("tough_bokoblin", () -> EntityType.Builder.of(WhiteBokoblinEntity::new, MobCategory.MONSTER)
+            .sized(.8f,1.8f).build("tough_bokoblin"));
 
 
     // FRIENDLY MOBS
