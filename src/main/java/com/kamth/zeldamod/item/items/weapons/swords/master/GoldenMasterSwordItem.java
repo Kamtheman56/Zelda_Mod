@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.items.weapons.swords.master;
 
 import com.kamth.zeldamod.block.ZeldaBlocks;
+import com.kamth.zeldamod.enchantments.ZeldaEnchantments;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
@@ -27,7 +28,7 @@ public class GoldenMasterSwordItem extends MasterSwordItem {
         BlockState blockstate = level.getBlockState(blockpos);
 
         if (blockstate.is(ZeldaBlocks.COURAGE_FLAME.get())) {
-            return empowerSword(pContext, 1, Enchantments.SWEEPING_EDGE);
+            return empowerSword(pContext, 1, ZeldaEnchantments.SWORD_SPIN.get());
         }
 
         if (blockstate.is(ZeldaBlocks.WISDOM_FLAME.get())) {

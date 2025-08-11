@@ -2,6 +2,7 @@ package com.kamth.zeldamod.block.custom.pedastal;
 
 import com.kamth.zeldamod.block.entity.SwordPedestalEntity;
 import com.kamth.zeldamod.custom.ModTags;
+import com.kamth.zeldamod.enchantments.ZeldaEnchantments;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.BlockPos;
@@ -50,13 +51,14 @@ public class UnlockedSwordPedestalBlock extends SwordPedestalBlock {
             // Checks if Master Sword_Golden is enchanted if so gives us the True Master Sword
 
             if (stackInHand.is(ZeldaItems.MASTER_SWORD_GOLDEN.get()) && pedestal.getSword().isEmpty()) {
-                if (stackInHand.getAllEnchantments().containsKey(Enchantments.SMITE) && stackInHand.getAllEnchantments().containsKey(Enchantments.SWEEPING_EDGE) &&
+                if (stackInHand.getAllEnchantments().containsKey(Enchantments.SMITE) && stackInHand.getAllEnchantments().containsKey(ZeldaEnchantments.SWORD_SPIN.get()) &&
                 stackInHand.getAllEnchantments().containsKey(Enchantments.UNBREAKING)) {
 
                     pedestal.setSword(ZeldaItems.MASTER_SWORD_TRUE.get().getDefaultInstance());
                     pedestal.getSword().enchant(Enchantments.SMITE,3);
                     pedestal.getSword().enchant(Enchantments.SWEEPING_EDGE,3);
                     pedestal.getSword().enchant(Enchantments.MOB_LOOTING,3);
+                    pedestal.getSword().enchant(ZeldaEnchantments.SWORD_SPIN.get(), 3);
 
                     EnchantSound(pLevel,pPlayer,pPos);
 

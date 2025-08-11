@@ -24,24 +24,47 @@ public class MixinSwordItem extends MixinItem {
 
     // The Context of which override is used here is safe
 
+//    @Override
+//    protected void useSword(Level pLevel, Player pPlayer, InteractionHand pUsedHand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
+//        boolean hasSwordSpin = EnchantmentHelper.getItemEnchantmentLevel(ZeldaEnchantments.SWORD_SPIN.get(), pPlayer.getItemInHand(pUsedHand)) > 0;
+//        ItemStack itemstack = pPlayer.getItemInHand(pUsedHand);
+//        pPlayer.startUsingItem(pUsedHand);
+//
+//
+// if (hasSwordSpin  && pUsedHand == InteractionHand.MAIN_HAND
+//                && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive() ||
+//                pUsedHand == InteractionHand.MAIN_HAND && pPlayer.getUseItem().is(ModTags.Items.SPIN_ATTACK_SWORDS)
+//                        && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive()) {
+//
+//            if (!pLevel.isClientSide()) {
+//                pPlayer.playNotifySound(SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1, 1);
+//            }
+//            cir.setReturnValue(InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide));
+//        }
+//        else cir.setReturnValue(InteractionResultHolder.pass(itemstack));
+//    }
+
     @Override
     protected void useSword(Level pLevel, Player pPlayer, InteractionHand pUsedHand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
         boolean hasSwordSpin = EnchantmentHelper.getItemEnchantmentLevel(ZeldaEnchantments.SWORD_SPIN.get(), pPlayer.getItemInHand(pUsedHand)) > 0;
+
         ItemStack itemstack = pPlayer.getItemInHand(pUsedHand);
-        pPlayer.startUsingItem(pUsedHand);
 
+        if ( pUsedHand == InteractionHand.MAIN_HAND && pPlayer.getUseItem().is(ModTags.Items.SPIN_ATTACK_SWORDS)
+                && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive()){
+            pPlayer.startUsingItem(pUsedHand);
+        }
 
- if (hasSwordSpin && !pPlayer.isCrouching() && pUsedHand == InteractionHand.MAIN_HAND
-                && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive() ||
-                pUsedHand == InteractionHand.MAIN_HAND && pPlayer.getUseItem().is(ModTags.Items.SPIN_ATTACK_SWORDS)
-                        && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive()) {
+        if (hasSwordSpin && pPlayer.isCrouching() && pUsedHand == InteractionHand.MAIN_HAND
+                && !((SwordSpinPlayerData) pPlayer).legendaryArmory$isSwordSpinActive()) {
+
+            pPlayer.startUsingItem(pUsedHand);
 
             if (!pLevel.isClientSide()) {
                 pPlayer.playNotifySound(SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1, 1);
             }
-            cir.setReturnValue(InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide));
+            cir.setReturnValue(InteractionResultHolder.consume(itemstack));
         }
-        else cir.setReturnValue(InteractionResultHolder.pass(itemstack));
     }
 
     @Override

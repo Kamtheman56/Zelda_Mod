@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MixinItem {
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
     protected void useSword(Level pLevel, Player pPlayer, InteractionHand pUsedHand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
+
     }
 
     @Inject(method = "getUseDuration", at = @At("HEAD"), cancellable = true)
