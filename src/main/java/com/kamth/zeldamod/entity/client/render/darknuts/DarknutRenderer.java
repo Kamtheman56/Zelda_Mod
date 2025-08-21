@@ -21,7 +21,7 @@ public class DarknutRenderer extends MobRenderer<DarknutEntity, DarknutModel<Dar
 
     @Override
     public ResourceLocation getTextureLocation(DarknutEntity pEntity) {
-        return new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/darknut.png");
+        return new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/dark_nut.png");
     }
 
     @Override

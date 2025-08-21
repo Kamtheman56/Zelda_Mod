@@ -24,7 +24,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
 
-version = '1.4.5'
+version = '1.4.7'
 group = 'com.kamth.zeldamod'
 archivesBaseName = 'zeldamod'
 
