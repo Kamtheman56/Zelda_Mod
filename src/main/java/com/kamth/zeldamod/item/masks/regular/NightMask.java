@@ -33,11 +33,11 @@ if (player.isSleeping()){
     }
     Vec3 explosionPos = player.getEyePosition(1.0F).add(player.getLookAngle().multiply(0.5D, 0.5D, 0.5D));
     player.level().explode(player, explosionPos.x, explosionPos.y, explosionPos.z, .9F, Level.ExplosionInteraction.NONE);
-player.getCooldowns().addCooldown(ZeldaItems.NIGHT_MASK.get(),250);
-player.hurt(player.damageSources().magic(), 9);
-
+    player.getCooldowns().addCooldown(ZeldaItems.NIGHT_MASK.get(),250);
+    player.hurt(player.damageSources().magic(), 9);
 }
-        player.resetStat(Stats.CUSTOM.get(Stats.TIME_SINCE_REST));
+
+player.resetStat(Stats.CUSTOM.get(Stats.TIME_SINCE_REST));
 if (world.isNight()){
     player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600, 0, true, false));}
         if (world.getMoonPhase() == 5 && world.isNight()){

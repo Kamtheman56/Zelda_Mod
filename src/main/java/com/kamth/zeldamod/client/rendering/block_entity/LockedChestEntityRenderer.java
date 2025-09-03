@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.client.rendering.block_entity;
 
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.block.custom.dungeon_blocks.LockedChestBlock;
 import com.kamth.zeldamod.block.entity.LockedChestEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -29,16 +30,12 @@ public class LockedChestEntityRenderer extends ChestRenderer<LockedChestEntity> 
     private final ModelPart lid;
     private final ModelPart bottom;
     private final ModelPart lock;
-    private final ModelPart doubleLeftLid;
-    private final ModelPart doubleLeftBottom;
-    private final ModelPart doubleLeftLock;
-    private final ModelPart doubleRightLid;
-    private final ModelPart doubleRightBottom;
-    private final ModelPart doubleRightLock;
-    private static final Material MATERIAL = chestMaterial("copper");
-    public static final Material COPPER = createCustomChestTextureId("locked_2");
-    public static final Material COPPER_LEFT = createCustomChestTextureId("locked_left");
-    public static final Material COPPER_RIGHT = createCustomChestTextureId("locked_right");
+
+
+    private static final Material MATERIAL = chestMaterial("locked");
+    public static final Material LOCKED = createCustomChestTextureId("locked_chest");
+    public static final Material UNLOCKED = createCustomChestTextureId("locked_left");
+;
 
     public LockedChestEntityRenderer(BlockEntityRendererProvider.Context pContext) {
         super(pContext);
@@ -47,14 +44,6 @@ public class LockedChestEntityRenderer extends ChestRenderer<LockedChestEntity> 
         this.bottom = modelpart.getChild("bottom");
         this.lid = modelpart.getChild("lid");
         this.lock = modelpart.getChild("lock");
-        ModelPart modelpart1 = pContext.bakeLayer(ModelLayers.DOUBLE_CHEST_LEFT);
-        this.doubleLeftBottom = modelpart1.getChild("bottom");
-        this.doubleLeftLid = modelpart1.getChild("lid");
-        this.doubleLeftLock = modelpart1.getChild("lock");
-        ModelPart modelpart2 = pContext.bakeLayer(ModelLayers.DOUBLE_CHEST_RIGHT);
-        this.doubleRightBottom = modelpart2.getChild("bottom");
-        this.doubleRightLid = modelpart2.getChild("lid");
-        this.doubleRightLock = modelpart2.getChild("lock");
     }
 
     private static Material createCustomChestTextureId(String variant) {
@@ -62,12 +51,10 @@ public class LockedChestEntityRenderer extends ChestRenderer<LockedChestEntity> 
     }
 
     private static Material getCustomChestTextureId(ChestType type) {
-        return switch (type) {
-            case LEFT -> COPPER_LEFT;
-            case RIGHT -> COPPER_RIGHT;
-            default -> COPPER;
-        };
+        return LOCKED;
     }
+
+
 
     @Override
     protected Material getMaterial(LockedChestEntity blockEntity, ChestType chestType) {
@@ -78,11 +65,12 @@ public class LockedChestEntityRenderer extends ChestRenderer<LockedChestEntity> 
         return new Material(Sheets.CHEST_SHEET, new ResourceLocation(ZeldaMod.MOD_ID, "entity/chest/" + chestName));
     }
 
+
     @Override
-    public void render(LockedChestEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
-        Level level = pBlockEntity.getLevel();
+    public void render(LockedChestEntity chest, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
+        Level level = chest.getLevel();
         boolean flag = level != null;
-        BlockState blockstate = flag ? pBlockEntity.getBlockState() : Blocks.CHEST.defaultBlockState().setValue(ChestBlock.FACING, Direction.SOUTH);
+        BlockState blockstate = flag ? chest.getBlockState() : Blocks.CHEST.defaultBlockState().setValue(ChestBlock.FACING, Direction.SOUTH);
         ChestType chestType = blockstate.hasProperty(ChestBlock.TYPE) ? blockstate.getValue(ChestBlock.TYPE) : ChestType.SINGLE;
         Block block = blockstate.getBlock();
         if (block instanceof AbstractChestBlock<?> abstractchestblock) {
@@ -94,29 +82,27 @@ public class LockedChestEntityRenderer extends ChestRenderer<LockedChestEntity> 
             pPoseStack.translate(-0.5F, -0.5F, -0.5F);
             DoubleBlockCombiner.NeighborCombineResult<? extends ChestBlockEntity> neighborcombineresult;
             if (flag) {
-                neighborcombineresult = abstractchestblock.combine(blockstate, level, pBlockEntity.getBlockPos(), true);
+                neighborcombineresult = abstractchestblock.combine(blockstate, level, chest.getBlockPos(), true);
             } else {
                 neighborcombineresult = DoubleBlockCombiner.Combiner::acceptNone;
             }
 
-            float f1 = neighborcombineresult.apply(ChestBlock.opennessCombiner(pBlockEntity)).get(pPartialTick);
+            float f1 = neighborcombineresult.apply(ChestBlock.opennessCombiner(chest)).get(pPartialTick);
             f1 = 1.0F - f1;
             f1 = 1.0F - f1 * f1 * f1;
             int i = neighborcombineresult.apply(new BrightnessCombiner<>()).applyAsInt(pPackedLight);
             Material material = getCustomChestTextureId(chestType);
             VertexConsumer vertexconsumer = material.buffer(pBuffer, RenderType::entityCutout);
-            if (flag1) {
-                if (chestType == ChestType.LEFT) {
-                    this.render(pPoseStack, vertexconsumer, this.doubleLeftLid, this.doubleLeftLock, this.doubleLeftBottom, f1, i, pPackedOverlay);
-                } else {
-                    this.render(pPoseStack, vertexconsumer, this.doubleRightLid, this.doubleRightLock, this.doubleRightBottom, f1, i, pPackedOverlay);
-                }
-            } else {
-                this.render(pPoseStack, vertexconsumer, this.lid, this.lock, this.bottom, f1, i, pPackedOverlay);
-            }
 
+                this.render(pPoseStack, vertexconsumer, this.lid, this.lock, this.bottom, f1, i, pPackedOverlay);
+
+        if (chest.getBlockState().getValue(LockedChestBlock.LOCKED)){
+
+        }
             pPoseStack.popPose();
         }
+
+
     }
 
     private void render(PoseStack pPoseStack, VertexConsumer pConsumer, ModelPart pLidPart, ModelPart pLockPart, ModelPart pBottomPart, float pLidAngle, int pPackedLight, int pPackedOverlay) {

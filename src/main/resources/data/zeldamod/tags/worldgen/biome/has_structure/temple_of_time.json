@@ -5,6 +5,8 @@
   "values": [
     "minecraft:stony_peaks",
     "minecraft:jagged_peaks",
-    "minecraft:windswept_hills"
+    "minecraft:windswept_hills",
+    "#forge:is_mountain",
+    "#forge:is_slope"
   ]
 }

@@ -158,6 +158,8 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<WhiteBokoblinEntity>> WHITE_BOKOBLIN = ENTITY_TYPES.register("tough_bokoblin", () -> EntityType.Builder.of(WhiteBokoblinEntity::new, MobCategory.MONSTER)
             .sized(.8f,1.8f).build("tough_bokoblin"));
 
+    public static final RegistryObject<EntityType<MoblinEntity>> MOBLIN = ENTITY_TYPES.register("moblin", () -> EntityType.Builder.of(MoblinEntity::new, MobCategory.MONSTER)
+            .sized(2.2f,4.2f).build("moblin"));
 
     // FRIENDLY MOBS
 

@@ -3,6 +3,9 @@
 
   "_comment": " This biome tag can specify the biome directly. Or specify another biome tag by starting with # ",
   "values": [
-    "#minecraft:is_nether"
+    "#minecraft:is_nether",
+    "#forge:is_hot/nether",
+    "#forge:is_sparse/nether",
+    "#forge:is_dry/nether"
   ]
 }

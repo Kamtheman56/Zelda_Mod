@@ -10,6 +10,14 @@
     "#minecraft:is_forest",
     "#minecraft:is_hill",
     "#minecraft:is_badlands",
-    "minecraft:desert"
+    "minecraft:desert",
+    "#forge:is_plains",
+    "#forge:is_lush",
+    "#forge:is_plateau",
+    "#forge:is_mountain",
+    "#forge:is_desert",
+    "#forge:is_sandy",
+    "#forge:is_coniferous",
+    "#forge:is_snowy"
   ]
 }

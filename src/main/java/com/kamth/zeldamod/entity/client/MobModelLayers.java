@@ -50,6 +50,9 @@ public class MobModelLayers {
     public static final ModelLayerLocation RED_BOKOBLIN_LAYER = new ModelLayerLocation(
             new ResourceLocation(ZeldaMod.MOD_ID, "red_bokoblin_layer"), "main");
 
+    public static final ModelLayerLocation MOBLIN_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "moblin_layer"), "main");
+
     public static final ModelLayerLocation KOROK_LAYER = new ModelLayerLocation(
             new ResourceLocation(ZeldaMod.MOD_ID, "korok_layer"), "main");
     public static final ModelLayerLocation SKULLTULA_LAYER = new ModelLayerLocation(

@@ -11,6 +11,7 @@ import com.kamth.zeldamod.entity.client.*;
 import com.kamth.zeldamod.entity.client.model.*;
 
 import com.kamth.zeldamod.entity.client.render.bokoblin.BokoblinRenderer;
+import com.kamth.zeldamod.entity.client.render.bokoblin.MoblinRenderer;
 import com.kamth.zeldamod.entity.client.render.bokoblin.WhiteBokoblinRenderer;
 import com.kamth.zeldamod.entity.client.render.chu.ChuchuRenderer;
 
@@ -100,7 +101,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(MobModelLayers.RED_BOKOBLIN_LAYER, BokoblinModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.SKULLTULA_LAYER, SkulltulaModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.IRON_KNUCKLE_LAYER, IronKnuckleModel::createBodyLayer);
-
+        event.registerLayerDefinition(MobModelLayers.MOBLIN_LAYER, MoblinModel::createBodyLayer);
 
         event.registerLayerDefinition(ModModelLayers.CAP, CapModel::createBodyLayer);
 
@@ -128,6 +129,7 @@ public class ModEventBusClientEvents {
         EntityRenderers.register(ModEntityTypes.CHUCHU_ELECTRIC.get(), ChuchuRenderer::new);
         EntityRenderers.register(ModEntityTypes.RED_BOKOBLIN.get(), BokoblinRenderer::new);
         EntityRenderers.register(ModEntityTypes.WHITE_BOKOBLIN.get(), WhiteBokoblinRenderer::new);
+        EntityRenderers.register(ModEntityTypes.MOBLIN.get(), MoblinRenderer::new);
         EntityRenderers.register(ModEntityTypes.KOROK.get(), KorokRenderer::new);
         EntityRenderers.register(ModEntityTypes.SKULLTULA.get(), SkulltulaRenderer::new);
         EntityRenderers.register(ModEntityTypes.IRON_KNUCKLE.get(), IronKnuckleRenderer::new);

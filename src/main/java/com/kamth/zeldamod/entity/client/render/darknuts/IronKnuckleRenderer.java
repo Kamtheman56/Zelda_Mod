@@ -8,11 +8,13 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class IronKnuckleRenderer extends MobRenderer<IronKnuckleEntity, IronKnuckleModel<IronKnuckleEntity>> {
     public IronKnuckleRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new IronKnuckleModel<>(pContext.bakeLayer(MobModelLayers.IRON_KNUCKLE_LAYER)), .2f);
+        this.addLayer(new ItemInHandLayer<>(this, pContext.getItemInHandRenderer()));
 
     }
 

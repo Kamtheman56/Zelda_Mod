@@ -119,9 +119,8 @@ public class BokoblinModel<T extends Mob> extends HierarchicalModel<T> implement
     public void translateToHand(HumanoidArm pSide, PoseStack pPoseStack) {
         this.getArm(pSide).offsetPos(new Vector3f(0,25.5f,0));
         this.getArm(pSide).translateAndRotate(pPoseStack);
-
-
     }
+
     private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
         pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
         pHeadPitch = Mth.clamp(pHeadPitch, -25.0F, 45.0F);
@@ -153,16 +152,17 @@ public class BokoblinModel<T extends Mob> extends HierarchicalModel<T> implement
 
         ItemStack itemstack = entity.getMainHandItem();
 
-        if (entity.isAggressive() && (itemstack.isEmpty()  || !itemstack.is(Items.BOW))) {
+        if (entity.isAggressive()){
             float f = Mth.sin(this.attackTime * (float)Math.PI);
             float f1 = Mth.sin((1.0F - (1.0F - this.attackTime) * (1.0F - this.attackTime)) * (float)Math.PI);
             this.setAttacking(entity.getMainHandItem(), entity.getOffhandItem(), f, f1);
             AnimationUtils.bobArms(this.RightArm, this.LeftArm, ageInTicks);
-        }
-
-        if (entity.isAggressive() && itemstack.is(Items.BOW)) {
-            this.setBowAnimating(entity.getMainHandItem(), entity.getOffhandItem(), 1);
-            AnimationUtils.bobArms(this.RightArm, this.LeftArm, ageInTicks);
+            this.RightArm.xRot = -1.2217305F;
+            this.RightArm.yRot = 0.7517994F;
+            this.RightArm.zRot = -0.47123888F - limbSwing;
+            this.LeftArm.xRot = -1.2217305F;
+            this.LeftArm.yRot = -0.7517994F;
+            this.LeftArm.zRot = 0.47123888F + limbSwing;
         }
 
     }
@@ -172,42 +172,7 @@ public class BokoblinModel<T extends Mob> extends HierarchicalModel<T> implement
 
     private void setAttacking(ItemStack pRightHandItem, ItemStack pLeftHandItem, float limbswing, float attacktime) {
         if (pRightHandItem.isEmpty() && pLeftHandItem.isEmpty()) {
-            this.RightArm.xRot = -1.2217305F;
-            this.RightArm.yRot = 0.2617994F;
-            this.RightArm.zRot = -0.47123888F - limbswing;
-            this.LeftArm.xRot = -1.2217305F;
-            this.LeftArm.yRot = -0.2617994F;
-            this.LeftArm.zRot = 0.47123888F + limbswing;
-        } else {
-            if (!pRightHandItem.isEmpty()) {
-                this.RightArm.zRot = 0.0F;
-                this.RightArm.yRot = -(0.1F - limbswing * 0.6F);
-                this.RightArm.xRot = (-(float)Math.PI / 2F);
-                this.RightArm.xRot -= limbswing * 1.2F - attacktime * 0.4F;
 
-            }
-            if (!pLeftHandItem.isEmpty()) {
+        } }
 
-                this.LeftArm.zRot = 0.0F;
-                this.LeftArm.yRot = 0.1F - limbswing * 0.6F;
-                this.LeftArm.xRot = (-(float)Math.PI / 2F);
-                this.LeftArm.xRot -= limbswing * 1.2F - attacktime * 0.4F;
-            }
-        }
-    }
-
-    private void setBowAnimating(ItemStack pRightHandItem, ItemStack pLeftHandItem, float p_265125_) {
-            if (!pRightHandItem.isEmpty()) {
-                this.RightArm.yRot = -0.1F + this.Head.yRot;
-                this.LeftArm.yRot = 0.1F + this.Head.yRot + 0.4F;
-                this.RightArm.xRot = (-(float)Math.PI / 2F) + this.Head.xRot;
-                this.LeftArm.xRot = (-(float)Math.PI / 2F) + this.Head.xRot;
-            }
-            if (!pLeftHandItem.isEmpty()) {
-                this.LeftArm.yRot = -0.1F + this.Head.yRot;
-                this.RightArm.yRot = 0.1F + this.Head.yRot + 0.4F;
-                this.LeftArm.xRot = (-(float)Math.PI / 2F) + this.Head.xRot;
-                this.RightArm.xRot = (-(float)Math.PI / 2F) + this.Head.xRot;
-            }
-        }
     }

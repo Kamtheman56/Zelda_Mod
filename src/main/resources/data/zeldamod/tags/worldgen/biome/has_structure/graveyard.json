@@ -5,6 +5,10 @@
   "values": [
     "minecraft:plains",
     "minecraft:dark_forest",
-    "#minecraft:is_taiga"
+    "#minecraft:is_taiga",
+    "#forge:is_plains",
+    "#forge:is_coniferous",
+    "#forge:is_wasteland",
+    "#forge:is_spooky"
   ]
 }

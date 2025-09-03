@@ -4,8 +4,10 @@ import com.kamth.zeldamod.block.entity.LockedChestEntity;
 import com.kamth.zeldamod.block.entity.ZeldaBlockEntities;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -60,6 +62,7 @@ public class LockedChestBlock extends AbstractChestBlock<LockedChestEntity> {
     }
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.is(pNewState.getBlock())) return;
+
         if (pLevel.getBlockEntity(pPos) instanceof Container container) {
             Containers.dropContents(pLevel, pPos, container);
             pLevel.updateNeighbourForOutputSignal(pPos, this);
@@ -81,17 +84,17 @@ public class LockedChestBlock extends AbstractChestBlock<LockedChestEntity> {
         if (!pLevel.isClientSide() && pState.getValue(LOCKED) && !pPlayer.getAbilities().instabuild) {
             return InteractionResult.FAIL;
         }
-        if (pHand == InteractionHand.MAIN_HAND && pPlayer.getMainHandItem().is(ZeldaItems.SMALL_KEY.get())){
+        if (pHand == InteractionHand.MAIN_HAND && !pPlayer.getAbilities().instabuild && pPlayer.getMainHandItem().is(ZeldaItems.SMALL_KEY.get())){
             this.press(pState, pLevel, pPos);
             pLevel.playSound((Player)null, pPos, ModSounds.DOOR_UNLOCK.get(), SoundSource.BLOCKS, .4F, 1f);
             pPlayer.getUseItem().shrink(1);
-            pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);}
+            pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
+        }
 
         if (!pLevel.isClientSide() && pPlayer.getAbilities().instabuild) {
     MenuProvider menuprovider = getMenuProvider(pState, pLevel, pPos);
     if (menuprovider != null) {
         pPlayer.openMenu(menuprovider);
-        PiglinAi.angerNearbyPiglins(pPlayer, true);
         return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
 }

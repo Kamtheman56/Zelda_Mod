@@ -326,6 +326,7 @@ public class ZeldaCreativeTab {
 
             event.accept(ZeldaItems.KOROK_SPAWN_EGG);
             event.accept(ZeldaItems.SKULLTULA_SPAWN_EGG);
+            event.accept(ZeldaItems.IRON_KNUCKLE_SPAWN_EGG);
         }
     }
 }

@@ -4,7 +4,9 @@ import com.google.common.collect.Maps;
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.client.MobModelLayers;
 import com.kamth.zeldamod.entity.client.model.BokoblinModel;
+import com.kamth.zeldamod.entity.client.model.MoblinModel;
 import com.kamth.zeldamod.entity.mobs.hostile.bokoblin.BokoblinEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.bokoblin.MoblinEntity;
 import com.kamth.zeldamod.entity.mobs.variants.BokoblinVariants;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.Util;
@@ -16,9 +18,9 @@ import net.minecraft.resources.ResourceLocation;
 
 import java.util.Map;
 
-public class WhiteBokoblinRenderer extends MobRenderer<BokoblinEntity, BokoblinModel<BokoblinEntity>> {
-    public WhiteBokoblinRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new BokoblinModel<>(pContext.bakeLayer(MobModelLayers.RED_BOKOBLIN_LAYER)), .2f);
+public class MoblinRenderer extends MobRenderer<MoblinEntity, MoblinModel<MoblinEntity>> {
+    public MoblinRenderer(EntityRendererProvider.Context pContext) {
+        super(pContext, new MoblinModel<>(pContext.bakeLayer(MobModelLayers.MOBLIN_LAYER)), .2f);
 
         this.addLayer(new ItemInHandLayer<>(this, pContext.getItemInHandRenderer()));
     }
@@ -26,19 +28,21 @@ public class WhiteBokoblinRenderer extends MobRenderer<BokoblinEntity, BokoblinM
     public static final Map<BokoblinVariants, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(BokoblinVariants.class), (p_114874_) -> {
                 p_114874_.put(BokoblinVariants.RED,
-                        new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/white_bokoblin.png"));
+                        new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/red_moblin.png"));
                 p_114874_.put(BokoblinVariants.BLUE,
-                        new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/white_bokoblin.png"));
+                        new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/blue_moblin.png"));
                 p_114874_.put(BokoblinVariants.BLACK,
-                        new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/gold_bokoblin.png"));
+                        new ResourceLocation(ZeldaMod.MOD_ID, "textures/entity/mob/black_moblin.png"));
+
+
 
             });
     @Override
-    public ResourceLocation getTextureLocation(BokoblinEntity pEntity) {
+    public ResourceLocation getTextureLocation(MoblinEntity pEntity) {
         return LOCATION_BY_VARIANT.get(pEntity.getVariant());
     }
     @Override
-    public void render(BokoblinEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+    public void render(MoblinEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
                        MultiBufferSource pBuffer, int pPackedLight) {
 
 

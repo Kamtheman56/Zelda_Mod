@@ -48,6 +48,8 @@ public class ModEventBusEvents {
 
         event.put(ModEntityTypes.WHITE_BOKOBLIN.get(), WhiteBokoblinEntity.createAttributes().build());
 
+        event.put(ModEntityTypes.MOBLIN.get(), MoblinEntity.createAttributes().build());
+
 
         event.put(ModEntityTypes.KOROK.get(), KorokEntity.createAttributes().build());
         event.put(ModEntityTypes.SKULLTULA.get(), SkulltulaEntity.createAttributes().build());
