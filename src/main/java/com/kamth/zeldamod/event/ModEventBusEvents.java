@@ -3,6 +3,7 @@ package com.kamth.zeldamod.event;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.entity.mobs.bosses.PhantomGanonEntity;
 import com.kamth.zeldamod.entity.mobs.friendly.KorokEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.bokoblin.*;
 import com.kamth.zeldamod.entity.mobs.hostile.skulltula.SkulltulaEntity;
@@ -54,5 +55,7 @@ public class ModEventBusEvents {
         event.put(ModEntityTypes.KOROK.get(), KorokEntity.createAttributes().build());
         event.put(ModEntityTypes.SKULLTULA.get(), SkulltulaEntity.createAttributes().build());
         event.put(ModEntityTypes.IRON_KNUCKLE.get(), IronKnuckleEntity.createAttributes().build());
+
+        event.put(ModEntityTypes.PHANTOM_GANON.get(), PhantomGanonEntity.createAttributes().build());
     }
 }

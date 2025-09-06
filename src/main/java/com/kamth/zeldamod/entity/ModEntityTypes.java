@@ -1,15 +1,17 @@
 package com.kamth.zeldamod.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
+import com.kamth.zeldamod.entity.mobs.bosses.PhantomGanonEntity;
 import com.kamth.zeldamod.entity.mobs.friendly.KorokEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.bokoblin.*;
+import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarknutEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.skulltula.SkulltulaEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.ChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.ElectricChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.FireChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.chus.IceChuchuEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarkKnightEntity;
-import com.kamth.zeldamod.entity.mobs.hostile.darknuts.DarknutEntity;
+
 import com.kamth.zeldamod.entity.mobs.hostile.darknuts.IronKnuckleEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.deku.DekuMadScrubEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.deku.DekuScrubEntity;
@@ -167,6 +169,10 @@ public class ModEntityTypes {
             .sized(.6F, .8F).build("korok"));
 
 
+    // BOSSES
+
+    public static final RegistryObject<EntityType<PhantomGanonEntity>> PHANTOM_GANON = ENTITY_TYPES.register("phantom_ganon", () -> EntityType.Builder.of(PhantomGanonEntity::new, MobCategory.MONSTER)
+            .sized(.8f,2f).build("phantom_ganon"));
 
     public static void register(IEventBus modEventBus) {
         ENTITY_TYPES.register(modEventBus);

@@ -58,5 +58,11 @@ public class MobModelLayers {
     public static final ModelLayerLocation SKULLTULA_LAYER = new ModelLayerLocation(
             new ResourceLocation(ZeldaMod.MOD_ID, "skulltula_layer"), "main");
 
+    // BOSSES
+
+    public static final ModelLayerLocation PHANTOM_GANON_LAYER = new ModelLayerLocation(
+            new ResourceLocation(ZeldaMod.MOD_ID, "phantom_ganon_layer"), "main");
+
+
 
 }
