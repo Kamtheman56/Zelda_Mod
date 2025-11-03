@@ -18,7 +18,7 @@ import java.util.function.Predicate;
 //Credits to DeadlyDiamond98 for this code!
 
 @Mixin (ProjectileWeaponItem.class)
-public class MixinProjectileWeaponItem {
+abstract class MixinProjectileWeaponItem {
     @Inject(method = "getHeldProjectile", at = @At("HEAD"), cancellable = true)
     private static void getArrowFromQuiver(LivingEntity entity, Predicate<ItemStack> predicate, CallbackInfoReturnable<ItemStack> cir) {
         if (entity instanceof Player) {

@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 // Added here with explicit permission by the original owner.
 
 @Mixin(Player.class)
-public class MixinPlayer implements SwordSpinPlayerData {
+abstract class MixinPlayer implements SwordSpinPlayerData {
 
     @Unique
     private boolean legendaryArmory$swordSwinging;

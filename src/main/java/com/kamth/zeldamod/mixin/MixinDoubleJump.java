@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LocalPlayer.class)
-public abstract class MixinDoubleJump extends AbstractClientPlayer {
+abstract class MixinDoubleJump extends AbstractClientPlayer {
     @Unique
     private int jumps=0;
     @Unique

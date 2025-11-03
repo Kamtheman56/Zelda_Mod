@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin (Inventory.class)
-public class MixinInventory {
+abstract class MixinInventory {
 
     @Inject(method = "add(Lnet/minecraft/world/item/ItemStack;)Z", at = @At("HEAD"), cancellable = true)
     public void addStack(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {

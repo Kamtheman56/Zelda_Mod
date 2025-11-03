@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import java.util.Optional;
 
 @Mixin (CrossbowItem.class)
-public class MixinCrossbowItem {
+abstract class MixinCrossbowItem {
     @Inject(
             method = "releaseUsing", at = @At(
             value = "INVOKE",

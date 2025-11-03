@@ -17,7 +17,7 @@ import java.util.UUID;
 
 
 @Mixin(Fox.class)
-public abstract class MixinFoxEntity extends Animal
+abstract class MixinFoxEntity extends Animal
 {
     // This constructor is fake and never used
     protected MixinFoxEntity()

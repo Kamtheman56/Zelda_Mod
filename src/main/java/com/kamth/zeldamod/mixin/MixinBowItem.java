@@ -19,7 +19,7 @@ import java.util.Optional;
 
 
 @Mixin(BowItem.class)
-public abstract class MixinBowItem {
+abstract class MixinBowItem {
     @Unique
     private Item getItem() {
         return (Item) (Object) this;
