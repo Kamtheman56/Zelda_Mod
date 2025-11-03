@@ -5,7 +5,7 @@ license="All Rights Reserved"
 
 [[mods]]
 modId="zeldamod"
-version="1.4.2"
+version="1.4.8"
 displayName="Legendary Armory"
 
 logoFile= "../0.png"
