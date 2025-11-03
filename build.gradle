@@ -126,7 +126,10 @@ dependencies {
 
     minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
     implementation fg.deobf("be.florens:expandability-forge:9.0.3")
-    implementation "io.github.llamalad7:mixinextras-common:0.4.1"
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.0"))
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.5.0")) {
+        jarJar.ranged(it, "[0.5.0,)")
+    }
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     jarJar(group: 'be.florens', name: 'expandability-forge', version: '[9.0.1,9.0.6)') {
