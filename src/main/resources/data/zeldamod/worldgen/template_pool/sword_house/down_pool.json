@@ -33,15 +33,6 @@
       }
     },
     {
-      "weight": 4,
-      "element": {
-        "location": "zeldamod:sword_house_basement_empty",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
       "weight": 1,
       "element": {
         "location": "zeldamod:sword_house_basement_gerudo",

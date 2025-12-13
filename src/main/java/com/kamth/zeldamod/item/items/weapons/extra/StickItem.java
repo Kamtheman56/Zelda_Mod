@@ -68,7 +68,7 @@ public class StickItem extends Item {
         ItemStack itemstack = pContext.getItemInHand();
 
         if (blockstate.is(ModTags.Blocks.FLAME)  && pContext.getPlayer().getMainHandItem().is(ZeldaItems.DEKU_STICK.get())) {
-            level.playSound( pContext.getPlayer(), blockpos, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
+            level.playSound( pContext.getPlayer(), blockpos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
             itemstack.shrink(1);
            pContext.getPlayer().addItem(ZeldaItems.DEKU_STICK_LIT.get().getDefaultInstance());
             level.addParticle(ParticleTypes.FLAME, blockpos.getX() , blockpos.getY() + .5f, blockpos.getZ(), 0, 0, 0);
@@ -100,15 +100,7 @@ public class StickItem extends Item {
             }
         }
         else {
-            level.playSound(player, blockpos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
-            level.setBlock(blockpos, blockstate.setValue(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
-            level.gameEvent(player, GameEvent.BLOCK_CHANGE, blockpos);
-            if (player != null) {
-                pContext.getItemInHand().hurtAndBreak(1, player, (p_41303_) -> {
-                    p_41303_.broadcastBreakEvent(pContext.getHand());
-                });
-            }
-            return InteractionResult.sidedSuccess(level.isClientSide());
+            return InteractionResult.PASS;
         }
         return InteractionResult.FAIL;}
 

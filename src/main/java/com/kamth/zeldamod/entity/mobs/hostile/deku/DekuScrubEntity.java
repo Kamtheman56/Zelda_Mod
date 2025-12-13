@@ -173,13 +173,10 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
 
     @Override
     public ItemStack getProjectile(ItemStack pShootable) {
-        if (pShootable.getItem() instanceof SlingshotItem) {
             Predicate<ItemStack> predicate = ((ProjectileWeaponItem) pShootable.getItem()).getSupportedHeldProjectiles();
             ItemStack itemstack = ProjectileWeaponItem.getHeldProjectile(this, predicate);
             return net.minecraftforge.common.ForgeHooks.getProjectile(this, pShootable, itemstack.isEmpty() ? new ItemStack(Items.WHEAT_SEEDS) : itemstack);
-        } else {
-            return net.minecraftforge.common.ForgeHooks.getProjectile(this, pShootable, ItemStack.EMPTY);
-        }
+
     }
 
     @Nullable

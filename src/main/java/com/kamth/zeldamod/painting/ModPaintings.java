@@ -14,6 +14,9 @@ public class ModPaintings {
     public static final RegistryObject<PaintingVariant> FOREST_SECRET = PAINTING_VARIANTS.register("forest_secret",
             () -> new PaintingVariant(32,32));
 
+    public static final RegistryObject<PaintingVariant> DREAMER = PAINTING_VARIANTS.register("dreamer",
+            () -> new PaintingVariant(32,32));
+
     public static void register(IEventBus eventBus) {
         PAINTING_VARIANTS.register(eventBus);
     }

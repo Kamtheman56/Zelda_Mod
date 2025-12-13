@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
         "textures": {
-          "layer0": "zeldamod:item/sword_tempered"
+          "layer0": "zeldamod:item/master_sword_tempered"
         }
 }

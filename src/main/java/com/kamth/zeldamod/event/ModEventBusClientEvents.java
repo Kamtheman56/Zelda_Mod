@@ -90,9 +90,7 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(MobModelLayers.DARK_NUT_LAYER, DarknutModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.DARK_KNIGHT_LAYER, DarknutModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.KEESE_LAYER, KeeseModel::createBodyLayer);
-        event.registerLayerDefinition(MobModelLayers.FIRE_KEESE_LAYER, KeeseModel::createBodyLayer);
-        event.registerLayerDefinition(MobModelLayers.ICE_KEESE_LAYER, KeeseModel::createBodyLayer);
-        event.registerLayerDefinition(MobModelLayers.ELECTRIC_KEESE_LAYER, KeeseModel::createBodyLayer);
+
         event.registerLayerDefinition(MobModelLayers.CHUCHU_LAYER, ChuchuModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.ICE_CHUCHU_LAYER, ChuchuModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.FIRE_CHUCHU_LAYER, ChuchuModel::createBodyLayer);
