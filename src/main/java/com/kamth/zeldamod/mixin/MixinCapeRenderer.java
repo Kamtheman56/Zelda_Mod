@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AbstractClientPlayer.class)
-public abstract class MixinCapeRenderer  {
+abstract class MixinCapeRenderer  {
     private static final ResourceLocation TEXTURE = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/armor/hylian_cape.png");
     private static final ResourceLocation DEITY = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/skins/fierce_deity.png");
         /**

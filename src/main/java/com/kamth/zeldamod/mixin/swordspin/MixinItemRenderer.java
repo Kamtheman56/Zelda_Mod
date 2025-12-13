@@ -25,7 +25,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 // Added here with explicit permission by the original owner.
 
 @Mixin(ItemRenderer.class)
-public class MixinItemRenderer {
+abstract class MixinItemRenderer {
 
     @Inject(method = "render",
             at = @At(

@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BigDripleafBlock.class)
-public abstract class MixinDekuLeafBlock extends Block {
+abstract class MixinDekuLeafBlock extends Block {
 
 
     public MixinDekuLeafBlock(Properties pProperties) {

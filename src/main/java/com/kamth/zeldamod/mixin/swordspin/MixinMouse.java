@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 // Added here with explicit permission by the original owner.
 
 @Mixin(MouseHandler.class)
-public class MixinMouse {
+abstract class MixinMouse {
 
     @Shadow @Final private Minecraft minecraft;
 

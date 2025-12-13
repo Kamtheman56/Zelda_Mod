@@ -1,11 +1,11 @@
 modLoader="javafml"
 loaderVersion="[43,)"
 
-license="MIT License"
+license="All Rights Reserved"
 
 [[mods]]
 modId="zeldamod"
-version="1.4.2"
+version="1.4.8"
 displayName="Legendary Armory"
 
 logoFile= "../0.png"

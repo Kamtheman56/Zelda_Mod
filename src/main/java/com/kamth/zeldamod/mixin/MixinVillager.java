@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 
 @Mixin(Villager.class)
-public abstract class MixinVillager{
+abstract class MixinVillager{
 
     // TODO: CHANGE MIXIN
 
