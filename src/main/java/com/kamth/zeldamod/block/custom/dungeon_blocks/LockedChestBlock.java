@@ -2,6 +2,7 @@ package com.kamth.zeldamod.block.custom.dungeon_blocks;
 
 import com.kamth.zeldamod.block.entity.LockedChestEntity;
 import com.kamth.zeldamod.block.entity.ZeldaBlockEntities;
+import com.kamth.zeldamod.client.rendering.block_entity.LockState;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
@@ -38,7 +39,7 @@ import javax.annotation.Nullable;
 public class LockedChestBlock extends AbstractChestBlock<LockedChestEntity> {
     public static final EnumProperty<ChestType> TYPE = BlockStateProperties.CHEST_TYPE;
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final BooleanProperty LOCKED = BlockStateProperties.LOCKED;
+    public static final EnumProperty<LockState> LOCK = EnumProperty.create("lock", LockState.class);
     protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
     public LockedChestBlock(Properties properties) {
         super(Properties.of().noOcclusion().mapColor(MapColor.METAL).strength(3.5f).requiresCorrectToolForDrops(), ZeldaBlockEntities.LOCKED_CHEST_ENTITY::get);
@@ -54,7 +55,7 @@ public class LockedChestBlock extends AbstractChestBlock<LockedChestEntity> {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return defaultBlockState().setValue(LOCKED, true).setValue(FACING, pContext.getHorizontalDirection().getOpposite());
+        return defaultBlockState().setValue(LOCK, LockState.NO_LOCK).setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
 
     public BlockState rotate(BlockState pState, Rotation pRotation) {
@@ -81,11 +82,11 @@ public class LockedChestBlock extends AbstractChestBlock<LockedChestEntity> {
     }
 
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (!pLevel.isClientSide() && pState.getValue(LOCKED) && !pPlayer.getAbilities().instabuild) {
+        if (!pLevel.isClientSide()  && !pPlayer.getAbilities().instabuild) {
             return InteractionResult.FAIL;
         }
         if (pHand == InteractionHand.MAIN_HAND && !pPlayer.getAbilities().instabuild && pPlayer.getMainHandItem().is(ZeldaItems.SMALL_KEY.get())){
-            this.press(pState, pLevel, pPos);
+//            this.press(pState, pLevel, pPos);
             pLevel.playSound((Player)null, pPos, ModSounds.DOOR_UNLOCK.get(), SoundSource.BLOCKS, .4F, 1f);
             pPlayer.getUseItem().shrink(1);
             pLevel.gameEvent(pPlayer, GameEvent.BLOCK_ACTIVATE, pPos);
@@ -98,7 +99,7 @@ public class LockedChestBlock extends AbstractChestBlock<LockedChestEntity> {
         return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
 }
-      if (!pLevel.isClientSide() && !pState.getValue(LOCKED)) {
+      if (!pLevel.isClientSide() ) {
             MenuProvider menuprovider = getMenuProvider(pState, pLevel, pPos);
             if (menuprovider != null) {
                 pPlayer.openMenu(menuprovider);
@@ -107,10 +108,10 @@ public class LockedChestBlock extends AbstractChestBlock<LockedChestEntity> {
         }
         return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
-    public void press(BlockState pState, Level pLevel, BlockPos pPos) {
-        pState = pState.cycle(LOCKED);
-        pLevel.setBlock(pPos, pState, 3);
-    }
+//    public void press(BlockState pState, Level pLevel, BlockPos pPos) {
+//        pState = pState.cycle(LOCKED);
+//        pLevel.setBlock(pPos, pState, 3);
+//    }
 
     public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, LivingEntity pPlacer, ItemStack pStack) {
         if (pStack.hasCustomHoverName() && pLevel.getBlockEntity(pPos) instanceof LockedChestEntity entity) {
@@ -126,7 +127,7 @@ public class LockedChestBlock extends AbstractChestBlock<LockedChestEntity> {
     }
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING, TYPE, LOCKED);
+        pBuilder.add(FACING, TYPE, LOCK);
     }
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
         return pLevel.isClientSide() ? createTickerHelper(pBlockEntityType, ZeldaBlockEntities.LOCKED_CHEST_ENTITY.get(), LockedChestEntity::lidAnimateTick) : null;

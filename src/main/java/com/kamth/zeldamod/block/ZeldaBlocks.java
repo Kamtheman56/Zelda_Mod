@@ -93,6 +93,7 @@ public class ZeldaBlocks {
     public static final RegistryObject<Block> TIME_BRICKS = registerBlock("time_bricks", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
     public static final RegistryObject<Block> MOSSY_TIME_BRICKS = registerBlock("mossy_time_bricks", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
     public static final RegistryObject<Block> CRACKED_TIME_BRICKS = registerBlock("cracked_time_bricks", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> CHISELED_TIME_BRICKS = registerBlock("chiseled_time_bricks", ()-> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
     public static final RegistryObject<Block> TIME_BRICKS_SLAB = registerBlock("time_bricks_slab", ()-> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
     public static final RegistryObject<Block> MOSSY_TIME_BRICKS_SLAB = registerBlock("mossy_time_bricks_slab", ()-> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
     public static final RegistryObject<Block> CRACKED_TIME_BRICKS_SLAB = registerBlock("cracked_time_bricks_slab", ()-> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));

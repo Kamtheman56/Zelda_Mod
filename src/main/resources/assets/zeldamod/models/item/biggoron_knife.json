@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
         "textures": {
-          "layer0": "zeldamod:item/sword_knife"
+          "layer0": "zeldamod:item/giant_knife"
         },
   "display": {
     "ground": {

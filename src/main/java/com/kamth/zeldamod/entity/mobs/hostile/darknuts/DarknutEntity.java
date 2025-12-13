@@ -57,7 +57,6 @@ public class DarknutEntity extends Monster {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.goalSelector.addGoal(1, new MeleeAttackGoal(this,1,true));
@@ -67,14 +66,13 @@ public class DarknutEntity extends Monster {
 
 
     protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
-        super.populateDefaultEquipmentSlots(pRandom, pDifficulty);
     this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 30)
-                .add(Attributes.KNOCKBACK_RESISTANCE, .4f)
+                .add(Attributes.KNOCKBACK_RESISTANCE, .35f)
                 .add(Attributes.MOVEMENT_SPEED, .2f)
                 .add(Attributes.ATTACK_DAMAGE, 2)
                 .add(Attributes.ATTACK_KNOCKBACK, 5f)

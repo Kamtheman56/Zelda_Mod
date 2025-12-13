@@ -256,6 +256,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaBlocks.TIME_BRICKS);
             event.accept(ZeldaBlocks.CRACKED_TIME_BRICKS);
             event.accept(ZeldaBlocks.MOSSY_TIME_BRICKS);
+            event.accept(ZeldaBlocks.CHISELED_TIME_BRICKS);
             event.accept(ZeldaBlocks.TIME_BRICKS_SLAB);
             event.accept(ZeldaBlocks.CRACKED_TIME_BRICKS_SLAB);
             event.accept(ZeldaBlocks.MOSSY_TIME_BRICKS_SLAB);
@@ -326,7 +327,7 @@ public class ZeldaCreativeTab {
 
             event.accept(ZeldaItems.KOROK_SPAWN_EGG);
             event.accept(ZeldaItems.SKULLTULA_SPAWN_EGG);
-            event.accept(ZeldaItems.IRON_KNUCKLE_SPAWN_EGG);
+          //  event.accept(ZeldaItems.IRON_KNUCKLE_SPAWN_EGG);
         }
     }
 }

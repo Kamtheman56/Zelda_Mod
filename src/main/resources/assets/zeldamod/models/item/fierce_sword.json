@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "zeldamod:item/sword_fierce_deity"
+    "layer0": "zeldamod:item/fierce_deity_sword"
   },
   "display": {
     "ground": {

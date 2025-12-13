@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
         "textures": {
-          "layer0": "zeldamod:item/sword_white"
+          "layer0": "zeldamod:item/white_sword"
         }
 }

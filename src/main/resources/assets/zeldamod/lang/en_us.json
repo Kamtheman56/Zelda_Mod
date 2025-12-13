@@ -268,7 +268,7 @@
 
   "block.zeldamod.gloom_block": "Gloom Block",
   "block.zeldamod.gloom_vein": "Gloom Vein",
-  "block.zeldamod.secret_stone": "Secret Stone",
+  "block.zeldamod.secret_stone": "Cracked Stone",
   "block.zeldamod.masters_ore": "Master Ore",
   "block.zeldamod.deepslate_masters_ore": "Deepslate Master Ore",
   "block.zeldamod.pork_block": "Pork Block",
@@ -322,6 +322,7 @@
   "block.zeldamod.time_bricks": "Time Bricks",
   "block.zeldamod.cracked_time_bricks": "Cracked Time Bricks",
   "block.zeldamod.mossy_time_bricks": "Mossy Time Bricks",
+  "block.zeldamod.chiseled_time_bricks": "Chiseled Time Bricks",
   "block.zeldamod.time_bricks_slab": "Time Bricks Slab",
   "block.zeldamod.mossy_time_bricks_slab": "Mossy Time Bricks Slab",
   "block.zeldamod.cracked_time_bricks_slab": "Cracked Time Bricks Slab",
@@ -579,6 +580,10 @@
 
   "painting.zeldamod.forest_secret.title": "The Forest's Secret",
   "painting.zeldamod.forest_secret.author": "Kamtheman56",
+  "painting.zeldamod.dreamer.title": "Dreamer",
+  "painting.zeldamod.dreamer.author": "Kamtheman56",
+
+
   "unable_sword_beam": "You're unable to do that",
   "death.attack.gloom_damage": "%1$s was consumed by Gloom",
   "death.attack.gloom_damage.player": "%1$s was consumed by Gloom whilst trying to escape %2$s",

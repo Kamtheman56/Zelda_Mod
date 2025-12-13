@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
         "textures": {
-          "layer0": "zeldamod:item/shield_hylian",
+          "layer0": "zeldamod:item/hylian_shield",
           "particle": "minecraft/block/iron_block"
         }
 }

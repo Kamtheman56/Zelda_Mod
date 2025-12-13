@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
         "textures": {
-          "layer0": "zeldamod:item/sword_biggoron"
+          "layer0": "zeldamod:item/biggoron_sword"
         },
   "display": {
     "ground": {

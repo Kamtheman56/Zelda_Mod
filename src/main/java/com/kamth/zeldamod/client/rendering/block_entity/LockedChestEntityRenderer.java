@@ -96,9 +96,9 @@ public class LockedChestEntityRenderer extends ChestRenderer<LockedChestEntity> 
 
                 this.render(pPoseStack, vertexconsumer, this.lid, this.lock, this.bottom, f1, i, pPackedOverlay);
 
-        if (chest.getBlockState().getValue(LockedChestBlock.LOCKED)){
-
-        }
+//        if (chest.getBlockState().getValue(LockedChestBlock.LOCKED)){
+//
+//        }
             pPoseStack.popPose();
         }
 
