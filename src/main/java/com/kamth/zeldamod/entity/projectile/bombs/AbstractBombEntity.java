@@ -1,5 +1,7 @@
 package com.kamth.zeldamod.entity.projectile.bombs;
 
+import com.kamth.zeldamod.Config;
+import com.kamth.zeldamod.client.config.ZeldaModConfig;
 import com.kamth.zeldamod.custom.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -120,27 +122,33 @@ public abstract class AbstractBombEntity extends ThrowableProjectile implements 
 
     // credit to SupersLegends for the destroying block code
     private void explode() {
-        this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
 
-        this.discard();
+        if (Config.bomb_griefing()) {
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.TNT);
+        } else {
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
 
-        BlockPos explosionPos = this.blockPosition();
 
-        int radius = (int) Math.ceil(this.explosionPower);
 
-        for (BlockPos pos : BlockPos.betweenClosed(explosionPos.offset(-radius, -radius, -radius), explosionPos.offset(radius, radius, radius))) {
+            BlockPos explosionPos = this.blockPosition();
 
-            BlockState blockState = this.level().getBlockState(pos).getBlock().defaultBlockState();
+            int radius = (int) Math.ceil(this.explosionPower);
 
-            if (blockState.is(ModTags.Blocks.BOMB)){
-                this.level().destroyBlock(pos, false);
-            }
+            for (BlockPos pos : BlockPos.betweenClosed(explosionPos.offset(-radius, -radius, -radius), explosionPos.offset(radius, radius, radius))) {
 
-            if (blockState.is(ModTags.Blocks.BOMB_FLOWER_BLOCKS)) {
-                this.level().destroyBlock(pos, false);
-                this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.MOB);
+                BlockState blockState = this.level().getBlockState(pos).getBlock().defaultBlockState();
+
+                if (blockState.is(ModTags.Blocks.BOMB)) {
+                    this.level().destroyBlock(pos, false);
+                }
+
+                if (blockState.is(ModTags.Blocks.BOMB_FLOWER_BLOCKS)) {
+                    this.level().destroyBlock(pos, false);
+                    this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.MOB);
+                }
             }
         }
+        this.discard();
     }
 
     @Override

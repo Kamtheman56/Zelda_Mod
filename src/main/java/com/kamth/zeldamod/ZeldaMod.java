@@ -34,6 +34,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -80,9 +81,17 @@ public class ZeldaMod {
 
         ZeldaEnchantments.register(modEventBus);
 
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(ZeldaCreativeTab::addCreativeTabItems);
     }
+
+    @SubscribeEvent
+    public void onServerStarting(ServerStartingEvent event)
+    {
+    }
+    
     private void clientSetup(final FMLClientSetupEvent event) {
         ModItemProperties.addCustomItemProperties();
     }
