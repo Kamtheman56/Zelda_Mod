@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "zeldamod:item/arrow_shock"
+    "layer0": "zeldamod:item/shock_arrow"
   }
 }

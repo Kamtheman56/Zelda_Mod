@@ -21,7 +21,7 @@ import java.util.List;
 
 public class BlueRingItem extends TooltipItem {
     public BlueRingItem(Properties pProperties) {
-        super(pProperties, "iaqua", false);
+        super(pProperties, "iaqua", true);
         MinecraftForge.EVENT_BUS.addListener(this::onLivingHurtEvent);
     }
 

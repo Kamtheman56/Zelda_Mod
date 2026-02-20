@@ -16,6 +16,7 @@ public class ZeldaModConfig {
     private final ForgeConfigSpec.DoubleValue playerMaxHealth;
     private final ForgeConfigSpec.BooleanValue bombGriefing;
     private final ForgeConfigSpec.BooleanValue explosivegriefing;
+    private final ForgeConfigSpec.BooleanValue canShootSwordBeams;
 
 
 
@@ -37,6 +38,10 @@ public class ZeldaModConfig {
         explosivegriefing = builder
                 .comment("Whether bombs & bomb arrows will cause block destruction")
                 .define("explosivegriefing", false);
+
+        canShootSwordBeams = builder
+                .comment("Whether the player can shoot sword beams with compatible swords at full health with Left Click")
+                .define("canshootswordbeams", true);
 
 
         builder.pop();

@@ -35,16 +35,18 @@ public class Flippers extends ArmorItem {
         if (event.phase != TickEvent.Phase.START) {
             return;}
         AttributeInstance flipper = event.player.getAttribute(ForgeMod.SWIM_SPEED.get());
-        if (event.player.isSprinting() && event.player.getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.FLIPPERS.get()) {}
+
         if (!flipper.hasModifier(FLIPPERS) && event.player instanceof Player && event.player.getItemBySlot(EquipmentSlot.FEET).getItem() == ZeldaItems.FLIPPERS.get()) {
             flipper.addTransientModifier(FLIPPERS);}
         else {
             if (flipper.hasModifier(FLIPPERS)) {
-                flipper.removeModifier(FLIPPERS);}}}
+                flipper.removeModifier(FLIPPERS);}
+        }
+    }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            components.add(Component.translatable("armor.flippers.description_advanced").withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+            components.add(Component.translatable("armor.flippers.description_advanced").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
         } else {
             components.add(Component.translatable("armor.flippers.description_basic").withStyle(ChatFormatting.GRAY));
         }

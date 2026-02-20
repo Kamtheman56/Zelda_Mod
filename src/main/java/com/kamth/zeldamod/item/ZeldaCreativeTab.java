@@ -7,31 +7,6 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 public class ZeldaCreativeTab {
     public static void addCreativeTabItems(BuildCreativeModeTabContentsEvent event) {
         if (event.getTab() == ModCreativeModeTab.ZELDA_BLOCKS.get()) {
-            event.accept(ZeldaItems.KOKIRI_HAT);
-            event.accept(ZeldaItems.GORON_HAT);
-            event.accept(ZeldaItems.ZORA_HAT);
-            event.accept(ZeldaItems.DARK_HAT);
-            event.accept(ZeldaItems.KOKIRI_TUNIC);
-            event.accept(ZeldaItems.GORON_TUNIC);
-            event.accept(ZeldaItems.ZORA_TUNIC);
-            event.accept(ZeldaItems.DARK_TUNIC);
-            event.accept(ZeldaItems.HYLIAN_HOOD);
-            event.accept(ZeldaItems.CHAMPION_TUNIC);
-            event.accept(ZeldaItems.CHAMPIONS_LEATHERS);
-            event.accept(ZeldaItems.ARCHAIC_TUNIC);
-            event.accept(ZeldaItems.CLASSIC_HAT);
-            event.accept(ZeldaItems.CLASSIC_TUNIC);
-            event.accept(ZeldaItems.KOKIRI_PANTS);
-            event.accept(ZeldaItems.HYLIAN_PANTS);
-            event.accept(ZeldaItems.DARK_PANTS);
-            event.accept(ZeldaItems.DARK_NUT_HELMET);
-            event.accept(ZeldaItems.DARK_KNIGHT_HELMET);
-            event.accept(ZeldaItems.KOKIRI_BOOTS);
-            event.accept(ZeldaItems.HEAVY_BOOTS);
-            event.accept(ZeldaItems.HOVER_BOOTS);
-            event.accept(ZeldaItems.FLIPPERS);
-            event.accept(ZeldaItems.PEGASUS_BOOTS);
-            event.accept(ZeldaItems.DARK_BOOTS);
             event.accept(ZeldaItems.KOKIRI_SWORD_OOT);
             event.accept(ZeldaItems.KOKIRI_SWORD_MM);
             event.accept(ZeldaItems.RAZOR_SWORD);
@@ -158,6 +133,51 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.SUPER_LEAF);
             event.accept(ZeldaItems.BAKED_APPLE);
         }
+
+        if (event.getTab() == ModCreativeModeTab.ZELDA_ARMOR.get()) {
+            event.accept(ZeldaItems.KOKIRI_HAT);
+            event.accept(ZeldaItems.GORON_HAT);
+            event.accept(ZeldaItems.ZORA_HAT);
+            event.accept(ZeldaItems.DARK_HAT);
+            event.accept(ZeldaItems.KOKIRI_TUNIC);
+            event.accept(ZeldaItems.GORON_TUNIC);
+            event.accept(ZeldaItems.ZORA_TUNIC);
+            event.accept(ZeldaItems.DARK_TUNIC);
+            event.accept(ZeldaItems.HYLIAN_HOOD);
+            event.accept(ZeldaItems.CLIMBING_BANDANNA);
+            event.accept(ZeldaItems.ZORA_HELMET);
+            event.accept(ZeldaItems.FLAMEBREAKER_HELMET);
+            event.accept(ZeldaItems.ZORA_CHESTPLATE);
+            event.accept(ZeldaItems.FLAMEBREAKER_CHESTPLATE);
+            event.accept(ZeldaItems.CHAMPION_TUNIC);
+            event.accept(ZeldaItems.CHAMPIONS_LEATHERS);
+            event.accept(ZeldaItems.ARCHAIC_TUNIC);
+            event.accept(ZeldaItems.CLIMBING_TUNIC);
+            event.accept(ZeldaItems.CLASSIC_HAT);
+            event.accept(ZeldaItems.BLUE_MAIL_HAT);
+            event.accept(ZeldaItems.RED_MAIL_HAT);
+            event.accept(ZeldaItems.PURPLE_MAIL_HAT);
+            event.accept(ZeldaItems.CLASSIC_TUNIC);
+            event.accept(ZeldaItems.BLUE_MAIL_TUNIC);
+            event.accept(ZeldaItems.RED_MAIL_TUNIC);
+            event.accept(ZeldaItems.PURPLE_MAIL_TUNIC);
+            event.accept(ZeldaItems.KOKIRI_PANTS);
+            event.accept(ZeldaItems.HYLIAN_PANTS);
+            event.accept(ZeldaItems.CLIMBING_PANTS);
+            event.accept(ZeldaItems.DARK_PANTS);
+            event.accept(ZeldaItems.FLAMEBREAKER_LEGGINGS);
+            event.accept(ZeldaItems.ZORA_ARMOR_LEGGINGS);
+            event.accept(ZeldaItems.DARK_NUT_HELMET);
+            event.accept(ZeldaItems.DARK_KNIGHT_HELMET);
+            event.accept(ZeldaItems.KOKIRI_BOOTS);
+            event.accept(ZeldaItems.HEAVY_BOOTS);
+            event.accept(ZeldaItems.HOVER_BOOTS);
+            event.accept(ZeldaItems.FLIPPERS);
+            event.accept(ZeldaItems.PEGASUS_BOOTS);
+            event.accept(ZeldaItems.DARK_BOOTS);
+            event.accept(ZeldaItems.FLAMEBREAKER_BOOTS);
+        }
+
         if (event.getTab() == ModCreativeModeTab.ZELDA_MASK.get()){
             event.accept(ZeldaItems.DEKU_MASK);
             event.accept(ZeldaItems.GORON_MASK);
@@ -188,6 +208,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.SPOOKY_MASK);
             event.accept(ZeldaItems.GERUDO_MASK);
             event.accept(ZeldaItems.KOROK_MASK);
+            event.accept(ZeldaItems.AWAKENING_MASK);
             event.accept(ZeldaItems.BOKO_MASK);
             event.accept(ZeldaItems.MAJORA_MASK);
             event.accept(ZeldaItems.MASK_ODOLWA);
@@ -196,6 +217,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.MASK_TWINMOLD);
 
         }
+
         if (event.getTab() == ModCreativeModeTab.ZELDA_TAB.get()){
             event.accept(ZeldaBlocks.SECRET_STONE);
             event.accept(ZeldaBlocks.MASTER_ORE);
@@ -327,7 +349,8 @@ public class ZeldaCreativeTab {
 
             event.accept(ZeldaItems.KOROK_SPAWN_EGG);
             event.accept(ZeldaItems.SKULLTULA_SPAWN_EGG);
-          //  event.accept(ZeldaItems.IRON_KNUCKLE_SPAWN_EGG);
+
         }
     }
+
 }

@@ -149,6 +149,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.OAK_LEAVES); }),
 
+    AWAKENING("awakening", 0, new int[]{0, 2, 5, 3}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(Items.IRON_INGOT); }),
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // ARMOR
@@ -162,52 +166,88 @@ public enum ModArmorMaterials implements ArmorMaterial {
     PEGASUS("pegasus", 0, new int[]{1, 4, 5, 1}, 0, SoundEvents.HORSE_GALLOP,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.SADDLE); }),
+
+    //TUNICS
     Kokiri("kokiri", 0, new int[]{1, 3, 2, 1}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GREEN_WOOL); }),
-    GoronTunic("gorontunic", 0, new int[]{1, 3, 2, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Goron_Tunic("goron_tunic", 0, new int[]{1, 3, 2, 1}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.MAGMA_CREAM); }),
-    ZoraTunic("zoratunic", 0, new int[]{1, 3, 2, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Zora_Tunic("zora_tunic", 0, new int[]{1, 3, 2, 1}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.NAUTILUS_SHELL); }),
+
     Classic("classic", 0, new int[]{5, 5, 2, 2}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GREEN_WOOL); }),
-    Roc("roc", 0, new int[]{1, 2, 2, 1}, 0, SoundEvents.PARROT_FLY,
-            0.0F, 0.0F, () -> {
-        return Ingredient.of(ZeldaItems.ROC_FEATHER.get()); }),
-    LEATHERS("champions", 0, new int[]{1, 7, 7, 1}, 16, SoundEvents.ARMOR_EQUIP_CHAIN,
+
+    Blue_Mail("blue_mail", 0, new int[]{5, 7, 6, 3}, 12, SoundEvents.ARMOR_EQUIP_LEATHER,
+            1.0F, 0.0F, () -> {
+        return Ingredient.of(ZeldaItems.MASTER_SHARD.get()); }),
+
+    Red_Mail("red_mail", 0, new int[]{6, 9, 8, 4}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
+            2.0F, 0.1F, () -> {
+        return Ingredient.of(ZeldaItems.MASTER_ORE.get()); }),
+
+    Purple_Mail("purple_mail", 0, new int[]{6, 10, 8, 4}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
+            3.0F, 0.2F, () -> {
+        return Ingredient.of(ZeldaItems.REFINED_MASTER_ORE.get()); }),
+
+    Leathers("champions", 0, new int[]{1, 7, 7, 1}, 16, SoundEvents.ARMOR_EQUIP_CHAIN,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.CHAIN); }),
-   Champion("champion", 0, new int[]{1, 5, 4, 1}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+
+    Champion("champion", 0, new int[]{1, 5, 4, 1}, 12, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(ZeldaBlocks.NIGHTSHADE.get()); }),
-    Fire("fire", 0, new int[]{2, 2, 5, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
-            0.0F, 0.0F, () -> {
-        return Ingredient.of(ZeldaItems.DIN_PEARL.get()); }),
-    Dragon("dragon", 0, new int[]{2, 2, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
-            0.0F, 0.0F, () -> {
-        return Ingredient.of(ZeldaItems.NAYRU_PEARL.get()); }),
-    Archaic("archaic", 0, new int[]{2, 4, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
+
+    Archaic("archaic", 0, new int[]{2, 4, 2, 2}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GREEN_WOOL); }),
 
-    DARK_NUT("dark_nut", 0, new int[]{3, 4, 4, 4}, 5, SoundEvents.ARMOR_EQUIP_IRON,
+
+    Roc("roc", 0, new int[]{1, 2, 2, 1}, 0, SoundEvents.PARROT_FLY,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(ZeldaItems.ROC_FEATHER.get()); }),
+
+
+    Fire("fire", 0, new int[]{2, 2, 5, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(ZeldaItems.DIN_PEARL.get()); }),
+
+    Dragon("dragon", 0, new int[]{2, 2, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> {
+        return Ingredient.of(ZeldaItems.NAYRU_PEARL.get()); }),
+
+
+    Dark_Nut("dark_nut", 0, new int[]{3, 4, 4, 4}, 5, SoundEvents.ARMOR_EQUIP_IRON,
             0.0F, 0.0F, () -> {
         return Ingredient.of(ZeldaItems.MASTER_ORE.get()); }),
-    DARK_KNIGHT("dark_knight", 0, new int[]{4, 6, 6, 6}, 5, SoundEvents.ARMOR_EQUIP_NETHERITE,
+
+    Dark_Knight("dark_knight", 0, new int[]{4, 6, 6, 6}, 5, SoundEvents.ARMOR_EQUIP_NETHERITE,
             0.0F, 0.0F, () -> {
         return Ingredient.of(ZeldaItems.MASTER_ORE.get()); }),
 
-    Dark("dark", 0, new int[]{2, 5, 2, 2}, 6, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Dark("dark", 0, new int[]{3, 6, 6, 3}, 25, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> Ingredient.of(ZeldaItems.GLOOM_CLUMP.get())),
 
-    MONSTER_MASK("monster_mask", 0, new int[]{2, 5, 2, 2}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Monster_Mask("monster_mask", 0, new int[]{2, 5, 2, 2}, 0, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> Ingredient.of(ZeldaItems.GLOOM_CLUMP.get())),
 
-    Hylian("hylian", 0, new int[]{3, 4, 2, 2}, 5, SoundEvents.ARMOR_EQUIP_LEATHER,
-            0.0F, 0.0F, () -> Ingredient.of(Items.BLACK_WOOL));
+    Hylian("hylian", 0, new int[]{3, 4, 2, 2}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> Ingredient.of(Items.BLACK_WOOL)),
+
+    Flamebreaker("flamebreaker", 0, new int[]{4, 10, 7, 4}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+            5.0F, 0.3F, () -> Ingredient.of(ZeldaItems.MASTER_SHARD.get())),
+
+    Zora_Armor("zora_armor", 0, new int[]{3, 8, 6, 3}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> Ingredient.of(ZeldaItems.MASTER_SHARD.get())),
+
+    Climbing("climbing", 0, new int[]{2, 5, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> Ingredient.of(Items.COBWEB));
+
+
 
 
 

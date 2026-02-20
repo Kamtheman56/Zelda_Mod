@@ -30,12 +30,11 @@ public class DarkArmor extends ArmorItem {
         player.addEffect(new MobEffectInstance(ModEffects.GLOOM_RESIST.get(), 10, 0, true, false, true));
 
         if (player.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.DARK_HAT.get()) && player.getItemBySlot(EquipmentSlot.LEGS).is(ZeldaItems.DARK_PANTS.get())
-         && player.getItemBySlot(EquipmentSlot.FEET).is(ZeldaItems.DARK_BOOTS.get()) && world.isNight()
-        ){
-
+         && player.getItemBySlot(EquipmentSlot.FEET).is(ZeldaItems.DARK_BOOTS.get()) && world.isNight()){
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 2, true, false, false));
+        }
     }
-    }
+
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {

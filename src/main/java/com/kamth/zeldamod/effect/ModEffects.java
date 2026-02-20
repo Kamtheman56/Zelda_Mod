@@ -30,6 +30,7 @@ public class ModEffects {
             () -> new MajoraEffect(MobEffectCategory.HARMFUL,11141290));
 
 
+
     public static void register(IEventBus eventbus){
         MOB_EFFECTS.register(eventbus);
     }

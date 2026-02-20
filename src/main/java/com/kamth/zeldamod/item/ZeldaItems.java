@@ -576,16 +576,28 @@ public class ZeldaItems {
                     new Item.Properties().defaultDurability(200)));
 
     public static final RegistryObject<ArmorItem> ZORA_HAT = ITEMS.register("zora_hat",
-            ()-> new ArmorItem(ModArmorMaterials.ZoraTunic, ArmorItem.Type.HELMET,
+            ()-> new ArmorItem(ModArmorMaterials.Zora_Tunic, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(200)));
 
     public static final RegistryObject<ArmorItem> GORON_HAT = ITEMS.register("goron_hat",
-            ()-> new ArmorItem(ModArmorMaterials.GoronTunic, ArmorItem.Type.HELMET,
+            ()-> new ArmorItem(ModArmorMaterials.Goron_Tunic, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(200)));
 
     public static final RegistryObject<ArmorItem> CLASSIC_HAT = ITEMS.register("classic_hat",
             ()-> new ArmorItem(ModArmorMaterials.Classic, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(390)));
+
+    public static final RegistryObject<ArmorItem> BLUE_MAIL_HAT = ITEMS.register("blue_mail_hat",
+            ()-> new ArmorItem(ModArmorMaterials.Blue_Mail, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(450)));
+
+    public static final RegistryObject<ArmorItem> RED_MAIL_HAT = ITEMS.register("red_mail_hat",
+            ()-> new ArmorItem(ModArmorMaterials.Red_Mail, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(650)));
+
+    public static final RegistryObject<ArmorItem> PURPLE_MAIL_HAT = ITEMS.register("purple_mail_hat",
+            ()-> new ArmorItem(ModArmorMaterials.Purple_Mail, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(650)));
 
     public static final RegistryObject<ArmorItem> HYLIAN_HOOD = ITEMS.register("hylian_hood",
             ()-> new ArmorItem(ModArmorMaterials.Hylian, ArmorItem.Type.HELMET,
@@ -596,16 +608,28 @@ public class ZeldaItems {
                     new Item.Properties().defaultDurability(450)));
 
     public static final RegistryObject<ArmorItem> DARK_NUT_HELMET = ITEMS.register("darknut_helmet",
-            ()-> new DarknutHelmet(ModArmorMaterials.DARK_NUT, ArmorItem.Type.HELMET,
+            ()-> new DarknutHelmet(ModArmorMaterials.Dark_Nut, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(450)));
 
     public static final RegistryObject<ArmorItem> DARK_KNIGHT_HELMET = ITEMS.register("dark_knight_helmet",
-            ()-> new DarkKnightHelmet(ModArmorMaterials.DARK_KNIGHT, ArmorItem.Type.HELMET,
+            ()-> new DarkKnightHelmet(ModArmorMaterials.Dark_Knight, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(450)));
 
     public static final RegistryObject<ArmorItem> BOKO_MASK = ITEMS.register("bokoblin_mask",
-            ()-> new BokoMask(ModArmorMaterials.MONSTER_MASK, ArmorItem.Type.HELMET,
+            ()-> new BokoMask(ModArmorMaterials.Monster_Mask, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(340)));
+
+    public static final RegistryObject<ArmorItem> ZORA_HELMET = ITEMS.register("zora_helmet",
+            ()-> new ArmorItem(ModArmorMaterials.Zora_Armor, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(400)));
+
+    public static final RegistryObject<ArmorItem> FLAMEBREAKER_HELMET = ITEMS.register("flamebreaker_helmet",
+            ()-> new ArmorItem(ModArmorMaterials.Flamebreaker, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(500)));
+
+    public static final RegistryObject<ArmorItem> CLIMBING_BANDANNA = ITEMS.register("climbing_bandanna",
+            ()-> new ArmorItem(ModArmorMaterials.Climbing, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(200)));
 
     // TUNICS
 
@@ -614,11 +638,11 @@ public class ZeldaItems {
                     new Item.Properties().defaultDurability(240)));
 
     public static final RegistryObject<ArmorItem> GORON_TUNIC = ITEMS.register("goron_tunic",
-            ()-> new GoronTunic(ModArmorMaterials.GoronTunic, ArmorItem.Type.CHESTPLATE,
+            ()-> new GoronTunic(ModArmorMaterials.Goron_Tunic, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(240)));
 
     public static final RegistryObject<ArmorItem> ZORA_TUNIC = ITEMS.register("zora_tunic",
-            ()-> new ZoraTunic(ModArmorMaterials.ZoraTunic, ArmorItem.Type.CHESTPLATE,
+            ()-> new ZoraTunic(ModArmorMaterials.Zora_Tunic, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(240)));
 
     public static final RegistryObject<ArmorItem> DARK_TUNIC = ITEMS.register("dark_tunic",
@@ -627,7 +651,19 @@ public class ZeldaItems {
 
     public static final RegistryObject<ArmorItem> CLASSIC_TUNIC = ITEMS.register("classic_tunic",
             ()-> new ArmorItem(ModArmorMaterials.Classic, ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().defaultDurability(650)));
+                    new Item.Properties().defaultDurability(400)));
+
+    public static final RegistryObject<ArmorItem> BLUE_MAIL_TUNIC = ITEMS.register("blue_mail_tunic",
+            ()-> new ArmorItem(ModArmorMaterials.Blue_Mail, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().defaultDurability(480)));
+
+    public static final RegistryObject<ArmorItem> RED_MAIL_TUNIC = ITEMS.register("red_mail_tunic",
+            ()-> new ArmorItem(ModArmorMaterials.Red_Mail, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().defaultDurability(560)));
+
+    public static final RegistryObject<ArmorItem> PURPLE_MAIL_TUNIC = ITEMS.register("purple_mail_tunic",
+            ()-> new ArmorItem(ModArmorMaterials.Purple_Mail, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().defaultDurability(670)));
 
     public static final RegistryObject<ArmorItem> ROC_CAPE = ITEMS.register("roc_cape",
             ()-> new RocCape(ModArmorMaterials.Roc,ArmorItem.Type.CHESTPLATE,
@@ -640,12 +676,24 @@ public class ZeldaItems {
                     new Item.Properties().defaultDurability(340)));
 
     public static final RegistryObject<ArmorItem> CHAMPIONS_LEATHERS = ITEMS.register("champions_leathers",
-            ()-> new ChampionLeathers(ModArmorMaterials.LEATHERS, ArmorItem.Type.CHESTPLATE,
+            ()-> new ChampionLeathers(ModArmorMaterials.Leathers, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(560).rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<ArmorItem> ARCHAIC_TUNIC = ITEMS.register("archaic_tunic",
             ()-> new ArchaicTunic(ModArmorMaterials.Archaic, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(240)));
+
+    public static final RegistryObject<ArmorItem> ZORA_CHESTPLATE = ITEMS.register("zora_chestplate",
+            ()-> new ZoraArmor(ModArmorMaterials.Zora_Armor, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().defaultDurability(480)));
+
+    public static final RegistryObject<ArmorItem> FLAMEBREAKER_CHESTPLATE = ITEMS.register("flamebreaker_chestplate",
+            ()-> new GoronTunic(ModArmorMaterials.Flamebreaker, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().defaultDurability(610)));
+
+    public static final RegistryObject<ArmorItem> CLIMBING_TUNIC = ITEMS.register("climbing_tunic",
+            ()-> new ClimbingTunic(ModArmorMaterials.Climbing, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().defaultDurability(340)));
 
 
 
@@ -662,6 +710,19 @@ public class ZeldaItems {
     public static final RegistryObject<ArmorItem> DARK_PANTS = ITEMS.register("dark_pants",
             ()-> new ArmorItem(ModArmorMaterials.Dark, ArmorItem.Type.LEGGINGS,
                     new Item.Properties().defaultDurability(580)));
+
+    public static final RegistryObject<ArmorItem> FLAMEBREAKER_LEGGINGS = ITEMS.register("flamebreaker_leggings",
+            ()-> new ArmorItem(ModArmorMaterials.Flamebreaker, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().defaultDurability(640)));
+
+    public static final RegistryObject<ArmorItem> ZORA_ARMOR_LEGGINGS = ITEMS.register("zora_leggings",
+            ()-> new ArmorItem(ModArmorMaterials.Zora_Armor, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().defaultDurability(495)));
+
+    public static final RegistryObject<ArmorItem> CLIMBING_PANTS = ITEMS.register("climbing_pants",
+            ()-> new ArmorItem(ModArmorMaterials.Climbing, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().defaultDurability(200)));
+
 
     // BOOTS
 
@@ -686,8 +747,12 @@ public class ZeldaItems {
                     new Item.Properties().defaultDurability(195).rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Flippers> FLIPPERS = ITEMS.register("flippers",
-            ()-> new Flippers(ModArmorMaterials.ZoraTunic, ArmorItem.Type.BOOTS,
+            ()-> new Flippers(ModArmorMaterials.Zora_Tunic, ArmorItem.Type.BOOTS,
                     new Item.Properties().defaultDurability(195).rarity(Rarity.UNCOMMON)));
+
+    public static final RegistryObject<ArmorItem> FLAMEBREAKER_BOOTS = ITEMS.register("flamebreaker_boots",
+            ()-> new ArmorItem(ModArmorMaterials.Flamebreaker, ArmorItem.Type.BOOTS,
+                    new Item.Properties().defaultDurability(429).rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<DragonScale> DRAGON_SCALE = ITEMS.register("scale_dragon",
             ()-> new DragonScale(ModArmorMaterials.Dragon, ArmorItem.Type.CHESTPLATE,
@@ -769,6 +834,9 @@ public class ZeldaItems {
     public static final RegistryObject<ArmorItem> GERUDO_MASK = regMask("gerudo", ModArmorMaterials.GERUDO);
 
     public static final RegistryObject<ArmorItem> KOROK_MASK = regMask("korok", ModArmorMaterials.KOROK, 382, "igreen");
+
+    public static final RegistryObject<ArmorItem> AWAKENING_MASK = ITEMS.register("mask_of_awakening", ()-> new ArmorItem(ModArmorMaterials.AWAKENING,ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(400).rarity(Rarity.RARE)));
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

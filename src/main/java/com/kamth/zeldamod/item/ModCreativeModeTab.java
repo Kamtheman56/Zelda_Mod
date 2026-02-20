@@ -25,8 +25,12 @@ public class ModCreativeModeTab {
 
     public static RegistryObject<CreativeModeTab> ZELDA_MASK = CREATIVE_MODE_TABS.register("zelda_mask", () ->
             CreativeModeTab.builder().icon(() -> new ItemStack(ZeldaItems.DEKU_MASK.get())).title(Component.translatable("zelda_masks")).build());
+
     public static RegistryObject<CreativeModeTab> ZELDA_TAB = CREATIVE_MODE_TABS.register("zelda_tab", () ->
             CreativeModeTab.builder().icon(() -> new ItemStack(ZeldaBlocks.COURAGE_BLOCK.get())).title(Component.translatable("zelda_tab")).build());
+
+    public static RegistryObject<CreativeModeTab> ZELDA_ARMOR = CREATIVE_MODE_TABS.register("zelda_armor", () ->
+            CreativeModeTab.builder().icon(() -> new ItemStack(ZeldaItems.KOKIRI_HAT.get())).title(Component.translatable("zelda_armor")).build());
 
 
 
