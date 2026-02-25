@@ -7,6 +7,11 @@ import com.kamth.zeldamod.custom.ModFoods;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.armors.*;
+import com.kamth.zeldamod.item.armors.boots.Flippers;
+import com.kamth.zeldamod.item.armors.boots.HeavyBoots;
+import com.kamth.zeldamod.item.armors.boots.HoverBoots;
+import com.kamth.zeldamod.item.armors.boots.PegasusBoots;
+import com.kamth.zeldamod.item.armors.tunics.*;
 import com.kamth.zeldamod.item.items.TooltipItem;
 import com.kamth.zeldamod.item.items.arrows.*;
 import com.kamth.zeldamod.item.items.bags.BombBagItem;
@@ -54,6 +59,7 @@ import com.kamth.zeldamod.item.items.bombs.BombFlowerItem;
 import com.kamth.zeldamod.item.items.weapons.projectiles.ScattershotItem;
 import com.kamth.zeldamod.item.items.weapons.projectiles.SlingshotItem;
 import com.kamth.zeldamod.item.items.weapons.swords.*;
+import com.kamth.zeldamod.item.items.weapons.swords.goddess.GoddessSwordItem;
 import com.kamth.zeldamod.item.items.weapons.swords.master.*;
 import com.kamth.zeldamod.item.masks.regular.*;
 import com.kamth.zeldamod.item.masks.transformation.*;
@@ -279,7 +285,7 @@ public class ZeldaItems {
     // SWORD BEAM SWORDS
 
     public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
-            () -> new MasterSwordItem(ModTiers.ZELDAU, 4, -2.4f,
+            () -> new GoddessSwordItem(ModTiers.ZELDAU, 4, -2.4f,
                     new Item.Properties().defaultDurability(1800).rarity(Rarity.RARE).fireResistant()));
 
     public static final RegistryObject<Item> MASTER_SWORD_TEMPERED = ITEMS.register("master_sword_tempered",
@@ -335,7 +341,18 @@ public class ZeldaItems {
                     new Item.Properties().rarity(Rarity.EPIC).defaultDurability(0)));
 
 
+    //GODDESS SWORDS
+    public static final RegistryObject<Item> GODDESS_SWORD = ITEMS.register("goddess_sword",
+            () -> new GoddessSwordItem(Tiers.WOOD, 3, -2.4f,
+                    new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(600)));
 
+    public static final RegistryObject<Item> GODDESS_LONGSWORD = ITEMS.register("goddess_longsword",
+            () -> new GoddessSwordItem(Tiers.STONE, 3, -2.4f,
+                    new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(800)));
+
+    public static final RegistryObject<Item> GODDESS_WHITESWORD = ITEMS.register("goddess_white_sword",
+            () -> new GoddessSwordItem(Tiers.WOOD, 3, -2.4f,
+                    new Item.Properties().rarity(Rarity.RARE).defaultDurability(1200)));
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // SPECIAL ITEMS

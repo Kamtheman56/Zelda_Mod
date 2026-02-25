@@ -1,6 +1,8 @@
 package com.kamth.zeldamod.item.items.weapons.swords.master;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.block.ZeldaBlocks;
+import com.kamth.zeldamod.entity.projectile.magic.SwordBeam;
 import com.kamth.zeldamod.entity.projectile.magic.SwordBeam_Evil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -8,8 +10,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
@@ -73,7 +78,7 @@ public class ReforgedSword extends TrueMasterSwordItem {
 
     @Override
     public void swingSword(Level world, Player player) {
-        if (player.getHealth() >= player.getMaxHealth()) {
+        if (player.getHealth() >= player.getMaxHealth() && !player.isCrouching() && Config.sword_beams() && Config.reforged_sword_beams()) {
             if (!(player.getCooldowns().isOnCooldown(this))) {
                 player.getCooldowns().addCooldown(this, 30);
                 world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, .8F, 5F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
@@ -84,6 +89,24 @@ public class ReforgedSword extends TrueMasterSwordItem {
                 world.addFreshEntity(projectile);
             }
         }
+    }
+
+    //Only enabled if Alternative Sword Beams are allowed
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
+
+        if (player.isCrouching() && Config.reforged_sword_beams() && Config.alternative_sword_beams() && !Config.sword_beams() && !player.getCooldowns().isOnCooldown(this)){
+            world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, .8F, 5F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
+            SwordBeam_Evil projectile = new SwordBeam_Evil(world, player);
+            projectile.setOwner(player);
+            projectile.setPos(player.getEyePosition(1F).add(0, -0.1, 0));
+            projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f, 0f);
+            world.addFreshEntity(projectile);
+
+            return InteractionResultHolder.consume(itemstack);
+        }
+        return InteractionResultHolder.pass(itemstack);
     }
 
 }

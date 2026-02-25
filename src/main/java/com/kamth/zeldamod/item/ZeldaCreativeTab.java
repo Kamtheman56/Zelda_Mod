@@ -21,6 +21,9 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.HERO_SWORD);
             event.accept(ZeldaItems.WHITE_SWORD);
             event.accept(ZeldaItems.MAGIC_SWORD);
+            event.accept(ZeldaItems.GODDESS_SWORD);
+            event.accept(ZeldaItems.GODDESS_LONGSWORD);
+            event.accept(ZeldaItems.GODDESS_WHITESWORD);
             event.accept(ZeldaItems.GLOOM_SWORD);
             event.accept(ZeldaItems.GLOOM_CLUB);
             event.accept(ZeldaItems.DEKU_SHIELD);

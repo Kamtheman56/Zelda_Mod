@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.util.interfaces.item;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.entity.projectile.magic.SwordBeam;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -14,7 +15,7 @@ public interface IBeamShootAction extends ISwingActionItem {
             return;
         }
 
-        if (!(player.getCooldowns().isOnCooldown((Item) this)) && !player.isCrouching()) {
+        if (!(player.getCooldowns().isOnCooldown((Item) this)) && !player.isCrouching() && Config.sword_beams()) {
             player.getCooldowns().addCooldown((Item) this, swingCooldownDuration());
             world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 0.8f, 5 / (world.getRandom().nextFloat() * 0.4f + 0.8f));
             SwordBeam projectile = new SwordBeam(world, player);

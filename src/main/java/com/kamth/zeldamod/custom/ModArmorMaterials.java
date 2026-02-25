@@ -178,19 +178,19 @@ public enum ModArmorMaterials implements ArmorMaterial {
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.NAUTILUS_SHELL); }),
 
-    Classic("classic", 0, new int[]{5, 5, 2, 2}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Classic("classic", 0, new int[]{3, 5, 2, 2}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> {
         return Ingredient.of(Items.GREEN_WOOL); }),
 
-    Blue_Mail("blue_mail", 0, new int[]{5, 7, 6, 3}, 12, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Blue_Mail("blue_mail", 0, new int[]{4, 7, 6, 3}, 12, SoundEvents.ARMOR_EQUIP_LEATHER,
             1.0F, 0.0F, () -> {
         return Ingredient.of(ZeldaItems.MASTER_SHARD.get()); }),
 
-    Red_Mail("red_mail", 0, new int[]{6, 9, 8, 4}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Red_Mail("red_mail", 0, new int[]{4, 8, 8, 4}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
             2.0F, 0.1F, () -> {
         return Ingredient.of(ZeldaItems.MASTER_ORE.get()); }),
 
-    Purple_Mail("purple_mail", 0, new int[]{6, 10, 8, 4}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Purple_Mail("purple_mail", 0, new int[]{5, 9, 8, 4}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
             3.0F, 0.2F, () -> {
         return Ingredient.of(ZeldaItems.REFINED_MASTER_ORE.get()); }),
 
@@ -238,10 +238,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
     Hylian("hylian", 0, new int[]{3, 4, 2, 2}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> Ingredient.of(Items.BLACK_WOOL)),
 
-    Flamebreaker("flamebreaker", 0, new int[]{4, 10, 7, 4}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Flamebreaker("flamebreaker", 0, new int[]{2, 8, 7, 4}, 10, SoundEvents.ARMOR_EQUIP_LEATHER,
             5.0F, 0.3F, () -> Ingredient.of(ZeldaItems.MASTER_SHARD.get())),
 
-    Zora_Armor("zora_armor", 0, new int[]{3, 8, 6, 3}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
+    Zora_Armor("zora_armor", 0, new int[]{3, 6, 6, 3}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> Ingredient.of(ZeldaItems.MASTER_SHARD.get())),
 
     Climbing("climbing", 0, new int[]{2, 5, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_LEATHER,

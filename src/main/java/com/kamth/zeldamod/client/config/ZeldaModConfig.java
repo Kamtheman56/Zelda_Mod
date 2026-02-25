@@ -17,8 +17,8 @@ public class ZeldaModConfig {
     private final ForgeConfigSpec.BooleanValue bombGriefing;
     private final ForgeConfigSpec.BooleanValue explosivegriefing;
     private final ForgeConfigSpec.BooleanValue canShootSwordBeams;
-
-
+    private final ForgeConfigSpec.BooleanValue alternativeSwordBeams;
+    private final ForgeConfigSpec.BooleanValue reforgedSwordBeams;
 
 
     private ZeldaModConfig(ForgeConfigSpec.Builder builder) {
@@ -39,9 +39,19 @@ public class ZeldaModConfig {
                 .comment("Whether bombs & bomb arrows will cause block destruction")
                 .define("explosivegriefing", false);
 
+        alternativeSwordBeams = builder
+                .comment("Revert Sword Beams to being fired with shift + Right Click")
+                .define("alternate_sword_beams", false);
+
+
+        reforgedSwordBeams = builder
+                .comment("Can the Reforged Master Sword fire Sword Beams?")
+                .define("reforged_sword_beams", true);
+
         canShootSwordBeams = builder
                 .comment("Whether the player can shoot sword beams with compatible swords at full health with Left Click")
-                .define("canshootswordbeams", true);
+                .define("sword_beams", true);
+
 
 
         builder.pop();
@@ -57,16 +67,7 @@ public class ZeldaModConfig {
     }
 
     // Query Operations
-    public double playerMaxHealth() { return playerMaxHealth.get(); }
-    public boolean bombGriefing() { return bombGriefing.get(); }
 
-    public void changeexplosivegriefing(boolean newValue) {
-        explosivegriefing.set(newValue);
-    }
-    // Modification Operations
-    public void changeplayerMaxHealth(double newValue) {
-        playerMaxHealth.set(newValue);
-    }
 
 
     public void save() {

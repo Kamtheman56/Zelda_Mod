@@ -2,8 +2,10 @@ package com.kamth.zeldamod.entity.projectile.magic;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
@@ -51,6 +53,12 @@ public class SwordBeam extends AbstractArrow {
         int w = entity.getType().is(ModTags.Entities.EVIL) ? 10 : 0;
         entity.hurt(damageSources().generic(), (float)w);
       this.discard();
+
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.CLOUD, this.getX(), this.getY(), this.getZ(),
+                    2, 0, 0, 0, 0);
+        }
+
     }
     @Override
     public void onAddedToWorld() {
@@ -58,12 +66,7 @@ public class SwordBeam extends AbstractArrow {
         setBaseDamage(BASE_DAMAGE);
 
     }
-    @Override
-    protected void onHitBlock(@NotNull BlockHitResult ray) {
-        super.onHitBlock(ray);
-        this.discard();
 
-}
 
     @Override
     public boolean canChangeDimensions() {
@@ -86,13 +89,22 @@ public class SwordBeam extends AbstractArrow {
         }
         if (this.level().getBlockState(this.blockPosition()).is(ModTags.Blocks.SWORD_BEAM)){
             this.level().destroyBlock(this.blockPosition(), true);
-    }}
+        }
+    }
 @Override
     protected SoundEvent getDefaultHitGroundSoundEvent() {
         return SoundEvents.EMPTY;
     }
 
-
+    @Override
+    protected void onHitBlock(@NotNull BlockHitResult ray) {
+        super.onHitBlock(ray);
+        this.discard();
+        if (this.level() instanceof ServerLevel) {
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.CLOUD, this.getX(), this.getY(), this.getZ(),
+                    2, 0, 0, 0, 0);
+        }
+    }
 
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
