@@ -45,12 +45,15 @@ public class LightArrow extends AbstractArrow {
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
+
         int i = entity instanceof EnderDragon ? 50 : 0;
         entity.hurt(damageSources().generic(), (float)i);
         int w = entity instanceof WitherBoss ? 50 : 0;
         entity.hurt(damageSources().generic(), (float)w);
         int s = entity instanceof Warden ? 50 : 0;
         entity.hurt(damageSources().generic(), (float)s);
+
+
         if (this.level() instanceof ServerLevel) {
             ((ServerLevel)this.level()).sendParticles(ParticleTypes.ELECTRIC_SPARK, this.getX() , this.getY(0.5D), this.getZ() , 5, 1, 0.0D, 1, 0.0D);
         }

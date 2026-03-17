@@ -39,10 +39,12 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> BROWN_BRICKS = registerSoundEvents("brown_bricks");
     public static final RegistryObject<SoundEvent> DOOR_LOCK = registerSoundEvents("locked_door");
     public static final RegistryObject<SoundEvent> DOOR_UNLOCK = registerSoundEvents("door_unlock");
+    public static final RegistryObject<SoundEvent> SPIKES_RETRACT = registerSoundEvents("spikes_retract");
+    //ITEM SOUNDS
     public static final RegistryObject<SoundEvent> WOODEN_HAMMER = registerSoundEvents("wooden_hammer");
     public static final RegistryObject<SoundEvent> BOOMERANG_TOSS = registerSoundEvents("boomerang_toss");
     public static final RegistryObject<SoundEvent> SWORD_ENCHANT = registerSoundEvents("sword_enchant");
-    public static final RegistryObject<SoundEvent> SPIKES_RETRACT = registerSoundEvents("spikes_retract");
+    public static final RegistryObject<SoundEvent> FINISH_CHARGING = registerSoundEvents("finish_charging");
 
     // PROJECTILE SOUNDS
 

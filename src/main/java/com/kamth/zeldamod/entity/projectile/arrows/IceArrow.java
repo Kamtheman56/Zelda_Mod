@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.entity.projectile.arrows;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -63,7 +64,7 @@ public class IceArrow extends AbstractArrow {
     @Override
     public void tick() {
         super.tick();
-        if (this.isInWater()){
+        if (this.isInWater() && Config.ice_arrow_freezing()){
             BlockState blockstate = Blocks.FROSTED_ICE.defaultBlockState();
             float f = (float)Math.min(1, 1);
 

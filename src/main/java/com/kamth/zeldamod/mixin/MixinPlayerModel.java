@@ -17,6 +17,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -92,7 +93,7 @@ abstract class MixinPlayerModel extends HumanoidModel<LivingEntity> {
 
             SwordSpinPlayerData playerData = (SwordSpinPlayerData) player;
 
-            if (entity.isUsingItem()) {
+            if (player.getUseItem().getItem() instanceof SwordItem && hasSwordSpin) {
                 this.rightArm.xRot = this.rightArm.xRot * 0.5F - 0.9424779F;
                 this.rightArm.yRot = -0.5235988F;
             }
@@ -107,7 +108,7 @@ abstract class MixinPlayerModel extends HumanoidModel<LivingEntity> {
 
             SwordSpinPlayerData playerData = (SwordSpinPlayerData) player;
 
-            if (entity.isUsingItem()) {
+            if (player.getUseItem().getItem() instanceof SwordItem && hasSwordSpin ) {
                 this.rightArm.xRot = this.rightArm.xRot * 0.5F - 0.9424779F;
                 this.rightArm.yRot = -0.5235988F;
             }

@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.entity.projectile.arrows;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -47,21 +48,25 @@ public class ShockArrow extends AbstractArrow {
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
+
             if (this.level() instanceof ServerLevel) {
-                ((ServerLevel)this.level()).sendParticles(ParticleTypes.ELECTRIC_SPARK, this.getX() , this.getY(0.5D), this.getZ() , 5, 1, 0.0D, 1, 0.0D);
+                ((ServerLevel)this.level()).sendParticles(ParticleTypes.ELECTRIC_SPARK, this.getX() , this.getY(0.5D), this.getZ() , 7, 1, 0.0D, 1, 0.0D);
                 BlockPos blockpos = entity.blockPosition();
-                if (this.level().canSeeSky(blockpos) && this.level().isRaining()) {
+
+
+                if (this.level().canSeeSky(blockpos) && this.level().isRaining() && Config.shock_arrow_lightning()) {
                     LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
                     lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
                     this.level().addFreshEntity(lightningbolt);
-    }
-            }
-        int i = entity instanceof IronGolem ? 10 : 0;
-       entity.hurt(damageSources().magic(), (float)i);
-    if (entity.isInWaterOrRain()){
-        setBaseDamage(10);
+                }
 
-    }
+            }
+            int i = entity instanceof IronGolem ? 10 : 0;
+            entity.hurt(damageSources().magic(), (float)i);
+        if (entity.isInWaterOrRain()){
+            setBaseDamage(10);
+            ((ServerLevel)this.level()).sendParticles(ParticleTypes.ELECTRIC_SPARK, this.getX() , this.getY(0.5D), this.getZ() , 10, 1, 0.4D, 1, 0.3D);
+        }
     }
     @Override
     public void onAddedToWorld() {
@@ -78,7 +83,7 @@ public class ShockArrow extends AbstractArrow {
             BlockPos blockpos = this.blockPosition();
             ((ServerLevel)this.level()).sendParticles(ParticleTypes.ELECTRIC_SPARK, this.getX() , this.getY(0.5D), this.getZ() , 5, 1, 0.0D, 1, 0.0D);
 
-            if (this.level().canSeeSky(blockpos) && this.level().isRaining()) {
+            if (this.level().canSeeSky(blockpos) && this.level().isRaining() && Config.shock_arrow_lightning()) {
                 LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
                 lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
                 this.level().addFreshEntity(lightningbolt);

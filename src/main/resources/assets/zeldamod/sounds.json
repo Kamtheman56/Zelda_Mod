@@ -168,9 +168,9 @@
     ]
   },
   "sword_beam_shatter": {
-    "subtitle": "sounds.zeldamod.sword_beam_shatter",
+    "subtitle": "sounds.zeldamod.sword_beam_shatters",
     "sounds": [
-      "zeldamod:sword_beam_shatter"
+      "zeldamod:sword_beam_shatters"
     ]
   },
   "sword_enchant": {
@@ -195,6 +195,12 @@
     "subtitle": "sounds.zeldamod.sword_charge_finish",
     "sounds": [
       "zeldamod:sword_charge_finish"
+    ]
+  },
+  "finish_charging": {
+    "subtitle": "sounds.zeldamod.finish_charging",
+    "sounds": [
+      "zeldamod:finish_charging"
     ]
   }
 }

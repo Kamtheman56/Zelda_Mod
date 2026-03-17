@@ -3,7 +3,7 @@
     "icon": {
       "item": "zeldamod:refined_master_ore"
     },
-    "title": "A Refined Pallette",
+    "title": "A Refined Palette",
     "description": "Combine three Master Shards, a Master Ore, a Netherite Ingot, and three Netherite Scraps to create a Refined Master Ore",
     "frame": "task",
     "show_toast": true,

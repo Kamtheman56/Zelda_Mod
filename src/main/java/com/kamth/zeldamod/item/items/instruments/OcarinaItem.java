@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.item.items.instruments;
 
 import com.kamth.zeldamod.block.ZeldaBlocks;
+
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
@@ -118,6 +119,7 @@ public class OcarinaItem extends Item {
         if (blockstate.is(ZeldaBlocks.NOTE_STONE.get())){
             level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_STORMS.get(),SoundSource.PLAYERS, .8f, 1f);
             pContext.getPlayer().getCooldowns().addCooldown(this, 600);
+
         if (blockstate.is(ZeldaBlocks.NOTE_STONE.get()) && !level.isRaining() && !level.isClientSide) {
             MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
             ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);

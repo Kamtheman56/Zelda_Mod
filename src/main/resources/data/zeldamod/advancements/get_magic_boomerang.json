@@ -3,7 +3,7 @@
     "icon": {
       "item": "zeldamod:boomerang_magic"
     },
-    "title": "Going for an Upgrade",
+    "title": "Going For An Upgrade",
     "description": "Gift your Boomerang to an Allay",
     "frame": "task",
     "show_toast": true,

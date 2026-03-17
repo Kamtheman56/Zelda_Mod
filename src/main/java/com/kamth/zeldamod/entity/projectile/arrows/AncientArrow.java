@@ -69,9 +69,11 @@ public class AncientArrow extends AbstractArrow {
     @Override
     protected void onHitBlock(@NotNull BlockHitResult ray) {
         super.onHitBlock(ray);
+
         if (this.level() instanceof ServerLevel) {
             ((ServerLevel)this.level()).sendParticles(ParticleTypes.GLOW_SQUID_INK, this.getX() , this.getY(0.5D), this.getZ() , 5, 1, 0.0D, 1, 0.0D);
         }
+
         this.discard();
 }
 @Override

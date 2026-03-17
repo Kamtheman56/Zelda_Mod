@@ -2,6 +2,7 @@ package com.kamth.zeldamod.entity.projectile.magic;
 
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
+import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -83,6 +84,7 @@ public class SwordBeam extends AbstractArrow {
         if (tickCount > 15)
         {
             this.discard();
+            this.playSound(ModSounds.SWORD_BEAM_SHATTERS.get());
         }
         if (this.isInWater()){
             this.discard();
@@ -93,7 +95,7 @@ public class SwordBeam extends AbstractArrow {
     }
 @Override
     protected SoundEvent getDefaultHitGroundSoundEvent() {
-        return SoundEvents.EMPTY;
+        return ModSounds.SWORD_BEAM_SHATTERS.get();
     }
 
     @Override

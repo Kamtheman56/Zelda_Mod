@@ -59,7 +59,7 @@ import com.kamth.zeldamod.item.items.bombs.BombFlowerItem;
 import com.kamth.zeldamod.item.items.weapons.projectiles.ScattershotItem;
 import com.kamth.zeldamod.item.items.weapons.projectiles.SlingshotItem;
 import com.kamth.zeldamod.item.items.weapons.swords.*;
-import com.kamth.zeldamod.item.items.weapons.swords.goddess.GoddessSwordItem;
+import com.kamth.zeldamod.item.items.weapons.swords.goddess.AbstractGoddessSwordItem;
 import com.kamth.zeldamod.item.items.weapons.swords.master.*;
 import com.kamth.zeldamod.item.masks.regular.*;
 import com.kamth.zeldamod.item.masks.transformation.*;
@@ -278,14 +278,14 @@ public class ZeldaItems {
     // BREAK INTO NEW SWORD
 
     public static final RegistryObject<Item> RAZOR_SWORD = ITEMS.register("razor_sword",
-            () -> new RazorSwordItem(ModTiers.RAZOR, 2, -1.4f,
+            () -> new RazorSwordItem(ModTiers.ZELDA, 2, -1.4f,
                     new Item.Properties().defaultDurability(260).rarity(Rarity.UNCOMMON),
                     KOKIRI_SWORD_MM.get()));
 
     // SWORD BEAM SWORDS
 
     public static final RegistryObject<Item> MASTER_SWORD = ITEMS.register("master_sword",
-            () -> new GoddessSwordItem(ModTiers.ZELDAU, 4, -2.4f,
+            () -> new MasterSwordItem(ModTiers.UNBREAKABLE, 4, -2.4f,
                     new Item.Properties().defaultDurability(1800).rarity(Rarity.RARE).fireResistant()));
 
     public static final RegistryObject<Item> MASTER_SWORD_TEMPERED = ITEMS.register("master_sword_tempered",
@@ -329,30 +329,34 @@ public class ZeldaItems {
                     new Item.Properties().rarity(Rarity.EPIC).fireResistant()));
 
     public static final RegistryObject<Item> HERO_SWORD = ITEMS.register("hero_sword",
-            () -> new MagicSwordItem(Tiers.WOOD, 3, -2.4f,
+            () -> new MagicSwordItem(ModTiers.ZELDA, 3, -2.4f,
                     new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(600)));
 
     public static final RegistryObject<Item> WHITE_SWORD = ITEMS.register("white_sword",
-            () -> new MagicSwordItem(Tiers.STONE, 3, -2.4f,
+            () -> new MagicSwordItem(ModTiers.ZELDA, 3, -2.4f,
                     new Item.Properties().rarity(Rarity.RARE).defaultDurability(1800)));
 
     public static final RegistryObject<Item> MAGIC_SWORD = ITEMS.register("magic_sword",
-            () -> new MagicSwordItem(Tiers.NETHERITE, 5, -2.2f,
+            () -> new MagicSwordItem(ModTiers.ZELDA, 5, -2.2f,
                     new Item.Properties().rarity(Rarity.EPIC).defaultDurability(0)));
 
 
     //GODDESS SWORDS
-    public static final RegistryObject<Item> GODDESS_SWORD = ITEMS.register("goddess_sword",
-            () -> new GoddessSwordItem(Tiers.WOOD, 3, -2.4f,
-                    new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(600)));
 
-    public static final RegistryObject<Item> GODDESS_LONGSWORD = ITEMS.register("goddess_longsword",
-            () -> new GoddessSwordItem(Tiers.STONE, 3, -2.4f,
-                    new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(800)));
+
+
 
     public static final RegistryObject<Item> GODDESS_WHITESWORD = ITEMS.register("goddess_white_sword",
-            () -> new GoddessSwordItem(Tiers.WOOD, 3, -2.4f,
-                    new Item.Properties().rarity(Rarity.RARE).defaultDurability(1200)));
+            () -> new AbstractGoddessSwordItem(ModTiers.MASTER_SHARD, 3, -2.4f,
+                    new Item.Properties().rarity(Rarity.RARE).defaultDurability(1200), 60, MASTER_SWORD.get(), ZeldaBlocks.POWER_FLAME.get()));
+
+    public static final RegistryObject<Item> GODDESS_LONGSWORD = ITEMS.register("goddess_longsword",
+            () -> new AbstractGoddessSwordItem(ModTiers.MASTER_SHARD, 3, -2.4f,
+                    new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(800), 70, GODDESS_WHITESWORD.get(), ZeldaBlocks.WISDOM_FLAME.get()));
+
+    public static final RegistryObject<Item> GODDESS_SWORD = ITEMS.register("goddess_sword",
+            () -> new AbstractGoddessSwordItem(ModTiers.MASTER_SHARD, 2, -2.4f,
+                    new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(600), 75, GODDESS_LONGSWORD.get(), ZeldaBlocks.COURAGE_FLAME.get()  ));
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // SPECIAL ITEMS

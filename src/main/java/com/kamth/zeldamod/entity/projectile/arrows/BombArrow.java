@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.entity.projectile.arrows;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.core.BlockPos;
@@ -65,21 +66,38 @@ public class BombArrow extends AbstractArrow {
 
 }
     private void explode() {
-        this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
-        this.discard();
-        //credit to SupersLegends for the destroying specific block code
-        BlockPos explosionPos = this.blockPosition();
-        int radius = 3;
-        for (BlockPos pos : BlockPos.betweenClosed(explosionPos.offset(-radius, -radius, -radius), explosionPos.offset(radius, radius, radius))) {
-            BlockState blockState = this.level().getBlockState(pos).getBlock().defaultBlockState();
-            if (blockState.is(ModTags.Blocks.BOMB)){
-                this.level().destroyBlock(pos, false);
-            }
 
-        }}
+        if (Config.bomb_arrow_griefing()) {
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.TNT);
+        } else {
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.NONE);
+
+
+
+            BlockPos explosionPos = this.blockPosition();
+
+            int radius = (int) Math.ceil(this.explosionPower);
+
+            for (BlockPos pos : BlockPos.betweenClosed(explosionPos.offset(-radius, -radius, -radius), explosionPos.offset(radius, radius, radius))) {
+
+                BlockState blockState = this.level().getBlockState(pos).getBlock().defaultBlockState();
+
+                if (blockState.is(ModTags.Blocks.BOMB)) {
+                    this.level().destroyBlock(pos, false);
+                }
+
+                if (blockState.is(ModTags.Blocks.BOMB_FLOWER_BLOCKS)) {
+                    this.level().destroyBlock(pos, false);
+                    this.level().explode(this, this.getX(), this.getY(), this.getZ(), this.explosionPower, Level.ExplosionInteraction.MOB);
+                }
+            }
+        }
+        this.discard();
+    }
+
 @Override
 protected SoundEvent getDefaultHitGroundSoundEvent() {
-    return SoundEvents.TNT_PRIMED;
+    return SoundEvents.ARROW_HIT;
 }
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {

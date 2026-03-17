@@ -13,9 +13,20 @@ public class ZeldaModConfig {
         SPEC = specPair.getRight();
     }
     // General
+
+
+    //GRIEFING RELATED CONFIG
     private final ForgeConfigSpec.DoubleValue playerMaxHealth;
     private final ForgeConfigSpec.BooleanValue bombGriefing;
-    private final ForgeConfigSpec.BooleanValue explosivegriefing;
+
+    private final ForgeConfigSpec.BooleanValue bombArrowGriefing;
+
+    // ARROW RELATED CONFIG
+    private final ForgeConfigSpec.BooleanValue fireArrowMelting;
+    private final ForgeConfigSpec.BooleanValue iceArrowFreezing;
+    private final ForgeConfigSpec.BooleanValue shockArrowLightning;
+
+    //SWORD RELATED CONFIG
     private final ForgeConfigSpec.BooleanValue canShootSwordBeams;
     private final ForgeConfigSpec.BooleanValue alternativeSwordBeams;
     private final ForgeConfigSpec.BooleanValue reforgedSwordBeams;
@@ -30,14 +41,37 @@ public class ZeldaModConfig {
 
 
 
+
+        // GRIEFING RELATED CONFIG
+
         bombGriefing = builder
-                .comment("Do bombs destroy terrain?")
+                .comment("Can Bombs destroy terrain?")
                 .define("bomb_griefing", false);
 
 
-        explosivegriefing = builder
-                .comment("Whether bombs & bomb arrows will cause block destruction")
-                .define("explosivegriefing", false);
+
+        bombArrowGriefing = builder
+                .comment("Can Bomb Arrows destroy terrain?")
+                .define("bomb_arrow_griefing", false);
+
+
+
+
+        // ARROW CONFIG
+
+        fireArrowMelting = builder
+                .comment("Can Fire Arrows melt frozen blocks?")
+                .define("fire_arrow_melting", true);
+
+        iceArrowFreezing = builder
+                .comment("Can Ice Arrows freeze water?")
+                .define("ice_arrow_freezing", true);
+
+        shockArrowLightning = builder
+                .comment("Can Shock Arrows summon lightning when it's raining?")
+                .define("shock_arrow_lightning", true);
+
+        // SWORD RELATED CONFIG
 
         alternativeSwordBeams = builder
                 .comment("Revert Sword Beams to being fired with shift + Right Click")

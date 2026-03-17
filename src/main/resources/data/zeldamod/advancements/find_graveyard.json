@@ -4,10 +4,10 @@
       "item": "minecraft:iron_shovel"
     },
     "title": {
-      "text": "A drab outlook"
+      "text": "A Drab Outlook"
     },
     "description": {
-      "text": "Locate a graveyard"
+      "text": "Locate a Graveyard"
     },
     "frame": "task",
     "show_toast": true,

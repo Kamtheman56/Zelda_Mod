@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.enchantments;
 
 import com.kamth.zeldamod.custom.ModTags;
+import com.kamth.zeldamod.sound.ModSounds;
 import com.kamth.zeldamod.util.interfaces.mixin.SwordSpinPlayerData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -40,7 +41,7 @@ public class SwordSpin extends Enchantment {
 
             if (swordspinTicks == 25) {
                 if (!level.isClientSide) {
-                    player.playNotifySound(SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1, 2);
+                    player.playNotifySound(ModSounds.SWORD_CHARGE_FINISH.get(), SoundSource.PLAYERS, 1, 1);
                 }
                 swordspinTicks++;
             }

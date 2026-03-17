@@ -2,6 +2,9 @@ package com.kamth.zeldamod.block.entity;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.block.ZeldaBlocks;
+import com.kamth.zeldamod.block.custom.shadow_blocks.ShadowBlock;
+import com.kamth.zeldamod.block.entity.shadow_blocks.HiddenShadowBlockEntity;
+import com.kamth.zeldamod.block.entity.shadow_blocks.ShadowBlockEntity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -39,6 +42,10 @@ public class ZeldaBlockEntities {
     public static final RegistryObject<BlockEntityType<JarEntity>> JAR_ENTITY =
             register("jar_be", JarEntity::new, ZeldaBlocks.JAR_BLUE);
 
+    public static final RegistryObject<BlockEntityType<ShadowBlockEntity>> SHADOW_BLOCK_ENTITY =
+            register("shadow_be", ShadowBlockEntity::new, ZeldaBlocks.SHADOW_BLOCK);
+    public static final RegistryObject<BlockEntityType<HiddenShadowBlockEntity>> HIDDEN_SHADOW_BLOCK_ENTITY =
+            register("hidden_shadow_be", HiddenShadowBlockEntity::new, ZeldaBlocks.SHADOW_BLOCK);
 
 
 
