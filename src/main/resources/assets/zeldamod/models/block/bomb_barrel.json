@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "down": "zeldamod:block/bomb_barrel_top",
+    "particle": "zeldamod:block/bomb_barrel_side",
+    "up": "zeldamod:block/bomb_barrel_top",
+    "side": "zeldamod:block/bomb_barrel_side"
+  }}

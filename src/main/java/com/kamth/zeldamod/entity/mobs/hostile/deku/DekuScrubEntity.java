@@ -1,7 +1,10 @@
 package com.kamth.zeldamod.entity.mobs.hostile.deku;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.block.ZeldaBlocks;
 import com.kamth.zeldamod.entity.mobs.friendly.KorokEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.keese.KeeseEntity;
+import com.kamth.zeldamod.entity.mobs.hostile.skulltula.SkulltulaEntity;
 import com.kamth.zeldamod.entity.projectile.seeds.SeedProjectile;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.item.items.weapons.projectiles.SlingshotItem;
@@ -12,6 +15,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -30,7 +34,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 
 import javax.annotation.Nullable;
@@ -222,4 +228,13 @@ public class DekuScrubEntity extends Monster implements RangedAttackMob {
             this.mob.setTarget(null);
         }
     }
+
+
+
+    public static boolean checkDekuSpawnRules(EntityType<? extends DekuScrubEntity> pBat, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        if (pPos.getY() >= pLevel.getSeaLevel()) {
+            return false;}
+        else return pLevel.getDifficulty() != Difficulty.PEACEFUL && Config.deku_spawning() && isDarkEnoughToSpawn((ServerLevelAccessor) pLevel, pPos, pRandom) && checkMobSpawnRules(pBat, pLevel, pSpawnType, pPos, pRandom);
+    }
+
 }

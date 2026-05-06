@@ -172,7 +172,7 @@ public class ModEntityTypes {
     // BOSSES
 
     public static final RegistryObject<EntityType<PhantomGanonEntity>> PHANTOM_GANON = ENTITY_TYPES.register("phantom_ganon", () -> EntityType.Builder.of(PhantomGanonEntity::new, MobCategory.MONSTER)
-            .sized(.8f,2f).build("phantom_ganon"));
+            .sized(.9f,3.5f).build("phantom_ganon"));
 
     public static void register(IEventBus modEventBus) {
         ENTITY_TYPES.register(modEventBus);

@@ -112,7 +112,9 @@ public class BombFlowerBlock extends CropBlock {
             onCaughtFire(pState, pLevel, pPos, pEntity.getDirection(), ((AbstractArrow) pEntity).getControllingPassenger());
             pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), 11);
             pEntity.remove(Entity.RemovalReason.DISCARDED);
-        }}
+        }
+    }
+
     public void wasExploded(Level pLevel, BlockPos pPos, Explosion pExplosion) {
         if (!pLevel.isClientSide) {
             pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 2f, Level.ExplosionInteraction.MOB);

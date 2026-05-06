@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.item.armors;
+package com.kamth.zeldamod.item.armors.extra;
 
 import be.florens.expandability.api.forge.LivingFluidCollisionEvent;
 import com.kamth.zeldamod.effect.ModEffects;

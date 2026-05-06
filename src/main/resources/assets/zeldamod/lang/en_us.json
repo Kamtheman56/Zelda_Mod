@@ -82,6 +82,7 @@
   "item.zeldamod.goddess_sword": "Goddess Sword",
   "item.zeldamod.goddess_longsword": "Goddess Longsword",
   "item.zeldamod.goddess_white_sword": "Goddess White Sword",
+  "item.zeldamod.vicious_sickle": "Vicious Sickle",
   "item.zeldamod.slingshot": "Slingshot",
   "item.zeldamod.scattershot": "Scattershot",
   "item.zeldamod.roc_feather": "Roc's Feather",
@@ -225,9 +226,13 @@
   "item.zeldamod.climbing_bandanna": "Climbing Bandanna",
   "item.zeldamod.climbing_tunic": "Climbing Tunic",
   "item.zeldamod.climbing_pants": "Climbing Pants",
+  "item.zeldamod.yiga_clan_mask": "Yiga Clan Mask",
+  "item.zeldamod.yiga_clan_chestplate": "Yiga Clan Chestplate",
+  "item.zeldamod.yiga_clan_leggings": "Yiga Clan Leggings",
+  "item.zeldamod.yiga_clan_boots": "Yiga Clan Boots",
 
 
-  "item.zeldamod.deku_spawn_egg": "Deku Spawn Egg",
+  "item.zeldamod.deku_spawn_egg": "Deku Scrub Spawn Egg",
   "item.zeldamod.deku_mad_spawn_egg": "Mad Scrub Spawn Egg",
   "item.zeldamod.dark_nut_spawn_egg": "Dark Nut Spawn Egg",
   "item.zeldamod.dark_knight_spawn_egg": "Dark Knight Spawn Egg",
@@ -253,6 +258,7 @@
   "effect.zeldamod.fire": "Fire Shield Earrings",
   "effect.zeldamod.mini": "Mini",
   "effect.zeldamod.majora": "Majora's Influence",
+  "effect.zeldamod.ganon_gloom": "Gloom Poisoning",
 
   "sounds.zeldamod.leaf": "Gust blows",
   "sounds.zeldamod.heal": "Absorbed a plant",
@@ -393,6 +399,8 @@
   "block.zeldamod.gold_emerald_block": "Block of Gold Emerald",
   "block.zeldamod.spike_block": "Spike Block",
   "block.zeldamod.sheikah_tech_block": "Sheikah Tech Block",
+  "block.zeldamod.bomb_barrel": "Bomb Barrel",
+  "block.zeldamod.phantom_ganon_shrine": "Phantom Ganon Shrine",
 
 
   "mask.zeldamod.nightmask": "You don't think you should do this",

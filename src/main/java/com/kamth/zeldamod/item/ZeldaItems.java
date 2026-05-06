@@ -6,11 +6,17 @@ import com.kamth.zeldamod.custom.ModArmorMaterials;
 import com.kamth.zeldamod.custom.ModFoods;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
-import com.kamth.zeldamod.item.armors.*;
 import com.kamth.zeldamod.item.armors.boots.Flippers;
 import com.kamth.zeldamod.item.armors.boots.HeavyBoots;
 import com.kamth.zeldamod.item.armors.boots.HoverBoots;
 import com.kamth.zeldamod.item.armors.boots.PegasusBoots;
+import com.kamth.zeldamod.item.armors.extra.DragonScale;
+import com.kamth.zeldamod.item.armors.extra.FireShield;
+import com.kamth.zeldamod.item.armors.extra.RocCape;
+import com.kamth.zeldamod.item.armors.helmets.BokoMask;
+import com.kamth.zeldamod.item.armors.helmets.DarkKnightHelmet;
+import com.kamth.zeldamod.item.armors.helmets.DarknutHelmet;
+import com.kamth.zeldamod.item.armors.helmets.YigaClanMask;
 import com.kamth.zeldamod.item.armors.tunics.*;
 import com.kamth.zeldamod.item.items.TooltipItem;
 import com.kamth.zeldamod.item.items.arrows.*;
@@ -239,6 +245,8 @@ public class ZeldaItems {
     public static final RegistryObject<Item> SUPER_LEAF = ITEMS.register("super_leaf",
             () -> new SuperLeafItem(new Item.Properties().stacksTo(1).defaultDurability(3)));
 
+
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // SWORDS
 
@@ -273,6 +281,10 @@ public class ZeldaItems {
     public static final RegistryObject<Item> GLOOM_CLUB = ITEMS.register("gloom_club",
             () -> new GloomWeaponItem(ModTiers.GLOOM, 8, -3.4f,
                     new Item.Properties().defaultDurability(120).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> VICIOUS_SICKLE = ITEMS.register("vicious_sickle",
+            () -> new SwordItem(Tiers.STONE, 2, -2.6f,
+                    new Item.Properties().defaultDurability(268)));
 
 
     // BREAK INTO NEW SWORD
@@ -333,7 +345,7 @@ public class ZeldaItems {
                     new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(600)));
 
     public static final RegistryObject<Item> WHITE_SWORD = ITEMS.register("white_sword",
-            () -> new MagicSwordItem(ModTiers.ZELDA, 3, -2.4f,
+            () -> new MagicSwordItem(ModTiers.ZELDA, 4, -2.4f,
                     new Item.Properties().rarity(Rarity.RARE).defaultDurability(1800)));
 
     public static final RegistryObject<Item> MAGIC_SWORD = ITEMS.register("magic_sword",
@@ -348,15 +360,15 @@ public class ZeldaItems {
 
     public static final RegistryObject<Item> GODDESS_WHITESWORD = ITEMS.register("goddess_white_sword",
             () -> new AbstractGoddessSwordItem(ModTiers.MASTER_SHARD, 3, -2.4f,
-                    new Item.Properties().rarity(Rarity.RARE).defaultDurability(1200), 60, MASTER_SWORD.get(), ZeldaBlocks.POWER_FLAME.get()));
+                    new Item.Properties().rarity(Rarity.RARE).defaultDurability(1200), 45, MASTER_SWORD.get(), ZeldaBlocks.POWER_FLAME.get()));
 
     public static final RegistryObject<Item> GODDESS_LONGSWORD = ITEMS.register("goddess_longsword",
             () -> new AbstractGoddessSwordItem(ModTiers.MASTER_SHARD, 3, -2.4f,
-                    new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(800), 70, GODDESS_WHITESWORD.get(), ZeldaBlocks.WISDOM_FLAME.get()));
+                    new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(800), 50, GODDESS_WHITESWORD.get(), ZeldaBlocks.WISDOM_FLAME.get()));
 
     public static final RegistryObject<Item> GODDESS_SWORD = ITEMS.register("goddess_sword",
             () -> new AbstractGoddessSwordItem(ModTiers.MASTER_SHARD, 2, -2.4f,
-                    new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(600), 75, GODDESS_LONGSWORD.get(), ZeldaBlocks.COURAGE_FLAME.get()  ));
+                    new Item.Properties().rarity(Rarity.UNCOMMON).defaultDurability(600), 60, GODDESS_LONGSWORD.get(), ZeldaBlocks.COURAGE_FLAME.get()  ));
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // SPECIAL ITEMS
@@ -652,6 +664,10 @@ public class ZeldaItems {
             ()-> new ArmorItem(ModArmorMaterials.Climbing, ArmorItem.Type.HELMET,
                     new Item.Properties().defaultDurability(200)));
 
+    public static final RegistryObject<ArmorItem> YIGA_MASK = ITEMS.register("yiga_clan_mask",
+            ()-> new YigaClanMask(ModArmorMaterials.Yiga, ArmorItem.Type.HELMET,
+                    new Item.Properties().defaultDurability(256)));
+
     // TUNICS
 
     public static final RegistryObject<ArmorItem> KOKIRI_TUNIC = ITEMS.register("kokiri_tunic",
@@ -716,6 +732,10 @@ public class ZeldaItems {
             ()-> new ClimbingTunic(ModArmorMaterials.Climbing, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().defaultDurability(340)));
 
+    public static final RegistryObject<ArmorItem> YIGA_CHESTPLATE = ITEMS.register("yiga_clan_chestplate",
+            ()-> new ArmorItem(ModArmorMaterials.Yiga, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().defaultDurability(340)));
+
 
 
     // PANTS
@@ -742,6 +762,10 @@ public class ZeldaItems {
 
     public static final RegistryObject<ArmorItem> CLIMBING_PANTS = ITEMS.register("climbing_pants",
             ()-> new ArmorItem(ModArmorMaterials.Climbing, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().defaultDurability(200)));
+
+    public static final RegistryObject<ArmorItem> YIGA_LEGGINGS = ITEMS.register("yiga_clan_leggings",
+            ()-> new ArmorItem(ModArmorMaterials.Yiga, ArmorItem.Type.LEGGINGS,
                     new Item.Properties().defaultDurability(200)));
 
 
@@ -774,6 +798,10 @@ public class ZeldaItems {
     public static final RegistryObject<ArmorItem> FLAMEBREAKER_BOOTS = ITEMS.register("flamebreaker_boots",
             ()-> new ArmorItem(ModArmorMaterials.Flamebreaker, ArmorItem.Type.BOOTS,
                     new Item.Properties().defaultDurability(429).rarity(Rarity.UNCOMMON)));
+
+    public static final RegistryObject<ArmorItem> YIGA_BOOTS = ITEMS.register("yiga_clan_boots",
+            ()-> new ArmorItem(ModArmorMaterials.Yiga, ArmorItem.Type.BOOTS,
+                    new Item.Properties().defaultDurability(429)));
 
     public static final RegistryObject<DragonScale> DRAGON_SCALE = ITEMS.register("scale_dragon",
             ()-> new DragonScale(ModArmorMaterials.Dragon, ArmorItem.Type.CHESTPLATE,
@@ -908,7 +936,7 @@ public class ZeldaItems {
     public static final RegistryObject<Item> BOKOBLIN_SPAWN_EGG = ITEMS.register("bokoblin_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.RED_BOKOBLIN, 16398422, 16306582, new Item.Properties()));
 
-    public static final RegistryObject<Item> WHITE_BOKOBLIN_SPAWN_EGG = ITEMS.register("tough_bokoblin_spawn_egg",
+    public static final RegistryObject<Item> TOUGH_BOKOBLIN_SPAWN_EGG = ITEMS.register("tough_bokoblin_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.WHITE_BOKOBLIN, 15265011, 16306582, new Item.Properties()));
 
 

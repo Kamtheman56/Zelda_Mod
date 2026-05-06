@@ -110,11 +110,12 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(MobModelLayers.MOBLIN_LAYER, MoblinModel::createBodyLayer);
         event.registerLayerDefinition(MobModelLayers.PHANTOM_GANON_LAYER, PhantonGanonModel::createBodyLayer);
 
-        event.registerLayerDefinition(ModModelLayers.CAP, CapModel::createBodyLayer);
+
 
         event.registerLayerDefinition(ModModelLayers.DARK_NUT_HELMET, DarknutHelmetModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.BOKOBLIN_MASK, BokoblinMaskModel::createBodyLayer);
-        event.registerLayerDefinition(ModModelLayers.CAP, HatModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.YIGA_MASK, YigaClanMaskModel::createBodyLayer);
+
 
 
         event.registerLayerDefinition(BombchuModel.LAYER_LOCATION, BombchuModel::createBodyLayer);

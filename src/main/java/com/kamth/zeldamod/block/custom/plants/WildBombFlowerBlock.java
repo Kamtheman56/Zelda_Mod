@@ -50,10 +50,11 @@ public class WildBombFlowerBlock extends FaceAttachedHorizontalDirectionalBlock 
             int radius = (int) Math.ceil(3);
             for (BlockPos pos : BlockPos.betweenClosed(pPos.offset(-radius, -radius, -radius), pPos.offset(radius, radius, radius))) {
                 BlockState blockState = pLevel.getBlockState(pos).getBlock().defaultBlockState();
+
                 if (blockState.is(ModTags.Blocks.BOMB)){
                     pLevel.destroyBlock(pos, false);
                 }
-                if (blockState.is(ZeldaBlocks.WILD_BOMB_FLOWER.get())){
+                if (blockState.is(ZeldaBlocks.BOMBFLOWER.get())){
                     pLevel.explode(null, pos.getX(), pos.getY(), pos.getZ(),  3.7f, Level.ExplosionInteraction.MOB);
                     pLevel.destroyBlock(pos, false);
                 }

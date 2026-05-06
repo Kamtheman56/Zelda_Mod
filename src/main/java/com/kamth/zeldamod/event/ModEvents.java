@@ -68,6 +68,9 @@ public class ModEvents {
         if (event.getEntity().hasEffect(ModEffects.GLOOM.get())){
             event.setCanceled(true);
         }
+        if (event.getEntity().hasEffect(ModEffects.GANON_GLOOM.get())){
+            event.setCanceled(true);
+        }
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)

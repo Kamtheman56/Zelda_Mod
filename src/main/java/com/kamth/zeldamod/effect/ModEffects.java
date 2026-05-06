@@ -24,6 +24,8 @@ public class ModEffects {
             () -> new MiniEffect(MobEffectCategory.BENEFICIAL, 3124687));
     public static final RegistryObject<MobEffect> GLOOM = MOB_EFFECTS.register("gloom",
             () -> new GloomEffect(MobEffectCategory.HARMFUL, 13901836));
+    public static final RegistryObject<MobEffect> GANON_GLOOM = MOB_EFFECTS.register("ganon_gloom",
+            () -> new GloomEffect(MobEffectCategory.HARMFUL, 13901836));
     public static final RegistryObject<MobEffect> GLOOM_RESIST = MOB_EFFECTS.register("gloom_resist",
             () -> new GloomEffect(MobEffectCategory.BENEFICIAL, 15726080));
     public static final RegistryObject<MobEffect> MAJORA = MOB_EFFECTS.register("majora",

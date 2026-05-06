@@ -11,6 +11,8 @@ public class BokoblinMaskModel extends HumanoidModel<LivingEntity> {
     public BokoblinMaskModel(ModelPart root) {
         super((root));
     }
+
+
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = HumanoidModel.createMesh(LayerDefinitions.OUTER_ARMOR_DEFORMATION, 0.0F);
         PartDefinition partdefinition = meshdefinition.getRoot();

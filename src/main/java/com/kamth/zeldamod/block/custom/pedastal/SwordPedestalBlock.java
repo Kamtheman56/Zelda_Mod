@@ -62,9 +62,12 @@ public class SwordPedestalBlock extends BaseEntityBlock {
                 pLevel.playSound(pPlayer,pPos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS);
                 return InteractionResult.SUCCESS;
             }
+
         }
         return InteractionResult.FAIL;
     }
+
+
 
 
     @Override
