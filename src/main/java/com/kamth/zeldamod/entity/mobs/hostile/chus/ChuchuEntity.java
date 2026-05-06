@@ -1,6 +1,9 @@
 package com.kamth.zeldamod.entity.mobs.hostile.chus;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.kamth.zeldamod.Config;
+import com.kamth.zeldamod.entity.mobs.hostile.keese.KeeseEntity;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -12,6 +15,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffects;
@@ -26,6 +30,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 
 import javax.annotation.Nullable;
@@ -497,4 +502,13 @@ public class ChuchuEntity extends Monster {
     public EntityDimensions getDimensions(Pose pPose) {
         return super.getDimensions(pPose).scale(0.255F * (float)this.getSize());
     }
+
+    public static boolean checkChuchuSpawnRules(EntityType<? extends ChuchuEntity> pBat, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        if (pPos.getY() >= pLevel.getSeaLevel()) {
+            return false;
+        }
+        else return pLevel.getDifficulty() != Difficulty.PEACEFUL && Config.chuchu_spawning() && isDarkEnoughToSpawn((ServerLevelAccessor) pLevel, pPos, pRandom) && checkMobSpawnRules(pBat, pLevel, pSpawnType, pPos, pRandom);
+    }
+
+
 }

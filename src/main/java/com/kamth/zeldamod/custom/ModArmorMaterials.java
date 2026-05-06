@@ -244,8 +244,12 @@ public enum ModArmorMaterials implements ArmorMaterial {
     Zora_Armor("zora_armor", 0, new int[]{3, 6, 6, 3}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> Ingredient.of(ZeldaItems.MASTER_SHARD.get())),
 
+    Yiga("yiga_armor", 0, new int[]{2, 5, 5, 2}, 15, SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F, 0.0F, () -> Ingredient.of(ZeldaItems.MASTER_SHARD.get())),
+
     Climbing("climbing", 0, new int[]{2, 5, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_LEATHER,
             0.0F, 0.0F, () -> Ingredient.of(Items.COBWEB));
+
 
 
 

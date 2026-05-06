@@ -26,6 +26,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.GODDESS_WHITESWORD);
             event.accept(ZeldaItems.GLOOM_SWORD);
             event.accept(ZeldaItems.GLOOM_CLUB);
+            event.accept(ZeldaItems.VICIOUS_SICKLE);
             event.accept(ZeldaItems.DEKU_SHIELD);
             event.accept(ZeldaItems.HYLIAN_SHIELD);
             event.accept(ZeldaItems.MIRROR_SHIELD);
@@ -170,6 +171,10 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.DARK_PANTS);
             event.accept(ZeldaItems.FLAMEBREAKER_LEGGINGS);
             event.accept(ZeldaItems.ZORA_ARMOR_LEGGINGS);
+            event.accept(ZeldaItems.YIGA_MASK);
+            event.accept(ZeldaItems.YIGA_CHESTPLATE);
+            event.accept(ZeldaItems.YIGA_LEGGINGS);
+            event.accept(ZeldaItems.YIGA_BOOTS);
             event.accept(ZeldaItems.DARK_NUT_HELMET);
             event.accept(ZeldaItems.DARK_KNIGHT_HELMET);
             event.accept(ZeldaItems.KOKIRI_BOOTS);
@@ -261,6 +266,8 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaBlocks.RUSTED_PRESSURE_SWITCH);
             event.accept(ZeldaBlocks.RUSTED_TIMED_PRESSURE_SWITCH);
             event.accept(ZeldaBlocks.OWL_STATUE);
+            event.accept(ZeldaBlocks.BOMB_BARREL);
+            event.accept(ZeldaBlocks.PHANTOM_GANON_SHRINE);
             event.accept(ZeldaBlocks.JAR_WHITE);
             event.accept(ZeldaBlocks.JAR_LIGHT_GRAY);
             event.accept(ZeldaBlocks.JAR_GRAY);
@@ -347,8 +354,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.ICE_CHU_SPAWN_EGG);
             event.accept(ZeldaItems.ELECTRIC_CHU_SPAWN_EGG);
             event.accept(ZeldaItems.BOKOBLIN_SPAWN_EGG);
-
-            event.accept(ZeldaItems.WHITE_BOKOBLIN_SPAWN_EGG);
+            event.accept(ZeldaItems.TOUGH_BOKOBLIN_SPAWN_EGG);
 
             event.accept(ZeldaItems.KOROK_SPAWN_EGG);
             event.accept(ZeldaItems.SKULLTULA_SPAWN_EGG);

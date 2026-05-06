@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.item.armors;
+package com.kamth.zeldamod.item.armors.extra;
 
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;

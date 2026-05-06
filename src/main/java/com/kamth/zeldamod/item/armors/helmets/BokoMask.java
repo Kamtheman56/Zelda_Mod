@@ -1,8 +1,8 @@
-package com.kamth.zeldamod.item.armors;
+package com.kamth.zeldamod.item.armors.helmets;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.custom.ModArmorMaterials;
-import com.kamth.zeldamod.item.armors.render.CapModel;
+import com.kamth.zeldamod.item.armors.render.BokoblinMaskModel;
 import com.kamth.zeldamod.item.armors.render.ModModelLayers;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
@@ -17,28 +17,31 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
 
-public class KokiriCap extends ArmorItem {
+public class BokoMask extends ArmorItem {
 
-    private static final String LOC = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/armor/steve.png").toString();
-    public KokiriCap(ModArmorMaterials pMaterial, Type pType, Properties pProperties) {
-        super(ModArmorMaterials.Kokiri, pType, pProperties);
+    private static final String BOKO_MASK = new ResourceLocation(ZeldaMod.MOD_ID, "textures/models/armor/boko_mask.png").toString();
+    public BokoMask(ModArmorMaterials pMaterial, Type pType, Properties pProperties) {
+        super(pMaterial, pType, pProperties);
     }
 
     @Override
     public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return LOC;
+        return BOKO_MASK;
     }
+
+
+
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-            private CapModel model;
+            private BokoblinMaskModel model;
 
             @Nullable
             @Override
             public HumanoidModel<?> getHumanoidArmorModel(LivingEntity entityLiving, ItemStack itemStack, EquipmentSlot armorSlot, HumanoidModel<?> _default) {
                 if (null == model) {
-                    model = new CapModel(Minecraft.getInstance().getEntityModels().bakeLayer(ModModelLayers.CAP));
+                    model = new BokoblinMaskModel(Minecraft.getInstance().getEntityModels().bakeLayer(ModModelLayers.BOKOBLIN_MASK));
                 }
                 return model;
             }

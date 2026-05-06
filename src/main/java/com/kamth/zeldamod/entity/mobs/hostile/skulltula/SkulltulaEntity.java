@@ -246,6 +246,7 @@ public class SkulltulaEntity extends Monster {
             }
         }
     }
+
     public static boolean checkSkulltulaSpawnRules(EntityType<SkulltulaEntity> pBat, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         if (pPos.getY() >= pLevel.getSeaLevel()) {
             return false;}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "charges=0": {
+      "model": "zeldamod:block/phantom_ganon_shrine_0"
+    },
+    "charges=1": {
+      "model": "zeldamod:block/phantom_ganon_shrine_1"
+    },
+    "charges=2": {
+      "model": "zeldamod:block/phantom_ganon_shrine_2"
+    },
+    "charges=3": {
+      "model": "zeldamod:block/phantom_ganon_shrine_3"
+    },
+    "charges=4": {
+      "model": "zeldamod:block/phantom_ganon_shrine_4"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "variants": {
-    "age=0": {
+    "charge": {
       "model": "zeldamod:block/bomb_flower_stage0"
     },
     "age=1": {

@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.entity.mobs.hostile.keese;
 
+import com.kamth.zeldamod.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -279,6 +280,6 @@ public class KeeseEntity extends FlyingMob implements Enemy {
         if (pPos.getY() >= pLevel.getSeaLevel()) {
             return false;
         }
-        else return pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn((ServerLevelAccessor) pLevel, pPos, pRandom) && checkMobSpawnRules(pBat, pLevel, pSpawnType, pPos, pRandom);
+        else return pLevel.getDifficulty() != Difficulty.PEACEFUL && Config.keese_spawning() && isDarkEnoughToSpawn((ServerLevelAccessor) pLevel, pPos, pRandom) && checkMobSpawnRules(pBat, pLevel, pSpawnType, pPos, pRandom);
     }
 }

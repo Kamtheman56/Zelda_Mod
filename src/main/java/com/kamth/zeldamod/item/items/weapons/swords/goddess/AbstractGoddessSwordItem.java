@@ -60,12 +60,17 @@ public class AbstractGoddessSwordItem extends GloomBreakingSword  {
 
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand pHand) {
         ItemStack itemstack = player.getItemInHand(pHand);
-        player.startUsingItem(pHand);
 
-        world.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.SWORD_CHARGE_START.get(), SoundSource.PLAYERS, 0.4f, 1 / (world.getRandom().nextFloat() * 0.4f + 0.8f));
+        if (!player.isCrouching()){
+            player.startUsingItem(pHand);
 
+            world.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.SWORD_CHARGE_START.get(), SoundSource.PLAYERS, 0.4f, 1 / (world.getRandom().nextFloat() * 0.4f + 0.8f));
 
-        return InteractionResultHolder.consume(itemstack);
+            return InteractionResultHolder.consume(itemstack);
+        }
+
+       else return InteractionResultHolder.pass(itemstack);
+
     }
 
 

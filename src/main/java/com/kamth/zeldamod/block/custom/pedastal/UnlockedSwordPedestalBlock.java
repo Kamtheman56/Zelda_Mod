@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.block.custom.pedastal;
 
 import com.kamth.zeldamod.block.entity.SwordPedestalEntity;
+import com.kamth.zeldamod.block.entity.ZeldaBlockEntities;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.enchantments.ZeldaEnchantments;
 import com.kamth.zeldamod.item.ZeldaItems;
@@ -20,6 +21,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.ChiseledBookShelfBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -102,5 +104,23 @@ public class UnlockedSwordPedestalBlock extends SwordPedestalBlock {
         pLevel.playSound(player, pos, ModSounds.SWORD_ENCHANT.get(), SoundSource.BLOCKS);
     }
 
+    public boolean hasAnalogOutputSignal(BlockState pState) {
+        return true;
+    }
+
+    public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pPos) {
+        if (pLevel.isClientSide()) {
+            return 0;
+        } else {
+            BlockEntity blockentity = pLevel.getBlockEntity(pPos);
+            if (blockentity instanceof SwordPedestalEntity) {
+                SwordPedestalEntity chiseledbookshelfblockentity = (SwordPedestalEntity) blockentity;
+                if (chiseledbookshelfblockentity.getSword().is(ModTags.Items.SWORDS)) {
+                    return 15;
+                }
+            }
+        }
+            return 0;
+    }
 
 }

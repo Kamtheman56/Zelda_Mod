@@ -13,6 +13,8 @@ import com.kamth.zeldamod.block.custom.regular.ChuBlock;
 import com.kamth.zeldamod.block.custom.regular.ClayPumpkinBlock;
 import com.kamth.zeldamod.block.custom.regular.SacredFlameBlock;
 import com.kamth.zeldamod.block.custom.regular.SkyStoneBlock;
+import com.kamth.zeldamod.block.custom.shadow_blocks.HiddenShadowBlock;
+import com.kamth.zeldamod.block.custom.shadow_blocks.ShadowBlock;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -151,6 +153,14 @@ public class ZeldaBlocks {
     //  DUNGEON BLOCKS
     public static final RegistryObject<Block> SPIKE_BLOCK = registerBlock("spike_block", ()-> new SpikeBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
     public static final RegistryObject<Block> SHEIKAH_TECH_BLOCK = registerBlock("sheikah_tech_block", ()-> new ShiekahTechBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
+
+
+    public static final RegistryObject<Block> SHADOW_BLOCK = registerBlock("shadow_block", ()-> new ShadowBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
+    public static final RegistryObject<Block> HIDDEN_SHADOW_BLOCK = registerBlock("hidden_shadow_block", ()-> new HiddenShadowBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
+
+    public static final RegistryObject<Block> PHANTOM_GANON_SHRINE = registerBlock("phantom_ganon_shrine", ()-> new PhantomGanonShrineBlock(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
+
+    public static final RegistryObject<Block> BOMB_BARREL = registerBlock("bomb_barrel", ()-> new BombBarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL)));
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "down": "zeldamod:block/phantom_ganon_shrine_top",
+    "particle": "zeldamod:block/phantom_ganon_shrine_1",
+    "up": "zeldamod:block/phantom_ganon_shrine_top",
+    "side": "zeldamod:block/phantom_ganon_shrine_1"
+  }}
