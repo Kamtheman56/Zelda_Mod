@@ -121,6 +121,27 @@
           "chance": 0.5
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:monster_guts",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0,
+                "max": 1
+              },
+              "conditions": []
+            }
+          ]
+        }
+      ],
+      "functions": []
     }
   ],
   "random_sequence": "zeldamod:entities/tough_bokoblin"

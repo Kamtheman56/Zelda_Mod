@@ -27,15 +27,7 @@
           "type": "minecraft:item",
           "name": "zeldamod:claw",
           "weight": 16,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 0,
-                "max": 1
-              }
-            }
-          ]
+          "functions": []
         },
         {
           "type": "minecraft:item",
@@ -45,7 +37,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 0,
+                "min": 1,
                 "max": 14
               },
               "add": false
@@ -65,7 +57,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 0,
+                "min": 1,
                 "max": 8
               },
               "add": false
@@ -170,8 +162,19 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:hylian_hood",
-          "weight": 10
+          "name": "zeldamod:zora_hat",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.4,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
@@ -234,7 +237,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 0,
+                "min": 1,
                 "max": 7
               }
             }
@@ -251,7 +254,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:bone",
+          "name": "zeldamod:korok_seed",
           "weight": 10,
           "functions": [
             {
@@ -259,7 +262,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "min": 1,
-                "max": 8
+                "max": 3
               },
               "add": false
             }
@@ -269,29 +272,7 @@
           "type": "minecraft:item",
           "name": "zeldamod:master_upgrade",
           "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0,
-                "max": 1
-              },
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:iron_sword",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:enchant_randomly",
-              "options": "#minecraft:in_enchanting_table",
-              "only_compatible": true
-            }
-          ]
+          "functions": []
         },
         {
           "type": "minecraft:item",
@@ -334,21 +315,24 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:razor_sword",
-          "weight": 2
+          "name": "zeldamod:zora_tunic",
+          "weight": 2,
+          "quality": 3
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:flippers",
-          "weight": 3
+          "weight": 3,
+          "quality": 2
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:scale_silver",
-          "weight": 3
+          "weight": 3,
+          "quality": 1
         }
       ]
     }
   ],
-  "random_sequence": "zeldamod:chests/ice_ruins"
+  "random_sequence": "zeldamod:chests/ice_ruins_treasure"
 }

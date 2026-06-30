@@ -4,6 +4,7 @@ package com.kamth.zeldamod.entity.client.model;// Made with Blockbench 4.12.6
 
 
 import com.kamth.zeldamod.entity.animations.ModAnimationDefinitions;
+import com.kamth.zeldamod.entity.mobs.bosses.PhantomGanonEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.bokoblin.BokoblinEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -99,9 +100,7 @@ public class GanondorfModel<T extends Mob> extends HierarchicalModel<T> implemen
     public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
-
-
-
+        this.animate(((PhantomGanonEntity) entity).idleAnimationState, ModAnimationDefinitions.phantom_ganondorf_idle, ageInTicks, 1f);
 
         this.LeftArm.xRot = Mth.cos(limbSwing * 0.6662F + 3.1415927F) * 2.0F * limbSwingAmount * 0.5F;
         this.LeftArm.yRot = 0.0F;

@@ -7,52 +7,46 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 6,
+          "weight": 1,
           "name": "minecraft:diamond_pickaxe",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": 1,
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 1
+              },
               "add": false
-            },
-            {
-              "function": "minecraft:enchant_randomly"
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "weight": 6,
+          "weight": 1,
           "name": "minecraft:diamond_shovel",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": 1,
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 1
+              },
               "add": false
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "weight": 6,
-          "name": "zeldamod:biggoron_knife",
+          "weight": 5,
+          "name": "minecraft:ancient_debris",
+          "quality": 5,
           "functions": []
         },
         {
           "type": "minecraft:item",
-          "weight": 12,
-          "name": "minecraft:ancient_debris",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "minecraft:netherite_scrap",
           "functions": [
             {
@@ -71,8 +65,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 10,
-                "max": 22
+                "min": 1,
+                "max": 14
               },
               "add": false
             }
@@ -142,7 +136,8 @@
               "add": false
             },
             {
-              "function": "minecraft:enchant_randomly"
+              "function": "minecraft:enchant_with_levels",
+              "levels": 11
             }
           ]
         },
@@ -151,41 +146,44 @@
           "name": "minecraft:golden_axe",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
+              "function": "minecraft:enchant_randomly"
             },
             {
-              "function": "minecraft:enchant_randomly"
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "minecraft:gold_block",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
+          "functions": []
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:crossbow",
+          "weight": 3,
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": 1,
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 1
+              },
               "add": false
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "minecraft:gold_ingot",
           "functions": [
             {
@@ -201,7 +199,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "minecraft:iron_ingot",
           "functions": [
             {
@@ -218,50 +216,22 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:golden_sword",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:goron_hat",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:kokiri_pants",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:kokiri_boots",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
           "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
           "name": "minecraft:crying_obsidian",
           "functions": [
             {
@@ -269,7 +239,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "min": 1,
-                "max": 5
+                "max": 3
               },
               "add": false
             }
@@ -284,12 +254,47 @@
               "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 55,
-                "max": 210
-              }
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
             }
           ],
           "conditions": []
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_leggings",
+          "weight": 2,
+          "quality": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_boots",
+          "weight": 2,
+          "quality": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         }
       ]
     },
@@ -319,7 +324,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:bone_block",
+          "name": "zeldamod:fire_chu_jelly",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -405,8 +410,9 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:hylian_shield",
-          "weight": 2
+          "name": "zeldamod:bomb_bag",
+          "weight": 2,
+          "functions": []
         },
         {
           "type": "minecraft:item",
@@ -417,9 +423,10 @@
               "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 10,
-                "max": 198
-              }
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
             }
           ]
         },
@@ -432,9 +439,10 @@
               "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 110,
-                "max": 510
-              }
+                "min": 0.6,
+                "max": 1
+              },
+              "add": false
             }
           ]
         },
@@ -465,19 +473,16 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_pickaxe",
-          "functions": [
-            {
-              "function": "minecraft:enchant_randomly",
-              "only_compatible": true
-            }
-          ],
+          "name": "zeldamod:biggoron_knife",
+          "weight": 3,
+          "functions": [],
           "conditions": []
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:diamond",
           "weight": 3,
+          "quality": 3,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -498,9 +503,10 @@
               "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 35,
-                "max": 240
-              }
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
             }
           ]
         },

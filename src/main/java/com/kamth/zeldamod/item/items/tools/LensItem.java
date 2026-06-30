@@ -52,38 +52,7 @@ public class LensItem extends TooltipItem {
 
     }
 
-    @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
-    public static void onLivingPreRender(RenderLivingEvent.Pre<LivingEntity, EntityModel<LivingEntity>> event) {
-        if (event.getEntity().isInvisible()) {
-            Minecraft client = Minecraft.getInstance();
-            Player player = client.player;
-            boolean LensMode = player.isUsingItem() && player.getItemInHand(player.getUsedItemHand()).getItem() == ZeldaItems.LENS_OF_TRUTH.get() || player.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.TRUTH_MASK.get());
-            if (LensMode) {
-                removeEntityInvisibility(event.getEntity());
-            }
-        }
-    }
 
-    @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
-    public static void onLivingPostRender(RenderLivingEvent.Post<LivingEntity, EntityModel<LivingEntity>> event) {
-        if (LOOKING.contains(event.getEntity())) {
-            restoreEntityInvisibility(event.getEntity());
-        }
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    private static void restoreEntityInvisibility(LivingEntity livingEntity) {
-        LOOKING.remove(livingEntity);
-        livingEntity.setInvisible(true);
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    private static void removeEntityInvisibility(LivingEntity livingEntity) {
-        livingEntity.setInvisible(false);
-        LOOKING.add(livingEntity);
-    }
 
 }
 

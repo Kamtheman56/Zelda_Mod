@@ -115,7 +115,7 @@ public class UnlockedSwordPedestalBlock extends SwordPedestalBlock {
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
             if (blockentity instanceof SwordPedestalEntity) {
                 SwordPedestalEntity chiseledbookshelfblockentity = (SwordPedestalEntity) blockentity;
-                if (chiseledbookshelfblockentity.getSword().is(ModTags.Items.SWORDS)) {
+                if (chiseledbookshelfblockentity.getSword().is(ModTags.Items.REDSTONE_EMITTING_SWORDS)) {
                     return 15;
                 }
             }

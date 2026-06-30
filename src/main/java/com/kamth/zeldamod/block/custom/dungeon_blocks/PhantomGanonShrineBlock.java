@@ -1,11 +1,14 @@
 package com.kamth.zeldamod.block.custom.dungeon_blocks;
 
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.entity.mobs.bosses.PhantomGanonEntity;
 import com.kamth.zeldamod.item.ZeldaItems;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -49,7 +52,9 @@ public class PhantomGanonShrineBlock extends Block {
         PhantomGanonEntity phantomGanon = ModEntityTypes.PHANTOM_GANON.get().create(pLevel);
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         if (pHand == InteractionHand.MAIN_HAND && !isRespawnFuel(itemstack) && isRespawnFuel(pPlayer.getItemInHand(InteractionHand.OFF_HAND))) {
-            return InteractionResult.PASS;
+            pPlayer.displayClientMessage(Component.translatable("block.phantom_ganon.inscription").withStyle(ChatFormatting.DARK_RED).withStyle(ChatFormatting.BOLD), true);
+            return InteractionResult.CONSUME;
+
         } else if (isRespawnFuel(itemstack) && canBeCharged(pState)) {
             charge(pPlayer, pLevel, pPos, pState);
             if (!pPlayer.getAbilities().instabuild) {
@@ -79,7 +84,7 @@ public class PhantomGanonShrineBlock extends Block {
     }
 
     private static boolean isRespawnFuel(ItemStack pStack) {
-        return pStack.is(Items.GLOWSTONE);
+        return pStack.is(ModTags.Items.PHANTOM_FUEL);
     }
 
     private static boolean canBeCharged(BlockState pState) {
@@ -107,6 +112,7 @@ public class PhantomGanonShrineBlock extends Block {
         pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(pEntity, blockstate));
         pLevel.playSound((Player)null, (double)pPos.getX() + 0.5D, (double)pPos.getY() + 0.5D, (double)pPos.getZ() + 0.5D, SoundEvents.RESPAWN_ANCHOR_CHARGE, SoundSource.BLOCKS, 1.0F, 1.0F);
     }
+
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(CHARGE);
     }

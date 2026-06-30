@@ -172,8 +172,11 @@ public class ZeldaItems {
     public static final RegistryObject<Item> XTENDER = ITEMS.register("extender",
             () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> CLAW= ITEMS.register("claw",
+    public static final RegistryObject<Item> CLAW = ITEMS.register("claw",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> MONSTER_GUTS = ITEMS.register("monster_guts",
+            () -> new Item(new Item.Properties().food(Foods.ROTTEN_FLESH)));
 
     public static final RegistryObject<Item> DEITY_SHARD = ITEMS.register("sword_fragment",
             () -> new Item(new Item.Properties()));
@@ -939,6 +942,8 @@ public class ZeldaItems {
     public static final RegistryObject<Item> TOUGH_BOKOBLIN_SPAWN_EGG = ITEMS.register("tough_bokoblin_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.WHITE_BOKOBLIN, 15265011, 16306582, new Item.Properties()));
 
+    public static final RegistryObject<Item> MOBLIN_SPAWN_EGG = ITEMS.register("moblin_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.MOBLIN, 13374208, 16306582, new Item.Properties()));
 
     // FRIENDLY MOBS
 

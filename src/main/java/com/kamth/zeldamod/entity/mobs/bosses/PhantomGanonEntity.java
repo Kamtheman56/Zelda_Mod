@@ -43,11 +43,11 @@ import java.util.EnumSet;
 public class PhantomGanonEntity extends Monster implements PowerableMob {
 
     public final AnimationState idleAnimationState = new AnimationState();
-
+    private int idleAnimationTimeout = 0;
 
     private static final EntityDataAccessor<Integer> DATA_ID_INV = SynchedEntityData.defineId(PhantomGanonEntity.class, EntityDataSerializers.INT);
     private static final int INVULNERABLE_TICKS = 220;
-    private int idleAnimationTimeout = 0;
+
 
     private final ServerBossEvent bossEvent = (ServerBossEvent) (new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.PROGRESS)).setDarkenScreen(true);
 
@@ -128,6 +128,8 @@ public class PhantomGanonEntity extends Monster implements PowerableMob {
     public void setInvulnerableTicks(int pInvulnerableTicks) {
         this.entityData.set(DATA_ID_INV, pInvulnerableTicks);
     }
+
+
 
 
     @Nullable

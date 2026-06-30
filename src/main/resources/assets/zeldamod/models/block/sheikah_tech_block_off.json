@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "zeldamod:block/shiekah_tech_block_off"
+    "all": "zeldamod:block/sheikah_tech_block_off"
   }
 }

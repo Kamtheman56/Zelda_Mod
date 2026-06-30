@@ -110,6 +110,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.BIG_KEY);
             event.accept(ZeldaItems.XTENDER);
             event.accept(ZeldaItems.CLAW);
+            event.accept(ZeldaItems.MONSTER_GUTS);
             event.accept(ZeldaItems.DEITY_SHARD);
             event.accept(ZeldaItems.GLOOM_CLUMP);
             event.accept(ZeldaItems.KOROK_SEED);
@@ -344,7 +345,6 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.DEKU_MAD_SPAWN_EGG);
             event.accept(ZeldaItems.DARK_NUT_SPAWN_EGG);
             event.accept(ZeldaItems.DARK_KNIGHT_SPAWN_EGG);
-         //   event.accept(ZeldaItems.IRON_KNUCKLE_SPAWN_EGG);
             event.accept(ZeldaItems.KEESE_SPAWN_EGG);
             event.accept(ZeldaItems.FIRE_KEESE_SPAWN_EGG);
             event.accept(ZeldaItems.ICE_KEESE_SPAWN_EGG);
@@ -355,7 +355,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.ELECTRIC_CHU_SPAWN_EGG);
             event.accept(ZeldaItems.BOKOBLIN_SPAWN_EGG);
             event.accept(ZeldaItems.TOUGH_BOKOBLIN_SPAWN_EGG);
-
+            event.accept(ZeldaItems.MOBLIN_SPAWN_EGG);
             event.accept(ZeldaItems.KOROK_SPAWN_EGG);
             event.accept(ZeldaItems.SKULLTULA_SPAWN_EGG);
 

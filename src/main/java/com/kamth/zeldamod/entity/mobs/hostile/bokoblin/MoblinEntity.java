@@ -71,7 +71,6 @@ public class MoblinEntity extends Monster   {
 
     public MoblinEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.reassessWeaponGoal();
         this.setCanPickUpLoot(true);
 
     }
@@ -93,7 +92,6 @@ public class MoblinEntity extends Monster   {
 
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(11,new BokoblinEntitySearchForItemsGoal());
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Bee.class, 3, 1.5, 1));
 
 
@@ -131,7 +129,6 @@ public class MoblinEntity extends Monster   {
 
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
-        this.reassessWeaponGoal();
         pCompound.putInt("Variant", this.getTypeVariant());
 
     }
@@ -163,167 +160,6 @@ public class MoblinEntity extends Monster   {
         return pSpawnData;
 
     }
-
-    public void reassessWeaponGoal() {
-        if (this.level() != null && !this.level().isClientSide) {
-            this.goalSelector.removeGoal(this.meleeGoal);
-            ItemStack itemstack = this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, item -> item instanceof BowItem));
-            if (itemstack.is(Items.BOW)) {
-                int i = 20;
-                if (this.level().getDifficulty() != Difficulty.HARD) {
-                    i = 40;
-                }
-
-            } else {
-                this.goalSelector.addGoal(4, this.meleeGoal);
-            }
-
-        }
-    }
-
-
-
-
-
-
-    class BokoblinEntitySearchForItemsGoal extends Goal {
-        public BokoblinEntitySearchForItemsGoal() {
-            this.setFlags(EnumSet.of(Flag.MOVE));
-        }
-
-        /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
-        public boolean canUse() {
-            if (!MoblinEntity.this.getItemBySlot(EquipmentSlot.OFFHAND).isEmpty()) {
-                return false;
-            } else if (MoblinEntity.this.getTarget() == null && MoblinEntity.this.getLastHurtByMob() == null) {
-                if (MoblinEntity.this.getRandom().nextInt(reducedTickDelay(10)) != 0) {
-                    return false;
-                } else {
-                    List<ItemEntity> list = MoblinEntity.this.level().getEntitiesOfClass(ItemEntity.class, MoblinEntity.this.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), MoblinEntity.ALLOWED_ITEMS);
-                    return !list.isEmpty() && MoblinEntity.this.getItemBySlot(EquipmentSlot.OFFHAND).isEmpty();
-                }
-            } else {
-                return false;
-            }
-        }
-
-        /**
-         * Keep ticking a continuous task that has already been started
-         */
-        public void tick() {
-            List<ItemEntity> list = MoblinEntity.this.level().getEntitiesOfClass(ItemEntity.class, MoblinEntity.this.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), MoblinEntity.ALLOWED_ITEMS);
-            ItemStack itemstack = MoblinEntity.this.getItemBySlot(EquipmentSlot.OFFHAND);
-            if (itemstack.isEmpty() && !list.isEmpty()) {
-                MoblinEntity.this.getNavigation().moveTo(list.get(0), (double)1F);
-            }
-
-        }
-
-        /**
-         * Execute a one shot task or start executing a continuous task
-         */
-        public void start() {
-            List<ItemEntity> list = MoblinEntity.this.level().getEntitiesOfClass(ItemEntity.class, MoblinEntity.this.getBoundingBox().inflate(8.0D, 8.0D, 8.0D), MoblinEntity.ALLOWED_ITEMS);
-            if (!list.isEmpty()) {
-                MoblinEntity.this.getNavigation().moveTo(list.get(0), (double)1.2F);
-            }
-
-        }
-    }
-
-    public boolean canTakeItem(ItemStack pItemstack) {
-        EquipmentSlot equipmentslot = Mob.getEquipmentSlotForItem(pItemstack);
-        if (!this.getItemBySlot(equipmentslot).isEmpty()) {
-            return false;
-        } else {
-            return equipmentslot == EquipmentSlot.OFFHAND && super.canTakeItem(pItemstack);
-        }
-    }
-
-    public boolean canHoldItem(ItemStack pStack) {
-        Item item = pStack.getItem();
-        ItemStack itemstack = this.getItemBySlot(EquipmentSlot.OFFHAND);
-        return itemstack.isEmpty() || this.ticksSinceEaten > 0 && item.isEdible();
-    }
-
-    private void spitOutItem(ItemStack pStack) {
-        if (!pStack.isEmpty() && !this.level().isClientSide) {
-            ItemEntity itementity = new ItemEntity(this.level(), this.getX() + this.getLookAngle().x, this.getY() + 1.0D, this.getZ() + this.getLookAngle().z, pStack);
-            itementity.setPickUpDelay(40);
-            itementity.setThrower(this.getUUID());
-            this.playSound(SoundEvents.FOX_SPIT, 1.0F, 1.0F);
-            this.level().addFreshEntity(itementity);
-        }
-    }
-
-    private void dropItemStack(ItemStack pStack) {
-        ItemEntity itementity = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), pStack);
-        this.level().addFreshEntity(itementity);
-    }
-
-    /**
-     * Tests if this entity should pick up a weapon or an armor piece. Entity drops current weapon or armor if the new
-     * one is better.
-     */
-    protected void pickUpItem(ItemEntity pItemEntity) {
-        ItemStack itemstack = pItemEntity.getItem();
-        if (this.canHoldItem(itemstack)) {
-            int i = itemstack.getCount();
-            if (i > 1) {
-                this.dropItemStack(itemstack.split(i - 1));
-            }
-            this.spitOutItem(this.getItemBySlot(EquipmentSlot.OFFHAND));
-            this.onItemPickup(pItemEntity);
-            this.setItemSlot(EquipmentSlot.OFFHAND, itemstack.split(1));
-            this.setGuaranteedDrop(EquipmentSlot.OFFHAND);
-            this.take(pItemEntity, itemstack.getCount());
-            pItemEntity.discard();
-            this.ticksSinceEaten = 0;
-        }
-
-    }
-
-    private boolean canEat(ItemStack pStack) {
-        return pStack.getItem().isEdible() && this.getTarget() == null && this.onGround() ;
-    }
-
-    public void aiStep() {
-        if (!this.level().isClientSide && this.isAlive() && this.isEffectiveAi()) {
-            ++this.ticksSinceEaten;
-            ItemStack itemstack = this.getItemBySlot(EquipmentSlot.OFFHAND);
-            if (this.canEat(itemstack)) {
-                if (this.ticksSinceEaten > 600) {
-                    ItemStack itemstack1 = itemstack.finishUsingItem(this.level(), this);
-                    if (!itemstack1.isEmpty()) {
-                        this.setItemSlot(EquipmentSlot.OFFHAND, itemstack1);
-                    }
-
-                    this.ticksSinceEaten = 0;
-                } else if (this.ticksSinceEaten > 560 && this.random.nextFloat() < 0.1F) {
-                    this.playSound(this.getEatingSound(itemstack), 1.0F, 1.0F);
-                    this.level().broadcastEntityEvent(this, (byte)45);
-                }
-            }
-        }
-        super.aiStep();
-    }
-    public void handleEntityEvent(byte pId) {
-        if (pId == 45) {
-            ItemStack itemstack = this.getItemBySlot(EquipmentSlot.OFFHAND);
-            if (!itemstack.isEmpty()) {
-                for(int i = 0; i < 8; ++i) {
-                    Vec3 vec3 = (new Vec3(((double)this.random.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D)).xRot(-this.getXRot() * ((float)Math.PI / 180F)).yRot(-this.getYRot() * ((float)Math.PI / 180F));
-                    this.level().addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemstack), this.getX() + this.getLookAngle().x / 2.0D, this.getY(), this.getZ() + this.getLookAngle().z / 2.0D, vec3.x, vec3.y + 0.05D, vec3.z);
-                }
-            }
-        } else {
-            super.handleEntityEvent(pId);
-        }
-    }
-
 
     @Override
     public void tick() {

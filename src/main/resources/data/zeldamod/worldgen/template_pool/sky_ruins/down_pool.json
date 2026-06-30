@@ -6,7 +6,7 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 4,
+      "weight": 2,
       "element": {
         "location": "zeldamod:sky_ruins_gloom_hole",
         "processors": "minecraft:empty",
@@ -71,15 +71,6 @@
     {
       "weight": 3,
       "element": {
-        "location": "zeldamod:sky_ruins_dungeon_combat_room_zombie_skeleton",
-        "processors": "minecraft:empty",
-        "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
-      }
-    },
-    {
-      "weight": 3,
-      "element": {
         "location": "zeldamod:sky_ruins_dungeon_combat_room_hard",
         "processors": "minecraft:empty",
         "projection": "rigid",
@@ -87,7 +78,16 @@
       }
     },
     {
-      "weight": 3,
+      "weight": 5,
+      "element": {
+        "location": "zeldamod:sky_ruins_dungeon_combat_room_bokoblin",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
       "element": {
         "location": "zeldamod:sky_ruins_dungeon_tunnel",
         "processors": "minecraft:empty",
@@ -96,9 +96,27 @@
       }
     },
     {
+      "weight": 2,
+      "element": {
+        "location": "zeldamod:sky_ruins_dungeon_tunnel_long",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "zeldamod:sky_ruins_dungeon_tunnel_z",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
       "weight": 3,
       "element": {
-        "location": "zeldamod:sky_ruins_gloom_tunnel_descent",
+        "location": "zeldamod:sky_ruins_gloom_tunnel_boss_descent",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -108,6 +126,15 @@
       "weight": 3,
       "element": {
         "location": "zeldamod:sky_ruins_dungeon_pathway",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "zeldamod:sky_ruins_dungeon_pathway_column",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

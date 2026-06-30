@@ -112,8 +112,14 @@ return BlockTags.create(new ResourceLocation("forge", name));
                 = tag("gliders");
         public static final TagKey<Item> DEKU_FLOWERS
                 = tag("deku_flowers");
+        public static final TagKey<Item> REDSTONE_EMITTING_SWORDS
+                = tag("pedestal_redstone_emitting_swords");
         public static final TagKey<Item> SPIN_ATTACK_SWORDS
                 = tag("spin_attack_swords");
+
+        public static final TagKey<Item> PHANTOM_FUEL
+                = tag("phantom_shrine_fuel");
+
 
       ;
 

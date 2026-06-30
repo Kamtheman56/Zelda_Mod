@@ -6,7 +6,37 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:champion_tunic"
+          "name": "zeldamod:champion_tunic",
+          "weight": 4,
+          "quality": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 0.9
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:kokiri_tunic",
+          "weight": 3,
+          "quality": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.1,
+                "max": 0.5
+              },
+              "add": false
+            }
+          ]
         }
       ]
     },
@@ -34,12 +64,15 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:wooden_sword",
-          "weight": 3
+          "weight": 3,
+          "quality": 1,
+          "functions": []
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:bow",
-          "weight": 2
+          "weight": 2,
+          "quality": 2
         }
       ]
     },

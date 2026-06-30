@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": [
+      {
+        "item": "zeldamod:gloom_clump"
+      }
+    ]},
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "zeldamod:gloom_block"
+  },
+  "show_notification": true
+}

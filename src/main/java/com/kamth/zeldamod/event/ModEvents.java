@@ -9,13 +9,17 @@ import com.kamth.zeldamod.event.events.*;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ComputeFovModifierEvent;
+import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
@@ -28,6 +32,8 @@ import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import static com.kamth.zeldamod.item.items.tools.LensItem.LOOKING;
 
 
 @Mod.EventBusSubscriber(modid = ZeldaMod.MOD_ID)
@@ -114,6 +120,39 @@ public class ModEvents {
             fovModifier *= 1f - deltaTicks * 0.15f;
             event.setNewFovModifier(fovModifier);
         }
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @SubscribeEvent
+    public static void onLivingPreRender(RenderLivingEvent.Pre<LivingEntity, EntityModel<LivingEntity>> event) {
+        if (event.getEntity().isInvisible()) {
+            Minecraft client = Minecraft.getInstance();
+            Player player = client.player;
+            boolean LensMode = player.isUsingItem() && player.getItemInHand(player.getUsedItemHand()).getItem() == ZeldaItems.LENS_OF_TRUTH.get() || player.getItemBySlot(EquipmentSlot.HEAD).is(ZeldaItems.TRUTH_MASK.get());
+            if (LensMode) {
+                removeEntityInvisibility(event.getEntity());
+            }
+        }
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @SubscribeEvent
+    public static void onLivingPostRender(RenderLivingEvent.Post<LivingEntity, EntityModel<LivingEntity>> event) {
+        if (LOOKING.contains(event.getEntity())) {
+            restoreEntityInvisibility(event.getEntity());
+        }
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void restoreEntityInvisibility(LivingEntity livingEntity) {
+        LOOKING.remove(livingEntity);
+        livingEntity.setInvisible(true);
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void removeEntityInvisibility(LivingEntity livingEntity) {
+        livingEntity.setInvisible(false);
+        LOOKING.add(livingEntity);
     }
 
     @SubscribeEvent

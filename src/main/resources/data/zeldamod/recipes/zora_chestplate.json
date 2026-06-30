@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:zora_tunic"
+  },
+  "addition": {
+    "item": "zeldamod:master_ore"
+  },
+  "result": {
+    "item": "zeldamod:zora_chestplate"
+  }
+}

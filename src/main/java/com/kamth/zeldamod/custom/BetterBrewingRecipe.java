@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.potion;
+package com.kamth.zeldamod.custom;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.Item;
@@ -9,12 +9,12 @@ import net.minecraftforge.common.brewing.IBrewingRecipe;
 
 // BetterBrewingRecipe Class by CAS-ual-TY from https://github.com/CAS-ual-TY/Extra-Potions (GPL-3.0 License)
 // https://github.com/CAS-ual-TY/Extra-Potions/blob/main/LICENSE
-public class BetterBrewing implements IBrewingRecipe {
+public class BetterBrewingRecipe implements IBrewingRecipe {
     private final Potion input;
     private final Item ingredient;
     private final Potion output;
 
-    public BetterBrewing(Potion input, Item ingredient, Potion output) {
+    public BetterBrewingRecipe(Potion input, Item ingredient, Potion output) {
         this.input = input;
         this.ingredient = ingredient;
         this.output = output;
@@ -40,4 +40,5 @@ public class BetterBrewing implements IBrewingRecipe {
         itemStack.setTag(new CompoundTag());
         PotionUtils.setPotion(itemStack, this.output);
         return itemStack;
-    }}
+    }
+}

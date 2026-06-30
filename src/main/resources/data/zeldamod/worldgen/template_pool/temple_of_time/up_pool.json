@@ -35,6 +35,15 @@
     {
       "weight": 2,
       "element": {
+        "location": "zeldamod:temple_of_time_body_goddess_sword",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
         "location": "zeldamod:temple_of_time_body_hearts",
         "processors": "minecraft:empty",
         "projection": "rigid",

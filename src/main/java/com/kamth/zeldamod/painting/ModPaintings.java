@@ -17,6 +17,9 @@ public class ModPaintings {
     public static final RegistryObject<PaintingVariant> DREAMER = PAINTING_VARIANTS.register("dreamer",
             () -> new PaintingVariant(32,32));
 
+    public static final RegistryObject<PaintingVariant> LONELY = PAINTING_VARIANTS.register("lonely",
+            () -> new PaintingVariant(32,16));
+
     public static final RegistryObject<PaintingVariant> BOY_IN_THE_WALL = PAINTING_VARIANTS.register("boy_in_the_wall",
             () -> new PaintingVariant(64,32));
 

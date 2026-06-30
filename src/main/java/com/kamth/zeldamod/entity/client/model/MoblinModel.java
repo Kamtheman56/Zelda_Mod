@@ -152,8 +152,10 @@ public class MoblinModel<T extends Mob> extends HierarchicalModel<T> implements 
             AnimationUtils.bobArms(this.RightArm, this.LeftArm, ageInTicks);
         }
 
-        if (entity.isAggressive() && itemstack.is(Items.BOW)) {
-            this.setBowAnimating(entity.getMainHandItem(), entity.getOffhandItem(), 1);
+        if (entity.isAggressive() && (itemstack.isEmpty()  || !itemstack.is(Items.BOW))) {
+            float f = Mth.sin(this.attackTime * (float)Math.PI);
+            float f1 = Mth.sin((1.0F - (1.0F - this.attackTime) * (1.0F - this.attackTime)) * (float)Math.PI);
+            this.setAttacking(entity.getMainHandItem(), entity.getOffhandItem(), f, f1);
             AnimationUtils.bobArms(this.RightArm, this.LeftArm, ageInTicks);
         }
 

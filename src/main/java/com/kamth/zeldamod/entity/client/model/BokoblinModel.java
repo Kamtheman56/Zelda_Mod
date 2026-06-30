@@ -17,6 +17,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.joml.Vector3f;
@@ -150,20 +151,16 @@ public class BokoblinModel<T extends Mob> extends HierarchicalModel<T> implement
         this.LeftLeg.yRot = 0.0F;
         this.LeftLeg.zRot = 0.0F;
 
+
         ItemStack itemstack = entity.getMainHandItem();
 
-        if (entity.isAggressive()){
+        if (entity.isAggressive() && (itemstack.isEmpty()  || !itemstack.is(Items.BOW))) {
             float f = Mth.sin(this.attackTime * (float)Math.PI);
             float f1 = Mth.sin((1.0F - (1.0F - this.attackTime) * (1.0F - this.attackTime)) * (float)Math.PI);
             this.setAttacking(entity.getMainHandItem(), entity.getOffhandItem(), f, f1);
             AnimationUtils.bobArms(this.RightArm, this.LeftArm, ageInTicks);
-            this.RightArm.xRot = -1.2217305F;
-            this.RightArm.yRot = 0.7517994F;
-            this.RightArm.zRot = -0.47123888F - limbSwing;
-            this.LeftArm.xRot = -1.2217305F;
-            this.LeftArm.yRot = -0.7517994F;
-            this.LeftArm.zRot = 0.47123888F + limbSwing;
         }
+
 
     }
 
@@ -171,8 +168,31 @@ public class BokoblinModel<T extends Mob> extends HierarchicalModel<T> implement
 
 
     private void setAttacking(ItemStack pRightHandItem, ItemStack pLeftHandItem, float limbswing, float attacktime) {
-        if (pRightHandItem.isEmpty() && pLeftHandItem.isEmpty()) {
 
-        } }
+        if (pRightHandItem.isEmpty() && pLeftHandItem.isEmpty()) {
+            this.RightArm.xRot = -1.2217305F;
+            this.RightArm.yRot = 0.2617994F;
+            this.RightArm.zRot = -0.47123888F - limbswing;
+            this.LeftArm.xRot = -1.2217305F;
+            this.LeftArm.yRot = -0.2617994F;
+            this.LeftArm.zRot = 0.47123888F + limbswing;
+        }
+        else {
+            if (!pRightHandItem.isEmpty()) {
+                this.RightArm.zRot = 0.0F;
+                this.RightArm.yRot = -(0.1F - limbswing * 0.6F);
+                this.RightArm.xRot = (-(float)Math.PI / 2F);
+                this.RightArm.xRot -= limbswing * 1.2F - attacktime * 0.4F;
+
+            }
+            if (!pLeftHandItem.isEmpty()) {
+
+                this.LeftArm.zRot = 0.0F;
+                this.LeftArm.yRot = 0.1F - limbswing * 0.6F;
+                this.LeftArm.xRot = (-(float)Math.PI / 2F);
+                this.LeftArm.xRot -= limbswing * 1.2F - attacktime * 0.4F;
+            }
+        }
+    }
 
     }

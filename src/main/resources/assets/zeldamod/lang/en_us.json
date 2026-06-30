@@ -48,6 +48,7 @@
   "item.zeldamod.purple_emerald": "Purple Emerald",
   "item.zeldamod.gold_emerald": "Gold Emerald",
   "item.zeldamod.silver_emerald": "Silver Emerald",
+  "item.zeldamod.monster_guts": "Monster Guts",
 
 
   "zelda_tab": "Zelda Blocks",
@@ -610,6 +611,8 @@
   "painting.zeldamod.forest_secret.author": "Kamtheman56",
   "painting.zeldamod.dreamer.title": "Dreamer",
   "painting.zeldamod.dreamer.author": "Kamtheman56",
+  "painting.zeldamod.lonely.title": "Lonely",
+  "painting.zeldamod.lonely.author": "Kamtheman56",
   "painting.zeldamod.boy_in_the_wall.author": "Freudan",
   "painting.zeldamod.boy_in_the_wall.title": "Boy in the Wall",
   "painting.zeldamod.castle_of_the_demon_king.title": "Castle of the Demon King",
@@ -645,6 +648,11 @@
   "entity.zeldamod.white_bokoblin": "White Bokoblin",
   "entity.zeldamod.gold_bokoblin": "Gold Bokoblin",
   "entity.zeldamod.phantom_ganon": "Phantom Ganondorf",
+  "entity.zeldamod.bokoblin": "Bokoblin",
+  "entity.zeldamod.tough_bokoblin": "Tough Bokoblin",
+  "entity.zeldamod.moblin": "Moblin",
 
-  "enchantment.zeldamod.swordspin": "Sword Spinner"
+
+  "enchantment.zeldamod.swordspin": "Sword Spinner",
+  "block.phantom_ganon.inscription": "Offer the very essence of Malice to this shrine..."
 }

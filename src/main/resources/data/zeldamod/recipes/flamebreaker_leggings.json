@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "minecraft:diamond_leggings"
+  },
+  "addition": {
+    "item": "zeldamod:refined_master_ore"
+  },
+  "result": {
+    "item": "zeldamod:flamebreaker_leggings"
+  }
+}

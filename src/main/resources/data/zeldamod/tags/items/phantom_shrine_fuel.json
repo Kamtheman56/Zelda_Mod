@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:rotten_flesh",
+    "minecraft:bone",
+    "minecraft:blaze_rod",
+    "zeldamod:gloom_clump"
+  ]
+}

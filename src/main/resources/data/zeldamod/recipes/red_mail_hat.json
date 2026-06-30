@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "zeldamod:blue_mail_hat"
+  },
+  "addition": {
+    "item": "zeldamod:master_ore"
+  },
+  "result": {
+    "item": "zeldamod:red_mail_hat"
+  }
+}

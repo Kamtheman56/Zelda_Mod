@@ -60,6 +60,26 @@
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
+    },
+    {
+
+      "weight": 3,
+      "element": {
+        "location": "zeldamod:tower_bottom_half",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+
+      "weight": 2,
+      "element": {
+        "location": "zeldamod:tower_clean_bottom_half",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
     }
   ]
 }

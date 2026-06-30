@@ -20,7 +20,7 @@
   // The generation step for when to generate the structure. there are 10 stages you can pick from!
   // This surface structure stage places the structure before plants and ores are generated
   // See GenerationStep.Feature enum for all the stages you can use and what order they are in
-  "step": "surface_structures",
+  "step": "underground_structures",
 
   // Where to spawn our structure at what y value if project_start_to_heightmap is not present.
   // start_height can be used to spawn at a random fixed y value by doing something like: "max_inclusive": { "below_top": 10 }, "min_inclusive": { "above_bottom": 32 }

@@ -17,6 +17,15 @@
             {
               "function": "minecraft:set_count",
               "count": 1
+            },
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 1
+              },
+              "add": false
             }
           ]
         },
@@ -29,19 +38,52 @@
           "type": "minecraft:item",
           "name": "zeldamod:kokiri_tunic",
           "weight": 5,
-          "quality": 2
+          "quality": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:kokiri_pants",
           "weight": 5,
-          "quality": 2
+          "quality": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:kokiri_boots",
           "weight": 5,
-          "quality": 2
+          "quality": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
@@ -51,7 +93,18 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:deku_shield",
-          "weight": 2
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 0.7
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
@@ -163,6 +216,15 @@
               ],
               "only_compatible": true,
               "conditions": []
+            },
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 1
+              },
+              "add": false
             }
           ],
           "conditions": []
@@ -185,7 +247,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:coal",
+          "name": "minecraft:cookie",
           "weight": 15,
           "functions": [
             {

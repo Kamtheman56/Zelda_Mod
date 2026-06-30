@@ -7,27 +7,37 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 6,
+          "weight": 1,
           "name": "minecraft:diamond_pickaxe",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
+              "function": "minecraft:enchant_with_levels",
+              "levels": 15,
+              "treasure": true
             },
             {
-              "function": "minecraft:enchant_randomly"
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 0.9
+              },
+              "add": false
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "weight": 6,
+          "weight": 1,
           "name": "minecraft:diamond_shovel",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": 1,
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 0.7
+              },
               "add": false
             }
           ]
@@ -36,15 +46,7 @@
           "type": "minecraft:item",
           "weight": 6,
           "name": "zeldamod:biggoron_knife",
-          "functions": [
-            {
-              "function": "minecraft:limit_count",
-              "limit": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "functions": []
         },
         {
           "type": "minecraft:item",
@@ -92,8 +94,12 @@
           "name": "zeldamod:hylian_shield",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": 1,
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 0.6
+              },
               "add": false
             }
           ]
@@ -132,7 +138,9 @@
           "name": "minecraft:book",
           "functions": [
             {
-              "function": "minecraft:enchant_randomly"
+              "function": "minecraft:enchant_with_levels",
+              "levels": 15,
+              "treasure": true
             }
           ]
         }
@@ -157,11 +165,6 @@
               "add": false
             },
             {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            },
-            {
               "function": "minecraft:enchant_randomly"
             }
           ]
@@ -175,57 +178,59 @@
               "function": "minecraft:set_count",
               "count": 1,
               "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:goron_tunic",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
             },
             {
-              "function": "minecraft:enchant_randomly",
-              "enchantments": [
-                "minecraft:protection"
-              ]
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.4,
+                "max": 1
+              },
+              "add": false
             }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:golden_axe",
+          "weight": 2,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
+            },
             {
               "function": "minecraft:set_count",
               "count": 1,
               "add": false
-            },
-            {
-              "function": "minecraft:enchant_randomly"
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "minecraft:gold_block",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
+          "functions": []
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:crossbow",
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.1,
+                "max": 1
+              },
+              "add": false
+            },
+            {
               "function": "minecraft:set_count",
               "count": 1,
               "add": false
@@ -234,7 +239,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "minecraft:gold_ingot",
           "functions": [
             {
@@ -250,7 +255,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
           "name": "minecraft:iron_ingot",
           "functions": [
             {
@@ -269,53 +274,18 @@
           "name": "minecraft:golden_sword",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": 1,
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.1,
+                "max": 1
+              },
               "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:goron_tunic",
-          "functions": [
+            },
             {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:goron_hat",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:kokiri_pants",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:kokiri_boots",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
+              "function": "minecraft:enchant_with_levels",
+              "levels": 16,
+              "treasure": true
             }
           ]
         },
@@ -330,6 +300,22 @@
                 "type": "minecraft:uniform",
                 "min": 1,
                 "max": 5
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_nugget",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
               },
               "add": false
             }
@@ -363,7 +349,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:bone_block",
+          "name": "zeldamod:fire_chu_jelly",
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -394,12 +381,14 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:obsidian",
+          "weight": 1,
+          "quality": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 4,
+                "min": 2,
                 "max": 6
               },
               "add": false
@@ -440,15 +429,6 @@
       "bonus_rolls": 0,
       "entries": [
         {
-          "type": "minecraft:empty"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "bonus_rolls": 0,
-      "entries": [
-        {
           "type": "minecraft:empty",
           "weight": 9
         },
@@ -457,7 +437,90 @@
           "name": "zeldamod:master_upgrade"
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:goron_tunic",
+          "weight": 3,
+          "quality": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.1,
+                "max": 0.6
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:goron_hat",
+          "weight": 2,
+          "quality": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_chestplate",
+          "weight": 2,
+          "quality": 2,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": 15,
+              "treasure": true
+            },
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_chestplate",
+          "weight": 2,
+          "quality": 1,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": 20,
+              "treasure": true
+            },
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 0.8
+              },
+              "add": false
+            }
+          ]
+        }
+      ]
     }
   ],
-  "random_sequence": "minecraft:chests/power_dungeon"
+  "random_sequence": "minecraft:chests/power_temple"
 }

@@ -4,6 +4,7 @@ package com.kamth.zeldamod;
 
 import com.kamth.zeldamod.block.ZeldaBlocks;
 import com.kamth.zeldamod.block.entity.ZeldaBlockEntities;
+import com.kamth.zeldamod.custom.BetterBrewingRecipe;
 import com.kamth.zeldamod.custom.ModItemProperties;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.enchantments.ZeldaEnchantments;
@@ -33,13 +34,15 @@ import com.kamth.zeldamod.villager.ModVillagers;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipe;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -128,6 +131,12 @@ public class ZeldaMod {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ZeldaBlocks.SUNDELION.getId(), ZeldaBlocks.POTTED_SUNDELION);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ZeldaBlocks.HEART_FLOWER.getId(), ZeldaBlocks.POTTED_HEART_FLOWER);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ZeldaBlocks.PRIMO_FLOWER.getId(), ZeldaBlocks.POTTED_PRIMO_FLOWER);
+
+
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.WATER, ZeldaItems.MONSTER_GUTS.get(), Potions.AWKWARD
+                    ));
+
+
         });
 
         ZeldaNetworking.registerPackets();

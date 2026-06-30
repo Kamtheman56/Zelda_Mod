@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "zeldamod:master_upgrade"
+  },
+  "base": {
+    "item": "minecraft:iron_leggings"
+  },
+  "addition": {
+    "item": "zeldamod:master_ore"
+  },
+  "result": {
+    "item": "zeldamod:zora_leggings"
+  }
+}
