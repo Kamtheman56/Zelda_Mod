@@ -7,12 +7,36 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:kokiri_boots",
-          "weight": 4
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.5,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:pegasus_boots",
-          "weight": 1
+          "weight": 1,
+          "quality": 4,
+          "conditions": [],
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 0.5
+              },
+              "add": false
+            }
+          ]
         }
       ]
     },
@@ -22,12 +46,34 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:kokiri_pants",
-          "weight": 3
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.5,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:hylian_pants",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.4,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         }
       ]
     },
@@ -37,17 +83,50 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:kokiri_hat",
-          "weight": 6
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.6,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:goron_hat",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 0.6
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:zora_hat",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 0.6
+              },
+              "add": false
+            }
+          ]
         }
       ]
     },
@@ -57,17 +136,67 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:kokiri_tunic",
-          "weight": 6
+          "weight": 6,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.6,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:zora_tunic",
-          "weight": 1
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 0.6
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:goron_tunic",
-          "weight": 1
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 0.6
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:classic_tunic",
+          "weight": 1,
+          "quality": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.1,
+                "max": 0.4
+              },
+              "add": false
+            }
+          ]
         }
       ]
     },
@@ -102,12 +231,34 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:deku_shield",
-          "weight": 5
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.6,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:hylian_shield",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 0.6
+              },
+              "add": false
+            }
+          ]
         }
       ]
     },

@@ -2,7 +2,11 @@
   "type": "minecraft:chest",
   "pools": [
     {
-      "rolls": 1,
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 0,
+        "max": 1
+      },
       "bonus_rolls": 0,
       "entries": [
         {
@@ -301,7 +305,7 @@
     {
       "rolls": {
         "type": "minecraft:uniform",
-        "min": 3,
+        "min": 1,
         "max": 4
       },
       "bonus_rolls": 0,
@@ -325,6 +329,7 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:fire_chu_jelly",
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -340,6 +345,7 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:bomb",
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -355,6 +361,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:obsidian",
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -386,10 +393,15 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:cooked_porkchop",
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
               "add": false
             }
           ]
@@ -411,7 +423,7 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:bomb_bag",
-          "weight": 2,
+          "weight": 1,
           "functions": []
         },
         {
@@ -504,7 +516,7 @@
               "damage": {
                 "type": "minecraft:uniform",
                 "min": 0.3,
-                "max": 1
+                "max": 0.7
               },
               "add": false
             }

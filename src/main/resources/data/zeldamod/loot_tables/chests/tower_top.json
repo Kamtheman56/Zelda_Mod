@@ -229,7 +229,11 @@
       ]
     },
     {
-      "rolls": 4,
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 0,
+        "max": 2
+      },
       "bonus_rolls": 0,
       "entries": [
         {
@@ -291,13 +295,18 @@
       ]
     },
     {
-      "rolls": 2,
+      "rolls": 1,
       "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:map",
           "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:compass",
+          "weight": 1
         }
       ]
     },
@@ -318,7 +327,7 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1,
-                "max": 12
+                "max": 5
               }
             }
           ]
@@ -350,24 +359,14 @@
               }
             }
           ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:glider",
-          "weight": 1,
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.1
-            }
-          ]
         }
       ]
     },
     {
       "rolls": {
-        "type": "minecraft:constant",
-        "value": 1
+        "type": "minecraft:uniform",
+        "min": 0,
+        "max": 1
       },
       "entries": [
         {
@@ -378,12 +377,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:champion_tunic",
-          "weight": 1,
-          "quality": 5
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:iron_chestplate",
           "weight": 2,
           "functions": [
@@ -391,8 +384,8 @@
               "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 13,
-                "max": 240
+                "min": 0.2,
+                "max": 0.8
               }
             }
           ]
@@ -407,14 +400,18 @@
               "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 12,
-                "max": 110
+                "min": 0.2,
+                "max": 0.4
               },
               "add": false
             },
             {
               "function": "minecraft:enchant_with_levels",
-              "levels": 25,
+              "levels": {
+                "type": "minecraft:uniform",
+                "min": 10,
+                "max": 15
+              },
               "treasure": true
             }
           ]
@@ -426,15 +423,18 @@
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
-              "levels": 15,
-              "treasure": true
+              "levels": {
+                "type": "minecraft:uniform",
+                "min": 0,
+                "max": 15
+              }
             },
             {
               "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 32,
-                "max": 70
+                "min": 0.3,
+                "max": 1
               },
               "add": false
             }
@@ -443,17 +443,50 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:climbing_pants",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:climbing_bandanna",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 0.7
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:hylian_hood",
-          "weight": 2
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         }
       ]
     },
@@ -473,7 +506,11 @@
       ]
     },
     {
-      "rolls": 1,
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 0,
+        "max": 1
+      },
       "entries": [
         {
           "type": "minecraft:item",
@@ -519,6 +556,21 @@
                 "min": 1,
                 "max": 3
               }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:glider",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.1
             }
           ]
         }

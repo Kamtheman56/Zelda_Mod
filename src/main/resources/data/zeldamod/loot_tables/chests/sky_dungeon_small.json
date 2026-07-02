@@ -116,12 +116,16 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:saddle",
+          "name": "zeldamod:bombchu",
           "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
               "add": false
             }
           ]
@@ -289,7 +293,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:bone",
+          "name": "zeldamod:gloom_clump",
           "weight": 5,
           "functions": [
             {
@@ -297,7 +301,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "min": 1,
-                "max": 15
+                "max": 4
               },
               "add": false
             }
@@ -352,16 +356,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:flute",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:pegasus_boots",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
           "name": "zeldamod:bomb_arrow",
           "weight": 1,
           "functions": [
@@ -378,6 +372,66 @@
           "type": "minecraft:item",
           "name": "zeldamod:gloom_resist_potion",
           "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:chu_jelly",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:fire_chu_jelly",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:ice_chu_jelly",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:electric_chu_jelly",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
         }
       ]
     },
@@ -536,6 +590,91 @@
             }
           ],
           "functions": []
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 0,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:flute",
+          "weight": 1,
+          "quality": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:gloom_sword",
+          "weight": 2,
+          "conditions": [],
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 0.4
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:gloom_club",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 0.6
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:dark_tunic",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 0.8
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:gloom_clump",
+          "weight": 3,
+          "quality": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 5
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:hover_boots",
+          "weight": 1
         }
       ]
     }

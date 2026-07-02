@@ -5,52 +5,89 @@
       "rolls": {
         "type": "minecraft:uniform",
         "min": 1,
-        "max": 3
+        "max": 2
       },
       "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:saddle",
-          "weight": 20
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:golden_apple",
-          "weight": 15
+          "weight": 2,
+          "quality": 5
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:enchanted_golden_apple",
-          "weight": 2
+          "weight": 1,
+          "quality": 8
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:name_tag",
-          "weight": 20
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:golden_horse_armor",
-          "weight": 10
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:iron_horse_armor",
-          "weight": 15
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:diamond_horse_armor",
-          "weight": 5
+          "weight": 1,
+          "quality": 8
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:book",
-          "weight": 10,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:arrow",
+          "weight": 3,
+          "quality": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 6
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:bomb",
+          "weight": 1,
+          "quality": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
+              "add": false
             }
           ]
         }
@@ -60,21 +97,21 @@
       "rolls": {
         "type": "minecraft:uniform",
         "min": 1,
-        "max": 4
+        "max": 2
       },
       "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:iron_ingot",
-          "weight": 10,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 1,
-                "max": 4
+                "min": 2,
+                "max": 6
               },
               "add": false
             }
@@ -83,14 +120,14 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:gold_ingot",
-          "weight": 5,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 1,
-                "max": 4
+                "min": 2,
+                "max": 5
               },
               "add": false
             }
@@ -99,12 +136,12 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:bread",
-          "weight": 20
+          "weight": 2
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:wheat",
-          "weight": 20,
+          "name": "zeldamod:korok_seed",
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -120,12 +157,12 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:bucket",
-          "weight": 10
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:redstone",
-          "weight": 15,
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -140,8 +177,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:coal",
-          "weight": 15,
+          "name": "zeldamod:bomb",
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -156,13 +193,23 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:deku_shield",
-          "weight": 10
+          "name": "zeldamod:hylian_shield",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.1,
+                "max": 0.4
+              }
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:fire_arrow",
-          "weight": 10,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -178,7 +225,7 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:ice_arrow",
-          "weight": 10,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -190,24 +237,19 @@
               "add": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "rolls": 3,
-      "bonus_rolls": 0,
-      "entries": [
+        },
         {
           "type": "minecraft:item",
-          "name": "minecraft:bone",
-          "weight": 10,
+          "name": "minecraft:gold_nugget",
+          "weight": 1,
+          "quality": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "min": 1,
-                "max": 8
+                "max": 5
               },
               "add": false
             }
@@ -215,49 +257,19 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:gunpowder",
-          "weight": 10,
+          "name": "minecraft:iron_nugget",
+          "weight": 1,
+          "quality": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "min": 1,
-                "max": 8
+                "max": 5
               },
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:bomb",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1,
-                "max": 8
-              },
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:arrow",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1,
-                "max": 8
-              },
-              "add": false
+              "add": false,
+              "conditions": []
             }
           ]
         }
@@ -268,58 +280,105 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:master_upgrade"
+          "name": "zeldamod:stamina_potion",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:hero_bow"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:deku_stick",
+          "name": "minecraft:arrow",
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 8
-              }
+              },
+              "add": false
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:pegasus_boots"
+          "name": "zeldamod:heart_potion",
+          "weight": 3
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:wooden_hammer"
+          "name": "zeldamod:blue_potion",
+          "weight": 1,
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.3
+            }
+          ]
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:blue_potion"
+          "name": "minecraft:book",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "enchantments": [
+                "zeldamod:swordspin"
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "rolls": {
-        "min": 0,
-        "max": 1
-      },
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:hookshot",
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.2
-            }
-          ]
+          "name": "zeldamod:wooden_hammer",
+          "weight": 1,
+          "quality": 3,
+          "functions": []
         },
         {
           "type": "minecraft:item",
+          "name": "zeldamod:pegasus_boots",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:hero_bow",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:hookshot",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:quiver",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:tornado_rod",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:lens_of_truth",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
           "name": "zeldamod:heart_piece",
+          "weight": 1,
           "conditions": [
             {
               "condition": "minecraft:random_chance",
@@ -330,5 +389,5 @@
       ]
     }
   ],
-  "random_sequence": "zeldamod:chests/graveyard_dungeon"
+  "random_sequence": "zeldamod:chests/graveyard_dungeon_small"
 }

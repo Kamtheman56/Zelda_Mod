@@ -5,14 +5,14 @@
       "rolls": {
         "type": "minecraft:uniform",
         "min": 1,
-        "max": 4
+        "max": 2
       },
       "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "zeldamod:stamina_potion",
-          "weight": 15
+          "weight": 4
         },
         {
           "type": "minecraft:item",
@@ -33,12 +33,12 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:name_tag",
-          "weight": 20
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:iron_horse_armor",
-          "weight": 15
+          "weight": 1
         },
         {
           "type": "minecraft:item",
@@ -52,7 +52,11 @@
           "functions": [
             {
               "function": "minecraft:enchant_with_levels",
-              "levels": 10,
+              "levels": {
+                "type": "minecraft:uniform",
+                "min": 0,
+                "max": 15
+              },
               "treasure": true
             }
           ]
@@ -69,8 +73,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_ingot",
-          "weight": 10,
+          "name": "minecraft:iron_nugget",
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -85,8 +89,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:gold_ingot",
-          "weight": 5,
+          "name": "minecraft:gold_nugget",
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -102,12 +106,12 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:bread",
-          "weight": 20
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:wheat",
-          "weight": 20,
+          "weight": 6,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -123,12 +127,12 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:bucket",
-          "weight": 10
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:apple",
-          "weight": 15,
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -270,6 +274,40 @@
                 "type": "minecraft:uniform",
                 "min": 3,
                 "max": 7
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:korok_seed",
+          "weight": 2,
+          "quality": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 4
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:monster_guts",
+          "weight": 1,
+          "quality": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 5
               },
               "add": false
             }

@@ -18,22 +18,23 @@
           "type": "minecraft:item",
           "weight": 2,
           "name": "zeldamod:nightshade",
-          "functions": [
-            {
-              "function": "minecraft:set_damage",
-              "damage": {
-                "type": "minecraft:uniform",
-                "min": 0.1,
-                "max": 1
-              },
-              "add": false
-            }
-          ]
+          "functions": []
         },
         {
           "type": "minecraft:item",
           "weight": 1,
-          "name": "minecraft:rotten_flesh"
+          "name": "zeldamod:monster_guts",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 6
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
@@ -101,6 +102,7 @@
           "type": "minecraft:item",
           "weight": 1,
           "name": "zeldamod:champions_leathers",
+          "quality": 4,
           "functions": [
             {
               "function": "minecraft:set_damage",
@@ -116,17 +118,87 @@
         {
           "type": "minecraft:item",
           "weight": 4,
-          "name": "zeldamod:heart_potion"
+          "name": "zeldamod:heart_potion",
+          "quality": 1
         },
         {
           "type": "minecraft:item",
           "weight": 1,
           "name": "zeldamod:ancient_arrow",
+          "quality": 2,
           "conditions": [
             {
               "condition": "minecraft:random_chance_with_looting",
               "chance": 0.1,
               "looting_multiplier": 2
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_chestplate",
+          "weight": 2,
+          "quality": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:wallet",
+          "weight": 2,
+          "quality": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:mask_of_awakening",
+          "weight": 1,
+          "quality": 2
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald",
+          "weight": 3,
+          "quality": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 7
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:korok_seed",
+          "weight": 2,
+          "quality": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 5
+              },
+              "add": false
             }
           ]
         }

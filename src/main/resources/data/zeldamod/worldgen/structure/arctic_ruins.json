@@ -50,6 +50,17 @@
           "maxCount": 7
         }
       ]
+    },
+    "monster": {
+      "bounding_box": "full",
+      "spawns": [
+        {
+          "type": "zeldamod:ice_chuchu",
+          "weight": 3,
+          "minCount": 1,
+          "maxCount": 7
+        }
+      ]
     }
   }
 }

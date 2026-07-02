@@ -7,27 +7,36 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:leather_helmet",
-          "weight": 3
+          "weight": 3,
+          "quality": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.4,
+                "max": 0.7
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:chainmail_helmet",
-          "weight": 2,
+          "weight": 1,
+          "quality": 2,
           "functions": [
             {
               "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 30,
-                "max": 123
-              }
+                "min": 0.3,
+                "max": 0.4
+              },
+              "add": false
             }
           ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:kokiri_hat",
-          "weight": 1
         }
       ]
     },
@@ -36,31 +45,33 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:hylian_pants",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:kokiri_pants",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:leather_leggings",
-          "weight": 3
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.4,
+                "max": 0.6
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:chainmail_leggings",
-          "weight": 2,
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 45,
-                "max": 160
-              }
+                "min": 0.2,
+                "max": 0.4
+              },
+              "add": false
             }
           ]
         }
@@ -71,13 +82,19 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zeldamod:kokiri_boots",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:leather_boots",
-          "weight": 3
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.4,
+                "max": 0.8
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
@@ -88,9 +105,10 @@
               "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 12,
-                "max": 95
-              }
+                "min": 0.1,
+                "max": 0.5
+              },
+              "add": false
             }
           ]
         }
@@ -102,30 +120,57 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:wooden_sword",
-          "weight": 3
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:bow",
-          "weight": 2
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:stone_sword",
-          "weight": 1
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:hylian_hood",
-          "conditions": [
+          "weight": 1,
+          "functions": [
             {
-              "condition": "minecraft:random_chance",
-              "chance": 0.1
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "type": "minecraft:uniform",
+                "min": 0,
+                "max": 15
+              },
+              "treasure": false
+            },
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 0.7
+              },
+              "add": false
             }
           ]
         }
@@ -137,30 +182,32 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:leather_chestplate",
-          "weight": 3
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:kokiri_tunic",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "zeldamod:champion_tunic",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:chainmail_chestplate",
-          "weight": 2,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 40,
-                "max": 110
-              }
+                "min": 0.3,
+                "max": 0.7
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_chestplate",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.2,
+                "max": 0.5
+              },
+              "add": false
             }
           ]
         }
@@ -222,6 +269,8 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:bomb",
+          "weight": 3,
+          "quality": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -229,7 +278,59 @@
                 "type": "minecraft:uniform",
                 "min": 1,
                 "max": 6
-              }
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:korok_seed",
+          "weight": 2,
+          "quality": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 4
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:mogma_mitts",
+          "weight": 1,
+          "quality": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.5,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:wooden_hammer",
+          "weight": 1,
+          "quality": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 0.6
+              },
+              "add": false
             }
           ]
         }
