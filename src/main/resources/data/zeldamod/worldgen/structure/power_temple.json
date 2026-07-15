@@ -48,6 +48,12 @@
           "weight": 3,
           "minCount": 1,
           "maxCount": 6
+        },
+        {
+          "type": "zeldamod:fire_chuchu",
+          "weight": 2,
+          "minCount": 1,
+          "maxCount": 3
         }
       ]
     }

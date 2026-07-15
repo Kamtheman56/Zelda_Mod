@@ -41,6 +41,7 @@ import com.kamth.zeldamod.item.items.consumables.jelly.FireJellyItem;
 import com.kamth.zeldamod.item.items.consumables.jelly.IceJellyItem;
 import com.kamth.zeldamod.item.items.consumables.jelly.JellyItem;
 import com.kamth.zeldamod.item.items.grapples.ClawshotItem;
+import com.kamth.zeldamod.item.items.grapples.GripshotItem;
 import com.kamth.zeldamod.item.items.grapples.HookshotItem;
 import com.kamth.zeldamod.item.items.instruments.FluteItem;
 import com.kamth.zeldamod.item.items.instruments.OcarinaItem;
@@ -48,7 +49,6 @@ import com.kamth.zeldamod.item.items.movement.*;
 import com.kamth.zeldamod.item.items.tools.DiggingMittsItem;
 import com.kamth.zeldamod.item.items.tools.KeyItem;
 import com.kamth.zeldamod.item.items.tools.LensItem;
-import com.kamth.zeldamod.item.items.tools.MogmaMittsItem;
 import com.kamth.zeldamod.item.items.weapons.extra.HammerItem;
 import com.kamth.zeldamod.item.items.weapons.extra.MegatonItem;
 import com.kamth.zeldamod.item.items.weapons.extra.StickItem;
@@ -517,11 +517,11 @@ public class ZeldaItems {
             () -> new PurpleRingItem(new Item.Properties().defaultDurability(160).rarity(Rarity.RARE)));
 
     public static final RegistryObject<Item> MITTS = ITEMS.register("digging_mitts",
-            () -> new DiggingMittsItem(1,-2f,Tiers.STONE, BlockTags.MINEABLE_WITH_PICKAXE,
+            () -> new DiggingMittsItem(1,-2f, 8, Tiers.STONE, BlockTags.MINEABLE_WITH_PICKAXE,
                     new Item.Properties().defaultDurability(390).rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> MOGMA_MITTS = ITEMS.register("mogma_mitts",
-            () -> new MogmaMittsItem(2,-1.8f,Tiers.IRON, BlockTags.MINEABLE_WITH_PICKAXE,
+            () -> new DiggingMittsItem(2,-1.8f, 12, Tiers.IRON, BlockTags.MINEABLE_WITH_PICKAXE,
                     new Item.Properties().defaultDurability(780).rarity(Rarity.RARE)));
 
 
@@ -548,6 +548,9 @@ public class ZeldaItems {
 
     public static final RegistryObject<Item> CLAWSHOT_GODDESS = ITEMS.register("clawshot_goddess",
             () -> new ClawshotItem(new Item.Properties().defaultDurability(720).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> GRIPSHOT = ITEMS.register("gripshot",
+            () -> new GripshotItem(new Item.Properties().defaultDurability(1000).rarity(Rarity.EPIC)));
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // MISC ITEMS

@@ -37,7 +37,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1,
+                "min": 6,
                 "max": 14
               },
               "add": false
@@ -114,6 +114,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 0,
                 "max": 3
               },
@@ -132,12 +133,13 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:salmon",
+          "name": "minecraft:cooked_salmon",
           "weight": 20,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 0,
                 "max": 3
               }
@@ -231,13 +233,13 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:emerald",
-          "weight": 3,
+          "name": "minecraft:experience_bottle",
+          "weight": 9,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1,
+                "min": 5,
                 "max": 7
               }
             }
@@ -327,6 +329,16 @@
           "name": "zeldamod:scale_silver",
           "weight": 3,
           "quality": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:clawshot",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:ice_rod",
+          "weight": 1
         }
       ]
     }

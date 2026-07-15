@@ -17,7 +17,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 0,
+                "min": 2,
                 "max": 3
               }
             }
@@ -25,30 +25,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "zeldamod:ice_rod",
-          "weight": 3,
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.3
-            }
-          ],
-          "functions": [
-            {
-              "function": "minecraft:set_damage",
-              "damage": {
-                "type": "minecraft:uniform",
-                "min": 0.4,
-                "max": 1
-              },
-              "add": false
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
           "name": "zeldamod:claw",
-          "weight": 16,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -62,13 +40,13 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:ice_arrow",
-          "weight": 13,
+          "weight": 7,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 0,
-                "max": 14
+                "min": 1,
+                "max": 9
               },
               "add": false
             }
@@ -77,12 +55,12 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:name_tag",
-          "weight": 20
+          "weight": 6
         },
         {
           "type": "minecraft:item",
           "name": "zeldamod:water_bomb",
-          "weight": 10,
+          "weight": 5,
           "quality": 3,
           "functions": [
             {
@@ -98,7 +76,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:crossbow",
-          "weight": 15,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_damage",
@@ -143,13 +121,47 @@
               "add": false
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:experience_bottle",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_nugget",
+          "weight": 2,
+          "quality": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 6
+              },
+              "add": false,
+              "conditions": []
+            }
+          ]
         }
       ]
     },
     {
       "rolls": {
         "type": "minecraft:uniform",
-        "min": 1,
+        "min": 2,
         "max": 4
       },
       "bonus_rolls": 0,
@@ -418,6 +430,144 @@
                 "max": 8
               },
               "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_pickaxe",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "type": "minecraft:uniform",
+                "min": 0,
+                "max": 25
+              },
+              "treasure": true
+            },
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.4,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 0,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:ice_rod",
+          "weight": 2,
+          "conditions": [],
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:hookshot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.5,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:clawshot",
+          "weight": 1,
+          "quality": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.6,
+                "max": 1
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:zora_tunic",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.4,
+                "max": 0.8
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:ocarina",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:ice_arrow",
+          "weight": 3,
+          "quality": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 8
+              },
+              "add": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zeldamod:heart_piece",
+          "quality": 4,
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.05
             }
           ]
         }

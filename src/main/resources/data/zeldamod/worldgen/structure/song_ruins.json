@@ -47,6 +47,12 @@
           "type": "zeldamod:deku",
           "weight": 4,
           "minCount": 1,
+          "maxCount": 5
+        },
+        {
+          "type": "zeldamod:deku_mad",
+          "weight": 1,
+          "minCount": 1,
           "maxCount": 3
         }
       ]

@@ -63,8 +63,12 @@ public class ModTags {
         public static final TagKey<Block> BOMB_FLOWER_BLOCKS
                 = tag("bomb_flower_blocks");
 
+        public static final TagKey<Block> GUST_GRIEFABLE_BLOCKS
+                = tag("gust_griefable_blocks");
+
         public static final TagKey<Block> SWORD_BLOCKS
                 = tag("sword_blocks");
+
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(ZeldaMod.MOD_ID, name));
         }

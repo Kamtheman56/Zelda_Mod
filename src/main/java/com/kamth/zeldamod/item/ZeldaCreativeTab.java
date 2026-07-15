@@ -83,6 +83,7 @@ public class ZeldaCreativeTab {
             event.accept(ZeldaItems.LONGSHOT);
             event.accept(ZeldaItems.CLAWSHOT);
             event.accept(ZeldaItems.CLAWSHOT_GODDESS);
+            event.accept(ZeldaItems.GRIPSHOT);
             event.accept(ZeldaItems.LENS_OF_TRUTH);
             event.accept(ZeldaItems.FLUTE);
             event.accept(ZeldaItems.OCARINA);

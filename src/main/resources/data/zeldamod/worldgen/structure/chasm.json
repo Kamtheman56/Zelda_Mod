@@ -46,8 +46,20 @@
         {
           "type": "zeldamod:dark_nut",
           "weight": 3,
-          "minCount": 1,
+          "minCount": 3,
           "maxCount": 7
+        },
+        {
+          "type": "zeldamod:keese",
+          "weight": 2,
+          "minCount": 3,
+          "maxCount": 10
+        },
+        {
+          "type": "zeldamod:dark_knight",
+          "weight": 1,
+          "minCount": 2,
+          "maxCount": 4
         }
       ]
     }

@@ -7,6 +7,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class SeedProjectile extends AbstractSeedProjectile {
 
@@ -23,6 +24,9 @@ public class SeedProjectile extends AbstractSeedProjectile {
         super(ModEntityTypes.SEED_PROJECTILE.get(), pShooter, pLevel);
     }
 
+    public SeedProjectile(@NotNull EntityType<DekuNutProjectile> dekuNutProjectileEntityType, LivingEntity pShooter, Level world) {
+        super(ModEntityTypes.DEKU_NUT.get(), pShooter, world);
+    }
 
 
     @Override

@@ -37,10 +37,11 @@ import java.util.Map;
 public class DiggingMittsItem extends DiggerItem {
 
 
+    private final float pDiggingSpeedModifier;
 
-
-    public DiggingMittsItem(int pAttackDamageModifier, float pAttackSpeedModifier, Tier pTier, TagKey<Block> pBlocks, Properties pProperties) {
+    public DiggingMittsItem(int pAttackDamageModifier, float pAttackSpeedModifier, float pDiggingSpeedModifier, Tier pTier, TagKey<Block> pBlocks, Properties pProperties) {
         super((float)pAttackDamageModifier, pAttackSpeedModifier, pTier, ModTags.Blocks.MITTS, pProperties);
+        this.pDiggingSpeedModifier = pDiggingSpeedModifier;
     }
     protected static final Map<Block, BlockState> FLATTENABLES = Maps.newHashMap((new ImmutableMap.Builder()).put(Blocks.GRASS_BLOCK, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.DIRT, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.PODZOL, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.COARSE_DIRT, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.MYCELIUM, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.ROOTED_DIRT, Blocks.DIRT_PATH.defaultBlockState()).build());
 
@@ -94,7 +95,7 @@ public class DiggingMittsItem extends DiggerItem {
         return FLATTENABLES.get(originalState.getBlock());
     }
     @Override
-   public float getDestroySpeed(ItemStack itemstack, BlockState blockstate) {return 8f;}
+   public float getDestroySpeed(ItemStack itemstack, BlockState blockstate) {return pDiggingSpeedModifier;}
     @Override
     public boolean isCorrectToolForDrops(ItemStack stack, BlockState blockstate) {
         int tier = 2;

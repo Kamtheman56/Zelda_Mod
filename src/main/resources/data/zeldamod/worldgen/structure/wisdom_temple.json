@@ -41,11 +41,11 @@
   // What mobs can spawn over time in the structure.
   // Make sure you add the mob to the right category (monster, creature, etc)
   "spawn_overrides": {
-    "creature": {
-      "bounding_box": "piece",
+    "monster": {
+      "bounding_box": "full",
       "spawns": [
         {
-          "type": "minecraft:parrot",
+          "type": "minecraft:drowned",
           "weight": 1,
           "minCount": 1,
           "maxCount": 4

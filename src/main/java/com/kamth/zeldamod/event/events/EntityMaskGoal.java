@@ -1,6 +1,7 @@
 package com.kamth.zeldamod.event.events;
 
 import com.kamth.zeldamod.entity.ai.mask_goals.*;
+import com.kamth.zeldamod.entity.mobs.hostile.bokoblin.BokoblinEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.allay.Allay;
@@ -21,6 +22,8 @@ public class EntityMaskGoal {
         ENTITY_GOAL_MAP.put(Husk.class, mob -> mob.goalSelector.addGoal(1, new GibdoMask(mob)));
         ENTITY_GOAL_MAP.put(Skeleton.class, mob -> mob.goalSelector.addGoal(1, new CaptainMask(mob)));
         ENTITY_GOAL_MAP.put(Piglin.class, mob -> mob.goalSelector.addGoal(1, new KamaroMask(mob)));
+        ENTITY_GOAL_MAP.put(BokoblinEntity.class, mob -> mob.goalSelector.addGoal(1, new BokoblinMask(mob)));
+
     }
 
     public static void assignMaskGoals(Mob mob) {

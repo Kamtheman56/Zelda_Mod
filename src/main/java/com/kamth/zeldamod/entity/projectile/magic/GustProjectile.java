@@ -1,5 +1,7 @@
 package com.kamth.zeldamod.entity.projectile.magic;
 
+import com.kamth.zeldamod.Config;
+import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -49,18 +51,13 @@ public class GustProjectile extends ThrowableProjectile {
         this.dowseFire(blockpos1.relative(direction.getOpposite()));
         for(Direction direction1 : Direction.Plane.HORIZONTAL) {
             this.dowseFire(blockpos1.relative(direction1));}
-        if (blockHit.is(BlockTags.FLOWERS)){
-            this.level().destroyBlock(ray.getBlockPos(), false);
-        }
-        if (blockHit.is(BlockTags.LEAVES)){
+
+        if (blockHit.is(ModTags.Blocks.GUST_GRIEFABLE_BLOCKS) && Config.gust_griefing()){
             this.level().destroyBlock(ray.getBlockPos(), true);
         }
-        if (blockHit.is(BlockTags.SAND)){
-            this.level().destroyBlock(ray.getBlockPos(), true);
-        }
-       else if (!blockHit.is(BlockTags.LEAVES) && !blockHit.is(BlockTags.SAND)){
-            this.discard();
-        }
+
+        else this.discard();
+
     }
     @Override
     protected void onHitEntity(EntityHitResult pResult) {

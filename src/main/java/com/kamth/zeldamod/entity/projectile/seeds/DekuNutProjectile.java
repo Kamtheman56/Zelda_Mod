@@ -24,15 +24,20 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
-public class DekuNutProjectile extends AbstractSeedProjectile {
+public class DekuNutProjectile extends SeedProjectile {
 
 
-    public DekuNutProjectile(EntityType<? extends AbstractSeedProjectile> pEntityType, Level pLevel) {
+    public DekuNutProjectile(EntityType<? extends SeedProjectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
-    public DekuNutProjectile(LivingEntity owner, Level world) {
-        super(ModEntityTypes.DEKU_NUT.get(), owner, world);
+    public DekuNutProjectile(LivingEntity pShooter, Level world) {
+        super(ModEntityTypes.DEKU_NUT.get(), pShooter, world);
+
+    }
+
+    public DekuNutProjectile(Level worldIn) {
+        super(ModEntityTypes.DEKU_NUT.get(), worldIn);
     }
 
     @Override

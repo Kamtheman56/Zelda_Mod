@@ -407,6 +407,7 @@ public class ChuchuEntity extends Monster {
     public boolean isTiny() {
         return this.getSize() <= 1;
     }
+
     protected boolean doPlayJumpSound() {
         return this.getSize() > 0;
     }

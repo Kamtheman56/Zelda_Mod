@@ -45,6 +45,7 @@ public abstract class AbstractHeartItem extends TooltipItem {
             if (this.healAmount > 0) {
                 player.displayClientMessage(Component.translatable(stack.getDescriptionId() + ".full")
                         .withStyle(ChatFormatting.RED).withStyle(ChatFormatting.BOLD), true);
+                player.getCooldowns().addCooldown(this,60);
             }
 
             return InteractionResultHolder.fail(stack);

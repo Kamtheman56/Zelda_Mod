@@ -9,6 +9,7 @@ import com.kamth.zeldamod.client.rendering.entity.boomerangs.BoomerangRender;
 import com.kamth.zeldamod.client.rendering.entity.boomerangs.GaleBoomerangRender;
 import com.kamth.zeldamod.client.rendering.entity.boomerangs.MagicBoomerangRender;
 import com.kamth.zeldamod.client.rendering.entity.hookshots.ClawshotRender;
+import com.kamth.zeldamod.client.rendering.entity.hookshots.GripshotRender;
 import com.kamth.zeldamod.client.rendering.entity.hookshots.HookshotRender;
 import com.kamth.zeldamod.client.rendering.entity.magic.*;
 import com.kamth.zeldamod.client.rendering.entity.thrown.BombEntityRenderer;
@@ -78,6 +79,7 @@ public class ModEventBusClientEvents {
         event.registerEntityRenderer(ModEntityTypes.SAND_PROJECTILE.get(), SandRender::new);
         event.registerEntityRenderer(ModEntityTypes.HOOKSHOT.get(), HookshotRender::new);
         event.registerEntityRenderer(ModEntityTypes.CLAWSHOT.get(), ClawshotRender::new);
+        event.registerEntityRenderer(ModEntityTypes.GRIPSHOT.get(), GripshotRender::new);
         event.registerEntityRenderer(ModEntityTypes.SWORD_BEAM2.get(), SwordBeam2Render::new);
         event.registerEntityRenderer(ModEntityTypes.GALE_BOOMERANG.get(), GaleBoomerangRender::new);
         event.registerEntityRenderer(ModEntityTypes.BOMBCHU.get(), BombchuRenderer::new);

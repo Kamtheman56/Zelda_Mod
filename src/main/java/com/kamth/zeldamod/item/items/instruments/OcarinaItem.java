@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.item.items.instruments;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.block.ZeldaBlocks;
 
 import com.kamth.zeldamod.item.ZeldaItems;
@@ -98,7 +99,7 @@ public class OcarinaItem extends Item {
             return InteractionResult.SUCCESS;
         }
         //calls the effects of the sun song
-        if (blockstate.is(ZeldaBlocks.SUN_STONE.get())){
+        if (Config.sun_song_effect() && blockstate.is(ZeldaBlocks.SUN_STONE.get() )){
             level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_SUN.get(),SoundSource.PLAYERS, .8f, 1f);
            pContext.getPlayer().getCooldowns().addCooldown(this, 600);
          if (level.isNight() && !level.isClientSide){
@@ -116,18 +117,18 @@ public class OcarinaItem extends Item {
         }
         //calls the effects of the song of storms
 
-        if (blockstate.is(ZeldaBlocks.NOTE_STONE.get())){
+        if (Config.song_of_storms_effect() &&  blockstate.is(ZeldaBlocks.NOTE_STONE.get())){
             level.playSound(pContext.getPlayer(),pContext.getPlayer().getOnPos(), ModSounds.SONG_STORMS.get(),SoundSource.PLAYERS, .8f, 1f);
             pContext.getPlayer().getCooldowns().addCooldown(this, 600);
 
-        if (blockstate.is(ZeldaBlocks.NOTE_STONE.get()) && !level.isRaining() && !level.isClientSide) {
+        if (Config.song_of_storms_effect() &&  blockstate.is(ZeldaBlocks.NOTE_STONE.get()) && !level.isRaining() && !level.isClientSide) {
             MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
             ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
             serverWorld.setWeatherParameters(0, 3800, true, true);
             return InteractionResult.SUCCESS;
         }
         {
-            if (blockstate.is(ZeldaBlocks.NOTE_STONE.get()) && level.isRaining() && !level.isClientSide) {
+            if (Config.song_of_storms_effect() &&  blockstate.is(ZeldaBlocks.NOTE_STONE.get()) && level.isRaining() && !level.isClientSide) {
                 MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
                 ServerLevel serverWorld = server.getLevel(Level.OVERWORLD);
                 serverWorld.setWeatherParameters(0, 3800, false, false);

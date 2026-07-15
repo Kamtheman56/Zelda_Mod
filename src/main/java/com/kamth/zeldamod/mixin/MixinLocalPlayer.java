@@ -50,8 +50,8 @@ abstract class MixinLocalPlayer {
         if (player.isUsingItem() && !player.isPassenger()  && this.isControlledCamera()
                 && player.getUseItem().is(ZeldaItems.PARAGLIDER.get())) {
 
-            player.xxa /= 0.23f; // side
-            player.zza /= 0.25f; // front/back
+            player.xxa /= .12f; // side
+            player.zza /= .09f; // front/back
         }
 
         if (player.isUsingItem() && !player.isPassenger()  && this.isControlledCamera()

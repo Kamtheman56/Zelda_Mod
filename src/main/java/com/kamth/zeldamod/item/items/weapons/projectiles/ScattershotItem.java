@@ -32,6 +32,7 @@ public class ScattershotItem extends SlingshotItem {
     }
     public float velocity = 2.95f;
     public float inaccuracy = 1f;
+
     @Override
     public Predicate<ItemStack> getAllSupportedProjectiles() {
         return stack -> stack.is(ModTags.Items.SLING_AMMO);
@@ -55,9 +56,9 @@ public class ScattershotItem extends SlingshotItem {
 
                 if (shotPower >= 0.1D) {
                     if (!world.isClientSide) {
-                       SeedProjectile projectile = createAmmoEntity(world, itemStack);
-                        SeedProjectile projectile2 = createAmmoEntity(world, itemStack);
-                        SeedProjectile projectile3 = createAmmoEntity(world, itemStack);
+                       SeedProjectile projectile = (SeedProjectile) createAmmoEntity(world, itemStack);
+                        SeedProjectile projectile2 = (SeedProjectile) createAmmoEntity(world, itemStack);
+                        SeedProjectile projectile3 = (SeedProjectile) createAmmoEntity(world, itemStack);
 
                         projectile.setOwner(player);
                         projectile2.setOwner(player);
@@ -86,15 +87,11 @@ public class ScattershotItem extends SlingshotItem {
                             player.getInventory().removeItem(itemStack);}}
                     player.awardStat(Stats.ITEM_USED.get(this));
 
-                }}}}
-    @Nonnull
-    private SeedProjectile createAmmoEntity(Level level, ItemStack itemStack) {
-        Item bullet = itemStack.getItem();
-        if (bullet == ZeldaItems.BOMB_SEEDS.get()) {
-            return new BombSeedProjectile(level);
+                }
         }
-        else return new SeedProjectile(level);
+        }
     }
+
 
     public static float getPowerForTime(int timeInUse) {
         float power = (float) timeInUse / 20.0F;

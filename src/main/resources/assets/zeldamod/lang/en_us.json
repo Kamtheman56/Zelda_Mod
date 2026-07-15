@@ -120,6 +120,7 @@
   "item.zeldamod.longshot": "Longshot",
   "item.zeldamod.clawshot": "Clawshot",
   "item.zeldamod.clawshot_goddess": "Goddess Clawshot",
+  "item.zeldamod.gripshot": "Gripshot",
   "item.zeldamod.lens": "Lens of Truth",
   "item.zeldamod.deku_stick": "Deku Stick",
   "item.zeldamod.deku_stick_lit": "Deku Stick",
@@ -249,6 +250,7 @@
   "item.zeldamod.skulltula_spawn_egg": "Skulltula Spawn Egg",
   "item.zeldamod.bokoblin_spawn_egg": "Bokoblin Spawn Egg",
   "item.zeldamod.tough_bokoblin_spawn_egg": "Tough Bokoblin Spawn Egg",
+  "item.zeldamod.moblin_spawn_egg": "Moblin Spawn Egg",
 
 
   "effect.zeldamod.deku": "Water Hopping",
@@ -288,6 +290,7 @@
   "sounds.zeldamod.korok_crunch": "Korok crunches food",
   "sounds.zeldamod.spikes_retract": "Spikes Retract",
   "sounds.zeldamod.sword_enchant": "Sword enchants with power",
+  "sounds.zeldamod.sword_charge_start": "Sword charges with power",
   "sounds.zeldamod.finish_charging": "Maximum charge",
 
   "block.zeldamod.gloom_block": "Gloom Block",
@@ -473,6 +476,8 @@
   "item.zeldamod.hero_bow.description_advanced": "Shoots specialized arrows",
   "item.zeldamod.hookshot.description_advanced": "Only works on wooden blocks",
   "item.zeldamod.hookshot.description_basic": "Go from A to B!",
+  "item.zeldamod.gripshot.description_advanced": "Grapples to anything!",
+  "item.zeldamod.gripshot.description_basic": "Go from A to Z!",
   "item.zeldamod.ice_arrow.description": "Freezes enemies and water",
   "item.zeldamod.ice_rod.description": "Blast long range ice shots!",
   "item.zeldamod.blizzard_rod.description": "Blast many long range ice shots!",

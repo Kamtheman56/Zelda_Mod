@@ -26,7 +26,18 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:tornado_rod",
-          "weight": 15
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.3,
+                "max": 0.8
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
@@ -80,7 +91,18 @@
         {
           "type": "minecraft:item",
           "name": "zeldamod:slingshot",
-          "weight": 15
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.4,
+                "max": 0.8
+              },
+              "add": false
+            }
+          ]
         },
         {
           "type": "minecraft:item",
@@ -110,7 +132,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_ingot",
+          "name": "minecraft:iron_nugget",
           "weight": 10,
           "functions": [
             {
@@ -181,8 +203,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:coal",
-          "weight": 15,
+          "name": "minecraft:gold_nugget",
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -251,7 +273,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:bone",
+          "name": "minecraft:oak_leaves",
           "weight": 10,
           "functions": [
             {

@@ -57,7 +57,6 @@ public class GibdoMask extends Goal
             this.mob.getLookControl().setLookAt(this.player, (float) (this.mob.getMaxHeadYRot() + 20), (float) this.mob.getMaxHeadXRot());
        this.mob.setAggressive(false);
                 this.mob.setTarget(null);
-
         }
         }
 

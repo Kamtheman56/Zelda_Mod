@@ -1,9 +1,7 @@
 package com.kamth.zeldamod.item.items.weapons.projectiles;
 
 import com.kamth.zeldamod.custom.ModTags;
-import com.kamth.zeldamod.entity.projectile.seeds.BombSeedProjectile;
-import com.kamth.zeldamod.entity.projectile.seeds.KorokSeedProjectile;
-import com.kamth.zeldamod.entity.projectile.seeds.SeedProjectile;
+import com.kamth.zeldamod.entity.projectile.seeds.*;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
 import net.minecraft.ChatFormatting;
@@ -58,7 +56,7 @@ public class SlingshotItem extends BowItem {
 
                 if (shotPower >= 0.1D) {
                     if (!world.isClientSide) {
-                       SeedProjectile projectile = createAmmoEntity(world, itemStack);
+                       SeedProjectile projectile = (SeedProjectile) createAmmoEntity(world, itemStack);
                         projectile.setOwner(player);
                         projectile.setPos(player.getEyePosition(1F));
                         projectile.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, shotPower * 3.0F, 1.0F);
@@ -77,13 +75,19 @@ public class SlingshotItem extends BowItem {
                         p_40665_.broadcastBreakEvent(player.getUsedItemHand());
                     });
                     player.awardStat(Stats.ITEM_USED.get(this));
-                }}}}
+                }
+            }
+        }
+    }
 
     @Nonnull
-    private SeedProjectile createAmmoEntity(Level level, ItemStack itemStack) {
+    public AbstractSeedProjectile createAmmoEntity(Level level, ItemStack itemStack) {
         Item bullet = itemStack.getItem();
         if (bullet == ZeldaItems.BOMB_SEEDS.get()) {
             return new BombSeedProjectile(level);
+        }
+        if (bullet == ZeldaItems.DEKU_NUT.get()) {
+            return new DekuNutProjectile(level);
         }
         else return new SeedProjectile(level);
     }

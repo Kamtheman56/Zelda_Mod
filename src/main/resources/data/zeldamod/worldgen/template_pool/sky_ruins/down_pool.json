@@ -69,9 +69,18 @@
       }
     },
     {
-      "weight": 3,
+      "weight": 2,
       "element": {
         "location": "zeldamod:sky_ruins_dungeon_combat_room_hard",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "zeldamod:sky_ruins_dungeon_maze_room",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

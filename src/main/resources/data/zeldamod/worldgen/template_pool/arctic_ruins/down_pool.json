@@ -8,7 +8,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "zeldamod:arctic_ruins_tunnel_snow",
+        "location": "zeldamod:arctic_ruins_tunnel_snow_new",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -17,7 +17,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "zeldamod:arctic_ruins_tunnel_dungeon",
+        "location": "zeldamod:arctic_ruins_dungeon_snow",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -26,7 +26,7 @@
     {
       "weight": 3,
       "element": {
-        "location": "zeldamod:arctic_ruins_tunnel_inner_ice",
+        "location": "zeldamod:arctic_ruins_dungeon_water",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

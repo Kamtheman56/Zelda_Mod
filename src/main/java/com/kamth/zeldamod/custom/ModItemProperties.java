@@ -20,6 +20,7 @@ public class ModItemProperties {
         makeShield(ZeldaItems.LENS_OF_TRUTH.get());
         makeShield(ZeldaItems.CLAWSHOT.get());
         makeShield(ZeldaItems.CLAWSHOT_GODDESS.get());
+        makeShield(ZeldaItems.GRIPSHOT.get());
         makeShield(ZeldaItems.FLUTE.get());
         makeShield(ZeldaItems.OCARINA.get());
 

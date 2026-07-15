@@ -18,7 +18,7 @@ public class Config {
 
 
 // PROJECTILE GRIEFING
-    public static final ForgeConfigSpec.BooleanValue WIND_GRIEFING = BUILDER.comment("Do gusts of wind destroy plant blocks and extinguish fires").define("wind_griefing", true);
+    public static final ForgeConfigSpec.BooleanValue GUST_GRIEFING = BUILDER.comment("Do gusts of wind destroy plant blocks and extinguish fires").define("wind_griefing", true);
     public static final ForgeConfigSpec.BooleanValue SWORD_BEAM_GRIEFING = BUILDER.comment("Do sword beams destroy blocks by default").define("sword_beam_griefing", true);
 
 
@@ -54,19 +54,24 @@ public class Config {
     public static final ForgeConfigSpec.BooleanValue KOROK_SPAWNING = BUILDER.comment("Can Koroks and their variants spawn?").define("korok_spawning", true);
 
 
+    public static ForgeConfigSpec.IntValue HEART_CONTAINER_HEARTS = BUILDER.comment("The total amount of hearts the player may obtain with Heart Containers. By default this is one additional row.").defineInRange("heart_container_maximum", 40,0,80);
+    public static ForgeConfigSpec.IntValue PRIMO_CONTAINER_HEARTS = (ForgeConfigSpec.IntValue) BUILDER.comment("The total amount of hearts the player may obtain with Primo Heart Containers. By default this is two additional rows.").defineInRange("primo_container_maximum", 60,0,200);
+
+
     static final ForgeConfigSpec SPEC = BUILDER.build();
 
     private static boolean isLoaded = false;
 
 
-
+// OCARINA RELATED
     private static boolean song_of_storms;
+    private static boolean sun_song;
 
     // GRIEFING RELATED
     private static boolean bomb_griefing;
     private static boolean bomb_arrow_griefing;
     private static boolean bomb_flower_griefing;
-
+    private static boolean gust_griefing;
 
     // ARROW RELATED
     private static boolean fire_arrow_melting;
@@ -78,6 +83,10 @@ public class Config {
     private static boolean sword_beams;
     private static boolean alternative_sword_beams;
     private static boolean reforged_sword_beams;
+
+    // MISC
+    public static ForgeConfigSpec.IntValue heart_container_maximum;
+    public static ForgeConfigSpec.IntValue primo_container_maximum;
 
     //MOB CONFIG
     private static boolean deku_spawning;
@@ -98,6 +107,7 @@ public class Config {
             bomb_griefing = BOMB_GRIEFING.get();
             bomb_arrow_griefing = BOMB_ARROW_GRIEFING.get();
             bomb_flower_griefing = BOMB_FLOWER_GRIEFING.get();
+            gust_griefing = GUST_GRIEFING.get();
 
             // ARROWS
             fire_arrow_melting = FIRE_ARROW_MELTING.get();
@@ -108,7 +118,7 @@ public class Config {
 
             // OCARINA RELATED
             song_of_storms = SONG_OF_STORMS.get();
-
+            sun_song = SUN_SONG.get();
 
             // SWORD BEAMS
             sword_beams = SWORD_BEAMS.get();
@@ -126,6 +136,10 @@ public class Config {
             skulltula_spawning = SKULLTULA_SPAWNING.get();
 
 
+            // Additional Config options
+            heart_container_maximum = HEART_CONTAINER_HEARTS;
+            primo_container_maximum = PRIMO_CONTAINER_HEARTS;
+
             isLoaded = true;
         }
     }
@@ -134,6 +148,9 @@ public class Config {
     //OCARINA EFFECTS
     public static boolean song_of_storms_effect() {
         return isLoaded ? song_of_storms : SONG_OF_STORMS.get();
+    }
+    public static boolean sun_song_effect() {
+        return isLoaded ? sun_song : SUN_SONG.get();
     }
 
    // GRIEFING
@@ -149,6 +166,9 @@ public class Config {
         return isLoaded ? bomb_flower_griefing : BOMB_FLOWER_GRIEFING.get();
     }
 
+    public static boolean gust_griefing()   {
+        return isLoaded ? gust_griefing : GUST_GRIEFING.get();
+    }
 
     // ARROW CONFIG
 
@@ -200,7 +220,6 @@ public class Config {
     public static boolean skulltula_spawning() {
         return isLoaded ? skulltula_spawning : SKULLTULA_SPAWNING.get();
     }
-
 
 
 

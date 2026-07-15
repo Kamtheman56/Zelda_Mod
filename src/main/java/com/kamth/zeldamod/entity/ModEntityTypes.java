@@ -19,6 +19,7 @@ import com.kamth.zeldamod.entity.mobs.hostile.keese.ElectricKeeseEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.keese.FireKeeseEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.keese.IceKeeseEntity;
 import com.kamth.zeldamod.entity.mobs.hostile.keese.KeeseEntity;
+import com.kamth.zeldamod.entity.projectile.grapples.GripShot;
 import com.kamth.zeldamod.entity.projectile.seeds.BombSeedProjectile;
 import com.kamth.zeldamod.entity.projectile.seeds.DekuNutProjectile;
 import com.kamth.zeldamod.entity.projectile.seeds.KorokSeedProjectile;
@@ -90,6 +91,7 @@ public class ModEntityTypes {
 
     public static final RegistryObject<EntityType<Hookshot>> HOOKSHOT = ENTITY_TYPES.register("hookshot_projectile", () -> Builder.<Hookshot>of(Hookshot::new, MobCategory.MISC).sized(.6f,.7f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "hookshot_projectile").toString()));
     public static final RegistryObject<EntityType<Clawshot>> CLAWSHOT = ENTITY_TYPES.register("clawshot_projectile", () -> Builder.<Clawshot>of(Clawshot::new, MobCategory.MISC).sized(.6f,.7f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "clawshot_projectile").toString()));
+    public static final RegistryObject<EntityType<GripShot>> GRIPSHOT = ENTITY_TYPES.register("gripshot_projectile", () -> Builder.<GripShot>of(GripShot::new, MobCategory.MISC).sized(.6f,.7f).noSummon().clientTrackingRange(4).updateInterval(20).build(new ResourceLocation(ZeldaMod.MOD_ID, "gripshot_projectile").toString()));
 
 
 

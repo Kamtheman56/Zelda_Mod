@@ -108,6 +108,8 @@ public class FireChuchuEntity extends ChuchuEntity {
     protected void dealDamage(LivingEntity pLivingEntity) {
         if (this.isAlive()) {
             int i = this.getSize();
+
+            if (pLivingEntity instanceof LivingEntity){
             if (this.distanceToSqr(pLivingEntity) < 0.6D * (double)i * 0.6D * (double)i && i != 1 && this.hasLineOfSight(pLivingEntity) && pLivingEntity.hurt(this.damageSources().mobAttack(this), this.getAttackDamage())) {
                 this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
                this.getTarget().setRemainingFireTicks(this.getRemainingFireTicks()+40);
@@ -119,7 +121,7 @@ public class FireChuchuEntity extends ChuchuEntity {
                 this.doEnchantDamageEffects(this, pLivingEntity);
             }
         }
-
+        }
     }
 
 

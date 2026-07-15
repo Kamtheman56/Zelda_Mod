@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.event.events;
 
+import com.kamth.zeldamod.Config;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -98,11 +99,11 @@ public class ZeldaPlayerHealth {
     }
 
     public static boolean canIncreaseGoldHealth(Player player) {
-        return getBaseHealth(player) < 60;
+        return getBaseHealth(player) < Config.primo_container_maximum.get();
     }
 
     public static boolean canIncreaseBaseHealth(Player player) {
-        return getBaseHealth(player) < 40;
+        return getBaseHealth(player) < Config.heart_container_maximum.get();
     }
 
     public static boolean canDecreaseBaseHealth(Player player) {

@@ -89,49 +89,50 @@ public class IceChuchuEntity extends ChuchuEntity {
     protected void dealDamage(LivingEntity pLivingEntity) {
         if (this.isAlive()) {
             int i = this.getSize();
-            if (this.distanceToSqr(pLivingEntity) < 0.6D * (double)i * 0.6D * (double)i && i != 1 && this.hasLineOfSight(pLivingEntity) && pLivingEntity.hurt(this.damageSources().mobAttack(this), this.getAttackDamage())) {
-                this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-               this.getTarget().setTicksFrozen(this.getTicksFrozen()+80);
-                this.doEnchantDamageEffects(this, pLivingEntity);
-            }
-            if (this.distanceToSqr(pLivingEntity) < 0.9D * (double)i * 0.9D * (double)i && i == 1 && this.hasLineOfSight(pLivingEntity) && pLivingEntity.hurt(this.damageSources().mobAttack(this), this.getAttackDamage())) {
-                this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-                this.getTarget().setTicksFrozen(this.getTicksFrozen()+80);
-                this.doEnchantDamageEffects(this, pLivingEntity);
-            }
-        }
-
-    }
-    @Override
-    public void remove(RemovalReason pReason) {
-        int i = this.getSize();
-        if (!this.level().isClientSide && i > 1 && this.isDeadOrDying()) {
-            Component component = this.getCustomName();
-            boolean flag = this.isNoAi();
-            float f = (float)i / 4.0F;
-            int j = i / 2;
-            int k = 2 + this.random.nextInt(3);
-
-            for(int l = 0; l < k; ++l) {
-                float f1 = ((float)(l % 2) - 0.5F) * f;
-                float f2 = ((float)(l / 2) - 0.5F) * f;
-                IceChuchuEntity chuchu = (IceChuchuEntity) this.getType().create(this.level());
-                if (chuchu!= null) {
-                    if (this.isPersistenceRequired()) {
-                        chuchu.setPersistenceRequired();
-                    }
-
-                    chuchu.setCustomName(component);
-                    chuchu.setNoAi(flag);
-                    chuchu.setInvulnerable(this.isInvulnerable());
-                    chuchu.setSize(j, true);
-                    chuchu.moveTo(this.getX() + (double)f1, this.getY() + 0.5D, this.getZ() + (double)f2, this.random.nextFloat() * 360.0F, 0.0F);
-                    this.level().addFreshEntity(chuchu);
+            if (pLivingEntity instanceof LivingEntity) {
+                if (this.distanceToSqr(pLivingEntity) < 0.6D * (double) i * 0.6D * (double) i && i != 1 && this.hasLineOfSight(pLivingEntity) && pLivingEntity.hurt(this.damageSources().mobAttack(this), this.getAttackDamage())) {
+                    this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+                    this.getTarget().setTicksFrozen(this.getTicksFrozen() + 80);
+                    this.doEnchantDamageEffects(this, pLivingEntity);
+                }
+                if (this.distanceToSqr(pLivingEntity) < 0.9D * (double) i * 0.9D * (double) i && i == 1 && this.hasLineOfSight(pLivingEntity) && pLivingEntity.hurt(this.damageSources().mobAttack(this), this.getAttackDamage())) {
+                    this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+                    this.getTarget().setTicksFrozen(this.getTicksFrozen() + 80);
+                    this.doEnchantDamageEffects(this, pLivingEntity);
                 }
             }
         }
-
-        super.remove(pReason);
     }
+//    @Override
+//    public void remove(RemovalReason pReason) {
+//        int i = this.getSize();
+//        if (!this.level().isClientSide && i > 1 && this.isDeadOrDying()) {
+//            Component component = this.getCustomName();
+//            boolean flag = this.isNoAi();
+//            float f = (float)i / 4.0F;
+//            int j = i / 2;
+//            int k = 2 + this.random.nextInt(3);
+//
+//            for(int l = 0; l < k; ++l) {
+//                float f1 = ((float)(l % 2) - 0.5F) * f;
+//                float f2 = ((float)(l / 2) - 0.5F) * f;
+//                IceChuchuEntity chuchu = (IceChuchuEntity) this.getType().create(this.level());
+//                if (chuchu!= null) {
+//                    if (this.isPersistenceRequired()) {
+//                        chuchu.setPersistenceRequired();
+//                    }
+//
+//                    chuchu.setCustomName(component);
+//                    chuchu.setNoAi(flag);
+//                    chuchu.setInvulnerable(this.isInvulnerable());
+//                    chuchu.setSize(j, true);
+//                    chuchu.moveTo(this.getX() + (double)f1, this.getY() + 0.5D, this.getZ() + (double)f2, this.random.nextFloat() * 360.0F, 0.0F);
+//                    this.level().addFreshEntity(chuchu);
+//                }
+//            }
+//        }
+//
+//        super.remove(pReason);
+//    }
 
 }

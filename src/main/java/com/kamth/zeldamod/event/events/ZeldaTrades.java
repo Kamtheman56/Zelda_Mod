@@ -161,6 +161,10 @@ public class ZeldaTrades {
                     new ItemStack(EMERALD, 20), // Cost
                     new ItemStack(DEKU_MASK.get()), 1, 125, 0.06f
             );
+            addTrade(trades, 4,
+                    new ItemStack(EMERALD, 18), // Cost
+                    new ItemStack(BOKO_MASK.get()), 1, 125, 0.05f
+            );
 
             // 5
             addTrade(trades, 5,
@@ -175,6 +179,7 @@ public class ZeldaTrades {
                     new ItemStack(EMERALD, 35), // Cost
                     new ItemStack(POSTMAN_MASK.get()), 1, 250, 0.07f
             );
+
 
 
         }

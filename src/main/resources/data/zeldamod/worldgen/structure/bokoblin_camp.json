@@ -43,8 +43,14 @@
         {
           "type": "zeldamod:bokoblin",
           "weight": 3,
-          "minCount": 1,
+          "minCount": 4,
           "maxCount": 7
+        },
+        {
+          "type": "zeldamod:moblin",
+          "weight": 1,
+          "minCount": 1,
+          "maxCount": 3
         }
       ]
     }
