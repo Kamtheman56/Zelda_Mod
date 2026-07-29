@@ -184,7 +184,7 @@ public class Hookshot extends AbstractArrow {
             if (!level().isClientSide && owner != null && hookedEntity == null) {
 
                 owner.setNoGravity(false);}}
-    //  else kill();
+
     else     this.discard();
         }
     @Override

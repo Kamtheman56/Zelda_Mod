@@ -42,14 +42,12 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class MoblinEntity extends Monster   {
-    private int ticksSinceEaten;
+
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
     public static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT = SynchedEntityData.defineId(MoblinEntity.class, EntityDataSerializers.INT);
 
-    static final Predicate<ItemEntity> ALLOWED_ITEMS = (p_289438_) -> {
-        return !p_289438_.hasPickUpDelay() && p_289438_.isAlive();
-    };
+
 
     private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 1D, false) {
         /**
@@ -71,7 +69,7 @@ public class MoblinEntity extends Monster   {
 
     public MoblinEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.setCanPickUpLoot(true);
+        this.setCanPickUpLoot(false);
 
     }
 
@@ -93,7 +91,7 @@ public class MoblinEntity extends Monster   {
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Bee.class, 3, 1.5, 1));
-
+        this.goalSelector.addGoal(6, new MeleeAttackGoal(this, 1, true));
 
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
@@ -153,9 +151,8 @@ public class MoblinEntity extends Monster   {
     @Nullable
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
         pSpawnData = super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
-        RandomSource randomsource = pLevel.getRandom();
-        this.populateDefaultEquipmentSlots(randomsource, pDifficulty);
-        this.populateDefaultEquipmentEnchantments(randomsource, pDifficulty);
+
+
         this.setVariant(Util.getRandom(BokoblinVariants.values(), pLevel.getRandom()));
         return pSpawnData;
 
