@@ -4,7 +4,7 @@
     "item": "zeldamod:master_upgrade"
   },
   "base": {
-    "item": "zeldamod:goddess_clawshot"
+    "item": "zeldamod:clawshot_goddess"
   },
   "addition": {
     "item": "zeldamod:refined_master_ore"

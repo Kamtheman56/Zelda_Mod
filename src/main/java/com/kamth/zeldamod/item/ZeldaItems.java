@@ -352,8 +352,8 @@ public class ZeldaItems {
                     new Item.Properties().rarity(Rarity.RARE).defaultDurability(1800)));
 
     public static final RegistryObject<Item> MAGIC_SWORD = ITEMS.register("magic_sword",
-            () -> new MagicSwordItem(ModTiers.ZELDA, 5, -2.2f,
-                    new Item.Properties().rarity(Rarity.EPIC).defaultDurability(0)));
+            () -> new MagicSwordItem(ModTiers.UNBREAKABLE, 5, -2.2f,
+                    new Item.Properties().rarity(Rarity.EPIC)));
 
 
     //GODDESS SWORDS
