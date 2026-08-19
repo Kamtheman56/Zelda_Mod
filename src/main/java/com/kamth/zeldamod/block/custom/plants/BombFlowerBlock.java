@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.block.custom.plants;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.block.ZeldaBlocks;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.item.ZeldaItems;
@@ -65,16 +66,23 @@ public class BombFlowerBlock extends CropBlock {
     @Deprecated //Forge: Prefer using IForgeBlock#catchFire
     private static void explode(Level pLevel, BlockPos pPos, @Nullable LivingEntity pEntity) {
         if (!pLevel.isClientSide) {
-            pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(),  2f, Level.ExplosionInteraction.MOB);
-            int radius = (int) Math.ceil(2);
-            for (BlockPos pos : BlockPos.betweenClosed(pPos.offset(-radius, -radius, -radius), pPos.offset(radius, radius, radius))) {
-                BlockState blockState = pLevel.getBlockState(pos).getBlock().defaultBlockState();
-                if (blockState.is(ModTags.Blocks.BOMB)){
-                    pLevel.destroyBlock(pos, false);
-                }
-                if (blockState.is(ZeldaBlocks.BOMBFLOWER.get())){
-                    pLevel.explode(null, pos.getX(), pos.getY(), pos.getZ(),  2f, Level.ExplosionInteraction.MOB);
-                    pLevel.destroyBlock(pos, false);
+
+
+            if (Config.bomb_flower_griefing()) {
+                pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 2f, Level.ExplosionInteraction.TNT);
+            } else {
+                pLevel.explode(null, pPos.getX(), pPos.getY(), pPos.getZ(), 2f, Level.ExplosionInteraction.NONE);
+
+                int radius = (int) Math.ceil(2);
+                for (BlockPos pos : BlockPos.betweenClosed(pPos.offset(-radius, -radius, -radius), pPos.offset(radius, radius, radius))) {
+                    BlockState blockState = pLevel.getBlockState(pos).getBlock().defaultBlockState();
+                    if (blockState.is(ModTags.Blocks.BOMB)) {
+                        pLevel.destroyBlock(pos, false);
+                    }
+                    if (blockState.is(ZeldaBlocks.BOMBFLOWER.get())) {
+                        pLevel.explode(null, pos.getX(), pos.getY(), pos.getZ(), 2f, Level.ExplosionInteraction.MOB);
+                        pLevel.destroyBlock(pos, false);
+                    }
                 }
             }
         }
@@ -101,10 +109,6 @@ public class BombFlowerBlock extends CropBlock {
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
         }
     }
-
-
-
-
 
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {

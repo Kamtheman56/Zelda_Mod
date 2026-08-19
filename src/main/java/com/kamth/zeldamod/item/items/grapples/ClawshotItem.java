@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.item.items.grapples;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.entity.projectile.grapples.Clawshot;
 import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.sound.ModSounds;
@@ -49,11 +50,11 @@ public class ClawshotItem extends Item {
                 projectile.setBaseDamage(4);
                 projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0.0F, 1.6f, 0f);
             if (itemstack.is(ZeldaItems.CLAWSHOT.get())){
-                projectile.Properties(itemstack, 25, 12, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
+                projectile.Properties(itemstack, Config.CLAWSHOT_RANGE.get(), 12, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
                 player.getCooldowns().addCooldown(this, 40);
             }
             if (itemstack.is(ZeldaItems.CLAWSHOT_GODDESS.get())){
-                projectile.Properties(itemstack, 40, 12, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
+                projectile.Properties(itemstack, Config.CLAWSHOT_RANGE.get() * 2, 12, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
                 player.getCooldowns().addCooldown(this, 40);
             }
                 world.addFreshEntity(projectile);

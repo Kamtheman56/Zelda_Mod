@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.item.items.grapples;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.entity.projectile.grapples.Hookshot;
 import com.kamth.zeldamod.item.ZeldaItems;
 import net.minecraft.ChatFormatting;
@@ -37,10 +38,10 @@ public class HookshotItem extends Item {
         });
             projectile.shootFromRotation(player, player.xRotO, player.yRotO, 1F, 1.6f,0f);
             if (itemstack.is(ZeldaItems.HOOKSHOT.get())){
-                projectile.Properties(itemstack, 15, 10, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
+                projectile.Properties(itemstack, Config.HOOKSHOT_RANGE.get(), 10, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
             }
         if (itemstack.is(ZeldaItems.LONGSHOT.get())){
-            projectile.Properties(itemstack, 30, 10, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
+            projectile.Properties(itemstack, Config.HOOKSHOT_RANGE.get() * 2, 10, player.getXRot(), player.getYRot(), 0f, 1.5f * (float) (10 / 10));
         }
             pLevel.addFreshEntity(projectile);
         player.awardStat(Stats.ITEM_USED.get(this));

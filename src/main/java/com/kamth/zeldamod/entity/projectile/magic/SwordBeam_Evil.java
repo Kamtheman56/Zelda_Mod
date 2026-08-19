@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.entity.projectile.magic;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import net.minecraft.core.BlockPos;
@@ -43,7 +44,7 @@ public class SwordBeam_Evil extends SwordBeam {
         this.discard();
         if (this.level() instanceof ServerLevel) {
             BlockPos blockpos = entity.blockPosition();
-            if (this.level().canSeeSky(blockpos)) {
+            if (this.level().canSeeSky(blockpos) && Config.reforged_sword_lightning()) {
                 LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(this.level());
                 lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
                 this.level().addFreshEntity(lightningbolt);

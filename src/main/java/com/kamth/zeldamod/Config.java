@@ -27,12 +27,18 @@ public class Config {
     public static final ForgeConfigSpec.BooleanValue ICE_ARROW_FREEZING = BUILDER.comment("Do Ice Arrows freeze water?").define("ice_arrow_freezing", true);
     public static final ForgeConfigSpec.BooleanValue SHOCK_ARROW_LIGHTNING = BUILDER.comment("Do Shock Arrows summon lightning when it's raining?").define("shock_arrow_lightning", true);
 
+ // HOOKSHOT CLAWS
+    public static final ForgeConfigSpec.BooleanValue HOOKSHOT_GRABBING = BUILDER.comment("Can the Hookshot grapple onto any block type?").define("hookshot_grabbing", false);
+    public static final ForgeConfigSpec.BooleanValue CLAWSHOT_GRABBING = BUILDER.comment("Can the Clawshot grapple onto any block type?").define("clawshot_grabbing", false);
+    public static ForgeConfigSpec.IntValue HOOKSHOT_RANGE = BUILDER.comment("The total range of the hookshot. Default is 15.").defineInRange("hookshot_range", 15,0,60);
+    public static ForgeConfigSpec.IntValue CLAWSHOT_RANGE = BUILDER.comment("The total range of the clawshot. Default is 25.").defineInRange("clawshot_range", 25,0,60);
 
 
     // SWORD BEAMS
     public static final ForgeConfigSpec.BooleanValue SWORD_BEAMS = BUILDER.comment("Can the player shoot sword beams by Left Clicking when available?").define("sword_beams", true);
     public static final ForgeConfigSpec.BooleanValue ALT_SWORD_BEAMS = BUILDER.comment("Reverts Sword Beams to being fired with shift + Right Click").define("alternative_sword_beams", false);
     public static final ForgeConfigSpec.BooleanValue REFORGED_SWORD_BEAMS = BUILDER.comment("Can the Reforged Master Sword fire Sword Beams?").define("reforged_sword_beams", true);
+    public static final ForgeConfigSpec.BooleanValue REFORGED_SWORD_LIGHTNING = BUILDER.comment("Can the Reforged Master Sword Beams summon lightning?").define("reforged_sword_lightning", true);
 
 
     // Do Ocarina songs have effects?
@@ -45,17 +51,14 @@ public class Config {
     public static final ForgeConfigSpec.BooleanValue DEKU_SPAWNING = BUILDER.comment("Can Deku Scrubs and their variants spawn?").define("deku_spawning", true);
     public static final ForgeConfigSpec.BooleanValue KEESE_SPAWNING = BUILDER.comment("Can Keese and their variants spawn?").define("keese_spawning", true);
     public static final ForgeConfigSpec.BooleanValue CHUCHU_SPAWNING = BUILDER.comment("Can Chuchus and their variants spawn?").define("chuchu_spawning", true);
-    public static final ForgeConfigSpec.BooleanValue BOKOBLINS_SPAWNING = BUILDER.comment("Can Bokoblins and their variants spawn?").define("bokoblin_spawning", true);
-    public static final ForgeConfigSpec.BooleanValue MOBLIN_SPAWNING = BUILDER.comment("Can Moblins and their variants spawn?").define("moblins_spawning", true);
     public static final ForgeConfigSpec.BooleanValue SKULLTULA_SPAWNING = BUILDER.comment("Can Skulltula spawn?").define("skulltula_spawning", true);
 
 
-    public static final ForgeConfigSpec.BooleanValue YIGA_SPAWNING = BUILDER.comment("Can members of the Yiga Clan spawn?").define("yiga_spawning", true);
     public static final ForgeConfigSpec.BooleanValue KOROK_SPAWNING = BUILDER.comment("Can Koroks and their variants spawn?").define("korok_spawning", true);
 
 
-    public static ForgeConfigSpec.IntValue HEART_CONTAINER_HEARTS = BUILDER.comment("The total amount of hearts the player may obtain with Heart Containers. By default this is one additional row.").defineInRange("heart_container_maximum", 40,0,80);
-    public static ForgeConfigSpec.IntValue PRIMO_CONTAINER_HEARTS = (ForgeConfigSpec.IntValue) BUILDER.comment("The total amount of hearts the player may obtain with Primo Heart Containers. By default this is two additional rows.").defineInRange("primo_container_maximum", 60,0,200);
+    public static ForgeConfigSpec.IntValue HEART_CONTAINER_HEARTS = BUILDER.comment("The total amount of hearts the player may obtain with Heart Containers. By default this is one additional row. (40)").defineInRange("heart_container_maximum", 40,0,80);
+    public static ForgeConfigSpec.IntValue PRIMO_CONTAINER_HEARTS = BUILDER.comment("The total amount of hearts the player may obtain with Primo Heart Containers. By default this is two additional rows. (60)").defineInRange("primo_container_maximum", 60,0,200);
 
 
     static final ForgeConfigSpec SPEC = BUILDER.build();
@@ -78,11 +81,17 @@ public class Config {
     private static boolean ice_arrow_freezing;
     private static boolean shock_arrow_lightning;
 
+    //HOOKSHOTS
+    private static boolean hookshot_grabbing;
+    private static boolean clawshot_grabbing;
+    public static ForgeConfigSpec.IntValue hookshot_range;
+    public static ForgeConfigSpec.IntValue clawshot_range;
 
     // SWORD BEAMS
     private static boolean sword_beams;
     private static boolean alternative_sword_beams;
     private static boolean reforged_sword_beams;
+    private static boolean reforged_sword_lightning;
 
     // MISC
     public static ForgeConfigSpec.IntValue heart_container_maximum;
@@ -114,7 +123,11 @@ public class Config {
             ice_arrow_freezing = ICE_ARROW_FREEZING.get();
             shock_arrow_lightning = SHOCK_ARROW_LIGHTNING.get();
 
-
+            //HOOKSHOT
+            hookshot_grabbing = HOOKSHOT_GRABBING.get();
+            clawshot_grabbing = CLAWSHOT_GRABBING.get();
+            hookshot_range = HOOKSHOT_RANGE;
+            clawshot_range = CLAWSHOT_RANGE;
 
             // OCARINA RELATED
             song_of_storms = SONG_OF_STORMS.get();
@@ -124,14 +137,14 @@ public class Config {
             sword_beams = SWORD_BEAMS.get();
             alternative_sword_beams = ALT_SWORD_BEAMS.get();
             reforged_sword_beams = REFORGED_SWORD_BEAMS.get();
+            reforged_sword_lightning= REFORGED_SWORD_LIGHTNING.get();
 
             // MOB CONFIG
             deku_spawning = DEKU_SPAWNING.get();
             keese_spawning = KEESE_SPAWNING.get();
             chuchu_spawning = CHUCHU_SPAWNING.get();
-            bokoblin_spawning = BOKOBLINS_SPAWNING.get();
-            moblin_spawning = MOBLIN_SPAWNING.get();
-            yiga_spawning = YIGA_SPAWNING.get();
+
+
             korok_spawning = KOROK_SPAWNING.get();
             skulltula_spawning = SKULLTULA_SPAWNING.get();
 
@@ -182,6 +195,16 @@ public class Config {
         return isLoaded ? shock_arrow_lightning : SHOCK_ARROW_LIGHTNING.get();
     }
 
+    //HOOKSHOT CONFIG
+    public static boolean hookshot_grabbing()   {
+        return isLoaded ? hookshot_grabbing : HOOKSHOT_GRABBING.get();
+    }
+    public static boolean clawshot_grabbing()   {
+        return isLoaded ? clawshot_grabbing : CLAWSHOT_GRABBING.get();
+    }
+
+
+
     //SWORD BEAMS
     public static boolean sword_beams() {
         return isLoaded ? sword_beams : SWORD_BEAMS.get();
@@ -194,6 +217,9 @@ public class Config {
     public static boolean reforged_sword_beams() {
         return isLoaded ? reforged_sword_beams : REFORGED_SWORD_BEAMS.get();
     }
+    public static boolean reforged_sword_lightning() {
+        return isLoaded ? reforged_sword_lightning : REFORGED_SWORD_LIGHTNING.get();
+    }
 
     // MOB CONFIG
     public static boolean deku_spawning() {
@@ -205,15 +231,8 @@ public class Config {
     public static boolean chuchu_spawning() {
         return isLoaded ? chuchu_spawning : CHUCHU_SPAWNING.get();
     }
-    public static boolean bokoblin_spawning() {
-        return isLoaded ? bokoblin_spawning : BOKOBLINS_SPAWNING.get();
-    }
-    public static boolean moblin_spawning() {
-        return isLoaded ? moblin_spawning : MOBLIN_SPAWNING.get();
-    }
-    public static boolean yiga_spawning() {
-        return isLoaded ? yiga_spawning : YIGA_SPAWNING.get();
-    }
+
+
     public static boolean korok_spawning() {
         return isLoaded ? korok_spawning : KOROK_SPAWNING.get();
     }

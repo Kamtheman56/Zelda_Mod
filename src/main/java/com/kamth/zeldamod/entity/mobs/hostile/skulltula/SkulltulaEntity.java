@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.entity.mobs.hostile.skulltula;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.entity.mobs.friendly.KorokEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -250,7 +251,7 @@ public class SkulltulaEntity extends Monster {
     public static boolean checkSkulltulaSpawnRules(EntityType<SkulltulaEntity> pBat, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         if (pPos.getY() >= pLevel.getSeaLevel()) {
             return false;}
-        else return pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn((ServerLevelAccessor) pLevel, pPos, pRandom) && checkMobSpawnRules(pBat, pLevel, pSpawnType, pPos, pRandom);
+        else return pLevel.getDifficulty() != Difficulty.PEACEFUL & Config.skulltula_spawning() && isDarkEnoughToSpawn((ServerLevelAccessor) pLevel, pPos, pRandom) && checkMobSpawnRules(pBat, pLevel, pSpawnType, pPos, pRandom);
     }
 
 

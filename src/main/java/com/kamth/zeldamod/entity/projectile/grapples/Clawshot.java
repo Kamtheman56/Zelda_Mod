@@ -1,5 +1,6 @@
 package com.kamth.zeldamod.entity.projectile.grapples;
 
+import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.custom.ModTags;
 import com.kamth.zeldamod.entity.ModEntityTypes;
 import com.kamth.zeldamod.item.ZeldaItems;
@@ -182,11 +183,20 @@ public class Clawshot extends AbstractArrow {
     protected void onHitBlock(@NotNull BlockHitResult blockHitResult) {
         super.onHitBlock(blockHitResult);
         BlockState blockHit = this.level().getBlockState(blockHitResult.getBlockPos());
-        if (blockHit.is(ModTags.Blocks.CLAWSHOT)) {
+
+        if (blockHit.is(ModTags.Blocks.CLAWSHOT) && !Config.clawshot_grabbing()) {
+            isPulling = true;
+            if (!level().isClientSide && owner != null && hookedEntity == null) {
+
+                owner.setNoGravity(false);}
+        }
+
+        else if (Config.clawshot_grabbing()){
             isPulling = true;
             if (!level().isClientSide && owner != null && hookedEntity == null) {
                 owner.setNoGravity(false);}
         }
+
         else this.discard();
     }
     @Override
