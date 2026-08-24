@@ -42,11 +42,11 @@ abstract class MixinItemRenderer {
         boolean hasSwordSpin = EnchantmentHelper.getItemEnchantmentLevel(ZeldaEnchantments.SWORD_SPIN.get(), pItemStack) > 0;
 // item instanceof SwordItem && hasSwordSpin
 
-        if (player.getUseItem().getItem() instanceof SwordItem && hasSwordSpin  ||
+        if (player != null && player.getUseItem().getItem() instanceof SwordItem && hasSwordSpin  ||
             pItemStack.is(ModTags.Items.SPIN_ATTACK_SWORDS)) {
             pPoseStack.translate(0.5, 0.5, 0.5);
 
-            if (player != null) {
+
 
                 if (pDisplayContext.firstPerson()) {
                     float yRot = !player.isUsingItem() ? 90 : 0;
@@ -64,7 +64,7 @@ abstract class MixinItemRenderer {
                     pPoseStack.mulPose(Axis.YP.rotationDegrees(130));
                     pPoseStack.mulPose(Axis.ZP.rotationDegrees(-45));
                 }
-            }
+
 
             pPoseStack.translate(-0.5, -0.5, -0.5);
         }

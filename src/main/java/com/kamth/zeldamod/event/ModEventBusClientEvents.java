@@ -126,7 +126,7 @@ public class ModEventBusClientEvents {
     @SubscribeEvent
     public static void registerRenderers(FMLClientSetupEvent event) {
         EntityRenderers.register(ModEntityTypes.DEKU.get(), DekuScrubRenderer::new);
-        EntityRenderers.register(ModEntityTypes.DEKU_MAD.get(), DekuMadScrubRenderer::new);
+        EntityRenderers.register(ModEntityTypes.DEKU_MAD.get(), DekuScrubRenderer::new);
         EntityRenderers.register(ModEntityTypes.DARK_NUT.get(), DarknutRenderer::new);
         EntityRenderers.register(ModEntityTypes.DARK_KNIGHT.get(), DarkKnightRenderer::new);
         EntityRenderers.register(ModEntityTypes.KEESE.get(), KeeseRenderer::new);
