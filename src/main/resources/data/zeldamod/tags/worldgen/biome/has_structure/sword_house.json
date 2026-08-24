@@ -5,6 +5,6 @@
   "values": [
     "#minecraft:is_taiga",
     "#forge:is_coniferous",
-    "#forge:is_cold/overworld"
+    "#forge:is_snowy"
   ]
 }

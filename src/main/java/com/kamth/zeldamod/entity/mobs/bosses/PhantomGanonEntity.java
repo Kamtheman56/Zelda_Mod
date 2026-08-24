@@ -246,12 +246,11 @@ public class PhantomGanonEntity extends Monster implements PowerableMob {
 
 
 
-        if (!pSource.is(DamageTypeTags.IS_PROJECTILE) && !this.isPowered()) {
-            if (!this.level().isClientSide() && !(pSource.getEntity() instanceof LivingEntity) && this.random.nextInt(10) != 0) {
-                this.teleportTowards(getLastHurtByMob());
-                return false;
-            }
-        }
+//        if (!pSource.is(DamageTypeTags.IS_PROJECTILE) && !this.isPowered()) {
+//            if (!this.level().isClientSide() && !(pSource.getEntity() instanceof LivingEntity) && this.random.nextInt(10) != 0) {
+//                return false;
+//            }
+//        }
 
         else {
             if (this.isPowered()) {
@@ -277,62 +276,6 @@ public class PhantomGanonEntity extends Monster implements PowerableMob {
             }
 
             return true;
-        }
-    }
-
-    protected boolean teleport() {
-        if (!this.level().isClientSide() && this.isAlive()) {
-            double d0 = this.getX() + (this.random.nextDouble() - 0.5D) * 64.0D;
-            double d1 = this.getY() + (double)(this.random.nextInt(64) - 32);
-            double d2 = this.getZ() + (this.random.nextDouble() - 0.5D) * 64.0D;
-            return this.teleport(d0, d1, d2);
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Teleport the enderman to another entity
-     */
-    boolean teleportTowards(Entity pTarget) {
-        Vec3 vec3 = new Vec3(this.getX() - pTarget.getX(), this.getY(0.5D) - pTarget.getEyeY(), this.getZ() - pTarget.getZ());
-        vec3 = vec3.normalize();
-        double d0 = 16.0D;
-        double d1 = this.getX() + (this.random.nextDouble() - 0.5D) * 8.0D - vec3.x * 16.0D;
-        double d2 = this.getY() + (double)(this.random.nextInt(16) - 8) - vec3.y * 16.0D;
-        double d3 = this.getZ() + (this.random.nextDouble() - 0.5D) * 8.0D - vec3.z * 16.0D;
-        return this.teleport(d1, d2, d3);
-    }
-
-    /**
-     * Teleport the enderman
-     */
-    private boolean teleport(double pX, double pY, double pZ) {
-        BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(pX, pY, pZ);
-
-        while(blockpos$mutableblockpos.getY() > this.level().getMinBuildHeight() && !this.level().getBlockState(blockpos$mutableblockpos).blocksMotion()) {
-            blockpos$mutableblockpos.move(Direction.DOWN);
-        }
-
-        BlockState blockstate = this.level().getBlockState(blockpos$mutableblockpos);
-        boolean flag = blockstate.blocksMotion();
-        boolean flag1 = blockstate.getFluidState().is(FluidTags.WATER);
-        if (flag && !flag1) {
-            net.minecraftforge.event.entity.EntityTeleportEvent.EnderEntity event = net.minecraftforge.event.ForgeEventFactory.onEnderTeleport(this, pX, pY, pZ);
-            if (event.isCanceled()) return false;
-            Vec3 vec3 = this.position();
-            boolean flag2 = this.randomTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ(), true);
-            if (flag2) {
-                this.level().gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(this));
-                if (!this.isSilent()) {
-                    this.level().playSound((Player)null, this.xo, this.yo, this.zo, SoundEvents.ENDERMAN_TELEPORT, this.getSoundSource(), 1.0F, 1.0F);
-                    this.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
-                }
-            }
-
-            return flag2;
-        } else {
-            return false;
         }
     }
 
