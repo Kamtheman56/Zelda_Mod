@@ -1,12 +1,13 @@
 package com.kamth.zeldamod.item.items.weapons.swords;
 
 import com.kamth.zeldamod.custom.ModTags;
+import com.kamth.zeldamod.item.items.weapons.swords.master.SwordBeamSwordItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class GloomBreakingSword extends SwordItem {
+public class GloomBreakingSword extends SwordBeamSwordItem {
 
     private final int gloomDestroySpeed;
 

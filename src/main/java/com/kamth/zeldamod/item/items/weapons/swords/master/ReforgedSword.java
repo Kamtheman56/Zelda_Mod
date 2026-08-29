@@ -2,6 +2,7 @@ package com.kamth.zeldamod.item.items.weapons.swords.master;
 
 import com.kamth.zeldamod.Config;
 import com.kamth.zeldamod.block.ZeldaBlocks;
+import com.kamth.zeldamod.enchantments.ZeldaEnchantments;
 import com.kamth.zeldamod.entity.projectile.magic.SwordBeam;
 import com.kamth.zeldamod.entity.projectile.magic.SwordBeam_Evil;
 import net.minecraft.ChatFormatting;
@@ -95,7 +96,7 @@ public class ReforgedSword extends TrueMasterSwordItem {
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
 
-        if (player.isCrouching() && Config.reforged_sword_beams() && Config.alternative_sword_beams() && !Config.sword_beams() && !player.getCooldowns().isOnCooldown(this)){
+        if (player.isCrouching() && Config.alternative_sword_beams() && !Config.sword_beams() && !player.getCooldowns().isOnCooldown(this)){
             world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, .8F, 5F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
             SwordBeam_Evil projectile = new SwordBeam_Evil(world, player);
             projectile.setOwner(player);
@@ -105,7 +106,14 @@ public class ReforgedSword extends TrueMasterSwordItem {
 
             return InteractionResultHolder.consume(itemstack);
         }
-        return InteractionResultHolder.pass(itemstack);
+        if (player.isCrouching() && itemstack.getAllEnchantments().containsKey(ZeldaEnchantments.SWORD_SPIN.get())){
+            player.startUsingItem(hand);
+            if (!world.isClientSide()) {
+                player.playNotifySound(SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1, 1);
+            }
+            return InteractionResultHolder.consume(itemstack);
+        }
+        else   return InteractionResultHolder.pass(itemstack);
     }
 
 }

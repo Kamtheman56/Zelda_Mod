@@ -26,16 +26,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class MasterSwordItem extends GloomBreakingSword implements IBeamShootAction {
+public class MasterSwordItem extends GloomBreakingSword   {
 
     public MasterSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties, 15);
     }
 
-    @Override
-    public boolean healthRequirement() {
-        return true;
-    }
 
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
@@ -63,24 +59,7 @@ public class MasterSwordItem extends GloomBreakingSword implements IBeamShootAct
     }
 
 
-    //Only enabled if Alternative Sword Beams are allowed
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-        ItemStack itemstack = player.getItemInHand(hand);
 
-        if (player.isCrouching() && Config.alternative_sword_beams() && !Config.sword_beams() && !player.getCooldowns().isOnCooldown(this)){
-            player.getCooldowns().addCooldown((Item) this, swingCooldownDuration());
-            world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 0.8f, 5 / (world.getRandom().nextFloat() * 0.4f + 0.8f));
-            SwordBeam projectile = new SwordBeam(world, player);
-            projectile.setOwner(player);
-            projectile.setPos(player.getEyePosition().add(0, -0.1, 0));
-            projectile.shootFromRotation(player, player.xRotO, player.yRotO, 0, 1.6f, 0);
-            world.addFreshEntity(projectile);
-
-            return InteractionResultHolder.consume(itemstack);
-        }
-           return InteractionResultHolder.pass(itemstack);
-    }
 
 
     @Override

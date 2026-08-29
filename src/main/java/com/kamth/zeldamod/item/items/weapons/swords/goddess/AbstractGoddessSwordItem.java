@@ -20,14 +20,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class AbstractGoddessSwordItem extends GloomBreakingSword  {
+public class AbstractGoddessSwordItem extends SwordItem {
 
     public final int swordChargeDuration;
     public final Item  swordUpgrade;
     public final Block upgradeBlock;
 
     public AbstractGoddessSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties, int swordChargeDuration, Item swordUpgrade, Block upgradeBlock) {
-        super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties, 2);
+        super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
         this.swordChargeDuration = swordChargeDuration;
         this.swordUpgrade = swordUpgrade;
         this.upgradeBlock = upgradeBlock;
