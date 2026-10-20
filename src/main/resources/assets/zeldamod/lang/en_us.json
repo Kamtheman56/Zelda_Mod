@@ -1,7 +1,18 @@
 {
   "itemGroup.zeldamod": "Example Mod Tab",
-  "block.zeldamod.example_block": "Example Block",
-  "item.zeldamod.example_item": "Example Item",
+
+  "item.zeldamod.blue_emerald": "Blue Emerald",
+  "item.zeldamod.red_emerald": "Red Emerald",
+
+
+
+
+
+
+  "block.zeldamod.blue_emerald_block": "Blue Emerald Block",
+  "block.zeldamod.red_emerald_block": "Red Emerald Block",
+  "block.zeldamod.master_ore": "Master Ore",
+  "block.zeldamod.deepslate_master_ore": "Deepslate Master Ore",
 
   "zeldamod.configuration.title": "ZeldaMod Configs",
   "zeldamod.configuration.section.zeldamod.common.toml": "ZeldaMod Configs",
@@ -9,5 +20,7 @@
   "zeldamod.configuration.items": "Item List",
   "zeldamod.configuration.logDirtBlock": "Log Dirt Block",
   "zeldamod.configuration.magicNumberIntroduction": "Magic Number Text",
-  "zeldamod.configuration.magicNumber": "Magic Number"
+  "zeldamod.configuration.magicNumber": "Magic Number",
+  "creativetab.zeldamod.zelda_items": "Zelda Items",
+  "creativetab.zeldamod.zelda_blocks": "Zelda Blocks"
 }
