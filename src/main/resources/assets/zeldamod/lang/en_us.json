@@ -1,0 +1,13 @@
+{
+  "itemGroup.zeldamod": "Example Mod Tab",
+  "block.zeldamod.example_block": "Example Block",
+  "item.zeldamod.example_item": "Example Item",
+
+  "zeldamod.configuration.title": "ZeldaMod Configs",
+  "zeldamod.configuration.section.zeldamod.common.toml": "ZeldaMod Configs",
+  "zeldamod.configuration.section.zeldamod.common.toml.title": "ZeldaMod Configs",
+  "zeldamod.configuration.items": "Item List",
+  "zeldamod.configuration.logDirtBlock": "Log Dirt Block",
+  "zeldamod.configuration.magicNumberIntroduction": "Magic Number Text",
+  "zeldamod.configuration.magicNumber": "Magic Number"
+}
