@@ -18,9 +18,13 @@ public class ModModelProvider extends ModelProvider {
     protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
         itemModels.generateFlatItem(ZeldaItems.BLUE_EMERALD.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ZeldaItems.RED_EMERALD.get(), ModelTemplates.FLAT_ITEM);
-
-
-
+        itemModels.generateFlatItem(ZeldaItems.PURPLE_EMERALD.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ZeldaItems.SILVER_EMERALD.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ZeldaItems.GOLD_EMERALD.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ZeldaItems.MASTER_SHARD.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ZeldaItems.MASTER_ORE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ZeldaItems.REFINED_MASTER_ORE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ZeldaItems.MASTER_UPGRADE_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
 
         // BLOCKS
         blockModels.createTrivialCube(ZeldaBlocks.BLUE_EMERALD_BLOCK.get());

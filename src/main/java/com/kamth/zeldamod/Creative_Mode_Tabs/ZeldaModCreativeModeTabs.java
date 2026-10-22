@@ -27,6 +27,15 @@ public class ZeldaModCreativeModeTabs {
                     .displayItems(((itemDisplayParameters, output) -> {
                         output.accept(ZeldaItems.BLUE_EMERALD);
                         output.accept(ZeldaItems.RED_EMERALD);
+                        output.accept(ZeldaItems.PURPLE_EMERALD);
+                        output.accept(ZeldaItems.SILVER_EMERALD);
+                        output.accept(ZeldaItems.GOLD_EMERALD);
+
+
+                        output.accept(ZeldaItems.MASTER_SHARD);
+                        output.accept(ZeldaItems.MASTER_ORE);
+                        output.accept(ZeldaItems.REFINED_MASTER_ORE);
+                        output.accept(ZeldaItems.MASTER_UPGRADE_SMITHING_TEMPLATE);
 
                     }))
                     .build()

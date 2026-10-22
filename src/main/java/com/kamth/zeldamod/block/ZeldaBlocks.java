@@ -27,7 +27,7 @@ public class ZeldaBlocks {
             properties -> new Block(properties.strength(4f)
                     .requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
-    public static final DeferredBlock<Block>  MASTER_ORE = registerBlock("master_ore",
+    public static final DeferredBlock<Block>  MASTER_ORE = registerBlock("master_ore_block",
             properties -> new DropExperienceBlock(UniformInt.of(2,4),(properties.strength(4f)
                     .requiresCorrectToolForDrops().sound(SoundType.STONE))));
     public static final DeferredBlock<Block>  DEEPSLATE_MASTER_ORE = registerBlock("deepslate_master_ore",
