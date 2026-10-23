@@ -24,6 +24,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             // Weapons
         tag(ItemTags.SWORDS).add(ZeldaItems.getRK(ZeldaItems.KOKIRI_SWORD_OOT.get()));
         tag(ItemTags.SWORDS).add(ZeldaItems.getRK(ZeldaItems.KOKIRI_SWORD_MM.get()));
+        tag(ItemTags.SWORDS).add(ZeldaItems.getRK(ZeldaItems.RAZOR_SWORD.get()));
         tag(ItemTags.SWORDS).add(ZeldaItems.getRK(ZeldaItems.MASTER_SWORD.get()));
 
             // Armor

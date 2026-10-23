@@ -2,6 +2,7 @@ package com.kamth.zeldamod;
 
 import com.kamth.zeldamod.Creative_Mode_Tabs.ZeldaModCreativeModeTabs;
 import com.kamth.zeldamod.block.ZeldaBlocks;
+import com.kamth.zeldamod.data.ModDataComponents;
 import com.kamth.zeldamod.effect.ModEffects;
 import com.kamth.zeldamod.item.ZeldaItems;
 import org.slf4j.Logger;
@@ -37,6 +38,8 @@ public class ZeldaMod {
         ZeldaItems.register(modEventBus);
         ZeldaBlocks.register(modEventBus);
 
+
+        ModDataComponents.register(modEventBus);
         ModEffects.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
 

@@ -25,6 +25,7 @@ public class ZeldaModCreativeModeTabs {
                     .displayItems(((itemDisplayParameters, output) -> {
                         output.accept(ZeldaItems.KOKIRI_SWORD_OOT);
                         output.accept(ZeldaItems.KOKIRI_SWORD_MM);
+                        output.accept(ZeldaItems.RAZOR_SWORD);
                         output.accept(ZeldaItems.MASTER_SWORD);
 
                     }))

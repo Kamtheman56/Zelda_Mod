@@ -2,7 +2,7 @@ package com.kamth.zeldamod.item;
 
 import com.kamth.zeldamod.ZeldaMod;
 import com.kamth.zeldamod.food.ModFoods;
-import com.kamth.zeldamod.item.items.MovementItems.TestItem;
+import com.kamth.zeldamod.item.items.weapons.SwordBreakingItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -23,13 +23,13 @@ public class ZeldaItems {
 
     // MISC ITEMS
     // Emeralds
-    public static final DeferredItem<Item> BLUE_EMERALD = ZELDA_ITEMS.registerItem("blue_emerald",
-             properties -> new TestItem(properties.durability(10)));
+
     public static final DeferredItem<Item> RED_EMERALD = ZELDA_ITEMS.registerSimpleItem("red_emerald");
     public static final DeferredItem<Item> PURPLE_EMERALD = ZELDA_ITEMS.registerSimpleItem("purple_emerald");
     public static final DeferredItem<Item> SILVER_EMERALD = ZELDA_ITEMS.registerSimpleItem("silver_emerald");
     public static final DeferredItem<Item> GOLD_EMERALD = ZELDA_ITEMS.registerSimpleItem("gold_emerald");
-
+    public static final DeferredItem<Item> BLUE_EMERALD = ZELDA_ITEMS.registerItem("blue_emerald",
+            properties -> new SwordBreakingItem(properties.durability(10), ZeldaItems.GOLD_EMERALD.get()));
     public static final DeferredItem<Item> MASTER_SHARD = ZELDA_ITEMS.registerSimpleItem("master_shard");
     public static final DeferredItem<Item> MASTER_ORE = ZELDA_ITEMS.registerSimpleItem("master_ore");
     public static final DeferredItem<Item> REFINED_MASTER_ORE = ZELDA_ITEMS.registerSimpleItem("refined_master_ore");
@@ -63,8 +63,10 @@ public class ZeldaItems {
             properties -> new Item(properties.sword(ToolMaterial.STONE,3,-2.4f).durability(118).rarity(Rarity.UNCOMMON)));
     public static final DeferredItem<Item> KOKIRI_SWORD_MM = ZELDA_ITEMS.registerItem("kokiri_sword_mm",
             properties -> new Item(properties.sword(ToolMaterial.STONE,3,-2.4f).durability(118).rarity(Rarity.UNCOMMON)));
-
-
+    public static final DeferredItem<Item> RAZOR_SWORD = ZELDA_ITEMS.registerItem("razor_sword",
+            properties -> new SwordBreakingItem(properties.sword(ToolMaterial.STONE,3,-1.4f).durability(50).rarity(Rarity.UNCOMMON), ZeldaItems.KOKIRI_SWORD_MM.get()));
+    public static final DeferredItem<Item> GILDED_SWORD = ZELDA_ITEMS.registerItem("gilded_sword",
+            properties -> new Item(properties.sword(ToolMaterial.GOLD,3,-2.4f).durability(118).rarity(Rarity.UNCOMMON)));
 
 
 

@@ -34,6 +34,7 @@ public class ModModelProvider extends ModelProvider {
 
         itemModels.generateFlatItem(ZeldaItems.KOKIRI_SWORD_OOT.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ZeldaItems.KOKIRI_SWORD_MM.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ZeldaItems.RAZOR_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ZeldaItems.MASTER_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
 
