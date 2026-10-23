@@ -12,6 +12,7 @@
   "block.zeldamod.master_ore_block": "Master Ore",
   "block.zeldamod.deepslate_master_ore": "Deepslate Master Ore",
 
+
   "zeldamod.configuration.title": "ZeldaMod Configs",
   "zeldamod.configuration.section.zeldamod.common.toml": "ZeldaMod Configs",
   "zeldamod.configuration.section.zeldamod.common.toml.title": "ZeldaMod Configs",
@@ -19,9 +20,11 @@
   "zeldamod.configuration.logDirtBlock": "Log Dirt Block",
   "zeldamod.configuration.magicNumberIntroduction": "Magic Number Text",
   "zeldamod.configuration.magicNumber": "Magic Number",
+
+
   "creativetab.zeldamod.zelda_items": "Zelda Items",
   "creativetab.zeldamod.zelda_blocks": "Zelda Blocks",
-
+  "creativetab.zeldamod.zelda_masks": "Zelda Masks",
 
   "item.zeldamod.red_emerald": "Red Emerald",
   "item.zeldamod.blue_emerald": "Blue Emerald",
@@ -46,6 +49,7 @@
   "item.zeldamod.super_mushroom": "Super Mushroom",
   "item.zeldamod.life_mushroom": "1-UP Mushroom",
   "item.zeldamod.mini_mushroom": "Mini Mushroom",
+  "item.zeldamod.mega_mushroom": "Mega Mushroom",
   "item.zeldamod.super_leaf": "Super Leaf",
   "item.zeldamod.bomb_seeds": "Bomb Flower Seeds",
   "item.zeldamod.sword_fragment": "Deity Shard",
@@ -75,11 +79,7 @@
   "item.zeldamod.monster_guts": "Monster Guts",
 
 
-  "zelda_tab": "Zelda Blocks",
-  "zelda_masks": "Zelda Masks",
-  "zelda_misc": "Zelda Materials",
-  "zelda_blocks": "Zelda Items",
-  "zelda_armor": "Zelda Armors",
+
 
   "item.zeldamod.kokiri_sword_oot": "Kokiri Sword",
   "item.zeldamod.kokiri_sword_mm": "Kokiri Sword",
@@ -184,28 +184,28 @@
   "item.zeldamod.goron_mask": "Goron Mask",
   "item.zeldamod.zora_mask": "Zora's Mask",
   "item.zeldamod.stone_mask": "Stone Mask",
-  "item.zeldamod.bunny_mask": "Bunny Hood",
+  "item.zeldamod.bunny_hood": "Bunny Hood",
   "item.zeldamod.night_mask": "All Night Mask",
   "item.zeldamod.blast_mask": "Blast Mask",
   "item.zeldamod.fierce_deity_mask": "Fierce Deity Mask",
   "item.zeldamod.majoras_mask": "Majora's Mask",
   "item.zeldamod.scent_mask": "Mask of Scents",
-  "item.zeldamod.truth_mask": "Mask of Truth",
+  "item.zeldamod.mask_of_truth": "Mask of Truth",
   "item.zeldamod.keaton_mask": "Keaton Mask",
   "item.zeldamod.troupe_mask": "Troupe Leader's Mask",
   "item.zeldamod.romani_mask": "Romani's Mask",
   "item.zeldamod.gero_mask": "Don Gero's Mask",
   "item.zeldamod.hawkeye_mask": "Hawkeye Mask",
-  "item.zeldamod.giant_mask": "Giant's Mask",
+  "item.zeldamod.giants_mask": "Giant's Mask",
   "item.zeldamod.couples_mask": "Couple's Mask",
   "item.zeldamod.gibdo_mask": "Gibdo Mask",
-  "item.zeldamod.fairy_mask": "Great Fairy Mask",
+  "item.zeldamod.great_fairy_mask": "Great Fairy Mask",
   "item.zeldamod.kafei_mask": "Kafei Mask",
   "item.zeldamod.bremen_mask": "Bremen Mask",
   "item.zeldamod.captain_mask": "Captain's Mask",
   "item.zeldamod.kamaro_mask": "Kamaro Mask",
   "item.zeldamod.garo_mask": "Garo Mask",
-  "item.zeldamod.postman_mask": "Postman's Hat",
+  "item.zeldamod.postman_hat": "Postman's Hat",
   "item.zeldamod.spooky_mask": "Spooky Mask",
   "item.zeldamod.skull_mask": "Skull Mask",
   "item.zeldamod.gerudo_mask": "Gerudo Mask",
@@ -217,7 +217,7 @@
   "item.zeldamod.zora_hat": "Zora Hat",
   "item.zeldamod.goron_hat": "Goron Hat",
   "item.zeldamod.kokiri_hat": "Kokiri Hat",
-  "item.zeldamod.kokiri_pants": "Kokiri Pants",
+  "item.zeldamod.kokiri_leggings": "Kokiri LeggingsF",
   "item.zeldamod.roc_cape": "Roc's Cape",
   "item.zeldamod.flippers": "Zora Flippers",
   "item.zeldamod.champion_tunic": "Champion's Tunic",
@@ -286,6 +286,9 @@
   "effect.zeldamod.mini": "Mini",
   "effect.zeldamod.majora": "Majora's Influence",
   "effect.zeldamod.ganon_gloom": "Gloom Poisoning",
+  "effect.zeldamod.super_sized": "Super Sized",
+  "effect.zeldamod.miniaturized": "Miniaturized",
+  "effect.zeldamod.gigantic": "Gigantic",
 
   "sounds.zeldamod.leaf": "Gust blows",
   "sounds.zeldamod.heal": "Absorbed a plant",
@@ -630,10 +633,7 @@
 
 
 
-  "death.attack.malice_0": "%s was turned to static",
-  "death.attack.malice_1": "%s had the channels changed on them",
-  "death.attack.malice_2": "%s was sent to the 4th dimension",
-  "death.attack.malice_3": "%s was disintegrated",
+
 
 
   "painting.zeldamod.forest_secret.title": "The Forest's Secret",
@@ -684,5 +684,7 @@
 
   "enchantment.zeldamod.swordspin": "Sword Spinner",
   "block.phantom_ganon.inscription": "Offer the very essence of Malice to this shrine...",
-  "tooltip.zeldamod.super_mushroom.tooltip": "Restores life in a pinch!"
+  "tooltip.zeldamod.super_mushroom.tooltip": "Restores life in a pinch!",
+  "creativetab.zeldamod.zelda_armor": "Zelda Armor",
+  "creativetab.zeldamod.zelda_materials": "Zelda Materials"
 }

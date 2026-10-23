@@ -2,14 +2,13 @@ package com.kamth.zeldamod;
 
 import com.kamth.zeldamod.Creative_Mode_Tabs.ZeldaModCreativeModeTabs;
 import com.kamth.zeldamod.block.ZeldaBlocks;
-import com.kamth.zeldamod.items.ZeldaItems;
+import com.kamth.zeldamod.effect.ModEffects;
+import com.kamth.zeldamod.item.ZeldaItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -37,6 +36,8 @@ public class ZeldaMod {
         ZeldaModCreativeModeTabs.register(modEventBus);
         ZeldaItems.register(modEventBus);
         ZeldaBlocks.register(modEventBus);
+
+        ModEffects.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
 
         // Register the item to a creative tab

@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "zeldamod:kokiri"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "zeldamod:kokiri"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "zeldamod:kokiri"
+      }
+    ]
+  }
+}

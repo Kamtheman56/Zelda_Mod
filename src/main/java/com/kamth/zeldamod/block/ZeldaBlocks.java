@@ -1,8 +1,10 @@
 package com.kamth.zeldamod.block;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.items.ZeldaItems;
+import com.kamth.zeldamod.item.ZeldaItems;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
@@ -19,14 +21,23 @@ public class ZeldaBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(ZeldaMod.MOD_ID);
 
-
+// EMERALD BLOCKS
     public static final DeferredBlock<Block>  BLUE_EMERALD_BLOCK = registerBlock("blue_emerald_block",
             properties -> new Block(properties.strength(4f)
                     .requiresCorrectToolForDrops().sound(SoundType.STONE)));
-
     public static final DeferredBlock<Block>  RED_EMERALD_BLOCK = registerBlock("red_emerald_block",
             properties -> new Block(properties.strength(4f)
                     .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block>  PURPLE_EMERALD_BLOCK = registerBlock("purple_emerald_block",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block>  SILVER_EMERALD_BLOCK = registerBlock("silver_emerald_block",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block>  GOLD_EMERALD_BLOCK = registerBlock("gold_emerald_block",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
 
     public static final DeferredBlock<Block>  MASTER_ORE = registerBlock("master_ore_block",
             properties -> new DropExperienceBlock(UniformInt.of(2,4),(properties.strength(4f)
@@ -63,6 +74,11 @@ public class ZeldaBlocks {
 
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block, Component... components) {
         ZeldaItems.ZELDA_ITEMS.registerItem(name, properties -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
+    }
+
+
+    public static ResourceKey<Block> getRK (Block block){
+        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
     }
 
     public static void register(IEventBus eventBus){

@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.items.MovementItems;
+package com.kamth.zeldamod.item.items.MovementItems;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;

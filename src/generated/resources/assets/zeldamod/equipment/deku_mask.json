@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "zeldamod:deku_mask"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "zeldamod:deku_mask"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "zeldamod:deku_mask"
+      }
+    ]
+  }
+}

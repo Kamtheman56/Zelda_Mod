@@ -1,4 +1,4 @@
-package com.kamth.zeldamod.items;
+package com.kamth.zeldamod.item;
 
 import com.kamth.zeldamod.tags.ModTags;
 import net.minecraft.world.item.ToolMaterial;

@@ -1,7 +1,7 @@
 package com.kamth.zeldamod.DataGen;
 
 import com.kamth.zeldamod.ZeldaMod;
-import com.kamth.zeldamod.items.ZeldaItems;
+import com.kamth.zeldamod.item.ZeldaItems;
 import com.kamth.zeldamod.tags.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -18,9 +18,20 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
             tag(ModTags.Items.MASTER_REPAIRABLE)
-                    .add(ZeldaItems.MASTER_ORE.get());
+                    .add(ZeldaItems.getRK(ZeldaItems.MASTER_ORE.get()));
 
 
-            tag(ItemTags.SWORDS).add(ZeldaItems.MASTER_SWORD.get());
+            // Weapons
+        tag(ItemTags.SWORDS).add(ZeldaItems.getRK(ZeldaItems.KOKIRI_SWORD_OOT.get()));
+        tag(ItemTags.SWORDS).add(ZeldaItems.getRK(ZeldaItems.KOKIRI_SWORD_MM.get()));
+        tag(ItemTags.SWORDS).add(ZeldaItems.getRK(ZeldaItems.MASTER_SWORD.get()));
+
+            // Armor
+
+        tag(ItemTags.HEAD_ARMOR).add(ZeldaItems.getRK(ZeldaItems.KOKIRI_HAT.get()));
+        tag(ItemTags.CHEST_ARMOR).add(ZeldaItems.getRK(ZeldaItems.KOKIRI_TUNIC.get()));
+        tag(ItemTags.LEG_ARMOR).add(ZeldaItems.getRK(ZeldaItems.KOKIRI_LEGGINGS.get()));
+        tag(ItemTags.FOOT_ARMOR).add(ZeldaItems.getRK(ZeldaItems.KOKIRI_BOOTS.get()));
+
     }
 }
