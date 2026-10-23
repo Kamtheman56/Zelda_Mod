@@ -25,6 +25,10 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ZeldaItems.MASTER_ORE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ZeldaItems.REFINED_MASTER_ORE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ZeldaItems.MASTER_UPGRADE_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ZeldaItems.SUPER_MUSHROOM.get(), ModelTemplates.FLAT_ITEM);
+
+        // Tools and Weapons
+        itemModels.generateFlatItem(ZeldaItems.MASTER_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
         // BLOCKS
         blockModels.createTrivialCube(ZeldaBlocks.BLUE_EMERALD_BLOCK.get());

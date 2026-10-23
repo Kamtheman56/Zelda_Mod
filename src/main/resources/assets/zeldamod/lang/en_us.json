@@ -43,9 +43,9 @@
   "item.zeldamod.pearl_power": "Din's Pearl",
   "item.zeldamod.pearl_wisdom": "Nayru's Pearl",
   "item.zeldamod.pearl_courage": "Farore's Pearl",
-  "item.zeldamod.mushroom_super": "Super Mushroom",
-  "item.zeldamod.mushroom_life": "1-UP Mushroom",
-  "item.zeldamod.mushroom_mini": "Mini Mushroom",
+  "item.zeldamod.super_mushroom": "Super Mushroom",
+  "item.zeldamod.life_mushroom": "1-UP Mushroom",
+  "item.zeldamod.mini_mushroom": "Mini Mushroom",
   "item.zeldamod.super_leaf": "Super Leaf",
   "item.zeldamod.bomb_seeds": "Bomb Flower Seeds",
   "item.zeldamod.sword_fragment": "Deity Shard",
@@ -683,5 +683,6 @@
 
 
   "enchantment.zeldamod.swordspin": "Sword Spinner",
-  "block.phantom_ganon.inscription": "Offer the very essence of Malice to this shrine..."
+  "block.phantom_ganon.inscription": "Offer the very essence of Malice to this shrine...",
+  "tooltip.zeldamod.super_mushroom.tooltip": "Restores life in a pinch!"
 }

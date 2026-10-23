@@ -36,6 +36,9 @@ public class ZeldaModCreativeModeTabs {
                         output.accept(ZeldaItems.MASTER_ORE);
                         output.accept(ZeldaItems.REFINED_MASTER_ORE);
                         output.accept(ZeldaItems.MASTER_UPGRADE_SMITHING_TEMPLATE);
+                        output.accept(ZeldaItems.SUPER_MUSHROOM);
+
+                        output.accept(ZeldaItems.MASTER_SWORD);
 
                     }))
                     .build()

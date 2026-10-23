@@ -1,13 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
+  "group": "azurite",
   "key": {
-    "#": "zeldamod:blue_emerald"
+    "A": "zeldamod:blue_emerald"
   },
   "pattern": [
-    "###",
-    "###",
-    "###"
+    "AAA",
+    "AAA",
+    "AAA"
   ],
   "result": {
     "id": "zeldamod:blue_emerald_block"

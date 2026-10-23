@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "#zeldamod:needs_master_tool"
+  ],
+  "values": [
+    "#minecraft:incorrect_for_iron_tool"
+  ]
+}
