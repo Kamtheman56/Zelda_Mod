@@ -36,6 +36,9 @@ public class ZeldaItems {
 
     public static final DeferredItem<Item> MASTER_UPGRADE_SMITHING_TEMPLATE = ZELDA_ITEMS.registerSimpleItem("master_upgrade_smithing_template");
 
+    public static final DeferredItem<Item> FARORES_PEARL = ZELDA_ITEMS.registerSimpleItem("farores_pearl");
+    public static final DeferredItem<Item> DINS_PEARL = ZELDA_ITEMS.registerSimpleItem("dins_pearl");
+    public static final DeferredItem<Item> NAYRUS_PEARL = ZELDA_ITEMS.registerSimpleItem("nayrus_pearl");
 
 
     // Food
@@ -49,6 +52,7 @@ public class ZeldaItems {
                     super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
                 }
             });
+
     public static final DeferredItem<Item> MINI_MUSHROOM = ZELDA_ITEMS.registerItem("mini_mushroom",
             properties -> new Item(properties.food(ModFoods.SUPER_MUSHROOM, ModFoods.MINI_MUSHROOM_CONSUMABLE)){});
     public static final DeferredItem<Item> MEGA_MUSHROOM = ZELDA_ITEMS.registerItem("mega_mushroom",
@@ -67,6 +71,8 @@ public class ZeldaItems {
             properties -> new SwordBreakingItem(properties.sword(ToolMaterial.STONE,3,-1.4f).durability(50).rarity(Rarity.UNCOMMON), ZeldaItems.KOKIRI_SWORD_MM.get()));
     public static final DeferredItem<Item> GILDED_SWORD = ZELDA_ITEMS.registerItem("gilded_sword",
             properties -> new Item(properties.sword(ToolMaterial.GOLD,3,-2.4f).durability(118).rarity(Rarity.UNCOMMON)));
+
+
 
 
 
@@ -90,6 +96,8 @@ public class ZeldaItems {
             properties -> new Item(properties.humanoidArmor(ModArmorMaterials.KOKIRI_ARMOR_MATERIAL, ArmorType.LEGGINGS)));
     public static final DeferredItem<Item> KOKIRI_BOOTS = ZELDA_ITEMS.registerItem("kokiri_boots",
             properties -> new Item(properties.humanoidArmor(ModArmorMaterials.KOKIRI_ARMOR_MATERIAL, ArmorType.BOOTS)));
+
+
 
     // Masks
 

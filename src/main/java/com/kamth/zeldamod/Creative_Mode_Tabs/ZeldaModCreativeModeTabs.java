@@ -56,7 +56,6 @@ public class ZeldaModCreativeModeTabs {
                     .displayItems(((itemDisplayParameters, output) -> {
                         output.accept(ZeldaItems.DEKU_MASK);
                         output.accept(ZeldaItems.GIANTS_MASK);
-
                     }))
                     .build()
 
@@ -78,6 +77,10 @@ public class ZeldaModCreativeModeTabs {
                         output.accept(ZeldaItems.MASTER_ORE);
                         output.accept(ZeldaItems.REFINED_MASTER_ORE);
                         output.accept(ZeldaItems.MASTER_UPGRADE_SMITHING_TEMPLATE);
+                        output.accept(ZeldaItems.FARORES_PEARL);
+                        output.accept(ZeldaItems.DINS_PEARL);
+                        output.accept(ZeldaItems.NAYRUS_PEARL);
+
                         output.accept(ZeldaItems.SUPER_MUSHROOM);
                         output.accept(ZeldaItems.MINI_MUSHROOM);
                         output.accept(ZeldaItems.MEGA_MUSHROOM);

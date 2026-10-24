@@ -26,6 +26,11 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ZeldaItems.MASTER_ORE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ZeldaItems.REFINED_MASTER_ORE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ZeldaItems.MASTER_UPGRADE_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
+
+        itemModels.generateFlatItem(ZeldaItems.FARORES_PEARL.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ZeldaItems.DINS_PEARL.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ZeldaItems.NAYRUS_PEARL.get(), ModelTemplates.FLAT_ITEM);
+
         itemModels.generateFlatItem(ZeldaItems.SUPER_MUSHROOM.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ZeldaItems.MINI_MUSHROOM.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ZeldaItems.MEGA_MUSHROOM.get(), ModelTemplates.FLAT_ITEM);
@@ -35,6 +40,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ZeldaItems.KOKIRI_SWORD_OOT.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ZeldaItems.KOKIRI_SWORD_MM.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ZeldaItems.RAZOR_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModels.generateFlatItem(ZeldaItems.GILDED_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ZeldaItems.MASTER_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
 
